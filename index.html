@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Dots &amp; Boxes 3×3 · Play a friend</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1C2B45;--red:#E0342B;--blue:#2A7BD8;--paper:#fff;--grid:#DCE6EF;--bg:#EEF3F7;--hi:#FFE34F;--muted:#5B6B84}
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:"Atkinson Hyperlegible",system-ui,sans-serif;color:var(--ink);background-color:var(--bg);
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px;min-height:100vh}
+  main{max-width:440px;margin:0 auto;padding:14px 14px 28px}
+  h1{font-family:Kalam,cursive;font-size:1.7rem;margin:4px 2px 12px;line-height:1.1}
+  .card{background:var(--paper);border-radius:8px;padding:16px;box-shadow:0 1px 0 #c9d6e2,0 10px 24px -16px rgba(28,43,69,.45);margin-bottom:12px}
+  .card h2{font-family:Kalam,cursive;margin:0 0 8px;font-size:1.3rem}
+  .card p{margin:0 0 10px;line-height:1.45;font-size:.95rem}
+  button{font:inherit;font-weight:700;border-radius:10px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);padding:11px 10px;cursor:pointer;width:100%}
+  button.primary{background:var(--ink);color:#fff}
+  button:disabled{opacity:.4;cursor:default}
+  button:focus-visible,input:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+  .row{display:flex;gap:8px} .row>*{flex:1}
+  input{font:inherit;font-size:1.3rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;text-align:center;border:2px solid var(--grid);border-radius:10px;padding:9px;width:100%;color:var(--ink)}
+  .code{font-size:2.4rem;font-weight:700;letter-spacing:.25em;text-align:center;margin:6px 0 10px;font-family:"Atkinson Hyperlegible",monospace}
+  .err{color:var(--red);font-size:.9rem;min-height:1.2em;margin-top:8px}
+  .players{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+  .pl{display:flex;align-items:center;gap:8px;padding:5px 11px;border-radius:12px;background:var(--paper);border:2px solid transparent}
+  .pl .s{font-size:1.5rem;font-weight:700;line-height:1}
+  .pl.me .s{color:var(--red)} .pl.fr .s{color:var(--blue)} .pl.on{border-color:var(--ink)}
+  .mid{flex:1;text-align:center;font-size:.8rem;color:var(--muted)}
+  .sheet{background:var(--paper);border-radius:6px;box-shadow:0 1px 0 #c9d6e2,0 10px 24px -14px rgba(28,43,69,.45);padding:6px;transform:rotate(-.4deg)}
+  svg{display:block;width:100%;height:auto;touch-action:manipulation}
+  .hit{stroke:transparent;cursor:pointer}
+  svg.mine .hit:hover{stroke:rgba(224,52,43,.22)}
+  .status{margin-top:14px;background:var(--paper);border-radius:6px;padding:10px 12px 10px 30px;min-height:2.8em;font-family:Kalam,cursive;font-size:1.15rem;
+    background-image:linear-gradient(90deg,transparent 20px,#F2B8B4 20px,#F2B8B4 21px,transparent 21px)}
+  .btns{display:flex;gap:8px;margin-top:12px}
+  .small{font-size:.8rem;color:var(--muted);text-align:center;margin-top:12px}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+  <h1>Dots &amp; Boxes 3×3 · play a friend</h1>
+
+  <section id="lobby">
+    <div class="card">
+      <h2>Start a game</h2>
+      <p>You get a short code. Send it to your friend.</p>
+      <button class="primary" id="bCreate">Create game</button>
+    </div>
+    <div class="card">
+      <h2>Join a game</h2>
+      <p>Type the code your friend sent you.</p>
+      <div class="row"><input id="code" maxlength="5" autocomplete="off" autocapitalize="characters" placeholder="CODE" aria-label="Game code"><button class="primary" id="bJoin" style="flex:.6">Join</button></div>
+      <div class="err" id="err" role="alert"></div>
+    </div>
+    <div class="small" id="modeNote"></div>
+  </section>
+
+  <section id="wait" hidden>
+    <div class="card">
+      <h2>Waiting for your friend</h2>
+      <p>Send them this code:</p>
+      <div class="code" id="waitCode"></div>
+      <div class="row"><button id="bCopy">Copy invite</button><button id="bCancel">Cancel</button></div>
+      <p class="small" id="waitNote" style="margin-top:12px"></p>
+    </div>
+  </section>
+
+  <section id="game" hidden>
+    <div class="players">
+      <div class="pl me" id="pMe"><span>You</span><span class="s" id="sMe">0</span></div>
+      <div class="mid" id="gCode"></div>
+      <div class="pl fr" id="pFr"><span class="s" id="sFr">0</span><span>Friend</span></div>
+    </div>
+    <div class="sheet"><svg id="board" viewBox="0 0 360 360" aria-label="Game board"></svg></div>
+    <div class="status" id="status" aria-live="polite"></div>
+    <div class="btns"><button class="primary" id="bRematch" hidden>Rematch</button><button id="bLeave">Leave</button></div>
+  </section>
+</main>
+<script>
+/* ---------- rules ---------- */
+const N=3,H=12,E=24,NB=9;
+const boxEdges=[];for(let r=0;r<N;r++)for(let c=0;c<N;c++){const l=H+r*(N+1)+c;boxEdges.push([r*N+c,(r+1)*N+c,l,l+1])}
+const edgeBoxes=Array.from({length:E},()=>[]);boxEdges.forEach((es,b)=>es.forEach(e=>edgeBoxes[e].push(b)));
+function replay(st){ // st = {first, moves}
+  const lines=new Int8Array(E).fill(-1),own=new Int8Array(NB).fill(-1),sc=[0,0];let turn=st.first;
+  for(const e of st.moves){ if(lines[e]>=0) break; lines[e]=turn;let k=0;
+    for(const b of edgeBoxes[e]) if(boxEdges[b].every(x=>lines[x]>=0)&&own[b]<0){own[b]=turn;k++}
+    sc[turn]+=k;if(!k) turn=1-turn;}
+  return {lines,own,sc,turn,over:sc[0]+sc[1]===NB};
+}
+
+/* ---------- shared state ---------- */
+const $=id=>document.getElementById(id);
+const MODE=(window.storage&&typeof window.storage.get==='function')?'claude':'p2p';
+const ALPH='ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+const newCode=()=>Array.from({length:5},()=>ALPH[Math.floor(Math.random()*ALPH.length)]).join('');
+let me=0, code='', st=null, net=null, last=-1, lost=false;
+function show(id){for(const s of ['lobby','wait','game']) $(s).hidden=s!==id}
+function setState(ns){
+  const prevLen=st?st.moves.length:0,prevGame=st?st.game:0;st=ns;
+  last=(st.game===prevGame&&st.moves.length>prevLen)?st.moves[st.moves.length-1]:(st.moves.length&&st.game===prevGame?last:-1);
+  if(st.guest&&!$('game').hidden) render(); else if(st.guest){show('game');render()}
+}
+
+/* ---------- transport 1: shared storage inside Claude ---------- */
+function claudeNet(){
+  const K=c=>'dab3room:'+c;let myId=null,timer=null;
+  const get=async c=>{try{const r=await window.storage.get(K(c),true);return r?JSON.parse(r.value):null}catch(e){return null}};
+  const put=async(c,v)=>{try{return !!(await window.storage.set(K(c),JSON.stringify(v),true))}catch(e){return false}};
+  async function id(){ if(myId) return myId;
+    try{const r=await window.storage.get('dab3:me',false);if(r){myId=r.value;return myId}}catch(e){}
+    myId=Math.random().toString(36).slice(2,10);try{await window.storage.set('dab3:me',myId,false)}catch(e){}return myId}
+  const poll=()=>{clearInterval(timer);timer=setInterval(async()=>{const s=await get(code);if(!s) return;
+    if(!st||s.game!==st.game||s.moves.length!==st.moves.length||!!s.guest!==!!st.guest) setState(s)},1500)};
+  return {
+    async create(){const i=await id();code=newCode();const s={host:i,guest:null,first:0,game:1,moves:[]};
+      if(!await put(code,s)) throw new Error('Could not save the game. Try again.');me=0;st=s;poll();return code},
+    async join(c){const i=await id();const s=await get(c);if(!s) throw new Error('No game found with that code.');
+      code=c;if(s.host===i){me=0}else if(!s.guest||s.guest===i){me=1;if(!s.guest){s.guest=i;if(!await put(c,s)) throw new Error('Could not join. Try again.')}}
+      else throw new Error('That game already has two players.');
+      st=null;setState(s);poll()},
+    async move(e){const s=await get(code);if(!s||s.game!==st.game||s.moves.length!==st.moves.length){if(s)setState(s);return}
+      if(replay(s).turn!==me) return;s.moves.push(e);setState(s);await put(code,s)},
+    async rematch(){const s=await get(code);if(!s||!replay(s).over) return;s.game++;s.first=1-s.first;s.moves=[];setState(s);await put(code,s)},
+    leave(){clearInterval(timer)},
+    invite(){return `Play Dots & Boxes with me! Open the game link I sent and join with code ${code}`},
+    note:'Your friend opens this same published game in Claude and types the code.'
+  };
+}
+
+/* ---------- transport 2: peer-to-peer (self-hosted) ---------- */
+function loadPeer(){return new Promise((ok,bad)=>{if(window.Peer) return ok();
+  const urls=['https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js','https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.5.4/peerjs.min.js'];
+  const tryI=i=>{if(i>=urls.length) return bad(new Error('Could not load the connection library. Check your internet.'));
+    const s=document.createElement('script');s.src=urls[i];s.onload=()=>ok();s.onerror=()=>tryI(i+1);document.head.appendChild(s)};tryI(0)})}
+function p2pNet(){
+  const PRE='dab3-game-';let peer=null,conn=null;
+  const send=m=>{if(conn&&conn.open) conn.send(m)};
+  function wire(c,host){
+    c.on('data',m=>{
+      if(host){ if(m.t==='move'&&!replay(st).over&&replay(st).turn===1&&m.n===st.moves.length){setState({...st,moves:[...st.moves,m.e]});send({t:'state',st})}
+                else if(m.t==='rematch'&&replay(st).over){doRematch()} else send({t:'state',st}) }
+      else if(m.t==='state') setState(m.st);
+    });
+    c.on('close',()=>{lost=true;render()});
+  }
+  function doRematch(){setState({...st,game:st.game+1,first:1-st.first,moves:[]});send({t:'state',st})}
+  return {
+    async create(){await loadPeer();me=0;
+      return new Promise((ok,bad)=>{const attempt=n=>{code=newCode();peer=new Peer(PRE+code);
+        peer.on('open',()=>{st={first:0,game:1,moves:[],guest:false};ok(code)});
+        peer.on('error',err=>{if(err.type==='unavailable-id'&&n<3){peer.destroy();attempt(n+1)}else if(!st) bad(new Error('Could not start a game. Try again.'))});
+        peer.on('connection',c=>{if(conn&&conn.open){c.on('open',()=>c.close());return}conn=c;wire(c,true);
+          c.on('open',()=>{lost=false;setState({...st,guest:true});send({t:'state',st})})})};attempt(0)})},
+    async join(c){await loadPeer();me=1;code=c;
+      return new Promise((ok,bad)=>{peer=new Peer();
+        peer.on('open',()=>{conn=peer.connect(PRE+c,{reliable:true});wire(conn,false);conn.on('open',()=>{lost=false;ok()})});
+        peer.on('error',err=>bad(new Error(err.type==='peer-unavailable'?'No game found with that code. Is your friend still on the waiting screen?':'Connection problem. Try again.')))})},
+    async move(e){ if(me===0){setState({...st,moves:[...st.moves,e]});send({t:'state',st})}
+      else{setState({...st,moves:[...st.moves,e]});send({t:'move',e,n:st.moves.length-1})}},
+    async rematch(){ if(me===0) doRematch(); else send({t:'rematch'})},
+    leave(){try{peer&&peer.destroy()}catch(e){}},
+    invite(){const u=location.href.split('?')[0].split('#')[0];return `Play Dots & Boxes with me! ${u}?room=${code}`},
+    note:'Keep this page open. Your friend can open your invite link, or open this site and type the code.'
+  };
+}
+
+/* ---------- rendering ---------- */
+function coords(e){if(e<H){const r=Math.floor(e/N),c=e%N;return [c,r,c+1,r]}const k=e-H,r=Math.floor(k/(N+1)),c=k%(N+1);return [c,r,c,r+1]}
+function render(){
+  if(!st) return;const g=replay(st),W=360,m=30,sp=(W-2*m)/N,P=v=>m+v*sp;let o='';
+  const col=p=>p===me?'var(--red)':'var(--blue)';
+  for(let b=0;b<NB;b++){if(g.own[b]<0)continue;const x=P(b%N),y=P(Math.floor(b/N)),i=sp*.27,mine=g.own[b]===me;
+    o+=`<rect x="${x}" y="${y}" width="${sp}" height="${sp}" fill="${mine?'#FDECEA':'#E8F1FC'}"/><path d="M${x+i} ${y+i}L${x+sp-i} ${y+sp-i}M${x+sp-i} ${y+i}L${x+i} ${y+sp-i}" stroke="${col(g.own[b])}" stroke-width="7" stroke-linecap="round" opacity=".85"/>`}
+  for(let e=0;e<E;e++){const [a,b,c,d]=coords(e),x1=P(a),y1=P(b),x2=P(c),y2=P(d);
+    if(g.lines[e]>=0){if(e===last) o+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="var(--hi)" stroke-width="22" stroke-linecap="round"/>`;
+      o+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col(g.lines[e])}" stroke-width="9" stroke-linecap="round"/>`}
+    else o+=`<line class="hit" data-e="${e}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke-width="40"/>`}
+  for(let r=0;r<=N;r++)for(let c=0;c<=N;c++) o+=`<circle cx="${P(c)}" cy="${P(r)}" r="8" fill="var(--ink)"/>`;
+  const svg=$('board');svg.innerHTML=o;const myTurn=!g.over&&g.turn===me&&!lost;svg.classList.toggle('mine',myTurn);
+  $('sMe').textContent=g.sc[me];$('sFr').textContent=g.sc[1-me];
+  $('pMe').classList.toggle('on',!g.over&&g.turn===me);$('pFr').classList.toggle('on',!g.over&&g.turn!==me);
+  $('gCode').textContent=`Game ${st.game} · code ${code}`;
+  let t;
+  if(lost) t='Your friend disconnected.';
+  else if(g.over){const d=g.sc[me]-g.sc[1-me];t=`Game over: ${d>0?'you win':'your friend wins'}, ${Math.max(...g.sc)}–${Math.min(...g.sc)}. Next game, the other player starts.`}
+  else t=g.turn===me?(st.moves.length?'Your turn.':'You start. Your turn.'):'Friend\'s turn…';
+  $('status').textContent=t;$('bRematch').hidden=!g.over||lost;
+}
+
+/* ---------- wiring ---------- */
+net=MODE==='claude'?claudeNet():p2pNet();
+$('modeNote').textContent=MODE==='claude'?'Running inside Claude: games sync through the published artifact.':'Running on your own site: games connect directly between the two browsers.';
+const err=t=>{$('err').textContent=t||''};
+$('bCreate').onclick=async()=>{err();$('bCreate').disabled=true;
+  try{await net.create();$('waitCode').textContent=code;$('waitNote').textContent=net.note;show('wait');
+    const w=setInterval(()=>{if(st&&st.guest){clearInterval(w)}},500)}
+  catch(e){err(e.message)}finally{$('bCreate').disabled=false}};
+$('bJoin').onclick=async()=>{err();const c=$('code').value.trim().toUpperCase();if(c.length!==5) return err('Codes are 5 characters.');
+  $('bJoin').disabled=true;try{await net.join(c);if(!(st&&st.guest)){$('waitCode').textContent=c;$('waitNote').textContent='Connected. Loading the board…';show('wait')}}catch(e){err(e.message)}finally{$('bJoin').disabled=false}};
+$('bCopy').onclick=async()=>{const t=net.invite();try{await navigator.clipboard.writeText(t);$('bCopy').textContent='Copied'}catch(e){prompt('Copy this invite:',t)}setTimeout(()=>$('bCopy').textContent='Copy invite',1500)};
+const leave=()=>{net.leave();net=MODE==='claude'?claudeNet():p2pNet();st=null;lost=false;show('lobby')};
+$('bCancel').onclick=leave;$('bLeave').onclick=leave;
+$('bRematch').onclick=()=>net.rematch();
+$('board').addEventListener('click',ev=>{const e=ev.target.dataset&&ev.target.dataset.e;if(e===undefined||!st||lost) return;
+  const g=replay(st);if(g.over||g.turn!==me||g.lines[+e]>=0) return;net.move(+e)});
+const qs=new URLSearchParams(location.search).get('room');if(qs){$('code').value=qs.toUpperCase();$('bJoin').click()}
+</script>
+</body>
+</html>
