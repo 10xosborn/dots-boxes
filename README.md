@@ -1,4 +1,4 @@
-# Dots & Boxes
+# Grid Rivals: Dots & Boxes
 
 A modern Dots & Boxes game: a chain-savvy AI on four board sizes, XP and levels,
 a leaderboard, and online games with friends.
