@@ -10,7 +10,8 @@
 <section aria-labelledby="homeTitle">
   <div class="hero">
     <HeroBoard anim={app.settings.anim} />
-    <h1 class="title" id="homeTitle">Dots<span class="amp">&amp;</span>Boxes</h1>
+    <h1 class="title" id="homeTitle">Grid Rivals</h1>
+    <p class="kicker">Dots <span class="amp">&amp;</span> Boxes</p>
     <p class="tag">Close a box, keep your turn. Beat the AI, then beat your best time.</p>
   </div>
   <ProfileCard name={app.profile?.name ?? 'Player'} {xp} />
@@ -22,3 +23,8 @@
     <button class="btn" style="grid-column:1/-1" onclick={() => go('settings')}>Settings</button>
   </div>
 </section>
+
+<style>
+  .kicker { font-family: var(--display); font-weight: 500; font-size: clamp(1rem, 4.2vw, 1.35rem); letter-spacing: .02em; margin: 10px 0 0; color: var(--text); }
+  .kicker .amp { color: var(--accent); }
+</style>
