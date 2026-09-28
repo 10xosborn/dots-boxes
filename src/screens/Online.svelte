@@ -74,7 +74,7 @@
   }
   async function copyInvite() {
     const url = `${location.origin}${location.pathname}?room=${code}`;
-    const text = `Play Dots & Boxes with me! ${url}`;
+    const text = `Play Grid Rivals (Dots & Boxes) with me! ${url}`;
     try { await navigator.clipboard.writeText(text); copied = true; setTimeout(() => (copied = false), 1500); } catch { prompt('Copy this invite:', text); }
   }
   function leave() { unwatch?.(); unwatch = null; room = null; phase = 'lobby'; code = ''; go('home'); }
