@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Lockfile not tracked: dependency versions are pinned exactly in package.json
+package-lock.json
