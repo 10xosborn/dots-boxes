@@ -4,8 +4,10 @@
       "$code": {
         ".read": "auth != null",
         ".write": "auth != null && (!data.exists() ? newData.child('host').val() === auth.uid : (data.child('host').val() === auth.uid || data.child('guest').val() === auth.uid || (!data.child('guest').exists() && newData.child('guest').val() === auth.uid)))",
-        ".validate": "newData.hasChildren(['host', 'n', 'first', 'game']) || !newData.exists()",
-        "n": { ".validate": "newData.isNumber() && newData.val() >= 3 && newData.val() <= 6" }
+        ".validate": "!newData.exists() || (newData.hasChildren(['host', 'first', 'game']) && (newData.hasChildren(['rows', 'cols']) || newData.hasChild('n')))",
+        "n": { ".validate": "newData.isNumber() && newData.val() >= 3 && newData.val() <= 6" },
+        "rows": { ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 12" },
+        "cols": { ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 12" }
       }
     }
   }
