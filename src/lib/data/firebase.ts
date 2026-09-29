@@ -49,8 +49,9 @@ export function firebaseAdapter(): DataAdapter {
       return s.docs.map(d => d.data() as ScoreEntry);
     },
     async saveScore(e: ScoreEntry) {
-      const ref = doc(players(e.n, e.diff), profile.uid);
       await setDoc(doc(db(), 'users', profile.uid, 'scores', e.id), e);
+      if (e.custom) return; // custom boards earn XP and stats but have no leaderboard
+      const ref = doc(players(e.n, e.diff), profile.uid);
       await runTransaction(db(), async tx => {
         const cur = await tx.get(ref);
         const p = cur.exists() ? cur.data() : { uid: profile.uid, name: profile.name, games: 0, wins: 0 };
