@@ -1,13 +1,23 @@
 import type { DataAdapter, Profile, ScoreEntry, LbView, Level } from '../data/types';
 import { kv } from '../data/local';
 import { sfx } from '../sound';
+import type { BoardChoice } from '../boardFit';
 
 export type Screen = 'home' | 'setup' | 'game' | 'online' | 'lb' | 'stats' | 'settings';
 
 export interface Settings { anim: boolean; sound: boolean; theme: 'dark' | 'light' }
-export interface GameConfig { mode: 'ai' | 'pvp'; n: number; diff: Level; first: '0' | '1' | 'r'; p2: string }
+export interface GameConfig { mode: 'ai' | 'pvp'; board: BoardChoice; diff: Level; first: '0' | '1' | 'r'; p2: string }
 
 const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/** Saved setup from an earlier visit. Older versions stored only a square size `n`. */
+function loadCfg(): GameConfig {
+  const saved = kv.json<Partial<GameConfig> & { n?: number }>('dnb:cfg', {});
+  const base: GameConfig = { mode: 'ai', diff: 'medium', first: '0', p2: 'Player 2',
+    board: { custom: false, n: 4, rows: 4, cols: 6 } };
+  const { n, board, ...rest } = saved;
+  return { ...base, ...rest, board: { ...base.board, ...(n ? { n } : {}), ...(board ?? {}) } };
+}
 
 /** Single source of truth for app-wide UI state (Svelte 5 runes). */
 export const app = $state({
@@ -17,7 +27,7 @@ export const app = $state({
   profile: null as Profile | null,
   scores: [] as ScoreEntry[],
   settings: { anim: !reduced, sound: false, theme: 'dark', ...kv.json<Partial<Settings>>('dnb:settings', {}) } as Settings,
-  cfg: { mode: 'ai', n: 4, diff: 'medium', first: '0', p2: 'Player 2', ...kv.json<Partial<GameConfig>>('dnb:cfg', {}) } as GameConfig,
+  cfg: loadCfg(),
   lb: { n: 4, diff: 'medium' as Level, view: 'fast' as LbView },
 });
 

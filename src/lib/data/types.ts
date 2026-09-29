@@ -6,7 +6,10 @@ export type LbView = 'fast' | 'wins' | 'rate';
 /** One finished game against the AI. */
 export interface ScoreEntry {
   id: string; uid: string; name: string;
-  n: number; diff: Level; result: Result;
+  /** Standard square size (3–6) for leaderboard boards, or 0 for a custom board. */
+  n: number;
+  rows: number; cols: number; custom: boolean;
+  diff: Level; result: Result;
   ms: number; mine: number; theirs: number; xp: number; date: number;
   first: 0 | 1; moves: number[];   // kept so a server can re-check the game later
 }
