@@ -31,9 +31,9 @@ export async function chooseMove(st: GameState, level: Level): Promise<number> {
   let move: number;
   if (w) {
     const id = ++seq;
-    move = await new Promise<number>(res => { pending.set(id, res); w.postMessage({ id, type: 'choose', n: st.n, drawn: drawnMask(st), level }); });
+    move = await new Promise<number>(res => { pending.set(id, res); w.postMessage({ id, type: 'choose', rows: st.rows, cols: st.cols, drawn: drawnMask(st), level }); });
   } else {
-    move = (local ??= createAI()).choose(geometry(st.n), drawnMask(st), level);
+    move = (local ??= createAI()).choose(geometry(st.rows, st.cols), drawnMask(st), level);
   }
   if (!isLegal(st, move)) { const free = legalMoves(st); move = free[Math.floor(Math.random() * free.length)]; }
   return move;
