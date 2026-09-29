@@ -4,6 +4,7 @@
    * and reports the edge a player chooses through `onmove`.
    * Pointer: hover or press shows a preview; releasing draws the line (drag to adjust).
    * Keyboard: arrow keys move a cursor between free lines; Enter or Space draws.
+   * The cursor shows only in keyboard play: a click or tap also focuses the board, but hides it.
    */
   import { geometry } from '../lib/engine/rules';
   import { layout, PAD } from '../lib/boardFit';
@@ -30,7 +31,8 @@
   const xy = (e: number) => { const [a, b, c, d] = g.coords(e); return [P(a), P(b), P(c), P(d)]; };
 
   let svg: SVGSVGElement;
-  let preview = $state(-1), cursor = $state(-1), focused = $state(false), pressing = false;
+  // kbd: keyboard mode, turned on by keyboard focus or a board key and off by any pointer press.
+  let preview = $state(-1), cursor = $state(-1), focused = $state(false), kbd = $state(false), pressing = false;
 
   // Clear stale preview/cursor when it stops being our turn or the line gets drawn.
   $effect(() => { if (!interactive) preview = -1; });
@@ -52,7 +54,7 @@
     }
     return bd < sp * 0.34 ? best : -1;
   }
-  function down(ev: PointerEvent) { if (!interactive) return; pressing = true; preview = edgeAt(ev); try { svg.setPointerCapture(ev.pointerId); } catch {} }
+  function down(ev: PointerEvent) { kbd = false; if (!interactive) return; pressing = true; preview = edgeAt(ev); try { svg.setPointerCapture(ev.pointerId); } catch {} }
   function move(ev: PointerEvent) { if (interactive) preview = edgeAt(ev); }
   function up(ev: PointerEvent) { if (!pressing) return; pressing = false; const e = edgeAt(ev); preview = -1; if (interactive && e >= 0) onmove(e); }
 
@@ -62,10 +64,12 @@
     for (let e = 0; e < g.E; e++) { if (drawn.has(e)) continue; const [x, y] = mid(e), d = Math.hypot(x - from[0], y - from[1]); if (d < bd) { bd = d; best = e; } }
     return best;
   }
+  /** Focus came from the keyboard (Tab), not from a click or tap. */
+  function keyboardFocus() { try { return svg.matches(':focus-visible'); } catch { return false; } }
   function key(ev: KeyboardEvent) {
     const dirs: Record<string, [number, number]> = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0] };
     if (dirs[ev.key]) {
-      ev.preventDefault();
+      ev.preventDefault(); kbd = true;
       const [dx, dy] = dirs[ev.key], [cx, cy] = cursor >= 0 ? mid(cursor) : [L.W / 2, L.H / 2];
       let best = -1, bs = Infinity;
       for (let e = 0; e < g.E; e++) {
@@ -76,7 +80,9 @@
       }
       if (best >= 0) cursor = best;
     } else if ((ev.key === 'Enter' || ev.key === ' ') && cursor >= 0) {
-      ev.preventDefault(); if (interactive && !drawn.has(cursor)) onmove(cursor);
+      ev.preventDefault();
+      if (!kbd) { kbd = true; return; }      // a hidden cursor is shown first, so no line is drawn unseen
+      if (interactive && !drawn.has(cursor)) onmove(cursor);
     }
   }
 </script>
@@ -90,7 +96,7 @@
     onpointercancel={() => { pressing = false; preview = -1; }}
     onpointerleave={() => { if (!pressing) preview = -1; }}
     onkeydown={key}
-    onfocus={() => { focused = true; if (cursor < 0 || drawn.has(cursor)) cursor = nearestFree(); }}
+    onfocus={() => { focused = true; kbd = keyboardFocus(); if (cursor < 0 || drawn.has(cursor)) cursor = nearestFree(); }}
     onblur={() => (focused = false)}>
     <defs>
       <!-- Patterns keep ownership readable without color: stripes = player 1, dots = player 2. -->
@@ -117,7 +123,7 @@
       <line class="ln" class:grow={anim} {x1} {y1} {x2} {y2} stroke-width={stroke} style="--len:{sp}" style:stroke={color(l.p)} style:filter={glow(l.p)} />
     {/each}
 
-    {#if focused && cursor >= 0}
+    {#if focused && kbd && cursor >= 0}
       {@const [x1, y1, x2, y2] = xy(cursor)}
       <line {x1} {y1} {x2} {y2} stroke-width={stroke * 2.4} stroke-linecap="round" style="stroke:var(--accent);opacity:.35" />
     {/if}
