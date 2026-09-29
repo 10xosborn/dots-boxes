@@ -5,8 +5,8 @@ import { geometry } from './rules';
 
 const ai = createAI();
 self.onmessage = (ev: MessageEvent) => {
-  const { id, type, n, drawn, level } = ev.data;
+  const { id, type, rows, cols, drawn, level } = ev.data;
   if (type === 'reset') { ai.resetGame(); return; }
-  const move = ai.choose(geometry(n), new Uint8Array(drawn), level);
+  const move = ai.choose(geometry(rows, cols), new Uint8Array(drawn), level);
   (self as unknown as Worker).postMessage({ id, move });
 };
