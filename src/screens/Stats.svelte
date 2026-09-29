@@ -21,7 +21,8 @@
       </table></div></div>
     <div class="panel formula"><h3>How XP works</h3>
       <p><code>XP = round(Base × Difficulty × Board) + Margin</code></p>
-      <p style="margin-top:8px">Base: win 60, draw 30, loss 15. Difficulty: Easy ×1, Medium ×1.5, Hard ×2.5. Board: 3×3 ×1, 4×4 ×1.4, 5×5 ×1.8, 6×6 ×2.2. Margin: +2 for every box you win by.</p>
-      <p style="margin-top:8px">Going from level L to L+1 takes <code>100 + 50 × (L − 1)</code> XP. Only games against the AI count toward stats, XP, and the leaderboard.</p></div>
+      <p style="margin-top:8px">Base: win 60, draw 30, loss 15. Difficulty: Easy ×1, Medium ×1.5, Hard ×2.5. Margin: +2 for every box you win by.</p>
+      <p style="margin-top:8px">Board: <code>1 + 0.4 × (√boxes − 3)</code>, so 3×3 ×1, 4×4 ×1.4, 5×5 ×1.8, 6×6 ×2.2 and 12×12 ×4.6. Boards with fewer than 9 boxes get <code>boxes ÷ 9</code> (a 1×1 board is ×0.1).</p>
+      <p style="margin-top:8px">Going from level L to L+1 takes <code>100 + 50 × (L − 1)</code> XP. Only games against the AI count toward stats and XP. Custom boards count toward stats and XP, but only the four standard sizes have leaderboards and fastest-win records.</p></div>
   </div>
 </section>
