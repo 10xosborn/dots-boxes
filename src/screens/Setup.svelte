@@ -2,6 +2,7 @@
   import { app, go, data, saveCfg } from '../lib/state/app.svelte';
   import { DIFF_HELP } from '../lib/format';
   import Seg from '../components/Seg.svelte';
+  import SizePicker from '../components/SizePicker.svelte';
   import BackTitle from '../components/BackTitle.svelte';
   let name = $state(app.profile?.name ?? '');
   let saving = $state(false);
@@ -26,7 +27,7 @@
       <div class="field"><label for="p2In">Player 2 name</label><input type="text" id="p2In" maxlength="16" placeholder="Player 2" bind:value={app.cfg.p2} /></div>
     {/if}
     <div class="field"><span class="lab">Board size (boxes per side)</span>
-      <Seg label="Board size" bind:value={app.cfg.n} options={[3, 4, 5, 6].map(v => ({ v, label: `${v}×${v}` }))} /></div>
+      <SizePicker bind:value={app.cfg.board} /></div>
     {#if app.cfg.mode === 'ai'}
       <div class="field"><span class="lab">Difficulty</span>
         <Seg label="Difficulty" bind:value={app.cfg.diff} options={[{ v: 'easy', label: 'Easy' }, { v: 'medium', label: 'Medium' }, { v: 'hard', label: 'Hard' }]} />
