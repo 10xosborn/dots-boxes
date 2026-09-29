@@ -6,9 +6,10 @@
    * Keyboard: arrow keys move a cursor between free lines; Enter or Space draws.
    */
   import { geometry } from '../lib/engine/rules';
+  import { layout, PAD } from '../lib/boardFit';
 
-  let { n, lines, boxes, turn, interactive, initials, anim, onmove }: {
-    n: number;
+  let { rows, cols, lines, boxes, turn, interactive, initials, anim, onmove }: {
+    rows: number; cols: number;
     lines: { e: number; p: number }[];
     boxes: { b: number; p: number }[];
     turn: 0 | 1;
@@ -18,12 +19,12 @@
     onmove: (e: number) => void;
   } = $props();
 
-  const VB = 1000, PAD = 90;
-  const g = $derived(geometry(n));
-  const sp = $derived((VB - 2 * PAD) / n);
+  const g = $derived(geometry(rows, cols));
+  const L = $derived(layout({ rows, cols }));
+  const sp = $derived(L.sp);
   const P = (v: number) => PAD + v * sp;
   const drawn = $derived(new Set(lines.map(l => l.e)));
-  const stroke = $derived(Math.max(10, sp * 0.085));
+  const stroke = $derived(Math.max(6, sp * 0.085));
   const color = (p: number) => (p === 0 ? 'var(--p1)' : 'var(--p2)');
   const glow = (p: number) => `drop-shadow(0 0 ${Math.round(sp * 0.05)}px ${p === 0 ? 'rgba(255,92,122,.55)' : 'rgba(62,214,234,.55)'})`;
   const xy = (e: number) => { const [a, b, c, d] = g.coords(e); return [P(a), P(b), P(c), P(d)]; };
@@ -56,7 +57,7 @@
   function up(ev: PointerEvent) { if (!pressing) return; pressing = false; const e = edgeAt(ev); preview = -1; if (interactive && e >= 0) onmove(e); }
 
   const mid = (e: number) => { const [a, b, c, d] = xy(e); return [(a + c) / 2, (b + d) / 2]; };
-  function nearestFree(from = [VB / 2, VB / 2]) {
+  function nearestFree(from = [L.W / 2, L.H / 2]) {
     let best = -1, bd = Infinity;
     for (let e = 0; e < g.E; e++) { if (drawn.has(e)) continue; const [x, y] = mid(e), d = Math.hypot(x - from[0], y - from[1]); if (d < bd) { bd = d; best = e; } }
     return best;
@@ -65,7 +66,7 @@
     const dirs: Record<string, [number, number]> = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0] };
     if (dirs[ev.key]) {
       ev.preventDefault();
-      const [dx, dy] = dirs[ev.key], [cx, cy] = cursor >= 0 ? mid(cursor) : [VB / 2, VB / 2];
+      const [dx, dy] = dirs[ev.key], [cx, cy] = cursor >= 0 ? mid(cursor) : [L.W / 2, L.H / 2];
       let best = -1, bs = Infinity;
       for (let e = 0; e < g.E; e++) {
         if (e === cursor || drawn.has(e)) continue;
@@ -80,10 +81,10 @@
   }
 </script>
 
-<div class="board-wrap">
+<div class="board-wrap" style:aspect-ratio="{L.W} / {L.H}" style:width="min(100%, 620px, calc(max(260px, 100dvh - 330px) * {L.W / L.H}))">
   <!-- The board is a custom keyboard/pointer widget (role="application"), so it must be focusable and take input. -->
   <!-- svelte-ignore a11y_no_noninteractive_tabindex, a11y_no_noninteractive_element_interactions -->
-  <svg bind:this={svg} id="board" viewBox="0 0 1000 1000" tabindex="0" role="application"
+  <svg bind:this={svg} id="board" viewBox="0 0 {L.W} {L.H}" tabindex="0" role="application"
     aria-label="Game board. Use arrow keys to choose a line and Enter to draw it."
     onpointerdown={down} onpointermove={move} onpointerup={up}
     onpointercancel={() => { pressing = false; preview = -1; }}
@@ -93,12 +94,12 @@
     onblur={() => (focused = false)}>
     <defs>
       <!-- Patterns keep ownership readable without color: stripes = player 1, dots = player 2. -->
-      <pattern id="pat0" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="22" style="fill:var(--p1)" opacity=".35" /></pattern>
-      <pattern id="pat1" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="3.6" style="fill:var(--p2)" opacity=".45" /></pattern>
+      <pattern id="pat0" width={sp * 0.08} height={sp * 0.08} patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width={sp * 0.026} height={sp * 0.08} style="fill:var(--p1)" opacity=".35" /></pattern>
+      <pattern id="pat1" width={sp * 0.08} height={sp * 0.08} patternUnits="userSpaceOnUse"><circle cx={sp * 0.04} cy={sp * 0.04} r={sp * 0.013} style="fill:var(--p2)" opacity=".45" /></pattern>
     </defs>
 
     {#each boxes as bx (bx.b)}
-      {@const x = P(bx.b % n)}{@const y = P(Math.floor(bx.b / n))}{@const i = sp * 0.1}
+      {@const x = P(bx.b % cols)}{@const y = P(Math.floor(bx.b / cols))}{@const i = sp * 0.1}
       <g class="bx" class:pop={anim}>
         <rect x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} style:fill={bx.p === 0 ? 'var(--p1-soft)' : 'var(--p2-soft)'} />
         <rect x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} fill="url(#pat{bx.p})" />
@@ -121,9 +122,9 @@
       <line {x1} {y1} {x2} {y2} stroke-width={stroke * 2.4} stroke-linecap="round" style="stroke:var(--accent);opacity:.35" />
     {/if}
 
-    {#each { length: n + 1 } as _, yy}
-      {#each { length: n + 1 } as _, xx}
-        <circle cx={P(xx)} cy={P(yy)} r={Math.max(9, sp * 0.07)} class="dot" />
+    {#each { length: rows + 1 } as _, yy}
+      {#each { length: cols + 1 } as _, xx}
+        <circle cx={P(xx)} cy={P(yy)} r={Math.max(5.5, sp * 0.07)} class="dot" />
       {/each}
     {/each}
   </svg>

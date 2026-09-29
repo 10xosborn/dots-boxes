@@ -2,29 +2,33 @@
   import { onDestroy } from 'svelte';
   import { app, go } from '../lib/state/app.svelte';
   import { onlineEnabled } from '../lib/data';
-  import { replay, winner, type Player } from '../lib/engine/rules';
+  import { replay, winner, isStandard, sizeLabel, type Player } from '../lib/engine/rules';
+  import { choiceSize, fits, type BoardChoice } from '../lib/boardFit';
   import { initials } from '../lib/format';
   import { sfx } from '../lib/sound';
   import { confetti } from '../lib/confetti';
-  import type { Room } from '../lib/online/room';
+  import { roomSize, type Room } from '../lib/online/types';
   import Board from '../components/Board.svelte';
   import PlayerCards from '../components/PlayerCards.svelte';
-  import Seg from '../components/Seg.svelte';
+  import SizePicker from '../components/SizePicker.svelte';
   import BackTitle from '../components/BackTitle.svelte';
   import ResultsModal from '../components/ResultsModal.svelte';
 
   let { joinCode = '' }: { joinCode?: string } = $props();
 
   let phase = $state<'lobby' | 'waiting' | 'playing'>('lobby');
+  let board = $state<BoardChoice>({ custom: false, n: 3, rows: 4, cols: 6 });
   // joinCode is only read once, on arrival from an invite link.
   // svelte-ignore state_referenced_locally
-  let n = $state(3), codeIn = $state(joinCode), code = $state(''), seat = $state<Player>(0);
+  let codeIn = $state(joinCode), code = $state(''), seat = $state<Player>(0);
   let room = $state<Room | null>(null), error = $state(''), busy = $state(false), copied = $state(false), dismissed = $state(-1);
   let unwatch: (() => void) | null = null, api: typeof import('../lib/online/room') | null = null;
   const loadApi = async () => (api ??= await import('../lib/online/room'));
 
   // Derived game view: rebuilt from the room's move list every time it changes.
-  const st = $derived(room ? replay(room.n, room.first, room.moves ?? []) : null);
+  const size = $derived(room ? roomSize(room) : null);
+  const sizeTag = $derived(size ? (isStandard(size) ? sizeLabel(size) : `Custom ${sizeLabel(size)}`) : '');
+  const st = $derived(room && size ? replay(size, room.first, room.moves ?? []) : null);
   const lines = $derived(st ? st.moves.map(e => ({ e, p: st.lines[e] })) : []);
   const boxes = $derived(st ? [...st.owner].flatMap((p, b) => (p >= 0 ? [{ b, p }] : [])) : []);
   const names = $derived<[string, string]>([room?.names?.host ?? 'Host', room?.names?.guest ?? 'Friend']);
@@ -54,7 +58,7 @@
   }
   async function create() {
     busy = true; error = '';
-    try { const a = await loadApi(); code = await a.createRoom(app.profile?.name ?? 'Player', n); seat = 0; phase = 'waiting'; await watch(); }
+    try { const a = await loadApi(); code = await a.createRoomSafe(app.profile?.name ?? 'Player', choiceSize(board)); seat = 0; phase = 'waiting'; await watch(); }
     catch (e) { error = e instanceof Error ? e.message : 'Could not create a game.'; }
     busy = false;
   }
@@ -62,7 +66,7 @@
     const c = codeIn.trim().toUpperCase();
     if (c.length !== 5) { error = 'Codes are 5 characters.'; return; }
     busy = true; error = '';
-    try { const a = await loadApi(); ({ seat } = await a.joinRoom(c, app.profile?.name ?? 'Player')); code = c; phase = 'playing'; await watch(); }
+    try { const a = await loadApi(); ({ seat } = await a.joinRoom(c, app.profile?.name ?? 'Player', fits)); code = c; phase = 'playing'; await watch(); }
     catch (e) { error = e instanceof Error ? e.message : 'Could not join that game.'; }
     busy = false;
   }
@@ -95,7 +99,8 @@
     <div class="panel">
       <h3>Start a game</h3>
       <p class="muted">You get a code to send your friend.</p>
-      <div class="field"><span class="lab">Board size</span><Seg label="Board size" bind:value={n} options={[3, 4, 5, 6].map(v => ({ v, label: `${v}×${v}` }))} /></div>
+      <div class="field"><span class="lab">Board size</span><SizePicker bind:value={board} /></div>
+      {#if board.custom}<p class="help">Your friend's screen needs room for this board too. Phones fit up to about 7×7.</p>{/if}
       <button class="btn primary block" style="margin-top:14px" disabled={busy} onclick={create}>Create game</button>
     </div>
     <div class="panel">
@@ -111,17 +116,17 @@
     <div class="code-big">{code}</div>
     <div class="row"><button class="btn" style="flex:1" onclick={copyInvite}>{copied ? 'Copied' : 'Copy invite'}</button><button class="btn" style="flex:1" onclick={leave}>Cancel</button></div>
   </section>
-{:else if room && st}
+{:else if room && st && size}
   <section aria-label="Online game">
     <PlayerCards {names} initials={ini} subs={[seat === 0 ? 'You' : 'Host', seat === 1 ? 'You' : 'Guest']} score={[st.score[0], st.score[1]]} turn={st.turn} {over} {turnText} />
-    <div class="meta"><span class="chip">{room.n}×{room.n}</span><span class="chip">Game {room.game}</span><span class="chip">Code <b>{code}</b></span></div>
-    <Board n={room.n} {lines} {boxes} turn={st.turn} interactive={myTurn} initials={ini} anim={app.settings.anim} onmove={move} />
+    <div class="meta"><span class="chip">{sizeTag}</span><span class="chip">Game {room.game}</span><span class="chip">Code <b>{code}</b></span></div>
+    <Board rows={size.rows} cols={size.cols} {lines} {boxes} turn={st.turn} interactive={myTurn} initials={ini} anim={app.settings.anim} onmove={move} />
     <p class="err" role="alert">{error}</p>
     <div class="game-actions"><button class="btn small" onclick={leave}>Leave</button></div>
   </section>
   {#if over && dismissed !== room.game}
     {@const w = winner(st)}
-    <ResultsModal info={{ kind: w === -1 ? 'draw' : w === seat ? 'win' : 'loss', title: w === -1 ? 'A draw' : w === seat ? 'You win!' : `${names[w as Player]} wins`, score: [st.score[0], st.score[1]], ms: 0, tags: [`${room.n}×${room.n}`, 'Online'] }}
+    <ResultsModal info={{ kind: w === -1 ? 'draw' : w === seat ? 'win' : 'loss', title: w === -1 ? 'A draw' : w === seat ? 'You win!' : `${names[w as Player]} wins`, score: [st.score[0], st.score[1]], ms: 0, tags: [sizeTag, 'Online'] }}
       primary={{ label: 'Rematch', run: () => { dismissed = room!.game; api?.rematch(code); } }}
       secondary={[{ label: 'Leave', run: leave }]} />
   {/if}

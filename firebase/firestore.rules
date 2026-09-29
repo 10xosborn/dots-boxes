@@ -1,19 +1,40 @@
 rules_version = '2';
-// Firestore rules for Dots & Boxes. Publish in: Firebase console → Firestore Database → Rules.
+// Firestore rules for Grid Rivals: Dots & Boxes. Publish in: Firebase console → Firestore Database → Rules.
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
     function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
     function validName(n) { return n is string && n.size() > 0 && n.size() <= 16; }
-    function validScore(s) {
-      return s.n in [3, 4, 5, 6]
-        && s.diff in ['easy', 'medium', 'hard']
+
+    // Checks every score has in common.
+    function validResult(s) {
+      return s.diff in ['easy', 'medium', 'hard']
         && s.result in ['win', 'loss', 'draw']
-        && s.ms is int && s.ms >= 2000 && s.ms < 86400000
-        && s.mine is int && s.theirs is int && s.mine + s.theirs == s.n * s.n
+        && s.ms is int && s.ms >= 0 && s.ms < 86400000
+        && s.mine is int && s.theirs is int && s.mine >= 0 && s.theirs >= 0
         && ((s.result == 'win' && s.mine > s.theirs) || (s.result == 'loss' && s.mine < s.theirs) || (s.result == 'draw' && s.mine == s.theirs))
-        && s.moves is list && s.moves.size() == 2 * s.n * (s.n + 1);
+        && s.moves is list;
     }
+    // Scores saved before custom boards existed: square boards 3–6 only.
+    function legacyScore(s) {
+      return !('rows' in s)
+        && s.n in [3, 4, 5, 6] && s.ms >= 2000
+        && s.mine + s.theirs == s.n * s.n
+        && s.moves.size() == 2 * s.n * (s.n + 1);
+    }
+    // Current format: any rows × cols board from 1×1 to 12×12.
+    // Standard squares (3–6) set n to their size and must take at least 2 s;
+    // custom boards set n to 0 and never reach the leaderboard.
+    function boardScore(s) {
+      return s.rows is int && s.cols is int
+        && s.rows >= 1 && s.rows <= 12 && s.cols >= 1 && s.cols <= 12
+        && s.custom is bool
+        && s.mine + s.theirs == s.rows * s.cols
+        && s.moves.size() == s.rows * (s.cols + 1) + s.cols * (s.rows + 1)
+        && ((s.custom == true && s.n == 0)
+          || (s.custom == false && s.rows == s.cols && s.n == s.rows && s.n in [3, 4, 5, 6] && s.ms >= 2000));
+    }
+    function validScore(s) { return validResult(s) && (legacyScore(s) || boardScore(s)); }
 
     match /users/{uid} {
       allow read: if signedIn();
@@ -24,7 +45,8 @@ service cloud.firestore {
       }
     }
 
-    // Leaderboard summaries: anyone can read; players can only add one game at a time to their own row.
+    // Leaderboard summaries (standard boards only): anyone can read;
+    // players can only add one game at a time to their own row.
     match /leaderboards/{board}/players/{uid} {
       allow read: if true;
       allow delete: if isOwner(uid);
