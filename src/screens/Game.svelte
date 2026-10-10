@@ -1,7 +1,8 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
   import { app, go, data, refreshScores } from '../lib/state/app.svelte';
-  import { newGame, play, winner, isStandard, sizeLabel, type GameState, type Player } from '../lib/engine/rules';
+  import { newGame, play, replay, winner, isStandard, sizeLabel, type GameState, type Player } from '../lib/engine/rules';
+  import { saveActive, clearActive, leaveActive, type ActiveGame } from '../lib/resume';
   import { choiceSize } from '../lib/boardFit';
   import { chooseMove, resetAI } from '../lib/engine/ai';
   import { xpFor, level, stats } from '../lib/progression';
@@ -31,6 +32,7 @@
   let result = $state<ResultInfo | null>(null);
   let announce = $state('');
   let token = 0, t0 = 0, clock: ReturnType<typeof setInterval> | undefined;
+  let gameId = '', resumed = false;   // the id is also the saved score's id; resumed games set no fastest times
 
   const names = $derived<[string, string]>([app.profile?.name ?? 'Player', vsAI() ? AI_NAMES[cfg.diff] : cfg.p2]);
   const ini = $derived(initials(names[0], names[1]));
@@ -39,17 +41,31 @@
   const turnText = $derived(over ? 'Game over' : thinking ? `${names[1]} is thinking` : vsAI() ? 'Your turn' : `${names[turn]}'s turn`);
   const humanTurn = $derived(!over && !thinking && (!vsAI() || turn === 0));
 
-  function start() {
+  /** Start a new game, or continue a saved one (`from`) after a reload or restart. */
+  function start(from: ActiveGame | null = null) {
     token++; clearInterval(clock);
-    cfg = { ...app.cfg, board: { ...app.cfg.board } };
-    const first = (cfg.first === 'r' ? (Math.random() < 0.5 ? 0 : 1) : +cfg.first) as Player;
-    st = newGame(size, first);
-    lines = []; boxes = []; score = [0, 0]; turn = first; over = false; thinking = false; result = null; ms = 0;
+    cfg = from ? { ...app.cfg, mode: from.mode, diff: from.diff, p2: from.p2, board: { ...from.board } }
+      : { ...app.cfg, board: { ...app.cfg.board } };
+    const first = from ? from.first : (cfg.first === 'r' ? (Math.random() < 0.5 ? 0 : 1) : +cfg.first) as Player;
+    st = from ? replay(size, first, from.moves) : newGame(size, first);
+    if (st.over) { clearActive(); start(); return; }   // a finished game can't be continued: start fresh
+    gameId = from?.id ?? uid(); resumed = !!from;
+    lines = st.moves.map(e => ({ e, p: st.lines[e] }));
+    boxes = [...st.owner].flatMap((p, b) => (p >= 0 ? [{ b, p }] : []));
+    score = [st.score[0], st.score[1]]; turn = st.turn; over = false; thinking = false; result = null; ms = from?.ms ?? 0;
     resetAI();
-    t0 = performance.now();
+    t0 = performance.now() - ms;   // the clock carries on from the saved time
     clock = setInterval(() => { if (!over) ms = performance.now() - t0; }, 250);
-    announce = `${names[first]} starts.`;
+    announce = from ? `Game resumed. Score ${score[0]} to ${score[1]}. ${names[turn]} to move.` : `${names[first]} starts.`;
+    if (from) persist(); else clearActive();
     queueAI();
+  }
+
+  /** Save the game in progress, so a reload or a closed app can't lose it. */
+  function persist() {
+    if (!st || st.over || !st.moves.length) return;
+    saveActive({ v: 1, id: gameId, mode: cfg.mode, board: { ...cfg.board }, diff: cfg.diff, p2: cfg.p2,
+      first: st.first, moves: [...st.moves], ms: Math.round(performance.now() - t0), savedAt: Date.now() });
   }
 
   /** Apply a move, update the view, then pass control on. */
@@ -61,8 +77,8 @@
     score = [st.score[0], st.score[1]]; turn = st.turn;
     sfx.play(done.length ? 'box' : 'line');
     announce = `${names[p]} drew a line${done.length ? ` and closed ${done.length} box${done.length > 1 ? 'es' : ''}` : ''}. Score ${score[0]} to ${score[1]}.`;
-    if (st.over) { over = true; ms = performance.now() - t0; clearInterval(clock); setTimeout(finish, app.settings.anim ? 500 : 60); }
-    else queueAI();
+    if (st.over) { over = true; clearActive(); ms = performance.now() - t0; clearInterval(clock); setTimeout(finish, app.settings.anim ? 500 : 60); }
+    else { persist(); queueAI(); }
   }
 
   async function queueAI() {
@@ -95,9 +111,10 @@
     result = info;
 
     // Save, then compare with the leaderboard. Failures never block the results screen.
-    const entry: ScoreEntry = { id: uid(), uid: app.profile!.uid, name: app.profile!.name,
+    const entry: ScoreEntry = { id: gameId, uid: app.profile!.uid, name: app.profile!.name,
       n: ranked ? size.rows : 0, rows: size.rows, cols: size.cols, custom: !ranked, diff: cfg.diff, result: res,
-      ms: Math.round(ms), mine: score[0], theirs: score[1], xp, date: Date.now(), first: st.first, moves: [...st.moves] };
+      ms: Math.round(ms), mine: score[0], theirs: score[1], xp, date: Date.now(), first: st.first, moves: [...st.moves],
+      ...(resumed ? { resumed: true } : {}) };
     if (!ranked) {
       // Custom boards count toward stats and XP, but have no leaderboard to compare against.
       try { await data().saveScore(entry); await refreshScores(); }
@@ -114,7 +131,10 @@
       if (my !== token) return;
       const top = after.rows[0], me = after.me, streak = stats(app.scores).cur;
       let compare = '', hi = false;
-      if (res === 'win') {
+      if (res === 'win' && resumed) {
+        compare = 'Resumed games don\'t set fastest-win times.';
+        if (streak >= 2) compare += ` Win streak: ${streak}.`;
+      } else if (res === 'win') {
         if (me?.rank === 1 && me.row.best === entry.ms) { compare = `New #1 fastest win on ${tag}!`; hi = true; }
         else if (me?.rank === 1 && top) compare = `You still hold #1 on ${tag} (${fmtTime(top.best!)}). This win was ${fmtTime(entry.ms - top.best!)} slower.`;
         else if (top?.best != null) compare = `You were ${fmtTime(entry.ms - top.best)} slower than the #1 time on ${tag} (${top.name}, ${fmtTime(top.best)}).`;
@@ -128,11 +148,20 @@
     }
   }
 
-  function quit() { if (!over && st.moves.length && !confirm("Quit this game? It won't count.")) return; token++; go('home'); }
+  function quit() { if (!over && st.moves.length && !confirm("Quit this game? It won't count.")) return; token++; clearActive(); go('home'); }
   function restart() { if (!over && st.moves.length && !confirm('Restart this game?')) return; start(); }
 
-  start();
-  onDestroy(() => { token++; clearInterval(clock); });
+  // Save the exact time played when the page is hidden or closed, so a resumed game's clock carries on from there.
+  const onHide = () => { if (document.visibilityState === 'hidden') persist(); };
+  document.addEventListener('visibilitychange', onHide);
+  window.addEventListener('pagehide', persist);
+
+  start(app.resume); app.resume = null;
+  onDestroy(() => {
+    token++; clearInterval(clock);
+    document.removeEventListener('visibilitychange', onHide); window.removeEventListener('pagehide', persist);
+    leaveActive();   // left for another screen: the game stays saved, and Home offers to continue it
+  });
 </script>
 
 <section aria-label="Game">
@@ -153,7 +182,7 @@
 
 {#if result}
   <ResultsModal info={result}
-    primary={{ label: 'Play again', run: start }}
+    primary={{ label: 'Play again', run: () => start() }}
     secondary={[
       { label: 'Change settings', run: () => go('setup') },
       ...(vsAI() && ranked ? [{ label: 'Leaderboard', run: () => { app.lb.n = size.rows; app.lb.diff = cfg.diff; go('lb'); } }] : []),

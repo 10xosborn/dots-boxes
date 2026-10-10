@@ -25,7 +25,7 @@ export function localAdapter(): DataAdapter {
     },
     async setName(name) { profile = { ...profile, name }; kv.set('dnb:profile', JSON.stringify(profile)); return profile; },
     async getScores() { return scores(); },
-    async saveScore(entry) { const a = scores(); a.push(entry); if (a.length > 3000) a.splice(0, a.length - 3000); kv.set('dnb:scores', JSON.stringify(a)); },
+    async saveScore(entry) { const a = scores(); if (a.some(x => x.id === entry.id)) return; a.push(entry); if (a.length > 3000) a.splice(0, a.length - 3000); kv.set('dnb:scores', JSON.stringify(a)); },
     async getLeaderboard(n: number, diff: Level, view: LbView): Promise<Leaderboard> {
       const row = { ...boardRow(scores(), n, diff, profile.uid, profile.name) };
       const ok = view === 'fast' ? row.best !== null : view === 'wins' ? row.wins > 0 : row.rate !== null;

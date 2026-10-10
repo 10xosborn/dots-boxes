@@ -49,6 +49,7 @@ export function firebaseAdapter(): DataAdapter {
       return s.docs.map(d => d.data() as ScoreEntry);
     },
     async saveScore(e: ScoreEntry) {
+      // Saved under the game's own id; the rules only allow creating a score, so a game can't count twice.
       await setDoc(doc(db(), 'users', profile.uid, 'scores', e.id), e);
       if (e.custom) return; // custom boards earn XP and stats but have no leaderboard
       const ref = doc(players(e.n, e.diff), profile.uid);
@@ -57,7 +58,8 @@ export function firebaseAdapter(): DataAdapter {
         const p = cur.exists() ? cur.data() : { uid: profile.uid, name: profile.name, games: 0, wins: 0 };
         const games = p.games + 1, wins = p.wins + (e.result === 'win' ? 1 : 0);
         const next: any = { uid: profile.uid, name: profile.name, games, wins };
-        const best = e.result === 'win' ? Math.min(p.best ?? Infinity, e.ms) : p.best;
+        // A resumed game's clock paused while the app was closed, so its time can't be a record.
+        const best = e.result === 'win' && !e.resumed ? Math.min(p.best ?? Infinity, e.ms) : p.best;
         if (best !== undefined && best !== null) next.best = best;
         if (games >= MIN_RATE_GAMES) next.rate = wins / games;
         tx.set(ref, next);

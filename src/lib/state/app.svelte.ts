@@ -2,6 +2,7 @@ import type { DataAdapter, Profile, ScoreEntry, LbView, Level } from '../data/ty
 import { kv } from '../data/local';
 import { sfx } from '../sound';
 import type { BoardChoice } from '../boardFit';
+import type { ActiveGame } from '../resume';
 
 export type Screen = 'home' | 'setup' | 'game' | 'online' | 'lb' | 'stats' | 'settings';
 
@@ -29,6 +30,8 @@ export const app = $state({
   settings: { anim: !reduced, sound: false, theme: 'dark', ...kv.json<Partial<Settings>>('dnb:settings', {}) } as Settings,
   cfg: loadCfg(),
   lb: { n: 4, diff: 'medium' as Level, view: 'fast' as LbView },
+  /** A saved game for the Game screen to continue instead of starting a new one. */
+  resume: null as ActiveGame | null,
 });
 
 let adapter: DataAdapter | null = null;

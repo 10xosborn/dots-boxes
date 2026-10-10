@@ -12,6 +12,8 @@ export interface ScoreEntry {
   diff: Level; result: Result;
   ms: number; mine: number; theirs: number; xp: number; date: number;
   first: 0 | 1; moves: number[];   // kept so a server can re-check the game later
+  /** The game was resumed after a reload or restart: it counts, but never sets a fastest-win time. */
+  resumed?: boolean;
 }
 export interface Profile { uid: string; name: string }
 export interface LbRow { uid: string; name: string; games: number; wins: number; best: number | null; rate: number | null }
