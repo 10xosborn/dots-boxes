@@ -38,6 +38,14 @@ npm run check    # type-check
 npm run build    # production build in dist/
 ```
 
+Testing against local Firebase emulators (needs Java 21 or newer; nothing touches the live project):
+
+```bash
+npm run test:rules     # Realtime Database rules tests (Vitest + @firebase/rules-unit-testing)
+npm run emulators      # Auth, Realtime Database and Firestore emulators, then in a second terminal:
+npm run dev:emulator   # the game connected to those emulators
+```
+
 ## Connect Firebase (turns on online play and the worldwide leaderboard)
 
 Without this the game still works fully, saving results on the player's device.
