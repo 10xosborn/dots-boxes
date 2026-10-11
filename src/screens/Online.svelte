@@ -115,13 +115,16 @@
     busy = false;
   }
   // After a reload or a browser restart: back into the saved room at the same seat.
+  // A read that can't reach the database waits forever, so the rejoin gets 8 s; the room stays saved for "Try again".
+  let retry = $state<{ code: string; seat: Player } | null>(null);
   async function rejoin(c: string, s: Player) {
-    busy = true; error = info = ''; phase = 'rejoining';
+    busy = true; error = info = ''; retry = null; phase = 'rejoining';
     try {
-      const a = await loadApi(), r = await a.rejoinRoom(c, s);
+      const a = await loadApi();
+      const r = await Promise.race([a.rejoinRoom(c, s), new Promise<never>((_, fail) => setTimeout(() => fail(new Error('timeout')), 8000))]);
       if (!r) { clearRoom(); info = 'That game has ended.'; phase = 'lobby'; }
       else { code = c; seat = s; room = r; saveRoom(c, s); phase = r.guest ? 'playing' : 'waiting'; await watch(); }
-    } catch { phase = 'lobby'; error = 'Could not get back into your game. Check your connection and try again.'; }
+    } catch { phase = 'lobby'; retry = { code: c, seat: s }; info = "Couldn't reach your game. Check your connection, then try again."; }
     busy = false;
   }
   async function move(e: number) {
@@ -154,6 +157,7 @@
   <section aria-labelledby="onTitle" class="stack">
     <BackTitle title="Play a friend online" id="onTitle" />
     <p class="muted net" role="status">{info}</p>
+    {#if retry}<button class="btn small" disabled={busy} onclick={() => retry && rejoin(retry.code, retry.seat)}>Try again</button>{/if}
     <div class="panel">
       <h3>Start a game</h3>
       <p class="muted">You get a code to send your friend.</p>
