@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onDestroy } from 'svelte';
+  import { onDestroy, untrack } from 'svelte';
   import { app, go } from '../lib/state/app.svelte';
   import { onlineEnabled } from '../lib/data';
   import { replay, winner, isStandard, sizeLabel, type Player } from '../lib/engine/rules';
@@ -22,7 +22,11 @@
   // svelte-ignore state_referenced_locally
   let codeIn = $state(joinCode), code = $state(''), seat = $state<Player>(0);
   let room = $state<Room | null>(null), error = $state(''), busy = $state(false), copied = $state(false), dismissed = $state(-1);
-  let unwatch: (() => void) | null = null, api: typeof import('../lib/online/room') | null = null;
+  let unwatch: (() => void) | null = null, unpresence: (() => void) | null = null, api: typeof import('../lib/online/room') | null = null;
+  // The friend's connection from presence/ (null: these rules can't tell, so the room's old online flag decides),
+  // when they were last seen leaving, and whether this device is connected.
+  let friendHere = $state<boolean | null>(null), awaySince = $state<number | null>(null);
+  let offlineSince = $state<number | null>(null), everConnected = false, now = $state(Date.now());
   const loadApi = async () => (api ??= await import('../lib/online/room'));
 
   // Derived game view: rebuilt from the room's move list every time it changes.
@@ -34,10 +38,37 @@
   const names = $derived<[string, string]>([room?.names?.host ?? 'Host', room?.names?.guest ?? 'Friend']);
   const ini = $derived(initials(names[0], names[1]));
   const friendUid = $derived(room ? (seat === 0 ? room.guest : room.host) : null);
-  const friendOnline = $derived(!!(friendUid && room?.online?.[friendUid]));
+  const friendOnline = $derived(!!friendUid && (friendHere === true || !!room?.online?.[friendUid]));
   const over = $derived(!!st?.over);
-  const myTurn = $derived(!!st && !st.over && st.turn === seat && friendOnline);
-  const turnText = $derived(!st ? '' : st.over ? 'Game over' : !friendOnline ? 'Waiting for your friend to reconnect' : st.turn === seat ? 'Your turn' : `${names[st.turn]}'s turn`);
+  // Moves never wait for presence: a friend who stepped away sees the move when they're back.
+  const myTurn = $derived(!!st && !st.over && st.turn === seat);
+  const turnText = $derived(!st ? '' : st.over ? 'Game over' : st.turn === seat ? 'Your turn' : `${names[st.turn]}'s turn`);
+
+  // Nothing changes for the first 10 s a friend is gone (network blips); then a calm note,
+  // and after 2 minutes an offer to leave (nothing is scored). Your own connection shows
+  // "Reconnecting…" once it has been down for 2 s.
+  $effect(() => {
+    const gone = phase === 'playing' && !!friendUid && !over && !friendOnline;
+    untrack(() => { if (gone && awaySince === null) { awaySince = now = Date.now(); } else if (!gone) awaySince = null; });
+  });
+  $effect(() => {
+    if (awaySince === null && offlineSince === null) return;
+    const t = setInterval(() => (now = Date.now()), 1000);
+    return () => clearInterval(t);
+  });
+  const away = $derived(awaySince !== null && now - awaySince >= 10_000);
+  const longAway = $derived(awaySince !== null && now - awaySince >= 120_000);
+  const reconnecting = $derived(offlineSince !== null && now - offlineSince >= 2000);
+  function onSelf(up: boolean) {
+    if (up) { everConnected = true; offlineSince = null; }
+    else if (everConnected && offlineSince === null) offlineSince = now = Date.now();
+  }
+  $effect(() => {
+    const uid = friendUid, c = code;
+    if (!uid || !c || !api) return;
+    const off = api.watchFriend(c, uid, v => (friendHere = v));
+    return () => { off(); friendHere = null; };
+  });
 
   // Sound + confetti when moves arrive or the game ends.
   let lastLen = 0;
@@ -52,9 +83,16 @@
     const a = await loadApi();
     unwatch = await a.watchRoom(code, r => {
       room = r;
-      if (!r) { error = 'This game was closed.'; phase = 'lobby'; return; }
+      if (!r) { stop(); error = 'This game was closed.'; phase = 'lobby'; return; }
       if (phase === 'waiting' && r.guest) phase = 'playing';
     });
+    unpresence = await a.joinPresence(code, onSelf);
+  }
+  function stop() { unwatch?.(); unpresence?.(); unwatch = unpresence = null; }
+  // Back from the background (phones freeze hidden tabs): read the room once and re-render.
+  async function refresh() {
+    if (document.visibilityState !== 'visible' || !code || !api || !unwatch) return;
+    try { const r = await api.readRoom(code); if (r) room = r; } catch { /* the live listener catches up */ }
   }
   async function create() {
     busy = true; error = '';
@@ -72,20 +110,22 @@
   }
   async function move(e: number) {
     if (!room || !api || !myTurn) return;
-    const ok = await api.sendMove(code, seat, e, room.moves?.length ?? 0);
-    if (!ok) error = 'That move could not be sent. The board has been refreshed.';
-    else error = '';
+    try {
+      const ok = await api.sendMove(code, seat, e, room.moves?.length ?? 0);
+      error = ok ? '' : 'That move could not be sent. The board has been refreshed.';
+    } catch { error = 'That move could not be sent. Tap again.'; }
   }
   async function copyInvite() {
     const url = `${location.origin}${location.pathname}?room=${code}`;
     const text = `Play Grid Rivals (Dots & Boxes) with me! ${url}`;
     try { await navigator.clipboard.writeText(text); copied = true; setTimeout(() => (copied = false), 1500); } catch { prompt('Copy this invite:', text); }
   }
-  function leave() { unwatch?.(); unwatch = null; room = null; phase = 'lobby'; code = ''; go('home'); }
+  function leave() { stop(); room = null; phase = 'lobby'; code = ''; go('home'); }
 
   // svelte-ignore state_referenced_locally
   if (joinCode && onlineEnabled) join();
-  onDestroy(() => unwatch?.());
+  document.addEventListener('visibilitychange', refresh); addEventListener('pageshow', refresh);
+  onDestroy(() => { stop(); document.removeEventListener('visibilitychange', refresh); removeEventListener('pageshow', refresh); });
 </script>
 
 {#if !onlineEnabled}
@@ -121,6 +161,8 @@
     <PlayerCards {names} initials={ini} subs={[seat === 0 ? 'You' : 'Host', seat === 1 ? 'You' : 'Guest']} score={[st.score[0], st.score[1]]} turn={st.turn} {over} {turnText} />
     <div class="meta"><span class="chip">{sizeTag}</span><span class="chip">Game {room.game}</span><span class="chip">Code <b>{code}</b></span></div>
     <Board rows={size.rows} cols={size.cols} {lines} {boxes} turn={st.turn} interactive={myTurn} initials={ini} anim={app.settings.anim} onmove={move} />
+    <p class="muted net" role="status">{#if reconnecting}Reconnecting…{:else if away}{names[(1 - seat) as Player]} stepped away.{myTurn ? ' Your move will be waiting.' : ''}{/if}</p>
+    {#if longAway && !reconnecting}<button class="btn small" onclick={leave}>Leave game</button>{/if}
     <p class="err" role="alert">{error}</p>
     <div class="game-actions"><button class="btn small" onclick={leave}>Leave</button></div>
   </section>
@@ -131,3 +173,9 @@
       secondary={[{ label: 'Leave', run: leave }]} />
   {/if}
 {/if}
+
+<style>
+  /* Takes no room until there is something to say; stays in the page so screen readers hear it. */
+  .net { margin: 8px 0 0; font-weight: 600; }
+  .net:empty { margin: 0; }
+</style>

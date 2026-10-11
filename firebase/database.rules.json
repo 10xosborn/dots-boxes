@@ -9,6 +9,16 @@
         "rows": { ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 12" },
         "cols": { ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 12" }
       }
+    },
+    "presence": {
+      "$code": {
+        ".read": "auth != null && (root.child('rooms').child($code).child('host').val() === auth.uid || root.child('rooms').child($code).child('guest').val() === auth.uid)",
+        "$uid": {
+          ".write": "auth != null && auth.uid === $uid && (!newData.exists() || root.child('rooms').child($code).child('host').val() === auth.uid || root.child('rooms').child($code).child('guest').val() === auth.uid)",
+          ".validate": "newData.hasChildren()",
+          "$connection": { ".validate": "newData.isNumber()" }
+        }
+      }
     }
   }
 }
