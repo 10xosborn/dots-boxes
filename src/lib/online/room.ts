@@ -80,6 +80,18 @@ export async function joinRoom(code: string, name: string, fitsScreen: (s: Board
   return { seat: 1 };
 }
 
+/**
+ * Back into a room this device was playing in, after a reload or a browser restart (the anonymous
+ * account survives both). Null when the room is gone or this player no longer holds that seat.
+ */
+export async function rejoinRoom(code: string, seat: Player): Promise<Room | null> {
+  const u = await signIn();
+  const snap = await get(roomRef(code));
+  if (!snap.exists()) return null;
+  const r = snap.val() as Room;
+  return (seat === 0 ? r.host : r.guest) === u.uid ? r : null;
+}
+
 /** Subscribe to a room. */
 export async function watchRoom(code: string, cb: (r: Room | null) => void): Promise<Unsubscribe> {
   await signIn();

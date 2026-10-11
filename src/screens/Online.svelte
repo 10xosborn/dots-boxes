@@ -8,6 +8,7 @@
   import { sfx } from '../lib/sound';
   import { confetti } from '../lib/confetti';
   import { roomSize, type Room } from '../lib/online/types';
+  import { saveRoom, clearRoom, roomEnded } from '../lib/resume';
   import Board from '../components/Board.svelte';
   import PlayerCards from '../components/PlayerCards.svelte';
   import SizePicker from '../components/SizePicker.svelte';
@@ -16,12 +17,12 @@
 
   let { joinCode = '' }: { joinCode?: string } = $props();
 
-  let phase = $state<'lobby' | 'waiting' | 'playing'>('lobby');
+  let phase = $state<'lobby' | 'rejoining' | 'waiting' | 'playing'>('lobby');
   let board = $state<BoardChoice>({ custom: false, n: 3, rows: 4, cols: 6 });
   // joinCode is only read once, on arrival from an invite link.
   // svelte-ignore state_referenced_locally
   let codeIn = $state(joinCode), code = $state(''), seat = $state<Player>(0);
-  let room = $state<Room | null>(null), error = $state(''), busy = $state(false), copied = $state(false), dismissed = $state(-1);
+  let room = $state<Room | null>(null), error = $state(''), info = $state(''), busy = $state(false), copied = $state(false), dismissed = $state(-1);
   let unwatch: (() => void) | null = null, unpresence: (() => void) | null = null, api: typeof import('../lib/online/room') | null = null;
   // The friend's connection from presence/ (null: these rules can't tell, so the room's old online flag decides),
   // when they were last seen leaving, and whether this device is connected.
@@ -72,6 +73,9 @@
     return () => { off(); friendHere = null; };
   });
 
+  // A finished game with no rematch stops being offered for rejoining after 10 minutes.
+  $effect(() => { if (code && st) roomEnded(st.over); });
+
   // Sound + confetti when moves arrive or the game ends.
   let lastLen = 0;
   $effect(() => {
@@ -85,7 +89,7 @@
     const a = await loadApi();
     unwatch = await a.watchRoom(code, r => {
       room = r;
-      if (!r) { stop(); error = 'This game was closed.'; phase = 'lobby'; return; }
+      if (!r) { stop(); clearRoom(); error = 'This game was closed.'; phase = 'lobby'; return; }
       if (phase === 'waiting' && r.guest) phase = 'playing';
     });
     unpresence = await a.joinPresence(code, onSelf);
@@ -98,7 +102,7 @@
   }
   async function create() {
     busy = true; error = '';
-    try { const a = await loadApi(); code = await a.createRoomSafe(app.profile?.name ?? 'Player', choiceSize(board)); seat = 0; phase = 'waiting'; await watch(); }
+    try { const a = await loadApi(); code = await a.createRoomSafe(app.profile?.name ?? 'Player', choiceSize(board)); seat = 0; saveRoom(code, seat); phase = 'waiting'; await watch(); }
     catch (e) { error = e instanceof Error ? e.message : 'Could not create a game.'; }
     busy = false;
   }
@@ -106,8 +110,21 @@
     const c = codeIn.trim().toUpperCase();
     if (c.length !== 5) { error = 'Codes are 5 characters.'; return; }
     busy = true; error = '';
-    try { const a = await loadApi(); ({ seat } = await a.joinRoom(c, app.profile?.name ?? 'Player', fits)); code = c; phase = 'playing'; await watch(); }
+    try { const a = await loadApi(); ({ seat } = await a.joinRoom(c, app.profile?.name ?? 'Player', fits)); code = c; saveRoom(code, seat); phase = 'playing'; await watch(); }
     catch (e) { error = e instanceof Error ? e.message : 'Could not join that game.'; }
+    busy = false;
+  }
+  // After a reload or a browser restart: back into the saved room at the same seat.
+  // A read that can't reach the database waits forever, so the rejoin gets 8 s; the room stays saved for "Try again".
+  let retry = $state<{ code: string; seat: Player } | null>(null);
+  async function rejoin(c: string, s: Player) {
+    busy = true; error = info = ''; retry = null; phase = 'rejoining';
+    try {
+      const a = await loadApi();
+      const r = await Promise.race([a.rejoinRoom(c, s), new Promise<never>((_, fail) => setTimeout(() => fail(new Error('timeout')), 8000))]);
+      if (!r) { clearRoom(); info = 'That game has ended.'; phase = 'lobby'; }
+      else { code = c; seat = s; room = r; phase = r.guest ? 'playing' : 'waiting'; await watch(); }
+    } catch { phase = 'lobby'; retry = { code: c, seat: s }; info = "Couldn't reach your game. Check your connection, then try again."; }
     busy = false;
   }
   async function move(e: number) {
@@ -122,10 +139,11 @@
     const text = `Play Grid Rivals (Dots & Boxes) with me! ${url}`;
     try { await navigator.clipboard.writeText(text); copied = true; setTimeout(() => (copied = false), 1500); } catch { prompt('Copy this invite:', text); }
   }
-  function leave() { stop(); room = null; phase = 'lobby'; code = ''; go('home'); }
+  function leave() { stop(); clearRoom(); room = null; phase = 'lobby'; code = ''; go('home'); }
 
   // svelte-ignore state_referenced_locally
   if (joinCode && onlineEnabled) join();
+  else if (app.roomResume && onlineEnabled) { const r = app.roomResume; app.roomResume = null; rejoin(r.code, r.seat); }
   document.addEventListener('visibilitychange', refresh); addEventListener('pageshow', refresh);
   onDestroy(() => { stop(); document.removeEventListener('visibilitychange', refresh); removeEventListener('pageshow', refresh); });
 </script>
@@ -138,6 +156,8 @@
 {:else if phase === 'lobby'}
   <section aria-labelledby="onTitle" class="stack">
     <BackTitle title="Play a friend online" id="onTitle" />
+    <p class="muted net" role="status">{info}</p>
+    {#if retry}<button class="btn small" disabled={busy} onclick={() => retry && rejoin(retry.code, retry.seat)}>Try again</button>{/if}
     <div class="panel">
       <h3>Start a game</h3>
       <p class="muted">You get a code to send your friend.</p>
@@ -151,6 +171,8 @@
     </div>
     <p class="err" role="alert">{error}</p>
   </section>
+{:else if phase === 'rejoining'}
+  <section class="panel" style="text-align:center" aria-live="polite"><p class="muted">Getting back into your game…</p></section>
 {:else if phase === 'waiting'}
   <section class="panel" style="text-align:center" aria-live="polite">
     <h2>Waiting for your friend</h2>

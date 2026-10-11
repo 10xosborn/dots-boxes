@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { app, setAdapter, applySettings, refreshScores } from './lib/state/app.svelte';
   import { createAdapter } from './lib/data';
-  import { loadActive, reloadedDuring } from './lib/resume';
+  import { loadActive, reloadedDuring, loadRoom } from './lib/resume';
   import TopBar from './components/TopBar.svelte';
   import Home from './screens/Home.svelte';
   import Setup from './screens/Setup.svelte';
@@ -22,9 +22,11 @@
     try { await refreshScores(); } catch { app.notice = 'Could not load your stats. Check your connection.'; }
     if (roomParam) { app.screen = 'online'; history.replaceState(null, '', location.pathname); }
     else {
-      // A reload during a game against the AI or on one device reopens that game.
-      const saved = loadActive();
+      // A reload during a game against the AI or on one device reopens that game;
+      // otherwise an online game from the last 24 hours is rejoined at the same seat.
+      const saved = loadActive(), room = loadRoom();
       if (saved && reloadedDuring(saved)) { app.resume = saved; app.screen = 'game'; }
+      else if (room) { app.roomResume = room; app.screen = 'online'; }
     }
     app.ready = true;
   });

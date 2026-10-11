@@ -45,3 +45,36 @@ export function leaveActive() { tab.set(null); }
 
 /** True when this tab was showing the saved game before a reload. */
 export const reloadedDuring = (g: ActiveGame) => tab.get() === g.id;
+
+/**
+ * The online room this device is playing in, so a reload or a restarted browser can rejoin it at
+ * the same seat (the anonymous account survives both). Stored under `dnb:room` for 24 hours, or
+ * until 10 minutes after a game in it ended without a rematch.
+ */
+export interface SavedRoom { v: 1; code: string; seat: Player; savedAt: number; endedAt?: number }
+
+const ROOM = 'dnb:room', DAY = 24 * 3600_000, AFTER_END = 10 * 60_000;
+
+export function saveRoom(code: string, seat: Player) {
+  const r: SavedRoom = { v: 1, code, seat, savedAt: Date.now() };
+  kv.set(ROOM, JSON.stringify(r));
+}
+
+export function clearRoom() { kv.set(ROOM, ''); }
+
+/** The saved room, if it is recent enough to rejoin; an expired one is cleared. */
+export function loadRoom(): SavedRoom | null {
+  const r = kv.json<SavedRoom | null>(ROOM, null), now = Date.now();
+  const ok = !!r && r.v === 1 && typeof r.code === 'string' && /^[A-Z0-9]{5}$/.test(r.code) && (r.seat === 0 || r.seat === 1)
+    && typeof r.savedAt === 'number' && now - r.savedAt < DAY && (r.endedAt === undefined || now - r.endedAt < AFTER_END);
+  if (r && !ok) clearRoom();
+  return ok ? r : null;
+}
+
+/** A game in the saved room ended (the 10-minute clock starts) or a rematch began (it stops). */
+export function roomEnded(ended: boolean) {
+  const r = kv.json<SavedRoom | null>(ROOM, null);
+  if (!r) return;
+  if (ended && r.endedAt === undefined) kv.set(ROOM, JSON.stringify({ ...r, endedAt: Date.now() }));
+  else if (!ended && r.endedAt !== undefined) { const { endedAt: _ended, ...live } = r; kv.set(ROOM, JSON.stringify(live)); }
+}
