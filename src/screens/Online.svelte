@@ -123,7 +123,7 @@
       const a = await loadApi();
       const r = await Promise.race([a.rejoinRoom(c, s), new Promise<never>((_, fail) => setTimeout(() => fail(new Error('timeout')), 8000))]);
       if (!r) { clearRoom(); info = 'That game has ended.'; phase = 'lobby'; }
-      else { code = c; seat = s; room = r; saveRoom(c, s); phase = r.guest ? 'playing' : 'waiting'; await watch(); }
+      else { code = c; seat = s; room = r; phase = r.guest ? 'playing' : 'waiting'; await watch(); }
     } catch { phase = 'lobby'; retry = { code: c, seat: s }; info = "Couldn't reach your game. Check your connection, then try again."; }
     busy = false;
   }
