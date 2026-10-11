@@ -182,7 +182,7 @@ td:first-child,th:first-child{text-align:left;font-weight:800}
 .xpblock .top{display:flex;justify-content:space-between;align-items:baseline;font-weight:800}
 .xpblock .gain{font-family:var(--display);color:var(--accent)}
 .levelup{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;background:var(--gold);color:#2b1d00;font-weight:800;font-size:.85rem;animation:pop .5s cubic-bezier(.3,1.6,.5,1)}
-.res-note{margin-top:12px;font-weight:600;line-height:1.5}
+.res-note{margin-top:12px;font-weight:600;line-height:1.5;text-wrap:balance}
 .res-note.hi{color:var(--gold)}
 .res-actions{display:grid;gap:8px;margin-top:16px}
 .res-actions .btn.small{white-space:nowrap;padding:8px 10px;font-size:.88rem}

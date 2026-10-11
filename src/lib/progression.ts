@@ -35,8 +35,8 @@ export function stats(entries: ScoreEntry[]): Stats {
     xp += e.xp || 0;
     if (e.result === 'win') {
       wins++; cur++; best = Math.max(best, cur);
-      // Fastest-win records are kept for the standard boards only.
-      if (!e.custom && e.n) { const k = e.n + e.diff; if (!(k in fastest) || e.ms < fastest[k]) fastest[k] = e.ms; }
+      // Fastest-win records are kept for the standard boards only, and never from a resumed game.
+      if (!e.custom && e.n && !e.resumed) { const k = e.n + e.diff; if (!(k in fastest) || e.ms < fastest[k]) fastest[k] = e.ms; }
     } else { cur = 0; if (e.result === 'loss') losses++; else draws++; }
   }
   const games = list.length;
@@ -47,7 +47,7 @@ export function stats(entries: ScoreEntry[]): Stats {
 export function boardRow(entries: ScoreEntry[], n: number, diff: Level, uid: string, name: string): LbRow {
   let games = 0, wins = 0, best: number | null = null;
   for (const e of entries) if (!e.custom && e.n === n && e.diff === diff) {
-    games++; if (e.result === 'win') { wins++; if (best === null || e.ms < best) best = e.ms; }
+    games++; if (e.result === 'win') { wins++; if (!e.resumed && (best === null || e.ms < best)) best = e.ms; }
   }
   return { uid, name, games, wins, best, rate: games >= MIN_RATE_GAMES ? wins / games : null };
 }
