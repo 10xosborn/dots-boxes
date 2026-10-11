@@ -1,10 +1,16 @@
 import {
   doc, getDoc, setDoc, updateDoc, collection, query, orderBy, limit, getDocs, where,
-  getCountFromServer, runTransaction, writeBatch, deleteDoc, getFirestore,
+  getCountFromServer, runTransaction, writeBatch, deleteDoc, getFirestore, connectFirestoreEmulator,
 } from 'firebase/firestore';
 import { ensureApp, signIn } from '../firebase/app';
+import { emulator } from '../firebase/config';
 
-const firestore = () => getFirestore(ensureApp());
+let emulated = false;
+const firestore = () => {
+  const db = getFirestore(ensureApp());
+  if (emulator && !emulated) { connectFirestoreEmulator(db, '127.0.0.1', 8080); emulated = true; }
+  return db;
+};
 import type { DataAdapter, Profile, ScoreEntry, Leaderboard, LbRow, LbView, Level } from './types';
 import { LEVELS, SIZES, MIN_RATE_GAMES } from './types';
 

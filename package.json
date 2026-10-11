@@ -7,16 +7,21 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
+    "dev:emulator": "vite --mode emulator",
+    "emulators": "npx --yes firebase-tools@15.33.0 emulators:start --project demo-dnb",
+    "test:rules": "npx --yes firebase-tools@15.33.0 emulators:exec --only database --project demo-dnb \"vitest run tests/rules\""
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "5.0.1",
     "@sveltejs/vite-plugin-svelte": "7.3.1",
     "@tsconfig/svelte": "5.0.8",
     "@types/node": "24.19.0",
     "svelte": "5.57.1",
     "svelte-check": "4.7.6",
     "typescript": "6.0.3",
-    "vite": "8.3.1"
+    "vite": "8.3.1",
+    "vitest": "5.0.3"
   },
   "dependencies": {
     "firebase": "12.19.0"
