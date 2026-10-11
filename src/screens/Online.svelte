@@ -36,6 +36,8 @@
   const lines = $derived(st ? st.moves.map(e => ({ e, p: st.lines[e] })) : []);
   const boxes = $derived(st ? [...st.owner].flatMap((p, b) => (p >= 0 ? [{ b, p }] : [])) : []);
   const names = $derived<[string, string]>([room?.names?.host ?? 'Host', room?.names?.guest ?? 'Friend']);
+  // Two players who never set a name are both "Player": say "Your friend" rather than a name that could be yours.
+  const friendName = $derived(names[1 - seat] === names[seat] ? 'Your friend' : names[1 - seat]);
   const ini = $derived(initials(names[0], names[1]));
   const friendUid = $derived(room ? (seat === 0 ? room.guest : room.host) : null);
   const friendOnline = $derived(!!friendUid && (friendHere === true || !!room?.online?.[friendUid]));
@@ -161,7 +163,7 @@
     <PlayerCards {names} initials={ini} subs={[seat === 0 ? 'You' : 'Host', seat === 1 ? 'You' : 'Guest']} score={[st.score[0], st.score[1]]} turn={st.turn} {over} {turnText} />
     <div class="meta"><span class="chip">{sizeTag}</span><span class="chip">Game {room.game}</span><span class="chip">Code <b>{code}</b></span></div>
     <Board rows={size.rows} cols={size.cols} {lines} {boxes} turn={st.turn} interactive={myTurn} initials={ini} anim={app.settings.anim} onmove={move} />
-    <p class="muted net" role="status">{#if reconnecting}Reconnecting…{:else if away}{names[(1 - seat) as Player]} stepped away.{myTurn ? ' Your move will be waiting.' : ''}{/if}</p>
+    <p class="muted net" role="status">{#if reconnecting}Reconnecting…{:else if away}{friendName} stepped away.{myTurn ? ' Your move will be waiting.' : ''}{/if}</p>
     {#if longAway && !reconnecting}<button class="btn small" onclick={leave}>Leave game</button>{/if}
     <p class="err" role="alert">{error}</p>
     <div class="game-actions"><button class="btn small" onclick={leave}>Leave</button></div>
