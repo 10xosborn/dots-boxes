@@ -163,7 +163,7 @@
     <PlayerCards {names} initials={ini} subs={[seat === 0 ? 'You' : 'Host', seat === 1 ? 'You' : 'Guest']} score={[st.score[0], st.score[1]]} turn={st.turn} {over} {turnText} />
     <div class="meta"><span class="chip">{sizeTag}</span><span class="chip">Game {room.game}</span><span class="chip">Code <b>{code}</b></span></div>
     <Board rows={size.rows} cols={size.cols} {lines} {boxes} turn={st.turn} interactive={myTurn} initials={ini} anim={app.settings.anim} onmove={move} />
-    <p class="muted net" role="status">{#if reconnecting}Reconnecting…{:else if away}{friendName} stepped away.{myTurn ? ' Your move will be waiting.' : ''}{/if}</p>
+    <p class="muted net" role="status">{#if reconnecting}Reconnecting…{:else if longAway}{friendName} has been away for 2 minutes. Leaving won't count as a loss.{:else if away}{friendName} stepped away.{myTurn ? ' Your move will be waiting.' : ''}{/if}</p>
     {#if longAway && !reconnecting}<button class="btn small" onclick={leave}>Leave game</button>{/if}
     <p class="err" role="alert">{error}</p>
     <div class="game-actions"><button class="btn small" onclick={leave}>Leave</button></div>
