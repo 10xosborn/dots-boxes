@@ -2,7 +2,7 @@ import type { DataAdapter, Profile, ScoreEntry, LbView, Level } from '../data/ty
 import { kv } from '../data/local';
 import { sfx } from '../sound';
 import type { BoardChoice } from '../boardFit';
-import type { ActiveGame } from '../resume';
+import type { ActiveGame, SavedRoom } from '../resume';
 
 export type Screen = 'home' | 'setup' | 'game' | 'online' | 'lb' | 'stats' | 'settings';
 
@@ -32,6 +32,8 @@ export const app = $state({
   lb: { n: 4, diff: 'medium' as Level, view: 'fast' as LbView },
   /** A saved game for the Game screen to continue instead of starting a new one. */
   resume: null as ActiveGame | null,
+  /** An online room for the Online screen to rejoin at start-up. */
+  roomResume: null as SavedRoom | null,
 });
 
 let adapter: DataAdapter | null = null;
