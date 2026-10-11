@@ -178,6 +178,6 @@
 
 <style>
   /* Takes no room until there is something to say; stays in the page so screen readers hear it. */
-  .net { margin: 8px 0 0; font-weight: 600; }
+  .net { margin: 8px 0 0; font-weight: 600; text-wrap: pretty; }
   .net:empty { margin: 0; }
 </style>
