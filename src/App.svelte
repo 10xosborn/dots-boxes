@@ -32,7 +32,6 @@
   });
 </script>
 
-<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="app">
   <TopBar busy={app.screen === 'game'} />
   {#if app.notice}<div class="banner" role="status">{app.notice} <button class="btn small" style="min-height:36px;margin-left:6px" onclick={() => (app.notice = '')}>Dismiss</button></div>{/if}

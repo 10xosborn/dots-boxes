@@ -3,6 +3,10 @@
 A modern Dots & Boxes game: a chain-savvy AI on four standard board sizes plus custom
 boards, XP and levels, a leaderboard, and online games with friends.
 
+Three themes, each in light and dark, switched from the palette button in the top bar or in
+Settings: **Tabletop** (a board game on a wooden table, the default), **Neon** (coral and slate)
+and **Paper** (a notebook and coloured pencils). The design is described in `DESIGN.md`.
+
 Built with **Svelte 5 + TypeScript + Vite**, with **Firebase** for accounts, the
 worldwide leaderboard, and online play. Hosted on **GitHub Pages**.
 
@@ -24,8 +28,11 @@ src/
   lib/boardFit.ts  Which board sizes fit the player's screen
   lib/progression.ts  XP, levels, stats
   lib/state/       App-wide state (Svelte runes)
-  components/      Board, player cards, results, controls
+  lib/theme/       The three themes: names, browser bar colours, picker previews
+  components/      Board, player cards, results, controls, theme picker
   screens/         Home, Setup, Game, Online, Leaderboard, Stats, Settings
+  assets/          Self-hosted fonts (SIL Open Font License, see fonts/LICENSE.md) and texture tiles
+  app.css          Every theme's colours, type, shapes and shadows as CSS custom properties
 firebase/          Security rules to paste into the Firebase console
 ```
 

@@ -16,12 +16,12 @@
 <svg class="hero-board" viewBox="0 0 300 110" aria-hidden="true">
   {#each boxes as bx (bx.b)}
     <g class="bx" class:pop={anim}>
-      <rect x={X[bx.b] + 8} y="23" width="74" height="64" rx="10" style:fill={bx.p ? 'var(--p2-soft)' : 'var(--p1-soft)'} />
-      <text x={X[bx.b] + 45} y="55" text-anchor="middle" dominant-baseline="central" font-family="Unbounded, sans-serif" font-weight="800" font-size="28" style:fill={bx.p ? 'var(--p2)' : 'var(--p1)'}>{bx.p ? 'B' : 'A'}</text>
+      <rect x={X[bx.b] + 8} y="23" width="74" height="64" rx="10" style:fill={bx.p ? 'var(--box2)' : 'var(--box1)'} />
+      <text x={X[bx.b] + 45} y="55" text-anchor="middle" dominant-baseline="central" font-weight="800" font-size="28" style:font-family="var(--display)" style:fill={bx.p ? 'var(--box2-ink)' : 'var(--box1-ink)'}>{bx.p ? 'B' : 'A'}</text>
     </g>
   {/each}
   {#each lines as l, i (i)}
-    <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width="8" style:stroke={l[4] ? 'var(--p2)' : 'var(--p1)'} />
+    <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width="8" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
   {/each}
   {#each X as x}{#each Y as y}<circle cx={x} cy={y} r="7" class="dot" />{/each}{/each}
 </svg>

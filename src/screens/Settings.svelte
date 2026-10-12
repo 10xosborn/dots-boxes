@@ -2,6 +2,7 @@
   import { app, data, saveSettings, refreshScores } from '../lib/state/app.svelte';
   import Toggle from '../components/Toggle.svelte';
   import BackTitle from '../components/BackTitle.svelte';
+  import ThemeChoices from '../components/ThemeChoices.svelte';
   let light = $state(app.settings.theme === 'light');
   let name = $state(app.profile?.name ?? '');
   let msg = $state('');
@@ -18,6 +19,10 @@
 <section aria-labelledby="setTitle">
   <BackTitle title="Settings" id="setTitle" />
   <div class="stack">
+    <div class="panel">
+      <h3>Theme</h3>
+      <ThemeChoices />
+    </div>
     <div class="panel">
       <Toggle label="Animations" hint="Line drawing, box pops, confetti" bind:checked={app.settings.anim} onchange={saveSettings} />
       <Toggle label="Sound effects" hint="Soft clicks and chimes" bind:checked={app.settings.sound} onchange={saveSettings} />
