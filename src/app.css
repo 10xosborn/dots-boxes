@@ -242,6 +242,8 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .pcard{position:relative;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--r-md);background:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--shadow);transition:box-shadow .3s,border-color .3s;min-width:0}
 .pcard .av{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:var(--score-w)}
 .pcard.p0 .av{background:var(--box1);color:var(--box1-ink)} .pcard.p1 .av{background:var(--box2);color:var(--box2-ink)}
+/* Paper's avatars are stickers ringed in the player's pencil (spec); on the page colour the orange initial is 3.7:1, on its wash it was 3.0:1. */
+[data-skin="paper"] .avatar,[data-skin="paper"] .pcard .av{background:var(--page);box-shadow:inset 0 0 0 2px currentColor}
 .pcard .who{min-width:0;flex:1}
 .pcard .nm{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pcard .sub{font-size:.78rem;color:var(--muted)}
