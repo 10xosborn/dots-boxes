@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Neon coral light, phone game</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Unbounded:wght@500;700;800&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;scrollbar-width:none}
+::-webkit-scrollbar{width:0;height:0;display:none}
+a{color:#2B2731}a:hover{color:#FB5553}
+button,input{font:inherit;cursor:pointer}
+input[type=text]{cursor:text}
+:focus-visible{outline:3px solid #D63F3D;outline-offset:3px}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: linear-gradient(180deg, #736C7E 0px, #736C7E 66px, #A69EA8 110px, #E1DEE3 170px, #F6F6F6 360px, #F6F6F6 70%, #E1DEE3 100%); color: #2B2731; font-family: Manrope, system-ui, sans-serif; display: flex; flex-direction: column; padding: 14px 16px 28px">
+<header style="display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 48px; margin-bottom: 18px">
+<a href="#home" style="display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: #F6F6F6">
+<svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="5" y="5" width="20" height="20" rx="3" fill="#FFE5E4"></rect><path d="M5 5H25M5 25H25M5 5V25" stroke="#FB5553" stroke-width="3" stroke-linecap="round"></path><path d="M25 5V25" stroke="#736C7E" stroke-width="3" stroke-linecap="round"></path><g fill="#F6F6F6"><circle cx="5" cy="5" r="3"></circle><circle cx="25" cy="5" r="3"></circle><circle cx="5" cy="25" r="3"></circle><circle cx="25" cy="25" r="3"></circle></g></svg>
+<b style="font-family: Unbounded, sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.01em">Grid Rivals</b>
+</a>
+<button aria-label="Ama, level 7. Open your stats" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 4px 12px 4px 4px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E1DEE3; color: #2B2731">
+<span aria-hidden="true" style="position: relative; flex: none; width: 36px; height: 36px"><svg width="36" height="36" viewBox="0 0 36 36" style="position: absolute; left: 0; top: 0"><circle cx="18" cy="18" r="16.5" fill="none" stroke="#E1DEE3" stroke-width="3"></circle><circle cx="18" cy="18" r="16.5" fill="none" stroke="#FB5553" stroke-width="3" stroke-dasharray="103.7 103.7" stroke-dashoffset="93.3" transform="rotate(-90 18 18)" stroke-linecap="round"></circle></svg><span style="position: absolute; left: 5px; top: 5px"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true" style="display: block"><circle cx="32" cy="32" r="32" fill="#F4C95D"></circle><path d="M10.83 56 C 14 50, 22 47, 32 47 S 50 50, 53.17 56 A 32 32 0 0 1 10.83 56 Z" fill="#3B7A57"></path><path d="M27 40 H37 V47.5 C 37 50.5, 27 50.5, 27 47.5 Z" fill="#7A4A2F"></path><circle cx="19.4" cy="31" r="3.3" fill="#8D5A3B"></circle><circle cx="44.6" cy="31" r="3.3" fill="#8D5A3B"></circle><ellipse cx="32" cy="30" rx="13" ry="14" fill="#8D5A3B"></ellipse><path d="M18.6 32 C 17 20.5, 24 14.5, 32 14.5 S 47 20.5, 45.4 32 C 44 25.5, 40.5 22.4, 32 22.2 S 20 25.5, 18.6 32 Z" fill="#1E1712"></path><circle cx="32" cy="10.5" r="7" fill="#1E1712"></circle><circle cx="27.3" cy="31.2" r="1.9" fill="#1E1712"></circle><circle cx="36.7" cy="31.2" r="1.9" fill="#1E1712"></circle><path d="M27.8 36.6 Q 32 40.2, 36.2 36.6" fill="none" stroke="#1E1712" stroke-width="1.9" stroke-linecap="round"></path><circle cx="23.8" cy="35.2" r="2.4" fill="#E07A5F" opacity="0.45"></circle><circle cx="40.2" cy="35.2" r="2.4" fill="#E07A5F" opacity="0.45"></circle></svg></span></span>
+<span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15"><b style="font-weight: 800; font-size: 14px">Ama</b><small style="font-weight: 700; font-size: 12px; color: #736C7E">Lv 7</small></span>
+</button>
+</header>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<div style="display: flex; align-items: center; gap: 10px; min-width: 0; padding: 10px 12px; border-radius: 14px; background: #FFFFFF; border: 1px solid {{cardA}}; box-shadow: {{shadowA}}">
+<span aria-hidden="true" style="flex: none; display: block; width: 38px; height: 38px; border-radius: 50%; box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #FB5553"><svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true" style="display: block"><circle cx="32" cy="32" r="32" fill="#F4C95D"></circle><path d="M10.83 56 C 14 50, 22 47, 32 47 S 50 50, 53.17 56 A 32 32 0 0 1 10.83 56 Z" fill="#3B7A57"></path><path d="M27 40 H37 V47.5 C 37 50.5, 27 50.5, 27 47.5 Z" fill="#7A4A2F"></path><circle cx="19.4" cy="31" r="3.3" fill="#8D5A3B"></circle><circle cx="44.6" cy="31" r="3.3" fill="#8D5A3B"></circle><ellipse cx="32" cy="30" rx="13" ry="14" fill="#8D5A3B"></ellipse><path d="M18.6 32 C 17 20.5, 24 14.5, 32 14.5 S 47 20.5, 45.4 32 C 44 25.5, 40.5 22.4, 32 22.2 S 20 25.5, 18.6 32 Z" fill="#1E1712"></path><circle cx="32" cy="10.5" r="7" fill="#1E1712"></circle><circle cx="27.3" cy="31.2" r="1.9" fill="#1E1712"></circle><circle cx="36.7" cy="31.2" r="1.9" fill="#1E1712"></circle><path d="M27.8 36.6 Q 32 40.2, 36.2 36.6" fill="none" stroke="#1E1712" stroke-width="1.9" stroke-linecap="round"></path><circle cx="23.8" cy="35.2" r="2.4" fill="#E07A5F" opacity="0.45"></circle><circle cx="40.2" cy="35.2" r="2.4" fill="#E07A5F" opacity="0.45"></circle></svg></span>
+<div style="flex: 1; min-width: 0"><div style="font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Ama</div><div style="font-size: 12.5px; color: #736C7E">Level 7</div></div>
+<div aria-label="Ama score 5" style="font-family: Unbounded, sans-serif; font-weight: 800; font-size: 30px; line-height: 1; color: #FB5553; font-variant-numeric: tabular-nums">5</div>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; min-width: 0; padding: 10px 12px; border-radius: 14px; background: #FFFFFF; border: 1px solid {{cardT}}; box-shadow: {{shadowT}}">
+<span aria-hidden="true" style="flex: none; display: block; width: 38px; height: 38px; border-radius: 50%; box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #736C7E"><svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true" style="display: block"><circle cx="32" cy="32" r="32" fill="#736C7E"></circle><path d="M12.41 57.3 C 16 52, 23 50, 32 50 S 48 52, 51.59 57.3 A 32 32 0 0 1 12.41 57.3 Z" fill="#FFFFFF"></path><rect x="28" y="44" width="8" height="7" fill="#2B2731"></rect><path d="M32 18 V12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path><circle cx="32" cy="9.5" r="3.8" fill="#F6F6F6" stroke="#FFFFFF" stroke-width="2"></circle><rect x="11.5" y="25.5" width="6" height="13" rx="3" fill="#FFFFFF"></rect><rect x="46.5" y="25.5" width="6" height="13" rx="3" fill="#FFFFFF"></rect><rect x="16" y="17" width="32" height="28" rx="9" fill="#FFFFFF"></rect><rect x="20" y="24" width="24" height="12" rx="6" fill="#2B2731"></rect><circle cx="26.5" cy="30" r="2.7" fill="#F6F6F6"></circle><circle cx="37.5" cy="30" r="2.7" fill="#F6F6F6"></circle><rect x="26.5" y="39" width="11" height="2.8" rx="1.4" fill="#2B2731"></rect></svg></span>
+<div style="flex: 1; min-width: 0"><div style="font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Tactician</div><div style="font-size: 12.5px; color: #736C7E">Medium AI</div></div>
+<div aria-label="Tactician score 4" style="font-family: Unbounded, sans-serif; font-weight: 800; font-size: 30px; line-height: 1; color: #736C7E; font-variant-numeric: tabular-nums">4</div>
+</div>
+<div role="status" style="grid-column: 1 / -1; position: relative; height: 40px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E1DEE3; overflow: hidden">
+<div style="position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc(50% - 3px); box-sizing: border-box; border-radius: 999px; background: {{pill.bg}}; border: 1px solid {{pill.bd}}; transform: {{pill.tf}}; display: grid; place-items: center; font-weight: 800; font-size: 13px; white-space: nowrap">{{pill.text}}</div>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0">
+<span style="display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 4px 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E1DEE3; font-weight: 700; font-size: 13.5px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2 2M9 2h6"></path></svg><b style="font-family: Unbounded, sans-serif; font-weight: 700; font-size: 13.5px; font-variant-numeric: tabular-nums">1:42</b></span>
+<span style="display: inline-flex; align-items: center; min-height: 34px; padding: 4px 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E1DEE3; font-weight: 700; font-size: 13.5px">5×5</span>
+<span style="display: inline-flex; align-items: center; min-height: 34px; padding: 4px 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E1DEE3; font-weight: 700; font-size: 13.5px">Medium</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 4px 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E1DEE3; font-weight: 700; font-size: 13.5px">Lv 7<span style="width: 46px; height: 6px; border-radius: 999px; background: #F6F6F6; overflow: hidden"><i style="display: block; width: 10%; height: 100%; background: #FB5553"></i></span></span>
+</div>
+<div style="width: 358px; max-width: 100%; margin: 0 auto; box-sizing: border-box; border-radius: 22px; background-color: #FFFFFF; border: 1px solid rgba(251, 85, 83, 0.45); background-image: linear-gradient(rgba(115, 108, 126, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(115, 108, 126, 0.08) 1px, transparent 1px); background-size: 24px 24px; box-shadow: 0 0 0 1px rgba(251, 85, 83, 0.12), 0 0 30px -8px rgba(251, 85, 83, 0.45), 0 26px 44px -30px rgba(70, 60, 80, 0.55)">
+<svg viewBox="0 0 600 600" role="img" aria-label="{{boardLabel}}" style="display: block; width: 100%; height: auto">
+<defs>
+<pattern id="pa" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2.6" height="10" fill="#FFFFFF" opacity="0.25"></rect></pattern>
+<pattern id="pt" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1.6" fill="#FFFFFF" opacity="0.22"></circle></pattern>
+<filter id="glow" filterUnits="userSpaceOnUse" x="0" y="0" width="600" height="600"><feGaussianBlur stdDeviation="2.2" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+</defs>
+<sc-for list="{{boxes}}" as="b" hint-placeholder-count="9">
+<rect x="{{b.x}}" y="{{b.y}}" width="80" height="80" rx="12" fill="{{b.fill}}"></rect>
+<rect x="{{b.x}}" y="{{b.y}}" width="80" height="80" rx="12" fill="{{b.pat}}"></rect>
+<text x="{{b.cx}}" y="{{b.cy}}" text-anchor="middle" dominant-baseline="central" font-family="Unbounded, sans-serif" font-size="32" font-weight="800" fill="{{b.ink}}">{{b.ini}}</text>
+</sc-for>
+<g filter="url(#glow)">
+<sc-for list="{{lines}}" as="l" hint-placeholder-count="42">
+<line x1="{{l.x1}}" y1="{{l.y1}}" x2="{{l.x2}}" y2="{{l.y2}}" stroke="{{l.c}}" stroke-width="10" stroke-linecap="round"></line>
+</sc-for>
+</g>
+<circle cx="{{pip.x}}" cy="{{pip.y}}" r="10" fill="#FFFFFF" stroke="#FB5553" stroke-width="4"></circle>
+<sc-for list="{{dots}}" as="d" hint-placeholder-count="36">
+<circle cx="{{d.x}}" cy="{{d.y}}" r="8.5" fill="#2B2731"></circle>
+</sc-for>
+</svg>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 16px">
+<button style="min-height: 44px; padding: 8px 14px; border-radius: 14px; border: 1px solid #E1DEE3; background: #F6F6F6; color: #2B2731; font-weight: 800; font-size: 14.5px">Quit</button>
+<button style="min-height: 44px; padding: 8px 14px; border-radius: 14px; border: 1px solid #E1DEE3; background: #F6F6F6; color: #2B2731; font-weight: 800; font-size: 14.5px">Restart</button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"moment":{"editor":"enum","options":["Extra turn","Tactician thinking"],"default":"Extra turn"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const thinking = (this.props.moment ?? 'Extra turn') === 'Tactician thinking';
+    const H = ['tatat', 't..aa', 't....', 'ata.a', 't..aa', 'tatat'];
+    const V = ['at.taa', thinking ? 'ttaa.t' : 'tta..t', 'at.t.a', '..t.aa', 'tt.aat'];
+    const B = ['t..aa', 't....', 't....', '....a', 't..aa'];
+    const P = (i) => 50 + i * 100;
+    const col = { a: '#FB5553', t: '#736C7E' };
+    const fill = { a: '#FB5553', t: '#736C7E' };
+    const ink = { a: '#FFFFFF', t: '#FFFFFF' };
+    const lines = [];
+    const boxes = [];
+    const dots = [];
+    H.forEach((row, r) => row.split('').forEach((ch, k) => {
+      if (ch !== '.') lines.push({ x1: P(k), y1: P(r), x2: P(k + 1), y2: P(r), c: col[ch] });
+    }));
+    V.forEach((row, r) => row.split('').forEach((ch, k) => {
+      if (ch !== '.') lines.push({ x1: P(k), y1: P(r), x2: P(k), y2: P(r + 1), c: col[ch] });
+    }));
+    B.forEach((row, r) => row.split('').forEach((ch, k) => {
+      if (ch !== '.') boxes.push({ x: P(k) + 10, y: P(r) + 10, cx: P(k) + 50, cy: P(r) + 51, fill: fill[ch], ink: ink[ch], pat: ch === 'a' ? 'url(#pa)' : 'url(#pt)', ini: ch === 'a' ? 'A' : 'T' });
+    }));
+    for (let r = 0; r < 6; r++) for (let k = 0; k < 6; k++) dots.push({ x: P(k), y: P(r) });
+    return {
+      lines, boxes, dots,
+      pip: thinking ? { x: 350, y: 200 } : { x: 500, y: 350 },
+      cardA: thinking ? '#E1DEE3' : '#FB5553',
+      shadowA: thinking ? 'none' : '0 0 0 1px #FB5553, 0 0 20px -6px rgba(251, 85, 83, 0.5)',
+      cardT: thinking ? '#736C7E' : '#E1DEE3',
+      shadowT: thinking ? '0 0 0 1px #736C7E, 0 0 20px -6px rgba(115, 108, 126, 0.45)' : 'none',
+      boardLabel: thinking
+        ? 'Board, 5 by 5. Ama owns 5 boxes, Tactician owns 4. Tactician is choosing a line.'
+        : 'Board, 5 by 5. Ama owns 5 boxes, Tactician owns 4. Ama closed a box and moves again.',
+      pill: thinking
+        ? { bg: '#ECE9EE', bd: '#736C7E', tf: 'translateX(100%)', text: 'Tactician is thinking…' }
+        : { bg: '#FFE5E4', bd: '#FB5553', tf: 'none', text: 'Your turn · +1 extra turn' }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cozy Paper and Notebook, game over</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&amp;family=Atkinson+Hyperlegible:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;scrollbar-width:none}
+::-webkit-scrollbar{width:0;height:0;display:none}
+a{color:#2E2B27}a:hover{color:#1F4FA8}
+button,input{font:inherit;cursor:pointer}
+input[type=text]{cursor:text}
+:focus-visible{outline:2px dashed #2E2B27;outline-offset:3px}
+.tab{min-height:44px;padding:0 16px;border:1.5px solid #2E2B27;border-radius:4px;background:#FBF7EE;color:#2E2B27;font-weight:700;font-size:15px;box-shadow:2px 2px 0 rgba(46,43,39,.18)}
+.tab:hover{box-shadow:3px 3px 0 rgba(46,43,39,.24)}
+.tab:active{box-shadow:none;transform:translate(2px,2px)}
+.tab.primary{background:#2E2B27;color:#FBF7EE}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #FBF7EE; color: #2E2B27; font-family: 'Atkinson Hyperlegible', system-ui, sans-serif">
+<div aria-hidden="true" style="position: absolute; inset: 0; box-sizing: border-box; padding: 8px 16px 28px; display: flex; flex-direction: column">
+<svg aria-hidden="true" width="100%" height="100%" style="position: absolute; left: 0; top: 0; pointer-events: none"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#grain)" opacity="0.07"></rect></svg>
+<div aria-hidden="true" style="position: absolute; left: 30px; top: 0; bottom: 0; width: 1.5px; background: #E9B9B0"></div>
+<div style="position: relative; display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding-left: 22px"><div style="display: flex; flex-direction: column; text-decoration: none; color: #2E2B27; min-height: 44px; justify-content: center"><span style="font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 24px">Grid Rivals</span><svg aria-hidden="true" width="100" height="7" viewBox="0 0 100 7"><path d="M2 4 C 26 1, 52 6, 98 2" stroke="#D0601E" stroke-width="2.2" fill="none" stroke-linecap="round"></path></svg></div></div>
+<div style="position: relative; margin-top: 8px; padding: 4px 0 0 22px; background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 41px, #D6E0EA 41px, #D6E0EA 42px)">
+<div style="display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 12px; height: 42px"><span aria-hidden="true" style="margin-right: -6px; display: block; width: 24px; height: 24px; border-radius: 50%; box-shadow: 0 0 0 2px #FFFDF7, 0 0 0 3.5px #D0601E, 1.5px 2.5px 0 3.5px rgba(46, 43, 39, 0.18); transform: rotate(-6deg)"><svg width="24" height="24" viewBox="0 0 64 64" aria-hidden="true" style="display: block"><circle cx="32" cy="32" r="32" fill="#F4C95D"></circle><path d="M10.83 56 C 14 50, 22 47, 32 47 S 50 50, 53.17 56 A 32 32 0 0 1 10.83 56 Z" fill="#3B7A57"></path><path d="M27 40 H37 V47.5 C 37 50.5, 27 50.5, 27 47.5 Z" fill="#7A4A2F"></path><circle cx="19.4" cy="31" r="3.3" fill="#8D5A3B"></circle><circle cx="44.6" cy="31" r="3.3" fill="#8D5A3B"></circle><ellipse cx="32" cy="30" rx="13" ry="14" fill="#8D5A3B"></ellipse><path d="M18.6 32 C 17 20.5, 24 14.5, 32 14.5 S 47 20.5, 45.4 32 C 44 25.5, 40.5 22.4, 32 22.2 S 20 25.5, 18.6 32 Z" fill="#1E1712"></path><circle cx="32" cy="10.5" r="7" fill="#1E1712"></circle><circle cx="27.3" cy="31.2" r="1.9" fill="#1E1712"></circle><circle cx="36.7" cy="31.2" r="1.9" fill="#1E1712"></circle><path d="M27.8 36.6 Q 32 40.2, 36.2 36.6" fill="none" stroke="#1E1712" stroke-width="1.9" stroke-linecap="round"></path><circle cx="23.8" cy="35.2" r="2.4" fill="#E07A5F" opacity="0.45"></circle><circle cx="40.2" cy="35.2" r="2.4" fill="#E07A5F" opacity="0.45"></circle></svg></span>
+<div style="position: relative; justify-self: start; font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1.1; white-space: nowrap">Ama <span style="font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 400; font-size: 12px; color: #5E574E">you</span><svg aria-hidden="true" width="90" height="8" viewBox="0 0 90 8" style="position: absolute; left: 0; bottom: -2px; opacity: 1"><path d="M2 5 C 24 2, 54 7, 88 3" stroke="#D0601E" stroke-width="2.6" fill="none" stroke-linecap="round"></path></svg></div>
+<svg aria-hidden="true" width="89" height="26" viewBox="0 0 89 26" style="display: block; overflow: visible"><path d="M2.6 3 L3.5 23 M9.6 3 L10.3 23 M14.6 3 L15.5 23 M21.6 3 L22.3 23 M0.0 19 L25.0 6 M32.6 3 L33.5 23 M39.6 3 L40.3 23 M44.6 3 L45.5 23 M51.6 3 L52.3 23 M30.0 19 L55.0 6 M62.6 3 L63.5 23 M69.6 3 L70.3 23 M74.6 3 L75.5 23 M81.6 3 L82.3 23" fill="none" stroke="#D0601E" stroke-width="2.2" stroke-linecap="round"></path></svg>
+<span aria-label="Ama 14" style="position: relative; display: inline-grid; place-items: center; width: 44px; height: 36px; font-family: Kalam, cursive; font-weight: 700; font-size: 28px; line-height: 1; color: #2E2B27">14<svg aria-hidden="true" width="50" height="42" viewBox="0 0 50 42" style="position: absolute; left: -3px; top: -3px; overflow: visible; opacity: 1"><path d="M9 25 C 6 9, 33 2, 43 14 S 40 39, 22 39 S 4 31, 14 13" fill="none" stroke="#D0601E" stroke-width="2.4" stroke-linecap="round"></path></svg></span>
+</div>
+<div style="display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 12px; height: 42px"><span aria-hidden="true" style="margin-right: -6px; display: block; width: 24px; height: 24px; border-radius: 50%; box-shadow: 0 0 0 2px #FFFDF7, 0 0 0 3.5px #1F4FA8, 1.5px 2.5px 0 3.5px rgba(46, 43, 39, 0.18); transform: rotate(5deg)"><svg width="24" height="24" viewBox="0 0 64 64" aria-hidden="true" style="display: block"><circle cx="32" cy="32" r="32" fill="#1F4FA8"></circle><path d="M12.41 57.3 C 16 52, 23 50, 32 50 S 48 52, 51.59 57.3 A 32 32 0 0 1 12.41 57.3 Z" fill="#FFFFFF"></path><rect x="28" y="44" width="8" height="7" fill="#2E2B27"></rect><path d="M32 18 V12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path><circle cx="32" cy="9.5" r="3.8" fill="#FFE58A" stroke="#FFFFFF" stroke-width="2"></circle><rect x="11.5" y="25.5" width="6" height="13" rx="3" fill="#FFFFFF"></rect><rect x="46.5" y="25.5" width="6" height="13" rx="3" fill="#FFFFFF"></rect><rect x="16" y="17" width="32" height="28" rx="9" fill="#FFFFFF"></rect><rect x="20" y="24" width="24" height="12" rx="6" fill="#2E2B27"></rect><circle cx="26.5" cy="30" r="2.7" fill="#FFE58A"></circle><circle cx="37.5" cy="30" r="2.7" fill="#FFE58A"></circle><rect x="26.5" y="39" width="11" height="2.8" rx="1.4" fill="#2E2B27"></rect></svg></span>
+<div style="position: relative; justify-self: start; font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1.1; white-space: nowrap">Tactician <span style="font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 400; font-size: 12px; color: #5E574E">Medium AI</span><svg aria-hidden="true" width="90" height="8" viewBox="0 0 90 8" style="position: absolute; left: 0; bottom: -2px; opacity: 0"><path d="M2 5 C 24 2, 54 7, 88 3" stroke="#1F4FA8" stroke-width="2.6" fill="none" stroke-linecap="round"></path></svg></div>
+<svg aria-hidden="true" width="71" height="26" viewBox="0 0 71 26" style="display: block; overflow: visible"><path d="M2.6 3 L3.5 23 M9.6 3 L10.3 23 M14.6 3 L15.5 23 M21.6 3 L22.3 23 M0.0 19 L25.0 6 M32.6 3 L33.5 23 M39.6 3 L40.3 23 M44.6 3 L45.5 23 M51.6 3 L52.3 23 M30.0 19 L55.0 6 M62.6 3 L63.5 23" fill="none" stroke="#1F4FA8" stroke-width="2.2" stroke-linecap="round"></path></svg>
+<span aria-label="Tactician 11" style="position: relative; display: inline-grid; place-items: center; width: 44px; height: 36px; font-family: Kalam, cursive; font-weight: 700; font-size: 28px; line-height: 1; color: #2E2B27">11<svg aria-hidden="true" width="50" height="42" viewBox="0 0 50 42" style="position: absolute; left: -3px; top: -3px; overflow: visible; opacity: 0"><path d="M9 25 C 6 9, 33 2, 43 14 S 40 39, 22 39 S 4 31, 14 13" fill="none" stroke="#1F4FA8" stroke-width="2.4" stroke-linecap="round"></path></svg></span>
+</div>
+</div>
+<div style="position: relative; width: 352px; margin: 18px auto 0">
+<svg viewBox="0 0 600 600" style="display: block; width: 100%; height: auto; overflow: visible">
+<defs>
+<pattern id="h1" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2.4" height="10" fill="#D0601E" opacity="0.6"></rect></pattern>
+<pattern id="h2" width="13" height="13" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="1.7" height="13" fill="#1F4FA8" opacity="0.5"></rect><rect width="13" height="1.7" fill="#1F4FA8" opacity="0.5"></rect></pattern>
+</defs>
+<sc-for list="{{boxes}}" as="b" hint-placeholder-count="25">
+<rect x="{{b.x}}" y="{{b.y}}" width="84" height="84" rx="3" fill="{{b.wash}}" opacity="0.6"></rect>
+<rect x="{{b.x}}" y="{{b.y}}" width="84" height="84" rx="3" fill="{{b.hatch}}"></rect>
+<text x="{{b.cx}}" y="{{b.cy}}" text-anchor="middle" dominant-baseline="central" font-family="Kalam, cursive" font-size="46" font-weight="700" fill="{{b.c}}" stroke="#FBF7EE" stroke-width="7" stroke-linejoin="round" paint-order="stroke" transform="{{b.rot}}">{{b.ini}}</text>
+</sc-for>
+<sc-for list="{{lines}}" as="l" hint-placeholder-count="60">
+<path d="{{l.d}}" fill="none" stroke="{{l.c}}" stroke-width="5.5" stroke-linecap="round"></path>
+<path d="{{l.g}}" fill="none" stroke="{{l.c}}" stroke-width="1.6" stroke-linecap="round" opacity="0.4"></path>
+</sc-for>
+<sc-for list="{{dots}}" as="d" hint-placeholder-count="36">
+<circle cx="{{d.x}}" cy="{{d.y}}" r="6.5" fill="#2E2B27" opacity="0.88"></circle>
+</sc-for>
+</svg>
+</div>
+</div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(46, 43, 39, 0.22)"><section role="dialog" aria-modal="true" aria-labelledby="resTitle" style="position: absolute; left: 16px; top: 162px; box-sizing: border-box; padding: 30px 22px 22px; background: #FFFDF7; box-shadow: 0 -14px 30px -14px rgba(46, 43, 39, 0.5); display: flex; flex-direction: column; opacity: 0.9; padding-top: 22px; padding-right: 20px; padding-left: 20px; padding-bottom: 20px; width: 358px; height: 561px">
+<svg aria-hidden="true" width="100%" height="12" viewBox="0 0 366 12" preserveAspectRatio="none" style="position: absolute; left: 0; top: -11px; display: block"><path d="M0 12 L0 7 L7 2 L15 6 L20 1 L25 3 L30 5 L36 1 L41 4 L49 1 L55 1 L63 1 L68 2 L73 5 L81 1 L87 1 L93 3 L101 2 L106 5 L113 5 L119 1 L125 3 L130 5 L135 5 L140 5 L146 4 L154 3 L162 5 L170 3 L177 2 L183 6 L189 1 L196 5 L204 3 L212 3 L217 1 L225 2 L232 2 L240 4 L245 6 L250 5 L257 3 L264 5 L272 5 L280 1 L285 3 L293 6 L298 1 L305 6 L313 3 L321 6 L328 1 L336 3 L342 5 L347 4 L352 2 L359 2 L365 4 L366 4 L366 12 Z" fill="#FFFDF7"></path></svg>
+<div aria-hidden="true" style="position: absolute; left: 14px; right: 14px; top: 14px; border-top: 2px dashed #CFC4AE"></div>
+<p style="margin: 0; font-size: 13px; color: #5E574E">Scorecard · 5×5 · Medium · vs Tactician</p>
+<h2 id="resTitle" style="position: relative; margin: 4px 0 0; align-self: flex-start; font-family: Kalam, cursive; font-weight: 700; font-size: 46px; line-height: 1.05">You win!<svg aria-hidden="true" width="170" height="12" viewBox="0 0 170 12" style="position: absolute; left: -4px; bottom: -8px"><path d="M3 8 C 50 2, 110 11, 166 3" stroke="#D0601E" stroke-width="3" fill="none" stroke-linecap="round"></path></svg></h2>
+<div style="margin-top: 16px; display: flex; align-items: flex-start; gap: 22px">
+<div aria-label="Ama 14" style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: Kalam, cursive; font-weight: 700; font-size: 34px; line-height: 1; color: #D0601E">14</span><svg aria-hidden="true" width="89" height="26" viewBox="0 0 89 26" style="display: block; overflow: visible"><path d="M2.6 3 L3.5 23 M9.6 3 L10.3 23 M14.6 3 L15.5 23 M21.6 3 L22.3 23 M0.0 19 L25.0 6 M32.6 3 L33.5 23 M39.6 3 L40.3 23 M44.6 3 L45.5 23 M51.6 3 L52.3 23 M30.0 19 L55.0 6 M62.6 3 L63.5 23 M69.6 3 L70.3 23 M74.6 3 L75.5 23 M81.6 3 L82.3 23" fill="none" stroke="#D0601E" stroke-width="2.2" stroke-linecap="round"></path></svg></div>
+<span aria-hidden="true" style="font-family: Kalam, cursive; font-weight: 700; font-size: 34px; line-height: 1; color: #5E574E">–</span>
+<div aria-label="Tactician 11" style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: Kalam, cursive; font-weight: 700; font-size: 34px; line-height: 1; color: #1F4FA8">11</span><svg aria-hidden="true" width="71" height="26" viewBox="0 0 71 26" style="display: block; overflow: visible"><path d="M2.6 3 L3.5 23 M9.6 3 L10.3 23 M14.6 3 L15.5 23 M21.6 3 L22.3 23 M0.0 19 L25.0 6 M32.6 3 L33.5 23 M39.6 3 L40.3 23 M44.6 3 L45.5 23 M51.6 3 L52.3 23 M30.0 19 L55.0 6 M62.6 3 L63.5 23" fill="none" stroke="#1F4FA8" stroke-width="2.2" stroke-linecap="round"></path></svg></div>
+</div>
+<div style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums">
+<span style="padding: 4px 10px; border: 1.5px solid #2E2B27; border-radius: 4px">Time 4:12.3</span>
+<span style="padding: 4px 10px; border: 1.5px solid #2E2B27; border-radius: 4px">5×5</span>
+<span style="padding: 4px 10px; border: 1.5px solid #2E2B27; border-radius: 4px">Medium</span>
+</div>
+<div style="position: relative; margin-top: 16px; padding-right: 112px">
+<div style="font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1.2">Level 7</div>
+<div role="progressbar" aria-label="Progress to level 8" aria-valuenow="208" aria-valuemin="0" aria-valuemax="400" style="margin-top: 4px; height: 14px; box-sizing: border-box; border: 1.5px solid #2E2B27; border-radius: 3px; background: #FBF7EE; overflow: hidden"><div style="width: 52%; height: 100%; background: repeating-linear-gradient(45deg, #D0601E 0 2.5px, transparent 2.5px 7px), #F6DCCB"></div></div>
+<div style="margin-top: 4px; font-size: 13px; color: #5E574E; font-variant-numeric: tabular-nums">208 / 400 XP to level 8</div>
+<span style="position: absolute; right: 2px; top: 2px; transform: rotate(-9deg); padding: 6px 12px 4px; border: 3px solid #2F6B4F; border-radius: 8px; color: #2F6B4F; font-family: Kalam, cursive; font-weight: 700; font-size: 26px; line-height: 1; box-shadow: inset 0 0 0 2px #FFFDF7, inset 0 0 0 3.5px #2F6B4F; opacity: 0.92">+168 XP</span>
+</div>
+<p style="margin: 16px 0 0; font-size: 14.5px; line-height: 1.5; font-weight: 700">You were 1:05.5 slower than the #1 time on 5×5 Medium (Kwame, 3:06.8).</p>
+<p style="margin: 4px 0 0; font-size: 14px; color: #5E574E">Fastest-win rank: #12 → #8</p>
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px">
+<button class="tab primary" style="min-height: 52px; font-size: 17px">Play again</button>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px"><button class="tab">Change settings</button><button class="tab">Leaderboard</button></div>
+</div>
+</section></div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const P = (i) => 50 + i * 100;
+    const col = { a: '#D0601E', t: '#1F4FA8' };
+    const wob = (i) => ((i * 37) % 7 - 3) * 0.45;
+    let n = 0;
+    const seg = (x1, y1, x2, y2, c) => {
+      const o = wob(n++), mx = (x1 + x2) / 2, my = (y1 + y2) / 2, h = y1 === y2;
+      const qx = h ? mx : mx + o, qy = h ? my + o : my;
+      return { d: 'M' + x1 + ' ' + y1 + ' Q' + qx + ' ' + qy + ' ' + x2 + ' ' + y2,
+               g: 'M' + (x1 + 0.8) + ' ' + (y1 - 0.9) + ' Q' + (qx + 0.6) + ' ' + (qy - 1.2) + ' ' + (x2 + 0.5) + ' ' + (y2 - 0.6), c: c };
+    };
+    const tilt = [-4, 3, -2, 5, -3, 2, -5, 4];
+    const box = (r, k, ch) => {
+      const cx = P(k) + 50, cy = P(r) + 52;
+      return { x: P(k) + 8, y: P(r) + 8, wash: ch === 'a' ? '#F6DCCB' : '#D8E2F3', hatch: ch === 'a' ? 'url(#h1)' : 'url(#h2)', c: col[ch], ini: ch === 'a' ? 'A' : 'T', cx: cx, cy: cy, rot: 'rotate(' + tilt[(r * 5 + k) % 8] + ' ' + cx + ' ' + cy + ')' };
+    };
+    const lines = [], boxes = [], dots = [];
+    for (let r = 0; r < 6; r++) for (let k = 0; k < 6; k++) dots.push({ x: P(k), y: P(r) });
+    const F = ['ttaaa', 'taaaa', 'tatta', 'tatta', 'tataa'];
+    for (let r = 0; r < 6; r++) for (let k = 0; k < 5; k++) lines.push(seg(P(k), P(r), P(k + 1), P(r), '#2E2B27'));
+    for (let r = 0; r < 5; r++) for (let k = 0; k < 6; k++) lines.push(seg(P(k), P(r), P(k), P(r + 1), '#2E2B27'));
+    F.forEach((row, r) => row.split('').forEach((ch, k) => boxes.push(box(r, k, ch))));
+    return { lines, boxes, dots };
+  }
+}
+</script>
+</body>
+</html>
