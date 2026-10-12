@@ -184,8 +184,9 @@ p{line-height:1.5;margin:0}
 [data-skin="paper"] .seg button[aria-pressed="true"]{box-shadow:none}
 /* Neon's small selected rings use its focus coral: the deeper #D63F3D by day, where bright coral is under 3:1 on the light tint. */
 [data-skin="neon"] .seg button[aria-pressed="true"]{box-shadow:inset 0 0 0 1.5px var(--focus)}
-/* The tick is decoration (aria-pressed already says "pressed"): empty alt text keeps it out of the button's name. */
-.seg button[aria-pressed="true"]::before{content:"\2713\00a0";content:"\2713\00a0"/""}
+/* Paper ticks its choice (its setup uses hand-drawn checkboxes); Tabletop and Neon mark it with the ring and tint, as in their mockups.
+   The tick is decoration (aria-pressed already says "pressed"): empty alt text keeps it out of the button's name. */
+[data-skin="paper"] .seg button[aria-pressed="true"]::before{content:"\2713\00a0";content:"\2713\00a0"/""}
 .help{font-size:.85rem;color:var(--muted);margin-top:8px;min-height:1.3em}
 input[type=text]{width:100%;min-height:50px;border-radius:var(--r-sm);border:var(--panel-bw) solid var(--panel-b);background:var(--control);padding:10px 14px;font-weight:700;font-size:1rem}
 [data-skin="neon"] input[type=text]{background:var(--panel)}
