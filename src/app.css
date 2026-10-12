@@ -182,6 +182,8 @@ p{line-height:1.5;margin:0}
 .seg button{flex:1;min-height:44px;border:0;border-radius:var(--r-sm);background:transparent;font-weight:700;cursor:pointer;color:var(--muted);transition:background-color .2s,color .2s}
 .seg button[aria-pressed="true"]{background:var(--select-tint);color:var(--text);box-shadow:inset 0 0 0 1.5px var(--accent)}
 [data-skin="paper"] .seg button[aria-pressed="true"]{box-shadow:none}
+/* Neon's small selected rings use its focus coral: the deeper #D63F3D by day, where bright coral is under 3:1 on the light tint. */
+[data-skin="neon"] .seg button[aria-pressed="true"]{box-shadow:inset 0 0 0 1.5px var(--focus)}
 /* The tick is decoration (aria-pressed already says "pressed"): empty alt text keeps it out of the button's name. */
 .seg button[aria-pressed="true"]::before{content:"\2713\00a0";content:"\2713\00a0"/""}
 .help{font-size:.85rem;color:var(--muted);margin-top:8px;min-height:1.3em}
@@ -208,6 +210,7 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .theme-opts{display:grid;gap:10px}
 .theme-opt{display:flex;align-items:center;gap:14px;width:100%;min-height:68px;padding:10px 12px;border-radius:var(--r-md);border:2px solid transparent;background:var(--control);text-align:left;cursor:pointer;color:var(--text)}
 .theme-opt[aria-checked="true"]{border-color:var(--accent);background:var(--select-tint)}
+[data-skin="neon"] .theme-opt[aria-checked="true"]{border-color:var(--focus)}
 .theme-opt svg{flex:none;width:52px;height:52px;border-radius:10px}
 .theme-opt b{display:block;font-family:var(--display);font-weight:var(--display-w);font-size:1.05rem}
 .theme-opt small{display:block;color:var(--muted);font-size:.85rem}
