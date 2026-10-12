@@ -180,7 +180,8 @@ p{line-height:1.5;margin:0}
 .seg button{flex:1;min-height:44px;border:0;border-radius:var(--r-sm);background:transparent;font-weight:700;cursor:pointer;color:var(--muted);transition:background-color .2s,color .2s}
 .seg button[aria-pressed="true"]{background:var(--select-tint);color:var(--text);box-shadow:inset 0 0 0 1.5px var(--accent)}
 [data-skin="paper"] .seg button[aria-pressed="true"]{box-shadow:none}
-.seg button[aria-pressed="true"]::before{content:"\2713\00a0"}
+/* The tick is decoration (aria-pressed already says "pressed"): empty alt text keeps it out of the button's name. */
+.seg button[aria-pressed="true"]::before{content:"\2713\00a0";content:"\2713\00a0"/""}
 .help{font-size:.85rem;color:var(--muted);margin-top:8px;min-height:1.3em}
 input[type=text]{width:100%;min-height:50px;border-radius:var(--r-sm);border:var(--panel-bw) solid var(--panel-b);background:var(--control);padding:10px 14px;font-weight:700;font-size:1rem}
 [data-skin="neon"] input[type=text]{background:var(--panel)}
