@@ -226,7 +226,9 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .xpbar{height:10px;border-radius:999px;background:var(--ring-track);overflow:hidden;margin-top:8px}
 .xpbar b{display:block;height:100%;width:0;border-radius:inherit;background:var(--ring);transition:width .9s cubic-bezier(.2,.8,.2,1)}
 .menu{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.menu .btn.primary{grid-column:1/-1;min-height:60px;font-size:1.1rem}
+/* Tabletop and Neon keep their 19 px primary label here too: white on coral (3.2:1) and on night teal (3.9:1) needs large bold text. */
+.menu .btn.primary{grid-column:1/-1;min-height:60px}
+[data-skin="paper"] .menu .btn.primary{font-size:1.1rem}
 
 /* ---------- game HUD ---------- */
 .hud{display:grid;grid-template-columns:1fr 1fr;gap:10px}
