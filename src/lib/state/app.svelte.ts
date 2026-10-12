@@ -3,10 +3,12 @@ import { kv } from '../data/local';
 import { sfx } from '../sound';
 import type { BoardChoice } from '../boardFit';
 import type { ActiveGame, SavedRoom } from '../resume';
+import { skinOf, skinInfo, type Skin } from '../theme/themes';
 
 export type Screen = 'home' | 'setup' | 'game' | 'online' | 'lb' | 'stats' | 'settings';
 
-export interface Settings { anim: boolean; sound: boolean; theme: 'dark' | 'light' }
+/** `skin` was added with the themes; older saved settings without it get the default theme. */
+export interface Settings { anim: boolean; sound: boolean; theme: 'dark' | 'light'; skin: Skin }
 export interface GameConfig { mode: 'ai' | 'pvp'; board: BoardChoice; diff: Level; first: '0' | '1' | 'r'; p2: string }
 
 const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -20,6 +22,11 @@ function loadCfg(): GameConfig {
   return { ...base, ...rest, board: { ...base.board, ...(n ? { n } : {}), ...(board ?? {}) } };
 }
 
+function loadSettings(): Settings {
+  const saved = kv.json<Partial<Settings>>('dnb:settings', {});
+  return { anim: !reduced, sound: false, theme: 'dark', ...saved, skin: skinOf(saved.skin) };
+}
+
 /** Single source of truth for app-wide UI state (Svelte 5 runes). */
 export const app = $state({
   screen: 'home' as Screen,
@@ -27,7 +34,7 @@ export const app = $state({
   notice: '' as string,
   profile: null as Profile | null,
   scores: [] as ScoreEntry[],
-  settings: { anim: !reduced, sound: false, theme: 'dark', ...kv.json<Partial<Settings>>('dnb:settings', {}) } as Settings,
+  settings: loadSettings(),
   cfg: loadCfg(),
   lb: { n: 4, diff: 'medium' as Level, view: 'fast' as LbView },
   /** A saved game for the Game screen to continue instead of starting a new one. */
@@ -50,10 +57,11 @@ export function saveCfg() { kv.set('dnb:cfg', JSON.stringify(app.cfg)); }
 
 export function applySettings() {
   const root = document.documentElement;
+  root.dataset.skin = app.settings.skin;
   root.dataset.theme = app.settings.theme;
   document.body.classList.toggle('no-anim', !app.settings.anim);
   const meta = document.querySelector('meta[name=theme-color]');
-  if (meta) meta.setAttribute('content', app.settings.theme === 'light' ? '#F4F1FF' : '#0C0A24');
+  if (meta) meta.setAttribute('content', skinInfo(app.settings.skin).bar[app.settings.theme]);
   sfx.enable(app.settings.sound);
 }
 

@@ -26,8 +26,9 @@
   const P = (v: number) => PAD + v * sp;
   const drawn = $derived(new Set(lines.map(l => l.e)));
   const stroke = $derived(Math.max(6, sp * 0.085));
+  // Theme colours (app.css): the mover's colour for previews, each player's line and box colours.
   const color = (p: number) => (p === 0 ? 'var(--p1)' : 'var(--p2)');
-  const glow = (p: number) => `drop-shadow(0 0 ${Math.round(sp * 0.05)}px ${p === 0 ? 'rgba(255,92,122,.55)' : 'rgba(62,214,234,.55)'})`;
+  const lineColor = (p: number) => (p === 0 ? 'var(--line1)' : 'var(--line2)');
   const xy = (e: number) => { const [a, b, c, d] = g.coords(e); return [P(a), P(b), P(c), P(d)]; };
 
   let svg: SVGSVGElement;
@@ -100,16 +101,16 @@
     onblur={() => (focused = false)}>
     <defs>
       <!-- Patterns keep ownership readable without color: stripes = player 1, dots = player 2. -->
-      <pattern id="pat0" width={sp * 0.08} height={sp * 0.08} patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width={sp * 0.026} height={sp * 0.08} style="fill:var(--p1)" opacity=".35" /></pattern>
-      <pattern id="pat1" width={sp * 0.08} height={sp * 0.08} patternUnits="userSpaceOnUse"><circle cx={sp * 0.04} cy={sp * 0.04} r={sp * 0.013} style="fill:var(--p2)" opacity=".45" /></pattern>
+      <pattern id="pat0" width={sp * 0.1} height={sp * 0.1} patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width={sp * 0.026} height={sp * 0.1} style="fill:var(--pat1)" opacity=".24" /></pattern>
+      <pattern id="pat1" width={sp * 0.1} height={sp * 0.1} patternUnits="userSpaceOnUse"><circle cx={sp * 0.05} cy={sp * 0.05} r={sp * 0.016} style="fill:var(--pat2)" opacity=".24" /></pattern>
     </defs>
 
     {#each boxes as bx (bx.b)}
       {@const x = P(bx.b % cols)}{@const y = P(Math.floor(bx.b / cols))}{@const i = sp * 0.1}
       <g class="bx" class:pop={anim}>
-        <rect x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} style:fill={bx.p === 0 ? 'var(--p1-soft)' : 'var(--p2-soft)'} />
+        <rect x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} style:fill={bx.p === 0 ? 'var(--box1)' : 'var(--box2)'} />
         <rect x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} fill="url(#pat{bx.p})" />
-        <text x={x + sp / 2} y={y + sp / 2} text-anchor="middle" dominant-baseline="central" font-family="Unbounded, sans-serif" font-weight="800" font-size={sp * 0.34} style:fill={color(bx.p)}>{initials[bx.p]}</text>
+        <text x={x + sp / 2} y={y + sp / 2} text-anchor="middle" dominant-baseline="central" font-weight="800" font-size={sp * 0.34} paint-order="stroke" stroke-linejoin="round" stroke-width={sp * 0.07} style:stroke="var(--ini-halo)" style:font-family="var(--display)" style:fill={bx.p === 0 ? 'var(--box1-ink)' : 'var(--box2-ink)'}>{initials[bx.p]}</text>
       </g>
     {/each}
 
@@ -120,7 +121,7 @@
 
     {#each lines as l (l.e)}
       {@const [x1, y1, x2, y2] = xy(l.e)}
-      <line class="ln" class:grow={anim} {x1} {y1} {x2} {y2} stroke-width={stroke} style="--len:{sp}" style:stroke={color(l.p)} style:filter={glow(l.p)} />
+      <line class="ln" class:grow={anim} {x1} {y1} {x2} {y2} stroke-width={stroke} style="--len:{sp}" style:stroke={lineColor(l.p)} />
     {/each}
 
     {#if focused && kbd && cursor >= 0}
