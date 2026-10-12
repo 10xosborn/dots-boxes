@@ -166,6 +166,9 @@
     {#if focused && kbd && cursor >= 0}
       {@const [x1, y1, x2, y2] = xy(cursor)}
       <line {x1} {y1} {x2} {y2} stroke-width={stroke * 2.4} stroke-linecap="round" style="stroke:var(--accent);opacity:.35" />
+      <!-- A 3 px focus ring round the line (.kbd-ring in app.css): the band alone is too faint on every board. -->
+      <rect class="kbd-ring" x={Math.min(x1, x2) - stroke * 1.2} y={Math.min(y1, y2) - stroke * 1.2} width={Math.abs(x2 - x1) + stroke * 2.4} height={Math.abs(y2 - y1) + stroke * 2.4}
+        rx={stroke * 1.2} />
     {/if}
 
     <g class="dots">
