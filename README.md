@@ -4,8 +4,9 @@ A modern Dots & Boxes game: a chain-savvy AI on four standard board sizes plus c
 boards, XP and levels, a leaderboard, and online games with friends.
 
 Three themes, each in light and dark, switched from the palette button in the top bar or in
-Settings: **Tabletop** (a board game on a wooden table, the default), **Neon** (coral and slate)
-and **Paper** (a notebook and coloured pencils). The design is described in `DESIGN.md`.
+Settings: **Tabletop** (a felt game board on a wooden table, the default), **Neon** (glowing
+lines and lights in a dark or bright room) and **Paper** (lines printed on warm, textured paper).
+The design is described in `DESIGN.md`.
 
 Built with **Svelte 5 + TypeScript + Vite**, with **Firebase** for accounts, the
 worldwide leaderboard, and online play. Hosted on **GitHub Pages**.

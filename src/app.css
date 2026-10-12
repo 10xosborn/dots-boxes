@@ -149,17 +149,18 @@
   --scrim: rgba(46,43,39,.4); --modal-r: 6px;
   --r-lg: 6px; --r-md: 4px; --r-sm: 4px; --r-pill: 4px; --r-primary: 4px;
 }
-/* Cozy Paper at night: charcoal paper on a dark desk; orange and cyan inks (6.7:1 and 6.8:1). */
+/* Cozy Paper at night: charcoal paper on a dark desk; coral and cyan inks (4.4:1 and 6.8:1), which also differ in lightness
+   for players who see no colour (orange and cyan would look the same grey). Orange becomes the highlight and gold. */
 [data-skin="paper"][data-theme="dark"] {
   --page: #1A1816;
   --text: #EFE8DA; --muted: #B3A994; --head-text: #EFE8DA;
   --accent: #00B58C; --accent-lip: #007A5E; --on-accent: #12100E;   /* teal: the main action, dark labels (7:1) */
   --focus: #21BDCA; --ring: #21BDCA; --ring-track: #3A3530;
   --danger: #FF8C32; --gold: #FF8C32;                 /* indigo highlighter behind light text (4.8:1) */
-  --p1: #FF8C32; --p1-deep: #FF8C32; --p1-soft: #3E2A1A;
+  --p1: #FC4422; --p1-deep: #FF6B4F; --p1-soft: #3E1D17;
   --p2: #21BDCA; --p2-deep: #21BDCA; --p2-soft: #133538;
-  --box1: #3E2A1A; --box2: #133538; --box1-ink: #FF8C32; --box2-ink: #21BDCA; --pat1: #FF8C32; --pat2: #21BDCA; --ini-halo: #27241F;
-  --line1: #FF8C32; --line2: #21BDCA;
+  --box1: #3E1D17; --box2: #133538; --box1-ink: #FF6B4F; --box2-ink: #21BDCA; --pat1: #FC4422; --pat2: #21BDCA; --ini-halo: #27241F;
+  --line1: #FC4422; --line2: #21BDCA;
   --dot: #EFE8DA; --dot-hi: #FFFFFF; --dot-lo: #A79E8D;
   --fx-hi: rgba(0,0,0,.6); --fx-lo: rgba(255,255,255,.08);
   --panel: #27241F; --panel-b: rgba(239,232,218,.7); --panel-strong: #27241F; --control: #27241F; --select-tint: #11362C;

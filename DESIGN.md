@@ -1,102 +1,111 @@
 ---
 # gstack: design-md-format=spec
 # The UI design is locked to docs/design/ui-themes-spec.md and docs/design/mockups/.
-# These tokens copy the spec's tables; where anything here differs from the spec, the spec wins.
+# These tokens copy the spec's tables (palettes updated by the owner on 2026-10-12); where they differ, the spec wins.
 name: Grid Rivals
 description: A two-player game of lines and boxes with three themes players can switch between; Minimalist Premium, a board game on a table, is the default.
 colors:
-  # 1. Minimalist Premium (tabletop), light (table) and dark (night table)
-  table-light-table: "#E4D2B2"
-  table-light-sheet: "#FCFCFA"
-  table-light-lane: "#E6E6EA"
-  table-light-line: "#3A3A3D"
-  table-light-line-last: "#161618"
-  table-light-dot: "#646468"
-  table-light-p1: "#2F86C6"
-  table-light-p1-deep: "#1F5F8C"
-  table-light-p2: "#B92E3B"
-  table-light-p2-deep: "#8C1F2A"
-  table-light-accent: "#0B7A87"
-  table-light-accent-lip: "#075A63"
+  # 1. Tabletop: maple table (light) and walnut table (dark). Palettes: burnt orange, pale mint, pastel and golden yellow by day;
+  #    coral red, sage, pale butter and turquoise at night. Deeper or lighter shades only where text or thin marks need them.
+  table-light-table: "#E3B970"
+  table-light-felt: "#C4DFC9"
+  table-light-frame: "#B0602A"
+  table-light-line: "#23392D"
+  table-light-dot: "#2C4637"
+  table-light-p1: "#D77027"
+  table-light-p1-deep: "#C2611F"
+  table-light-p2: "#F4AF3D"
+  table-light-p2-mark: "#B07A12"
+  table-light-p2-deep: "#9C6B0E"
+  table-light-box-rim-1: "#9E4E17"
+  table-light-box-rim-2: "#94650C"
+  table-light-accent: "#D77027"
+  table-light-accent-lip: "#9E4E17"
   table-light-on-accent: "#FFFFFF"
   table-light-ink: "#2B241D"
-  table-light-ink-2: "#5A4C3D"
-  table-light-pill: "#FFFFFF"
-  table-light-control: "#F1EFEA"
-  table-light-select-tint: "#E2F2F3"
-  table-dark-table: "#241C15"
-  table-dark-sheet: "#1C1D20"
-  table-dark-lane: "#2A2B30"
-  table-dark-line: "#DADADF"
-  table-dark-line-last: "#FFFFFF"
-  table-dark-dot: "#A9A9B0"
-  table-dark-p1: "#2F86C6"
-  table-dark-p1-deep: "#8CC4EE"
-  table-dark-p2: "#D0414E"
-  table-dark-p2-deep: "#F29AA3"
-  table-dark-accent: "#0E8E9C"
-  table-dark-accent-lip: "#0A6670"
-  table-dark-on-accent: "#FFFFFF"
-  table-dark-ink: "#F2EBE3"
-  table-dark-ink-2: "#B9AA98"
-  table-dark-pill: "#2A2420"
-  table-dark-control: "#2E2823"
-  table-dark-select-tint: "#10363A"
-  # 2. Neon (coral), dark and light
-  neon-dark-text: "#F6F6F6"
-  neon-dark-muted: "#A69EA8"
-  neon-dark-accent: "#FB5553"
-  neon-dark-p1: "#FB5553"
-  neon-dark-p2: "#E1DEE3"
-  neon-dark-p2-soft: "#736C7E"
-  neon-dark-panel: "#2A2630"
-  neon-dark-panel-b: "#463F4F"
-  neon-dark-panel-strong: "#352F3D"
-  neon-dark-dot: "#F6F6F6"
-  neon-dark-board: "#1C1A22"
-  neon-dark-gold: "#FFD166"
-  neon-dark-focus: "#FB5553"
-  neon-light-text: "#2B2731"
-  neon-light-muted: "#736C7E"
-  neon-light-accent: "#FB5553"
-  neon-light-accent-small: "#D63F3D"
-  neon-light-p1: "#FB5553"
-  neon-light-p2: "#736C7E"
-  neon-light-p2-soft: "#736C7E"
-  neon-light-panel: "#FFFFFF"
-  neon-light-panel-b: "#E1DEE3"
-  neon-light-panel-strong: "#F6F6F6"
-  neon-light-dot: "#2B2731"
+  table-light-ink-2: "#5A4632"
+  table-light-pill: "#FFF8E9"
+  table-light-control: "#F6EAD0"
+  table-light-select-tint: "#FCE6B2"
+  table-light-sel-ring: "#9E4E17"
+  table-light-focus: "#8A3F0E"
+  table-light-gold: "#8C5F0A"
+  table-dark-table: "#2A1F18"
+  table-dark-felt: "#2F3F39"
+  table-dark-frame: "#3B2A1E"
+  table-dark-line: "#AEC8BF"
+  table-dark-dot: "#E8CF83"
+  table-dark-p1: "#E9494B"
+  table-dark-p1-deep: "#F06567"
+  table-dark-p2: "#63C1C8"
+  table-dark-p2-deep: "#7FD1D7"
+  table-dark-box-rim-1: "#FF9A9B"
+  table-dark-box-rim-2: "#A5E4E8"
+  table-dark-accent: "#F4DD97"
+  table-dark-accent-lip: "#8C7536"
+  table-dark-on-accent: "#2A1F18"
+  table-dark-ink: "#F4EBDD"
+  table-dark-ink-2: "#C9BBA6"
+  table-dark-pill: "#3A2C23"
+  table-dark-control: "#46362B"
+  table-dark-select-tint: "#4A4126"
+  table-dark-sel-ring: "#F4DD97"
+  table-dark-focus: "#63C1C8"
+  table-dark-gold: "#F4DD97"
+  # 2. Neon, dark and light. Palette: orange, teal, indigo, cyan and coral in both modes.
+  neon-dark-page: "#070A18"
+  neon-dark-board: "#0B0F24"
+  neon-dark-text: "#EEF1FF"
+  neon-dark-muted: "#A7AECB"
+  neon-dark-p1: "#FC4422"
+  neon-dark-p2: "#21BDCA"
+  neon-dark-accent: "#00B58C"
+  neon-dark-on-accent: "#04110D"
+  neon-dark-sel-ring: "#7D8BFF"
+  neon-dark-panel: "#10142C"
+  neon-dark-panel-strong: "#161B3A"
+  neon-dark-focus: "#21BDCA"
+  neon-dark-gold: "#FF8C32"
+  neon-light-page: "#EEF1FA"
   neon-light-board: "#FFFFFF"
-  neon-light-gold: "#B7791F"
-  neon-light-focus: "#D63F3D"
-  # 3. Cozy Paper and Notebook, light (paper) and dark (chalkboard)
-  paper-light-desk: "#E7DFCF"
-  paper-light-page: "#FBF7EE"
+  neon-light-text: "#141832"
+  neon-light-muted: "#4F5577"
+  neon-light-p1: "#FC4422"
+  neon-light-p2: "#4657CE"
+  neon-light-accent: "#4657CE"
+  neon-light-on-accent: "#FFFFFF"
+  neon-light-sel-ring: "#4657CE"
+  neon-light-panel: "#FFFFFF"
+  neon-light-focus: "#4657CE"
+  neon-light-gold: "#B5560C"
+  # 3. Cozy Paper: cream paper (light) and charcoal paper (dark). The same five colours as Neon.
+  paper-light-desk: "#E6DCC7"
+  paper-light-page: "#FCF8EF"
   paper-light-graphite: "#2E2B27"
-  paper-light-graphite-2: "#5E574E"
-  paper-light-rule: "#D6E0EA"
-  paper-light-margin: "#E9B9B0"
-  paper-light-p1: "#D0601E"
-  paper-light-p1-wash: "#F6DCCB"
-  paper-light-p2: "#1F4FA8"
-  paper-light-p2-wash: "#D8E2F3"
-  paper-light-highlight: "#FFE58A"
-  paper-light-stamp: "#2F6B4F"
-  paper-light-button: "#2E2B27"
-  paper-dark-desk: "#161B18"
-  paper-dark-page: "#1F2522"
-  paper-dark-graphite: "#ECEDE6"
-  paper-dark-graphite-2: "#A9B0A9"
-  paper-dark-rule: "#2F3833"
-  paper-dark-margin: "#5A3A35"
-  paper-dark-p1: "#F59A5B"
-  paper-dark-p1-wash: "#3D2A1E"
-  paper-dark-p2: "#8DB8F2"
-  paper-dark-p2-wash: "#1E2A3D"
-  paper-dark-highlight: "#6B5A1E"
-  paper-dark-stamp: "#7FC4A0"
-  paper-dark-button: "#ECEDE6"
+  paper-light-graphite-2: "#625A50"
+  paper-light-p1: "#FC4422"
+  paper-light-p1-wash: "#FFE1D8"
+  paper-light-p2: "#4657CE"
+  paper-light-p2-wash: "#E2E5FA"
+  paper-light-accent: "#4657CE"
+  paper-light-select-tint: "#D3F2EA"
+  paper-light-sel-ring: "#007F62"
+  paper-light-ring: "#00936F"
+  paper-light-gold: "#B04E07"
+  paper-dark-desk: "#1A1816"
+  paper-dark-page: "#27241F"
+  paper-dark-graphite: "#EFE8DA"
+  paper-dark-graphite-2: "#B3A994"
+  paper-dark-p1: "#FC4422"
+  paper-dark-p1-wash: "#3E1D17"
+  paper-dark-p2: "#21BDCA"
+  paper-dark-p2-wash: "#133538"
+  paper-dark-accent: "#00B58C"
+  paper-dark-on-accent: "#12100E"
+  paper-dark-select-tint: "#11362C"
+  paper-dark-sel-ring: "#00B58C"
+  paper-dark-ring: "#21BDCA"
+  paper-dark-gold: "#FF8C32"
 typography:
   table-ui:
     fontFamily: Jost
@@ -142,7 +151,7 @@ spacing:
 
 # Grid Rivals
 
-**The design is locked:** the owner's UI themes spec (`docs/design/ui-themes-spec.md`, kept outside version control) is the authority, and `docs/design/mockups/` holds the boards with the exact values. This file collects the tokens and the decisions in one place for the repository. Where it differs from the spec, the spec wins.
+**The design is locked:** the owner's UI themes spec (`docs/design/ui-themes-spec.md`, committed without its tool-specific handoff section) is the authority, and `docs/design/mockups/` holds the boards with the exact values. This file collects the tokens and the decisions in one place for the repository. Where it differs from the spec, the spec wins.
 
 ## Overview
 
@@ -154,11 +163,11 @@ spacing:
 
 | Theme | Modes | Character | Fonts |
 |---|---|---|---|
-| 1. Minimalist Premium (the default) | light table, night table | A board game on a light-oak table: one white sheet, grey lanes for every possible line, charcoal lines with a soft offset shadow, solid box fills with a person or bot icon, white cards and pills with soft shadows, teal for progress and actions | Jost |
-| 2. Neon (coral) | dark, light | Today's layout in coral and slate purple: coral means you or an action, slate purple the opponent; flat panels; one glow on the line group | Unbounded, Manrope |
-| 3. Cozy Paper and Notebook | paper, chalkboard | A notebook on a desk: coloured-pencil lines, hatched boxes, a tally-mark score sheet, a highlighter for the extra turn | Kalam (names, scores, headings), Atkinson Hyperlegible (everything else) |
+| 1. Tabletop (Minimalist Premium; the default) | maple table, walnut table | A board game on a table: a felt mat (pale mint, or sage at night) in a wood-grain rim casting a shadow; lines and dots engraved in the felt, a printed guide under every line, solid box fills with a rim; cream cards with soft shadows; burnt orange (coral red at night) for you and the main action | Jost |
+| 2. Neon | dark, light | A room lit by its colours: coloured light pooling from the corners, dark (or bright) glass panels, a board with a lit edge, lines that glow like tubes with bright cores, dots like indicator lights; coral for you, cyan (indigo by day) for the opponent, teal (indigo by day) for the main action | Unbounded, Manrope |
+| 3. Cozy Paper | cream paper, charcoal paper | A sheet of real-looking paper on a kraft desk: formation, fibres and tooth; lines and dots printed and pressed into it; hatched boxes; paper-tab buttons; coral for you, indigo (cyan at night) for the opponent | Kalam (names, scores, headings), Atkinson Hyperlegible (everything else) |
 
-A theme changes tokens and a few component variants, never `rules.ts` or the board's input logic.
+A theme changes tokens, its materials (backgrounds, the board surface, SVG effects for lines, dots and boxes) and a few component variants, never `rules.ts` or the board's input logic.
 
 ## Theme picker
 
@@ -171,15 +180,25 @@ Not in the mockups (the spec lists it as an enhancement); added at the owner's r
 
 ## Colors
 
-The front matter holds every token from the spec's tables (names prefixed by theme and mode). Rules from the spec: text at least 4.5:1, large text and icons at least 3:1, each player colour at least 3:1 against its board, never colour alone (every box has an icon, initial or hatching, and the turn indicator names the player). The spec lists the computed ratios per theme; notable limits it handles:
-- Minimalist night: white on the teal accent is 3.9:1, so night buttons use large bold text.
-- Neon: coral #FB5553 is 3.2:1 on white, so it carries lines, large numbers and labels of 19 px and up only; small rings and the focus ring use #D63F3D.
+The front matter holds every token (names prefixed by theme and mode). The palettes are the owner's (2026-10-12): Paper and Neon use orange #FF8C32, teal #00B58C, indigo #4657CE, cyan #21BDCA and coral #FC4422 in both modes; Tabletop uses burnt orange #D77027, pale mint #C4DFC9, pastel yellow #F7CD70 and golden yellow #F4AF3D by day, and coral red #E9494B, sage #AEC8BF, pale butter #F4DD97 and turquoise #63C1C8 at night. Deeper or lighter shades of them appear only where text or a thin mark needs the contrast.
+
+Rules: text at least 4.5:1, large text and icons at least 3:1, each player's lines (and box edges) at least 3:1 against the board, never colour alone (boxes carry stripes or dots and an initial, the turn pill names the player). Limits handled:
+- Tabletop by day: burnt orange carries white labels only at 19 px bold (3.4:1); the pale felt makes box fills too light against it, so each player's boxes get a rim (4.2:1 and 3.6:1).
+- Neon by day: coral reaches 3.5:1 on white, so it draws lines and large numbers, never small text.
+- Paper at night: player 1 is coral, not orange, because orange and cyan have the same lightness and would look identical to players who see no colour.
+
+## Materials
+
+- **Tabletop:** a wood tile with plank seams, light from above and darker edges; the board is felt (a soft-light grain tile) inside a 10 px rim drawn with inset shadows plus a wood-grain ring, so the board's size (and `boardFit.ts`) is unchanged; lines and dots get an engrave effect (a light edge below, a dark one above).
+- **Neon:** layered radial gradients for ambient light; the board has a lit inner edge and coloured outer glow; lines, dots and boxes get a two-blur glow in their own colours (a softer single glow by day), and at night each line has a bright core. Glow follows a hierarchy: the main action most, then the selected option and the turn pill, then hover.
+- **Paper:** a paper tile (cloudy formation, short fibres in every direction, tooth) that multiplies onto the cream sheet and the kraft desk by day and blends in soft-light at night; lines and dots get an emboss effect (pressed into the paper) and dots are printed beads.
+- The effects live once in the board's SVG `<defs>` (`fx-engrave`, `fx-emboss`, `fx-glow`, `fx-glow-soft`, `dot-bead`), sized from the dot spacing, and each theme picks them through tokens (`--ln-filter`, `--dot-filter`, `--bx-filter`, `--cores`). Moves still paint by the next frame on 12x12 boards and on slowed phones.
 
 ## Typography
 
 As specified per theme, self-hosted (woff2, Latin and Latin Extended subsets, `font-display: swap`), replacing the Google Fonts link. Each theme loads at most 2 families: the browser fetches only the active theme's files.
 
-**Open question for the owner:** Jost, Manrope, Kalam and Atkinson Hyperlegible lack Ɛ ɛ Ɔ ɔ and the Ewe letters (Ɖ ɖ Ɣ ɣ Ʋ ʋ), so a Twi or Ewe name would show those letters in the phone's own font. Unbounded has them all. Until the owner decides (a tiny fallback file, the phone's font, or another face), the spec's fonts ship as written.
+**Ghanaian letters:** Jost, Manrope, Kalam and Atkinson Hyperlegible lack Ɛ ɛ Ɔ ɔ Ɖ ɖ Ƒ Ɣ ɣ Ʋ ʋ Ʒ ʒ (Kalam and Atkinson also Ŋ ŋ) and the cedi sign. Tiny subsets of Montserrat (for Jost), Inter (for Manrope) and Noto Sans (for Kalam and Atkinson) join each family for just those characters and load only when such a name is on screen. Unbounded has them all.
 
 ## Layout
 
@@ -197,6 +216,13 @@ From the spec's shared section: the contrast rules above; a visible 2-3 px focus
 
 | Date | Decision | Rationale |
 |---|---|---|
+| 2026-10-12 | New palettes and real materials in all three themes | Owner's redesign plan: the themes looked flat and didn't use their colours. Layouts stay; tokens, backgrounds, the board surface and SVG effects change. |
+| 2026-10-12 | Tabletop lines stay one colour for both players, engraved; boxes get a rim | On a game board the lines are part of the board; ownership shows in the boxes, whose fills are too light against the pale felt without a rim. |
+| 2026-10-12 | Paper at night: coral for player 1 | Orange and cyan have the same lightness, so players who see no colour couldn't tell the lines apart; coral against cyan differs in hue and lightness. |
+| 2026-10-12 | Neon glow follows a hierarchy | Main action, then the selected option and the turn pill, then hover only, so the screen stays readable. |
+| 2026-10-12 | Ghanaian letters: per-theme fallback subsets | The owner chose the recommended option over the phone's font or another face. |
+| 2026-10-12 | The theme is its own saved setting (`skin`) beside light and dark; Tabletop is the default; fonts are self-hosted, split by unicode-range | Old saved settings keep working; the first paint uses the right theme; no third-party font request. |
+| 2026-10-12 | Paper ticks the chosen option; level up is a chip in Tabletop and Neon; primary buttons darken towards their lip on hover | Found in the design review of the first theme PR: a non-colour cue where Paper has no ring, readable level-up text, and hover that keeps label contrast. |
 | 2026-10-12 | The owner's UI themes spec and its mockups are the locked design | The spec replaces the overhaul brief's candidate-directions step; PR 00 records it here and the following PRs build it. The spec stays outside version control because it includes tool-specific handoff notes; the mockups and these tokens are committed. |
 | 2026-10-12 | Build all three themes and let players switch between them; Minimalist Premium is the default | Owner's decision. The spec recommends Minimalist Premium as the main look; its theme picker enhancement is now in scope. |
 | 2026-10-12 | Theme picker: a top-bar theme button opening a theme sheet, plus a Theme setting | Not covered by the mockups; designed to keep the top bar's height and each theme's own controls. |

@@ -1,5 +1,7 @@
 # Grid Rivals UI Themes: Spec
 
+> **Palette and materials update (owner, 2026-10-12).** The three themes keep their layouts but take new palettes and real materials: Tabletop is a felt mat in a wooden rim on a maple or walnut table, Neon a room lit by its colours with glowing lines and controls, Cozy Paper a sheet of real-looking paper with printed lines. Each theme's tokens (section C) hold the current values; where older colour names elsewhere in this spec disagree (teal, slate purple, blue ink, chalkboard and so on), the tokens and this note win.
+
 Oct 12, 2026 · @Osborn Tulasi
 
 The canvas holds three themes, all drawn on the same game moment: desktop and phone game screens, setup, an avatar builder, and the same "You win!" results screen in each theme's style. Minimalist Premium and Neon each come in light and dark. I recommend **Minimalist Premium**, the tabletop look built from your reference pictures. **Neon**, your original layout in coral and slate purple, is the cheapest upgrade. Each theme's full spec is in its own tab under Theme specs.
@@ -166,7 +168,7 @@ The mockups show these states; none of the behaviour exists until it is built. L
 
 - The mockups are HTML on the canvas, not pictures from an image model, and they are not working code: no game logic runs in them. The Tweaks switch only swaps pre-drawn moments: Extra turn or Tactician thinking.
 - Minimalist Premium's board and feel follow your reference pictures, but in Grid Rivals' own colours, type, icons and words; its game screens use the same layout as the other themes, so it is not a copy of those screens.
-- Neon uses your five colours as given. Coral #FB5553 reaches only 3.2:1 on white, so it carries lines, large numbers and button labels of 19 px and up, never small text; small selected rings and the focus ring use a deeper coral, #D63F3D.
+- Palettes (owner, 2026-10-12): Paper and Neon use orange #FF8C32, teal #00B58C, indigo #4657CE, cyan #21BDCA and coral #FC4422; Tabletop uses burnt orange #D77027, pale mint #C4DFC9, pastel yellow #F7CD70 and golden yellow #F4AF3D by day, and coral red #E9494B, sage #AEC8BF, pale butter #F4DD97 and turquoise #63C1C8 at night. Where a palette colour is too light or too dark for text or a thin mark, a deeper or lighter shade of it is used (listed in each theme's tokens).
 - The Cozy Paper boards were rebuilt from its spec tab after the marker version was dropped, because the canvas can't hand back earlier copies of a board. Small drawing details may differ from the first version.
 - The sample numbers are placeholders built on your real formulas: +168 XP = 60 × 1.5 (Medium) × 1.8 (5×5) + 2 × 3 (margin), from progression.ts. Kwame's 3:06.8 and the ranks are made up.
 - The avatar art is a starting set made for these mockups and worth a pass by an illustrator; the app stores no avatar today (PlayerCards and ProfileCard show initials).
@@ -194,7 +196,7 @@ Canvas rows 1 (light table) and 2 (night table): Desktop game (a hover preview a
 ## B. Rationale
 
 - **Mood and audience:** friendly and calm, like a board game on a table; casual players, students from 10 up, and adults.
-- **Identity:** light-oak table, one white sheet, grey lanes for every possible line, charcoal lines with a soft offset shadow, solid box fills with a white person or bot icon, and white cards and pills that cast soft shadows instead of having borders. Teal marks progress and primary actions.
+- **Identity:** a felt game mat in a wooden rim on a maple (or walnut) table: lines and dots engraved in the felt, a printed guide under every possible line, solid box fills with a rim and an icon or initial, cream cards that cast soft shadows. Burnt orange marks you and the main action by day (coral red at night); golden yellow (turquoise) the other player.
 - **Layout:** the same single column as Neon and Cozy Paper, at most 680 px wide: top bar (brand and level chip), two player cards, the turn pill, chips, the board, then Quit and Restart.
 - **Type:** one family, Jost: geometric, friendly and readable at 13 px, with tabular figures for scores and the clock.
 - **Legibility:** the sheet is the only white surface under the board; lanes show the legal moves; the active player's card gets a ring and a soft glow, and the pill names whose turn it is.
@@ -203,30 +205,33 @@ Canvas rows 1 (light table) and 2 (night table): Desktop game (a hover preview a
 
 ## C. Tokens
 
-| Token | Light (table) | Dark (night table) | Used for |
-| --- | --- | --- | --- |
-| --table | #E4D2B2 | #241C15 | Page background, under a grain tile at 40% |
-| --sheet | #FCFCFA | #1C1D20 | Board |
-| --lane | #E6E6EA | #2A2B30 | Undrawn lines |
-| --line | #3A3A3D | #DADADF | Drawn lines |
-| --line-last | #161618 | #FFFFFF | The most recent line |
-| --line-shadow | rgba(0,0,0,0.16) | rgba(0,0,0,0.45) | Offset copy under each line |
-| --dot | #646468 | #A9A9B0 | Dots |
-| --p1 | #2F86C6 | #2F86C6 | You: badge, box fill, preview |
-| --p1-deep | #1F5F8C | #8CC4EE | Your text and box rim |
-| --p2 | #B92E3B | #D0414E | AI or player 2 |
-| --p2-deep | #8C1F2A | #F29AA3 | Their text and box rim |
-| --accent | #0B7A87 | #0E8E9C | Primary pills, progress rings, selection |
-| --accent-lip | #075A63 | #0A6670 | Pressed edge |
-| --on-accent | #FFFFFF | #FFFFFF | Text and icons on accent |
-| --ink | #2B241D | #F2EBE3 | Text on the table |
-| --ink-2 | #5A4C3D | #B9AA98 | Secondary text |
-| --pill | #FFFFFF | #2A2420 | Cards, chips and the turn pill |
-| --control | #F1EFEA | #2E2823 | Unselected setup controls |
-| --select-tint | #E2F2F3 | #10363A | Selected tiles |
-| --scrim | rgba(16,11,6,0.55) | rgba(0,0,0,0.6) | Behind the results dialog |
 
-Computed contrast: ink on table 10.3:1; ink-2 on table 5.6:1; white on accent 5.1:1 (night 3.9:1, so night buttons use large bold text); white icons on the box fills 3.9:1 (you) and 6.0:1 (AI); red fill against the sheet 5.8:1, blue about 3.8:1.
+| Token | Light (maple table) | Dark (walnut table) | Used for |
+| --- | --- | --- | --- |
+| --table | #E3B970 | #2A1F18 | The table: wood tile, plank seams, light from above, darker edges |
+| --felt | #C4DFC9 (pale mint) | #2F3F39 (sage, deepened) | The board: a felt mat with a fine nap |
+| --frame | #B0602A | #3B2A1E, brass edge #F4DD97 | The board's wooden rim (wood grain) and its cast shadow |
+| --lane | rgba(35,57,45,0.17) | rgba(174,200,191,0.14) | Printed guide under every undrawn line |
+| --line | #23392D | #AEC8BF (sage) | Drawn lines, engraved, the same for both players |
+| --dot | #2C4637 bead | #E8CF83 brass peg (pale butter) | Dots, engraved |
+| --p1 | #D77027 (burnt orange) | #E9494B (coral red) | You: box fill, card ring, turn pill, preview |
+| --p1-deep | #C2611F | #F06567 | Your score |
+| --p2 | #F4AF3D (golden yellow) fill, #B07A12 marks | #63C1C8 (turquoise) | AI or player 2 |
+| --p2-deep | #9C6B0E | #7FD1D7 | Their score |
+| --box-rim | #9E4E17 and #94650C | #FF9A9B and #A5E4E8 | Rim round each player's boxes (their visible edge on the felt) |
+| --accent | #D77027 | #F4DD97 (pale butter) | Primary buttons and progress |
+| --accent-lip | #9E4E17 | #8C7536 | Pressed edge; hover darkens towards it |
+| --on-accent | #FFFFFF (19 px bold) | #2A1F18 | Text and icons on the accent |
+| --ink | #2B241D | #F4EBDD | Text |
+| --ink-2 | #5A4632 | #C9BBA6 | Secondary text |
+| --pill | #FFF8E9 | #3A2C23 | Cards, chips and the turn pill |
+| --control | #F6EAD0 | #46362B | Unselected controls |
+| --select-tint | #FCE6B2 (pastel yellow) | #4A4126 | Selected options |
+| --sel-ring | #9E4E17 | #F4DD97 | Ring round the selected option |
+| --focus | #8A3F0E | #63C1C8 | Focus ring |
+| --gold | #8C5F0A | #F4DD97 | Gold text (rank 1) |
+
+Computed contrast: ink on the cards 14.5:1 (night 11.4:1); ink-2 8.4:1 (7.1:1); lines on the felt 8.7:1 (6.3:1); box rims on the felt 4.2:1 and 3.6:1 (5.5:1 and 7.9:1); white on burnt orange 3.4:1, so primary labels are 19 px bold; dark labels on the butter buttons 12:1; focus 4.1:1 on the table and 7.1:1 on the cards (7.6:1 and 6.4:1 at night).
 
 - **Type (Jost):** brand 19 bold; card names 16 bold; scores 30 extra-bold; turn pill 14 bold; chips 14 semibold; screen title 30 bold; labels 14 semibold; body 14–15; results title 36 extra-bold and results score 40 extra-bold; buttons 16–22.
 - **Spacing:** 4, 8, 12, 16, 24, 32 px.
@@ -294,8 +299,8 @@ Canvas rows 3 (dark) and 4 (light): Desktop game, Phone game (Tweaks → moment:
 ## B. Rationale
 
 - **Mood and audience:** soft and modern, like the pastel neon in your picture; today's players, who keep every habit.
-- **Identity:** today's layout and fonts (Unbounded and Manrope), flat panels with 1 px borders. The screen fades from slate purple at the top to soft white (light) or deep slate (dark). Coral is the only bright colour, so it always means you or an action.
-- **Colour logic:** coral lines and boxes for you; slate-purple boxes for the opponent, with slate lines by day and gray-lavender "white neon" lines at night. The board sits in a thin coral neon frame.
+- **Identity:** today's layout and fonts (Unbounded and Manrope) in a room lit by the five colours: dark glass panels with thin indigo borders, a board with a lit edge, lines that glow like tubes with bright cores, dots like indicator lights; the main action, the selected option and the turn pill glow, other controls only on hover.
+- **Colour logic:** coral is you in both modes; cyan (night) or indigo (day) is the other player; teal (night) or indigo (day) is the main action; orange is gold and highlights.
 - **Layout:** unchanged single column, at most 680 px wide: top bar, two player cards, the turn pill, chips, the board, then Quit and Restart.
 - **Legibility:** the players differ in hue and saturation (coral against slate), pattern (stripes against dots) and initial; at night coral and the gray-lavender lines also differ 2.4:1 in lightness.
 - **Advantages:** the lowest build cost; nothing to relearn; a softer neon than the earlier versions.
@@ -305,31 +310,25 @@ Canvas rows 3 (dark) and 4 (light): Desktop game, Phone game (Tweaks → moment:
 
 These are today's variable names in app.css, plus a few new ones, so the change is mostly a value swap.
 
-| Token | Dark | Light | Today (dark) |
+
+| Token | Dark | Light | Used for |
 | --- | --- | --- | --- |
-| --bg1, --bg2 (top-to-bottom gradient) | #736C7E → #4A4453 → #2A2630 → #1A1820 | #736C7E band behind the top bar → #A69EA8 → #E1DEE3 → #F6F6F6, ending in #E1DEE3 | #0C0A24 → #22114A gradient |
-| --text | #F6F6F6 | #2B2731 | #F2F0FF |
-| --muted | #A69EA8 | #736C7E | #A9A6D0 |
-| --accent (buttons, rings, progress) | #FB5553 | #FB5553; small rings #D63F3D | #B7A4FF |
-| --p1 (your lines and score) | #FB5553 | #FB5553 | #FF5C7A |
-| --p1-soft (your boxes and avatar) | #FB5553 | #FB5553 | rgba(255,92,122,.2) |
-| --p2 (opponent's lines and score) | #E1DEE3 | #736C7E | #3ED6EA |
-| --p2-soft (opponent's boxes and avatar) | #736C7E | #736C7E | rgba(62,214,234,.2) |
-| --panel | #2A2630 | #FFFFFF | rgba(255,255,255,.06) |
-| --panel-b | #463F4F | #E1DEE3 | rgba(255,255,255,.12) |
-| --panel-strong | #352F3D | #F6F6F6 | rgba(255,255,255,.1) |
-| --dot | #F6F6F6 | #2B2731 | #E9E6FF |
-| --grid | rgba(225,222,227,0.05) | rgba(115,108,126,0.08) | rgba(255,255,255,.06) |
-| --gold (trophy) | #FFD166 | #B7791F | #FFD166 |
-| --board (new) | #1C1A22 | #FFFFFF | – |
-| --head-text (new, on the slate band) | #F6F6F6 | #F6F6F6 | – |
-| --on-accent, --on-p1, --on-p2 (new) | #FFFFFF | #FFFFFF | – |
-| --focus (new) | #FB5553 | #D63F3D | – |
-| --frame (new, the board's neon frame) | rgba(251,85,83,.55) | rgba(251,85,83,.45) | – |
+| --page | #070A18 | #EEF1FA | The room, lit from its corners by indigo, cyan, coral and orange light |
+| --board | #0B0F24, indigo glow inside, cyan-lit edge | #FFFFFF, cyan-to-indigo edge glow | The board: dark (or bright) glass with a faint grid |
+| --text | #EEF1FF | #141832 | Text |
+| --muted | #A7AECB | #4F5577 | Secondary text |
+| --p1 | #FC4422 (coral) | #FC4422 | You: glowing lines, boxes, card and pill |
+| --p2 | #21BDCA (cyan) | #4657CE (indigo) | AI or player 2 |
+| --line | coral and cyan tubes with bright cores, near and far glow | coral and indigo with a soft glow | Drawn lines |
+| --dot | cyan indicator light | indigo with a soft glow | Dots |
+| --box | the player's colour at 32%, rim and glow | the player's colour, solid, soft glow | Boxes |
+| --accent | #00B58C (teal), dark label | #4657CE (indigo), white label | The main action, glowing most |
+| --sel-ring | #7D8BFF (indigo, lightened), glow | #4657CE, glow | The selected option |
+| --focus | #21BDCA | #4657CE | Focus ring |
+| --gold | #FF8C32 (orange) | #B5560C | Trophy, rank 1, highlights |
+| --panel | #10142C, 1 px indigo border | #FFFFFF, 1 px indigo border | Cards, chips, panels |
 
-Other values in the mockups: selected segment #4A2629 (dark) or #FFE8E7 (light) with a 1.5 px coral ring; turn pill #4A2629 on your turn and #3A3542 on the opponent's (dark), #FFE5E4 and #ECE9EE (light); button lip #B83A39 (dark) or #C93F3D (light); the results dialog #221F28 (dark) or white (light) over a 45–62% scrim.
-
-Computed contrast, dark: text on panel 13.7:1; muted on panel 5.7:1; coral lines on the board 5.4:1; gray-lavender lines 12.9:1; slate boxes on the board 3.4:1; white initials on coral 3.2:1 (large text) and on slate 5.0:1; text on the slate band 4.7:1. Light: text on white 14.6:1; muted on white 5.0:1 and on soft white 4.7:1; coral lines on the white board 3.2:1; slate lines 5.0:1; the deeper coral focus ring 3.4–4.5:1; white on coral buttons 3.2:1, so their labels are 19 px bold.
+Computed contrast, dark: text on panel 16:1; muted 8.3:1; coral lines on the board 5.4:1, cyan 8.3:1; white initials on the boxes 10:1 or more; dark labels on teal 7:1; focus 8.6:1. Light: text on white 17:1; muted 7.3:1; coral lines 3.5:1 and indigo 6:1; white labels on indigo 6:1; focus 5.3:1.
 
 - **Type:** unchanged: Unbounded 700/800 for the brand, scores, initials and the results title; Manrope 400–800 for everything else, at today's sizes. Labels on coral buttons are 19 px bold.
 - **Spacing and radii:** unchanged: 22 / 14 / 10 px radii and today's gaps.
@@ -389,7 +388,7 @@ Canvas row 5: Desktop game (a two-page spread), Phone game (Tweaks → moment), 
 ## B. Rationale
 
 - **Mood and audience:** nostalgic and relaxed, the game as it was played on paper at school; pass-and-play, families and older players.
-- **Identity:** a kraft desk, a cream page with a faint red margin, ruled lines only on the score sheet (never under the board), orange pencil and blue ink for the players, hatching for ownership, a highlighter for the extra turn and a rubber stamp for XP.
+- **Identity:** a kraft desk and a cream sheet (charcoal paper at night) with the formation, fibres and tooth of real paper; lines and dots printed and pressed into the paper; hatched boxes; paper-tab buttons with a pencil shadow; coral for you and indigo (cyan at night) for the other player.
 - **Layout:** desktop is a spread: the score sheet (tally marks, circled score, turn note, clock, buttons) on the left page and the board on the right. Phones keep one page: score lines on top, the board, then tab buttons.
 - **Type:** Kalam (handwriting) only for names, scores and headings; Atkinson Hyperlegible for every label and sentence, so nothing important is hard to read.
 - **Legibility:** ownership has three cues: colour, hatch direction (single for you, cross-hatch for the opponent) and a handwritten initial with a paper halo.
@@ -398,24 +397,25 @@ Canvas row 5: Desktop game (a two-page spread), Phone game (Tweaks → moment), 
 
 ## C. Tokens
 
-| Token | Light (paper) | Dark (chalkboard) | Used for |
-| --- | --- | --- | --- |
-| --desk | #E7DFCF | #161B18 | Page background |
-| --page | #FBF7EE | #1F2522 | Paper and board surface |
-| --graphite | #2E2B27 | #ECEDE6 | Text, dots, interface lines |
-| --graphite-2 | #5E574E | #A9B0A9 | Secondary text |
-| --rule | #D6E0EA | #2F3833 | Ruled lines on the score sheet |
-| --margin | #E9B9B0 | #5A3A35 | Margin line |
-| --p1 | #D0601E | #F59A5B | You: orange pencil |
-| --p1-wash | #F6DCCB | #3D2A1E | Under your hatching |
-| --p2 | #1F4FA8 | #8DB8F2 | Opponent: blue ink |
-| --p2-wash | #D8E2F3 | #1E2A3D | Under their hatching |
-| --highlight | #FFE58A | #6B5A1E | Extra-turn highlighter |
-| --stamp | #2F6B4F | #7FC4A0 | XP stamp |
-| --perforation | #CFC4AE | #3A423D | Scorecard tear line |
-| --button | #2E2B27 | #ECEDE6 | Primary button, with --page text |
 
-Computed contrast: graphite on the page 13.2:1; graphite-2 on the page 6.7:1 and on the desk 5.4:1; orange pencil on the page 3.7:1; blue ink 7.2:1; stamp 5.9:1; text on the highlighter 11.3:1. Chalkboard: chalk on slate 13.2:1, orange 6.5:1, blue 6.9:1.
+| Token | Light (paper) | Dark (charcoal paper) | Used for |
+| --- | --- | --- | --- |
+| --desk | #E6DCC7 (kraft) | #1A1816 | Page background, with the paper tile and darker edges |
+| --page | #FCF8EF | #27241F | The board: a sheet with formation, fibres and tooth |
+| --graphite | #2E2B27 | #EFE8DA | Text and printed dots |
+| --graphite-2 | #625A50 | #B3A994 | Secondary text |
+| --p1 | #FC4422 (coral) | #FC4422 | You: printed lines, hatched boxes |
+| --p1-wash | #FFE1D8 | #3E1D17 | Your boxes |
+| --p2 | #4657CE (indigo) | #21BDCA (cyan) | AI or player 2 |
+| --p2-wash | #E2E5FA | #133538 | Their boxes |
+| --accent | #4657CE, white label | #00B58C (teal), dark label | Primary buttons (paper tabs) |
+| --select-tint | #D3F2EA | #11362C | Selected options (with a tick) |
+| --sel-ring | #007F62 (teal, deepened) | #00B58C | Ring and tick of the selected option |
+| --ring | #00936F | #21BDCA | Level ring and XP bar |
+| --gold | #B04E07 (orange, deepened) | #FF8C32 (orange) | Rank 1, highlights |
+| --focus | #4657CE | #21BDCA | Focus ring (dashed) |
+
+Computed contrast: graphite on the page 13.3:1 (12.7:1); graphite-2 6.4:1 (6.6:1); coral lines on the sheet 3.3:1 and indigo 5.6:1; at night coral 4.4:1 and cyan 6.8:1 (orange and cyan would look the same grey to players who see no colour, so coral is player 1 in both modes); white on indigo 6:1; dark labels on teal 7:1.
 
 - **Type:** Kalam 700 for names (22–24 px), scores (28–56 px) and headings (30–50 px); Kalam 400 for notes (19–22 px); Atkinson Hyperlegible 400/700 for labels (14 px) and body text (14–15 px).
 - **Spacing:** 4, 8, 12, 18, 24 px; ruled lines every 36 px on desktop and 42 px on phones.
