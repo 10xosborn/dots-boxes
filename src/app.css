@@ -317,6 +317,8 @@ td:first-child,th:first-child{text-align:left;font-weight:800}
 .xpblock .top{display:flex;justify-content:space-between;align-items:baseline;font-weight:800}
 .xpblock .gain{font-family:var(--display);color:var(--text)}
 .levelup{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:var(--r-pill);background:var(--gold);color:var(--page);font-weight:800;font-size:.85rem;animation:pop .3s ease-out}
+/* Tabletop's level up is a chip (spec); Neon's too, because small text on its light-mode gold reaches only 3.4:1. Gold stays as the ring. */
+[data-skin="table"] .levelup,[data-skin="neon"] .levelup{background:var(--panel);color:var(--text);box-shadow:inset 0 0 0 1.5px var(--gold),var(--chip-shadow)}
 .res-note{margin-top:12px;font-weight:600;line-height:1.5;text-wrap:balance}
 .res-note.hi{color:var(--text);font-weight:800}
 .res-actions{display:grid;gap:8px;margin-top:16px}
