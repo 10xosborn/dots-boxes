@@ -49,8 +49,8 @@
 
 <style>
   .kicker { font-family: var(--display); font-weight: 500; font-size: clamp(1rem, 4.2vw, 1.35rem); letter-spacing: .02em; margin: 10px 0 0; color: var(--text); }
-  /* The accent pulled towards the text colour: 4.5:1 or more on every page (the pure accent is 3.0–4.3:1 in three modes). */
-  .kicker .amp { color: color-mix(in srgb, var(--accent) 60%, var(--text)); }
+  /* The accent pulled well towards the text colour: 4.5:1 or more on every page (burnt orange on the maple table needs it most). */
+  .kicker .amp { color: color-mix(in srgb, var(--accent) 35%, var(--text)); }
   .resume { margin-bottom: 18px; }
   .resume h2 { margin: 0 0 4px; font-size: 1.1rem; }
   .resume p { margin: 0 0 12px; }
