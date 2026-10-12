@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Minimalist Premium light, avatar builder</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;scrollbar-width:none}
+::-webkit-scrollbar{width:0;height:0;display:none}
+a{color:#2B241D}a:hover{color:#0B7A87}
+button,input{font:inherit;cursor:pointer}
+input[type=text]{cursor:text}
+:focus-visible{outline:3px solid #0B7A87;outline-offset:3px}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: #E4D2B2; color: #2B241D; font-family: Jost, system-ui, sans-serif; display: flex; flex-direction: column; gap: 12px; padding: 12px 16px 28px">
+<svg aria-hidden="true" width="390" height="844" style="position: absolute; left: 0; top: 0; pointer-events: none"><filter id="wood" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.09" numOctaves="3" seed="11"></feTurbulence><feColorMatrix type="matrix" values="0 0 0 0 0.47  0 0 0 0 0.34  0 0 0 0 0.2  1.4 0 0 0 -0.55"></feColorMatrix></filter><rect width="390" height="844" filter="url(#wood)" opacity="0.4"></rect></svg>
+<header style="position: relative; display: flex; align-items: center; gap: 14px; min-height: 56px">
+<button aria-label="Back" style="width: 50px; height: 50px; border-radius: 50%; border: 0; padding: 0; background: #0B7A87; color: #FFFFFF; box-shadow: 0 4px 0 #075A63, 0 10px 18px -8px rgba(60, 38, 14, 0.5); display: grid; place-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<h1 style="margin: 0; font-weight: 700; font-size: 30px">Your avatar</h1>
+</header>
+<section aria-label="Preview" style="position: relative; display: flex; justify-content: center; gap: 24px; min-height: 186px">
+<button aria-label="Undo changes" onClick="{{undo}}" style="align-self: flex-start; margin-top: 50px; width: 48px; height: 48px; border-radius: 50%; border: 0; padding: 0; background: #FFFFFF; color: #2B241D; box-shadow: 0 4px 0 #CDB894, 0 10px 18px -12px rgba(60, 38, 14, 0.5); display: grid; place-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"></path><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"></path></svg></button>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 12px">
+<span style="display: block; width: 148px; height: 148px; border-radius: 50%; box-shadow: 0 0 0 4px #FCFCFA, 0 0 0 8px #2F86C6, 0 22px 30px -14px rgba(60, 38, 14, 0.6)"><svg width="148" height="148" viewBox="0 0 64 64" role="img" aria-label="{{pvLabel}}" style="display: block"><circle cx="32" cy="32" r="32" fill="{{pv.bg}}"></circle><path d="{{pv.hb}}" fill="{{pv.hc}}"></path><path d="M10.83 56 C 14 50, 22 47, 32 47 S 50 50, 53.17 56 A 32 32 0 0 1 10.83 56 Z" fill="{{pv.tc}}"></path><path d="{{pv.tk}}" fill="{{pv.tsc}}"></path><path d="M27 40 H37 V47.5 C 37 50.5, 27 50.5, 27 47.5 Z" fill="{{pv.sn}}"></path><path d="{{pv.td}}" fill="#FFFFFF"></path><path d="{{pv.ts}}" fill="none" stroke="{{pv.tsc}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.1 31 a3.3 3.3 0 1 0 6.6 0 a3.3 3.3 0 1 0 -6.6 0 Z M41.3 31 a3.3 3.3 0 1 0 6.6 0 a3.3 3.3 0 1 0 -6.6 0 Z" fill="{{pv.sk}}"></path><ellipse cx="32" cy="30" rx="13" ry="14" fill="{{pv.sk}}"></ellipse><path d="{{pv.hf}}" fill="{{pv.hfc}}"></path><path d="{{pv.hl}}" fill="none" stroke="#FFFFFF" stroke-opacity="0.24" stroke-width="1" stroke-linecap="round"></path><path d="M21.4 35.2 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 Z M37.8 35.2 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 Z" fill="#E07A5F" opacity="0.45"></path><path d="{{pv.ew}}" fill="#FFFFFF"></path><path d="{{pv.ef}}" fill="#1E1712"></path><path d="{{pv.es}}" fill="none" stroke="#1E1712" stroke-width="1.7" stroke-linecap="round"></path><path d="{{pv.mf}}" fill="#5A1E1E"></path><path d="{{pv.mw}}" fill="#FFFFFF"></path><path d="{{pv.ms}}" fill="none" stroke="#1E1712" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><path d="{{pv.gf}}" fill="#1E1712"></path><path d="{{pv.gs}}" fill="none" stroke="#1E1712" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="{{pv.hw}}" fill="{{pv.hwc}}"></path><path d="{{pv.hwd}}" fill="{{pv.hwdc}}"></path><path d="{{pv.hwk}}" fill="none" stroke="#2E2B27" stroke-width="2.6" stroke-linecap="round"></path><path d="{{pv.hws}}" fill="none" stroke="{{pv.hwdc}}" stroke-width="0.9" stroke-linecap="round"></path></svg></span>
+<b style="font-weight: 700; font-size: 20px; line-height: 24px">Ama</b>
+</div>
+<button aria-label="Random avatar" onClick="{{shuffle}}" style="align-self: flex-start; margin-top: 50px; width: 48px; height: 48px; border-radius: 50%; border: 0; padding: 0; background: #FFFFFF; color: #2B241D; box-shadow: 0 4px 0 #CDB894, 0 10px 18px -12px rgba(60, 38, 14, 0.5); display: grid; place-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"></rect><path d="M8 8h.01M16 8h.01M12 12h.01M8 16h.01M16 16h.01" stroke-width="3.2"></path></svg></button>
+</section>
+<div role="tablist" aria-label="Avatar parts" style="position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 18px; background: #FFFFFF; box-shadow: 0 6px 14px -8px rgba(60, 38, 14, 0.5)">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="5">
+<button role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 52px; padding: 0; border: 0; border-radius: 14px; background: {{t.bg}}; color: {{t.fg}}; box-shadow: {{t.sh}}; font-weight: 600; font-size: 12.5px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{t.icon}}"></path></svg>{{t.label}}</button>
+</sc-for>
+</div>
+<section role="tabpanel" aria-label="{{tabLabel}}" style="position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 14px; padding: 16px; background: #FCFCFA; box-shadow: 0 2px 0 rgba(90, 64, 36, 0.08), 0 22px 36px -18px rgba(70, 46, 20, 0.55)">
+<sc-for list="{{sections}}" as="s" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-weight: 600; font-size: 14px; line-height: 20px; color: #5A4C3D">{{s.label}}</span>
+<sc-if value="{{s.isAv}}" hint-placeholder-val="{{true}}">
+<div role="group" aria-label="{{s.label}}" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{s.items}}" as="it" hint-placeholder-count="8">
+<button aria-pressed="{{it.on}}" aria-label="{{it.label}}" onClick="{{it.pick}}" style="display: grid; place-items: center; height: 66px; padding: 0; border: 0; border-radius: 14px; background: {{it.cbg}}; box-shadow: {{it.ring}}"><span style="display: block; width: 52px; height: 52px; border-radius: 50%; overflow: hidden; background: {{it.bg}}"><svg width="52" height="52" viewBox="{{it.vb}}" aria-hidden="true" style="display: block"><circle cx="32" cy="32" r="32" fill="{{it.bg}}"></circle><path d="{{it.hb}}" fill="{{it.hc}}"></path><path d="M10.83 56 C 14 50, 22 47, 32 47 S 50 50, 53.17 56 A 32 32 0 0 1 10.83 56 Z" fill="{{it.tc}}"></path><path d="{{it.tk}}" fill="{{it.tsc}}"></path><path d="M27 40 H37 V47.5 C 37 50.5, 27 50.5, 27 47.5 Z" fill="{{it.sn}}"></path><path d="{{it.td}}" fill="#FFFFFF"></path><path d="{{it.ts}}" fill="none" stroke="{{it.tsc}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.1 31 a3.3 3.3 0 1 0 6.6 0 a3.3 3.3 0 1 0 -6.6 0 Z M41.3 31 a3.3 3.3 0 1 0 6.6 0 a3.3 3.3 0 1 0 -6.6 0 Z" fill="{{it.sk}}"></path><ellipse cx="32" cy="30" rx="13" ry="14" fill="{{it.sk}}"></ellipse><path d="{{it.hf}}" fill="{{it.hfc}}"></path><path d="{{it.hl}}" fill="none" stroke="#FFFFFF" stroke-opacity="0.24" stroke-width="1" stroke-linecap="round"></path><path d="M21.4 35.2 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 Z M37.8 35.2 a2.4 2.4 0 1 0 4.8 0 a2.4 2.4 0 1 0 -4.8 0 Z" fill="#E07A5F" opacity="0.45"></path><path d="{{it.ew}}" fill="#FFFFFF"></path><path d="{{it.ef}}" fill="#1E1712"></path><path d="{{it.es}}" fill="none" stroke="#1E1712" stroke-width="1.7" stroke-linecap="round"></path><path d="{{it.mf}}" fill="#5A1E1E"></path><path d="{{it.mw}}" fill="#FFFFFF"></path><path d="{{it.ms}}" fill="none" stroke="#1E1712" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><path d="{{it.gf}}" fill="#1E1712"></path><path d="{{it.gs}}" fill="none" stroke="#1E1712" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="{{it.hw}}" fill="{{it.hwc}}"></path><path d="{{it.hwd}}" fill="{{it.hwdc}}"></path><path d="{{it.hwk}}" fill="none" stroke="#2E2B27" stroke-width="2.6" stroke-linecap="round"></path><path d="{{it.hws}}" fill="none" stroke="{{it.hwdc}}" stroke-width="0.9" stroke-linecap="round"></path></svg></span></button>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{s.isSw}}" hint-placeholder-val="{{false}}">
+<div role="group" aria-label="{{s.label}}" style="display: grid; grid-template-columns: repeat({{s.cols}}, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{s.items}}" as="it" hint-placeholder-count="6">
+<button aria-pressed="{{it.on}}" aria-label="{{it.label}}" onClick="{{it.pick}}" style="height: 44px; padding: 0; border: 0; border-radius: 999px; background: {{it.color}}; box-shadow: {{it.ring}}"></button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</section>
+<button onClick="{{save}}" style="position: relative; min-height: 58px; border: 0; border-radius: 999px; background: #0B7A87; color: #FFFFFF; box-shadow: 0 5px 0 #075A63, 0 14px 22px -12px rgba(60, 38, 14, 0.55); font-weight: 700; font-size: 20px">{{saveLabel}}</button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tab":{"editor":"enum","options":["Face","Hair","Top","Extras","Backdrop"],"default":"Hair"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const T = {"tabBg": "transparent", "tabFg": "#5A4C3D", "tabSh": "none", "tabOnBg": "#0B7A87", "tabOnFg": "#FFFFFF", "tabOnSh": "0 3px 0 #075A63", "cell": "#F1EFEA", "cellOn": "#E2F2F3", "cellRing": "none", "cellOnRing": "inset 0 0 0 3px #0B7A87", "swRing": "inset 0 0 0 1px rgba(0, 0, 0, 0.14)", "swOnRing": "inset 0 0 0 1px rgba(0, 0, 0, 0.14), 0 0 0 2px #FCFCFA, 0 0 0 5px #0B7A87"};
+    const n2 = (v) => Math.round(v * 100) / 100;
+    const C = (x, y, r) => 'M' + n2(x - r) + ' ' + y + ' a' + r + ' ' + r + ' 0 1 0 ' + n2(2 * r) + ' 0 a' + r + ' ' + r + ' 0 1 0 ' + n2(-2 * r) + ' 0 Z ';
+    const EL = (x, y, rx, ry) => 'M' + n2(x - rx) + ' ' + y + ' a' + rx + ' ' + ry + ' 0 1 0 ' + n2(2 * rx) + ' 0 a' + rx + ' ' + ry + ' 0 1 0 ' + n2(-2 * rx) + ' 0 Z ';
+    const hx = (v) => ('0' + Math.max(0, Math.min(255, Math.round(v))).toString(16)).slice(-2).toUpperCase();
+    const rgb = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+    const shade = (h, f) => { const c = rgb(h); return '#' + hx(c[0] * f) + hx(c[1] * f) + hx(c[2] * f); };
+    const mix = (a, b, t) => { const x = rgb(a); const y = rgb(b); return '#' + hx(x[0] + (y[0] - x[0]) * t) + hx(x[1] + (y[1] - x[1]) * t) + hx(x[2] + (y[2] - x[2]) * t); };
+
+    const SKIN = [['#F6D3B3', '#E2BA98'], ['#E5B48A', '#CF9C72'], ['#C68B5E', '#AE754B'], ['#A86B43', '#8F5836'], ['#8D5A3B', '#7A4A2F'], ['#5E3A24', '#4A2C1A']];
+    const HAIRC = [['Black', '#1E1712'], ['Brown', '#5A3520'], ['Auburn', '#8E3B1F'], ['Blonde', '#D9A441'], ['Grey', '#A39E9A'], ['Blue', '#2F6FD0'], ['Pink', '#E0569B'], ['Purple', '#7A4FC2']];
+    const TOPC = [['Green', '#3B7A57'], ['Teal', '#14808C'], ['Blue', '#2F6FD0'], ['Purple', '#7A4FC2'], ['Red', '#C8323F'], ['Orange', '#E07A2E'], ['Yellow', '#E8B931'], ['Charcoal', '#3A3A3D']];
+    const BG = [['Sun', '#F4C95D'], ['Peach', '#F59E8B'], ['Rose', '#F2A7C3'], ['Lilac', '#C9B6F2'], ['Sky', '#9FD0F2'], ['Mint', '#93D6BD'], ['Lime', '#C2DD7A'], ['Sand', '#E8DCCB'], ['Indigo', '#5E6BA8'], ['Night', '#2E2B27']];
+
+    const CAP = 'M18.6 32 C 17 20.5, 24 14.5, 32 14.5 S 47 20.5, 45.4 32 C 44 25.5, 40.5 22.4, 32 22.2 S 20 25.5, 18.6 32 Z ';
+    const HAIR = {
+      Bun: { b: '', t: C(32, 10.5, 7), f: CAP, l: '' },
+      Puffs: { b: '', t: C(18.5, 16, 8) + C(45.5, 16, 8), f: CAP, l: '' },
+      Afro: { b: '', t: C(32, 24, 19.5), f: 'M19 31.5 C 18 22.5, 24 17.5, 32 17.5 S 46 22.5, 45 31.5 C 43.6 27, 39.8 24.3, 32 24.2 S 20.4 27, 19 31.5 Z', l: '' },
+      Short: { b: '', t: '', f: 'M19 29.5 C 18.6 19.8, 24.6 15, 32.4 15 C 40.4 15, 45.8 20, 45 29.5 C 43.5 25, 39.5 22.6, 34 22.8 C 30 21.2, 23.5 22.6, 19 29.5 Z', l: '' },
+      Buzz: { b: '', t: '', f: 'M19.4 27.5 C 19.6 19.6, 25 16, 32 16 S 44.4 19.6, 44.6 27.5 C 42 23, 37.6 21.3, 32 21.3 S 22 23, 19.4 27.5 Z', l: '', fuzz: true },
+      Braids: { b: 'M17.4 30 C 15.6 39, 15 47, 15.6 54.5 L 22.2 55.5 C 21.4 47, 21.4 39.5, 21.8 32.5 Z M46.6 30 C 48.4 39, 49 47, 48.4 54.5 L 41.8 55.5 C 42.6 47, 42.6 39.5, 42.2 32.5 Z', t: '', f: CAP, l: 'M16.8 37 L16.6 51 M19.4 36.4 L19.6 50.2 M47.2 37 L47.4 51 M44.6 36.4 L44.4 50.2 M26 22.8 Q 27 18, 29.5 15.2 M32 22.2 V14.8 M38 22.8 Q 37 18, 34.5 15.2' },
+      Locs: { b: 'M15.2 30 H19.8 V53 Q 19.8 55.4, 17.5 55.4 Q 15.2 55.4, 15.2 53 Z M19.6 33 H23.6 V50.5 Q 23.6 52.8, 21.6 52.8 Q 19.6 52.8, 19.6 50.5 Z M48.8 30 H44.2 V53 Q 44.2 55.4, 46.5 55.4 Q 48.8 55.4, 48.8 53 Z M44.4 33 H40.4 V50.5 Q 40.4 52.8, 42.4 52.8 Q 44.4 52.8, 44.4 50.5 Z', t: C(25, 15.8, 3.4) + C(32, 13.4, 3.6) + C(39, 15.8, 3.4), f: CAP, l: 'M15.2 38 H19.8 M15.2 46 H19.8 M44.2 38 H48.8 M44.2 46 H48.8 M19.6 42 H23.6 M40.4 42 H44.4' },
+      Long: { b: 'M18.2 29 C 15.2 38.5, 14.4 48, 15.4 56.3 L 48.6 56.3 C 49.6 48, 48.8 38.5, 45.8 29 Z', t: '', f: 'M18.6 32 C 17 20.5, 24 14.5, 32 14.5 S 47 20.5, 45.4 32 C 44.6 26, 42.2 22.4, 36.5 21.6 C 30.5 21, 23.5 23.6, 18.6 32 Z', l: '' }
+    };
+    const TOP = {
+      Tee: (c) => ({ tk: '', td: '', ts: '', tsc: c }),
+      Hoodie: (c) => ({ tk: 'M22.8 47.4 C 23.6 55.2, 40.4 55.2, 41.2 47.4 C 39.6 50.8, 24.4 50.8, 22.8 47.4 Z', td: 'M29.1 50.4 H30.3 V56.4 H29.1 Z M33.7 50.4 H34.9 V56.4 H33.7 Z', ts: '', tsc: shade(c, 0.7) }),
+      Collar: (c) => ({ tk: '', td: 'M26.6 46.8 L32 51.2 L28.6 53.8 Z M37.4 46.8 L32 51.2 L35.4 53.8 Z', ts: 'M32 51.6 V56.4', tsc: shade(c, 0.7) }),
+      Jersey: (c) => ({ tk: '', td: 'M12.4 53.6 L17.6 50.4 L18.4 51.8 L13.4 55 Z M51.6 53.6 L46.4 50.4 L45.6 51.8 L50.6 55 Z', ts: 'M27 47.6 L32 53.2 L37 47.6', tsc: '#FFFFFF' })
+    };
+    const EYES = {
+      Dots: { w: '', f: C(27.3, 31.2, 1.9) + C(36.7, 31.2, 1.9), s: '' },
+      Happy: { w: '', f: '', s: 'M25.3 32 Q 27.3 29.6, 29.3 32 M34.7 32 Q 36.7 29.6, 38.7 32' },
+      Wink: { w: '', f: C(27.3, 31.2, 1.9), s: 'M34.7 32 Q 36.7 29.6, 38.7 32' },
+      Wide: { w: EL(27.3, 31.2, 2.7, 3) + EL(36.7, 31.2, 2.7, 3), f: C(27.7, 31.7, 1.45) + C(37.1, 31.7, 1.45), s: '' }
+    };
+    const MOUTH = {
+      Smile: { f: '', w: '', s: 'M27.8 36.6 Q 32 40.2, 36.2 36.6' },
+      Grin: { f: '', w: 'M27.4 36 Q 32 42.2, 36.6 36 Z', s: 'M27.4 36 Q 32 42.2, 36.6 36 Z' },
+      Open: { f: EL(32, 37.8, 1.9, 2.3), w: '', s: '' },
+      Calm: { f: '', w: '', s: 'M29.2 37.4 H34.8' }
+    };
+    const GLASSES = {
+      None: { f: '', s: '' },
+      Round: { f: '', s: C(27.3, 31.2, 3.9) + C(36.7, 31.2, 3.9) + 'M31.2 30.4 Q 32 29.6, 32.8 30.4 M23.4 30.6 L19.8 29.8 M40.6 30.6 L44.2 29.8' },
+      Square: { f: '', s: 'M23.3 28.3 H31.3 V34.1 H23.3 Z M32.7 28.3 H40.7 V34.1 H32.7 Z M31.3 30.4 H32.7 M23.3 30.4 L19.8 29.8 M40.7 30.4 L44.2 29.8' },
+      Shades: { f: 'M22.6 28.6 H31.4 V32.2 Q 31.4 35.4, 27 35.4 Q 22.6 35.4, 22.6 32.2 Z M32.6 28.6 H41.4 V32.2 Q 41.4 35.4, 37 35.4 Q 32.6 35.4, 32.6 32.2 Z', s: 'M31.4 29.6 H32.6 M22.6 29.4 L19.8 28.8 M41.4 29.4 L44.2 28.8' }
+    };
+    const HEAD = {
+      None: (c) => ({ hw: '', hwc: c, hwd: '', hwdc: c, hwk: '', hws: '' }),
+      Cap: (c) => ({ hw: 'M18.4 27.5 C 18.4 17.6, 24.6 12.8, 32 12.8 S 45.6 17.6, 45.6 27.5 Z', hwc: c, hwd: 'M17 27.4 Q 32 23.4, 47 27.4 L 47.6 29.6 Q 32 25.8, 16.4 29.6 Z ' + C(32, 12.9, 1.5), hwdc: shade(c, 0.72), hwk: '', hws: 'M32 13.2 V25.2 M25.2 15.4 Q 23.8 20, 23.6 25.8 M38.8 15.4 Q 40.2 20, 40.4 25.8' }),
+      Headphones: (c) => ({ hw: 'M14.2 28.8 Q 14.2 26.8, 16.2 26.8 H19.9 V36.8 H16.2 Q 14.2 36.8, 14.2 34.8 Z M49.8 28.8 Q 49.8 26.8, 47.8 26.8 H44.1 V36.8 H47.8 Q 49.8 36.8, 49.8 34.8 Z', hwc: c, hwd: '', hwdc: c, hwk: 'M17.6 30 C 17.6 9, 46.4 9, 46.4 30', hws: '' }),
+      Wrap: (c) => ({ hw: 'M18.2 30.8 C 16.6 17.4, 24.6 11.6, 32 11.6 S 47.4 17.4, 45.8 30.8 C 43.6 25.4, 39.6 22.2, 32 22.2 S 20.4 25.4, 18.2 30.8 Z M26.8 12.8 C 24.4 6.4, 30.2 4.6, 32 9.4 C 33.8 4.6, 39.6 6.4, 37.2 12.8 Z', hwc: c, hwd: C(32, 11.4, 2.1), hwdc: shade(c, 0.72), hwk: '', hws: 'M21 25.2 C 26 19.2, 38 19.2, 43 25.2 M23.8 18.4 C 28 15.6, 36 15.6, 40.2 18.4' })
+    };
+    const parts = (c) => {
+      const sk = SKIN[c.skin];
+      const hc = HAIRC[c.hairColour][1];
+      const tc = TOPC[c.topColour][1];
+      const hs = HAIR[c.hair];
+      const tp = TOP[c.top](tc);
+      const e = EYES[c.eyes];
+      const m = MOUTH[c.mouth];
+      const g = GLASSES[c.glasses];
+      const w = HEAD[c.headwear](tc);
+      const covered = c.headwear === 'Cap' || c.headwear === 'Wrap';
+      return {
+        bg: BG[c.bg][1], hb: covered ? hs.b : hs.b + hs.t, hc: hc, tc: tc, tk: tp.tk, tsc: tp.tsc, sn: sk[1], td: tp.td, ts: tp.ts,
+        sk: sk[0], hf: hs.f, hfc: hs.fuzz ? mix(hc, sk[0], 0.35) : hc, hl: hs.l, ew: e.w, ef: e.f, es: e.s, mf: m.f, mw: m.w, ms: m.s,
+        gf: g.f, gs: g.s, hw: w.hw, hwc: w.hwc, hwd: w.hwd, hwdc: w.hwdc, hwk: w.hwk, hws: w.hws
+      };
+    };
+
+    const OPTS = {
+      eyes: ['Dots', 'Happy', 'Wink', 'Wide'], mouth: ['Smile', 'Grin', 'Open', 'Calm'],
+      hair: ['Bun', 'Puffs', 'Afro', 'Short', 'Buzz', 'Braids', 'Locs', 'Long'], top: ['Tee', 'Hoodie', 'Collar', 'Jersey'],
+      glasses: ['None', 'Round', 'Square', 'Shades'], headwear: ['None', 'Cap', 'Headphones', 'Wrap']
+    };
+    const COLS = { skin: SKIN.map((s, i) => ['Skin tone ' + (i + 1), s[0]]), hairColour: HAIRC, topColour: TOPC, bg: BG };
+    const FULL = '0 0 64 64';
+    const FACE = '15 16 34 34';
+    const SEC = {
+      Face: [{ label: 'Skin tone', key: 'skin', kind: 'sw', cols: 6 }, { label: 'Eyes', key: 'eyes', kind: 'av', vb: FACE }, { label: 'Mouth', key: 'mouth', kind: 'av', vb: FACE }],
+      Hair: [{ label: 'Hairstyle', key: 'hair', kind: 'av', vb: FULL }, { label: 'Hair colour', key: 'hairColour', kind: 'sw', cols: 4 }],
+      Top: [{ label: 'Top', key: 'top', kind: 'av', vb: '10 22 44 44' }, { label: 'Top colour', key: 'topColour', kind: 'sw', cols: 4 }],
+      Extras: [{ label: 'Glasses', key: 'glasses', kind: 'av', vb: '13 15 38 38' }, { label: 'Headwear', key: 'headwear', kind: 'av', vb: FULL }],
+      Backdrop: [{ label: 'Background', key: 'bg', kind: 'sw', cols: 5 }]
+    };
+    const TABS = [
+      ['Face', 'M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18 M9 10h.01 M15 10h.01 M8.5 14.5a4.5 4.5 0 0 0 7 0'],
+      ['Hair', 'M5 20v-7a7 7 0 0 1 14 0v7 M5 13c3.5 0 6.5-2 7-5.5c.5 3.5 3.5 5.5 7 5.5'],
+      ['Top', 'M8.5 3.5 3 6.5l2 4.5 2.5-1V20.5h9V10l2.5 1 2-4.5-5.5-3c-.6 1.6-1.9 2.5-3.5 2.5s-2.9-.9-3.5-2.5z'],
+      ['Extras', 'M2.5 14a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0-7 0 M14.5 14a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0-7 0 M9.5 13.6c1.6-1 3.4-1 5 0 M2.8 12.6 5 7h2.5 M21.2 12.6 19 7h-2.5'],
+      ['Backdrop', 'M4 4h16v16H4z M4 16l4.5-4.5 4 4 2.5-2.5 5 5 M15.5 8.5h.01']
+    ];
+    const GLASS_WORDS = { Round: 'round glasses', Square: 'square glasses', Shades: 'sunglasses' };
+
+    const AMA = { skin: 4, hair: 'Bun', hairColour: 0, eyes: 'Dots', mouth: 'Smile', top: 'Tee', topColour: 0, glasses: 'None', headwear: 'None', bg: 0 };
+    const st = this.state || {};
+    const cur = st.cur || AMA;
+    const saved = st.saved || AMA;
+    const tab = st.tab || this.props.tab || 'Hair';
+    const set = (k, v) => () => { const nx = Object.assign({}, cur); nx[k] = v; this.setState({ cur: nx, justSaved: false }); };
+    const any = (list) => list[Math.floor(Math.random() * list.length)];
+    const shuffle = () => this.setState({
+      justSaved: false,
+      cur: {
+        skin: Math.floor(Math.random() * SKIN.length), hair: any(OPTS.hair), hairColour: Math.floor(Math.random() * HAIRC.length),
+        eyes: any(OPTS.eyes), mouth: any(OPTS.mouth), top: any(OPTS.top), topColour: Math.floor(Math.random() * TOPC.length),
+        glasses: Math.random() < 0.6 ? 'None' : any(OPTS.glasses), headwear: Math.random() < 0.6 ? 'None' : any(OPTS.headwear),
+        bg: Math.floor(Math.random() * BG.length)
+      }
+    });
+    const undo = () => this.setState({ cur: saved, justSaved: false });
+    const save = () => this.setState({ saved: cur, justSaved: true });
+    const tabs = TABS.map((t) => {
+      const on = t[0] === tab;
+      return { label: t[0], icon: t[1], on: on, pick: () => this.setState({ tab: t[0] }), bg: on ? T.tabOnBg : T.tabBg, fg: on ? T.tabOnFg : T.tabFg, sh: on ? T.tabOnSh : T.tabSh };
+    });
+    const sections = SEC[tab].map((sec) => {
+      const items = sec.kind === 'av'
+        ? OPTS[sec.key].map((v) => {
+            const cfg = Object.assign({}, cur);
+            cfg[sec.key] = v;
+            const on = cur[sec.key] === v;
+            return Object.assign(parts(cfg), { label: v, on: on, pick: set(sec.key, v), vb: sec.vb, cbg: on ? T.cellOn : T.cell, ring: on ? T.cellOnRing : T.cellRing, loop: on ? 1 : 0 });
+          })
+        : COLS[sec.key].map((pair, i) => {
+            const on = cur[sec.key] === i;
+            return { label: pair[0], color: pair[1], on: on, pick: set(sec.key, i), ring: on ? T.swOnRing : T.swRing, loop: on ? 1 : 0 };
+          });
+      return { label: sec.label, isAv: sec.kind === 'av', isSw: sec.kind === 'sw', cols: sec.cols || 4, items: items };
+    });
+    const pvLabel = 'Your avatar: ' + cur.hair.toLowerCase() + ' hair in ' + HAIRC[cur.hairColour][0].toLowerCase() + ', ' +
+      TOPC[cur.topColour][0].toLowerCase() + ' ' + cur.top.toLowerCase() +
+      (cur.glasses === 'None' ? '' : ', ' + GLASS_WORDS[cur.glasses]) +
+      (cur.headwear === 'None' ? '' : ', ' + cur.headwear.toLowerCase()) + ', on ' + BG[cur.bg][0].toLowerCase();
+    return { pv: parts(cur), sv: parts(saved), pvLabel: pvLabel, tabs: tabs, tabLabel: tab, sections: sections, undo: undo, shuffle: shuffle, save: save, saveLabel: st.justSaved ? 'Saved' : 'Save avatar' };
+  }
+}
+</script>
+</body>
+</html>

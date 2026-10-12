@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cozy Paper and Notebook, new game setup</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&amp;family=Atkinson+Hyperlegible:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;scrollbar-width:none}
+::-webkit-scrollbar{width:0;height:0;display:none}
+a{color:#2E2B27}a:hover{color:#1F4FA8}
+button,input{font:inherit;cursor:pointer}
+input[type=text]{cursor:text}
+:focus-visible{outline:2px dashed #2E2B27;outline-offset:3px}
+.tab{min-height:44px;padding:0 16px;border:1.5px solid #2E2B27;border-radius:4px;background:#FBF7EE;color:#2E2B27;font-weight:700;font-size:15px;box-shadow:2px 2px 0 rgba(46,43,39,.18)}
+.tab:hover{box-shadow:3px 3px 0 rgba(46,43,39,.24)}
+.tab:active{box-shadow:none;transform:translate(2px,2px)}
+.tab.primary{background:#2E2B27;color:#FBF7EE}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: #FBF7EE; color: #2E2B27; font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; display: flex; flex-direction: column; padding: 8px 16px 24px">
+<svg aria-hidden="true" width="100%" height="100%" style="position: absolute; left: 0; top: 0; pointer-events: none"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#grain)" opacity="0.07"></rect></svg>
+<div aria-hidden="true" style="position: absolute; left: 30px; top: 0; bottom: 0; width: 1.5px; background: #E9B9B0"></div>
+<header style="position: relative; display: flex; align-items: center; gap: 14px; min-height: 56px; padding-left: 22px">
+<button class="tab" aria-label="Back" style="width: 44px; padding: 0; display: grid; place-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<h1 style="margin: 0; font-family: Kalam, cursive; font-weight: 700; font-size: 32px; line-height: 1">New game</h1>
+</header>
+<section style="position: relative; margin-top: 8px; padding-left: 22px; background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 41px, #D6E0EA 41px, #D6E0EA 42px)">
+<div style="height: 42px; display: flex; align-items: flex-end; padding-bottom: 6px; box-sizing: border-box; font-weight: 700; font-size: 14px; color: #5E574E"><label for="nm">Your name</label></div>
+<div style="height: 42px; display: flex; align-items: flex-end; gap: 10px"><button aria-label="Edit your avatar" style="position: relative; flex: none; align-self: center; width: 42px; height: 42px; padding: 5px; border: 0; background: none"><span aria-hidden="true" style="display: block; width: 32px; height: 32px; border-radius: 50%; box-shadow: 0 0 0 2.5px #FFFDF7, 0 0 0 4px #D0601E, 1.5px 2.5px 0 4px rgba(46, 43, 39, 0.18); transform: rotate(-5deg)"><svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true" style="display: block"><circle cx="32" cy="32" r="32" fill="#F4C95D"></circle><path d="M10.83 56 C 14 50, 22 47, 32 47 S 50 50, 53.17 56 A 32 32 0 0 1 10.83 56 Z" fill="#3B7A57"></path><path d="M27 40 H37 V47.5 C 37 50.5, 27 50.5, 27 47.5 Z" fill="#7A4A2F"></path><circle cx="19.4" cy="31" r="3.3" fill="#8D5A3B"></circle><circle cx="44.6" cy="31" r="3.3" fill="#8D5A3B"></circle><ellipse cx="32" cy="30" rx="13" ry="14" fill="#8D5A3B"></ellipse><path d="M18.6 32 C 17 20.5, 24 14.5, 32 14.5 S 47 20.5, 45.4 32 C 44 25.5, 40.5 22.4, 32 22.2 S 20 25.5, 18.6 32 Z" fill="#1E1712"></path><circle cx="32" cy="10.5" r="7" fill="#1E1712"></circle><circle cx="27.3" cy="31.2" r="1.9" fill="#1E1712"></circle><circle cx="36.7" cy="31.2" r="1.9" fill="#1E1712"></circle><path d="M27.8 36.6 Q 32 40.2, 36.2 36.6" fill="none" stroke="#1E1712" stroke-width="1.9" stroke-linecap="round"></path><circle cx="23.8" cy="35.2" r="2.4" fill="#E07A5F" opacity="0.45"></circle><circle cx="40.2" cy="35.2" r="2.4" fill="#E07A5F" opacity="0.45"></circle></svg></span><span aria-hidden="true" style="position: absolute; right: -1px; bottom: 0px; width: 18px; height: 18px; border-radius: 50%; background: #2E2B27; box-shadow: 0 0 0 2px #FBF7EE; display: grid; place-items: center"><svg width="10" height="10" viewBox="0 0 24 24"><path d="M3 21 L4 16 L15.5 4.5 L19.5 8.5 L8 20 Z M16.9 3.1 L18.3 1.7 Q 19.1 0.9 19.9 1.7 L22.3 4.1 Q 23.1 4.9 22.3 5.7 L20.9 7.1 Z" fill="#FBF7EE"></path></svg></span></button><input id="nm" type="text" value="Ama" maxlength="16" style="box-sizing: border-box; flex: 1; min-width: 0; height: 40px; padding: 0 4px; border: 0; background: transparent; color: #2E2B27; font-family: Kalam, cursive; font-weight: 700; font-size: 25px"></div>
+<div style="height: 42px; display: flex; align-items: center; font-size: 13px; color: #5E574E">Your stats and leaderboard entries use this name.</div>
+<div style="height: 42px; display: flex; align-items: flex-end; padding-bottom: 6px; box-sizing: border-box; font-weight: 700; font-size: 14px; color: #5E574E">Mode</div>
+<div role="group" aria-label="Mode" style="height: 42px; display: flex; align-items: center; gap: 14px">
+<button aria-pressed="true" style="display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 4px; border: 0; background: none; color: #2E2B27; font-weight: 700; font-size: 15px"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M3 4 L20.5 3 L21 20.5 L4 21 Z" fill="none" stroke="#2E2B27" stroke-width="1.8" stroke-linejoin="round"></path><path d="M6 12 L10.5 17 L20 4" fill="none" stroke="#D0601E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Play the AI</button>
+<button aria-pressed="false" style="display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 4px; border: 0; background: none; color: #2E2B27; font-weight: 700; font-size: 15px"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M3 4 L20.5 3 L21 20.5 L4 21 Z" fill="none" stroke="#2E2B27" stroke-width="1.8" stroke-linejoin="round"></path></svg>Two players, one device</button>
+</div>
+<div style="height: 42px; display: flex; align-items: flex-end; padding-bottom: 6px; box-sizing: border-box; font-weight: 700; font-size: 14px; color: #5E574E">Board size (boxes per side)</div>
+<div role="group" aria-label="Board size" style="height: 42px; display: flex; align-items: center; gap: 4px">
+<button aria-pressed="false" style="position: relative; min-height: 40px; padding: 0 8px; border: 0; background: none; color: #2E2B27; font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1">3×3</button>
+<button aria-pressed="false" style="position: relative; min-height: 40px; padding: 0 8px; border: 0; background: none; color: #2E2B27; font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1">4×4</button>
+<button aria-pressed="true" style="position: relative; min-height: 40px; padding: 0 8px; border: 0; background: none; color: #2E2B27; font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1">5×5<svg aria-hidden="true" viewBox="0 0 100 44" preserveAspectRatio="none" style="position: absolute; left: -9px; top: -5px; width: calc(100% + 18px); height: calc(100% + 10px); overflow: visible"><path d="M14 31 C 5 12, 62 1, 91 13 S 87 43, 47 42 S 3 32, 24 9" fill="none" stroke="#D0601E" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></button>
+<button aria-pressed="false" style="position: relative; min-height: 40px; padding: 0 8px; border: 0; background: none; color: #2E2B27; font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1">6×6</button>
+<button aria-pressed="false" style="position: relative; min-height: 40px; padding: 0 8px; border: 0; background: none; color: #2E2B27; font-family: Kalam, cursive; font-weight: 700; font-size: 20px; line-height: 1">Custom</button>
+</div>
+<div style="height: 42px; display: flex; align-items: flex-end; padding-bottom: 6px; box-sizing: border-box; font-weight: 700; font-size: 14px; color: #5E574E">Difficulty</div>
+<div role="group" aria-label="Difficulty" style="height: 42px; display: flex; align-items: center; gap: 10px">
+<button aria-pressed="false" style="position: relative; min-height: 40px; padding: 0 8px; border: 0; background: none; color: #2E2B27; font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1">Easy</button>
+<button aria-pressed="true" style="position: relative; min-height: 40px; padding: 0 8px; border: 0; background: none; color: #2E2B27; font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1">Medium<svg aria-hidden="true" viewBox="0 0 100 44" preserveAspectRatio="none" style="position: absolute; left: -9px; top: -5px; width: calc(100% + 18px); height: calc(100% + 10px); overflow: visible"><path d="M14 31 C 5 12, 62 1, 91 13 S 87 43, 47 42 S 3 32, 24 9" fill="none" stroke="#D0601E" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></button>
+<button aria-pressed="false" style="position: relative; min-height: 40px; padding: 0 8px; border: 0; background: none; color: #2E2B27; font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1">Hard</button>
+</div>
+<div style="height: 42px; display: flex; align-items: center; font-size: 13.5px; color: #5E574E">Grabs every box and never gives a free one away early.</div>
+<div style="height: 42px; display: flex; align-items: flex-end; padding-bottom: 6px; box-sizing: border-box; font-weight: 700; font-size: 14px; color: #5E574E">Who starts</div>
+<div role="group" aria-label="Who starts" style="height: 42px; display: flex; align-items: center; gap: 10px">
+<button aria-pressed="false" style="position: relative; min-height: 40px; padding: 0 8px; border: 0; background: none; color: #2E2B27; font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1">Me</button>
+<button aria-pressed="false" style="position: relative; min-height: 40px; padding: 0 8px; border: 0; background: none; color: #2E2B27; font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1">AI</button>
+<button aria-pressed="true" style="position: relative; min-height: 40px; padding: 0 8px; border: 0; background: none; color: #2E2B27; font-family: Kalam, cursive; font-weight: 700; font-size: 22px; line-height: 1">Random<svg aria-hidden="true" viewBox="0 0 100 44" preserveAspectRatio="none" style="position: absolute; left: -9px; top: -5px; width: calc(100% + 18px); height: calc(100% + 10px); overflow: visible"><path d="M14 31 C 5 12, 62 1, 91 13 S 87 43, 47 42 S 3 32, 24 9" fill="none" stroke="#D0601E" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke"></path></svg></button>
+</div>
+</section>
+<div style="position: relative; margin-top: auto; padding-left: 22px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: Kalam, cursive; font-size: 19px; color: #5E574E">5×5 · vs Tactician · random start</p>
+<button class="tab primary" style="min-height: 52px; font-size: 17px">Start game</button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
