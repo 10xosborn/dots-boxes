@@ -9,7 +9,7 @@
   --display-w: 700; --score-w: 800; --btn-w: 600; --chip-w: 600;
   --page: #E4D2B2;
   --text: #2B241D; --muted: #5A4C3D; --head-text: #2B241D;
-  --accent: #0B7A87; --on-accent: #FFFFFF; --focus: #0B7A87; --ring: #0B7A87; --ring-track: #EDE7DC;
+  --accent: #0B7A87; --accent-lip: #075A63; --on-accent: #FFFFFF; --focus: #0B7A87; --ring: #0B7A87; --ring-track: #EDE7DC;
   --danger: #8C1F2A; --gold: #B7791F;
   --p1: #2F86C6; --p1-deep: #1F5F8C; --p1-soft: #E3EFF8; --p1-glow: rgba(47,134,198,.55);
   --p2: #B92E3B; --p2-deep: #8C1F2A; --p2-soft: #F7E3E5; --p2-glow: rgba(185,46,59,.5);
@@ -27,7 +27,7 @@
 /* Night table. White on the night accent is 3.9:1, so primary buttons use large bold text. */
 [data-skin="table"][data-theme="dark"] {
   --page: #241C15; --text: #F2EBE3; --muted: #B9AA98; --head-text: #F2EBE3;
-  --accent: #0E8E9C; --on-accent: #FFFFFF; --focus: #7FD3DD; --ring: #3FB8C5; --ring-track: #3A332D;
+  --accent: #0E8E9C; --accent-lip: #0A6670; --on-accent: #FFFFFF; --focus: #7FD3DD; --ring: #3FB8C5; --ring-track: #3A332D;
   --danger: #F29AA3; --gold: #FFD166;
   --p1: #2F86C6; --p1-deep: #8CC4EE; --p1-soft: #183247; --p1-glow: rgba(47,134,198,.6);
   --p2: #D0414E; --p2-deep: #F29AA3; --p2-soft: #3A1C21; --p2-glow: rgba(208,65,78,.55);
@@ -47,7 +47,7 @@
   --display-w: 700; --score-w: 800; --btn-w: 800; --chip-w: 700;
   --page: #1A1820;
   --text: #F6F6F6; --muted: #A69EA8; --head-text: #F6F6F6;
-  --accent: #FB5553; --on-accent: #FFFFFF; --focus: #FB5553; --ring: #FB5553; --ring-track: #352F3D;
+  --accent: #FB5553; --accent-lip: #B83A39; --on-accent: #FFFFFF; --focus: #FB5553; --ring: #FB5553; --ring-track: #352F3D;
   --danger: #FB5553; --gold: #FFD166;
   --p1: #FB5553; --p1-deep: #FB5553; --p1-soft: #4A2629; --p1-glow: rgba(251,85,83,.6);
   --p2: #E1DEE3; --p2-deep: #E1DEE3; --p2-soft: #3A3542; --p2-glow: rgba(225,222,227,.45);
@@ -65,7 +65,7 @@
 /* Neon by day. Coral is 3.2:1 on white, so it never carries small text; small rings use the deeper coral. */
 [data-skin="neon"][data-theme="light"] {
   --page: #F6F6F6; --text: #2B2731; --muted: #736C7E; --head-text: #F6F6F6;
-  --focus: #D63F3D; --ring-track: #E1DEE3; --danger: #D63F3D; --gold: #B7791F;
+  --accent-lip: #C93F3D; --focus: #D63F3D; --ring-track: #E1DEE3; --danger: #D63F3D; --gold: #B7791F;
   --p1-soft: #FFE5E4;
   --p2: #736C7E; --p2-deep: #736C7E; --p2-soft: #ECE9EE; --p2-glow: rgba(115,108,126,.4);
   --line2: #736C7E; --dot: #2B2731;
@@ -166,6 +166,8 @@ p{line-height:1.5;margin:0}
 .btn:active{transform:var(--press);box-shadow:var(--btn-shadow-down)}
 .btn.primary{border-color:transparent;color:var(--on-accent);background:var(--accent);border-radius:var(--r-primary);box-shadow:var(--primary-shadow)}
 @media (hover:hover) and (pointer:fine){.btn.primary:hover{background:color-mix(in srgb,var(--accent) 90%,var(--on-accent))}}
+/* White labels: hover darkens towards the button's lip, since a lighter fill would drop below the label's contrast. */
+@media (hover:hover) and (pointer:fine){[data-skin="table"] .btn.primary:hover,[data-skin="neon"] .btn.primary:hover{background:color-mix(in srgb,var(--accent) 50%,var(--accent-lip))}}
 .btn.primary:active{box-shadow:var(--primary-shadow-down)}
 [data-skin="table"] .btn.primary,[data-skin="neon"] .btn.primary{font-size:1.2rem;font-weight:800}
 .btn.block{width:100%}
