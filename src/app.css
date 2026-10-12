@@ -211,6 +211,7 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .theme-opt svg{flex:none;width:52px;height:52px;border-radius:10px}
 .theme-opt b{display:block;font-family:var(--display);font-weight:var(--display-w);font-size:1.05rem}
 .theme-opt small{display:block;color:var(--muted);font-size:.85rem}
+.theme-opt[aria-checked="true"] small{color:var(--text)}
 .theme-opt .tick{margin-left:auto;font-weight:800;color:var(--text);visibility:hidden}
 .theme-opt[aria-checked="true"] .tick{visibility:visible}
 .theme-modes{margin-top:16px}
