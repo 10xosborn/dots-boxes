@@ -5,7 +5,10 @@ export function confetti() {
   document.body.appendChild(c);
   const x = c.getContext('2d'); if (!x) { c.remove(); return; }
   const dpr = devicePixelRatio || 1; c.width = innerWidth * dpr; c.height = innerHeight * dpr; x.scale(dpr, dpr);
-  const cols = ['#FF5C7A', '#3ED6EA', '#B7A4FF', '#FFD166', '#ffffff'];
+  // The current theme's own colours: both players, the action colour, gold and the ring.
+  const css = getComputedStyle(document.documentElement);
+  const cols = ['--p1', '--p2', '--accent', '--gold', '--ring'].map(v => css.getPropertyValue(v).trim()).filter(Boolean);
+  if (!cols.length) cols.push('#FC4422', '#4657CE', '#00B58C', '#FF8C32', '#21BDCA');
   const parts = Array.from({ length: 140 }, () => ({ x: innerWidth / 2 + (Math.random() - 0.5) * 120, y: innerHeight * 0.35,
     vx: (Math.random() - 0.5) * 11, vy: -Math.random() * 12 - 4, s: Math.random() * 7 + 4, r: Math.random() * 6, vr: (Math.random() - 0.5) * 0.3,
     c: cols[Math.floor(Math.random() * cols.length)] }));

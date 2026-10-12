@@ -1,112 +1,172 @@
 
 /* ---------- themes ----------
    Three skins on the root element (data-skin: table | neon | paper), each with light and dark (data-theme).
-   Values come from DESIGN.md (the owner's UI themes spec). Components below use only these tokens. */
+   Palettes (owner, 2026-10-12): Paper and Neon use orange #FF8C32, teal #00B58C, indigo #4657CE, cyan #21BDCA and coral #FC4422
+   in both modes; Tabletop uses burnt orange #D77027, pale mint #C4DFC9, pastel yellow #F7CD70 and golden yellow #F4AF3D by day,
+   and coral red #E9494B, sage #AEC8BF, pale butter #F4DD97 and turquoise #63C1C8 at night. Deeper or lighter shades of them are
+   used only where text or a thin mark needs the contrast (noted beside each). Components below use only these tokens.
 
-/* 1. Minimalist Premium (tabletop), the default. Light table. */
+   Board material tokens, read by Board.svelte and HeroBoard.svelte:
+   --lane          printed guide under every undrawn line (transparent = none)
+   --dot, --dot-hi, --dot-lo   a dot's base colour and the light and dark sides of its bead
+   --ln-filter, --dot-filter, --bx-filter   which SVG effect the lines, dots and boxes get (engrave, emboss, glow or none)
+   --fx-hi, --fx-lo  the highlight and shadow those effects use
+   --cores         inline to draw a bright core inside each line (Neon's tube light), none otherwise
+   --box-op, --box-rim1, --box-rim2   box fill opacity and the rim around each player's boxes */
+
+/* 1. Tabletop by day: a felt game mat in a wooden frame on a golden maple table. The default skin. */
 :root, [data-skin="table"] {
   --display: "Jost", system-ui, sans-serif; --ui: "Jost", system-ui, sans-serif;
-  --display-w: 700; --score-w: 800; --btn-w: 600; --chip-w: 600;
-  --page: #E4D2B2;
-  --text: #2B241D; --muted: #5A4C3D; --head-text: #2B241D;
-  --accent: #0B7A87; --accent-lip: #075A63; --on-accent: #FFFFFF; --focus: #0B7A87; --ring: #0B7A87; --ring-track: #EDE7DC;
-  --danger: #8C1F2A; --gold: #B7791F;
-  --p1: #2F86C6; --p1-deep: #1F5F8C; --p1-soft: #E3EFF8; --p1-glow: rgba(47,134,198,.55);
-  --p2: #B92E3B; --p2-deep: #8C1F2A; --p2-soft: #F7E3E5; --p2-glow: rgba(185,46,59,.5);
-  --box1: #2F86C6; --box2: #B92E3B; --box1-ink: #FFFFFF; --box2-ink: #FFFFFF; --pat1: #FFFFFF; --pat2: #FFFFFF; --ini-halo: none;
-  --line1: #3A3A3D; --line2: #3A3A3D; --dot: #646468;
-  --panel: #FFFFFF; --panel-b: transparent; --panel-bw: 0px; --panel-strong: #FFFFFF; --control: #F1EFEA; --select-tint: #E2F2F3;
-  --shadow: 0 6px 14px -8px rgba(60,38,14,.5); --chip-shadow: 0 6px 14px -8px rgba(60,38,14,.5);
-  --btn-shadow: 0 4px 0 #CDB894, 0 10px 18px -12px rgba(60,38,14,.5); --btn-shadow-down: 0 1px 0 #CDB894;
-  --primary-shadow: 0 4px 0 #075A63, 0 10px 18px -12px rgba(60,38,14,.5); --primary-shadow-down: 0 1px 0 #075A63; --press: translateY(3px);
-  --board: #FCFCFA; --board-border: 0 solid transparent; --board-r: 0px; --grid: transparent;
-  --board-shadow: 0 2px 0 rgba(90,64,36,.08), 0 22px 36px -18px rgba(70,46,20,.55);
-  --scrim: rgba(16,11,6,.55); --modal-r: 0px;
+  --display-w: 700; --score-w: 800; --btn-w: 700; --chip-w: 600;
+  --page: #E3B970;                                     /* golden maple, between pastel and golden yellow */
+  --text: #2B241D; --muted: #5A4632; --head-text: #2B241D;
+  --accent: #D77027; --accent-lip: #9E4E17; --on-accent: #FFFFFF;   /* burnt orange; labels are 19 px bold (3.4:1) */
+  --focus: #8A3F0E; --ring: #D77027; --ring-track: #F1E3C6;          /* focus: a deeper burnt orange, 4:1 on the table */
+  --danger: #A63A12; --gold: #8C5F0A;                 /* gold for text: a deep golden, 5:1 on the cards */
+  --p1: #D77027; --p1-deep: #C2611F; --p1-soft: #FBE3CF; --p1-glow: rgba(215,112,39,.45);
+  --p2: #B07A12; --p2-deep: #9C6B0E; --p2-soft: #FDF0C8; --p2-glow: rgba(244,175,61,.5);   /* golden yellow, deepened for marks and digits */
+  --box1: #D77027; --box2: #F4AF3D; --box1-ink: #FFFFFF; --box2-ink: #2B241D; --pat1: #FFFFFF; --pat2: #2B241D; --ini-halo: none;
+  --box-op: 1; --box-rim1: #9E4E17; --box-rim2: #94650C;
+  --line1: #23392D; --line2: #23392D; --lane: rgba(35,57,45,.17);    /* lines engraved in the mat, the same for both players */
+  --dot: #2C4637; --dot-hi: #5F806C; --dot-lo: #14231A;
+  --ln-filter: url(#fx-engrave); --dot-filter: url(#fx-engrave); --bx-filter: none; --cores: none;
+  --fx-hi: rgba(255,255,255,.62); --fx-lo: rgba(20,40,28,.35);
+  --panel: #FFF8E9; --panel-b: transparent; --panel-bw: 0px; --panel-strong: #FFF8E9; --control: #F6EAD0; --select-tint: #FCE6B2;
+  --shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 7px 14px -8px rgba(96,52,8,.55);
+  --chip-shadow: 0 6px 12px -8px rgba(96,52,8,.55);
+  --btn-shadow: 0 4px 0 #C9A26A, 0 10px 18px -12px rgba(96,52,8,.55); --btn-shadow-down: 0 1px 0 #C9A26A;
+  --primary-shadow: 0 4px 0 #9E4E17, 0 12px 20px -12px rgba(96,40,8,.6); --primary-shadow-down: 0 1px 0 #9E4E17; --press: translateY(3px);
+  --cta-glow: 0 0 0 0 transparent; --sel-glow: 0 0 0 0 transparent; --sel-ring: #9E4E17;   /* ring: the lip colour, 5:1 on the tint */
+  --board: #C4DFC9;                                     /* pale mint felt */
+  --frame: #B0602A; --frame-dark: #7A3E14; --frame-hi: rgba(255,214,160,.55);
+  --board-r: 16px; --grid: transparent;
+  --scrim: rgba(40,24,8,.55); --modal-r: 4px;
   --r-lg: 14px; --r-md: 14px; --r-sm: 12px; --r-pill: 999px; --r-primary: 999px;
 }
-/* Night table. White on the night accent is 3.9:1, so primary buttons use large bold text. */
+/* Tabletop at night: sage felt in a walnut frame with brass edging, on a dark walnut table. */
 [data-skin="table"][data-theme="dark"] {
-  --page: #241C15; --text: #F2EBE3; --muted: #B9AA98; --head-text: #F2EBE3;
-  --accent: #0E8E9C; --accent-lip: #0A6670; --on-accent: #FFFFFF; --focus: #7FD3DD; --ring: #3FB8C5; --ring-track: #3A332D;
-  --danger: #F29AA3; --gold: #FFD166;
-  --p1: #2F86C6; --p1-deep: #8CC4EE; --p1-soft: #183247; --p1-glow: rgba(47,134,198,.6);
-  --p2: #D0414E; --p2-deep: #F29AA3; --p2-soft: #3A1C21; --p2-glow: rgba(208,65,78,.55);
-  --box1: #2F86C6; --box2: #D0414E;
-  --line1: #DADADF; --line2: #DADADF; --dot: #A9A9B0;
-  --panel: #2A2420; --panel-strong: #2A2420; --control: #2E2823; --select-tint: #10363A;
-  --shadow: 0 6px 14px -8px rgba(0,0,0,.7); --chip-shadow: 0 6px 14px -8px rgba(0,0,0,.7);
-  --btn-shadow: 0 4px 0 #15110E, 0 10px 18px -12px rgba(0,0,0,.7); --btn-shadow-down: 0 1px 0 #15110E;
-  --primary-shadow: 0 4px 0 #0A6670, 0 10px 18px -12px rgba(0,0,0,.7); --primary-shadow-down: 0 1px 0 #0A6670;
-  --board: #1C1D20; --board-shadow: 0 2px 0 rgba(0,0,0,.3), 0 22px 36px -18px rgba(0,0,0,.85);
+  --page: #2A1F18;
+  --text: #F4EBDD; --muted: #C9BBA6; --head-text: #F4EBDD;
+  --accent: #F4DD97; --accent-lip: #B89C4E; --on-accent: #2A1F18;   /* pale butter: brass buttons with dark labels (12:1) */
+  --focus: #63C1C8; --ring: #63C1C8; --ring-track: #4A3B30;
+  --danger: #F08A8B; --gold: #F4DD97;
+  --p1: #E9494B; --p1-deep: #F06567; --p1-soft: #4A2223; --p1-glow: rgba(233,73,75,.5);        /* coral red; digits a touch lighter */
+  --p2: #63C1C8; --p2-deep: #7FD1D7; --p2-soft: #1C3C3F; --p2-glow: rgba(99,193,200,.5);       /* turquoise */
+  --box1: #E9494B; --box2: #63C1C8; --box1-ink: #FFFFFF; --box2-ink: #14201F; --pat1: #FFFFFF; --pat2: #14201F;
+  --box-rim1: #FF9A9B; --box-rim2: #A5E4E8;   /* lighter rims outline the boxes on dark felt */
+  --line1: #AEC8BF; --line2: #AEC8BF; --lane: rgba(174,200,191,.14);   /* sage lines inlaid in the felt */
+  --dot: #E8CF83; --dot-hi: #FFF6D6; --dot-lo: #9C8240;              /* brass pegs in pale butter */
+  --fx-hi: rgba(0,0,0,.55); --fx-lo: rgba(0,0,0,.45);
+  --panel: #3A2C23; --panel-strong: #3A2C23; --control: #46362B; --select-tint: #4A4126; --sel-ring: #F4DD97;
+  --shadow: 0 1px 0 rgba(255,236,200,.07) inset, 0 7px 14px -8px rgba(0,0,0,.75);
+  --chip-shadow: 0 6px 12px -8px rgba(0,0,0,.75);
+  --btn-shadow: 0 4px 0 #1A130E, 0 10px 18px -12px rgba(0,0,0,.75); --btn-shadow-down: 0 1px 0 #1A130E;
+  --primary-shadow: 0 4px 0 #8C7536, 0 12px 20px -12px rgba(0,0,0,.75); --primary-shadow-down: 0 1px 0 #8C7536;
+  --board: #2F3F39;                                     /* sage felt, deepened so the sage lines read 6:1 */
+  --frame: #3B2A1E; --frame-dark: #1A120C; --frame-hi: rgba(244,221,151,.45);
   --scrim: rgba(0,0,0,.6);
 }
 
-/* 2. Neon (coral). Dark first. Coral only ever means you or an action. */
+/* 2. Neon at night: a dark room lit by the five colours; lines are lit tubes, dots are indicator lights. */
 [data-skin="neon"] {
   --display: "Unbounded", system-ui, sans-serif; --ui: "Manrope", system-ui, sans-serif;
   --display-w: 700; --score-w: 800; --btn-w: 800; --chip-w: 700;
-  --page: #1A1820;
-  --text: #F6F6F6; --muted: #A69EA8; --head-text: #F6F6F6;
-  --accent: #FB5553; --accent-lip: #B83A39; --on-accent: #FFFFFF; --focus: #FB5553; --ring: #FB5553; --ring-track: #352F3D;
-  --danger: #FB5553; --gold: #FFD166;
-  --p1: #FB5553; --p1-deep: #FB5553; --p1-soft: #4A2629; --p1-glow: rgba(251,85,83,.6);
-  --p2: #E1DEE3; --p2-deep: #E1DEE3; --p2-soft: #3A3542; --p2-glow: rgba(225,222,227,.45);
-  --box1: #FB5553; --box2: #736C7E; --box1-ink: #FFFFFF; --box2-ink: #FFFFFF; --pat1: #FFFFFF; --pat2: #FFFFFF; --ini-halo: none;
-  --line1: #FB5553; --line2: #E1DEE3; --dot: #F6F6F6;
-  --panel: #2A2630; --panel-b: #463F4F; --panel-bw: 1px; --panel-strong: #352F3D; --control: #352F3D; --select-tint: #4A2629;
-  --shadow: none; --chip-shadow: none;
-  --btn-shadow: none; --btn-shadow-down: none;
-  --primary-shadow: 0 4px 0 #B83A39; --primary-shadow-down: 0 1px 0 #B83A39; --press: translateY(3px);
-  --board: #1C1A22; --board-border: 1px solid rgba(251,85,83,.55); --board-r: 22px; --grid: rgba(225,222,227,.05);
-  --board-shadow: 0 0 0 1px rgba(251,85,83,.18), 0 0 34px -6px rgba(251,85,83,.5), 0 24px 50px -24px rgba(0,0,0,.9);
-  --scrim: rgba(10,8,14,.62); --modal-r: 22px;
+  --page: #070A18;
+  --text: #EEF1FF; --muted: #A7AECB; --head-text: #EEF1FF;
+  --accent: #00B58C; --accent-lip: #007A5E; --on-accent: #04110D;   /* teal: the main action, with dark labels (7:1) */
+  --focus: #21BDCA; --ring: #21BDCA; --ring-track: #232A4D;
+  --danger: #FC4422; --gold: #FF8C32;
+  --p1: #FC4422; --p1-deep: #FF6B4F; --p1-soft: #3A1610; --p1-glow: rgba(252,68,34,.6);       /* coral: you */
+  --p2: #21BDCA; --p2-deep: #4FD3DE; --p2-soft: #0D2D33; --p2-glow: rgba(33,189,202,.55);     /* cyan: the other player */
+  --box1: #FC4422; --box2: #21BDCA; --box1-ink: #FFFFFF; --box2-ink: #FFFFFF; --pat1: #FFFFFF; --pat2: #FFFFFF; --ini-halo: none;
+  --box-op: .32; --box-rim1: #FC4422; --box-rim2: #21BDCA;
+  --line1: #FC4422; --line2: #21BDCA; --lane: rgba(70,87,206,.22);
+  --dot: #21BDCA; --dot-hi: #F2FDFF; --dot-lo: #1B6F86;
+  --ln-filter: url(#fx-glow); --dot-filter: url(#fx-glow); --bx-filter: url(#fx-glow); --cores: inline;
+  --fx-hi: rgba(255,255,255,.6); --fx-lo: rgba(0,0,0,.4);
+  --panel: #10142C; --panel-b: rgba(125,139,255,.22); --panel-bw: 1px; --panel-strong: #161B3A; --control: #161B3A; --select-tint: #1B2156;
+  --shadow: 0 1px 0 rgba(255,255,255,.05) inset, 0 12px 28px -18px rgba(0,0,0,.9);
+  --chip-shadow: none;
+  --btn-shadow: 0 1px 0 rgba(255,255,255,.05) inset; --btn-shadow-down: none;
+  --primary-shadow: 0 0 0 1px rgba(0,181,140,.65), 0 0 18px -2px rgba(0,181,140,.7), 0 0 44px -10px rgba(0,181,140,.55);
+  --primary-shadow-down: 0 0 0 1px rgba(0,181,140,.6), 0 0 10px -2px rgba(0,181,140,.5); --press: translateY(1px);
+  --cta-glow: 0 0 0 1px rgba(0,181,140,.8), 0 0 26px 0 rgba(0,181,140,.75), 0 0 60px -8px rgba(0,181,140,.6);
+  --sel-ring: #7D8BFF; --sel-glow: 0 0 14px -2px rgba(70,87,206,.85);   /* indigo ring, lightened for 5:1 on the tint */
+  --board: #0B0F24; --board-r: 22px; --grid: rgba(70,87,206,.14);
+  --frame: transparent; --frame-dark: transparent; --frame-hi: transparent;
+  --scrim: rgba(3,4,12,.72); --modal-r: 22px;
   --r-lg: 22px; --r-md: 14px; --r-sm: 10px; --r-pill: 999px; --r-primary: 14px;
 }
-/* Neon by day. Coral is 3.2:1 on white, so it never carries small text; small rings use the deeper coral. */
+/* Neon by day: a bright room with soft coloured light; coral and indigo carry the lines (3.5:1 and 6:1 on white). */
 [data-skin="neon"][data-theme="light"] {
-  --page: #F6F6F6; --text: #2B2731; --muted: #736C7E; --head-text: #F6F6F6;
-  --accent-lip: #C93F3D; --focus: #D63F3D; --ring-track: #E1DEE3; --danger: #D63F3D; --gold: #B7791F;
-  --p1-soft: #FFE5E4;
-  --p2: #736C7E; --p2-deep: #736C7E; --p2-soft: #ECE9EE; --p2-glow: rgba(115,108,126,.4);
-  --line2: #736C7E; --dot: #2B2731;
-  --panel: #FFFFFF; --panel-b: #E1DEE3; --panel-strong: #F6F6F6; --control: #F6F6F6; --select-tint: #FFE8E7;
-  --primary-shadow: 0 4px 0 #C93F3D; --primary-shadow-down: 0 1px 0 #C93F3D;
-  --board: #FFFFFF; --board-border: 1px solid rgba(251,85,83,.45); --grid: rgba(115,108,126,.08);
-  --board-shadow: 0 0 0 1px rgba(251,85,83,.12), 0 0 30px -8px rgba(251,85,83,.45), 0 26px 44px -30px rgba(70,60,80,.55);
-  --scrim: rgba(43,39,49,.45);
+  --page: #EEF1FA;
+  --text: #141832; --muted: #4F5577; --head-text: #141832;
+  --accent: #4657CE; --accent-lip: #303E9E; --on-accent: #FFFFFF;   /* indigo: the main action, white labels (6:1) */
+  --focus: #4657CE; --ring: #4657CE; --ring-track: #E1E5F4;
+  --danger: #C8300F; --gold: #B5560C;                 /* deeper orange for text: 5:1 on white */
+  --p1: #FC4422; --p1-deep: #E8391A; --p1-soft: #FFE3DC; --p1-glow: rgba(252,68,34,.4);
+  --p2: #4657CE; --p2-deep: #4657CE; --p2-soft: #E6E9FF; --p2-glow: rgba(70,87,206,.4);
+  --box1: #FC4422; --box2: #4657CE; --box-op: 1; --box-rim1: #C8300F; --box-rim2: #303E9E;
+  --line1: #FC4422; --line2: #4657CE; --lane: rgba(70,87,206,.16);
+  --dot: #4657CE; --dot-hi: #B9C3FF; --dot-lo: #27348C; --cores: none;
+  --ln-filter: url(#fx-glow-soft); --dot-filter: url(#fx-glow-soft); --bx-filter: url(#fx-glow-soft);
+  --panel: #FFFFFF; --panel-b: rgba(70,87,206,.16); --panel-strong: #F6F7FD; --control: #F2F4FB; --select-tint: #E6E9FF;
+  --shadow: 0 10px 26px -16px rgba(70,87,206,.45);
+  --btn-shadow: 0 6px 16px -12px rgba(70,87,206,.5);
+  --primary-shadow: 0 0 0 1px rgba(70,87,206,.45), 0 8px 22px -6px rgba(70,87,206,.6), 0 0 30px -8px rgba(33,189,202,.45);
+  --primary-shadow-down: 0 0 0 1px rgba(70,87,206,.5), 0 3px 10px -4px rgba(70,87,206,.6);
+  --cta-glow: 0 0 0 1px rgba(70,87,206,.6), 0 10px 28px -6px rgba(70,87,206,.7), 0 0 40px -6px rgba(33,189,202,.55);
+  --sel-ring: #4657CE; --sel-glow: 0 0 14px -4px rgba(70,87,206,.6);
+  --board: #FFFFFF; --grid: rgba(70,87,206,.07);
+  --scrim: rgba(20,24,50,.45);
 }
 
-/* 3. Cozy Paper and Notebook. Kalam only for names, scores and headings; Atkinson Hyperlegible for everything else. */
+/* 3. Cozy Paper by day: a cream sheet on a kraft desk; lines and dots printed and pressed into the paper. */
 [data-skin="paper"] {
   --display: "Kalam", system-ui, sans-serif; --ui: "Atkinson Hyperlegible", system-ui, sans-serif;
   --display-w: 700; --score-w: 700; --btn-w: 700; --chip-w: 700;
-  --page: #FBF7EE;
-  --text: #2E2B27; --muted: #5E574E; --head-text: #2E2B27;
-  --accent: #2E2B27; --on-accent: #FBF7EE; --focus: #2E2B27; --ring: #D0601E; --ring-track: #D6E0EA;
-  --danger: #2E2B27; --gold: #2F6B4F;
-  --p1: #D0601E; --p1-deep: #D0601E; --p1-soft: #F6DCCB; --p1-glow: transparent;
-  --p2: #1F4FA8; --p2-deep: #1F4FA8; --p2-soft: #D8E2F3; --p2-glow: transparent;
-  --box1: #F6DCCB; --box2: #D8E2F3; --box1-ink: #D0601E; --box2-ink: #1F4FA8; --pat1: #D0601E; --pat2: #1F4FA8; --ini-halo: #FBF7EE;
-  --line1: #D0601E; --line2: #1F4FA8; --dot: #2E2B27;
-  --panel: #FBF7EE; --panel-b: #2E2B27; --panel-bw: 1.5px; --panel-strong: #FBF7EE; --control: #FBF7EE; --select-tint: #FFE58A;
+  --page: #E6DCC7;                                      /* kraft desk */
+  --text: #2E2B27; --muted: #625A50; --head-text: #2E2B27;
+  --accent: #4657CE; --accent-lip: #303E9E; --on-accent: #FFFFFF;   /* indigo ink: the main action (6:1) */
+  --focus: #4657CE; --ring: #00936F; --ring-track: #E4DCCB;          /* teal deepened for the level ring (3.6:1) */
+  --danger: #C8300F; --gold: #B04E07;                 /* orange highlighter; deep orange for text */
+  --p1: #FC4422; --p1-deep: #E0391A; --p1-soft: #FFE1D8; --p1-glow: transparent;   /* coral pencil: 3.3:1 on the sheet */
+  --p2: #4657CE; --p2-deep: #4657CE; --p2-soft: #E2E5FA; --p2-glow: transparent;   /* indigo ink: 5.6:1 */
+  --box1: #FFE1D8; --box2: #E2E5FA; --box1-ink: #E0391A; --box2-ink: #4657CE; --pat1: #FC4422; --pat2: #4657CE; --ini-halo: #FCF8EF;
+  --box-op: 1; --box-rim1: transparent; --box-rim2: transparent;
+  --line1: #FC4422; --line2: #4657CE; --lane: transparent;
+  --dot: #2E2B27; --dot-hi: #6B645B; --dot-lo: #171513;
+  --ln-filter: url(#fx-emboss); --dot-filter: url(#fx-emboss); --bx-filter: none; --cores: none;
+  --fx-hi: rgba(255,255,255,.85); --fx-lo: rgba(70,50,20,.22);
+  --panel: #FCF8EF; --panel-b: #2E2B27; --panel-bw: 1.5px; --panel-strong: #FCF8EF; --control: #FCF8EF; --select-tint: #D3F2EA;
+  --sel-ring: #007F62;                                  /* teal deepened for the chosen option's ring (4.3:1) */
   --shadow: 2px 2px 0 rgba(46,43,39,.18); --chip-shadow: 2px 2px 0 rgba(46,43,39,.18);
-  --btn-shadow: 2px 2px 0 rgba(46,43,39,.18); --btn-shadow-down: none; --press: translate(2px,2px);
-  --primary-shadow: 2px 2px 0 rgba(46,43,39,.18); --primary-shadow-down: none;
-  --board: transparent; --board-border: 0 solid transparent; --board-r: 0px; --grid: transparent; --board-shadow: none;
+  --btn-shadow: 2px 2px 0 rgba(46,43,39,.22); --btn-shadow-down: none; --press: translate(2px,2px);
+  --primary-shadow: 2px 2px 0 #303E9E; --primary-shadow-down: none;
+  --cta-glow: 0 0 0 0 transparent; --sel-glow: 0 0 0 0 transparent;
+  --board: #FCF8EF; --board-r: 3px; --grid: transparent;   /* the sheet */
+  --frame: transparent; --frame-dark: transparent; --frame-hi: transparent;
   --scrim: rgba(46,43,39,.4); --modal-r: 6px;
   --r-lg: 6px; --r-md: 4px; --r-sm: 4px; --r-pill: 4px; --r-primary: 4px;
 }
-/* The chalkboard. */
+/* Cozy Paper at night: charcoal paper on a dark desk; orange and cyan inks (6.7:1 and 6.8:1). */
 [data-skin="paper"][data-theme="dark"] {
-  --page: #1F2522; --text: #ECEDE6; --muted: #A9B0A9; --head-text: #ECEDE6;
-  --accent: #ECEDE6; --on-accent: #1F2522; --focus: #ECEDE6; --ring: #F59A5B; --ring-track: #2F3833;
-  --danger: #ECEDE6; --gold: #7FC4A0;
-  --p1: #F59A5B; --p1-deep: #F59A5B; --p1-soft: #3D2A1E; --p2: #8DB8F2; --p2-deep: #8DB8F2; --p2-soft: #1E2A3D;
-  --box1: #3D2A1E; --box2: #1E2A3D; --box1-ink: #F59A5B; --box2-ink: #8DB8F2; --pat1: #F59A5B; --pat2: #8DB8F2; --ini-halo: #1F2522;
-  --line1: #F59A5B; --line2: #8DB8F2; --dot: #ECEDE6;
-  --panel: #1F2522; --panel-b: #ECEDE6; --panel-strong: #1F2522; --control: #1F2522; --select-tint: #6B5A1E;
-  --shadow: 2px 2px 0 rgba(0,0,0,.35); --chip-shadow: 2px 2px 0 rgba(0,0,0,.35);
-  --btn-shadow: 2px 2px 0 rgba(0,0,0,.35); --primary-shadow: 2px 2px 0 rgba(0,0,0,.35);
+  --page: #1A1816;
+  --text: #EFE8DA; --muted: #B3A994; --head-text: #EFE8DA;
+  --accent: #00B58C; --accent-lip: #007A5E; --on-accent: #12100E;   /* teal: the main action, dark labels (7:1) */
+  --focus: #21BDCA; --ring: #21BDCA; --ring-track: #3A3530;
+  --danger: #FF8C32; --gold: #FF8C32;                 /* indigo highlighter behind light text (4.8:1) */
+  --p1: #FF8C32; --p1-deep: #FF8C32; --p1-soft: #3E2A1A;
+  --p2: #21BDCA; --p2-deep: #21BDCA; --p2-soft: #133538;
+  --box1: #3E2A1A; --box2: #133538; --box1-ink: #FF8C32; --box2-ink: #21BDCA; --pat1: #FF8C32; --pat2: #21BDCA; --ini-halo: #27241F;
+  --line1: #FF8C32; --line2: #21BDCA;
+  --dot: #EFE8DA; --dot-hi: #FFFFFF; --dot-lo: #A79E8D;
+  --fx-hi: rgba(0,0,0,.6); --fx-lo: rgba(255,255,255,.08);
+  --panel: #27241F; --panel-b: rgba(239,232,218,.7); --panel-strong: #27241F; --control: #27241F; --select-tint: #11362C;
+  --sel-ring: #00B58C;
+  --shadow: 2px 2px 0 rgba(0,0,0,.45); --chip-shadow: 2px 2px 0 rgba(0,0,0,.45);
+  --btn-shadow: 2px 2px 0 rgba(0,0,0,.5); --primary-shadow: 2px 2px 0 #00664F;
+  --board: #27241F;
   --scrim: rgba(0,0,0,.55);
 }
 
@@ -114,11 +174,21 @@
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
 body{font-family:var(--ui);color:var(--text);background-color:var(--page);min-height:100vh;min-height:100dvh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-[data-skin="table"] body{background-image:url('./assets/textures/wood-light.webp');background-size:512px 128px}
-[data-skin="table"][data-theme="dark"] body{background-image:url('./assets/textures/wood-dark.webp')}
-[data-skin="neon"] body{background-image:linear-gradient(180deg,#736C7E 0,#4A4453 135px,#2A2630 304px,#1F1C25 523px,#1A1820 844px);background-repeat:no-repeat}
-[data-skin="neon"][data-theme="light"] body{background-image:linear-gradient(180deg,#736C7E 0,#736C7E 66px,#A69EA8 110px,#E1DEE3 170px,#F6F6F6 360px)}
-[data-skin="paper"] body{background-image:url('./assets/textures/paper-grain.webp');background-size:256px 256px}
+/* Tabletop: maple or walnut planks, lit from above, darker towards the edges. */
+[data-skin="table"] body{background-image:radial-gradient(ellipse 120% 70% at 50% 0%,rgba(255,240,205,.34),transparent 62%),radial-gradient(ellipse 130% 95% at 50% 45%,transparent 58%,rgba(90,45,5,.24)),
+  repeating-linear-gradient(180deg,rgba(110,58,12,.15) 0 1px,rgba(255,232,180,.22) 1px 2px,transparent 2px 136px),url('./assets/textures/wood-light.webp');background-size:auto,auto,auto,512px 128px}
+[data-skin="table"][data-theme="dark"] body{background-image:radial-gradient(ellipse 120% 70% at 50% 0%,rgba(255,214,150,.09),transparent 62%),radial-gradient(ellipse 130% 95% at 50% 45%,transparent 55%,rgba(0,0,0,.5)),
+  repeating-linear-gradient(180deg,rgba(0,0,0,.38) 0 1px,rgba(255,220,170,.06) 1px 2px,transparent 2px 136px),url('./assets/textures/wood-dark.webp')}
+/* Neon: coloured light pooling from the corners of a dark (or bright) room. */
+[data-skin="neon"] body{background-repeat:no-repeat;background-image:radial-gradient(ellipse 70% 50% at 12% -5%,rgba(70,87,206,.5),transparent 70%),radial-gradient(ellipse 55% 45% at 105% 28%,rgba(33,189,202,.24),transparent 70%),
+  radial-gradient(ellipse 70% 45% at 45% 108%,rgba(252,68,34,.2),transparent 70%),radial-gradient(ellipse 40% 30% at 82% 86%,rgba(255,140,50,.1),transparent 70%),linear-gradient(180deg,#0B0F26,#070A18 55%)}
+[data-skin="neon"][data-theme="light"] body{background-image:radial-gradient(ellipse 70% 50% at 10% -5%,rgba(70,87,206,.2),transparent 70%),radial-gradient(ellipse 55% 45% at 105% 25%,rgba(33,189,202,.2),transparent 70%),
+  radial-gradient(ellipse 70% 45% at 45% 108%,rgba(255,140,50,.16),transparent 70%),radial-gradient(ellipse 40% 30% at 85% 80%,rgba(252,68,34,.08),transparent 70%),linear-gradient(180deg,#F7F8FE,#ECEFF9)}
+/* Paper: a kraft desk with the formation, fibres and tooth of paper, shaded towards the edges. By day a white tile multiplies onto the kraft; at night a grey one blends in soft-light. */
+[data-skin="paper"] body{background-image:radial-gradient(ellipse 130% 100% at 50% 40%,transparent 55%,rgba(110,80,40,.2)),url('./assets/textures/paper-light.webp');
+  background-size:auto,640px 640px;background-blend-mode:normal,multiply}
+[data-skin="paper"][data-theme="dark"] body{background-image:radial-gradient(ellipse 130% 100% at 50% 40%,transparent 50%,rgba(0,0,0,.5)),url('./assets/textures/paper-soft.webp');background-blend-mode:normal,soft-light}
+[data-skin="table"] .tag{color:var(--text)}   /* page text sits on wood grain: full ink keeps it 4.5:1 on the darkest streaks */
 button,input{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:8px}
 [data-skin="paper"] :focus-visible{outline:2px dashed var(--focus)}
@@ -166,9 +236,17 @@ p{line-height:1.5;margin:0}
 .btn:active{transform:var(--press);box-shadow:var(--btn-shadow-down)}
 .btn.primary{border-color:transparent;color:var(--on-accent);background:var(--accent);border-radius:var(--r-primary);box-shadow:var(--primary-shadow)}
 @media (hover:hover) and (pointer:fine){.btn.primary:hover{background:color-mix(in srgb,var(--accent) 90%,var(--on-accent))}}
-/* White labels: hover darkens towards the button's lip, since a lighter fill would drop below the label's contrast. */
-@media (hover:hover) and (pointer:fine){[data-skin="table"] .btn.primary:hover,[data-skin="neon"] .btn.primary:hover{background:color-mix(in srgb,var(--accent) 50%,var(--accent-lip))}}
+/* Hover: Tabletop and Paper buttons darken towards their lip (a lighter fill would weaken the label) and Tabletop's lift a little;
+   Neon's light up instead, the main action most. */
+@media (hover:hover) and (pointer:fine){
+  [data-skin="table"] .btn.primary:hover,[data-skin="paper"] .btn.primary:hover{background:color-mix(in srgb,var(--accent) 50%,var(--accent-lip))}
+  [data-skin="table"] .btn:hover{transform:translateY(-1px)}
+  [data-skin="neon"] .btn:hover{background:var(--panel-strong);border-color:rgba(33,189,202,.6);box-shadow:0 0 0 1px rgba(33,189,202,.3),0 0 18px -4px rgba(33,189,202,.6)}
+  [data-skin="neon"][data-theme="light"] .btn:hover{border-color:rgba(70,87,206,.5);box-shadow:0 0 0 1px rgba(70,87,206,.25),0 6px 18px -6px rgba(70,87,206,.5)}
+  [data-skin="neon"] .btn.primary:hover{background:var(--accent);border-color:transparent;box-shadow:var(--cta-glow)}
+}
 .btn.primary:active{box-shadow:var(--primary-shadow-down)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
 [data-skin="table"] .btn.primary,[data-skin="neon"] .btn.primary{font-size:1.2rem;font-weight:800}
 .btn.block{width:100%}
 .btn.small{min-height:44px;padding:8px 14px;font-size:.9rem;white-space:nowrap}
@@ -180,13 +258,11 @@ p{line-height:1.5;margin:0}
 .field>label,.field>.lab{display:block;font-weight:800;font-size:.9rem;margin-bottom:8px}
 .seg{display:flex;gap:6px;background:var(--control);border:var(--panel-bw) solid var(--panel-b);border-radius:var(--r-md);padding:5px}
 .seg button{flex:1;min-height:44px;border:0;border-radius:var(--r-sm);background:transparent;font-weight:700;cursor:pointer;color:var(--muted);transition:background-color .2s,color .2s}
-.seg button[aria-pressed="true"]{background:var(--select-tint);color:var(--text);box-shadow:inset 0 0 0 1.5px var(--accent)}
-[data-skin="paper"] .seg button[aria-pressed="true"]{box-shadow:none}
-/* Neon's small selected rings use its focus coral: the deeper #D63F3D by day, where bright coral is under 3:1 on the light tint. */
-[data-skin="neon"] .seg button[aria-pressed="true"]{box-shadow:inset 0 0 0 1.5px var(--focus)}
+/* The chosen option: the theme's tint, a ring in --sel-ring (picked for 4:1 or more on the tint) and, in Neon, a glow. */
+.seg button[aria-pressed="true"]{background:var(--select-tint);color:var(--text);box-shadow:inset 0 0 0 1.5px var(--sel-ring),var(--sel-glow)}
 /* Paper ticks its choice (its setup uses hand-drawn checkboxes); Tabletop and Neon mark it with the ring and tint, as in their mockups.
    The tick is decoration (aria-pressed already says "pressed"): empty alt text keeps it out of the button's name. */
-[data-skin="paper"] .seg button[aria-pressed="true"]::before{content:"\2713\00a0";content:"\2713\00a0"/""}
+[data-skin="paper"] .seg button[aria-pressed="true"]::before{content:"\2713\00a0";content:"\2713\00a0"/"";color:var(--sel-ring)}
 .help{font-size:.85rem;color:var(--muted);margin-top:8px;min-height:1.3em}
 input[type=text]{width:100%;min-height:50px;border-radius:var(--r-sm);border:var(--panel-bw) solid var(--panel-b);background:var(--control);padding:10px 14px;font-weight:700;font-size:1rem}
 [data-skin="neon"] input[type=text]{background:var(--panel)}
@@ -210,8 +286,7 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .theme-sheet h2{margin-bottom:12px}
 .theme-opts{display:grid;gap:10px}
 .theme-opt{display:flex;align-items:center;gap:14px;width:100%;min-height:68px;padding:10px 12px;border-radius:var(--r-md);border:2px solid transparent;background:var(--control);text-align:left;cursor:pointer;color:var(--text)}
-.theme-opt[aria-checked="true"]{border-color:var(--accent);background:var(--select-tint)}
-[data-skin="neon"] .theme-opt[aria-checked="true"]{border-color:var(--focus)}
+.theme-opt[aria-checked="true"]{border-color:var(--sel-ring);background:var(--select-tint);box-shadow:var(--sel-glow)}
 .theme-opt svg{flex:none;width:52px;height:52px;border-radius:10px}
 .theme-opt b{display:block;font-family:var(--display);font-weight:var(--display-w);font-size:1.05rem}
 .theme-opt small{display:block;color:var(--muted);font-size:.85rem}
@@ -253,13 +328,16 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .pcard.on.p1{box-shadow:0 0 0 2px var(--p2),0 0 22px -4px var(--p2-glow),var(--shadow)}
 [data-skin="neon"] .pcard.on.p0{border-color:var(--p1);box-shadow:0 0 0 1px var(--p1),0 0 22px -6px var(--p1-glow)}
 [data-skin="neon"] .pcard.on.p1{border-color:var(--p2);box-shadow:0 0 0 1px var(--p2),0 0 22px -6px var(--p2-glow)}
-[data-skin="paper"] .pcard.on.p0{box-shadow:0 0 0 2px var(--p1),var(--shadow)}
-[data-skin="paper"] .pcard.on.p1{box-shadow:0 0 0 2px var(--p2),var(--shadow)}
+/* Tabletop and Paper mark the player to move with a plain ring; only Neon lights the card up. */
+[data-skin="table"] .pcard.on.p0,[data-skin="paper"] .pcard.on.p0{box-shadow:0 0 0 2px var(--p1),var(--shadow)}
+[data-skin="table"] .pcard.on.p1,[data-skin="paper"] .pcard.on.p1{box-shadow:0 0 0 2px var(--p2),var(--shadow)}
 .p1 .sc.bump,.p0 .sc.bump{animation:bump .45s ease-out}
 @keyframes bump{40%{transform:scale(1.3)}}
 .turnbar{grid-column:1/-1;position:relative;height:42px;border-radius:var(--r-pill);background:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--chip-shadow);overflow:hidden}
 .turnbar .pill{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:var(--r-pill);background:var(--p1-soft);border:1.5px solid var(--p1);transition:transform .35s ease-out,background-color .3s,border-color .3s}
 .turnbar.t1 .pill{transform:translateX(100%);background:var(--p2-soft);border-color:var(--p2)}
+[data-skin="neon"] .turnbar .pill{box-shadow:0 0 14px -3px var(--p1-glow),inset 0 0 10px -4px var(--p1-glow)}
+[data-skin="neon"] .turnbar.t1 .pill{box-shadow:0 0 14px -3px var(--p2-glow),inset 0 0 10px -4px var(--p2-glow)}
 .turnbar span{display:grid;place-items:center;height:100%;font-weight:700;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 10px}
 .turnbar.thinking span::after{content:"";display:inline-block;width:1.2em;text-align:left;animation:dots 1.2s steps(4) infinite}
 @keyframes dots{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
@@ -270,9 +348,32 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 [data-skin="neon"] .chip b{font-family:var(--display)}
 .chip .mini{width:46px;height:6px;border-radius:999px;background:var(--ring-track);overflow:hidden}
 .chip .mini i{display:block;height:100%;background:var(--ring)}
-.board-wrap{position:relative;margin:0 auto;width:clamp(280px,min(100%,calc(100dvh - 330px)),620px);aspect-ratio:1;border-radius:var(--board-r);
-  background-color:var(--board);border:var(--board-border);box-shadow:var(--board-shadow);
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.board-wrap{position:relative;margin:0 auto;width:clamp(280px,min(100%,calc(100dvh - 330px)),620px);aspect-ratio:1;border-radius:var(--board-r);background-color:var(--board)}
+/* Tabletop: a felt mat (fine nap, lighter where the lamp falls) inside a wooden rim, casting a shadow on the table.
+   The rim is drawn with inset shadows so the board's size, and so boardFit.ts, are unchanged. */
+[data-skin="table"] .board-wrap{background-image:radial-gradient(ellipse 85% 65% at 50% 32%,rgba(255,255,255,.22),transparent 70%),url('./assets/textures/grain.webp');
+  background-size:auto,256px 256px;background-blend-mode:normal,soft-light;
+  box-shadow:inset 0 1px 0 1px var(--frame-hi),inset 0 0 0 10px var(--frame),inset 0 0 0 11.5px var(--frame-dark),inset 0 16px 22px -6px rgba(10,30,15,.32),
+    0 3px 0 var(--frame-dark),0 24px 36px -18px rgba(40,20,0,.6)}
+/* The rim gets real wood grain: a ring over the frame colour, cut out of the board with a mask, under the board's drawing. */
+[data-skin="table"] .board-wrap::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:10px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,226,180,.28),transparent 35%,rgba(40,15,0,.18)),url('./assets/textures/wood-light.webp') 0 0/256px 64px;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+[data-skin="table"][data-theme="dark"] .board-wrap::before{background:linear-gradient(180deg,rgba(244,221,151,.14),transparent 35%,rgba(0,0,0,.3)),url('./assets/textures/wood-dark.webp') 0 0/256px 64px}
+/* Neon: dark glass with a lit edge, an indigo glow inside and coloured light spilling around it. */
+[data-skin="neon"] .board-wrap{background-image:radial-gradient(ellipse 80% 70% at 50% 40%,rgba(70,87,206,.22),transparent 70%),
+  linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:auto,24px 24px,24px 24px;
+  box-shadow:inset 0 0 0 1.5px rgba(33,189,202,.7),inset 0 0 36px rgba(70,87,206,.22),0 0 0 1px rgba(33,189,202,.25),0 0 22px 0 rgba(33,189,202,.38),
+    0 0 60px -10px rgba(70,87,206,.6),0 30px 60px -30px rgba(252,68,34,.35)}
+[data-skin="neon"][data-theme="light"] .board-wrap{background-image:radial-gradient(ellipse 80% 70% at 50% 40%,rgba(33,189,202,.08),transparent 70%),
+  linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  box-shadow:inset 0 0 0 1.5px rgba(70,87,206,.45),0 0 0 1px rgba(33,189,202,.18),0 0 24px -4px rgba(33,189,202,.45),0 18px 40px -22px rgba(70,87,206,.55),0 0 50px -16px rgba(252,68,34,.25)}
+/* Paper: a sheet with cloudy formation, short fibres and tooth, toned at its edges, lying slightly lifted on the desk. */
+[data-skin="paper"] .board-wrap{background-image:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 62%,rgba(150,110,50,.12)),url('./assets/textures/paper-light.webp');
+  background-size:auto,512px 512px;background-blend-mode:normal,multiply;
+  box-shadow:0 0 0 1px rgba(46,43,39,.08),0 1px 1px rgba(70,50,20,.14),0 16px 30px -18px rgba(70,50,20,.55)}
+[data-skin="paper"][data-theme="dark"] .board-wrap{background-image:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 60%,rgba(0,0,0,.35)),url('./assets/textures/paper-soft.webp');background-blend-mode:normal,soft-light;
+  box-shadow:0 0 0 1px rgba(239,232,218,.07),0 1px 1px rgba(0,0,0,.4),0 18px 34px -16px rgba(0,0,0,.75)}
 #board{display:block;width:100%;height:100%;touch-action:none;cursor:pointer;border-radius:inherit}
 #board:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
 #board:focus:not(:focus-visible){outline:none} /* no browser focus ring after a click or tap */
@@ -282,6 +383,12 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .bx{transform-box:fill-box;transform-origin:center}
 .bx.pop{animation:pop .24s ease-out}
 @keyframes pop{from{transform:scale(.8);opacity:0}}
+/* Board materials: the SVG effects live in Board.svelte's <defs>; each theme picks them through tokens. */
+.lanes{fill:none;stroke:var(--lane);stroke-linecap:round}
+.lines{filter:var(--ln-filter)}
+.cores{display:var(--cores,none)}
+.dots{filter:var(--dot-filter)}
+.bxs{filter:var(--bx-filter)}
 .dot{fill:var(--dot)}
 .game-actions{display:flex;gap:10px;margin-top:14px}
 .game-actions .btn{flex:1}
