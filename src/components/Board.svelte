@@ -2,12 +2,15 @@
   /**
    * The game board. Purely presentational: it renders lines and boxes it is given
    * and reports the edge a player chooses through `onmove`.
-   * Pointer: hover or press shows a preview; releasing draws the line (drag to adjust).
+   * Pointer: drag from a dot towards a neighbouring dot; the line snaps into place once the pointer is far enough
+   * along it, and letting go draws it (letting go anywhere else draws nothing). A press on a line still previews it
+   * and releasing draws it (drag to adjust), and hovering shows a preview. Sounds: pick-up, snap and cancel.
    * Keyboard: arrow keys move a cursor between free lines; Enter or Space draws.
    * The cursor shows only in keyboard play: a click or tap also focuses the board, but hides it.
    */
   import { geometry } from '../lib/engine/rules';
   import { layout, PAD } from '../lib/boardFit';
+  import { sfx } from '../lib/sound';
 
   let { rows, cols, lines, boxes, turn, interactive, initials, anim, onmove }: {
     rows: number; cols: number;
@@ -26,8 +29,9 @@
   const P = (v: number) => PAD + v * sp;
   const drawn = $derived(new Set(lines.map(l => l.e)));
   const stroke = $derived(Math.max(6, sp * 0.085));
-  // Theme colours (app.css): the mover's colour for previews, each player's line and box colours.
-  const color = (p: number) => (p === 0 ? 'var(--p1)' : 'var(--p2)');
+  const dotR = $derived(Math.max(5.5, sp * 0.075));
+  // Theme colours (app.css): each player's line colour (also the mover's previews and drag line, through
+  // .preview and .drag, at 3:1 or more on every board) and box colours.
   const lineColor = (p: number) => (p === 0 ? 'var(--line1)' : 'var(--line2)');
   /** Neon's tube light: a thinner, whiter line drawn inside each line (hidden in other themes through --cores). */
   const coreColor = (p: number) => `color-mix(in srgb, ${lineColor(p)} 40%, #fff)`;
@@ -38,9 +42,16 @@
   let svg: SVGSVGElement;
   // kbd: keyboard mode, turned on by keyboard focus or a board key and off by any pointer press.
   let preview = $state(-1), cursor = $state(-1), focused = $state(false), kbd = $state(false), pressing = false;
+  // Dragging from a dot: the dot picked up, where the pointer is once it has moved far enough to count as a drag,
+  // the free line it would draw if let go now, and the dot under a hovering mouse (for the grab cursor).
+  let anchor = $state(-1), dragAt = $state<[number, number] | null>(null), snap = $state(-1), hoverDot = $state(-1);
+  let downAt: [number, number] = [0, 0], pid = -1;
+  // In dot gaps: a press this close to a dot picks it up, this much movement starts the drag, and the line snaps
+  // once the pointer is this far along it (and no further than half a gap to the side).
+  const PICK = 0.24, START = 0.12, SNAP = 0.45;
 
-  // Clear stale preview/cursor when it stops being our turn or the line gets drawn.
-  $effect(() => { if (!interactive) preview = -1; });
+  // Clear stale preview/cursor/drag when it stops being our turn or the line gets drawn.
+  $effect(() => { if (!interactive) { preview = -1; hoverDot = -1; if (pressing) reset(); } });
   $effect(() => { if (cursor >= 0 && drawn.has(cursor)) cursor = nearestFree(); });
 
   function toSvg(ev: PointerEvent) {
@@ -48,20 +59,80 @@
     const pt = new DOMPoint(ev.clientX, ev.clientY).matrixTransform(m.inverse());
     return { x: pt.x, y: pt.y };
   }
+  /** Distance from a point to line e (as drawn, dot to dot). */
+  function segDist(e: number, x: number, y: number) {
+    const [x1, y1, x2, y2] = xy(e), dx = x2 - x1, dy = y2 - y1;
+    const t = Math.max(0, Math.min(1, ((x - x1) * dx + (y - y1) * dy) / (dx * dx + dy * dy)));
+    return Math.hypot(x - (x1 + t * dx), y - (y1 + t * dy));
+  }
   function edgeAt(ev: PointerEvent) {
     const { x, y } = toSvg(ev); let best = -1, bd = Infinity;
     for (let e = 0; e < g.E; e++) {
       if (drawn.has(e)) continue;
-      const [x1, y1, x2, y2] = xy(e), dx = x2 - x1, dy = y2 - y1;
-      const t = Math.max(0, Math.min(1, ((x - x1) * dx + (y - y1) * dy) / (dx * dx + dy * dy)));
-      const d = Math.hypot(x - (x1 + t * dx), y - (y1 + t * dy));
+      const d = segDist(e, x, y);
       if (d < bd) { bd = d; best = e; }
     }
     return bd < sp * 0.34 ? best : -1;
   }
-  function down(ev: PointerEvent) { kbd = false; if (!interactive) return; pressing = true; preview = edgeAt(ev); try { svg.setPointerCapture(ev.pointerId); } catch {} }
-  function move(ev: PointerEvent) { if (interactive) preview = edgeAt(ev); }
-  function up(ev: PointerEvent) { if (!pressing) return; pressing = false; const e = edgeAt(ev); preview = -1; if (interactive && e >= 0) onmove(e); }
+  /** A press near a dot that never became a drag: the line it sits on, but only if one is clearly nearer than the
+   *  others (a tap right on a dot is ambiguous: up to four lines meet there). */
+  function tapNearDot(ev: PointerEvent) {
+    const { x, y } = toSvg(ev); let best = -1, bd = Infinity, next = Infinity;
+    for (let e = 0; e < g.E; e++) {
+      if (drawn.has(e)) continue;
+      const d = segDist(e, x, y);
+      if (d < bd) { next = bd; bd = d; best = e; } else if (d < next) next = d;
+    }
+    return bd < sp * 0.34 && next - bd > sp * 0.08 ? best : -1;
+  }
+  const dotXY = (i: number) => [P(i % (cols + 1)), P(Math.floor(i / (cols + 1)))];
+  function dotNear(x: number, y: number) {
+    const c = Math.min(cols, Math.max(0, Math.round((x - PAD) / sp))), r = Math.min(rows, Math.max(0, Math.round((y - PAD) / sp)));
+    return Math.hypot(x - P(c), y - P(r)) < sp * PICK ? r * (cols + 1) + c : -1;
+  }
+  /** The free line from the picked-up dot towards the pointer, once the pointer is far enough along it; else -1. */
+  function snapTo(x: number, y: number) {
+    const [ax, ay] = dotXY(anchor), dx = x - ax, dy = y - ay, across = Math.abs(dx) >= Math.abs(dy);
+    if (Math.abs(across ? dx : dy) < sp * SNAP || Math.abs(across ? dy : dx) > sp * 0.5) return -1;
+    const r = Math.floor(anchor / (cols + 1)), c = anchor % (cols + 1);
+    let e = -1;
+    if (across) { const c2 = c + Math.sign(dx); if (c2 >= 0 && c2 <= cols) e = r * cols + Math.min(c, c2); }
+    else { const r2 = r + Math.sign(dy); if (r2 >= 0 && r2 <= rows) e = g.H + Math.min(r, r2) * (cols + 1) + c; }
+    return e >= 0 && !drawn.has(e) ? e : -1;
+  }
+  function down(ev: PointerEvent) {
+    kbd = false; if (!interactive || pressing) return;   // one pointer at a time: a second finger is ignored
+    pressing = true; pid = ev.pointerId;
+    const { x, y } = toSvg(ev); downAt = [x, y];
+    anchor = dotNear(x, y); dragAt = null; snap = -1;
+    preview = anchor >= 0 ? -1 : edgeAt(ev);
+    try { svg.setPointerCapture(ev.pointerId); } catch {}
+  }
+  function move(ev: PointerEvent) {
+    if (!interactive) return;
+    const { x, y } = toSvg(ev);
+    if (!pressing) { hoverDot = dotNear(x, y); preview = hoverDot >= 0 ? -1 : edgeAt(ev); return; }
+    if (ev.pointerId !== pid) return;
+    if (anchor < 0) { preview = edgeAt(ev); return; }
+    if (!dragAt && Math.hypot(x - downAt[0], y - downAt[1]) < sp * START) return;
+    if (!dragAt) sfx.play('pick');
+    dragAt = [x, y];
+    const s = snapTo(x, y);
+    if (s !== snap) { snap = s; if (s >= 0) sfx.play('snap'); }
+  }
+  function up(ev: PointerEvent) {
+    if (!pressing || ev.pointerId !== pid) return;
+    const e = dragAt ? snap : anchor >= 0 ? tapNearDot(ev) : edgeAt(ev);
+    if (dragAt && e < 0) sfx.play('cancel');
+    reset();
+    if (interactive && e >= 0) onmove(e);
+  }
+  function reset() { pressing = false; pid = -1; anchor = -1; dragAt = null; snap = -1; preview = -1; }
+  /** The ring round a line (the keyboard cursor's, and a drag's snapped line): a capsule enclosing the line and its dots. */
+  function ring(e: number) {
+    const [x1, y1, x2, y2] = xy(e), h = stroke * 1.2;
+    return { x: Math.min(x1, x2) - h, y: Math.min(y1, y2) - h, width: Math.abs(x2 - x1) + 2 * h, height: Math.abs(y2 - y1) + 2 * h, rx: h };
+  }
 
   const mid = (e: number) => { const [a, b, c, d] = xy(e); return [(a + c) / 2, (b + d) / 2]; };
   function nearestFree(from = [L.W / 2, L.H / 2]) {
@@ -97,9 +168,10 @@
   <!-- svelte-ignore a11y_no_noninteractive_tabindex, a11y_no_noninteractive_element_interactions -->
   <svg bind:this={svg} id="board" viewBox="0 0 {L.W} {L.H}" tabindex="0" role="application"
     aria-label="Game board. Use arrow keys to choose a line and Enter to draw it."
+    class:grab={interactive && hoverDot >= 0} class:grabbing={dragAt !== null}
     onpointerdown={down} onpointermove={move} onpointerup={up}
-    onpointercancel={() => { pressing = false; preview = -1; }}
-    onpointerleave={() => { if (!pressing) preview = -1; }}
+    onpointercancel={reset}
+    onpointerleave={() => { if (!pressing) { preview = -1; hoverDot = -1; } }}
     onkeydown={key}
     onfocus={() => { focused = true; kbd = keyboardFocus(); if (cursor < 0 || drawn.has(cursor)) cursor = nearestFree(); }}
     onblur={() => (focused = false)}>
@@ -147,7 +219,7 @@
 
     {#if preview >= 0 && interactive}
       {@const [x1, y1, x2, y2] = xy(preview)}
-      <line {x1} {y1} {x2} {y2} stroke-width={stroke} stroke-linecap="round" stroke-dasharray="{stroke * 0.1} {stroke * 1.6}" style:stroke={color(turn)} opacity=".75" />
+      <line class="preview p{turn}" {x1} {y1} {x2} {y2} stroke-width={stroke} stroke-linecap="round" stroke-dasharray="{stroke * 0.1} {stroke * 1.6}" />
     {/if}
 
     <g class="lines">
@@ -163,20 +235,38 @@
     {/each}
     </g>
 
+    <!-- A drag from a dot: a thin line to the pointer, or once it snaps, the line it will draw inside the same ring as
+         the keyboard cursor (the ring reaches 3:1 on every board, even on Tabletop's lit felt). -->
+    {#if dragAt && anchor >= 0}
+      {#if snap >= 0}
+        {@const [x1, y1, x2, y2] = xy(snap)}{@const rg = ring(snap)}
+        <line class="drag p{turn}" {x1} {y1} {x2} {y2} stroke-width={stroke} stroke-linecap="round" />
+        <rect class="kbd-ring" x={rg.x} y={rg.y} width={rg.width} height={rg.height} rx={rg.rx} />
+      {:else}
+        {@const [ax, ay] = dotXY(anchor)}
+        <line class="drag p{turn}" x1={ax} y1={ay} x2={dragAt[0]} y2={dragAt[1]} stroke-width={stroke * 0.45} stroke-linecap="round" />
+      {/if}
+    {/if}
+
     {#if focused && kbd && cursor >= 0}
-      {@const [x1, y1, x2, y2] = xy(cursor)}
+      {@const [x1, y1, x2, y2] = xy(cursor)}{@const rg = ring(cursor)}
       <line {x1} {y1} {x2} {y2} stroke-width={stroke * 2.4} stroke-linecap="round" style="stroke:var(--accent);opacity:.35" />
       <!-- A 3 px focus ring round the line (.kbd-ring in app.css): the band alone is too faint on every board. -->
-      <rect class="kbd-ring" x={Math.min(x1, x2) - stroke * 1.2} y={Math.min(y1, y2) - stroke * 1.2} width={Math.abs(x2 - x1) + stroke * 2.4} height={Math.abs(y2 - y1) + stroke * 2.4}
-        rx={stroke * 1.2} />
+      <rect class="kbd-ring" x={rg.x} y={rg.y} width={rg.width} height={rg.height} rx={rg.rx} />
     {/if}
 
     <g class="dots">
     {#each { length: rows + 1 } as _, yy}
       {#each { length: cols + 1 } as _, xx}
-        <circle cx={P(xx)} cy={P(yy)} r={Math.max(5.5, sp * 0.075)} class="dot" style="fill:url(#dot-bead)" />
+        <circle cx={P(xx)} cy={P(yy)} r={dotR} class="dot" style="fill:url(#dot-bead)" />
       {/each}
     {/each}
     </g>
+
+    <!-- The dot picked up for a drag. -->
+    {#if anchor >= 0}
+      {@const [ax, ay] = dotXY(anchor)}
+      <circle class="drag-dot" cx={ax} cy={ay} r={dotR * 2} />
+    {/if}
   </svg>
 </div>

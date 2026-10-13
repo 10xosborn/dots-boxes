@@ -404,8 +404,15 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 @keyframes pop{from{transform:scale(.8);opacity:0}}
 /* Board materials: the SVG effects live in Board.svelte's <defs>; each theme picks them through tokens. */
 .lanes{fill:none;stroke:var(--lane);stroke-linecap:round}
-.kbd-ring{fill:none;stroke:var(--focus);stroke-width:3px;vector-effect:non-scaling-stroke}
-[data-skin="table"][data-theme="dark"] .kbd-ring{stroke:var(--accent)}   /* turquoise is 2.5:1 on the lit felt; brass 4:1 */
+.kbd-ring,.drag-dot{fill:none;stroke:var(--focus);stroke-width:3px;vector-effect:non-scaling-stroke}
+[data-skin="table"][data-theme="dark"] :is(.kbd-ring,.drag-dot){stroke:var(--accent)}   /* turquoise is 2.5:1 on the lit felt; brass 4:1 */
+/* The hover preview and the drag line show the line as it will be drawn, in the mover's line colour (3:1 or more on
+   every board). No line effect on them: a filter on a single straight line has a zero-height box and draws nothing.
+   A dot under the mouse can be grabbed. */
+.preview,.drag{stroke:var(--line1)}
+.preview.p1,.drag.p1{stroke:var(--line2)}
+#board.grab{cursor:grab}
+#board.grabbing{cursor:grabbing}
 .lines{filter:var(--ln-filter)}
 .cores{display:var(--cores,none)}
 .dots{filter:var(--dot-filter)}
