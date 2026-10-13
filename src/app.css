@@ -412,11 +412,10 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .preview,.drag{stroke:var(--line1)}
 .preview.p1,.drag.p1{stroke:var(--line2)}
 .drag{transition:stroke-width .14s ease-out}   /* the band thickens smoothly as it snaps onto a line */
-/* The dots a drag can land on: a broken ring in the mover's line colour turns round each; the one it has snapped
-   to is whole and still. Animations off (.no-anim) stops the turning. */
+/* The dots a drag can land on: a broken ring in the mover's line colour turns round each (the snapped one leaves its
+   dot to the line's ring). Animations off (.no-anim) stops the turning. */
 .land{fill:none;stroke:var(--line1);transform-box:fill-box;transform-origin:center;animation:land-turn 2.4s linear infinite}
 .land.p1{stroke:var(--line2)}
-.land.on{stroke-dasharray:none;animation:none}
 @keyframes land-turn{to{transform:rotate(1turn)}}
 #board.grab{cursor:grab}
 #board.grabbing{cursor:grabbing}

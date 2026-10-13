@@ -314,11 +314,14 @@
       {@const rg = ring(snap)}
       <rect class="kbd-ring" x={rg.x} y={rg.y} width={rg.width} height={rg.height} rx={rg.rx} />
     {/if}
-    <!-- The dots this drag can land on: a broken ring turning round each, made whole on the one it has snapped to. -->
+    <!-- The dots this drag can land on: a broken ring turning round each. The one it has snapped to gives its ring up to
+         the line's ring above, so the target never carries two outlines. -->
     {#each landings as d (d.e)}
-      {@const per = (2 * Math.PI * sp * 0.22) / 8}
-      <circle class="land p{turn}" class:on={d.e === snap} cx={d.x} cy={d.y} r={sp * 0.22} stroke-width={Math.max(3.5, sp * 0.045)}
-        stroke-dasharray="{per * 0.62} {per * 0.38}" />
+      {#if d.e !== snap}
+        {@const per = (2 * Math.PI * sp * 0.22) / 8}
+        <circle class="land p{turn}" cx={d.x} cy={d.y} r={sp * 0.22} stroke-width={Math.max(3.5, sp * 0.045)}
+          stroke-dasharray="{per * 0.62} {per * 0.38}" />
+      {/if}
     {/each}
 
     {#if focused && kbd && cursor >= 0}
