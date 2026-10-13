@@ -3,6 +3,9 @@
 A modern Dots & Boxes game: a chain-savvy AI on four standard board sizes plus custom
 boards, XP and levels, a leaderboard, and online games with friends.
 
+Draw a line by dragging from one dot to the next (it snaps into place, with sounds if Sound is
+on in Settings), or tap the line; on a keyboard, the arrow keys choose a line and Enter draws it.
+
 Three themes, each in light and dark, switched from the palette button in the top bar or in
 Settings: **Tabletop** (a felt game board on a wooden table, the default), **Neon** (glowing
 lines and lights in a dark or bright room) and **Paper** (lines printed on warm, textured paper).

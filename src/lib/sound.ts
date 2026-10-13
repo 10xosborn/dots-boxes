@@ -2,6 +2,11 @@
 type Note = [freq: number, at: number, dur: number, type?: OscillatorType, vol?: number];
 const SEQ: Record<string, Note[]> = {
   line: [[520, 0, 0.07, 'triangle', 0.05]],
+  // Dragging from dot to dot: a soft tick when a dot is picked up, a brighter click when the line snaps into place,
+  // and a falling blip when the drag is let go with no line to draw.
+  pick: [[660, 0, 0.045, 'triangle', 0.035]],
+  snap: [[990, 0, 0.05, 'triangle', 0.04]],
+  cancel: [[330, 0, 0.07, 'sine', 0.03], [262, 0.05, 0.08, 'sine', 0.025]],
   box: [[784, 0, 0.12], [1175, 0.07, 0.18]],
   win: [[523, 0, 0.15], [659, 0.12, 0.15], [784, 0.24, 0.15], [1047, 0.36, 0.35]],
   lose: [[440, 0, 0.2], [370, 0.16, 0.2], [294, 0.32, 0.4]],
