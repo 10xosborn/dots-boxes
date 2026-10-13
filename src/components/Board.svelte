@@ -317,7 +317,7 @@
     <!-- The dots this drag can land on: a broken ring turning round each, made whole on the one it has snapped to. -->
     {#each landings as d (d.e)}
       {@const per = (2 * Math.PI * sp * 0.22) / 8}
-      <circle class="land p{turn}" class:on={d.e === snap} cx={d.x} cy={d.y} r={sp * 0.22} stroke-width={Math.max(2.5, sp * 0.03)}
+      <circle class="land p{turn}" class:on={d.e === snap} cx={d.x} cy={d.y} r={sp * 0.22} stroke-width={Math.max(3.5, sp * 0.045)}
         stroke-dasharray="{per * 0.62} {per * 0.38}" />
     {/each}
 
