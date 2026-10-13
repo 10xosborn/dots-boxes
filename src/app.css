@@ -241,9 +241,9 @@ p{line-height:1.5;margin:0}
    Neon's light up instead, the main action most. */
 @media (hover:hover) and (pointer:fine){
   [data-skin="table"] .btn.primary:hover,[data-skin="paper"] .btn.primary:hover{background:color-mix(in srgb,var(--accent) 50%,var(--accent-lip))}
-  [data-skin="table"] .btn:hover{transform:translateY(-1px)}
-  [data-skin="neon"] .btn:hover{background:var(--panel-strong);border-color:rgba(33,189,202,.6);box-shadow:0 0 0 1px rgba(33,189,202,.3),0 0 18px -4px rgba(33,189,202,.6)}
-  [data-skin="neon"][data-theme="light"] .btn:hover{border-color:rgba(70,87,206,.5);box-shadow:0 0 0 1px rgba(70,87,206,.25),0 6px 18px -6px rgba(70,87,206,.5)}
+  [data-skin="table"] :is(.btn,.theme-btn,.lvl-chip,.back):hover{transform:translateY(-1px)}
+  [data-skin="neon"] :is(.btn,.theme-btn,.lvl-chip,.back):hover{background:var(--panel-strong);border-color:rgba(33,189,202,.6);box-shadow:0 0 0 1px rgba(33,189,202,.3),0 0 18px -4px rgba(33,189,202,.6)}
+  [data-skin="neon"][data-theme="light"] :is(.btn,.theme-btn,.lvl-chip,.back):hover{border-color:rgba(70,87,206,.5);box-shadow:0 0 0 1px rgba(70,87,206,.25),0 6px 18px -6px rgba(70,87,206,.5)}
   [data-skin="neon"] .btn.primary:hover{background:var(--accent);border-color:transparent;box-shadow:var(--cta-glow)}
 }
 .btn.primary:active{box-shadow:var(--primary-shadow-down)}
@@ -278,6 +278,21 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 [data-skin="paper"] .toggle::after{border-radius:3px}
 .toggle[aria-checked="true"]{background:var(--accent);border-color:var(--accent)}
 .toggle[aria-checked="true"]::after{transform:translateX(24px);background:var(--on-accent)}
+/* The other controls answer the pointer too: a tint on chips, options and steppers (a faint ring in Neon, the hover tier of its
+   glow), a halo round a switch's knob, and a small press on every control. Buttons are handled above. */
+.theme-btn,.lvl-chip,.back{transition:transform .12s,background-color .2s,box-shadow .12s}
+@media (hover:hover) and (pointer:fine){
+  :is(.theme-btn,.lvl-chip,.back):hover{background:color-mix(in srgb,var(--panel) 88%,var(--text))}
+  .seg button:not([aria-pressed="true"]):hover{color:var(--text);background:color-mix(in srgb,var(--text) 7%,transparent)}
+  .theme-opt:not([aria-checked="true"]):hover{border-color:color-mix(in srgb,var(--text) 22%,transparent)}
+  [data-skin="neon"] .seg button:not([aria-pressed="true"]):hover{box-shadow:inset 0 0 0 1px rgba(33,189,202,.5)}
+  [data-skin="neon"] .theme-opt:not([aria-checked="true"]):hover{border-color:rgba(33,189,202,.5)}
+  [data-skin="neon"][data-theme="light"] .seg button:not([aria-pressed="true"]):hover{box-shadow:inset 0 0 0 1px rgba(70,87,206,.4)}
+  [data-skin="neon"][data-theme="light"] .theme-opt:not([aria-checked="true"]):hover{border-color:rgba(70,87,206,.4)}
+  .toggle:hover::after{box-shadow:0 0 0 5px color-mix(in srgb,var(--text) 12%,transparent)}
+  .round:not(:disabled):hover{background:color-mix(in srgb,var(--panel-strong) 88%,var(--text))}
+}
+:is(.seg button,.theme-opt,.theme-btn,.lvl-chip,.back,.round:not(:disabled)):active{transform:scale(.97)}
 
 /* ---------- theme picker ---------- */
 .theme-sheet{width:min(440px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow:auto;padding:0;border-radius:var(--r-lg);border:var(--panel-bw) solid var(--panel-b);
