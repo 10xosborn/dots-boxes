@@ -214,15 +214,18 @@ body{font-family:var(--ui);color:var(--text);background-color:var(--page);min-he
   repeating-linear-gradient(180deg,rgba(0,0,0,.5) 0 1px,rgba(230,205,245,.07) 1px 2px,transparent 2px 256px),url('./assets/textures/wood-night.webp')}
 /* Neon: the aurora's room (see .aurora below for its drifting lights). */
 [data-skin="neon"] body{background:var(--aur-base) fixed}
-/* The aurora (Neon only): three soft lights drifting slowly behind everything; still when motion is off (.no-anim). */
+/* The aurora (Neon only): three soft lights drifting slowly behind everything; still when motion is off (.no-anim).
+   Drawn cheaply, because the glass over it must re-blur whatever moves behind it: each light is a soft radial gradient (no
+   blur filter to redo every frame), and the lights move four times a second in steps of under a pixel on a phone, too
+   small to see at this pace, instead of sixty; the keyframes keep the ease in and out at each end of the drift. */
 .aurora{display:none}
 [data-skin="neon"] .aurora{display:block;position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.aurora i{position:absolute;border-radius:50%;filter:blur(70px);opacity:var(--aur-op)}
-.aurora i:nth-child(1){width:62vmax;height:62vmax;left:-20vmax;top:-24vmax;background:var(--aur1);animation:drift1 34s ease-in-out infinite alternate}
-.aurora i:nth-child(2){width:56vmax;height:56vmax;right:-22vmax;bottom:-20vmax;background:var(--aur2);animation:drift2 40s ease-in-out infinite alternate}
-.aurora i:nth-child(3){width:42vmax;height:42vmax;left:28vw;top:30vh;background:var(--aur3);animation:drift1 46s ease-in-out infinite alternate-reverse}
-@keyframes drift1{to{transform:translate(12vw,10vh) scale(1.1)}}
-@keyframes drift2{to{transform:translate(-10vw,-12vh) scale(1.15)}}
+.aurora i{position:absolute;border-radius:50%;opacity:var(--aur-op)}
+.aurora i:nth-child(1){width:96vmax;height:96vmax;left:-37vmax;top:-41vmax;background:radial-gradient(closest-side,var(--aur1) 30%,color-mix(in srgb,var(--aur1) 45%,transparent) 62%,transparent);animation:drift1 34s steps(34) infinite alternate}
+.aurora i:nth-child(2){width:89vmax;height:89vmax;right:-38.5vmax;bottom:-36.5vmax;background:radial-gradient(closest-side,var(--aur2) 26%,color-mix(in srgb,var(--aur2) 45%,transparent) 60%,transparent);animation:drift2 40s steps(40) infinite alternate}
+.aurora i:nth-child(3){width:75vmax;height:75vmax;left:calc(28vw - 16.5vmax);top:calc(30vh - 16.5vmax);background:radial-gradient(closest-side,var(--aur3) 12%,color-mix(in srgb,var(--aur3) 45%,transparent) 56%,transparent);animation:drift1 46s steps(46) infinite alternate-reverse}
+@keyframes drift1{25%{transform:translate(1.55vw,1.3vh) scale(1.013)}50%{transform:translate(6vw,5vh) scale(1.05)}75%{transform:translate(10.45vw,8.7vh) scale(1.087)}to{transform:translate(12vw,10vh) scale(1.1)}}
+@keyframes drift2{25%{transform:translate(-1.3vw,-1.55vh) scale(1.019)}50%{transform:translate(-5vw,-6vh) scale(1.075)}75%{transform:translate(-8.7vw,-10.45vh) scale(1.13)}to{transform:translate(-10vw,-12vh) scale(1.15)}}
 /* Paper: a desk with the formation, fibres and tooth of paper (sharp, at 1.5x their size), shaded towards the edges. By day a
    white tile multiplies onto the kraft; at night a grey one blends in soft-light. */
 [data-skin="paper"] body{background-image:radial-gradient(ellipse 130% 100% at 50% 40%,transparent 55%,rgba(110,80,40,.2)),url('./assets/textures/paper-day.webp');
