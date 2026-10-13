@@ -3,6 +3,7 @@
   import Toggle from '../components/Toggle.svelte';
   import BackTitle from '../components/BackTitle.svelte';
   import ThemeChoices from '../components/ThemeChoices.svelte';
+  import { sfx } from '../lib/sound';
   let light = $state(app.settings.theme === 'light');
   let name = $state(app.profile?.name ?? '');
   let msg = $state('');
@@ -25,7 +26,7 @@
     </div>
     <div class="panel">
       <Toggle label="Animations" hint="Line drawing, box pops, confetti" bind:checked={app.settings.anim} onchange={saveSettings} />
-      <Toggle label="Sound effects" hint="Soft clicks and chimes" bind:checked={app.settings.sound} onchange={saveSettings} />
+      <Toggle label="Sound effects" hint="Soft clicks and chimes" bind:checked={app.settings.sound} onchange={v => { saveSettings(); if (v) sfx.play('on'); }} />
       <Toggle label="Light theme" hint="Switch between night and day colors" bind:checked={light} onchange={v => { app.settings.theme = v ? 'light' : 'dark'; saveSettings(); }} />
     </div>
     <div class="panel">
