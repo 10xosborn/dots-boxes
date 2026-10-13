@@ -191,6 +191,9 @@ body{font-family:var(--ui);color:var(--text);background-color:var(--page);min-he
 [data-skin="paper"][data-theme="dark"] body{background-image:radial-gradient(ellipse 130% 100% at 50% 40%,transparent 50%,rgba(0,0,0,.5)),url('./assets/textures/paper-soft.webp');background-blend-mode:normal,soft-light}
 [data-skin="table"] .tag{color:var(--text)}   /* page text sits on wood grain: full ink keeps it 4.5:1 on the darkest streaks */
 button,input{font:inherit;color:inherit}
+/* The browser's own surfaces follow the theme: dark scrollbars and form parts at night, selected text tinted with the accent. */
+[data-theme="dark"]{color-scheme:dark}
+::selection{background:color-mix(in srgb,var(--accent) 32%,transparent)}
 :focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:8px}
 [data-skin="paper"] :focus-visible{outline:2px dashed var(--focus)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
