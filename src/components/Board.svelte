@@ -45,7 +45,7 @@
   // Dragging from a dot: the dot picked up, where the pointer is once it has moved far enough to count as a drag,
   // the free line it would draw if let go now, and the dot under a hovering mouse (for the grab cursor).
   let anchor = $state(-1), dragAt = $state<[number, number] | null>(null), snap = $state(-1), hoverDot = $state(-1);
-  let downAt: [number, number] = [0, 0], pid = -1;
+  let downAt: [number, number] = [0, 0], pid = -1, touchPress = $state(false);
   // In dot gaps: a press this close to a dot picks it up, this much movement starts the drag, and the line snaps
   // once the pointer is this far along it (and no further than half a gap to the side).
   const PICK = 0.24, START = 0.12, SNAP = 0.45;
@@ -102,7 +102,7 @@
   }
   function down(ev: PointerEvent) {
     kbd = false; if (!interactive || pressing) return;   // one pointer at a time: a second finger is ignored
-    pressing = true; pid = ev.pointerId;
+    pressing = true; pid = ev.pointerId; touchPress = ev.pointerType === 'touch';
     const { x, y } = toSvg(ev); downAt = [x, y];
     anchor = dotNear(x, y); dragAt = null; snap = -1;
     preview = anchor >= 0 ? -1 : edgeAt(ev);
@@ -263,10 +263,10 @@
     {/each}
     </g>
 
-    <!-- The dot picked up for a drag. -->
+    <!-- The dot picked up for a drag; under a finger the ring is wide enough to show round the fingertip. -->
     {#if anchor >= 0}
       {@const [ax, ay] = dotXY(anchor)}
-      <circle class="drag-dot" cx={ax} cy={ay} r={dotR * 2} />
+      <circle class="drag-dot" cx={ax} cy={ay} r={touchPress ? sp * 0.42 : dotR * 2} />
     {/if}
   </svg>
 </div>
