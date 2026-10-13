@@ -5,6 +5,9 @@
    * Pointer: drag from a dot towards a neighbouring dot; the line snaps into place once the pointer is far enough
    * along it, and letting go draws it (letting go anywhere else draws nothing). A press on a line still previews it
    * and releasing draws it (drag to adjust), and hovering shows a preview. Sounds: pick-up, snap and cancel.
+   * The drag is an elastic band: its end stays under the pointer, its middle swings behind and settles, it springs
+   * onto the dot it snaps to and back to its own dot when let go with no line; broken rings turn round the dots it
+   * can land on. With Animations off it follows the pointer exactly and nothing turns.
    * Keyboard: arrow keys move a cursor between free lines; Enter or Space draws.
    * The cursor shows only in keyboard play: a click or tap also focuses the board, but hides it.
    */
@@ -50,8 +53,62 @@
   // once the pointer is this far along it (and no further than half a gap to the side).
   const PICK = 0.24, START = 0.12, SNAP = 0.45;
 
+  // The elastic band drawn for a drag: from `from` (the picked-up dot) to `tip`, bending through `bend`. The tip sits
+  // on the pointer (`onPointer`) except while it springs onto a dot (snapped, or let go with no line) and while it
+  // catches up after unsnapping; the bend chases the band's middle on a softer spring, so the band swings and settles.
+  let from = $state<[number, number] | null>(null), tip = $state<[number, number]>([0, 0]), bend = $state<[number, number]>([0, 0]);
+  let back = $state(false), onPointer = true, tipV = [0, 0], bendV = [0, 0], raf = 0, last = 0;
+  // Springs, per second squared and per second: the tip lands on a dot with a visible bounce (about a fifth of the
+  // jump), snaps home faster when let go, and the bend lags and wobbles most, so the band bows when swung.
+  const TIP_K = 900, TIP_C = 26, BACK_K = 700, BACK_C = 24, BEND_K = 180, BEND_C = 10;
+  const spring = (p: number[], v: number[], goal: number[], k: number, c: number, dt: number) => {
+    for (let i = 0; i < 2; i++) { v[i] += (k * (goal[i] - p[i]) - c * v[i]) * dt; p[i] += v[i] * dt; }
+  };
+  /** Where the tip is heading: back to its dot, the far end of the snapped line, or the pointer. */
+  function tipGoal(): [number, number] {
+    if (back || !dragAt || !from) return from ?? tip;
+    if (snap >= 0) { const [x1, y1, x2, y2] = xy(snap); return Math.hypot(x1 - from[0], y1 - from[1]) < 1 ? [x2, y2] : [x1, y1]; }
+    return dragAt;
+  }
+  function frame(t: number) {
+    raf = 0; if (!from) return;
+    const dt = Math.min(0.032, last ? (t - last) / 1000 : 1 / 60); last = t;
+    const goal = tipGoal(), p = [...tip], b = [...bend];
+    if (!anim) { endOrHold(goal); return; }
+    if (onPointer && !back && snap < 0 && dragAt) { p[0] = dragAt[0]; p[1] = dragAt[1]; tipV = [0, 0]; }
+    else {
+      spring(p, tipV, goal, back ? BACK_K : TIP_K, back ? BACK_C : TIP_C, dt);
+      if (!back && snap < 0 && Math.hypot(goal[0] - p[0], goal[1] - p[1]) < sp * 0.02) onPointer = true;   // caught up
+    }
+    // let go: gone once the tip is home and slow (its little bounce past the dot is hidden under the dot)
+    if (back && Math.hypot(p[0] - from[0], p[1] - from[1]) < dotR * 0.6 && Math.hypot(tipV[0], tipV[1]) < sp * 0.8) { stopBand(); return; }
+    spring(b, bendV, [(from[0] + p[0]) / 2, (from[1] + p[1]) / 2], BEND_K, BEND_C, dt);
+    tip = [p[0], p[1]]; bend = [b[0], b[1]];
+    const settled = Math.hypot(goal[0] - p[0], goal[1] - p[1]) < sp * 0.004 && Math.hypot(...tipV) < sp * 0.05
+      && Math.hypot(b[0] - (from[0] + p[0]) / 2, b[1] - (from[1] + p[1]) / 2) < sp * 0.004 && Math.hypot(...bendV) < sp * 0.05;
+    if (settled) endOrHold(goal); else raf = requestAnimationFrame(frame);
+  }
+  /** At rest: a band let go is gone; one still held lies straight to its goal until the pointer moves again. */
+  function endOrHold(goal: [number, number]) {
+    if (back) { stopBand(); return; }
+    tip = goal; bend = from ? [(from[0] + goal[0]) / 2, (from[1] + goal[1]) / 2] : goal; tipV = [0, 0]; bendV = [0, 0];
+  }
+  const kick = () => { if (!raf) { last = 0; raf = requestAnimationFrame(frame); } };
+  function stopBand() { if (raf) cancelAnimationFrame(raf); raf = 0; from = null; back = false; onPointer = true; tipV = [0, 0]; bendV = [0, 0]; }
+  /** The dots a drag from the picked-up dot can land on: its neighbours across a free line. */
+  const landings = $derived.by(() => {
+    if (anchor < 0 || !dragAt) return [];
+    const r = Math.floor(anchor / (cols + 1)), c = anchor % (cols + 1), out: { e: number; x: number; y: number }[] = [];
+    for (const [dr, dc] of [[0, -1], [0, 1], [-1, 0], [1, 0]]) {
+      const r2 = r + dr, c2 = c + dc; if (r2 < 0 || r2 > rows || c2 < 0 || c2 > cols) continue;
+      const e = dr === 0 ? r * cols + Math.min(c, c2) : g.H + Math.min(r, r2) * (cols + 1) + c;
+      if (!drawn.has(e)) out.push({ e, x: P(c2), y: P(r2) });
+    }
+    return out;
+  });
+
   // Clear stale preview/cursor/drag when it stops being our turn or the line gets drawn.
-  $effect(() => { if (!interactive) { preview = -1; hoverDot = -1; if (pressing) reset(); } });
+  $effect(() => { if (!interactive) { preview = -1; hoverDot = -1; if (pressing) reset(); stopBand(); } });
   $effect(() => { if (cursor >= 0 && drawn.has(cursor)) cursor = nearestFree(); });
 
   function toSvg(ev: PointerEvent) {
@@ -102,6 +159,7 @@
   }
   function down(ev: PointerEvent) {
     kbd = false; if (!interactive || pressing) return;   // one pointer at a time: a second finger is ignored
+    stopBand();                                           // a band still springing back from the last drag goes
     pressing = true; pid = ev.pointerId; touchPress = ev.pointerType === 'touch';
     const { x, y } = toSvg(ev); downAt = [x, y];
     anchor = dotNear(x, y); dragAt = null; snap = -1;
@@ -115,18 +173,26 @@
     if (ev.pointerId !== pid) return;
     if (anchor < 0) { preview = edgeAt(ev); return; }
     if (!dragAt && Math.hypot(x - downAt[0], y - downAt[1]) < sp * START) return;
-    if (!dragAt) sfx.play('pick');
+    if (!dragAt) {   // the drag starts: the band leaves the dot with its middle still at the dot, so it swings out
+      sfx.play('pick'); const a = dotXY(anchor);
+      from = [a[0], a[1]]; tip = [x, y]; bend = [a[0], a[1]]; onPointer = true; back = false;
+    }
     dragAt = [x, y];
     const s = snapTo(x, y);
-    if (s !== snap) { snap = s; if (s >= 0) sfx.play('snap'); }
+    if (s !== snap) { snap = s; onPointer = false; if (s >= 0) sfx.play('snap'); }   // spring onto the dot, or off it
+    kick();
   }
   function up(ev: PointerEvent) {
     if (!pressing || ev.pointerId !== pid) return;
     const e = dragAt ? snap : anchor >= 0 ? tapNearDot(ev) : edgeAt(ev);
-    if (dragAt && e < 0) sfx.play('cancel');
+    if (dragAt && e < 0) { sfx.play('cancel'); letGo(); }
+    else stopBand();
     reset();
     if (interactive && e >= 0) onmove(e);
   }
+  /** A drag let go with no line: the band springs back to its dot, then goes. */
+  function letGo() { if (from) { back = true; onPointer = false; kick(); } }
+  function cancel() { if (dragAt) letGo(); reset(); }
   function reset() { pressing = false; pid = -1; anchor = -1; dragAt = null; snap = -1; preview = -1; }
   /** The ring round a line (the keyboard cursor's, and a drag's snapped line): a capsule enclosing the line and its dots. */
   function ring(e: number) {
@@ -170,7 +236,7 @@
     aria-label="Game board. Use arrow keys to choose a line and Enter to draw it."
     class:grab={interactive && hoverDot >= 0} class:grabbing={dragAt !== null}
     onpointerdown={down} onpointermove={move} onpointerup={up}
-    onpointercancel={reset}
+    onpointercancel={cancel}
     onpointerleave={() => { if (!pressing) { preview = -1; hoverDot = -1; } }}
     onkeydown={key}
     onfocus={() => { focused = true; kbd = keyboardFocus(); if (cursor < 0 || drawn.has(cursor)) cursor = nearestFree(); }}
@@ -235,18 +301,28 @@
     {/each}
     </g>
 
-    <!-- A drag from a dot: a thin line to the pointer, or once it snaps, the line it will draw inside the same ring as
-         the keyboard cursor (the ring reaches 3:1 on every board, even on Tabletop's lit felt). -->
-    {#if dragAt && anchor >= 0}
-      {#if snap >= 0}
-        {@const [x1, y1, x2, y2] = xy(snap)}{@const rg = ring(snap)}
-        <line class="drag p{turn}" {x1} {y1} {x2} {y2} stroke-width={stroke} stroke-linecap="round" />
-        <rect class="kbd-ring" x={rg.x} y={rg.y} width={rg.width} height={rg.height} rx={rg.rx} />
-      {:else}
-        {@const [ax, ay] = dotXY(anchor)}
-        <line class="drag p{turn}" x1={ax} y1={ay} x2={dragAt[0]} y2={dragAt[1]} stroke-width={stroke * 0.45} stroke-linecap="round" />
-      {/if}
+    <!-- A drag from a dot: the elastic band, thin while it stretches to the pointer and the line's full width once it
+         snaps, when the line it will draw also gets the keyboard cursor's ring (3:1 on every board, even on Tabletop's
+         lit felt). The curve passes through `bend` halfway along. -->
+    {#if from}
+      {@const len = Math.hypot(tip[0] - from[0], tip[1] - from[1])}
+      {@const w = snap >= 0 && !back ? stroke : stroke * 0.5 * Math.min(1.25, Math.max(0.7, Math.sqrt(sp * 0.5 / Math.max(len, 1))))}
+      <path class="drag p{turn}" fill="none" stroke-linecap="round" style:stroke-width="{w}px"
+        d="M{from[0]} {from[1]}Q{2 * bend[0] - (from[0] + tip[0]) / 2} {2 * bend[1] - (from[1] + tip[1]) / 2} {tip[0]} {tip[1]}" />
     {/if}
+    {#if dragAt && anchor >= 0 && snap >= 0}
+      {@const rg = ring(snap)}
+      <rect class="kbd-ring" x={rg.x} y={rg.y} width={rg.width} height={rg.height} rx={rg.rx} />
+    {/if}
+    <!-- The dots this drag can land on: a broken ring turning round each. The one it has snapped to gives its ring up to
+         the line's ring above, so the target never carries two outlines. -->
+    {#each landings as d (d.e)}
+      {#if d.e !== snap}
+        {@const per = (2 * Math.PI * sp * 0.22) / 8}
+        <circle class="land p{turn}" cx={d.x} cy={d.y} r={sp * 0.22} stroke-width={Math.max(3.5, sp * 0.045)}
+          stroke-dasharray="{per * 0.62} {per * 0.38}" />
+      {/if}
+    {/each}
 
     {#if focused && kbd && cursor >= 0}
       {@const [x1, y1, x2, y2] = xy(cursor)}{@const rg = ring(cursor)}
