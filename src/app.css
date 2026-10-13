@@ -188,11 +188,13 @@
    contrast), at night it brightens (its dark label gains contrast); Neon by day lights up instead (see the hover rules). */
 :root {
   --cta-sheen: linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,0) 34%,rgba(0,0,0,0) 56%,rgba(0,0,0,.16));   /* white labels: the highlight stays above them */
-  --btn-sheen: linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,0) 52%,rgba(0,0,0,.06));
+  --btn-sheen: linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,0) 52%,var(--sheen-foot));
+  --sheen-foot: rgba(96,52,8,.08);   /* the foot is shaded in the theme's own shadow hue, so cream buttons never turn grey */
   --accent-hover: color-mix(in srgb,var(--accent) 50%,var(--accent-lip));
   --btn-hover: color-mix(in srgb,var(--panel-strong) 88%,var(--text));
 }
-[data-skin="neon"][data-theme="light"] { --accent-hover: var(--accent); --btn-hover: var(--panel-strong); }
+[data-skin="paper"] { --sheen-foot: rgba(70,50,20,.08); }
+[data-skin="neon"][data-theme="light"] { --accent-hover: var(--accent); --btn-hover: var(--panel-strong); --sheen-foot: rgba(70,87,206,.08); }
 [data-theme="dark"] {
   --cta-sheen: linear-gradient(180deg,rgba(255,255,255,.24),rgba(255,255,255,0) 46%,rgba(0,0,0,.16));
   --btn-sheen: linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0) 60%,rgba(0,0,0,.1));
