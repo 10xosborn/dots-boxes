@@ -7,9 +7,9 @@ Draw a line by dragging from one dot to the next (it snaps into place, with soun
 on in Settings), or tap the line; on a keyboard, the arrow keys choose a line and Enter draws it.
 
 Three themes, each in light and dark, switched from the palette button in the top bar or in
-Settings: **Tabletop** (a felt game board on a wooden table, the default), **Neon** (glowing
-lines and lights in a dark or bright room) and **Paper** (lines printed on warm, textured paper).
-The design is described in `DESIGN.md`.
+Settings: **Tabletop** (a felt game board on a knife-marked wooden table, the default), **Neon**
+(glowing lines on a glass board in a room lit by a drifting aurora) and **Paper** (lines printed
+on textured paper). Each player draws in their own colour. The design is described in `DESIGN.md`.
 
 Built with **Svelte 5 + TypeScript + Vite**, with **Firebase** for accounts, the
 worldwide leaderboard, and online play. Hosted on **GitHub Pages**.
