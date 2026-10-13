@@ -217,6 +217,7 @@ From the spec's shared section: the contrast rules above; a visible 2-3 px focus
 | Date | Decision | Rationale |
 |---|---|---|
 | 2026-10-12 | New palettes and real materials in all three themes | Owner's redesign plan: the themes looked flat and didn't use their colours. Layouts stay; tokens, backgrounds, the board surface and SVG effects change. |
+| 2026-10-13 | Every control answers hover and press, and the dark modes declare a dark colour scheme | Design review: only buttons reacted to the pointer, so options, theme cards, chips, Back, switches and steppers now get a hover tint (a faint ring in Neon, a lift on Tabletop's chips) and a small press, as the plan's controls-and-states step asks; dark scrollbars at night and selected text in the accent. |
 | 2026-10-12 | The keyboard cursor gets a 3 px focus ring round the line (brass in Tabletop at night) | QA measured the old 35% accent band at 1.4-1.9:1 against the new boards; the spec's shared rule asks for a focus ring, and the felt under the light is too pale for turquoise. Measured 4-7.4:1 from pixels. |
 | 2026-10-12 | Tabletop lines stay one colour for both players, engraved; boxes get a rim | On a game board the lines are part of the board; ownership shows in the boxes, whose fills are too light against the pale felt without a rim. |
 | 2026-10-12 | Paper at night: coral for player 1 | Orange and cyan have the same lightness, so players who see no colour couldn't tell the lines apart; coral against cyan differs in hue and lightness. |
