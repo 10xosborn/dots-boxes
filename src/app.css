@@ -27,7 +27,7 @@
   --p2: #B07A12; --p2-deep: #9C6B0E; --p2-soft: #FDF0C8; --p2-glow: rgba(244,175,61,.5);   /* golden yellow, deepened for marks and digits */
   --box1: #D77027; --box2: #F4AF3D; --box1-ink: #FFFFFF; --box2-ink: #2B241D; --pat1: #FFFFFF; --pat2: #2B241D; --ini-halo: none;
   --box-op: 1; --box-rim1: #9E4E17; --box-rim2: #94650C;
-  --line1: #23392D; --line2: #23392D; --lane: rgba(35,57,45,.17);    /* lines engraved in the mat, the same for both players */
+  --line1: #BF4E1E; --line2: #7C5E08; --lane: rgba(35,57,45,.17);    /* each player's own line, engraved in the mat: burnt orange and dark golden (3.4:1, 4.3:1), far enough apart in hue and lightness to tell at a glance */
   --dot: #2C4637; --dot-hi: #5F806C; --dot-lo: #14231A;
   --ln-filter: url(#fx-engrave); --dot-filter: url(#fx-engrave); --bx-filter: none; --cores: none;
   --fx-hi: rgba(255,255,255,.62); --fx-lo: rgba(20,40,28,.35);
@@ -37,64 +37,71 @@
   --btn-shadow: 0 4px 0 #C9A26A, 0 10px 18px -12px rgba(96,52,8,.55); --btn-shadow-down: 0 1px 0 #C9A26A;
   --primary-shadow: 0 4px 0 #9E4E17, 0 12px 20px -12px rgba(96,40,8,.6); --primary-shadow-down: 0 1px 0 #9E4E17; --press: translateY(3px);
   --cta-glow: 0 0 0 0 transparent; --sel-glow: 0 0 0 0 transparent; --sel-ring: #9E4E17;   /* ring: the lip colour, 5:1 on the tint */
-  --board: #C4DFC9;                                     /* pale mint felt */
+  --board: #C4DFC9; --lamp: rgba(255,255,255,.22);     /* pale mint felt, and the lamp's light on it */
   --frame: #B0602A; --frame-dark: #7A3E14; --frame-hi: rgba(255,214,160,.55);
   --board-r: 16px; --grid: transparent;
   --scrim: rgba(40,24,8,.55); --modal-r: 4px;
   --r-lg: 14px; --r-md: 14px; --r-sm: 12px; --r-pill: 999px; --r-primary: 999px;
 }
-/* Tabletop at night: sage felt in a walnut frame with brass edging, on a dark walnut table. */
+/* Tabletop at night (owner's dark colours, 2026-10-13: Deep Plum #200B32, Brick Red #BE3926, Deep Teal #0C4E41, Deep Indigo
+   #2D2F79): a Deep Teal felt in a plum-stained wooden rim on a plum-stained table; brick red for you, a light indigo for the other
+   player (lighter tints only where a line, a ring or text must reach 3:1 or 4.5:1); the buttons in their own colour. */
 [data-skin="table"][data-theme="dark"] {
-  --page: #2A1F18;
-  --text: #F4EBDD; --muted: #C9BBA6; --head-text: #F4EBDD;
-  --accent: #F4DD97; --accent-lip: #B89C4E; --on-accent: #2A1F18;   /* pale butter: brass buttons with dark labels (12:1) */
-  --focus: #63C1C8; --ring: #63C1C8; --ring-track: #4A3B30;
-  --danger: #F08A8B; --gold: #F4DD97;
-  --p1: #E9494B; --p1-deep: #F06567; --p1-soft: #4A2223; --p1-glow: rgba(233,73,75,.5);        /* coral red; digits a touch lighter */
-  --p2: #63C1C8; --p2-deep: #7FD1D7; --p2-soft: #1C3C3F; --p2-glow: rgba(99,193,200,.5);       /* turquoise */
-  --box1: #E9494B; --box2: #63C1C8; --box1-ink: #FFFFFF; --box2-ink: #14201F; --pat1: #FFFFFF; --pat2: #14201F;
-  --box-rim1: #FF9A9B; --box-rim2: #A5E4E8;   /* lighter rims outline the boxes on dark felt */
-  --line1: #AEC8BF; --line2: #AEC8BF; --lane: rgba(174,200,191,.14);   /* sage lines inlaid in the felt */
-  --dot: #E8CF83; --dot-hi: #FFF6D6; --dot-lo: #9C8240;              /* brass pegs in pale butter */
+  --page: #200B32;                                      /* Deep Plum, under plum-stained wood */
+  --text: #F3EDF7; --muted: #C5B9D3; --head-text: #F3EDF7;
+  --accent: #F2B84B; --accent-lip: #A87418; --on-accent: #241005;   /* gold: the buttons' own colour (owner's choice) */
+  --focus: var(--accent); --ring: var(--accent); --ring-track: #3B2552;
+  --danger: #FF8E7A; --gold: #FFC9A0;
+  --p1: #E2553F; --p1-deep: #F07A64; --p1-soft: #4A1A24; --p1-glow: rgba(226,85,63,.5);          /* Brick Red, a step lighter for 4:1 on the cards */
+  --p2: #9DA3F2; --p2-deep: #B3B8F7; --p2-soft: #24265A; --p2-glow: rgba(157,163,242,.5);        /* Deep Indigo, lightened for the dark table */
+  --box1: #BE3926; --box2: #4B4FC2; --box1-ink: #FFFFFF; --box2-ink: #FFFFFF; --pat1: #FFFFFF; --pat2: #FFFFFF;
+  --box-rim1: #F59A86; --box-rim2: #B3B8F7;            /* light rims outline the boxes on the dark felt */
+  --line1: #F59A86; --line2: #B3B8F7; --lane: rgba(225,240,236,.12);   /* each player's own lines, light tints of brick and indigo: 3.9:1 and 4.3:1 on the lamp-lit felt */
+  --dot: #E9E1F0; --dot-hi: #FFFFFF; --dot-lo: #8E81A3;              /* pearl pegs */
   --fx-hi: rgba(0,0,0,.55); --fx-lo: rgba(0,0,0,.45);
-  --panel: #3A2C23; --panel-strong: #3A2C23; --control: #46362B; --select-tint: #4A4126; --sel-ring: #F4DD97;
-  --shadow: 0 1px 0 rgba(255,236,200,.07) inset, 0 7px 14px -8px rgba(0,0,0,.75);
-  --chip-shadow: 0 6px 12px -8px rgba(0,0,0,.75);
-  --btn-shadow: 0 4px 0 #1A130E, 0 10px 18px -12px rgba(0,0,0,.75); --btn-shadow-down: 0 1px 0 #1A130E;
-  --primary-shadow: 0 4px 0 #8C7536, 0 12px 20px -12px rgba(0,0,0,.75); --primary-shadow-down: 0 1px 0 #8C7536;
-  --board: #2F3F39;                                     /* sage felt, deepened so the sage lines read 6:1 */
-  --frame: #3B2A1E; --frame-dark: #1A120C; --frame-hi: rgba(244,221,151,.45);
-  --scrim: rgba(0,0,0,.6);
+  --panel: #2E1A40; --panel-strong: #3A2250; --control: #3A2250; --select-tint: #4A2E5E; --sel-ring: var(--accent);
+  --shadow: 0 1px 0 rgba(255,255,255,.08) inset, 0 2px 4px rgba(0,0,0,.3), 0 12px 26px -12px rgba(0,0,0,.85);
+  --chip-shadow: 0 1px 0 rgba(255,255,255,.07) inset, 0 6px 14px -8px rgba(0,0,0,.8);
+  --btn-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 4px 0 #160620, 0 10px 18px -12px rgba(0,0,0,.8); --btn-shadow-down: 0 1px 0 #160620;
+  --primary-shadow: 0 1px 0 rgba(255,255,255,.45) inset, 0 4px 0 var(--accent-lip), 0 12px 22px -12px rgba(0,0,0,.85); --primary-shadow-down: 0 1px 0 var(--accent-lip);
+  --board: #0C4E41; --lamp: rgba(255,255,255,.06);     /* Deep Teal felt under a soft lamp (a brighter one would wash out the light lines) */
+  --frame: #4A2342; --frame-dark: #1C0A1C; --frame-hi: rgba(226,196,240,.4);   /* plum-stained wood rim */
+  --scrim: rgba(10,3,16,.66);
 }
 
 /* 2. Neon at night: a dark room lit by the five colours; lines are lit tubes, dots are indicator lights. */
 [data-skin="neon"] {
   --display: "Unbounded", system-ui, sans-serif; --ui: "Manrope", system-ui, sans-serif;
   --display-w: 700; --score-w: 800; --btn-w: 800; --chip-w: 700;
-  --page: #070A18;
-  --text: #EEF1FF; --muted: #A7AECB; --head-text: #EEF1FF;
-  --accent: #00B58C; --accent-lip: #007A5E; --on-accent: #04110D;   /* teal: the main action, with dark labels (7:1) */
-  --focus: #21BDCA; --ring: #21BDCA; --ring-track: #232A4D;
-  --danger: #FC4422; --gold: #FF8C32;
-  --p1: #FC4422; --p1-deep: #FF6B4F; --p1-soft: #3A1610; --p1-glow: rgba(252,68,34,.6);       /* coral: you */
-  --p2: #21BDCA; --p2-deep: #4FD3DE; --p2-soft: #0D2D33; --p2-glow: rgba(33,189,202,.55);     /* cyan: the other player */
-  --box1: #FC4422; --box2: #21BDCA; --box1-ink: #FFFFFF; --box2-ink: #FFFFFF; --pat1: #FFFFFF; --pat2: #FFFFFF; --ini-halo: none;
-  --box-op: .32; --box-rim1: #FC4422; --box-rim2: #21BDCA;
-  --line1: #FC4422; --line2: #21BDCA; --lane: rgba(70,87,206,.22);
-  --dot: #21BDCA; --dot-hi: #F2FDFF; --dot-lo: #1B6F86;
+  /* Night (owner's dark colours): a room lit by an aurora drifting from Deep Plum to Deep Indigo with brick, teal and indigo
+     light; a Deep Indigo glass board; brick-red and teal tubes, lightened to glow; glass cards; the buttons in their own colour. */
+  --page: #200B32;
+  --text: #F3EDF7; --muted: #C6BEE2; --head-text: #F3EDF7;
+  --accent: #F2B84B; --accent-lip: #A87418; --on-accent: #241005;   /* gold: the buttons' own colour (owner's choice) */
+  --focus: var(--accent); --ring: var(--accent); --ring-track: rgba(255,255,255,.14);
+  --danger: #FF8E7A; --gold: #FFC9A0;
+  --p1: #FF5B3F; --p1-deep: #FF7A62; --p1-soft: #3D1426; --p1-glow: rgba(255,91,63,.6);       /* Brick Red, lit: you */
+  --p2: #3FE0C0; --p2-deep: #6EEBD2; --p2-soft: #0D3434; --p2-glow: rgba(63,224,192,.55);     /* Deep Teal, lit: the other player */
+  --box1: #BE3926; --box2: #0E9C80; --box1-ink: #FFFFFF; --box2-ink: #FFFFFF; --pat1: #FFFFFF; --pat2: #FFFFFF; --ini-halo: none;
+  --box-op: .55; --box-rim1: #FF6A4D; --box-rim2: #3FE0C0;
+  --line1: #FF6A4D; --line2: #3FE0C0; --lane: rgba(178,184,255,.17);
+  --dot: #E4DEFF; --dot-hi: #FFFFFF; --dot-lo: #7E76C4;
   --ln-filter: url(#fx-glow); --dot-filter: url(#fx-glow); --bx-filter: url(#fx-glow); --cores: inline;
   --fx-hi: rgba(255,255,255,.6); --fx-lo: rgba(0,0,0,.4);
-  --panel: #10142C; --panel-b: rgba(125,139,255,.22); --panel-bw: 1px; --panel-strong: #161B3A; --control: #161B3A; --select-tint: #1B2156;
-  --shadow: 0 1px 0 rgba(255,255,255,.05) inset, 0 12px 28px -18px rgba(0,0,0,.9);
-  --chip-shadow: none;
-  --btn-shadow: 0 1px 0 rgba(255,255,255,.05) inset; --btn-shadow-down: none;
-  --primary-shadow: 0 0 0 1px rgba(0,181,140,.65), 0 0 18px -2px rgba(0,181,140,.7), 0 0 44px -10px rgba(0,181,140,.55);
-  --primary-shadow-down: 0 0 0 1px rgba(0,181,140,.6), 0 0 10px -2px rgba(0,181,140,.5); --press: translateY(1px);
-  --cta-glow: 0 0 0 1px rgba(0,181,140,.8), 0 0 26px 0 rgba(0,181,140,.75), 0 0 60px -8px rgba(0,181,140,.6);
-  --sel-ring: #7D8BFF; --sel-glow: 0 0 14px -2px rgba(70,87,206,.85);   /* indigo ring, lightened for 5:1 on the tint */
-  --board: #0B0F24; --board-r: 22px; --grid: rgba(70,87,206,.14);
+  --panel: rgba(40,24,76,.6); --panel-b: rgba(255,255,255,.15); --panel-bw: 1px; --panel-strong: rgba(62,40,110,.68); --control: rgba(255,255,255,.07);
+  --select-tint: color-mix(in srgb,var(--accent) 18%,transparent);
+  --shadow: 0 1px 0 rgba(255,255,255,.13) inset, 0 16px 34px -18px rgba(0,0,0,.9);
+  --chip-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 6px 14px -9px rgba(0,0,0,.7);
+  --btn-shadow: 0 1px 0 rgba(255,255,255,.15) inset, 0 8px 18px -10px rgba(0,0,0,.8); --btn-shadow-down: inset 0 2px 6px rgba(0,0,0,.45);
+  --primary-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 0 0 1px rgba(255,255,255,.12), 0 10px 26px -10px color-mix(in srgb,var(--accent) 75%,transparent), 0 0 34px -8px color-mix(in srgb,var(--accent) 60%,transparent);
+  --primary-shadow-down: inset 0 2px 6px rgba(0,0,0,.35), 0 0 16px -6px color-mix(in srgb,var(--accent) 55%,transparent); --press: translateY(1px);
+  --cta-glow: 0 1px 0 rgba(255,255,255,.5) inset, 0 0 0 1px rgba(255,255,255,.2), 0 12px 30px -8px color-mix(in srgb,var(--accent) 85%,transparent), 0 0 52px -8px color-mix(in srgb,var(--accent) 70%,transparent);
+  --sel-ring: var(--accent); --sel-glow: 0 0 14px -2px color-mix(in srgb,var(--accent) 60%,transparent);
+  --board: rgba(45,47,121,.42); --board-r: 22px; --grid: rgba(178,184,255,.1);   /* Deep Indigo glass over the aurora */
+  --glass: rgba(255,255,255,.16); --glass-edge: rgba(255,255,255,.34);
+  --aur-base: linear-gradient(160deg,#200B32 0%,#2A1650 45%,#2D2F79 100%); --aur1: #BE3926; --aur2: #17A386; --aur3: #5A5EE0; --aur-op: .46;
   --frame: transparent; --frame-dark: transparent; --frame-hi: transparent;
-  --scrim: rgba(3,4,12,.72); --modal-r: 22px;
+  --scrim: rgba(8,3,16,.72); --modal-r: 22px;
   --r-lg: 22px; --r-md: 14px; --r-sm: 10px; --r-pill: 999px; --r-primary: 14px;
 }
 /* Neon by day: a bright room with soft coloured light; coral and indigo carry the lines (3.5:1 and 6:1 on white). */
@@ -117,7 +124,9 @@
   --primary-shadow-down: 0 0 0 1px rgba(70,87,206,.5), 0 3px 10px -4px rgba(70,87,206,.6);
   --cta-glow: 0 0 0 1px rgba(70,87,206,.6), 0 10px 28px -6px rgba(70,87,206,.7), 0 0 40px -6px rgba(33,189,202,.55);
   --sel-ring: #4657CE; --sel-glow: 0 0 14px -4px rgba(70,87,206,.6);
-  --board: #FFFFFF; --grid: rgba(70,87,206,.07);
+  --board: rgba(255,255,255,.62); --grid: rgba(70,87,206,.07);   /* white glass over the aurora */
+  --glass: rgba(255,255,255,.55); --glass-edge: rgba(255,255,255,.9);
+  --aur-base: linear-gradient(160deg,#F4F1FF 0%,#EEF1FA 50%,#DDF3F8 100%); --aur1: #FC4422; --aur2: #21BDCA; --aur3: #4657CE; --aur-op: .17;
   --scrim: rgba(20,24,50,.45);
 }
 
@@ -149,47 +158,78 @@
   --scrim: rgba(46,43,39,.4); --modal-r: 6px;
   --r-lg: 6px; --r-md: 4px; --r-sm: 4px; --r-pill: 4px; --r-primary: 4px;
 }
-/* Cozy Paper at night: charcoal paper on a dark desk; coral and cyan inks (4.4:1 and 6.8:1), which also differ in lightness
-   for players who see no colour (orange and cyan would look the same grey). Orange becomes the highlight and gold. */
+/* Cozy Paper at night (owner's dark colours): a mauve sheet, a lighter plum (owner's choice, so never Neon's indigo), on a Deep
+   Plum desk, both with paper's formation and fibres; brick and teal inks, lightened to read on the sheet (and different in
+   lightness for players who see no colour); gold buttons. */
 [data-skin="paper"][data-theme="dark"] {
-  --page: #1A1816;
-  --text: #EFE8DA; --muted: #B3A994; --head-text: #EFE8DA;
-  --accent: #00B58C; --accent-lip: #007A5E; --on-accent: #12100E;   /* teal: the main action, dark labels (7:1) */
-  --focus: #21BDCA; --ring: #21BDCA; --ring-track: #3A3530;
-  --danger: #FF8C32; --gold: #FF8C32;                 /* indigo highlighter behind light text (4.8:1) */
-  --p1: #FC4422; --p1-deep: #FF6B4F; --p1-soft: #3E1D17;
-  --p2: #21BDCA; --p2-deep: #21BDCA; --p2-soft: #133538;
-  --box1: #3E1D17; --box2: #133538; --box1-ink: #FF6B4F; --box2-ink: #21BDCA; --pat1: #FC4422; --pat2: #21BDCA; --ini-halo: #27241F;
-  --line1: #FC4422; --line2: #21BDCA;
-  --dot: #EFE8DA; --dot-hi: #FFFFFF; --dot-lo: #A79E8D;
+  --page: #200B32;                                      /* Deep Plum desk */
+  --text: #F3EDF7; --muted: #C5B9D3; --head-text: #F3EDF7;
+  --accent: #F2B84B; --accent-lip: #A87418; --on-accent: #241005;   /* gold: the buttons' own colour (owner's choice) */
+  --focus: var(--accent); --ring: var(--accent); --ring-track: #3B2552;
+  --danger: #FF8E7A; --gold: #FFC9A0;
+  --p1: #F07A64; --p1-deep: #F28C76; --p1-soft: #4A1A24;
+  --p2: #6EDCC4; --p2-deep: #7FE0C8; --p2-soft: #0F3A35;
+  --box1: #4A1A24; --box2: #0F3A35; --box1-ink: #FF9B86; --box2-ink: #7FE0C8; --pat1: #F28C76; --pat2: #7FE0C8; --ini-halo: var(--board);
+  --line1: #F28C76; --line2: #7FE0C8;
+  --dot: #F3EDF7; --dot-hi: #FFFFFF; --dot-lo: #A79CB5;
   --fx-hi: rgba(0,0,0,.6); --fx-lo: rgba(255,255,255,.08);
-  --panel: #27241F; --panel-b: rgba(239,232,218,.7); --panel-strong: #27241F; --control: #27241F; --select-tint: #11362C;
-  --sel-ring: #00B58C;
-  --shadow: 2px 2px 0 rgba(0,0,0,.45); --chip-shadow: 2px 2px 0 rgba(0,0,0,.45);
-  --btn-shadow: 2px 2px 0 rgba(0,0,0,.5); --primary-shadow: 2px 2px 0 #00664F;
-  --board: #27241F;
-  --scrim: rgba(0,0,0,.55);
+  --panel: #2E1A40; --panel-b: rgba(243,237,247,.62); --panel-strong: #2E1A40; --control: #2E1A40;
+  --select-tint: color-mix(in srgb,var(--accent) 18%,#2E1A40); --sel-ring: var(--accent);
+  --shadow: 2px 2px 0 rgba(0,0,0,.5), 0 12px 22px -14px rgba(0,0,0,.75); --chip-shadow: 2px 2px 0 rgba(0,0,0,.5);
+  --btn-shadow: 2px 2px 0 rgba(0,0,0,.55), 0 10px 18px -12px rgba(0,0,0,.7); --primary-shadow: 2px 2px 0 var(--accent-lip), 0 12px 22px -12px rgba(0,0,0,.75);
+  --board: #4A2C63;                                     /* the mauve sheet */
+  --scrim: rgba(8,3,16,.6);
+}
+
+/* Depth on every button, day and night (owner, 2026-10-13: "every button or element should have a depth feel… the buttons
+   should have a modern look"): a sheen over each button's fill, lighter at the top, the plain fill across the middle where the
+   label sits (so its contrast holds) and a darker foot, under the bright top edge and drop shadow of its shadow tokens.
+   Hover changes only the fill under the sheen: by day the main action deepens towards its lip (its white label gains
+   contrast), at night it brightens (its dark label gains contrast); Neon by day lights up instead (see the hover rules). */
+:root {
+  --cta-sheen: linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,0) 34%,rgba(0,0,0,0) 56%,rgba(0,0,0,.16));   /* white labels: the highlight stays above them */
+  --btn-sheen: linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,0) 52%,rgba(0,0,0,.06));
+  --accent-hover: color-mix(in srgb,var(--accent) 50%,var(--accent-lip));
+  --btn-hover: color-mix(in srgb,var(--panel-strong) 88%,var(--text));
+}
+[data-skin="neon"][data-theme="light"] { --accent-hover: var(--accent); --btn-hover: var(--panel-strong); }
+[data-theme="dark"] {
+  --cta-sheen: linear-gradient(180deg,rgba(255,255,255,.24),rgba(255,255,255,0) 46%,rgba(0,0,0,.16));
+  --btn-sheen: linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0) 60%,rgba(0,0,0,.1));
+  --accent-hover: color-mix(in srgb,var(--accent) 90%,#fff);
+  --btn-hover: color-mix(in srgb,var(--panel-strong) 92%,#fff);
 }
 
 /* ---------- page ---------- */
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
 body{font-family:var(--ui);color:var(--text);background-color:var(--page);min-height:100vh;min-height:100dvh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-/* Tabletop: maple or walnut planks, lit from above, darker towards the edges. */
-[data-skin="table"] body{background-image:radial-gradient(ellipse 120% 70% at 50% 0%,rgba(255,240,205,.34),transparent 62%),radial-gradient(ellipse 130% 95% at 50% 45%,transparent 58%,rgba(90,45,5,.24)),
-  repeating-linear-gradient(180deg,rgba(110,58,12,.15) 0 1px,rgba(255,232,180,.22) 1px 2px,transparent 2px 136px),url('./assets/textures/wood-light.webp');background-size:auto,auto,auto,512px 128px}
-[data-skin="table"][data-theme="dark"] body{background-image:radial-gradient(ellipse 120% 70% at 50% 0%,rgba(255,214,150,.09),transparent 62%),radial-gradient(ellipse 130% 95% at 50% 45%,transparent 55%,rgba(0,0,0,.5)),
-  repeating-linear-gradient(180deg,rgba(0,0,0,.38) 0 1px,rgba(255,220,170,.06) 1px 2px,transparent 2px 136px),url('./assets/textures/wood-dark.webp')}
-/* Neon: coloured light pooling from the corners of a dark (or bright) room. */
-[data-skin="neon"] body{background-repeat:no-repeat;background-image:radial-gradient(ellipse 70% 50% at 12% -5%,rgba(70,87,206,.5),transparent 70%),radial-gradient(ellipse 55% 45% at 105% 28%,rgba(33,189,202,.24),transparent 70%),
-  radial-gradient(ellipse 70% 45% at 45% 108%,rgba(252,68,34,.2),transparent 70%),radial-gradient(ellipse 40% 30% at 82% 86%,rgba(255,140,50,.1),transparent 70%),linear-gradient(180deg,#0B0F26,#070A18 55%)}
-[data-skin="neon"][data-theme="light"] body{background-image:radial-gradient(ellipse 70% 50% at 10% -5%,rgba(70,87,206,.2),transparent 70%),radial-gradient(ellipse 55% 45% at 105% 25%,rgba(33,189,202,.2),transparent 70%),
-  radial-gradient(ellipse 70% 45% at 45% 108%,rgba(255,140,50,.16),transparent 70%),radial-gradient(ellipse 40% 30% at 85% 80%,rgba(252,68,34,.08),transparent 70%),linear-gradient(180deg,#F7F8FE,#ECEFF9)}
-/* Paper: a kraft desk with the formation, fibres and tooth of paper, shaded towards the edges. By day a white tile multiplies onto the kraft; at night a grey one blends in soft-light. */
-[data-skin="paper"] body{background-image:radial-gradient(ellipse 130% 100% at 50% 40%,transparent 55%,rgba(110,80,40,.2)),url('./assets/textures/paper-light.webp');
-  background-size:auto,640px 640px;background-blend-mode:normal,multiply}
-[data-skin="paper"][data-theme="dark"] body{background-image:radial-gradient(ellipse 130% 100% at 50% 40%,transparent 50%,rgba(0,0,0,.5)),url('./assets/textures/paper-soft.webp');background-blend-mode:normal,soft-light}
-[data-skin="table"] .tag{color:var(--text)}   /* page text sits on wood grain: full ink keeps it 4.5:1 on the darkest streaks */
+/* Tabletop: maple or plum-stained planks (sharp grain, pores and knife marks drawn at twice their size), lit from above,
+   darker towards the edges, with a seam between planks every 256 px. */
+[data-skin="table"] body{background-image:radial-gradient(ellipse 120% 70% at 50% 0%,rgba(255,240,205,.3),transparent 62%),radial-gradient(ellipse 130% 95% at 50% 45%,transparent 58%,rgba(90,45,5,.24)),
+  repeating-linear-gradient(180deg,rgba(110,58,12,.22) 0 1px,rgba(255,232,180,.3) 1px 2px,transparent 2px 256px),url('./assets/textures/wood-day.webp');background-size:auto,auto,auto,512px 256px}
+[data-skin="table"][data-theme="dark"] body{background-image:radial-gradient(ellipse 120% 70% at 50% 0%,rgba(226,196,255,.08),transparent 62%),radial-gradient(ellipse 130% 95% at 50% 45%,transparent 55%,rgba(0,0,0,.5)),
+  repeating-linear-gradient(180deg,rgba(0,0,0,.5) 0 1px,rgba(230,205,245,.07) 1px 2px,transparent 2px 256px),url('./assets/textures/wood-night.webp')}
+/* Neon: the aurora's room (see .aurora below for its drifting lights). */
+[data-skin="neon"] body{background:var(--aur-base) fixed}
+/* The aurora (Neon only): three soft lights drifting slowly behind everything; still when motion is off (.no-anim). */
+.aurora{display:none}
+[data-skin="neon"] .aurora{display:block;position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;filter:blur(70px);opacity:var(--aur-op)}
+.aurora i:nth-child(1){width:62vmax;height:62vmax;left:-20vmax;top:-24vmax;background:var(--aur1);animation:drift1 34s ease-in-out infinite alternate}
+.aurora i:nth-child(2){width:56vmax;height:56vmax;right:-22vmax;bottom:-20vmax;background:var(--aur2);animation:drift2 40s ease-in-out infinite alternate}
+.aurora i:nth-child(3){width:42vmax;height:42vmax;left:28vw;top:30vh;background:var(--aur3);animation:drift1 46s ease-in-out infinite alternate-reverse}
+@keyframes drift1{to{transform:translate(12vw,10vh) scale(1.1)}}
+@keyframes drift2{to{transform:translate(-10vw,-12vh) scale(1.15)}}
+/* Paper: a desk with the formation, fibres and tooth of paper (sharp, at 1.5x their size), shaded towards the edges. By day a
+   white tile multiplies onto the kraft; at night a grey one blends in soft-light. */
+[data-skin="paper"] body{background-image:radial-gradient(ellipse 130% 100% at 50% 40%,transparent 55%,rgba(110,80,40,.2)),url('./assets/textures/paper-day.webp');
+  background-size:auto,512px 512px;background-blend-mode:normal,multiply}
+[data-skin="paper"][data-theme="dark"] body{background-image:radial-gradient(ellipse 130% 100% at 50% 40%,transparent 50%,rgba(0,0,0,.5)),url('./assets/textures/paper-night.webp');background-blend-mode:normal,soft-light}
+/* Small text straight on the page (not on a card) uses full ink on Tabletop's wood and on Paper's desk by day: the sharp grain,
+   knife marks and fibres under it would take muted text below 4.5:1. */
+[data-skin="table"] :is(.tag,section:not(.panel)>.help,section:not(.panel)>.muted),
+[data-skin="paper"][data-theme="light"] :is(.tag,section:not(.panel)>.help,section:not(.panel)>.muted){color:var(--text)}
 button,input{font:inherit;color:inherit}
 /* The browser's own surfaces follow the theme: dark scrollbars and form parts at night, selected text tinted with the accent. */
 [data-theme="dark"]{color-scheme:dark}
@@ -234,24 +274,26 @@ p{line-height:1.5;margin:0}
 .spacer{flex:1}
 
 /* ---------- buttons & controls ---------- */
-.btn{min-height:50px;padding:12px 18px;border-radius:var(--r-md);border:var(--panel-bw) solid var(--panel-b);background:var(--panel-strong);font-weight:var(--btn-w);cursor:pointer;color:var(--text);
+/* Every button has the sheen and hover fills of the depth tokens above. */
+.btn{min-height:50px;padding:12px 18px;border-radius:var(--r-md);border:var(--panel-bw) solid var(--panel-b);background-color:var(--panel-strong);background-image:var(--btn-sheen);font-weight:var(--btn-w);cursor:pointer;color:var(--text);
   display:inline-flex;align-items:center;justify-content:center;gap:10px;box-shadow:var(--btn-shadow);-webkit-tap-highlight-color:transparent;transition:transform .12s,background-color .2s,box-shadow .12s}
-@media (hover:hover) and (pointer:fine){.btn:hover{background:color-mix(in srgb,var(--panel-strong) 88%,var(--text))}}
 .btn:active{transform:var(--press);box-shadow:var(--btn-shadow-down)}
-.btn.primary{border-color:transparent;color:var(--on-accent);background:var(--accent);border-radius:var(--r-primary);box-shadow:var(--primary-shadow)}
-@media (hover:hover) and (pointer:fine){.btn.primary:hover{background:color-mix(in srgb,var(--accent) 90%,var(--on-accent))}}
-/* Hover: Tabletop and Paper buttons darken towards their lip (a lighter fill would weaken the label) and Tabletop's lift a little;
-   Neon's light up instead, the main action most. */
+.btn.primary{border-color:transparent;color:var(--on-accent);background-color:var(--accent);background-image:var(--cta-sheen);border-radius:var(--r-primary);box-shadow:var(--primary-shadow)}
+/* Hover: the fill changes (see the depth tokens); Tabletop's buttons also lift a little, and Neon's light up, the main action most. */
 @media (hover:hover) and (pointer:fine){
-  [data-skin="table"] .btn.primary:hover,[data-skin="paper"] .btn.primary:hover{background:color-mix(in srgb,var(--accent) 50%,var(--accent-lip))}
+  .btn:hover{background-color:var(--btn-hover)}
+  .btn.primary:hover{background-color:var(--accent-hover)}
   [data-skin="table"] :is(.btn,.theme-btn,.lvl-chip,.back):hover{transform:translateY(-1px)}
-  [data-skin="neon"] :is(.btn,.theme-btn,.lvl-chip,.back):hover{background:var(--panel-strong);border-color:rgba(33,189,202,.6);box-shadow:0 0 0 1px rgba(33,189,202,.3),0 0 18px -4px rgba(33,189,202,.6)}
+  [data-skin="neon"] :is(.btn,.theme-btn,.lvl-chip,.back):hover{border-color:rgba(33,189,202,.6);box-shadow:0 0 0 1px rgba(33,189,202,.3),0 0 18px -4px rgba(33,189,202,.6)}
   [data-skin="neon"][data-theme="light"] :is(.btn,.theme-btn,.lvl-chip,.back):hover{border-color:rgba(70,87,206,.5);box-shadow:0 0 0 1px rgba(70,87,206,.25),0 6px 18px -6px rgba(70,87,206,.5)}
-  [data-skin="neon"] .btn.primary:hover{background:var(--accent);border-color:transparent;box-shadow:var(--cta-glow)}
+  [data-skin="neon"] .btn.primary:hover{border-color:transparent;box-shadow:var(--cta-glow)}
 }
 .btn.primary:active{box-shadow:var(--primary-shadow-down)}
 .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
 [data-skin="table"] .btn.primary,[data-skin="neon"] .btn.primary{font-size:1.2rem;font-weight:800}
+/* At night cards and chips carry a faint sheen too, and Neon's cards are frosted glass over the aurora, like its board. */
+[data-theme="dark"] :is(.panel,.pcard,.chip){background-image:linear-gradient(180deg,rgba(255,255,255,.05),transparent 45%)}
+[data-skin="neon"][data-theme="dark"] :is(.panel,.pcard,.theme-sheet){-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3)}
 .btn.block{width:100%}
 .btn.small{min-height:44px;padding:8px 14px;font-size:.9rem;white-space:nowrap}
 .btn svg{width:20px;height:20px;flex:none}
@@ -263,7 +305,7 @@ p{line-height:1.5;margin:0}
 .seg{display:flex;gap:6px;background:var(--control);border:var(--panel-bw) solid var(--panel-b);border-radius:var(--r-md);padding:5px}
 .seg button{flex:1;min-height:44px;border:0;border-radius:var(--r-sm);background:transparent;font-weight:700;cursor:pointer;color:var(--muted);transition:background-color .2s,color .2s}
 /* The chosen option: the theme's tint, a ring in --sel-ring (picked for 4:1 or more on the tint) and, in Neon, a glow. */
-.seg button[aria-pressed="true"]{background:var(--select-tint);color:var(--text);box-shadow:inset 0 0 0 1.5px var(--sel-ring),var(--sel-glow)}
+.seg button[aria-pressed="true"]{background-color:var(--select-tint);background-image:var(--btn-sheen);color:var(--text);box-shadow:inset 0 0 0 1.5px var(--sel-ring),var(--sel-glow)}
 /* Paper ticks its choice (its setup uses hand-drawn checkboxes); Tabletop and Neon mark it with the ring and tint, as in their mockups.
    The tick is decoration (aria-pressed already says "pressed"): empty alt text keeps it out of the button's name. */
 [data-skin="paper"] .seg button[aria-pressed="true"]::before{content:"\2713\00a0";content:"\2713\00a0"/"";color:var(--sel-ring)}
@@ -275,25 +317,29 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .switch:last-child{border-bottom:0}
 .switch b{display:block}
 .switch small{color:var(--muted)}
-.toggle{flex:none;width:56px;height:32px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--text) 30%,transparent);background:var(--control);position:relative;cursor:pointer}
+/* A switch is a recessed track with a raised knob. */
+.toggle{flex:none;width:56px;height:32px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--text) 30%,transparent);background:var(--control);position:relative;cursor:pointer;
+  box-shadow:inset 0 2px 4px -1px rgba(0,0,0,.28)}
 [data-skin="paper"] .toggle{border-radius:var(--r-md);border-color:var(--panel-b)}
-.toggle::after{content:"";position:absolute;top:3px;left:3px;width:23px;height:23px;border-radius:50%;background:var(--muted);transition:transform .2s,background .2s}
+.toggle::after{content:"";position:absolute;top:3px;left:3px;width:23px;height:23px;border-radius:50%;background:var(--muted);transition:transform .2s,background .2s;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 2px 4px -1px rgba(0,0,0,.45)}
 [data-skin="paper"] .toggle::after{border-radius:3px}
 .toggle[aria-checked="true"]{background:var(--accent);border-color:var(--accent)}
 .toggle[aria-checked="true"]::after{transform:translateX(24px);background:var(--on-accent)}
 /* The other controls answer the pointer too: a tint on chips, options and steppers (a faint ring in Neon, the hover tier of its
    glow), a halo round a switch's knob, and a small press on every control. Buttons are handled above. */
-.theme-btn,.lvl-chip,.back{transition:transform .12s,background-color .2s,box-shadow .12s}
+.theme-btn,.lvl-chip,.back{background-image:var(--btn-sheen);transition:transform .12s,background-color .2s,box-shadow .12s}
 @media (hover:hover) and (pointer:fine){
-  :is(.theme-btn,.lvl-chip,.back):hover{background:color-mix(in srgb,var(--panel) 88%,var(--text))}
+  :is(.theme-btn,.lvl-chip,.back):hover{background-color:color-mix(in srgb,var(--panel) 88%,var(--text))}
+  [data-skin="neon"] :is(.theme-btn,.lvl-chip,.back):hover{background-color:var(--panel-strong)}
   .seg button:not([aria-pressed="true"]):hover{color:var(--text);background:color-mix(in srgb,var(--text) 7%,transparent)}
   .theme-opt:not([aria-checked="true"]):hover{border-color:color-mix(in srgb,var(--text) 22%,transparent)}
   [data-skin="neon"] .seg button:not([aria-pressed="true"]):hover{box-shadow:inset 0 0 0 1px rgba(33,189,202,.5)}
   [data-skin="neon"] .theme-opt:not([aria-checked="true"]):hover{border-color:rgba(33,189,202,.5)}
   [data-skin="neon"][data-theme="light"] .seg button:not([aria-pressed="true"]):hover{box-shadow:inset 0 0 0 1px rgba(70,87,206,.4)}
   [data-skin="neon"][data-theme="light"] .theme-opt:not([aria-checked="true"]):hover{border-color:rgba(70,87,206,.4)}
-  .toggle:hover::after{box-shadow:0 0 0 5px color-mix(in srgb,var(--text) 12%,transparent)}
-  .round:not(:disabled):hover{background:color-mix(in srgb,var(--panel-strong) 88%,var(--text))}
+  .toggle:hover::after{box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 2px 4px -1px rgba(0,0,0,.45),0 0 0 5px color-mix(in srgb,var(--text) 12%,transparent)}
+  .round:not(:disabled):hover{background-color:var(--btn-hover)}
 }
 :is(.seg button,.theme-opt,.theme-btn,.lvl-chip,.back,.round:not(:disabled)):active{transform:scale(.97)}
 
@@ -304,8 +350,8 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .theme-body{padding:20px}
 .theme-sheet h2{margin-bottom:12px}
 .theme-opts{display:grid;gap:10px}
-.theme-opt{display:flex;align-items:center;gap:14px;width:100%;min-height:68px;padding:10px 12px;border-radius:var(--r-md);border:2px solid transparent;background:var(--control);text-align:left;cursor:pointer;color:var(--text)}
-.theme-opt[aria-checked="true"]{border-color:var(--sel-ring);background:var(--select-tint);box-shadow:var(--sel-glow)}
+.theme-opt{display:flex;align-items:center;gap:14px;width:100%;min-height:68px;padding:10px 12px;border-radius:var(--r-md);border:2px solid transparent;background-color:var(--control);background-image:var(--btn-sheen);text-align:left;cursor:pointer;color:var(--text)}
+.theme-opt[aria-checked="true"]{border-color:var(--sel-ring);background-color:var(--select-tint);box-shadow:var(--sel-glow)}
 .theme-opt svg{flex:none;width:52px;height:52px;border-radius:10px}
 .theme-opt b{display:block;font-family:var(--display);font-weight:var(--display-w);font-size:1.05rem}
 .theme-opt small{display:block;color:var(--muted);font-size:.85rem}
@@ -370,28 +416,29 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .board-wrap{position:relative;margin:0 auto;width:clamp(280px,min(100%,calc(100dvh - 330px)),620px);aspect-ratio:1;border-radius:var(--board-r);background-color:var(--board)}
 /* Tabletop: a felt mat (fine nap, lighter where the lamp falls) inside a wooden rim, casting a shadow on the table.
    The rim is drawn with inset shadows so the board's size, and so boardFit.ts, are unchanged. */
-[data-skin="table"] .board-wrap{background-image:radial-gradient(ellipse 85% 65% at 50% 32%,rgba(255,255,255,.22),transparent 70%),url('./assets/textures/grain.webp');
+[data-skin="table"] .board-wrap{background-image:radial-gradient(ellipse 85% 65% at 50% 32%,var(--lamp),transparent 70%),url('./assets/textures/felt.webp');
   background-size:auto,256px 256px;background-blend-mode:normal,soft-light;
   box-shadow:inset 0 1px 0 1px var(--frame-hi),inset 0 0 0 10px var(--frame),inset 0 0 0 11.5px var(--frame-dark),inset 0 16px 22px -6px rgba(10,30,15,.32),
     0 3px 0 var(--frame-dark),0 24px 36px -18px rgba(40,20,0,.6)}
 /* The rim gets real wood grain: a ring over the frame colour, cut out of the board with a mask, under the board's drawing. */
 [data-skin="table"] .board-wrap::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:10px;pointer-events:none;
-  background:linear-gradient(180deg,rgba(255,226,180,.28),transparent 35%,rgba(40,15,0,.18)),url('./assets/textures/wood-light.webp') 0 0/256px 64px;
+  background:linear-gradient(180deg,rgba(255,226,180,.28),transparent 35%,rgba(40,15,0,.18)),url('./assets/textures/wood-day.webp') 0 0/256px 128px;
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
-[data-skin="table"][data-theme="dark"] .board-wrap::before{background:linear-gradient(180deg,rgba(244,221,151,.14),transparent 35%,rgba(0,0,0,.3)),url('./assets/textures/wood-dark.webp') 0 0/256px 64px}
-/* Neon: dark glass with a lit edge, an indigo glow inside and coloured light spilling around it. */
-[data-skin="neon"] .board-wrap{background-image:radial-gradient(ellipse 80% 70% at 50% 40%,rgba(70,87,206,.22),transparent 70%),
+[data-skin="table"][data-theme="dark"] .board-wrap::before{background:linear-gradient(180deg,rgba(226,196,240,.16),transparent 35%,rgba(0,0,0,.32)),url('./assets/textures/wood-night.webp') 0 0/256px 128px}
+/* Neon: a pane of glass over the aurora. The room's light shows through it blurred, a sheen crosses it, its top edge catches
+   the light, and a soft glow spills round it. */
+[data-skin="neon"] .board-wrap{background-image:linear-gradient(135deg,var(--glass),transparent 38%,transparent 62%,color-mix(in srgb,var(--glass) 50%,transparent)),
   linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:auto,24px 24px,24px 24px;
-  box-shadow:inset 0 0 0 1.5px rgba(33,189,202,.7),inset 0 0 36px rgba(70,87,206,.22),0 0 0 1px rgba(33,189,202,.25),0 0 22px 0 rgba(33,189,202,.38),
-    0 0 60px -10px rgba(70,87,206,.6),0 30px 60px -30px rgba(252,68,34,.35)}
-[data-skin="neon"][data-theme="light"] .board-wrap{background-image:radial-gradient(ellipse 80% 70% at 50% 40%,rgba(33,189,202,.08),transparent 70%),
-  linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  box-shadow:inset 0 0 0 1.5px rgba(70,87,206,.45),0 0 0 1px rgba(33,189,202,.18),0 0 24px -4px rgba(33,189,202,.45),0 18px 40px -22px rgba(70,87,206,.55),0 0 50px -16px rgba(252,68,34,.25)}
+  -webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5);
+  box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px rgba(255,255,255,.13),inset 0 -24px 40px -26px rgba(0,0,0,.4),
+    0 0 0 1px rgba(63,224,192,.22),0 0 28px -4px rgba(63,224,192,.32),0 34px 60px -30px rgba(0,0,0,.75)}
+[data-skin="neon"][data-theme="light"] .board-wrap{
+  box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px rgba(70,87,206,.22),0 0 0 1px rgba(33,189,202,.16),0 0 24px -4px rgba(33,189,202,.4),0 22px 44px -24px rgba(70,87,206,.5)}
 /* Paper: a sheet with cloudy formation, short fibres and tooth, toned at its edges, lying slightly lifted on the desk. */
-[data-skin="paper"] .board-wrap{background-image:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 62%,rgba(150,110,50,.12)),url('./assets/textures/paper-light.webp');
+[data-skin="paper"] .board-wrap{background-image:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 62%,rgba(150,110,50,.12)),url('./assets/textures/paper-day.webp');
   background-size:auto,512px 512px;background-blend-mode:normal,multiply;
   box-shadow:0 0 0 1px rgba(46,43,39,.08),0 1px 1px rgba(70,50,20,.14),0 16px 30px -18px rgba(70,50,20,.55)}
-[data-skin="paper"][data-theme="dark"] .board-wrap{background-image:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 60%,rgba(0,0,0,.35)),url('./assets/textures/paper-soft.webp');background-blend-mode:normal,soft-light;
+[data-skin="paper"][data-theme="dark"] .board-wrap{background-image:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 60%,rgba(0,0,0,.35)),url('./assets/textures/paper-night.webp');background-blend-mode:normal,soft-light;
   box-shadow:0 0 0 1px rgba(239,232,218,.07),0 1px 1px rgba(0,0,0,.4),0 18px 34px -16px rgba(0,0,0,.75)}
 #board{display:block;width:100%;height:100%;touch-action:none;cursor:pointer;border-radius:inherit}
 #board:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
@@ -404,8 +451,7 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 @keyframes pop{from{transform:scale(.8);opacity:0}}
 /* Board materials: the SVG effects live in Board.svelte's <defs>; each theme picks them through tokens. */
 .lanes{fill:none;stroke:var(--lane);stroke-linecap:round}
-.kbd-ring,.drag-dot{fill:none;stroke:var(--focus);stroke-width:3px;vector-effect:non-scaling-stroke}
-[data-skin="table"][data-theme="dark"] :is(.kbd-ring,.drag-dot){stroke:var(--accent)}   /* turquoise is 2.5:1 on the lit felt; brass 4:1 */
+.kbd-ring,.drag-dot{fill:none;stroke:var(--focus);stroke-width:3px;vector-effect:non-scaling-stroke}   /* gold at night (5.4:1 on Tabletop's Deep Teal felt) */
 /* The hover preview and the drag line show the line as it will be drawn, in the mover's line colour (3:1 or more on
    every board). No line effect on them: a filter on a single straight line has a zero-height box and draws nothing.
    A dot under the mouse can be grabbed. */
