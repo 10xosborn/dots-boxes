@@ -19,15 +19,15 @@
 <div class="theme-opts" role="radiogroup" aria-label="Theme" bind:this={group}>
   {#each SKINS as s, i (s.id)}
     {@const on = app.settings.skin === s.id}
-    {@const [page, board, p1, p2, line] = s.swatch[app.settings.theme]}
+    {@const [page, board, box, line1, line2, dot] = s.swatch[app.settings.theme]}
     <button type="button" class="theme-opt" role="radio" aria-checked={on} tabindex={on ? 0 : -1} onclick={() => pick(s.id)} onkeydown={e => key(e, i)}>
       <svg viewBox="0 0 52 52" aria-hidden="true">
         <rect width="52" height="52" fill={page} />
         <rect x="7" y="7" width="38" height="38" rx="3" fill={board} />
-        <rect x="14" y="14" width="12" height="12" fill={p1} />
-        <path d="M14 14H26M14 26H26M14 14V26" stroke={line} stroke-width="2.6" stroke-linecap="round" fill="none" />
-        <path d="M26 14V26M26 26H38" stroke={p2} stroke-width="2.6" stroke-linecap="round" fill="none" />
-        <g fill={line}>{#each [14, 26, 38] as y}{#each [14, 26, 38] as x}<circle cx={x} cy={y} r="2.3" />{/each}{/each}</g>
+        <rect x="14" y="14" width="12" height="12" fill={box} />
+        <path d="M14 14H26M14 26H26M14 14V26" stroke={line1} stroke-width="2.6" stroke-linecap="round" fill="none" />
+        <path d="M26 14V26M26 26H38" stroke={line2} stroke-width="2.6" stroke-linecap="round" fill="none" />
+        <g fill={dot}>{#each [14, 26, 38] as y}{#each [14, 26, 38] as x}<circle cx={x} cy={y} r="2.3" />{/each}{/each}</g>
       </svg>
       <span><b style:font-family={s.font}>{s.name}</b><small>{s.blurb}</small></span>
       <span class="tick" aria-hidden="true">&#10003;</span>

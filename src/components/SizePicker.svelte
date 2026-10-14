@@ -81,6 +81,6 @@
   .lab { display: block; font-weight: 800; font-size: .85rem; margin-bottom: 6px; }
   .ctl { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
   output { font-family: var(--display); font-weight: 800; font-size: 1.4rem; min-width: 2ch; text-align: center; font-variant-numeric: tabular-nums; }
-  .round { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--panel-b); background: var(--panel-strong); font-size: 1.4rem; font-weight: 800; cursor: pointer; line-height: 1; }
+  .round { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--panel-b); background-color: var(--panel-strong); background-image: var(--btn-sheen); box-shadow: var(--chip-shadow); font-size: 1.4rem; font-weight: 800; cursor: pointer; line-height: 1; }
   .round:disabled { opacity: .35; cursor: default; }
 </style>
