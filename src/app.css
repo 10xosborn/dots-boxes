@@ -226,6 +226,9 @@ body{font-family:var(--ui);color:var(--text);background-color:var(--page);min-he
 .aurora i:nth-child(3){width:75vmax;height:75vmax;left:calc(28vw - 16.5vmax);top:calc(30vh - 16.5vmax);background:radial-gradient(closest-side,var(--aur3) 12%,color-mix(in srgb,var(--aur3) 45%,transparent) 56%,transparent);animation:drift1 46s steps(46) infinite alternate-reverse}
 @keyframes drift1{25%{transform:translate(1.55vw,1.3vh) scale(1.013)}50%{transform:translate(6vw,5vh) scale(1.05)}75%{transform:translate(10.45vw,8.7vh) scale(1.087)}to{transform:translate(12vw,10vh) scale(1.1)}}
 @keyframes drift2{25%{transform:translate(-1.3vw,-1.55vh) scale(1.019)}50%{transform:translate(-5vw,-6vh) scale(1.075)}75%{transform:translate(-8.7vw,-10.45vh) scale(1.13)}to{transform:translate(-10vw,-12vh) scale(1.15)}}
+/* While a drag's band is out, and as it springs home, the aurora holds still: each step redraws the whole screen, which on a
+   big screen without help from the graphics chip competes with the band's frames. Too slow a drift for the pause to show. */
+html:has(#board .drag) .aurora i{animation-play-state:paused}
 /* Paper: a desk with the formation, fibres and tooth of paper (sharp, at 1.5x their size), shaded towards the edges. By day a
    white tile multiplies onto the kraft; at night a grey one blends in soft-light. */
 [data-skin="paper"] body{background-image:radial-gradient(ellipse 130% 100% at 50% 40%,transparent 55%,rgba(110,80,40,.2)),url('./assets/textures/paper-day.webp');
@@ -430,11 +433,12 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
   background:linear-gradient(180deg,rgba(255,226,180,.28),transparent 35%,rgba(40,15,0,.18)),url('./assets/textures/wood-day.webp') 0 0/256px 128px;
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
 [data-skin="table"][data-theme="dark"] .board-wrap::before{background:linear-gradient(180deg,rgba(226,196,240,.16),transparent 35%,rgba(0,0,0,.32)),url('./assets/textures/wood-night.webp') 0 0/256px 128px}
-/* Neon: a pane of glass over the aurora. The room's light shows through it blurred, a sheen crosses it, its top edge catches
-   the light, and a soft glow spills round it. */
+/* Neon: a pane of glass over the aurora. The room's light shows through it, deepened in colour, a sheen crosses it, its top
+   edge catches the light, and a soft glow spills round it. No blur: the aurora behind is already soft, and a blur here was
+   redone on every frame of a drag (the board changes under it), dropping frames on big boards; deepening the colour is cheap. */
 [data-skin="neon"] .board-wrap{background-image:linear-gradient(135deg,var(--glass),transparent 38%,transparent 62%,color-mix(in srgb,var(--glass) 50%,transparent)),
   linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:auto,24px 24px,24px 24px;
-  -webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5);
+  -webkit-backdrop-filter:saturate(1.5);backdrop-filter:saturate(1.5);
   box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px rgba(255,255,255,.13),inset 0 -24px 40px -26px rgba(0,0,0,.4),
     0 0 0 1px rgba(63,224,192,.22),0 0 28px -4px rgba(63,224,192,.32),0 34px 60px -30px rgba(0,0,0,.75)}
 [data-skin="neon"][data-theme="light"] .board-wrap{
