@@ -299,7 +299,7 @@ Canvas rows 3 (dark) and 4 (light): Desktop game, Phone game (Tweaks → moment:
 ## B. Rationale
 
 - **Mood and audience:** soft and modern, like the pastel neon in your picture; today's players, who keep every habit.
-- **Identity:** today's layout and fonts (Unbounded and Manrope) in a room lit by a slowly drifting aurora (owner, 2026-10-13): glass cards with thin borders, a frosted glass board that shows the aurora behind it blurred, with a sheen and a lit edge, lines that glow like tubes with bright cores, dots like indicator lights; the main action, the selected option and the turn pill glow, other controls only on hover.
+- **Identity:** today's layout and fonts (Unbounded and Manrope) in a room lit by a slowly drifting aurora (owner, 2026-10-13): glass cards with thin borders, a glass board that shows the aurora behind it in deeper colour, with a sheen and a lit edge, lines that glow like tubes with bright cores, dots like indicator lights; the main action, the selected option and the turn pill glow, other controls only on hover.
 - **Colour logic:** brick red (night) or coral (day) is you; teal (night) or indigo (day) is the other player; gold (night) or indigo (day) is the main action; orange (pale apricot at night) is gold and highlights.
 - **Layout:** unchanged single column, at most 680 px wide: top bar, two player cards, the turn pill, chips, the board, then Quit and Restart.
 - **Legibility:** the players differ in hue and saturation (coral against slate), pattern (stripes against dots) and initial; at night coral and the gray-lavender lines also differ 2.4:1 in lightness.
@@ -314,8 +314,8 @@ These are today's variable names in app.css, plus a few new ones, so the change 
 | Token | Dark | Light | Used for |
 | --- | --- | --- | --- |
 | --page | #200B32 (Deep Plum) | #EEF1FA | The room |
-| --aurora | a gradient from #200B32 through #2A1650 to #2D2F79, with brick #BE3926, teal #17A386 and indigo #5A5EE0 lights at 46% | a gradient from #F4F1FF through #EEF1FA to #DDF3F8, with coral, cyan and indigo lights at 17% | The room's light: three soft lights drifting over 34-46 s (still when Animations is off) |
-| --board | rgba(45,47,121,0.42) (Deep Indigo glass), lit top edge, teal glow round it | rgba(255,255,255,0.62) (white glass), cyan-to-indigo edge glow | The board: frosted glass over the aurora (blurred and more saturated behind it), a sheen and a faint grid |
+| --aurora | a gradient from #200B32 through #2A1650 to #2D2F79, with brick #BE3926, teal #17A386 and indigo #5A5EE0 lights at 46% | a gradient from #F4F1FF through #EEF1FA to #DDF3F8, with coral, cyan and indigo lights at 17% | The room's light: three soft lights (radial gradients) drifting over 34-46 s in small steps four times a second; still during a drag and when Animations is off |
+| --board | rgba(45,47,121,0.42) (Deep Indigo glass), lit top edge, teal glow round it | rgba(255,255,255,0.62) (white glass), cyan-to-indigo edge glow | The board: glass over the aurora (its colour deepened behind it), a sheen and a faint grid |
 | --text | #F3EDF7 | #141832 | Text |
 | --muted | #C6BEE2 | #4F5577 | Secondary text |
 | --p1 | #FF5B3F (Brick Red, lit) | #FC4422 | You: glowing lines, boxes, card and pill |
@@ -333,7 +333,7 @@ Computed contrast, dark (against the board's Deep Indigo; the aurora behind the 
 
 - **Type:** unchanged: Unbounded 700/800 for the brand, scores, initials and the results title; Manrope 400–800 for everything else, at today's sizes. Labels on coral buttons are 19 px bold.
 - **Spacing and radii:** unchanged: 22 / 14 / 10 px radii and today's gaps.
-- **Elevation:** the board's lit top edge and inner rim, a soft glow round it (teal at night, cyan by day) and a drop shadow. Glass (owner, 2026-10-13): the board blurs the aurora behind it (`backdrop-filter: blur(18px) saturate(1.5)`), and at night the cards and the theme sheet do too (14 px).
+- **Elevation:** the board's lit top edge and inner rim, a soft glow round it (teal at night, cyan by day) and a drop shadow. Glass (owner, 2026-10-13): the board deepens the colour of the aurora behind it (`backdrop-filter: saturate(1.5)`; a blur showed nothing over the soft aurora and was redone on every frame of a drag), and at night the cards and the theme sheet are frosted (`blur(14px) saturate(1.3)`).
 - **Glow:** one blur filter on the group of lines (0.04 sp dark, 0.022 sp light) and a soft halo on the active player card.
 - **Board:** today's geometry (line 0.085 sp, dot 0.07 sp, box inset 0.1 sp with radius 0.12 sp, initials 0.32 sp; phones use line 0.1 sp and dot 0.085 sp). Solid box fills with stripes for you and dots for the opponent; a dotted coral preview; a coral last-move ring (radius 0.09 sp).
 - **Motion:** today's timings (line 200 ms, box pop 420 ms, score bump 450 ms, turn pill 350 ms), with ease-out in place of the overshooting curves.
