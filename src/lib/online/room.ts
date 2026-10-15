@@ -5,30 +5,34 @@ import {
 import { ensureApp, signIn } from '../firebase/app';
 import { emulator } from '../firebase/config';
 
-let emulated = false;
+let emulated = false, held = false;
 const rtdb = () => {
   const db = getDatabase(ensureApp());
   if (emulator && !emulated) {
     connectDatabaseEmulator(db, '127.0.0.1', 9000); emulated = true;
-    // Emulator builds only: browser tests drop and restore the connection like a phone losing signal.
-    (globalThis as { __dnbNet?: object }).__dnbNet = { offline: () => goOffline(db), online: () => goOnline(db) };
+    // Emulator builds only: browser tests drop and restore the connection like a phone losing signal
+    // (held down until restored: checkLink's reconnect can't bring back a network that isn't there).
+    (globalThis as { __dnbNet?: object }).__dnbNet = { offline: () => { held = true; goOffline(db); }, online: () => { held = false; goOnline(db); } };
   }
   return db;
 };
 import { replay, isStandard, sizeLabel, type BoardSize, type Player } from '../engine/rules';
-import { roomSize, type Room } from './types';
+import { roomSize, type Room, type MoveTiming } from './types';
 export { roomSize, type Room };
 
 /*
  * Realtime Database layout:
- *   rooms/{code} { host, guest, names:{host,guest}, rows, cols, n?, first, game, moves:[...], online:{uid:true}, updated }
+ *   rooms/{code} { host, guest, names:{host,guest}, rows, cols, n?, first, game, moves:[...], online:{uid:true}, updated, dbg? }
  *   presence/{code}/{uid}/{connectionId}: server time, one child per open connection
  * `n` is also written for the standard square sizes, so rooms stay readable by older
  * versions of the game and valid under older security rules.
- * Moves are appended in a transaction that re-checks the turn, so both players
- * always agree on the game even if they tap at the same moment.
+ * Each move goes into its own slot, moves/{n}, in a transaction that only succeeds while
+ * that slot is empty, so both players always agree on the game even if they tap at the
+ * same moment, and a move costs one number on the wire. (Older versions of the game
+ * rewrite the whole room in a transaction; both kinds of write work together.)
  * Presence lives outside the room so it never gets in the way of a move. The old
  * rooms/{code}/online flag is still written for older versions of the game.
+ * `dbg` holds per-move timings, written only with ?debug=net.
  */
 
 const ALPH = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
@@ -98,12 +102,6 @@ export async function watchRoom(code: string, cb: (r: Room | null) => void): Pro
   return onValue(roomRef(code), s => cb(s.exists() ? (s.val() as Room) : null));
 }
 
-/** Read a room once, for example when the tab comes back from the background. */
-export async function readRoom(code: string): Promise<Room | null> {
-  const s = await get(roomRef(code));
-  return s.exists() ? (s.val() as Room) : null;
-}
-
 /**
  * Mark this player present in a room for as long as this device stays connected.
  * Firebase runs an onDisconnect only once, when that connection drops, so it is set up
@@ -131,17 +129,49 @@ export function watchFriend(code: string, uid: string, cb: (present: boolean | n
   return onValue(ref(rtdb(), `presence/${code}/${uid}`), s => cb(s.exists()), () => cb(null));
 }
 
-/** Append a move if it is legal and it is this seat's turn. Returns false if rejected. */
-export async function sendMove(code: string, seat: Player, e: number, expectLen: number): Promise<boolean> {
-  const res = await track(runTransaction(roomRef(code), (r: Room | null) => {
-    if (!r) return r; // not cached yet: Firebase retries with the server value
-    const moves = r.moves ?? [];
-    if (moves.length !== expectLen) return undefined;
-    const st = replay(roomSize(r), r.first, moves);
-    if (st.over || st.turn !== seat || st.lines[e] >= 0) return undefined;
-    return { ...r, moves: [...moves, e], updated: Date.now() };
-  }));
+/**
+ * Write move number `n` (edge `e`) into its own slot, rooms/{code}/moves/{n}, only if that slot is still empty.
+ * The caller has checked, on the n moves it has, that the game isn't over, that it's this seat's turn and that the
+ * line is free; moves never change once written, so the one check the server must make is that nobody took slot n
+ * first (an empty slot means the other player hasn't moved since). The write is one number, the mover's screen shows
+ * it at once (Firebase applies it locally first) and the room's listeners get just that slot.
+ * Returns false if the slot was taken.
+ */
+export async function sendMove(code: string, e: number, n: number): Promise<boolean> {
+  const res = await track(runTransaction(ref(rtdb(), `rooms/${code}/moves/${n}`), (cur: number | null) => (cur === null ? e : undefined)));
   return res.committed;
+}
+
+/**
+ * Prove the connection still reaches the server: read this player's own presence (nothing caches it, so the read
+ * makes a round trip). Phones can lose a connection without the browser noticing (a network change, a frozen tab);
+ * Firebase would then keep showing the last board it got and only notice minutes later. If no answer comes within
+ * `ms`, drop the connection and open a new one: Firebase then sends the room again and resends anything unsent.
+ * Resolves true if the link answered in time.
+ */
+let checking: Promise<boolean> | null = null, probe: Promise<void> | null = null, reconnects = 0;
+export function checkLink(code: string, ms: number): Promise<boolean> {
+  return (checking ??= (async () => {
+    const db = rtdb(), u = await signIn();
+    // One read at a time: while the link is down, later checks wait on the same read (Firebase resends it).
+    probe ??= get(ref(db, `presence/${code}/${u.uid}`)).then(() => {}, () => {}).finally(() => { probe = null; });
+    let timer = 0;
+    const late = new Promise<false>(ok => { timer = setTimeout(() => ok(false), ms) as unknown as number; });
+    const answered = await Promise.race([probe.then(() => true), late]);
+    clearTimeout(timer);
+    if (!answered) { reconnects++; goOffline(db); if (!held) goOnline(db); }
+    return answered;
+  })().finally(() => { checking = null; }));
+}
+/** How many times checkLink has had to reconnect (for the ?debug=net panel). */
+export const reconnectCount = () => reconnects;
+/** Firebase's estimate of the server clock minus this device's clock, in ms (for the ?debug=net panel). */
+export function watchServerOffset(cb: (ms: number) => void): Unsubscribe {
+  return onValue(ref(rtdb(), '.info/serverTimeOffset'), s => cb(Number(s.val()) || 0));
+}
+/** Debug timings for move n (?debug=net only), merged into rooms/{code}/dbg/{n}. */
+export function markMove(code: string, n: number, fields: MoveTiming): void {
+  update(ref(rtdb(), `rooms/${code}/dbg/${n}`), fields).catch(() => {});
 }
 
 /** Start the next game in the room; the other player moves first. */
@@ -150,6 +180,6 @@ export async function rematch(code: string): Promise<void> {
     if (!r) return r;
     const st = replay(roomSize(r), r.first, r.moves ?? []);
     if (!st.over) return undefined;
-    return { ...r, game: r.game + 1, first: (1 - r.first) as Player, moves: [], updated: Date.now() };
+    return { ...r, game: r.game + 1, first: (1 - r.first) as Player, moves: [], dbg: null, updated: Date.now() };
   }));
 }
