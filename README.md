@@ -49,6 +49,14 @@ npm run check    # type-check
 npm run build    # production build in dist/
 ```
 
+The AI (Node 22.18 or newer, which runs the TypeScript rules directly):
+
+```bash
+npm run test:ai        # known endgames and random positions for every level (Vitest)
+npm run ai:bench       # self-play benchmark: win/draw/loss and think time per pairing and board size
+npm run ai:bench -- --sizes 4,5,6 --games 100 --slow 4   # e.g. as a phone 4x slower than this computer would play
+```
+
 Testing against local Firebase emulators (needs Java 21 or newer; nothing touches the live project):
 
 ```bash
