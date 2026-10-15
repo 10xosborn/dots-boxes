@@ -27,9 +27,13 @@
     return () => clearTimeout(t);
   });
   $effect(() => { btn?.focus(); });
+  // The tap that ends a game opens this dialog under the finger, and the browser then sends that tap's click to
+  // whatever is there now (Rematch or Leave). Only a press that starts on the dialog counts; keys always do.
+  let pressed = false;
+  const act = (run: () => void) => (ev: MouseEvent) => { if (pressed || ev.detail === 0) run(); };
 </script>
 
-<div class="modal" role="dialog" aria-modal="true" aria-labelledby="resTitle">
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="resTitle" tabindex="-1" onpointerdown={() => (pressed = true)}>
   <div class="panel">
     <svg class="res-icon" viewBox="0 0 64 64" aria-hidden="true">
       {#if info.kind === 'win'}
@@ -54,9 +58,9 @@
     {#if info.compare}<p class="res-note" class:hi={info.compareHi}>{info.compare}</p>{/if}
     {#if info.rank}<p class="res-note muted" style="margin-top:6px">{info.rank}</p>{/if}
     <div class="res-actions">
-      <button class="btn primary" bind:this={btn} onclick={primary.run}>{primary.label}</button>
+      <button class="btn primary" bind:this={btn} onclick={act(primary.run)}>{primary.label}</button>
       {#if secondary.length}
-        <div class="row">{#each secondary as s}<button class="btn small" style="flex:1" onclick={s.run}>{s.label}</button>{/each}</div>
+        <div class="row">{#each secondary as s}<button class="btn small" style="flex:1" onclick={act(s.run)}>{s.label}</button>{/each}</div>
       {/if}
     </div>
   </div>

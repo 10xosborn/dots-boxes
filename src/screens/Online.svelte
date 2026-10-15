@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onDestroy, untrack } from 'svelte';
+  import { onDestroy, tick, untrack } from 'svelte';
   import { app, go } from '../lib/state/app.svelte';
   import { onlineEnabled } from '../lib/data';
   import { replay, winner, isStandard, sizeLabel, type Player } from '../lib/engine/rules';
@@ -28,7 +28,12 @@
   // when they were last seen leaving, and whether this device is connected.
   let friendHere = $state<boolean | null>(null), awaySince = $state<number | null>(null);
   let offlineSince = $state<number | null>(null), everConnected = false, now = $state(Date.now());
+  // A move not yet confirmed by the server after 0.6 s says "Sending…".
+  let sending = $state(false);
   const loadApi = async () => (api ??= await import('../lib/online/room'));
+  // ?debug=net: the move timings panel (its code loads only then).
+  const debugNet = new URLSearchParams(location.search).get('debug') === 'net';
+  let dbg: ReturnType<typeof import('../lib/online/netdebug').startNetDebug> | null = null, heardLen = -1;
 
   // Derived game view: rebuilt from the room's move list every time it changes.
   const size = $derived(room ? roomSize(room) : null);
@@ -87,18 +92,39 @@
 
   async function watch() {
     const a = await loadApi();
+    if (debugNet && !dbg) dbg = (await import('../lib/online/netdebug')).startNetDebug(a, code, seat);
     unwatch = await a.watchRoom(code, r => {
       room = r;
       if (!r) { stop(); clearRoom(); error = 'This game was closed.'; phase = 'lobby'; return; }
       if (phase === 'waiting' && r.guest) phase = 'playing';
+      if (dbg) { timeHeard(r); dbg.update(r); }
     });
     unpresence = await a.joinPresence(code, onSelf);
   }
-  function stop() { unwatch?.(); unpresence?.(); unwatch = unpresence = null; }
-  // Back from the background (phones freeze hidden tabs): read the room once and re-render.
-  async function refresh() {
+  function stop() { unwatch?.(); unpresence?.(); unwatch = unpresence = null; dbg?.stop(); dbg = null; heardLen = -1; }
+  /** ?debug=net: stamp the other player's new moves as heard now and shown once on screen. */
+  function timeHeard(r: Room) {
+    const moves = r.moves ?? [], size = roomSize(r);
+    if (heardLen >= 0) for (let i = heardLen; i < moves.length; i++) {
+      if (replay(size, r.first, moves.slice(0, i)).turn === seat) continue;   // our own move, coming back
+      dbg?.heard(i);
+      tick().then(() => requestAnimationFrame(() => dbg?.shown(i)));
+    }
+    heardLen = moves.length;
+  }
+  // While waiting on the other player (their turn, or for them to join), check every 4 s that the connection still
+  // answers, and replace it if not (checkLink): a phone can lose it without noticing and keep an old board.
+  $effect(() => {
+    const c = code;
+    if (!c || !(phase === 'waiting' || (phase === 'playing' && !myTurn))) return;
+    const t = setInterval(() => { if (document.visibilityState === 'visible') api?.checkLink(c, 3500); }, 4000);
+    return () => clearInterval(t);
+  });
+  // Back from the background (phones freeze hidden tabs) or back online: the same check at once, so the board
+  // catches up straight away. (A plain read can't tell: Firebase answers it from what it last heard.)
+  function wake() {
     if (document.visibilityState !== 'visible' || !code || !api || !unwatch) return;
-    try { const r = await api.readRoom(code); if (r) room = r; } catch { /* the live listener catches up */ }
+    api.checkLink(code, 2500);
   }
   async function create() {
     busy = true; error = '';
@@ -128,11 +154,19 @@
     busy = false;
   }
   async function move(e: number) {
-    if (!room || !api || !myTurn) return;
+    if (!room || !api || !myTurn || !st || st.lines[e] >= 0) return;
+    const a = api, c = code, n = st.moves.length;
+    dbg?.sent(n);
+    // The line shows at once (Firebase applies the write locally first). A slow network says "Sending…"; no answer
+    // after 3 s means the connection may be dead, so check it (a new one resends the move).
+    const slow = setTimeout(() => (sending = true), 600), stuck = setTimeout(() => a.checkLink(c, 2000), 3000);
+    if (dbg) tick().then(() => requestAnimationFrame(() => dbg?.ownShown(n)));
     try {
-      const ok = await api.sendMove(code, seat, e, room.moves?.length ?? 0);
+      const ok = await a.sendMove(c, e, n);
+      dbg?.confirmed(n);
       error = ok ? '' : 'That move could not be sent. The board has been refreshed.';
     } catch { error = 'That move could not be sent. Tap again.'; }
+    finally { clearTimeout(slow); clearTimeout(stuck); sending = false; }
   }
   async function copyInvite() {
     const url = `${location.origin}${location.pathname}?room=${code}`;
@@ -144,8 +178,8 @@
   // svelte-ignore state_referenced_locally
   if (joinCode && onlineEnabled) join();
   else if (app.roomResume && onlineEnabled) { const r = app.roomResume; app.roomResume = null; rejoin(r.code, r.seat); }
-  document.addEventListener('visibilitychange', refresh); addEventListener('pageshow', refresh);
-  onDestroy(() => { stop(); document.removeEventListener('visibilitychange', refresh); removeEventListener('pageshow', refresh); });
+  document.addEventListener('visibilitychange', wake); addEventListener('pageshow', wake); addEventListener('online', wake);
+  onDestroy(() => { stop(); document.removeEventListener('visibilitychange', wake); removeEventListener('pageshow', wake); removeEventListener('online', wake); });
 </script>
 
 {#if !onlineEnabled}
@@ -185,7 +219,7 @@
     <PlayerCards {names} initials={ini} subs={[seat === 0 ? 'You' : 'Host', seat === 1 ? 'You' : 'Guest']} score={[st.score[0], st.score[1]]} turn={st.turn} {over} {turnText} />
     <div class="meta"><span class="chip">{sizeTag}</span><span class="chip">Game {room.game}</span><span class="chip">Code <b>{code}</b></span></div>
     <Board rows={size.rows} cols={size.cols} {lines} {boxes} turn={st.turn} interactive={myTurn} initials={ini} anim={app.settings.anim} onmove={move} />
-    <p class="muted net" role="status">{#if reconnecting}Reconnecting…{:else if longAway}{friendName} has been away for 2 minutes. Leaving won't count as a loss.{:else if away}{friendName} stepped away.{myTurn ? ' Your move will be waiting.' : ''}{/if}</p>
+    <p class="muted net" role="status">{#if reconnecting}Reconnecting…{:else if sending}Sending…{:else if longAway}{friendName} has been away for 2 minutes. Leaving won't count as a loss.{:else if away}{friendName} stepped away.{myTurn ? ' Your move will be waiting.' : ''}{/if}</p>
     {#if longAway && !reconnecting}<button class="btn small" onclick={leave}>Leave game</button>{/if}
     <p class="err" role="alert">{error}</p>
     <div class="game-actions"><button class="btn small" onclick={leave}>Leave</button></div>

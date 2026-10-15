@@ -27,6 +27,9 @@ describe('rooms (unchanged)', () => {
   it('nobody takes a seat that is already taken', () => assertFails(db('third').ref('rooms/ROOM1').update({ guest: 'third' })));
   it('a stranger cannot change a game', () => assertFails(db('third').ref('rooms/ROOM1/moves').set([0, 1])));
   it('the players can make moves', () => assertSucceeds(db('guest').ref('rooms/ROOM1/moves').set([0, 1])));
+  // Since the online fix, each move is written into its own slot (rooms/{code}/moves/{n}).
+  it('the players can write one move into its slot', () => assertSucceeds(db('guest').ref('rooms/ROOM1/moves/1').set(5)));
+  it('a stranger cannot write a move slot', () => assertFails(db('third').ref('rooms/ROOM1/moves/1').set(5)));
   it('board sizes stay between 1 and 12', () => assertFails(db('host').ref('rooms/ROOM1/rows').set(13)));
   it('signed-out visitors cannot read rooms', () => assertFails(db().ref('rooms/ROOM1').once('value')));
 });
