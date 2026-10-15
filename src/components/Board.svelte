@@ -14,6 +14,7 @@
   import { geometry } from '../lib/engine/rules';
   import { layout, PAD } from '../lib/boardFit';
   import { sfx } from '../lib/sound';
+  import { app } from '../lib/state/app.svelte';
 
   let { rows, cols, lines, boxes, turn, interactive, initials, anim, onmove }: {
     rows: number; cols: number;
@@ -36,8 +37,15 @@
   // Theme colours (app.css): each player's line colour (also the mover's previews and drag line, through
   // .preview and .drag, at 3:1 or more on every board) and box colours.
   const lineColor = (p: number) => (p === 0 ? 'var(--line1)' : 'var(--line2)');
-  /** Neon's tube light: a thinner, whiter line drawn inside each line (hidden in other themes through --cores). */
-  const coreColor = (p: number) => `color-mix(in srgb, ${lineColor(p)} 40%, #fff)`;
+  /** Neon's light: a thinner, whiter line drawn inside each line (hidden in other themes through --cores). */
+  const coreColor = (p: number) => `color-mix(in srgb, ${lineColor(p)} var(--core-mix, 40%), #fff)`;
+  /** Neon's glow: four copies of each line under it, each wider and fainter (widths in line widths; opacities in app.css). */
+  const HALOS: [string, number][] = [['h4', 4.2], ['h3', 3.1], ['h2', 2.3], ['h1', 1.6]];
+  /** Neon's layers (the glow under each line, the light inside it, each tile's glass base and highlight) are built only in
+   *  Neon, and the reflection and the glow round the dots only in Dark Neon, so other themes' boards carry no hidden extra
+   *  shapes to create and lay out. How each layer looks is still up to the mode's tokens in app.css. */
+  const neon = $derived(app.settings.skin === 'neon');
+  const neonDark = $derived(neon && app.settings.theme === 'dark');
   const xy = (e: number) => { const [a, b, c, d] = g.coords(e); return [P(a), P(b), P(c), P(d)]; };
   /** The printed guide under every possible line, as one path (cheap even on 12x12). */
   const lanes = $derived(Array.from({ length: g.E }, (_, e) => { const [a, b, c, d] = xy(e); return `M${a} ${b}L${c} ${d}`; }).join(''));
@@ -245,8 +253,9 @@
       <!-- Patterns keep ownership readable without color: stripes = player 1, dots = player 2. -->
       <pattern id="pat0" width={sp * 0.1} height={sp * 0.1} patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width={sp * 0.026} height={sp * 0.1} style="fill:var(--pat1)" opacity=".24" /></pattern>
       <pattern id="pat1" width={sp * 0.1} height={sp * 0.1} patternUnits="userSpaceOnUse"><circle cx={sp * 0.05} cy={sp * 0.05} r={sp * 0.016} style="fill:var(--pat2)" opacity=".24" /></pattern>
-      <!-- Materials. Each theme chooses through tokens (app.css): a bead for the dots, and engraved (Tabletop),
-           pressed-into-paper (Paper) or glowing (Neon) lines, dots and boxes. Sizes follow the dot spacing. -->
+      <!-- Materials. Each theme chooses through tokens (app.css): a bead for the dots, and engraved (Tabletop by day),
+           pressed-into-paper (Paper by day), lifted (Tabletop at night) or flat-shadowed (Paper at night) lines and dots.
+           Neon draws its glow with plain strokes instead (the halos below). Sizes follow the dot spacing. -->
       <radialGradient id="dot-bead" fx=".36" fy=".32"><stop offset="0" style="stop-color:var(--dot-hi)" /><stop offset=".58" style="stop-color:var(--dot)" /><stop offset="1" style="stop-color:var(--dot-lo)" /></radialGradient>
       <filter id="fx-engrave" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
         <feOffset in="SourceAlpha" dy={sp * 0.016} result="o1" /><feFlood style="flood-color:var(--fx-hi)" /><feComposite in2="o1" operator="in" result="hi" />
@@ -259,25 +268,54 @@
         <feOffset in="SourceAlpha" dy={-sp * 0.008} result="o2" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o2" operator="in" result="lo" />
         <feMerge><feMergeNode in="hi" /><feMergeNode in="lo" /><feMergeNode in="ink" /></feMerge>
       </filter>
-      <filter id="fx-glow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
-        <feGaussianBlur in="SourceGraphic" stdDeviation={sp * 0.045} result="near" /><feGaussianBlur in="SourceGraphic" stdDeviation={sp * 0.13} result="far" />
-        <feMerge><feMergeNode in="far" /><feMergeNode in="near" /><feMergeNode in="SourceGraphic" /></feMerge>
+      <!-- A soft drop shadow in three steps (no blur, so it stays cheap) under a faint lit top edge: pressed-paper strips and
+           ash dots slightly raised off the felt-paper. -->
+      <filter id="fx-lift" x="-20%" y="-20%" width="140%" height="160%" color-interpolation-filters="sRGB">
+        <feOffset in="SourceAlpha" dy={sp * 0.009} result="o1" />
+        <feOffset in="SourceAlpha" dy={sp * 0.018} result="o2" /><feComponentTransfer in="o2" result="s2"><feFuncA type="linear" slope=".5" /></feComponentTransfer>
+        <feOffset in="SourceAlpha" dy={sp * 0.03} result="o3" /><feComponentTransfer in="o3" result="s3"><feFuncA type="linear" slope=".22" /></feComponentTransfer>
+        <feMerge result="m"><feMergeNode in="s3" /><feMergeNode in="s2" /><feMergeNode in="o1" /></feMerge>
+        <feFlood style="flood-color:var(--fx-hi)" /><feComposite in2="m" operator="in" result="sh" />
+        <feOffset in="SourceAlpha" dy={-sp * 0.006} result="o4" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o4" operator="in" result="lit" />
+        <feMerge><feMergeNode in="sh" /><feMergeNode in="lit" /><feMergeNode in="SourceGraphic" /></feMerge>
       </filter>
-      <filter id="fx-glow-soft" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
-        <feGaussianBlur in="SourceGraphic" stdDeviation={sp * 0.035} result="b" /><feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 .65 0" result="halo" />
-        <feMerge><feMergeNode in="halo" /><feMergeNode in="SourceGraphic" /></feMerge>
+      <!-- A flat drop shadow, like a separate layer of paper, under a faint lit top edge; crisp edges, no blur. -->
+      <filter id="fx-flat" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
+        <feOffset in="SourceAlpha" dx={sp * 0.008} dy={sp * 0.02} result="o1" /><feFlood style="flood-color:var(--fx-hi)" /><feComposite in2="o1" operator="in" result="sh" />
+        <feOffset in="SourceAlpha" dy={-sp * 0.006} result="o2" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o2" operator="in" result="lit" />
+        <feMerge><feMergeNode in="sh" /><feMergeNode in="lit" /><feMergeNode in="SourceGraphic" /></feMerge>
       </filter>
+      <!-- Neon's polished tiles: a crisp highlight across the top left corner. -->
+      <linearGradient id="tile-gloss" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" style="stop-color:#fff;stop-opacity:var(--gloss-a)" /><stop offset=".34" style="stop-color:#fff;stop-opacity:calc(var(--gloss-a) * .35)" />
+        <stop offset=".35" style="stop-color:#fff;stop-opacity:0" /><stop offset="1" style="stop-color:#fff;stop-opacity:0" />
+      </linearGradient>
     </defs>
 
     <path class="lanes" d={lanes} stroke-width={stroke * 0.5} />
+
+    <!-- Neon's glow: wider, fainter copies of each line under it (plain strokes, no blur filter, so it costs nothing while a
+         line grows or a drag moves). Under the boxes, so the glow never tints a captured tile. Neon only. -->
+    {#if neon}
+    <g class="halos">
+    {#each lines as l (l.e)}
+      {@const [x1, y1, x2, y2] = xy(l.e)}
+      {#each HALOS as [k, w] (k)}
+        <line class="ln {k}" class:grow={anim} {x1} {y1} {x2} {y2} stroke-width={stroke * w} style="--len:{sp}" style:stroke={lineColor(l.p)} />
+      {/each}
+    {/each}
+    </g>
+    {/if}
 
     <g class="bxs">
     {#each boxes as bx (bx.b)}
       {@const x = P(bx.b % cols)}{@const y = P(Math.floor(bx.b / cols))}{@const i = sp * 0.1}
       <g class="bx" class:pop={anim}>
+        {#if neon}<rect class="tile-base" x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} />{/if}
         <rect x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} stroke-width={sp * 0.035} style:fill={bx.p === 0 ? 'var(--box1)' : 'var(--box2)'}
           style:fill-opacity="var(--box-op)" style:stroke={bx.p === 0 ? 'var(--box-rim1)' : 'var(--box-rim2)'} />
         <rect x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} fill="url(#pat{bx.p})" />
+        {#if neon}<rect class="gloss" x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} fill="url(#tile-gloss)" />{/if}
         <text x={x + sp / 2} y={y + sp / 2} text-anchor="middle" dominant-baseline="central" font-weight="800" font-size={sp * 0.34} paint-order="stroke" stroke-linejoin="round" stroke-width={sp * 0.07} style:stroke="var(--ini-halo)" style:font-family="var(--display)" style:fill={bx.p === 0 ? 'var(--box1-ink)' : 'var(--box2-ink)'}>{initials[bx.p]}</text>
       </g>
     {/each}
@@ -294,12 +332,23 @@
       <line class="ln" class:grow={anim} {x1} {y1} {x2} {y2} stroke-width={stroke} style="--len:{sp}" style:stroke={lineColor(l.p)} />
     {/each}
     </g>
+    {#if neon}
     <g class="cores">
     {#each lines as l (l.e)}
       {@const [x1, y1, x2, y2] = xy(l.e)}
       <line class="ln" class:grow={anim} {x1} {y1} {x2} {y2} stroke-width={stroke * 0.36} style="--len:{sp}" style:stroke={coreColor(l.p)} />
     {/each}
     </g>
+    {/if}
+    <!-- Dark Neon: a sharp reflection of each line on the glass, a little below and to the right. -->
+    {#if neonDark}
+    <g class="reflect">
+    {#each lines as l (l.e)}
+      {@const [x1, y1, x2, y2] = xy(l.e)}{@const o = sp * 0.1}
+      <line class="ln" class:grow={anim} x1={x1 + o * 0.45} y1={y1 + o} x2={x2 + o * 0.45} y2={y2 + o} stroke-width={stroke * 0.22} style="--len:{sp}" style:stroke={coreColor(l.p)} />
+    {/each}
+    </g>
+    {/if}
 
     <!-- A drag from a dot: the elastic band, thin while it stretches to the pointer and the line's full width once it
          snaps, when the line it will draw also gets the keyboard cursor's ring (3:1 on every board, even on Tabletop's
@@ -331,6 +380,16 @@
       <rect class="kbd-ring" x={rg.x} y={rg.y} width={rg.width} height={rg.height} rx={rg.rx} />
     {/if}
 
+    <!-- Dark Neon's glow round each dot. -->
+    {#if neonDark}
+    <g class="dot-halos">
+    {#each { length: rows + 1 } as _, yy}
+      {#each { length: cols + 1 } as _, xx}
+        <circle cx={P(xx)} cy={P(yy)} r={dotR * 2.5} class="dh2" /><circle cx={P(xx)} cy={P(yy)} r={dotR * 1.65} class="dh1" />
+      {/each}
+    {/each}
+    </g>
+    {/if}
     <g class="dots">
     {#each { length: rows + 1 } as _, yy}
       {#each { length: cols + 1 } as _, xx}

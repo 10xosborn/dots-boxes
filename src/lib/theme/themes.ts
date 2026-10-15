@@ -6,7 +6,7 @@
 export type Skin = 'table' | 'neon' | 'paper';
 export type Mode = 'light' | 'dark';
 
-/** Colours for a theme's preview swatch in the picker: page, board, player 1's box, each player's lines, the dots. */
+/** Colours for a theme's preview swatch in the picker: page, board, player 1's box (as it shows on the board), each player's lines, the dots. */
 type Swatch = [page: string, board: string, box: string, line1: string, line2: string, dot: string];
 
 export interface SkinInfo {
@@ -22,14 +22,14 @@ export interface SkinInfo {
 
 export const SKINS: SkinInfo[] = [
   { id: 'table', name: 'Tabletop', blurb: 'A felt game board on a wooden table', font: '"Jost", system-ui, sans-serif',
-    bar: { light: '#E3B970', dark: '#200B32' },
-    swatch: { light: ['#E3B970', '#C4DFC9', '#D77027', '#BF4E1E', '#7C5E08', '#2C4637'], dark: ['#200B32', '#0C4E41', '#BE3926', '#F59A86', '#B3B8F7', '#E9E1F0'] } },
-  { id: 'neon', name: 'Neon', blurb: 'Glowing lights in a dark room', font: '"Unbounded", system-ui, sans-serif',
-    bar: { light: '#EEF1FA', dark: '#200B32' },
-    swatch: { light: ['#EEF1FA', '#FFFFFF', '#FC4422', '#FC4422', '#4657CE', '#4657CE'], dark: ['#200B32', '#2D2F79', '#BE3926', '#FF6A4D', '#3FE0C0', '#E4DEFF'] } },
+    bar: { light: '#E3B970', dark: '#4F3B32' },
+    swatch: { light: ['#E3B970', '#C4DFC9', '#D77027', '#BF4E1E', '#7C5E08', '#2C4637'], dark: ['#4F3B32', '#5A4538', '#43322A', '#E5E4E2', '#E0A070', '#D6D3CE'] } },
+  { id: 'neon', name: 'Neon', blurb: 'Glowing light under glass', font: '"Unbounded", system-ui, sans-serif',
+    bar: { light: '#D5DEE7', dark: '#050608' },
+    swatch: { light: ['#D5DEE7', '#EBF1F5', '#54FD36', '#0047FF', '#007F73', '#FF4500'], dark: ['#050608', '#0B0F19', '#62269A', '#FF007F', '#C6FF00', '#00F0FF'] } },
   { id: 'paper', name: 'Paper', blurb: 'Printed on warm, textured paper', font: '"Kalam", system-ui, sans-serif',
-    bar: { light: '#E6DCC7', dark: '#200B32' },
-    swatch: { light: ['#E6DCC7', '#FCF8EF', '#FC4422', '#FC4422', '#4657CE', '#2E2B27'], dark: ['#200B32', '#4A2C63', '#F07A64', '#F28C76', '#7FE0C8', '#F3EDF7'] } },
+    bar: { light: '#E6DCC7', dark: '#492E1F' },
+    swatch: { light: ['#E6DCC7', '#FCF8EF', '#FC4422', '#FC4422', '#4657CE', '#2E2B27'], dark: ['#492E1F', '#513626', '#715A49', '#E8D5B5', '#8FB8D6', '#F3EAD7'] } },
 ];
 
 /** New players start on Minimalist Premium, the spec's recommended main look. */
