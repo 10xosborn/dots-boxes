@@ -1,19 +1,36 @@
 /* =====================================================================
    AI — pure functions over a 0/1 "drawn" mask. No DOM.
    easy   : takes an available box ~50% of the time, otherwise random.
-   medium : always takes boxes; never gives a 3rd side while a safe line exists.
+   medium : always takes boxes; never gives a 3rd side while a safe line exists;
+            when it must give boxes away, gives the fewest (the shortest chain).
+            No control play (it never hands boxes back to keep control).
    Works on any rows × columns board.
-   hard   : chain-aware (safe-line race search, all-but-two double-dealing,
-            optimal chain/loop opening order) + exact alpha-beta search once the
-            remaining game is small enough (the whole game on 3×3, which also has
-            an opening book). Picks at random among equally good moves.
+   hard   : everything in medium, plus the fight for control:
+            - while 15-40 safe lines remain, Monte Carlo playouts of the safe-line
+              race (random safe lines, then the chain endgame valued by its chains
+              and loops), over every safe line and every cheap sacrifice (giving 1
+              or 2 boxes flips who has to open the first long chain: Berlekamp's
+              long chain rule), so it steers the number of long chains its way;
+            - with 14 or fewer safe lines (20 up to 4×4, 18 up to 6×6), an
+              exhaustive search of the race, with the same sacrifices at the root;
+            - chain and loop analysis (branching regions split into their arms),
+              used for the race and for the endgame alike: all-but-two / all-but-
+              four double-dealing when keeping control pays, 2-chains given away
+              hard-heartedly (middle line);
+            - exact alpha-beta search with a transposition table once the rest of
+              the game is small enough (the whole game on 3×3, which also has an
+              opening book). Picks at random among equally good moves.
+            Every move has a wall-clock limit (about 0.7 s), so slow phones think
+            less but never longer.
    ===================================================================== */
 // @ts-nocheck -- performance-critical engine kept in plain JS; typed via the wrapper in ai.ts
 /**
  * Create an independent AI engine instance (holds its own transposition table).
+ * `timeScale` scales Hard's thinking time (the benchmark uses it to play as a slower device would).
+ * @param {{timeScale?: number}} [opts]
  * @returns {{choose:(g:any,d:Uint8Array,level:'easy'|'medium'|'hard')=>number, resetGame:()=>void}}
  */
-export function createAI(){
+export function createAI({timeScale=1}={}){
   let ROWS,COLS,H,E,NB,boxEdges,edgeBoxes,geoKey='';
   const pick=a=>a[Math.floor(Math.random()*a.length)];
   function setGeometry(g){
@@ -168,6 +185,174 @@ const sides=(d,b)=>{let s=0;for(const e of boxEdges[b]) if(d[e]) s++;return s};
   
   
   
+  /** Boxes the opponent can take straight after line e is drawn (by greedy capture; 0 for a safe line). */
+  function giveaway(d,e){
+    const dd=Uint8Array.from(d); dd[e]=1; const after=takeAll(dd); let n=0;
+    for(let b=0;b<NB;b++) if(sides(after,b)===4&&sides(dd,b)<4) n++;
+    return n;
+  }
+  /** Lines that give away 1 to `most` boxes at once: sacrifices that flip who has to open the first long chain. */
+  function sacrifices(d,most){
+    const out=[];
+    for(let e=0;e<E;e++){ if(d[e]||edgeBoxes[e].every(b=>sides(d,b)<2)) continue; const g=giveaway(d,e); if(g>=1&&g<=most) out.push(e) }
+    return out;
+  }
+  const sample=(a,k)=>{const b=a.slice(); for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]} return b.slice(0,k)};
+
+  /* ---------- playouts and the race for control (Hard) ----------
+     Fast board state: PD drawn lines, PS sides per box, POOL the free lines that may still be safe (a line that
+     stops being safe never becomes safe again before the chain endgame, so it leaves the pool for good). */
+  let PD,PS,POOL,PN=0;
+  function pinit(d){
+    PD=Uint8Array.from(d); PS=new Uint8Array(NB);
+    for(let b=0;b<NB;b++){let s=0;for(const e of boxEdges[b]) if(PD[e]) s++;PS[b]=s}
+    if(!POOL||POOL.length!==E) POOL=new Int32Array(E);
+    PN=0; for(let e=0;e<E;e++) if(!PD[e]) POOL[PN++]=e;
+  }
+  function pdraw(e){PD[e]=1;let k=0;for(const b of edgeBoxes[e]) if(++PS[b]===4) k++;return k}
+  const psafe=e=>{for(const b of edgeBoxes[e]) if(PS[b]>=2) return false;return true};
+  /** The player to move takes every box it can; returns how many. */
+  function pcapture(){
+    let n=0; const st=[]; for(let b=0;b<NB;b++) if(PS[b]===3) st.push(b);
+    while(st.length){ const b=st.pop(); if(PS[b]!==3) continue; let e=-1; for(const x of boxEdges[b]) if(!PD[x]){e=x;break}
+      PD[e]=1; for(const c of edgeBoxes[e]){const s=++PS[c]; if(s===4) n++; else if(s===3) st.push(c)} }
+    return n;
+  }
+  /** A random safe line, or -1 when none is left. */
+  function prandSafe(){ while(PN){ const i=Math.floor(Math.random()*PN), e=POOL[i]; POOL[i]=POOL[--PN]; if(!PD[e]&&psafe(e)) return e } return -1 }
+  /** The chain endgame on the playout board: [chain lengths, loop lengths], both sorted. A branching region is split
+   *  into its arms (runs of 2-sided boxes between junction boxes, which have 0 or 1 side drawn): the opener gives the
+   *  shortest arm first, and a junction left with two arms becomes one chain with them, so each junction joins its
+   *  two longest arms (and itself) into one chain and its other arms count on their own. */
+  function pchains(){
+    const seen=new Uint8Array(NB), ch=[], lp=[];
+    for(let b0=0;b0<NB;b0++){
+      if(seen[b0]||PS[b0]===4) continue;
+      const comp=[b0]; seen[b0]=1; let ground=0, two=true;
+      for(let i=0;i<comp.length;i++){ const x=comp[i]; if(PS[x]!==2) two=false;
+        for(const e of boxEdges[x]){ if(PD[e]) continue; const y=otherBox(e,x); if(y===null){ground++;continue} if(!seen[y]){seen[y]=1;comp.push(y)} } }
+      if(two){ (ground===0&&comp.length>=4?lp:ch).push(comp.length); continue }
+      const idx=new Map(comp.map((b,i)=>[b,i])), arm=new Int32Array(comp.length).fill(-1), size=[], parent=[];
+      for(let i=0;i<comp.length;i++){ if(PS[comp[i]]!==2||arm[i]>=0) continue; const id=size.length; size.push(0); parent.push(id);
+        const q=[i]; arm[i]=id;
+        while(q.length){ const j=q.pop(); size[id]++;
+          for(const e of boxEdges[comp[j]]){ if(PD[e]) continue; const y=otherBox(e,comp[j]); if(y===null) continue; const k=idx.get(y);
+            if(PS[y]===2&&arm[k]<0){arm[k]=id;q.push(k)} } } }
+      const find=x=>{while(parent[x]!==x) x=parent[x]=parent[parent[x]];return x};
+      for(let i=0;i<comp.length;i++){ const b=comp[i]; if(PS[b]===2) continue;
+        const own=size.length; size.push(1); parent.push(own); const nb=[];
+        for(const e of boxEdges[b]){ if(PD[e]) continue; const y=otherBox(e,b); if(y===null) continue; const k=idx.get(y); if(arm[k]>=0) nb.push(arm[k]) }
+        nb.sort((p,q)=>size[find(q)]-size[find(p)]);
+        for(const a of nb.slice(0,2)){ const ra=find(a), ro=find(own); if(ra!==ro){parent[ra]=ro;size[ro]+=size[ra]} } }
+      for(let i=0;i<size.length;i++) if(find(i)===i) ch.push(size[i]);
+    }
+    ch.sort((a,b)=>a-b); lp.sort((a,b)=>a-b); return [ch,lp];
+  }
+  /** Quick value of a chain endgame with many regions (V would take too long): the short chains (1-2 boxes) are given
+   *  away first, cheapest first, each handing the obligation to open to the other side; then the side in control
+   *  keeps it with all-but-two (chains) and all-but-four (loops) and takes the last region whole. Net for the opener. */
+  function Vquick(ch,lp){
+    let v=0, sign=1; for(const s of ch) if(s<=2){ v-=sign*s; sign=-sign }
+    const lg=ch.filter(c=>c>=3); if(!lg.length&&!lp.length) return v;
+    const tot=lg.reduce((a,b)=>a+b,0)+lp.reduce((a,b)=>a+b,0);
+    return v-sign*(tot-4*lg.length-8*lp.length+(lg.length?4:8));
+  }
+  /** Value of the chain endgame on the playout board for the player to move (who has to open): net boxes from here. */
+  function pend(){ const [ch,lp]=pchains(); return ch.length+lp.length<=12?V(ch,lp):Vquick(ch,lp) }
+  /** One playout from line e drawn by the player to move: whatever it gives away is taken, both sides then draw random
+   *  safe lines, and the chain endgame that follows is valued as above. Net boxes for the player who drew e. */
+  function playout(d,e){
+    pinit(d); let net=0, side=1;
+    const k=pdraw(e); if(k) net+=k+pcapture(); else { side=-1; net-=pcapture() }
+    for(let s=prandSafe(); s>=0; s=prandSafe()){ pdraw(s); side=-side }
+    for(let b=0;b<NB;b++) if(PS[b]<4) return net+side*pend();
+    return net;
+  }
+  /** Monte Carlo with sequential halving over the move's time: the time left is split evenly over log2(n) rounds; in
+   *  each round every candidate still in plays out in turn until the round's time is up, then the better half goes on.
+   *  Best average net boxes wins (ties at random). */
+  function mcBest(d,cands,until){
+    const n=cands.length, sum=new Float64Array(n), cnt=new Uint32Array(n), rounds=Math.max(1,Math.ceil(Math.log2(n)));
+    let alive=[...Array(n).keys()];
+    for(let r=0;r<rounds&&alive.length>1;r++){
+      const now=performance.now(), end=now+(until-now)/(rounds-r);
+      do{ for(const i of alive){ sum[i]+=playout(d,cands[i]); cnt[i]++ } }while(performance.now()<end);
+      alive.sort((a,b)=>sum[b]/cnt[b]-sum[a]/cnt[a]);
+      alive=alive.slice(0,Math.max(1,Math.ceil(alive.length/2)));
+    }
+    let bv=-Infinity, be=[];
+    for(const i of alive){ if(!cnt[i]) continue; const v=sum[i]/cnt[i]; if(v>bv+1e-9){bv=v;be=[cands[i]]} else if(v>bv-1e-9) be.push(cands[i]) }
+    return be.length?pick(be):pick(cands);
+  }
+  /** The safe-line race searched to the end, both sides drawing only safe lines, with the chain endgame valued as
+   *  above; at the root also every cheap sacrifice. Returns the best line (ties at random, safe lines first), or -1
+   *  if it ran out of time. */
+  function raceBest(d,safe,sac,until){
+    pinit(d); const memo=new Map(); let q1=0,q2=0,cnt=0;
+    for(let e=0;e<E;e++) if(PD[e]){q1^=Z1[e];q2^=Z2[e]}
+    const f=()=>{
+      if((++cnt&1023)===0&&performance.now()>until) throw ABORT;
+      const key=(q1>>>0)*2097152+(q2&0x1FFFFF), m=memo.get(key); if(m!==undefined) return m;
+      let v=-Infinity;
+      for(let e=0;e<E;e++){ if(PD[e]||!psafe(e)) continue;
+        PD[e]=1; for(const b of edgeBoxes[e]) PS[b]++; q1^=Z1[e]; q2^=Z2[e];
+        const w=-f();
+        PD[e]=0; for(const b of edgeBoxes[e]) PS[b]--; q1^=Z1[e]; q2^=Z2[e];
+        if(w>v) v=w }
+      if(v===-Infinity) v=pend();
+      memo.set(key,v); return v };
+    try{
+      let bv=-Infinity, be=[];
+      const consider=(e,v)=>{ if(v>bv+1e-9){bv=v;be=[e]} else if(v>bv-1e-9) be.push(e) };
+      for(const e of safe){ PD[e]=1; for(const b of edgeBoxes[e]) PS[b]++; q1^=Z1[e]; q2^=Z2[e];
+        consider(e,-f());
+        PD[e]=0; for(const b of edgeBoxes[e]) PS[b]--; q1^=Z1[e]; q2^=Z2[e] }
+      const safeBest=bv, base=PD.slice(), baseS=PS.slice(), b1=q1, b2=q2;
+      for(const e of sac){ // give the boxes away; the opponent takes them and moves on
+        pdraw(e); const c=pcapture(); q1=b1; q2=b2; for(let x=0;x<E;x++) if(PD[x]&&!base[x]){q1^=Z1[x];q2^=Z2[x]}
+        const v=-c-f(); if(v>safeBest+0.5) consider(e,v);
+        PD.set(base); PS.set(baseS); q1=b1; q2=b2 }
+      return pick(be);
+    }catch(x){ if(x===ABORT) return -1; throw x }
+  }
+  /** No safe line left and nothing to take: the line to open, each candidate valued one move deep with the chain
+   *  endgame value above. After line e the opponent can take everything it is offered (then it has to open what is
+   *  left), or keep control: take all but the last two boxes of a long chain (four of a loop), or decline a 2-chain
+   *  opened at its end, handing them back so we have to open again. A 2-chain opened in the middle (hard-hearted) and
+   *  a single box can't be handed back. */
+  function openBest(d){
+    const free=undrawn(d), comps=components(d), compOf=new Int32Array(NB).fill(-1);
+    comps.forEach((c,i)=>{for(const b of c.boxes) compOf[b]=i});
+    let bv=-Infinity, be=[];
+    for(const e of free){
+      pinit(d); pdraw(e); const c=pcapture(), rest=PS.some(s=>s<4)?pend():0;
+      const bs=edgeBoxes[e], comp=comps[compOf[bs[0]]], loop=comp&&comp.loop, inner=bs.length===2&&compOf[bs[0]]===compOf[bs[1]];
+      const k=loop?(c>=4?4:0):c>=3?2:(c===2&&comp&&comp.size===2&&!inner)?2:0;
+      const opp=Math.max(c+rest,k?c-2*k-rest:-Infinity), v=-opp;
+      if(v>bv+1e-9){bv=v;be=[e]} else if(v>bv-1e-9) be.push(e);
+    }
+    return pick(be);
+  }
+  /** Boxes to take with no safe line left: take them all, or hand the last two (four) out so the opponent has to open
+   *  next, whichever leaves us more by the chain endgame value of what remains. */
+  function takeOrHandOut(d,caps){
+    const ho=findHandout(d,caps);
+    if(ho){ const sim=takeAll(d); pinit(sim); const R=PS.some(s=>s<4)?pend():0;   // what remains, for whoever opens it
+      if(-ho.k-R>ho.k+R) return ho.e; }
+    const early=caps.filter(x=>chainHandoutEdge(d,x)===null);
+    return missingEdge(d,early.length?pick(early):caps[0]);
+  }
+  /** Hard's move when no book move or exact result is available. */
+  function hardMove(d,caps,safe,until){
+    if(caps.length) return safe.length?chooseMove(d,'hard').e:takeOrHandOut(d,caps);
+    if(!safe.length) return openBest(d);
+    if(safe.length>40) return pick(safe);                           // too early to count chains: any safe line
+    const sac=sacrifices(d,2);
+    if(safe.length<=(NB<=16?20:NB<=36?18:14)){ const now=performance.now(), e=raceBest(d,safe,sac,now+(until-now)*0.6); if(e>=0) return e }   // else playouts get the rest
+    const cands=safe.length+sac.length>48?[...sample(safe,48-Math.min(sac.length,16)),...sample(sac,16)]:[...safe,...sac];
+    return mcBest(d,cands,until);
+  }
+
   /* ---------- exact search: negamax + alpha-beta + transposition table ----------
      Value = net boxes (from the remaining ones) for the player to move.
      Pruning rule (Barker & Korf): if a 3-sided box's missing edge does not lead into a
@@ -244,19 +429,25 @@ const sides=(d,b)=>{let s=0;for(const e of boxEdges[b]) if(d[e]) s++;return s};
     return r.length?r:null;
   }
   // Exact search starts once this few lines remain; small boards are searched from the start.
-  const exactFrom=()=>NB<=9?99:NB<=16?26:NB<=25?24:22;
-  // Time allowed for one exact search. 3×3 gets longer so it always finishes (that keeps its
-  // play perfect after the opening book); other small boards fall back to strategy quickly.
-  const budgetMs=()=>ROWS===3&&COLS===3?1500:NB<=9?500:300;
+  // (Measured on positions from real play: 4×4 with 26 lines left takes about 0.1-0.2 s, 28 often over 0.5 s; 5×5 with
+  // 32 left about 10-30 ms; 6×6 to 8×8 with 40 left under 15 ms. A search that runs out isn't retried until fewer lines remain.)
+  const exactFrom=()=>NB<=9?99:NB<=16?26:NB<=25?32:40;
+  // Wall-clock limit for one Hard move, and the time one exact search may take within it. 3×3 gets
+  // longer so it always finishes (that keeps its play perfect after the opening book); elsewhere a
+  // search that runs out leaves the rest of the move's time to the strategy below.
+  const MOVE_MS=700, budgetMs=()=>ROWS===3&&COLS===3?1500:NB<=9?600:400;
   let failAt=999;
-  function exactBest(d){
+  function exactBest(d,moveDeadline){
     load(d);
     if(undrawnN>exactFrom()||undrawnN>=failAt) return null;
     if(TT.size>3000000) TT.clear();
-    nodes=0; deadline=performance.now()+budgetMs();
+    const now=performance.now();
+    nodes=0; deadline=ROWS===3&&COLS===3?now+budgetMs()*timeScale:Math.min(now+budgetMs()*timeScale,moveDeadline-150*timeScale);
     try{
+      // Root moves in the search's own order (forced captures, then safe lines first), each searched only as far as
+      // needed to tell whether it ties or beats the best so far: one that can't reach it fails low, cheaply.
       let best=-999,bm=[];
-      for(let e=0;e<E;e++){ if(dx[e]) continue; const k=put(e); let v; try{ v=k?k+search(-999,999):-search(-999,999) } finally{ unput(e) }
+      for(const e of gen()){ const k=put(e); let v; try{ v=k?k+search(best-1-k,999-k):-search(-999,1-best) } finally{ unput(e) }
         if(v>best){best=v;bm=[e]} else if(v===best) bm.push(e) }
       return {v:best,moves:bm};
     }catch(x){ if(x===ABORT){ failAt=undrawnN; return null } throw x }
@@ -274,18 +465,24 @@ const sides=(d,b)=>{let s=0;for(const e of boxEdges[b]) if(d[e]) s++;return s};
     if(level==='medium'){
       if(caps.length) return missingEdge(d,caps[0]);
       if(safe.length) return pick(safe);
-      const comps=components(d), c=comps.reduce((a,b)=>b.size<a.size?b:a);
-      return pick(c.edges);
+      // Forced to give boxes away: the line that gives the fewest (the shortest chain; loops and branching
+      // regions are counted as the boxes the opponent can then take). Any line of it: no hard-hearted tricks.
+      let fewest=Infinity,opts=[];
+      for(const e of free){const n=giveaway(d,e); if(n<fewest){fewest=n;opts=[e]} else if(n===fewest) opts.push(e)}
+      return pick(opts);
     }
+    const deadline=performance.now()+MOVE_MS*timeScale;
     // Every optimal move, from the 3×3 opening book or else the exact search.
     let best=ROWS===3&&COLS===3?bookMoves(d):null;
-    if(!best){const ex=exactBest(d); if(ex) best=ex.moves}
-    if(best&&best.length){ // all equally good: prefer natural-looking ones (captures, then safe lines), then pick at random
+    if(!best){const ex=exactBest(d,deadline); if(ex) best=ex.moves}
+    if(best&&best.length){ // all equally good: prefer natural-looking ones (captures, then safe lines, then the fewest boxes given away), then pick at random
       const cap=best.filter(e=>edgeBoxes[e].some(b=>sides(d,b)===3)); if(cap.length) return pick(cap);
-      const sf=best.filter(e=>safe.includes(e)); return pick(sf.length?sf:best);
+      const sf=best.filter(e=>safe.includes(e)); if(sf.length) return pick(sf);
+      let fewest=Infinity,opts=[]; for(const e of best){const n=giveaway(d,e); if(n<fewest){fewest=n;opts=[e]} else if(n===fewest) opts.push(e)}
+      return pick(opts);
     }
-    const m=chooseMove(d,'hard');
-    return (m&&d[m.e]===0)?m.e:pick(free);
+    const e=hardMove(d,caps,safe,deadline);
+    return (e>=0&&d[e]===0)?e:pick(free);
   }
   // New game: also empty the search cache. With varied play, the last game's positions rarely come up
   // again, and across a session the cache would grow by tens of thousands of entries per game.
