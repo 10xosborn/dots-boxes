@@ -22,14 +22,14 @@ export interface SkinInfo {
 
 export const SKINS: SkinInfo[] = [
   { id: 'table', name: 'Tabletop', blurb: 'A felt game board on a wooden table', font: '"Jost", system-ui, sans-serif',
-    bar: { light: '#E3B970', dark: '#4F3B32' },
-    swatch: { light: ['#E3B970', '#C4DFC9', '#D77027', '#BF4E1E', '#7C5E08', '#2C4637'], dark: ['#4F3B32', '#5A4538', '#43322A', '#E5E4E2', '#E0A070', '#D6D3CE'] } },
+    bar: { light: '#E3B970', dark: '#A0592B' },
+    swatch: { light: ['#E3B970', '#C4DFC9', '#D77027', '#BF4E1E', '#7C5E08', '#2C4637'], dark: ['#A0592B', '#6A3A1C', '#4C2C17', '#E5E4E2', '#E0A070', '#D6D3CE'] } },
   { id: 'neon', name: 'Neon', blurb: 'Glowing light under glass', font: '"Unbounded", system-ui, sans-serif',
-    bar: { light: '#D5DEE7', dark: '#050608' },
-    swatch: { light: ['#D5DEE7', '#EBF1F5', '#54FD36', '#0047FF', '#007F73', '#FF4500'], dark: ['#050608', '#0B0F19', '#62269A', '#FF007F', '#C6FF00', '#00F0FF'] } },
+    bar: { light: '#D5DEE7', dark: '#350014' },
+    swatch: { light: ['#D5DEE7', '#EBF1F5', '#54FD36', '#0047FF', '#007F73', '#FF4500'], dark: ['#350014', '#0B0F19', '#62269A', '#BD0249', '#E28C19', '#00F0FF'] } },
   { id: 'paper', name: 'Paper', blurb: 'Printed on warm, textured paper', font: '"Kalam", system-ui, sans-serif',
-    bar: { light: '#E6DCC7', dark: '#492E1F' },
-    swatch: { light: ['#E6DCC7', '#FCF8EF', '#FC4422', '#FC4422', '#4657CE', '#2E2B27'], dark: ['#492E1F', '#513626', '#715A49', '#E8D5B5', '#8FB8D6', '#F3EAD7'] } },
+    bar: { light: '#E6DCC7', dark: '#A0592B' },
+    swatch: { light: ['#E6DCC7', '#FCF8EF', '#FC4422', '#FC4422', '#4657CE', '#2E2B27'], dark: ['#A0592B', '#6A3A1C', '#855D41', '#E8D5B5', '#8FB8D6', '#F3EAD7'] } },
 ];
 
 /** New players start on Minimalist Premium, the spec's recommended main look. */
