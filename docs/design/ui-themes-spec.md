@@ -1,6 +1,6 @@
 # Grid Rivals UI Themes: Spec
 
-> **Palette and materials update (owner, 2026-10-12).** The three themes keep their layouts but take new palettes and real materials: Tabletop is a felt mat in a wooden rim on a maple or walnut table, Neon a room lit by its colours with glowing lines and controls, Cozy Paper a sheet of real-looking paper with printed lines. Each theme's tokens (section C) hold the current values; where older colour names elsewhere in this spec disagree (teal, slate purple, blue ink, chalkboard and so on), the tokens and this note win.
+> **Palette and materials update (owner, 2026-10-12).** The three themes keep their layouts but take new palettes and real materials: Tabletop is a felt mat in a wooden rim on a maple table (stained Sienna at night), Neon a room lit by its colours with glowing lines and controls, Cozy Paper a sheet of real-looking paper with printed lines. Each theme's tokens (section C) hold the current values; where older colour names elsewhere in this spec disagree (teal, slate purple, blue ink, chalkboard and so on), the tokens and this note win.
 
 Oct 12, 2026 · @Osborn Tulasi
 
@@ -168,7 +168,7 @@ The mockups show these states; none of the behaviour exists until it is built. L
 
 - The mockups are HTML on the canvas, not pictures from an image model, and they are not working code: no game logic runs in them. The Tweaks switch only swaps pre-drawn moments: Extra turn or Tactician thinking.
 - Minimalist Premium's board and feel follow your reference pictures, but in Grid Rivals' own colours, type, icons and words; its game screens use the same layout as the other themes, so it is not a copy of those screens.
-- Palettes (owner, 2026-10-12): by day Paper and Neon use orange #FF8C32, teal #00B58C, indigo #4657CE, cyan #21BDCA and coral #FC4422, and Tabletop uses burnt orange #D77027, pale mint #C4DFC9, pastel yellow #F7CD70 and golden yellow #F4AF3D. Tabletop at night, Paper at night and both Neon modes follow the owner's brief of 2026-10-15 (replacing the Deep Plum night palette of 2026-10-13): warm browns for the two paper themes (Tabletop: page #4F3B32 Deep Walnut Brown, board #5A4538 Dark Walnut Brown; Paper: page #492E1F Dark Coffee Brown, board #513626 Deep Cocoa Brown) and glass and light for Neon (Dark Neon: Obsidian Glass #0B0F19, Cyber Cyan #00F0FF, Neon Magenta #FF007F, Electric Violet #7B2CBF tiles; White Neon: Frosted Opal Glass #EBF1F5, Hot Coral #FF4500, Deep Electric Blue #0047FF, Vivid Lime #39FF14 tiles). Violet appears only in Dark Neon's captured tiles, and each of these four modes sets every colour token itself. Buttons have their own colour, used by no player or surface: gold #F2B84B at night, the day action colours by day; every button has depth (a sheen, a bright top edge, a shadow). Each player has their own line colour in every theme. Where a palette colour is too light or too dark for text, a line, a ring or a glow, a deeper or lighter shade of it is used (listed in each theme's tokens).
+- Palettes (owner, 2026-10-12): by day Paper and Neon use orange #FF8C32, teal #00B58C, indigo #4657CE, cyan #21BDCA and coral #FC4422, and Tabletop uses burnt orange #D77027, pale mint #C4DFC9, pastel yellow #F7CD70 and golden yellow #F4AF3D. Tabletop at night, Paper at night and both Neon modes follow the owner's brief of 2026-10-15 (replacing the Deep Plum night palette of 2026-10-13), updated on 2026-10-19: the two paper themes take their day textures in Sienna Brown #A0592B (Tabletop: the maple planks stained Sienna, the felt #6A3A1C in its rim; Paper: a Sienna desk and a #6A3A1C sheet in the day's paper; deep Sienna cards #6B3A1E) and glass and light for Neon (Dark Neon: Obsidian Glass #0B0F19, Cyber Cyan #00F0FF, Bright Magenta-Red #BD0249 with Deep Burgundy #4E011F and Dark Wine #350014, Golden Orange #E28C19, Electric Violet #7B2CBF tiles; White Neon: Frosted Opal Glass #EBF1F5, Hot Coral #FF4500, Deep Electric Blue #0047FF, Vivid Lime #39FF14 tiles). Violet appears only in Dark Neon's captured tiles, and each of these four modes sets every colour token itself. Buttons have their own colour, used by no player or surface: gold #F2B84B at night, the day action colours by day; every button has depth (a sheen, a bright top edge, a shadow). Each player has their own line colour in every theme. Where a palette colour is too light or too dark for text, a line, a ring or a glow, a deeper or lighter shade of it is used (listed in each theme's tokens).
 - The Cozy Paper boards were rebuilt from its spec tab after the marker version was dropped, because the canvas can't hand back earlier copies of a board. Small drawing details may differ from the first version.
 - The sample numbers are placeholders built on your real formulas: +168 XP = 60 × 1.5 (Medium) × 1.8 (5×5) + 2 × 3 (margin), from progression.ts. Kwame's 3:06.8 and the ranks are made up.
 - The avatar art is a starting set made for these mockups and worth a pass by an illustrator; the app stores no avatar today (PlayerCards and ProfileCard show initials).
@@ -196,7 +196,7 @@ Canvas rows 1 (light table) and 2 (night table): Desktop game (a hover preview a
 ## B. Rationale
 
 - **Mood and audience:** friendly and calm, like a board game on a table; casual players, students from 10 up, and adults.
-- **Identity:** by day a felt game mat in a wooden rim on a knife-marked maple table: lines and dots engraved in the felt, a printed guide under every possible line, solid box fills with a rim and an icon or initial, cream cards that cast soft shadows; burnt orange marks you and golden yellow the other player, each with their own line colour. At night (owner, 2026-10-15: "sleek, modern"): a Dark Walnut Brown board of matte felt-paper with a fine dusty grain and very soft micro-shadows on a Deep Walnut Brown table, no rim; platinum pressed-paper strips with a soft drop shadow for you and copper for the other player; ash dots, crisp and slightly raised; captured boxes a low dark felt tint with clean edges; walnut cards. The main action is burnt orange by day and gold at night.
+- **Identity:** by day a felt game mat in a wooden rim on a knife-marked maple table: lines and dots engraved in the felt, a printed guide under every possible line, solid box fills with a rim and an icon or initial, cream cards that cast soft shadows; burnt orange marks you and golden yellow the other player, each with their own line colour. At night (owner, 2026-10-19: "the texture the white theme is using" in Sienna Brown): the day's table after dark, its maple planks stained Sienna Brown and the felt mat in its wooden rim in deeper Sienna, evenly lit; platinum pressed-paper strips with a soft drop shadow for you and copper for the other player; ash dots, crisp and slightly raised; captured boxes a low dark felt tint with clean edges; deep Sienna cards; text straight on the table in white. The main action is burnt orange by day and gold at night.
 - **Layout:** the same single column as Neon and Cozy Paper, at most 680 px wide: top bar (brand and level chip), two player cards, the turn pill, chips, the board, then Quit and Restart.
 - **Type:** one family, Jost: geometric, friendly and readable at 13 px, with tabular figures for scores and the clock.
 - **Legibility:** the sheet is the only white surface under the board; lanes show the legal moves; the active player's card gets a ring and a soft glow, and the pill names whose turn it is.
@@ -206,11 +206,11 @@ Canvas rows 1 (light table) and 2 (night table): Desktop game (a hover preview a
 ## C. Tokens
 
 
-| Token | Light (maple table) | Dark (walnut, 2026-10-15) | Used for |
+| Token | Light (maple table) | Dark (Sienna, 2026-10-19) | Used for |
 | --- | --- | --- | --- |
-| --table | #E3B970 | #4F3B32 (Deep Walnut Brown) | The table: by day a wood tile with grain, pores and knife marks, plank seams, light from above, darker edges; at night a fine dusty grain, even all over |
-| --felt | #C4DFC9 (pale mint) | #5A4538 (Dark Walnut Brown) | The board: by day a felt mat with a fine nap under a lamp; at night matte felt-paper with a fine dusty grain and very soft micro-shadows, no lamp |
-| --frame | #B0602A | no rim: a slim #3F2F27 edge | The board's wooden rim (wood grain) and its cast shadow; at night a slim edge and a very soft shadow |
+| --table | #E3B970 | #A0592B (Sienna Brown) on average | The table: a wood tile with grain, pores and knife marks and plank seams; by day light from above and darker edges; at night the same tile multiplied onto #B77D5F, evenly lit |
+| --felt | #C4DFC9 (pale mint) | #6A3A1C (deep Sienna) | The board: a felt mat with a fine nap; by day under a lamp; at night no lamp, the nap veiled to 45% |
+| --frame | #B0602A | #4A2410 | The board's wooden rim (wood grain) and its cast shadow |
 | --lane | rgba(35,57,45,0.17) | rgba(229,228,226,0.1) | Printed guide under every undrawn line |
 | --line1, --line2 | #BF4E1E and #7C5E08 | #E5E4E2 (platinum) and #E0A070 (copper) | Drawn lines in each player's own colour: engraved by day, pressed-paper strips with a soft drop shadow at night |
 | --dot | #2C4637 bead | #D6D3CE ash disc, matte, slightly raised | Dots, engraved |
@@ -224,14 +224,15 @@ Canvas rows 1 (light table) and 2 (night table): Desktop game (a hover preview a
 | --on-accent | #FFFFFF (19 px bold) | #241005 | Text and icons on the accent |
 | --ink | #2B241D | #F5EEE6 | Text |
 | --ink-2 | #5A4632 | #D9CBBE | Secondary text |
-| --pill | #FFF8E9 | #604A3F | Cards, chips and the turn pill |
-| --control | #F6EAD0 | #5B463B | Unselected controls |
-| --select-tint | #FCE6B2 (pastel yellow) | #7A5E4C | Selected options |
+| --head-ink | #2B241D | #FFFFFF | Text straight on the table (at night only white keeps 4.5:1 over the grain) |
+| --pill | #FFF8E9 | #6B3A1E | Cards, chips and the turn pill |
+| --control | #F6EAD0 | #653519 | Unselected controls |
+| --select-tint | #FCE6B2 (pastel yellow) | #7A4628 | Selected options |
 | --sel-ring | #9E4E17 | #F2B84B | Ring round the selected option |
 | --focus | #8A3F0E | #F2B84B | Focus ring |
 | --gold | #8C5F0A | #FFD08A | Gold text (rank 1) |
 
-Computed contrast: ink on the cards 14.5:1 (night 7.2:1); ink-2 8.4:1 (5.2:1); lines on the felt 3.4:1 and 4.3:1 (at night platinum 7.1:1 and copper 4.0:1 on the felt-paper, measured from pixels); box rims on the felt 4.2:1 and 3.6:1 (at night the initials on the dark tint 11.2:1 and 7.1:1); ash dots at night 6.1:1; white on burnt orange 3.4:1, so primary labels are 19 px bold; dark labels on the gold buttons 10.2:1; focus 4.1:1 on the table and 7.1:1 on the cards (at night gold 5.0:1 on the felt-paper).
+Computed contrast: ink on the cards 14.5:1 (night 7.2:1); ink-2 8.4:1 (5.2:1); lines on the felt 3.4:1 and 4.3:1 (at night platinum 7.5:1 and copper 4.3:1 on the Sienna felt, measured from pixels); box rims on the felt 4.2:1 and 3.6:1 (at night the initials on the dark tint 10.8:1 and 6.9:1); ash dots at night 6.5:1; white text straight on the Sienna table 4.6:1 or more over its lightest grain; white on burnt orange 3.4:1, so primary labels are 19 px bold; dark labels on the gold buttons 10.2:1; focus 4.1:1 on the table and 7.1:1 on the cards (at night gold 5.0:1 on the felt-paper).
 
 - **Type (Jost):** brand 19 bold; card names 16 bold; scores 30 extra-bold; turn pill 14 bold; chips 14 semibold; screen title 30 bold; labels 14 semibold; body 14–15; results title 36 extra-bold and results score 40 extra-bold; buttons 16–22.
 - **Spacing:** 4, 8, 12, 16, 24, 32 px.
@@ -299,8 +300,8 @@ Canvas rows 3 (dark) and 4 (light): Desktop game, Phone game (Tweaks → moment:
 ## B. Rationale
 
 - **Mood and audience:** soft and modern, like the pastel neon in your picture; today's players, who keep every habit.
-- **Identity:** today's layout and fonts (Unbounded and Manrope); glass and emitted light only (owner, 2026-10-15). Dark Neon ("high-contrast tech"): a smooth, glossy Obsidian Glass board with crisp specular highlights and faint light streaks, Cyber Cyan nodes glowing under the glass, Neon Magenta laser lines with a sharp reflection on the glass, semi-translucent Electric Violet glass tiles, in a near-black room lit by magenta and cyan. White Neon ("clean, elegant"): a Frosted Opal Glass board with a milky sheen and a soft inner glow, evenly lit, Hot Coral glass nodes, Deep Electric Blue light-pipe lines, semi-opaque Vivid Lime glass tiles with a deeper lime edge and dark initials, glow as a saturated halo, in a cool grey-blue room. The main action, the selected option and the turn pill glow, other controls only on hover.
-- **Colour logic:** Neon Magenta (Dark Neon) or Deep Electric Blue (White Neon) is you; electric lime or deep teal is the other player (chosen to stand apart for every colour vision type, and so blue and teal glows mix to azure, never violet); captured tiles share the theme's tile colour, told apart by rim, stripes or dots and the initial in the player's colour; gold (Dark Neon) or indigo (White Neon) is the main action.
+- **Identity:** today's layout and fonts (Unbounded and Manrope); glass and emitted light only (owner, 2026-10-15). Dark Neon ("high-contrast tech"): a smooth, glossy Obsidian Glass board with crisp specular highlights and faint light streaks, Cyber Cyan nodes glowing under the glass, Bright Magenta-Red laser lines (owner, 2026-10-19) with a sharp reflection on the glass, semi-translucent Electric Violet glass tiles, in a room fading from Dark Wine to near-black, lit by magenta-red and cyan. White Neon ("clean, elegant"): a Frosted Opal Glass board with a milky sheen and a soft inner glow, evenly lit, Hot Coral glass nodes, Deep Electric Blue light-pipe lines, semi-opaque Vivid Lime glass tiles with a deeper lime edge and dark initials, glow as a saturated halo, in a cool grey-blue room. The main action, the selected option and the turn pill glow, other controls only on hover.
+- **Colour logic:** Bright Magenta-Red (Dark Neon) or Deep Electric Blue (White Neon) is you; Golden Orange (the owner's, 2026-10-19) or deep teal is the other player (chosen to stand apart for every colour vision type, and so blue and teal glows mix to azure, never violet); captured tiles share the theme's tile colour, told apart by rim, stripes or dots and the initial in the player's colour; gold (Dark Neon) or indigo (White Neon) is the main action.
 - **Layout:** unchanged single column, at most 680 px wide: top bar, two player cards, the turn pill, chips, the board, then Quit and Restart.
 - **Legibility:** the players differ in hue and saturation (coral against slate), pattern (stripes against dots) and initial; at night coral and the gray-lavender lines also differ 2.4:1 in lightness.
 - **Advantages:** the lowest build cost; nothing to relearn; a softer neon than the earlier versions.
@@ -313,23 +314,23 @@ These are today's variable names in app.css, plus a few new ones, so the change 
 
 | Token | Dark | Light | Used for |
 | --- | --- | --- | --- |
-| --page | #050608 (near-black) | #D5DEE7 (cool grey-blue) | The room |
-| --aurora | a gradient from #040506 through #07080B to #050608, with magenta #FF007F and cyan #00F0FF lights at 20% (neutral, so magenta light never turns violet) | a gradient from #DFE6EE through #D5DEE7 to #D8E4EB, with coral #FF4500, blue #0047FF and lime #39FF14 lights at 12% | The room's light: three soft lights (radial gradients) drifting over 34-46 s in small steps four times a second; still during a drag and when Animations is off |
+| --page | #350014 (Dark Wine, the top of the room) | #D5DEE7 (cool grey-blue) | The room |
+| --aurora | a gradient from Dark Wine #350014 through #14030A and #07080B to #050608, with magenta-red #BD0249 and cyan #00F0FF lights at 20% | a gradient from #DFE6EE through #D5DEE7 to #D8E4EB, with coral #FF4500, blue #0047FF and lime #39FF14 lights at 12% | The room's light: three soft lights (radial gradients) drifting over 34-46 s in small steps four times a second; still during a drag and when Animations is off |
 | --board | #0B0F19 (Obsidian Glass), opaque: a top sheen, faint light streaks and a crisp specular streak over the nodes and lines, a lit top edge, cyan glow round it | #EBF1F5 (Frosted Opal Glass), opaque: a milky sheen and a soft inner glow that only lighten it, a lit edge, blue glow round it | The board: static glass layers, no backdrop-filter and no blur |
 | --text | #F1F5FF | #141832 | Text |
 | --muted | #AEB8CC | #4A5270 | Secondary text |
-| --p1 | #FF007F (Neon Magenta) | #0047FF (Deep Electric Blue) | You: glowing lines, boxes, card and pill |
-| --p2 | #C6FF00 (electric lime) | #007F73 (deep teal) | AI or player 2 |
-| --line | #FF007F and #C6FF00 laser lines: a bright core, four wider and fainter copies under each (no blur) and a sharp reflection on the glass | #0047FF and #007F73 light pipes: a lighter core (85% of the colour) and a saturated halo | Drawn lines |
+| --p1 | #BD0249 (Bright Magenta-Red); score #E8195C; Deep Burgundy #4E011F under "Your turn" | #0047FF (Deep Electric Blue) | You: glowing lines, boxes, card and pill |
+| --p2 | #E28C19 (Golden Orange) | #007F73 (deep teal) | AI or player 2 |
+| --line | #C3064F (magenta-red a hair lighter than #BD0249, for 3:1) and #E28C19 laser lines: a core keeping 80% of the colour, four wider and fainter copies under each (no blur) and a sharp reflection on the glass | #0047FF and #007F73 light pipes: a lighter core (85% of the colour) and a saturated halo | Drawn lines |
 | --dot | #00F0FF (Cyber Cyan) node with a lit centre and a glow under the glass | #FF4500 (Hot Coral) glass node with a deeper edge #D93A00; no glow, highlight or transparency (it sits at 3:1) | Dots |
-| --box | #7B2CBF (Electric Violet) glass at 78% on a glass base, a lit edge #A970F0 and a crisp highlight; initials #FFD1E8 and #E6FF8A | #39FF14 (Vivid Lime) glass at 85% with a deeper lime edge #178A00 and a crisp highlight; dark initials #0A2A8C and #003F44 | Boxes |
+| --box | #7B2CBF (Electric Violet) glass at 78% on a glass base, a lit edge #A970F0 and a crisp highlight; initials #FFFFFF and #FFD89A | #39FF14 (Vivid Lime) glass at 85% with a deeper lime edge #178A00 and a crisp highlight; dark initials #0A2A8C and #003F44 | Boxes |
 | --accent | #F2B84B (gold), dark label | #4657CE (indigo), white label | The main action, glowing most |
 | --sel-ring | #F2B84B, glow | #4657CE, glow | The selected option |
 | --focus | #F2B84B | #4657CE | Focus ring |
 | --gold | #FFD08A | #B5560C | Trophy, rank 1, highlights |
 | --panel | rgba(17,18,22,0.7) frosted glass, 1 px light border | #FFFFFF, 1 px blue border | Cards, chips, panels |
 
-Computed contrast (measured from pixels): Dark Neon: text 17:1 on the glass cards, muted 9.6:1; magenta lines 5.1:1 at their darkest edge (6.3:1 typically), lime 16:1, cyan dots 14:1, initials on the violet tiles 6.9:1 and 8.5:1; dark labels on gold 10.2:1. White Neon: text on white 17:1; muted 7.7:1; blue lines 4.3:1 at their lightest (core) and teal 3.3:1, coral dots 3.02:1, dark initials on lime 8.6:1 or more; white labels on indigo 6:1; focus 5.2:1 on the board.
+Computed contrast (measured from pixels): Dark Neon: text 17:1 on the glass cards, muted 9.6:1; magenta-red lines 3.15:1 at their darkest edge (3.5:1 typically), golden orange 8:1, cyan dots 14:1, initials on the violet tiles 9.3:1 and 6.9:1; dark labels on gold 10.2:1. White Neon: text on white 17:1; muted 7.7:1; blue lines 4.3:1 at their lightest (core) and teal 3.3:1, coral dots 3.02:1, dark initials on lime 8.6:1 or more; white labels on indigo 6:1; focus 5.2:1 on the board.
 
 - **Type:** unchanged: Unbounded 700/800 for the brand, scores, initials and the results title; Manrope 400–800 for everything else, at today's sizes. Labels on coral buttons are 19 px bold.
 - **Spacing and radii:** unchanged: 22 / 14 / 10 px radii and today's gaps.
@@ -389,7 +390,7 @@ Canvas row 5: Desktop game (a two-page spread), Phone game (Tweaks → moment), 
 ## B. Rationale
 
 - **Mood and audience:** nostalgic and relaxed, the game as it was played on paper at school; pass-and-play, families and older players.
-- **Identity:** by day a kraft desk and a cream sheet with the formation, fibres and tooth of real paper, sharp enough to see; lines and dots printed and pressed into the paper; hatched boxes; coral for you and indigo for the other player. At night (owner, 2026-10-15: "warm, tactile"): a Deep Cocoa Brown sheet of heavyweight cardstock with fine tooth, micro-fibres and organic flecks on a Dark Coffee Brown desk; ivory hot-press paper dots and warm beige die-cut cardstock strips for you (denim blue for the other player), each with a flat drop shadow like a separate layer of paper; captured boxes a translucent parchment wash. Paper-tab buttons with a pencil shadow.
+- **Identity:** by day a kraft desk and a cream sheet with the formation, fibres and tooth of real paper, sharp enough to see; lines and dots printed and pressed into the paper; hatched boxes; coral for you and indigo for the other player. At night (owner, 2026-10-19: "the texture the white theme uses" in Sienna Brown): the day's paper after dark, a deeper Sienna sheet on a Sienna Brown desk, both with the day's formation, fibres and tooth, and text straight on the desk in white; ivory hot-press paper dots and warm beige die-cut cardstock strips for you (denim blue for the other player), each with a flat drop shadow like a separate layer of paper; captured boxes a translucent parchment wash. Paper-tab buttons with a pencil shadow.
 - **Layout:** desktop is a spread: the score sheet (tally marks, circled score, turn note, clock, buttons) on the left page and the board on the right. Phones keep one page: score lines on top, the board, then tab buttons.
 - **Type:** Kalam (handwriting) only for names, scores and headings; Atkinson Hyperlegible for every label and sentence, so nothing important is hard to read.
 - **Legibility:** ownership has three cues: colour, hatch direction (single for you, cross-hatch for the opponent) and a handwritten initial with a paper halo.
@@ -399,12 +400,13 @@ Canvas row 5: Desktop game (a two-page spread), Phone game (Tweaks → moment), 
 ## C. Tokens
 
 
-| Token | Light (paper) | Dark (cocoa cardstock, 2026-10-15) | Used for |
+| Token | Light (paper) | Dark (Sienna paper, 2026-10-19) | Used for |
 | --- | --- | --- | --- |
-| --desk | #E6DCC7 (kraft) | #492E1F (Dark Coffee Brown) | Page background: by day with the paper tile and darker edges; at night the cardstock tile, even all over |
-| --page | #FCF8EF | #513626 (Deep Cocoa Brown) | The board: by day a sheet with formation, fibres and tooth; at night heavyweight cardstock (tooth, micro-fibres, flecks) |
+| --desk | #E6DCC7 (kraft) | #A0592B (Sienna Brown) on average | Page background with the paper tile: by day with darker edges; at night multiplied onto #A75E2F, even all over |
+| --page | #FCF8EF | #6A3A1C (deep Sienna) on average | The board: a sheet with formation, fibres and tooth; at night the paper tile twice over onto #734121 |
 | --graphite | #2E2B27 | #F6EEDF; dots #F3EAD7 ivory discs | Text and printed dots |
 | --graphite-2 | #625A50 | #DCCBB3 | Secondary text |
+| --head-ink | #2E2B27 | #FFFFFF | Text straight on the desk (at night only white keeps 4.5:1 over the fibres) |
 | --p1 | #FC4422 (coral) | #E8D5B5 (warm beige) die-cut strips | You: printed lines, hatched boxes |
 | --p1-wash | #FFE1D8 | #F3EAD7 at 20% (parchment), both players | Your boxes |
 | --p2 | #4657CE (indigo) | #8FB8D6 (denim blue) die-cut strips | AI or player 2 |
@@ -416,7 +418,7 @@ Canvas row 5: Desktop game (a two-page spread), Phone game (Tweaks → moment), 
 | --gold | #B04E07 (orange, deepened) | #FFD08A | Rank 1, highlights |
 | --focus | #4657CE | #F2B84B | Focus ring (dashed) |
 
-Computed contrast: graphite on the page 13.3:1 (9.6:1 on the cocoa sheet at night); graphite-2 6.4:1 (7.0:1); coral lines on the sheet 3.3:1 and indigo 5.6:1; at night beige 7.7:1 and denim 5.3:1 (they differ in hue and lightness, for players who see no colour), ivory dots 9.4:1, initials on the parchment wash 5.7:1 and 4.8:1 (measured from pixels); white on indigo 6:1; dark labels on gold 10.2:1.
+Computed contrast: graphite on the page 13.3:1 (at night on the deep Sienna cards 8.1:1); graphite-2 6.4:1 (7.0:1); coral lines on the sheet 3.3:1 and indigo 5.6:1; at night beige 6.6:1 and denim 4.5:1 (they differ in hue and lightness, for players who see no colour), ivory dots 8.1:1, initials on the parchment wash 5.75:1 and 4.4:1, white text straight on the Sienna desk 4.6:1 or more (measured from pixels); white on indigo 6:1; dark labels on gold 10.2:1.
 
 - **Type:** Kalam 700 for names (22–24 px), scores (28–56 px) and headings (30–50 px); Kalam 400 for notes (19–22 px); Atkinson Hyperlegible 400/700 for labels (14 px) and body text (14–15 px).
 - **Spacing:** 4, 8, 12, 18, 24 px; ruled lines every 36 px on desktop and 42 px on phones.
