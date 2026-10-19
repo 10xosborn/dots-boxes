@@ -1,17 +1,23 @@
 
 /* ---------- themes ----------
    Three skins on the root element (data-skin: table | neon | paper), each with light and dark (data-theme).
-   Palettes (owner, 2026-10-12): Paper and Neon use orange #FF8C32, teal #00B58C, indigo #4657CE, cyan #21BDCA and coral #FC4422
-   in both modes; Tabletop uses burnt orange #D77027, pale mint #C4DFC9, pastel yellow #F7CD70 and golden yellow #F4AF3D by day,
-   and coral red #E9494B, sage #AEC8BF, pale butter #F4DD97 and turquoise #63C1C8 at night. Deeper or lighter shades of them are
-   used only where text or a thin mark needs the contrast (noted beside each). Components below use only these tokens.
+   Palettes: Tabletop and Paper by day are the owner's from 2026-10-12 (Paper's orange #FF8C32, teal #00B58C, indigo #4657CE,
+   cyan #21BDCA and coral #FC4422; Tabletop's burnt orange #D77027, pale mint #C4DFC9, pastel yellow #F7CD70 and golden yellow
+   #F4AF3D). Tabletop at night, Paper at night and Neon in both modes are the owner's from 2026-10-15: warm browns for the two
+   paper themes, glass and light for Neon, and violet only in Dark Neon's captured tiles. Each of those four modes sets every
+   colour token itself, so none of them can fall back to another theme's colours. Deeper or lighter shades are used only where
+   text or a thin mark needs the contrast (noted beside each). Components below use only these tokens.
 
    Board material tokens, read by Board.svelte and HeroBoard.svelte:
    --lane          printed guide under every undrawn line (transparent = none)
    --dot, --dot-hi, --dot-lo   a dot's base colour and the light and dark sides of its bead
-   --ln-filter, --dot-filter, --bx-filter   which SVG effect the lines, dots and boxes get (engrave, emboss, glow or none)
-   --fx-hi, --fx-lo  the highlight and shadow those effects use
-   --cores         inline to draw a bright core inside each line (Neon's tube light), none otherwise
+   --ln-filter, --dot-filter, --bx-filter   which SVG effect the lines, dots and boxes get (engrave, emboss, lift, flat or none)
+   --fx-hi, --fx-lo  the colours those effects put below and above each mark
+   --cores, --core-mix   inline to draw a bright core inside each line (Neon's light), and how much line colour it keeps
+   --halos, --halo1..4   inline for Neon's glow: four wider, fainter copies under each line, at these opacities
+   --dot-halos, --dhalo1, --dhalo2   the same glow round each dot
+   --reflect, --reflect-o   inline for Dark Neon's reflection of each line on the glass
+   --gloss, --gloss-a   inline for Neon's polished tiles: a glass base under each box and a highlight over it
    --box-op, --box-rim1, --box-rim2   box fill opacity and the rim around each player's boxes */
 
 /* 1. Tabletop by day: a felt game mat in a wooden frame on a golden maple table. The default skin. */
@@ -43,90 +49,118 @@
   --scrim: rgba(40,24,8,.55); --modal-r: 4px;
   --r-lg: 14px; --r-md: 14px; --r-sm: 12px; --r-pill: 999px; --r-primary: 999px;
 }
-/* Tabletop at night (owner's dark colours, 2026-10-13: Deep Plum #200B32, Brick Red #BE3926, Deep Teal #0C4E41, Deep Indigo
-   #2D2F79): a Deep Teal felt in a plum-stained wooden rim on a plum-stained table; brick red for you, a light indigo for the other
-   player (lighter tints only where a line, a ring or text must reach 3:1 or 4.5:1); the buttons in their own colour. */
+/* Tabletop at night (owner, 2026-10-15: "sleek, modern", warm browns, never violet): a Deep Walnut Brown table and a Dark
+   Walnut Brown board of matte felt-paper with a fine dusty grain; ash-grey dots, slightly raised; platinum pressed-paper
+   strips for your lines and copper ones for the other player's, each with a soft drop shadow; captured boxes a low dark
+   felt tint with clean edges. Every colour token is set here, so nothing falls back to Tabletop by day. */
 [data-skin="table"][data-theme="dark"] {
-  --page: #200B32;                                      /* Deep Plum, under plum-stained wood */
-  --text: #F3EDF7; --muted: #C5B9D3; --head-text: #F3EDF7;
+  --page: #4F3B32;                                      /* Deep Walnut Brown */
+  --text: #F5EEE6; --muted: #D9CBBE; --head-text: #F5EEE6;
   --accent: #F2B84B; --accent-lip: #A87418; --on-accent: #241005;   /* gold: the buttons' own colour (owner's choice) */
-  --focus: var(--accent); --ring: var(--accent); --ring-track: #3B2552;
-  --danger: #FF8E7A; --gold: #FFC9A0;
-  --p1: #E2553F; --p1-deep: #F07A64; --p1-soft: #4A1A24; --p1-glow: rgba(226,85,63,.5);          /* Brick Red, a step lighter for 4:1 on the cards */
-  --p2: #9DA3F2; --p2-deep: #B3B8F7; --p2-soft: #24265A; --p2-glow: rgba(157,163,242,.5);        /* Deep Indigo, lightened for the dark table */
-  --box1: #BE3926; --box2: #4B4FC2; --box1-ink: #FFFFFF; --box2-ink: #FFFFFF; --pat1: #FFFFFF; --pat2: #FFFFFF;
-  --box-rim1: #F59A86; --box-rim2: #B3B8F7;            /* light rims outline the boxes on the dark felt */
-  --line1: #F59A86; --line2: #B3B8F7; --lane: rgba(225,240,236,.12);   /* each player's own lines, light tints of brick and indigo: 3.9:1 and 4.3:1 on the lamp-lit felt */
-  --dot: #E9E1F0; --dot-hi: #FFFFFF; --dot-lo: #8E81A3;              /* pearl pegs */
-  --fx-hi: rgba(0,0,0,.55); --fx-lo: rgba(0,0,0,.45);
-  --panel: #2E1A40; --panel-strong: #3A2250; --control: #3A2250; --select-tint: #4A2E5E; --sel-ring: var(--accent);
-  --shadow: 0 1px 0 rgba(255,255,255,.08) inset, 0 2px 4px rgba(0,0,0,.3), 0 12px 26px -12px rgba(0,0,0,.85);
-  --chip-shadow: 0 1px 0 rgba(255,255,255,.07) inset, 0 6px 14px -8px rgba(0,0,0,.8);
-  --btn-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 4px 0 #160620, 0 10px 18px -12px rgba(0,0,0,.8); --btn-shadow-down: 0 1px 0 #160620;
-  --primary-shadow: 0 1px 0 rgba(255,255,255,.45) inset, 0 4px 0 var(--accent-lip), 0 12px 22px -12px rgba(0,0,0,.85); --primary-shadow-down: 0 1px 0 var(--accent-lip);
-  --board: #0C4E41; --lamp: rgba(255,255,255,.06);     /* Deep Teal felt under a soft lamp (a brighter one would wash out the light lines) */
-  --frame: #4A2342; --frame-dark: #1C0A1C; --frame-hi: rgba(226,196,240,.4); --cast: rgba(6,1,12,.72);   /* plum-stained wood rim; a plum-black shadow */
-  --scrim: rgba(10,3,16,.66);
+  --focus: var(--accent); --ring: var(--accent); --ring-track: #6A5347;
+  --danger: #FFB09C; --gold: #FFD08A;
+  --p1: #E5E4E2; --p1-deep: #F2F1EF; --p1-soft: #3E302A; --p1-glow: rgba(229,228,226,.35);       /* platinum: you */
+  --p2: #E0A070; --p2-deep: #EFBC93; --p2-soft: #4A3226; --p2-glow: rgba(224,160,112,.4);        /* copper: the other player */
+  --box1: #20160F; --box2: #20160F; --box1-ink: #F2F1EF; --box2-ink: #EFBC93; --pat1: #E5E4E2; --pat2: #E0A070; --ini-halo: none;
+  --box-op: .4; --box-rim1: rgba(229,228,226,.55); --box-rim2: rgba(224,160,112,.7);   /* dark felt tint; clean edges in each player's colour */
+  --line1: #E5E4E2; --line2: #E0A070; --lane: rgba(229,228,226,.1);  /* platinum and copper: 7.1:1 and 4:1 on the board */
+  --dot: #D6D3CE; --dot-hi: #DCD9D4; --dot-lo: #CBC7C1;              /* ash grey, matte (an almost flat disc), 6:1 */
+  --ln-filter: url(#fx-lift); --dot-filter: url(#fx-lift); --bx-filter: none; --cores: none;
+  --fx-hi: rgba(18,10,6,.5); --fx-lo: rgba(255,240,228,.1);          /* a soft shadow below, a faint lit top edge: raised */
+  --halos: none; --dot-halos: none; --reflect: none; --gloss: none;
+  --panel: #604A3F; --panel-b: transparent; --panel-bw: 0px; --panel-strong: #6B5447; --control: #5B463B; --select-tint: #7A5E4C; --sel-ring: var(--accent);
+  --shadow: 0 1px 0 rgba(255,255,255,.07) inset, 0 2px 4px rgba(20,12,8,.3), 0 12px 26px -12px rgba(20,12,8,.8);
+  --chip-shadow: 0 1px 0 rgba(255,255,255,.06) inset, 0 6px 14px -8px rgba(20,12,8,.75);
+  --btn-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 4px 0 #33251F, 0 10px 18px -12px rgba(20,12,8,.8); --btn-shadow-down: 0 1px 0 #33251F;
+  --primary-shadow: 0 1px 0 rgba(255,255,255,.45) inset, 0 4px 0 var(--accent-lip), 0 12px 22px -12px rgba(20,12,8,.85); --primary-shadow-down: 0 1px 0 var(--accent-lip);
+  --press: translateY(3px); --cta-glow: 0 0 0 0 transparent; --sel-glow: 0 0 0 0 transparent;
+  --board: #5A4538; --lamp: transparent;               /* Dark Walnut Brown felt-paper, evenly lit */
+  --frame: #3F2F27; --frame-dark: #2C201B; --frame-hi: rgba(255,236,220,.1); --cast: rgba(20,12,8,.6);   /* a slim darker walnut edge */
+  --board-r: 16px; --grid: transparent;
+  --scrim: rgba(20,12,8,.66);
 }
 
-/* 2. Neon at night: a dark room lit by the five colours; lines are lit tubes, dots are indicator lights. */
+/* 2. Neon: glass and light only. Its type, shapes and press depth, shared by both modes; each mode below sets every colour. */
 [data-skin="neon"] {
   --display: "Unbounded", system-ui, sans-serif; --ui: "Manrope", system-ui, sans-serif;
   --display-w: 700; --score-w: 800; --btn-w: 800; --chip-w: 700;
-  /* Night (owner's dark colours): a room lit by an aurora drifting from Deep Plum to Deep Indigo with brick, teal and indigo
-     light; a Deep Indigo glass board; brick-red and teal tubes, lightened to glow; glass cards; the buttons in their own colour. */
-  --page: #200B32;
-  --text: #F3EDF7; --muted: #C6BEE2; --head-text: #F3EDF7;
+  --panel-bw: 1px; --press: translateY(1px);
+  --board-r: 22px; --modal-r: 22px;
+  --r-lg: 22px; --r-md: 14px; --r-sm: 10px; --r-pill: 999px; --r-primary: 14px;
+}
+/* Dark Neon (owner, 2026-10-15: "high-contrast tech"): an Obsidian Glass board, smooth and glossy, with a crisp specular streak
+   and faint light streaks; Cyber Cyan nodes glowing under the glass; Neon Magenta laser lines for you and electric lime for the
+   other player, each glowing through layered strokes with a sharp reflection on the glass; captured boxes are polished Electric
+   Violet glass tiles, the only violet in any theme. The room is near-black, lit by magenta from above and cyan from below
+   (neutral, not navy: magenta light on blue turns violet); neutral glass cards. */
+[data-skin="neon"][data-theme="dark"] {
+  --page: #050608;
+  --text: #F1F5FF; --muted: #AEB8CC; --head-text: #F1F5FF;
   --accent: #F2B84B; --accent-lip: #A87418; --on-accent: #241005;   /* gold: the buttons' own colour (owner's choice) */
   --focus: var(--accent); --ring: var(--accent); --ring-track: rgba(255,255,255,.14);
-  --danger: #FF8E7A; --gold: #FFC9A0;
-  --p1: #FF5B3F; --p1-deep: #FF7A62; --p1-soft: #3D1426; --p1-glow: rgba(255,91,63,.6);       /* Brick Red, lit: you */
-  --p2: #3FE0C0; --p2-deep: #6EEBD2; --p2-soft: #0D3434; --p2-glow: rgba(63,224,192,.55);     /* Deep Teal, lit: the other player */
-  --box1: #BE3926; --box2: #0E9C80; --box1-ink: #FFFFFF; --box2-ink: #FFFFFF; --pat1: #FFFFFF; --pat2: #FFFFFF; --ini-halo: none;
-  --box-op: .55; --box-rim1: #FF6A4D; --box-rim2: #3FE0C0;
-  --line1: #FF6A4D; --line2: #3FE0C0; --lane: rgba(178,184,255,.17);
-  --dot: #E4DEFF; --dot-hi: #FFFFFF; --dot-lo: #7E76C4;
-  --ln-filter: url(#fx-glow); --dot-filter: url(#fx-glow); --bx-filter: url(#fx-glow); --cores: inline;
+  --danger: #FF8E7A; --gold: #FFD08A;
+  --p1: #FF007F; --p1-deep: #FF4DA0; --p1-soft: #3A0A24; --p1-glow: rgba(255,0,127,.55);    /* Neon Magenta: you */
+  --p2: #C6FF00; --p2-deep: #D4FF4D; --p2-soft: #26330A; --p2-glow: rgba(198,255,0,.45);    /* electric lime: the other player */
+  --box1: #7B2CBF; --box2: #7B2CBF; --box1-ink: #FFD1E8; --box2-ink: #E6FF8A; --pat1: #FFD1E8; --pat2: #E6FF8A; --ini-halo: none;
+  --box-op: .78; --box-rim1: #A970F0; --box-rim2: #A970F0;   /* Electric Violet glass with a lit edge; initials 6.7:1 and 8.2:1 */
+  --line1: #FF007F; --line2: #C6FF00; --lane: rgba(200,230,255,.08);   /* 5.1:1 and 16:1 on the glass */
+  --dot: #00F0FF; --dot-hi: #D2FDFF; --dot-lo: #00B9CC;       /* Cyber Cyan, 13.6:1, a lit centre */
+  --ln-filter: none; --dot-filter: none; --bx-filter: none; --cores: inline; --core-mix: 38%;
+  --halos: inline; --halo1: .26; --halo2: .14; --halo3: .075; --halo4: .035;
+  --dot-halos: inline; --dhalo1: .3; --dhalo2: .1;
+  --reflect: inline; --reflect-o: .3;
+  --gloss: inline; --gloss-a: .3;
   --fx-hi: rgba(255,255,255,.6); --fx-lo: rgba(0,0,0,.4);
-  --panel: rgba(40,24,76,.6); --panel-b: rgba(255,255,255,.15); --panel-bw: 1px; --panel-strong: rgba(62,40,110,.68); --control: rgba(255,255,255,.07);
+  --panel: rgba(17,18,22,.7); --panel-b: rgba(190,225,255,.15); --panel-strong: rgba(30,32,38,.78); --control: rgba(255,255,255,.06);
   --select-tint: color-mix(in srgb,var(--accent) 18%,transparent);
-  --shadow: 0 1px 0 rgba(255,255,255,.13) inset, 0 16px 34px -18px rgba(0,0,0,.9);
+  --shadow: 0 1px 0 rgba(255,255,255,.12) inset, 0 16px 34px -18px rgba(0,0,0,.9);
   --chip-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 6px 14px -9px rgba(0,0,0,.7);
   --btn-shadow: 0 1px 0 rgba(255,255,255,.15) inset, 0 8px 18px -10px rgba(0,0,0,.8); --btn-shadow-down: inset 0 2px 6px rgba(0,0,0,.45);
   --primary-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 0 0 1px rgba(255,255,255,.12), 0 10px 26px -10px color-mix(in srgb,var(--accent) 75%,transparent), 0 0 34px -8px color-mix(in srgb,var(--accent) 60%,transparent);
-  --primary-shadow-down: inset 0 2px 6px rgba(0,0,0,.35), 0 0 16px -6px color-mix(in srgb,var(--accent) 55%,transparent); --press: translateY(1px);
+  --primary-shadow-down: inset 0 2px 6px rgba(0,0,0,.35), 0 0 16px -6px color-mix(in srgb,var(--accent) 55%,transparent);
   --cta-glow: 0 1px 0 rgba(255,255,255,.5) inset, 0 0 0 1px rgba(255,255,255,.2), 0 12px 30px -8px color-mix(in srgb,var(--accent) 85%,transparent), 0 0 52px -8px color-mix(in srgb,var(--accent) 70%,transparent);
   --sel-ring: var(--accent); --sel-glow: 0 0 14px -2px color-mix(in srgb,var(--accent) 60%,transparent);
-  --board: rgba(45,47,121,.42); --board-r: 22px; --grid: rgba(178,184,255,.1);   /* Deep Indigo glass over the aurora */
-  --glass: rgba(255,255,255,.16); --glass-edge: rgba(255,255,255,.34);
-  --aur-base: linear-gradient(160deg,#200B32 0%,#2A1650 45%,#2D2F79 100%); --aur1: #BE3926; --aur2: #17A386; --aur3: #5A5EE0; --aur-op: .46;
-  --frame: transparent; --frame-dark: transparent; --frame-hi: transparent;
-  --scrim: rgba(8,3,16,.72); --modal-r: 22px;
-  --r-lg: 22px; --r-md: 14px; --r-sm: 10px; --r-pill: 999px; --r-primary: 14px;
+  --board: #0B0F19; --grid: transparent;                  /* Obsidian Glass */
+  --glass: rgba(255,255,255,.07); --glass-edge: rgba(255,255,255,.3);
+  --aur-base: linear-gradient(160deg,#040506 0%,#07080B 50%,#050608 100%); --aur1: #FF007F; --aur2: #00F0FF; --aur3: transparent; --aur-op: .2;
+  --lamp: transparent; --frame: transparent; --frame-dark: transparent; --frame-hi: transparent; --cast: rgba(0,0,0,.85);
+  --scrim: rgba(2,4,10,.74);
 }
-/* Neon by day: a bright room with soft coloured light; coral and indigo carry the lines (3.5:1 and 6:1 on white). */
+/* White Neon (owner, 2026-10-15: "clean, elegant"): a Frosted Opal Glass board, milky and evenly lit with a soft inner glow;
+   Hot Coral glass nodes, kept at their full colour so they never drop below 3:1; Deep Electric Blue light-pipe lines for you
+   and deep teal for the other player (blue and teal light mix to azure where they cross, never violet), each with a saturated
+   halo, never a pale bloom; captured boxes are polished Vivid Lime
+   tiles with a deeper lime edge and dark initials. The room is a cool grey-blue, lit by coral, blue and lime. */
 [data-skin="neon"][data-theme="light"] {
-  --page: #EEF1FA;
-  --text: #141832; --muted: #4F5577; --head-text: #141832;
-  --accent: #4657CE; --accent-lip: #303E9E; --on-accent: #FFFFFF;   /* indigo: the main action, white labels (6:1) */
-  --focus: #4657CE; --ring: #4657CE; --ring-track: #E1E5F4;
-  --danger: #C8300F; --gold: #B5560C;                 /* deeper orange for text: 5:1 on white */
-  --p1: #FC4422; --p1-deep: #E8391A; --p1-soft: #FFE3DC; --p1-glow: rgba(252,68,34,.4);
-  --p2: #4657CE; --p2-deep: #4657CE; --p2-soft: #E6E9FF; --p2-glow: rgba(70,87,206,.4);
-  --box1: #FC4422; --box2: #4657CE; --box-op: 1; --box-rim1: #C8300F; --box-rim2: #303E9E;
-  --line1: #FC4422; --line2: #4657CE; --lane: rgba(70,87,206,.16);
-  --dot: #4657CE; --dot-hi: #B9C3FF; --dot-lo: #27348C; --cores: none;
-  --ln-filter: url(#fx-glow-soft); --dot-filter: url(#fx-glow-soft); --bx-filter: url(#fx-glow-soft);
-  --panel: #FFFFFF; --panel-b: rgba(70,87,206,.16); --panel-strong: #F6F7FD; --control: #F2F4FB; --select-tint: #E6E9FF;
-  --shadow: 0 10px 26px -16px rgba(70,87,206,.45);
-  --btn-shadow: 0 6px 16px -12px rgba(70,87,206,.5);
-  --primary-shadow: 0 0 0 1px rgba(70,87,206,.45), 0 8px 22px -6px rgba(70,87,206,.6), 0 0 30px -8px rgba(33,189,202,.45);
+  --page: #D5DEE7;
+  --text: #141832; --muted: #4A5270; --head-text: #141832;
+  --accent: #4657CE; --accent-lip: #303E9E; --on-accent: #FFFFFF;   /* indigo buttons, as before: white labels (6:1) */
+  --focus: #4657CE; --ring: #4657CE; --ring-track: #DCE3EE;
+  --danger: #C8300F; --gold: #B5560C;                 /* deeper orange for text: 4.9:1 on white */
+  --p1: #0047FF; --p1-deep: #0040E6; --p1-soft: #E0E8FF; --p1-glow: rgba(0,71,255,.35);     /* Deep Electric Blue: you */
+  --p2: #007F73; --p2-deep: #00756A; --p2-soft: #DDF2EF; --p2-glow: rgba(0,127,115,.3);     /* deep teal: the other player */
+  --box1: #39FF14; --box2: #39FF14; --box1-ink: #0A2A8C; --box2-ink: #003F44; --pat1: #0A2A8C; --pat2: #003F44; --ini-halo: none;
+  --box-op: .85; --box-rim1: #178A00; --box-rim2: #178A00;   /* Vivid Lime glass with a deeper lime edge (3.9:1 on the board); dark initials 8.3:1 or more */
+  --line1: #0047FF; --line2: #007F73; --lane: rgba(0,71,255,.1);   /* 5.5:1 and 4.3:1 on the board */
+  --dot: #FF4500; --dot-hi: #FF4500; --dot-lo: #D93A00;       /* Hot Coral, 3.0:1: no lighter highlight, a deeper edge */
+  --ln-filter: none; --dot-filter: none; --bx-filter: none; --cores: inline; --core-mix: 85%;   /* a lighter core that still keeps 3:1 (blue 4.3, teal 3.3) */
+  --halos: inline; --halo1: .3; --halo2: .13; --halo3: .05; --halo4: 0;
+  --dot-halos: none; --dhalo1: 0; --dhalo2: 0;           /* no glow round the coral dots: it would lighten what they sit on */
+  --reflect: none; --reflect-o: 0;
+  --gloss: inline; --gloss-a: .55;
+  --fx-hi: rgba(255,255,255,.6); --fx-lo: rgba(0,0,0,.4);
+  --panel: #FFFFFF; --panel-b: rgba(0,71,255,.14); --panel-strong: #F6F9FC; --control: #EEF3F8; --select-tint: #E3EAFF;
+  --shadow: 0 10px 26px -16px rgba(30,50,110,.45);
+  --chip-shadow: 0 6px 14px -9px rgba(30,50,110,.4);
+  --btn-shadow: 0 6px 16px -12px rgba(30,50,110,.5); --btn-shadow-down: inset 0 2px 6px rgba(20,30,70,.14);
+  --primary-shadow: 0 0 0 1px rgba(70,87,206,.45), 0 8px 22px -6px rgba(70,87,206,.6), 0 0 30px -8px rgba(0,71,255,.35);
   --primary-shadow-down: 0 0 0 1px rgba(70,87,206,.5), 0 3px 10px -4px rgba(70,87,206,.6);
-  --cta-glow: 0 0 0 1px rgba(70,87,206,.6), 0 10px 28px -6px rgba(70,87,206,.7), 0 0 40px -6px rgba(33,189,202,.55);
+  --cta-glow: 0 0 0 1px rgba(70,87,206,.6), 0 10px 28px -6px rgba(70,87,206,.7), 0 0 40px -6px rgba(0,71,255,.4);
   --sel-ring: #4657CE; --sel-glow: 0 0 14px -4px rgba(70,87,206,.6);
-  --board: rgba(255,255,255,.62); --grid: rgba(70,87,206,.07);   /* white glass over the aurora */
-  --glass: rgba(255,255,255,.55); --glass-edge: rgba(255,255,255,.9);
-  --aur-base: linear-gradient(160deg,#F4F1FF 0%,#EEF1FA 50%,#DDF3F8 100%); --aur1: #FC4422; --aur2: #21BDCA; --aur3: #4657CE; --aur-op: .17;
+  --board: #EBF1F5; --grid: transparent;                  /* Frosted Opal Glass */
+  --glass: rgba(255,255,255,.6); --glass-edge: rgba(255,255,255,.95);
+  --aur-base: linear-gradient(160deg,#DFE6EE 0%,#D5DEE7 55%,#D8E4EB 100%); --aur1: #FF4500; --aur2: #0047FF; --aur3: #39FF14; --aur-op: .12;
+  --lamp: transparent; --frame: transparent; --frame-dark: transparent; --frame-hi: transparent; --cast: rgba(30,50,110,.45);
   --scrim: rgba(20,24,50,.45);
 }
 
@@ -158,27 +192,34 @@
   --scrim: rgba(46,43,39,.4); --modal-r: 6px;
   --r-lg: 6px; --r-md: 4px; --r-sm: 4px; --r-pill: 4px; --r-primary: 4px;
 }
-/* Cozy Paper at night (owner's dark colours): a mauve sheet, a lighter plum (owner's choice, so never Neon's indigo), on a Deep
-   Plum desk, both with paper's formation and fibres; brick and teal inks, lightened to read on the sheet (and different in
-   lightness for players who see no colour); gold buttons. */
+/* Cozy Paper at night (owner, 2026-10-15: "warm, tactile"; never violet): a Deep Cocoa Brown sheet of heavyweight cardstock
+   (fine tooth, micro-fibres, organic flecks) on a Dark Coffee Brown desk; ivory hot-press paper discs for dots, and warm beige
+   die-cut cardstock strips for your lines (denim blue for the other player's), each with a flat drop shadow like a separate
+   layer of paper; captured boxes a translucent parchment wash the texture shows through. Every colour token is set here. */
 [data-skin="paper"][data-theme="dark"] {
-  --page: #200B32;                                      /* Deep Plum desk */
-  --text: #F3EDF7; --muted: #C5B9D3; --head-text: #F3EDF7;
+  --page: #492E1F;                                      /* Dark Coffee Brown */
+  --text: #F6EEDF; --muted: #DCCBB3; --head-text: #F6EEDF;
   --accent: #F2B84B; --accent-lip: #A87418; --on-accent: #241005;   /* gold: the buttons' own colour (owner's choice) */
-  --focus: var(--accent); --ring: var(--accent); --ring-track: #3B2552;
-  --danger: #FF8E7A; --gold: #FFC9A0;
-  --p1: #F07A64; --p1-deep: #F28C76; --p1-soft: #4A1A24;
-  --p2: #6EDCC4; --p2-deep: #7FE0C8; --p2-soft: #0F3A35;
-  --box1: #4A1A24; --box2: #0F3A35; --box1-ink: #FF9B86; --box2-ink: #7FE0C8; --pat1: #F28C76; --pat2: #7FE0C8; --ini-halo: var(--board);
-  --line1: #F28C76; --line2: #7FE0C8;
-  --dot: #F3EDF7; --dot-hi: #FFFFFF; --dot-lo: #A79CB5;
-  --fx-hi: rgba(0,0,0,.6); --fx-lo: rgba(255,255,255,.08);
-  --panel: #2E1A40; --panel-b: rgba(243,237,247,.62); --panel-strong: #2E1A40; --control: #2E1A40;
-  --select-tint: color-mix(in srgb,var(--accent) 18%,#2E1A40); --sel-ring: var(--accent);
-  --shadow: 2px 2px 0 rgba(0,0,0,.5), 0 12px 22px -14px rgba(0,0,0,.75); --chip-shadow: 2px 2px 0 rgba(0,0,0,.5);
-  --btn-shadow: 2px 2px 0 rgba(0,0,0,.55), 0 10px 18px -12px rgba(0,0,0,.7); --primary-shadow: 2px 2px 0 var(--accent-lip), 0 12px 22px -12px rgba(0,0,0,.75);
-  --board: #4A2C63;                                     /* the mauve sheet */
-  --scrim: rgba(8,3,16,.6);
+  --focus: var(--accent); --ring: var(--accent); --ring-track: #6A4E3C;
+  --danger: #FFA08A; --gold: #FFD08A;
+  --p1: #E8D5B5; --p1-deep: #F0E2C6; --p1-soft: #5C4433; --p1-glow: transparent;   /* warm beige: you */
+  --p2: #8FB8D6; --p2-deep: #A5C6E0; --p2-soft: #5A4A40; --p2-glow: transparent;   /* denim blue: the other player */
+  --box1: #F3EAD7; --box2: #F3EAD7; --box1-ink: #FFF6E4; --box2-ink: #C9E0F2; --pat1: #F3EAD7; --pat2: #A5C6E0; --ini-halo: var(--board);
+  --box-op: .2; --box-rim1: rgba(232,213,181,.55); --box-rim2: rgba(143,184,214,.65);   /* a parchment wash; initials 6:1 and 4.7:1 */
+  --line1: #E8D5B5; --line2: #8FB8D6; --lane: transparent;          /* 7.7:1 and 5.3:1 on the sheet */
+  --dot: #F3EAD7; --dot-hi: #F7F1E4; --dot-lo: #EADFC8;             /* ivory discs, nearly flat, 9.2:1 */
+  --ln-filter: url(#fx-flat); --dot-filter: url(#fx-flat); --bx-filter: none; --cores: none;
+  --fx-hi: rgba(22,11,4,.55); --fx-lo: rgba(255,246,228,.12);       /* a flat shadow below, a faint lit top edge */
+  --halos: none; --dot-halos: none; --reflect: none; --gloss: none;
+  --panel: #513626; --panel-b: rgba(243,234,215,.5); --panel-bw: 1.5px; --panel-strong: #5A3D2B; --control: #513626;
+  --select-tint: color-mix(in srgb,var(--accent) 18%,#513626); --sel-ring: var(--accent);
+  --shadow: 2px 2px 0 rgba(22,11,4,.5), 0 12px 22px -14px rgba(22,11,4,.7); --chip-shadow: 2px 2px 0 rgba(22,11,4,.5);
+  --btn-shadow: 2px 2px 0 rgba(22,11,4,.55), 0 10px 18px -12px rgba(22,11,4,.65); --btn-shadow-down: none; --press: translate(2px,2px);
+  --primary-shadow: 2px 2px 0 var(--accent-lip), 0 12px 22px -12px rgba(22,11,4,.7); --primary-shadow-down: none;
+  --cta-glow: 0 0 0 0 transparent; --sel-glow: 0 0 0 0 transparent;
+  --board: #513626; --board-r: 3px; --grid: transparent;            /* Deep Cocoa Brown cardstock */
+  --lamp: transparent; --frame: transparent; --frame-dark: transparent; --frame-hi: transparent; --cast: rgba(22,11,4,.6);
+  --scrim: rgba(22,11,4,.62);
 }
 
 /* Depth on every button, day and night (owner, 2026-10-13: "every button or element should have a depth feel… the buttons
@@ -206,12 +247,12 @@
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
 body{font-family:var(--ui);color:var(--text);background-color:var(--page);min-height:100vh;min-height:100dvh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-/* Tabletop: maple or plum-stained planks (sharp grain, pores and knife marks drawn at twice their size), lit from above,
-   darker towards the edges, with a seam between planks every 256 px. */
+/* Tabletop by day: maple planks (sharp grain, pores and knife marks drawn at twice their size), lit from above, darker towards
+   the edges, with a seam between planks every 256 px. At night: the Deep Walnut Brown under a fine dusty grain, even all over
+   (no planks, light or shading: the owner's paper rules). */
 [data-skin="table"] body{background-image:radial-gradient(ellipse 120% 70% at 50% 0%,rgba(255,240,205,.3),transparent 62%),radial-gradient(ellipse 130% 95% at 50% 45%,transparent 58%,rgba(90,45,5,.24)),
   repeating-linear-gradient(180deg,rgba(110,58,12,.22) 0 1px,rgba(255,232,180,.3) 1px 2px,transparent 2px 256px),url('./assets/textures/wood-day.webp');background-size:auto,auto,auto,512px 256px}
-[data-skin="table"][data-theme="dark"] body{background-image:radial-gradient(ellipse 120% 70% at 50% 0%,rgba(226,196,255,.08),transparent 62%),radial-gradient(ellipse 130% 95% at 50% 45%,transparent 55%,rgba(0,0,0,.5)),
-  repeating-linear-gradient(180deg,rgba(0,0,0,.5) 0 1px,rgba(230,205,245,.07) 1px 2px,transparent 2px 256px),url('./assets/textures/wood-night.webp')}
+[data-skin="table"][data-theme="dark"] body{background-image:url('./assets/textures/grain.webp');background-size:256px 256px;background-blend-mode:soft-light}
 /* Neon: the aurora's room (see .aurora below for its drifting lights). */
 [data-skin="neon"] body{background:var(--aur-base) fixed}
 /* The aurora (Neon only): three soft lights drifting slowly behind everything; still when motion is off (.no-anim).
@@ -229,11 +270,11 @@ body{font-family:var(--ui);color:var(--text);background-color:var(--page);min-he
 /* While a drag's band is out, and as it springs home, the aurora holds still: each step redraws the whole screen, which on a
    big screen without help from the graphics chip competes with the band's frames. Too slow a drift for the pause to show. */
 html:has(#board .drag) .aurora i{animation-play-state:paused}
-/* Paper: a desk with the formation, fibres and tooth of paper (sharp, at 1.5x their size), shaded towards the edges. By day a
-   white tile multiplies onto the kraft; at night a grey one blends in soft-light. */
+/* Paper by day: a kraft desk with the formation, fibres and tooth of paper (sharp, at 1.5x their size, a white tile multiplied
+   on), shaded towards the edges. At night: the Dark Coffee Brown under the cardstock tile in soft-light, even all over. */
 [data-skin="paper"] body{background-image:radial-gradient(ellipse 130% 100% at 50% 40%,transparent 55%,rgba(110,80,40,.2)),url('./assets/textures/paper-day.webp');
   background-size:auto,512px 512px;background-blend-mode:normal,multiply}
-[data-skin="paper"][data-theme="dark"] body{background-image:radial-gradient(ellipse 130% 100% at 50% 40%,transparent 50%,rgba(0,0,0,.5)),url('./assets/textures/paper-night.webp');background-blend-mode:normal,soft-light}
+[data-skin="paper"][data-theme="dark"] body{background-image:url('./assets/textures/cardstock.webp');background-size:427px 427px;background-blend-mode:soft-light}
 /* Small text straight on the page (not on a card) uses full ink on Tabletop's wood and on Paper's desk by day: the sharp grain,
    knife marks and fibres under it would take muted text below 4.5:1. */
 [data-skin="table"] :is(.tag,section:not(.panel)>.help,section:not(.panel)>.muted),
@@ -292,7 +333,7 @@ p{line-height:1.5;margin:0}
   .btn:hover{background-color:var(--btn-hover)}
   .btn.primary:hover{background-color:var(--accent-hover)}
   [data-skin="table"] :is(.btn,.theme-btn,.lvl-chip,.back):hover{transform:translateY(-1px)}
-  [data-skin="neon"] :is(.btn,.theme-btn,.lvl-chip,.back):hover{border-color:rgba(33,189,202,.6);box-shadow:0 0 0 1px rgba(33,189,202,.3),0 0 18px -4px rgba(33,189,202,.6)}
+  [data-skin="neon"] :is(.btn,.theme-btn,.lvl-chip,.back):hover{border-color:rgba(0,240,255,.55);box-shadow:0 0 0 1px rgba(0,240,255,.28),0 0 18px -4px rgba(0,240,255,.55)}
   [data-skin="neon"][data-theme="light"] :is(.btn,.theme-btn,.lvl-chip,.back):hover{border-color:rgba(70,87,206,.5);box-shadow:0 0 0 1px rgba(70,87,206,.25),0 6px 18px -6px rgba(70,87,206,.5)}
   [data-skin="neon"] .btn.primary:hover{border-color:transparent;box-shadow:var(--cta-glow)}
 }
@@ -342,8 +383,8 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
   [data-skin="neon"] :is(.theme-btn,.lvl-chip,.back):hover{background-color:var(--panel-strong)}
   .seg button:not([aria-pressed="true"]):hover{color:var(--text);background:color-mix(in srgb,var(--text) 7%,transparent)}
   .theme-opt:not([aria-checked="true"]):hover{border-color:color-mix(in srgb,var(--text) 22%,transparent)}
-  [data-skin="neon"] .seg button:not([aria-pressed="true"]):hover{box-shadow:inset 0 0 0 1px rgba(33,189,202,.5)}
-  [data-skin="neon"] .theme-opt:not([aria-checked="true"]):hover{border-color:rgba(33,189,202,.5)}
+  [data-skin="neon"] .seg button:not([aria-pressed="true"]):hover{box-shadow:inset 0 0 0 1px rgba(0,240,255,.45)}
+  [data-skin="neon"] .theme-opt:not([aria-checked="true"]):hover{border-color:rgba(0,240,255,.45)}
   [data-skin="neon"][data-theme="light"] .seg button:not([aria-pressed="true"]):hover{box-shadow:inset 0 0 0 1px rgba(70,87,206,.4)}
   [data-skin="neon"][data-theme="light"] .theme-opt:not([aria-checked="true"]):hover{border-color:rgba(70,87,206,.4)}
   .toggle:hover::after{box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 2px 4px -1px rgba(0,0,0,.45),0 0 0 5px color-mix(in srgb,var(--text) 12%,transparent)}
@@ -432,23 +473,31 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 [data-skin="table"] .board-wrap::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:10px;pointer-events:none;
   background:linear-gradient(180deg,rgba(255,226,180,.28),transparent 35%,rgba(40,15,0,.18)),url('./assets/textures/wood-day.webp') 0 0/256px 128px;
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
-[data-skin="table"][data-theme="dark"] .board-wrap::before{background:linear-gradient(180deg,rgba(226,196,240,.16),transparent 35%,rgba(0,0,0,.32)),url('./assets/textures/wood-night.webp') 0 0/256px 128px}
-/* Neon: a pane of glass over the aurora. The room's light shows through it, deepened in colour, a sheen crosses it, its top
-   edge catches the light, and a soft glow spills round it. No blur: the aurora behind is already soft, and a blur here was
-   redone on every frame of a drag (the board changes under it), dropping frames on big boards; deepening the colour is cheap. */
-[data-skin="neon"] .board-wrap{background-image:linear-gradient(135deg,var(--glass),transparent 38%,transparent 62%,color-mix(in srgb,var(--glass) 50%,transparent)),
-  linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:auto,24px 24px,24px 24px;
-  -webkit-backdrop-filter:saturate(1.5);backdrop-filter:saturate(1.5);
-  box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px rgba(255,255,255,.13),inset 0 -24px 40px -26px rgba(0,0,0,.4),
-    0 0 0 1px rgba(63,224,192,.22),0 0 28px -4px rgba(63,224,192,.32),0 34px 60px -30px rgba(0,0,0,.75)}
-[data-skin="neon"][data-theme="light"] .board-wrap{
-  box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px rgba(70,87,206,.22),0 0 0 1px rgba(33,189,202,.16),0 0 24px -4px rgba(33,189,202,.4),0 22px 44px -24px rgba(70,87,206,.5)}
+/* Tabletop at night: matte felt-paper with a fine dusty grain, lying on the walnut with a very soft shadow and a slim edge; no
+   wooden rim, lamp or gradients (the owner's paper rules). */
+[data-skin="table"][data-theme="dark"] .board-wrap{background-image:url('./assets/textures/grain.webp');background-size:256px 256px;background-blend-mode:soft-light;
+  box-shadow:inset 0 1px 0 var(--frame-hi),inset 0 0 0 1px var(--frame),0 1px 2px rgba(20,12,8,.24),0 14px 30px -16px var(--cast)}
+[data-skin="table"][data-theme="dark"] .board-wrap::before{content:none;background:none}   /* no rim; and no download of the day rim's wood */
+/* Neon: a pane of glass, faked with cheap static layers: a sheen, crisp highlights, a lit top edge and a glow round it. It is
+   opaque, with no backdrop-filter and no blur, so nothing behind it is redrawn while a line grows or a drag moves. */
+[data-skin="neon"][data-theme="dark"] .board-wrap{   /* Obsidian Glass: a top sheen and faint light streaks */
+  background-image:linear-gradient(170deg,rgba(255,255,255,.055),transparent 32%),repeating-linear-gradient(118deg,rgba(255,255,255,.014) 0 1px,transparent 1px 9px);
+  box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px rgba(255,255,255,.07),inset 0 -40px 60px -40px rgba(0,0,0,.7),
+    0 0 0 1px rgba(0,240,255,.2),0 0 32px -6px rgba(0,240,255,.28),0 34px 60px -30px var(--cast)}
+/* ...and a crisp specular streak across the glass, over the nodes and lines, so they read as lit from under it. */
+[data-skin="neon"][data-theme="dark"] .board-wrap::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(118deg,transparent 13%,var(--glass) 13%,var(--glass) 14.4%,transparent 14.4%,transparent 17%,color-mix(in srgb,var(--glass) 55%,transparent) 17%,color-mix(in srgb,var(--glass) 55%,transparent) 21%,transparent 21%)}
+[data-skin="neon"][data-theme="light"] .board-wrap{   /* Frosted Opal Glass: a milky sheen and a soft inner glow, evenly lit (only ever lighter, so the dots keep 3:1) */
+  background-image:linear-gradient(165deg,var(--glass),transparent 40%),linear-gradient(345deg,rgba(255,255,255,.35),transparent 30%);
+  box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px rgba(255,255,255,.8),inset 0 0 28px 2px rgba(255,255,255,.75),
+    0 0 0 1px rgba(0,71,255,.12),0 0 26px -6px rgba(0,71,255,.28),0 22px 44px -24px var(--cast)}
 /* Paper: a sheet with cloudy formation, short fibres and tooth, toned at its edges, lying slightly lifted on the desk. */
 [data-skin="paper"] .board-wrap{background-image:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 62%,rgba(150,110,50,.12)),url('./assets/textures/paper-day.webp');
   background-size:auto,512px 512px;background-blend-mode:normal,multiply;
   box-shadow:0 0 0 1px rgba(46,43,39,.08),0 1px 1px rgba(70,50,20,.14),0 16px 30px -18px rgba(70,50,20,.55)}
-[data-skin="paper"][data-theme="dark"] .board-wrap{background-image:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 60%,rgba(0,0,0,.35)),url('./assets/textures/paper-night.webp');background-blend-mode:normal,soft-light;
-  box-shadow:0 0 0 1px rgba(239,232,218,.07),0 1px 1px rgba(0,0,0,.4),0 18px 34px -16px rgba(0,0,0,.75)}
+/* Cozy Paper at night: heavyweight cardstock (the tile in soft-light, evenly: no toning at the edges), lifted a little off the desk. */
+[data-skin="paper"][data-theme="dark"] .board-wrap{background-image:url('./assets/textures/cardstock.webp');background-size:427px 427px;background-blend-mode:soft-light;
+  box-shadow:0 0 0 1px rgba(22,11,4,.3),0 1px 1px rgba(22,11,4,.35),0 14px 28px -16px var(--cast)}
 #board{display:block;width:100%;height:100%;touch-action:none;cursor:pointer;border-radius:inherit}
 #board:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
 #board:focus:not(:focus-visible){outline:none} /* no browser focus ring after a click or tap */
@@ -476,6 +525,15 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 #board.grabbing{cursor:grabbing}
 .lines{filter:var(--ln-filter)}
 .cores{display:var(--cores,none)}
+/* Neon's glow (wider, fainter copies of each line and dot: strokes and fills, no blur), Dark Neon's reflections on the glass and
+   the polished tiles (a glass base that keeps the glow out of each tile, and a highlight): off unless a theme turns them on. */
+.halos{display:var(--halos,none)}
+.halos .h1{stroke-opacity:var(--halo1)} .halos .h2{stroke-opacity:var(--halo2)} .halos .h3{stroke-opacity:var(--halo3)} .halos .h4{stroke-opacity:var(--halo4)}
+.reflect{display:var(--reflect,none);opacity:var(--reflect-o)}
+.dot-halos{display:var(--dot-halos,none);fill:var(--dot)}
+.dot-halos .dh1{fill-opacity:var(--dhalo1)} .dot-halos .dh2{fill-opacity:var(--dhalo2)}
+.bx :is(.tile-base,.gloss){display:var(--gloss,none)}
+.bx .tile-base{fill:var(--board)}
 .dots{filter:var(--dot-filter)}
 .bxs{filter:var(--bx-filter)}
 .dot{fill:var(--dot)}

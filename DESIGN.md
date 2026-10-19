@@ -1,13 +1,14 @@
 ---
 # gstack: design-md-format=spec
 # The UI design is locked to docs/design/ui-themes-spec.md and docs/design/mockups/.
-# These tokens copy the spec's tables (palettes updated by the owner on 2026-10-12, the dark modes on 2026-10-13); where they differ, the spec wins.
+# These tokens copy the spec's tables (palettes updated by the owner on 2026-10-12, the dark modes on 2026-10-13, and Tabletop at night,
+# Paper at night and both Neon modes on 2026-10-15); where they differ, the spec wins.
 name: Grid Rivals
 description: A two-player game of lines and boxes with three themes players can switch between; Minimalist Premium, a board game on a table, is the default.
 colors:
-  # 1. Tabletop: maple table (light) and plum-stained table (dark). By day: burnt orange, pale mint, pastel and golden yellow.
-  #    At night the owner's dark colours (2026-10-13): Deep Plum #200B32, Brick Red #BE3926, Deep Teal #0C4E41, Deep Indigo #2D2F79,
-  #    with lighter tints where a line, ring or text needs them, and gold buttons. Each player has their own line colour.
+  # 1. Tabletop: maple table (light) and walnut (dark). By day: burnt orange, pale mint, pastel and golden yellow.
+  #    At night (owner, 2026-10-15: "sleek, modern", warm browns): a Deep Walnut Brown page, a Dark Walnut Brown board of matte
+  #    felt-paper, platinum lines for you and copper for the other player, ash dots, a dark felt tint for boxes, gold buttons.
   table-light-table: "#E3B970"
   table-light-felt: "#C4DFC9"
   table-light-frame: "#B0602A"
@@ -32,68 +33,83 @@ colors:
   table-light-sel-ring: "#9E4E17"
   table-light-focus: "#8A3F0E"
   table-light-gold: "#8C5F0A"
-  table-dark-table: "#200B32"
-  table-dark-felt: "#0C4E41"
-  table-dark-frame: "#4A2342"
-  table-dark-frame-dark: "#1C0A1C"
-  table-dark-line-1: "#F59A86"
-  table-dark-line-2: "#B3B8F7"
-  table-dark-dot: "#E9E1F0"
-  table-dark-p1: "#E2553F"
-  table-dark-p1-deep: "#F07A64"
-  table-dark-p2: "#9DA3F2"
-  table-dark-p2-deep: "#B3B8F7"
-  table-dark-box-1: "#BE3926"
-  table-dark-box-2: "#4B4FC2"
-  table-dark-box-rim-1: "#F59A86"
-  table-dark-box-rim-2: "#B3B8F7"
+  table-dark-table: "#4F3B32"
+  table-dark-felt: "#5A4538"
+  table-dark-frame: "#3F2F27"
+  table-dark-line-1: "#E5E4E2"
+  table-dark-line-2: "#E0A070"
+  table-dark-dot: "#D6D3CE"
+  table-dark-p1: "#E5E4E2"
+  table-dark-p1-deep: "#F2F1EF"
+  table-dark-p2: "#E0A070"
+  table-dark-p2-deep: "#EFBC93"
+  table-dark-box: "#20160F"   # at 40%, both players
+  table-dark-box-rim-1: "rgba(229,228,226,.55)"
+  table-dark-box-rim-2: "rgba(224,160,112,.7)"
   table-dark-accent: "#F2B84B"
   table-dark-accent-lip: "#A87418"
   table-dark-on-accent: "#241005"
-  table-dark-ink: "#F3EDF7"
-  table-dark-ink-2: "#C5B9D3"
-  table-dark-pill: "#2E1A40"
-  table-dark-control: "#3A2250"
-  table-dark-select-tint: "#4A2E5E"
+  table-dark-ink: "#F5EEE6"
+  table-dark-ink-2: "#D9CBBE"
+  table-dark-pill: "#604A3F"
+  table-dark-control: "#5B463B"
+  table-dark-select-tint: "#7A5E4C"
   table-dark-sel-ring: "#F2B84B"
   table-dark-focus: "#F2B84B"
-  table-dark-gold: "#FFC9A0"
-  # 2. Neon, dark and light: a room lit by a drifting aurora, with a glass board and glass cards.
-  #    By day orange, teal, indigo, cyan and coral; at night the owner's dark colours, lit (lightened) for the tubes, and gold buttons.
-  neon-dark-page: "#200B32"
-  neon-dark-aurora: "linear-gradient(160deg, #200B32, #2A1650 45%, #2D2F79), lights #BE3926, #17A386, #5A5EE0 at 46%"
-  neon-dark-board: "rgba(45,47,121,.42)"
-  neon-dark-text: "#F3EDF7"
-  neon-dark-muted: "#C6BEE2"
-  neon-dark-p1: "#FF5B3F"
-  neon-dark-p2: "#3FE0C0"
-  neon-dark-line-1: "#FF6A4D"
-  neon-dark-line-2: "#3FE0C0"
-  neon-dark-box-1: "#BE3926"
-  neon-dark-box-2: "#0E9C80"
-  neon-dark-dot: "#E4DEFF"
+  table-dark-gold: "#FFD08A"
+  # 2. Neon, dark and light (owner, 2026-10-15): glass and emitted light only. Dark Neon: an Obsidian Glass board, Cyber Cyan
+  #    nodes, Neon Magenta lines for you and electric lime for the other player, Electric Violet glass tiles (the only violet in
+  #    any theme), a near-black room. White Neon: a Frosted Opal Glass board, Hot Coral nodes, Deep Electric Blue lines for you
+  #    and deep teal for the other player, Vivid Lime glass tiles with a deeper lime edge, a cool grey-blue room.
+  neon-dark-page: "#050608"
+  neon-dark-aurora: "linear-gradient(160deg, #040506, #07080B 50%, #050608), lights #FF007F, #00F0FF at 20%"
+  neon-dark-board: "#0B0F19"
+  neon-dark-text: "#F1F5FF"
+  neon-dark-muted: "#AEB8CC"
+  neon-dark-p1: "#FF007F"
+  neon-dark-p1-deep: "#FF4DA0"
+  neon-dark-p2: "#C6FF00"
+  neon-dark-p2-deep: "#D4FF4D"
+  neon-dark-line-1: "#FF007F"
+  neon-dark-line-2: "#C6FF00"
+  neon-dark-box: "#7B2CBF"   # at 78%, both players
+  neon-dark-box-rim: "#A970F0"
+  neon-dark-initial-1: "#FFD1E8"
+  neon-dark-initial-2: "#E6FF8A"
+  neon-dark-dot: "#00F0FF"
   neon-dark-accent: "#F2B84B"
   neon-dark-on-accent: "#241005"
   neon-dark-sel-ring: "#F2B84B"
-  neon-dark-panel: "rgba(40,24,76,.6)"
-  neon-dark-panel-strong: "rgba(62,40,110,.68)"
+  neon-dark-panel: "rgba(17,18,22,.7)"
+  neon-dark-panel-strong: "rgba(30,32,38,.78)"
   neon-dark-focus: "#F2B84B"
-  neon-dark-gold: "#FFC9A0"
-  neon-light-page: "#EEF1FA"
-  neon-light-aurora: "linear-gradient(160deg, #F4F1FF, #EEF1FA 50%, #DDF3F8), lights #FC4422, #21BDCA, #4657CE at 17%"
-  neon-light-board: "rgba(255,255,255,.62)"
+  neon-dark-gold: "#FFD08A"
+  neon-light-page: "#D5DEE7"
+  neon-light-aurora: "linear-gradient(160deg, #DFE6EE, #D5DEE7 55%, #D8E4EB), lights #FF4500, #0047FF, #39FF14 at 12%"
+  neon-light-board: "#EBF1F5"
   neon-light-text: "#141832"
-  neon-light-muted: "#4F5577"
-  neon-light-p1: "#FC4422"
-  neon-light-p2: "#4657CE"
+  neon-light-muted: "#4A5270"
+  neon-light-p1: "#0047FF"
+  neon-light-p1-deep: "#0040E6"
+  neon-light-p2: "#007F73"
+  neon-light-p2-deep: "#00756A"
+  neon-light-line-1: "#0047FF"
+  neon-light-line-2: "#007F73"
+  neon-light-box: "#39FF14"   # at 85%, both players
+  neon-light-box-rim: "#178A00"
+  neon-light-initial-1: "#0A2A8C"
+  neon-light-initial-2: "#003F44"
+  neon-light-dot: "#FF4500"
+  neon-light-dot-edge: "#D93A00"
   neon-light-accent: "#4657CE"
   neon-light-on-accent: "#FFFFFF"
   neon-light-sel-ring: "#4657CE"
   neon-light-panel: "#FFFFFF"
   neon-light-focus: "#4657CE"
   neon-light-gold: "#B5560C"
-  # 3. Cozy Paper: a cream sheet on a kraft desk (light), a mauve sheet on a Deep Plum desk (dark). By day the same five colours
-  #    as Neon; at night brick and teal inks, lightened for the mauve sheet, and gold buttons.
+  # 3. Cozy Paper: a cream sheet on a kraft desk (light). By day orange, teal, indigo, cyan and coral. At night (owner, 2026-10-15:
+  #    "warm, tactile"): a Deep Cocoa Brown sheet of heavyweight cardstock on a Dark Coffee Brown desk, ivory paper dots, warm beige
+  #    die-cut strips for you and denim blue for the other player, a parchment wash for boxes, gold buttons.
   paper-light-desk: "#E6DCC7"
   paper-light-page: "#FCF8EF"
   paper-light-graphite: "#2E2B27"
@@ -107,22 +123,24 @@ colors:
   paper-light-sel-ring: "#007F62"
   paper-light-ring: "#00936F"
   paper-light-gold: "#B04E07"
-  paper-dark-desk: "#200B32"
-  paper-dark-page: "#4A2C63"
-  paper-dark-graphite: "#F3EDF7"
-  paper-dark-graphite-2: "#C5B9D3"
-  paper-dark-p1: "#F07A64"
-  paper-dark-p1-line: "#F28C76"
-  paper-dark-p1-wash: "#4A1A24"
-  paper-dark-p2: "#6EDCC4"
-  paper-dark-p2-line: "#7FE0C8"
-  paper-dark-p2-wash: "#0F3A35"
+  paper-dark-desk: "#492E1F"
+  paper-dark-page: "#513626"
+  paper-dark-graphite: "#F6EEDF"
+  paper-dark-graphite-2: "#DCCBB3"
+  paper-dark-p1: "#E8D5B5"
+  paper-dark-p1-deep: "#F0E2C6"
+  paper-dark-p2: "#8FB8D6"
+  paper-dark-p2-deep: "#A5C6E0"
+  paper-dark-wash: "#F3EAD7"   # at 20%, both players
+  paper-dark-initial-1: "#FFF6E4"
+  paper-dark-initial-2: "#C9E0F2"
+  paper-dark-dot: "#F3EAD7"
   paper-dark-accent: "#F2B84B"
   paper-dark-on-accent: "#241005"
-  paper-dark-panel: "#2E1A40"
+  paper-dark-panel: "#513626"
   paper-dark-sel-ring: "#F2B84B"
   paper-dark-ring: "#F2B84B"
-  paper-dark-gold: "#FFC9A0"
+  paper-dark-gold: "#FFD08A"
 typography:
   table-ui:
     fontFamily: Jost
@@ -180,9 +198,9 @@ spacing:
 
 | Theme | Modes | Character | Fonts |
 |---|---|---|---|
-| 1. Tabletop (Minimalist Premium; the default) | maple table, plum-stained table | A board game on a table with knife marks in its grain: a felt mat (pale mint, or Deep Teal at night) in a wood-grain rim casting a shadow; lines and dots engraved in the felt, a printed guide under every line, solid box fills with a rim; cream (plum at night) cards with soft shadows; burnt orange (brick red at night) for you and golden yellow (light indigo at night) for the opponent, each with their own line colour; burnt orange (gold at night) for the main action | Jost |
-| 2. Neon | dark, light | A room lit by a slowly drifting aurora: a glass board (Deep Indigo at night, white by day) that shows the light behind it in deeper colour, with a sheen and a lit edge; glass cards (frosted at night); lines that glow like tubes with bright cores, dots like indicator lights; brick red (coral by day) for you, teal (indigo by day) for the opponent, gold (indigo by day) for the main action | Unbounded, Manrope |
-| 3. Cozy Paper | cream paper, mauve paper | A sheet of real-looking paper on a kraft (Deep Plum at night) desk: cloudy formation, fibres and tooth you can see; lines and dots printed and pressed into it; hatched boxes; paper-tab buttons; coral (brick at night) for you, indigo (teal at night) for the opponent, indigo (gold at night) for the main action | Kalam (names, scores, headings), Atkinson Hyperlegible (everything else) |
+| 1. Tabletop (Minimalist Premium; the default) | maple table, walnut | By day a board game on a table with knife marks in its grain: a pale mint felt mat in a wood-grain rim casting a shadow; lines and dots engraved in the felt, a printed guide under every line, solid box fills with a rim; cream cards; burnt orange for you, golden yellow for the opponent, each with their own line colour. At night sleek and modern: a Dark Walnut Brown board of matte felt-paper with a fine dusty grain on a Deep Walnut Brown page, no rim; platinum pressed-paper strips for you and copper for the opponent, ash dots slightly raised, captured boxes a dark felt tint; walnut cards. Burnt orange (gold at night) for the main action | Jost |
+| 2. Neon | dark, light | Glass and emitted light only. Dark Neon: an Obsidian Glass board with a crisp specular streak and faint light streaks, Cyber Cyan nodes glowing under the glass, Neon Magenta laser lines for you and electric lime for the opponent with a sharp reflection on the glass, Electric Violet glass tiles, in a near-black room lit by magenta and cyan, frosted cards. White Neon: a Frosted Opal Glass board, milky and evenly lit, Hot Coral nodes, Deep Electric Blue light-pipe lines for you and deep teal for the opponent, Vivid Lime glass tiles with a deeper lime edge, in a cool grey-blue room. Gold (indigo by day) for the main action | Unbounded, Manrope |
+| 3. Cozy Paper | cream paper, cocoa cardstock | By day a sheet of real-looking paper on a kraft desk: cloudy formation, fibres and tooth you can see; lines and dots printed and pressed into it; hatched boxes; coral for you, indigo for the opponent. At night warm and tactile: a Deep Cocoa Brown sheet of heavyweight cardstock (fine tooth, micro-fibres, flecks) on a Dark Coffee Brown desk; ivory paper dots and warm beige die-cut strips for you (denim blue for the opponent), each with a flat drop shadow; captured boxes a parchment wash. Paper-tab buttons; indigo (gold at night) for the main action | Kalam (names, scores, headings), Atkinson Hyperlegible (everything else) |
 
 A theme changes tokens, its materials (backgrounds, the board surface, SVG effects for lines, dots and boxes) and a few component variants, never `rules.ts` or the board's input logic.
 
@@ -197,26 +215,30 @@ Not in the mockups (the spec lists it as an enhancement); added at the owner's r
 
 ## Colors
 
-The front matter holds every token (names prefixed by theme and mode). The palettes are the owner's. By day (2026-10-12): Paper and Neon use orange #FF8C32, teal #00B58C, indigo #4657CE, cyan #21BDCA and coral #FC4422; Tabletop uses burnt orange #D77027, pale mint #C4DFC9, pastel yellow #F7CD70 and golden yellow #F4AF3D. At night, in all three themes (2026-10-13): Deep Plum #200B32, Brick Red #BE3926, Deep Teal #0C4E41 and Deep Indigo #2D2F79. Tabletop's felt is the Deep Teal, Neon's glass board the Deep Indigo and Paper's sheet a mauve (#4A2C63, a lighter plum, so it never matches Neon's board); the page behind each is the Deep Plum. Deeper or lighter shades appear only where text, a line, a ring or a glow needs the contrast.
+The front matter holds every token (names prefixed by theme and mode). The palettes are the owner's. Tabletop and Paper by day (2026-10-12): Paper uses orange #FF8C32, teal #00B58C, indigo #4657CE, cyan #21BDCA and coral #FC4422; Tabletop uses burnt orange #D77027, pale mint #C4DFC9, pastel yellow #F7CD70 and golden yellow #F4AF3D. Tabletop at night, Paper at night and both Neon modes (2026-10-15, superseding the Deep Plum night palette of 2026-10-13): warm browns for the two paper themes (Tabletop: page #4F3B32 Deep Walnut Brown, board #5A4538 Dark Walnut Brown, dots #D6D3CE, platinum lines #E5E4E2; Paper: page #492E1F Dark Coffee Brown, board #513626 Deep Cocoa Brown, dots #F3EAD7, beige lines #E8D5B5), and glass and light for Neon (Dark Neon: board #0B0F19 Obsidian Glass, dots #00F0FF Cyber Cyan, lines #FF007F Neon Magenta, tiles #7B2CBF Electric Violet; White Neon: board #EBF1F5 Frosted Opal Glass, dots #FF4500 Hot Coral, lines #0047FF Deep Electric Blue, tiles #39FF14 Vivid Lime). **Violet appears only in Dark Neon's captured tiles.** Each of these four modes sets every colour token in its own block (`[data-skin="..."][data-theme="..."]`), so none can fall back to another theme's colours; Neon's shared block holds only type and shapes. Deeper or lighter shades appear only where text, a line, a ring or a glow needs the contrast.
 
 **Buttons have their own colour**, used by no player, board or surface (owner, 2026-10-13): gold #F2B84B with dark labels at night in every theme; by day the existing action colours (burnt orange in Tabletop, indigo in Neon and Paper). Every button has depth: a sheen over its fill (lighter at the top, the plain fill across the middle where the label sits, a darker foot shaded in the theme's own hue), a bright top edge and a shadow below; switches are a recessed track with a raised knob. Hover deepens the main action by day (its white label gains contrast) and brightens it at night (its dark label gains contrast).
 
-**Each player has their own line colour in every theme** (owner, 2026-10-13), Tabletop included: burnt orange #BF4E1E and dark golden #7C5E08 engraved in the pale felt by day, light brick #F59A86 and light indigo #B3B8F7 on the Deep Teal felt at night.
+**Each player has their own line colour in every theme** (owner, 2026-10-13), Tabletop included: burnt orange #BF4E1E and dark golden #7C5E08 engraved in the pale felt by day. In the 2026-10-15 modes the brief gives one line colour per theme, which is player 1's; player 2's was chosen to stand apart in hue and for every colour vision type (CIE dE 37 or more under protanopia and deuteranopia): copper #E0A070 beside Tabletop's platinum, denim blue #8FB8D6 beside Paper's beige, electric lime #C6FF00 beside Dark Neon's magenta, deep teal #007F73 beside White Neon's blue (blue and teal light mix to azure where their glows cross; blue with a pink-red would mix to violet). The brief also gives one style for captured boxes per theme: both players' tiles share it, and the rim colour, the stripes or dots and the initial in each player's colour tell them apart.
 
 Rules: text at least 4.5:1, large text and icons at least 3:1, each player's lines (and box edges) at least 3:1 against the board, never colour alone (boxes carry stripes or dots and an initial, the turn pill names the player). Limits handled:
 - Tabletop by day: burnt orange carries white labels only at 19 px bold (3.4:1); the pale felt makes box fills too light against it, so each player's boxes get a rim (4.2:1 and 3.6:1). The two line colours differ in hue and lightness so they can be told apart at a glance.
-- Tabletop at night: the lamp's light on the felt is soft (6% white, 22% by day), because a brighter pool washed the light lines down to about 2.2:1.
+- Tabletop and Paper at night: no light pool, vignette or other visible gradient on the board or the page (the owner's paper rules), so contrast is the same everywhere: platinum 7.1:1 and copper 4.0:1, beige 7.7:1 and denim 5.3:1, ash dots 6.1:1, ivory dots 9.4:1 (measured from pixels).
+- White Neon: Hot Coral dots sit at 3.02:1 on the opal board, so they have no lighter highlight, no transparency and no glow round them (the glass only ever lightens the board, which raises their contrast); the light-pipe core inside each line keeps 85% of the line's colour, so the lightest part of a line stays at 3:1 or more (blue 4.3:1, teal 3.3:1).
+- Dark Neon: magenta lines measure 5.1:1 at their darkest edge and 6.3:1 typically; lime lines 16:1, cyan dots 14:1; the initials on the violet tiles 6.9:1 and 8.5:1.
 - Neon by day: coral reaches 3.5:1 on white, so it draws lines and large numbers, never small text.
 - Small text straight on a textured page (not on a card) uses full ink on Tabletop's wood and Paper's desk by day: muted text fell below 4.5:1 over the sharper grain, knife marks and fibres.
-- Paper and Tabletop at night: the two players' inks differ in lightness as well as hue, for players who see no colour.
+- In every 2026-10-15 mode the two players' line colours differ in hue and in lightness or saturation, for players who see no colour.
 
 ## Materials
 
-The tiles are drawn at twice their CSS size (paper at 1.5x), so they stay sharp on phones, and wrap seamlessly (`src/assets/textures/`, about 210 KB in all; a page loads only its theme's tiles).
-- **Tabletop:** planks of maple (plum-stained at night) with waved grain, latewood lines, pores, knife marks (a light cut face with a dark edge, most on a slant, some cross-hatched in clusters) and a few deeper gouges, a seam every 256 px, light from above and darker edges; the board is felt (crisp short fibres in a soft-light tile) under a lamp, inside a 10 px rim drawn with inset shadows plus a wood-grain ring, so the board's size (and `boardFit.ts`) is unchanged, casting a shadow on the table (brown by day, plum-black at night); lines and dots get an engrave effect (a light edge below, a dark one above).
-- **Neon:** an aurora (a gradient room with three soft lights drifting over 34-46 s) behind a glass board: the room shows through it deepened in colour (`backdrop-filter: saturate(1.5)`), a sheen crosses it, its top edge catches the light, and a soft glow spills round it; at night the cards are frosted glass (`blur(14px)`). The lights are soft radial gradients (no blur filter) that move four times a second in steps of under a pixel on a phone, and they hold still during a drag and with Animations off: an animated blur, or a blur on the board, was redone on every frame and kept the GPU busy (38-71% of a core in the benchmark's software renderer, 5-8% now). Lines, dots and boxes get a two-blur glow in their own colours (a softer single glow by day), and at night each line has a bright core. Glow follows a hierarchy: the main action most, then the selected option and the turn pill, then hover.
-- **Paper:** a paper tile with cloudy formation, short curved fibres in every direction and tooth, strong enough to see at arm's length, that multiplies onto the cream sheet and the kraft desk by day and blends in soft-light on the mauve sheet and the plum desk at night; lines and dots get an emboss effect (pressed into the paper) and dots are printed beads.
-- The effects live once in the board's SVG `<defs>` (`fx-engrave`, `fx-emboss`, `fx-glow`, `fx-glow-soft`, `dot-bead`), sized from the dot spacing, and each theme picks them through tokens (`--ln-filter`, `--dot-filter`, `--bx-filter`, `--cores`). Moves still paint by the next frame on 12x12 boards and on slowed phones.
+The tiles are seamless and a page loads only its theme's tiles (`src/assets/textures/`); every mode stays within 50 KB of texture. Day tiles are drawn at twice their CSS size (paper at 1.5x).
+- **Tabletop by day:** planks of maple with waved grain, latewood lines, pores, knife marks and a few deeper gouges, a seam every 256 px, light from above and darker edges; the board is felt (crisp short fibres in a soft-light tile) under a lamp, inside a 10 px rim drawn with inset shadows plus a wood-grain ring, so the board's size (and `boardFit.ts`) is unchanged; lines and dots get an engrave effect.
+- **Tabletop at night:** one neutral tile, `grain.webp` (20 KB): a fine dusty grain with very soft micro-shadows (a faint relief lit from the top left) and sparse dust, in soft-light over both the walnut page and the felt-paper board, even all over; the board has no rim, just a slim darker edge, a faint lit top edge and a very soft shadow; lines and dots get the lift effect (`fx-lift`: a soft drop shadow in three steps, no blur, under a faint lit edge), and dots are almost flat, matte discs.
+- **Neon:** glass and light only, faked with cheap static layers: no backdrop-filter, no blur and no texture on the board. Dark Neon's obsidian board has a top sheen, faint light streaks and a crisp specular streak drawn over the nodes and lines, so they read as lit under the glass; White Neon's opal board has a milky sheen and a soft inner glow that only ever lighten it. Glow is built from plain strokes: four wider, fainter copies under each line (`.halos`, drawn under the tiles, so the glow never tints a captured tile), a lighter core inside each line, Dark Neon's sharp reflection of each line a little below it on the glass (`.reflect`) and its glow round each node (`.dot-halos`). Captured tiles get a glass base and a crisp highlight across their top left corner. The room is an aurora of soft radial-gradient lights that step four times a second and hold still during a drag and with Animations off (magenta and cyan in a neutral near-black room at night: magenta light on navy, or crossing cyan light, turned violet; coral, blue and lime in a cool grey-blue room by day). Glow follows a hierarchy: the main action most, then the selected option and the turn pill, then hover.
+- **Paper by day:** a paper tile with cloudy formation, short curved fibres and tooth that multiplies onto the cream sheet and the kraft desk; lines and dots get an emboss effect (pressed into the paper) and dots are printed beads.
+- **Paper at night:** one neutral tile, `cardstock.webp` (37 KB): heavyweight cardstock with fine embossed tooth, short micro-fibres and small organic flecks, in soft-light over the coffee desk and the cocoa sheet, even all over; lines and dots get a flat drop shadow (`fx-flat`, like a separate layer of paper, crisp edges) and dots are near-flat ivory discs.
+- The effects live once in the board's SVG `<defs>` (`fx-engrave`, `fx-emboss`, `fx-lift`, `fx-flat`, `dot-bead`, `tile-gloss`), sized from the dot spacing, and each theme picks them through tokens (`--ln-filter`, `--dot-filter`, `--bx-filter`, `--cores`, `--halos`, `--reflect`, `--dot-halos`, `--gloss`). Moves still paint by the next frame on 12x12 boards and on slowed phones.
 
 ## Typography
 
@@ -242,6 +264,9 @@ From the spec's shared section: the contrast rules above; a visible 2-3 px focus
 
 | Date | Decision | Rationale |
 |---|---|---|
+| 2026-10-15 | Tabletop and Cozy Paper at night become warm browns, matte and tactile; Dark Neon and White Neon become glass and emitted light; violet only in Dark Neon's captured tiles | The owner's brief: dark Tabletop and Paper "render violet. Tables and paper aren't violet; these themes should be warm browns". The violet was the 2026-10-13 night palette itself (Deep Plum pages, plum cards, a mauve sheet, set in each theme's night block), not a leak, a CSS order problem or a cached build (the game has no service worker). Each of the four modes now sets every colour token itself. Exact colours and materials are the owner's; Neon's page backgrounds, player 2's colours and the cards are chosen here and listed above. Tabletop and Paper by day are untouched (pixel-identical to the previous build). |
+| 2026-10-15 | Neon's glow from layered strokes; no backdrop-filter and no blur filter on the board | The owner's rules ("no per-element blur... no animated blur", 60 fps on the largest board); the old glow blurred whole groups again on every frame of a growing line. |
+| 2026-10-15 | Player 2 colours: copper, denim blue, electric lime, deep teal | The brief names one line colour per theme; the second is picked for contrast on the board (4.0 to 16:1) and to stay apart from player 1, the dots and the tiles for every colour vision type. White Neon first tried raspberry: its glow mixed with the blue into violet at every junction. |
 | 2026-10-13 | The owner's four dark colours in every theme's dark mode: Tabletop's felt Deep Teal, Neon's glass board Deep Indigo, Paper's sheet a mauve, each page Deep Plum; lighter tints where lines, rings, glow or text need them | The owner's palette for the dark modes. They chose the felt and board colours, a Paper sheet that differs from Neon's board (mauve, picked from screenshots of the options) and lighter tints where needed. Tabletop's lamp on the felt is softer at night, so the light lines keep 3:1. |
 | 2026-10-13 | Buttons have their own colour (gold at night in every theme), and every button has depth in all six modes | The owner: "the color of the button should also be different from the board or the players or any other thing, every button or element should have a depth feel… the buttons should have a modern look". They picked gold over pearl and orchid from screenshots, and asked for the depth style by day too. |
 | 2026-10-13 | Each player has their own line colour in every theme, Tabletop included | The owner asked for it, so Tabletop's single engraved ink is gone. By day its two engraved colours are a brighter burnt orange and a dark golden, far enough apart in hue and lightness to tell at a glance (the first deep orange and deep golden were too close). |
