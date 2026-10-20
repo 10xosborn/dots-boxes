@@ -28,6 +28,10 @@ function getWorker(): Worker | null {
 
 export function resetAI() { const w = getWorker(); if (w) w.postMessage({ type: 'reset' }); else local?.then(e => e.resetGame()); }
 
+/** Hard thinks while the player does: call when it is the player's turn after the AI's move. Worker only (on the main
+ *  thread it would hold up the page); the next move request stops it. */
+export function ponderAI(st: GameState) { const w = getWorker(); if (w) w.postMessage({ type: 'ponder', rows: st.rows, cols: st.cols, drawn: drawnMask(st) }); }
+
 /** Ask the AI for a move. Always resolves to a legal edge. */
 export async function chooseMove(st: GameState, level: Level): Promise<number> {
   const w = getWorker();

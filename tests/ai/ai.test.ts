@@ -27,6 +27,24 @@ function given(g: Geometry, d: Uint8Array, e: number) {
   for (let again = true; again;) { again = false; for (let b = 0; b < g.NB; b++) if (sides(g, dd, b) === 3) { dd[g.boxEdges[b].find(x => !dd[x])!] = 1; n++; again = true; } }
   return n;
 }
+/** Brute force over the drawn lines as a bitmask (up to 31 lines, as on 3x4): value = net boxes for the player to move. */
+function solver(g: Geometry) {
+  const memo = new Map<number, number>(), full = 2 ** g.E - 1;
+  const boxMask = g.boxEdges.map(es => es.reduce((m, e) => m + 2 ** e, 0));
+  const done = (m: number, e: number) => g.edgeBoxes[e].filter(b => ((m + 2 ** e) & boxMask[b]) === boxMask[b]).length;
+  const value = (m: number): number => {
+    if (m === full) return 0;
+    const hit = memo.get(m); if (hit !== undefined) return hit;
+    let best = -99;
+    for (let e = 0; e < g.E; e++) if (!(m & 2 ** e)) best = Math.max(best, worth(m, e));
+    memo.set(m, best); return best;
+  };
+  /** What line e is worth to the player drawing it in position m: boxes it closes, then the rest of the game.
+   *  (0 - x rather than -x: no -0, which toBe tells apart from 0.) */
+  const worth = (m: number, e: number) => { const k = done(m, e); return k ? k + value(m + 2 ** e) : 0 - value(m + 2 ** e); };
+  return { value, worth };
+}
+const mask = (d: Uint8Array) => d.reduce((x, on, e) => (on ? x + 2 ** e : x), 0);
 /** All the moves a level makes in a position, over a few tries (Hard picks at random among equally good moves). */
 const moves = (level: 'easy' | 'medium' | 'hard', g: Geometry, d: Uint8Array, tries = 6) =>
   new Set(Array.from({ length: tries }, () => createAI().choose(g, d, level)));
@@ -89,9 +107,66 @@ describe('known endgames', () => {
   });
 });
 
+describe('two chains to take at once', () => {
+  // Regression: the exact search only weighed declining the first chain it found, never taking another chain first and then
+  // declining that one, so it undervalued some positions (12 of 6,000 3x4 positions with two or more chains to take, against
+  // brute force) and in this one picked a line worth 2 boxes where 4 were there. Found on 2026-10-19 while porting the search.
+  const cases = [`
+      +--+--+--+  +
+      |  |  |  :  |
+      +--+--+--+--+
+      |  :  :  |  |
+      +--+--+--+--+
+      :  :  :  |  |
+      +--+--+  +--+`];
+  it('Hard keeps the best value when two chains can be taken', () => {
+    for (const art of cases) {
+      const { g, d } = parse(art), { value, worth } = solver(g), m = mask(d);
+      for (const e of moves('hard', g, d)) expect(worth(m, e)).toBe(value(m));
+    }
+  });
+});
+
+describe('thinking on the player\'s time', () => {
+  // While the player decides, Hard solves the positions their replies would leave (Game.svelte starts it on the player's
+  // turn, the worker runs it in slices). Hard here gets next to no time of its own, so its moves come from that work.
+  it('finishes, and then plays a best move after every reply', () => {
+    const g = geometry(3, 4), { value, worth } = solver(g);
+    for (let i = 0; i < 3; i++) {
+      let d: Uint8Array;   // random play to 18 lines left, the player to move with no box to take
+      do {
+        const st = newGame({ rows: 3, cols: 4 }, 0);
+        while (!st.over && g.E - st.moves.length > 18) {
+          const dd = drawnMask(st), free = [...dd.keys()].filter(e => !dd[e]);
+          const cap = free.filter(e => completes(g, dd, e)), safe = free.filter(e => isSafe(g, dd, e));
+          const pool = cap.length ? cap : safe.length ? safe : free;
+          play(st, pool[Math.floor(Math.random() * pool.length)]);
+        }
+        d = drawnMask(st);
+      } while (d.reduce((n, on) => n + on, 0) !== g.E - 18 || g.boxEdges.some((_, b) => sides(g, d, b) === 3));
+      const ai = createAI({ timeScale: 0.001 });
+      let slices = 0; while (ai.ponder(g, d, 40)) expect(++slices).toBeLessThan(500);
+      for (const r of [...d.keys()].filter(e => !d[e])) {
+        const c = Uint8Array.from(d); c[r] = 1;
+        expect(worth(mask(c), ai.choose(g, c, 'hard'))).toBe(value(mask(c)));
+      }
+    }
+  });
+
+  it('waits while the player has a box to take', () => {
+    const { g, d } = parse(`
+      +--+--+--+--+
+      |  |  |  :  :
+      +--+--+--+--+
+      :  :  :  :  :
+      +--+--+--+--+`);
+    expect(createAI().ponder(g, d, 40)).toBe(false);
+  });
+});
+
 describe('random positions', () => {
   // Positions from random play on 5x5: both sides take boxes when they can, else draw a random safe line, else any.
-  // `most` caps the moves played (Hard's exact search takes over with 32 of the 60 lines left).
+  // `most` caps the moves played (Hard's exact search takes over with 34 of the 60 lines left).
   function positions(n: number, size = 5, most = 48) {
     const g = geometry(size, size), out: Uint8Array[] = [];
     while (out.length < n) {
@@ -116,10 +191,10 @@ describe('random positions', () => {
     }
   });
 
-  // Before its exact search starts (more than 32 lines left on 5x5). Inside that window perfect play may give more away
+  // Before its exact search starts (more than 34 lines left on 5x5). Inside that window perfect play may give more away
   // on purpose (found by /qa on 2026-10-15: a 5-box sacrifice with one safe line left, confirmed optimal by the search).
   it('Hard never gives boxes away needlessly: with safe lines left, a third side is only ever a sacrifice of 1 or 2 boxes', () => {
-    const { g, out } = positions(30, 5, 27);
+    const { g, out } = positions(30, 5, 25);
     for (const d of out) {
       const e = createAI({ timeScale: 0.15 }).choose(g, d, 'hard'), free = [...d.keys()].filter(x => !d[x]);
       expect(d[e]).toBe(0);
@@ -129,25 +204,15 @@ describe('random positions', () => {
 });
 
 describe('3x3 play is perfect', () => {
-  // An independent solver over the 24-line 3x3 board (bitmask negamax with memo): value = net boxes for the mover.
-  const g = geometry(3, 3), memo = new Map<number, number>();
-  const boxMask = g.boxEdges.map(es => es.reduce((m, e) => m | (1 << e), 0));
-  const done = (m: number, e: number) => g.edgeBoxes[e].filter(b => (m | (1 << e)) === ((m | (1 << e)) | boxMask[b]) && (m & boxMask[b]) !== boxMask[b]).length;
-  function value(m: number): number {
-    if (m === (1 << 24) - 1) return 0;
-    const hit = memo.get(m); if (hit !== undefined) return hit;
-    let best = -99;
-    for (let e = 0; e < 24; e++) if (!(m & (1 << e))) { const k = done(m, e), w = k ? k + value(m | (1 << e)) : -value(m | (1 << e)); if (w > best) best = w; }
-    memo.set(m, best); return best;
-  }
+  // The brute-force solver above, over the 24-line 3x3 board.
+  const g = geometry(3, 3), { value, worth } = solver(g);
   it('Hard chooses an optimal move in 40 random positions with 10 to 14 lines left', () => {
     for (let i = 0; i < 40; i++) {
       const st = newGame({ rows: 3, cols: 3 }, 0), left = 10 + (i % 5);
       while (24 - st.moves.length > left) { const free = [...Array(24).keys()].filter(e => st.lines[e] < 0); play(st, free[Math.floor(Math.random() * free.length)]); }
       if (st.over) continue;
-      const d = drawnMask(st), m = d.reduce((x, on, e) => (on ? x | (1 << e) : x), 0);
-      const e = createAI().choose(g, d, 'hard'), k = done(m, e), got = k ? k + value(m | (1 << e)) : -value(m | (1 << e));
-      expect(got).toBe(value(m));
+      const d = drawnMask(st);
+      expect(worth(mask(d), createAI().choose(g, d, 'hard'))).toBe(value(mask(d)));
     }
   });
 });

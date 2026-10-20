@@ -7,6 +7,8 @@
 //                                   was live before the October 2026 AI work)
 //   --slow 4                        play as a device 4 times slower would: every engine gets a quarter of its
 //                                   thinking time (a mid-range Android phone is roughly 3-5 times slower than a PC)
+//   --ponder 3000                   the other player takes this long over each move (on the device, so a quarter of
+//                                   it at --slow 4), and Hard (this version) thinks meanwhile, as the game's worker does
 // Each side gets its own engine, like the game's worker. Think times are wall-clock per move on this computer.
 // Needs Node 22.18 or newer (it runs the TypeScript import of rules.ts directly) and git for the baseline.
 import { execFileSync } from 'node:child_process';
@@ -24,6 +26,7 @@ const pairs = arg('pairs', 'hard:medium,hard:old-hard,medium:easy,medium:old-med
 const baseline = arg('baseline', '2f770e0');
 // --slow N: play as if on a device N times slower than this computer (each engine gets 1/N of its thinking time).
 const slow = +arg('slow', '1');
+const ponderMs = +arg('ponder', '0');
 
 let oldCreate = null;
 if (pairs.flat().some(l => l.startsWith('old-'))) {
@@ -35,7 +38,8 @@ if (pairs.flat().some(l => l.startsWith('old-'))) {
 }
 const engine = level => {
   const old = level.startsWith('old-');
-  return { name: level, level: old ? level.slice(4) : level, ai: old ? oldCreate() : createAI({ timeScale: 1 / slow }), times: [] };
+  // Baselines that take a timeScale get it too (2f770e0 has none: its budget is rewritten above).
+  return { name: level, level: old ? level.slice(4) : level, ai: (old ? oldCreate : createAI)({ timeScale: 1 / slow }), times: [] };
 };
 
 /** One game; returns A's net result (+ win, 0 draw, - loss) and A's margin. */
@@ -43,8 +47,10 @@ function game(size, A, B, aFirst) {
   const st = newGame(size, 0), g = geometry(size.rows, size.cols), seats = aFirst ? [A, B] : [B, A];
   A.ai.resetGame(); B.ai.resetGame();
   while (!st.over) {
-    const s = seats[st.turn], t = performance.now();
-    const e = s.ai.choose(g, drawnMask(st), s.level);
+    const s = seats[st.turn], o = seats[1 - st.turn], d = drawnMask(st);
+    if (ponderMs && o.name === 'hard') { const until = performance.now() + ponderMs / slow; while (performance.now() < until && o.ai.ponder(g, d, 40 / slow)); }
+    const t = performance.now();
+    const e = s.ai.choose(g, d, s.level);
     s.times.push(performance.now() - t);
     if (play(st, e) === null) throw new Error(`${s.name} played an illegal move (${e}) on ${size.rows}x${size.cols}`);
   }
@@ -54,7 +60,7 @@ function game(size, A, B, aFirst) {
 
 const pad = (s, n) => String(s).padEnd(n), num = (v, n) => String(v).padStart(n);
 const fmt = ms => (ms < 10 ? ms.toFixed(1) : Math.round(ms).toString());
-console.log(`${games} games per pairing and size, alternating who starts; baseline for old-* levels: ${baseline}${slow !== 1 ? `; thinking time / ${slow} (as a device ${slow}x slower)` : ''}\n`);
+console.log(`${games} games per pairing and size, alternating who starts; baseline for old-* levels: ${baseline}${slow !== 1 ? `; thinking time / ${slow} (as a device ${slow}x slower)` : ''}${ponderMs ? `; Hard thinks during the other player's ${ponderMs} ms a move` : ''}\n`);
 console.log(`${pad('A vs B', 22)}${pad('board', 7)}${num('A wins', 7)}${num('draws', 7)}${num('losses', 7)}${num('A win %', 9)}${num('avg margin', 11)}   think ms A avg / max   B avg / max`);
 for (const [la, lb] of pairs) for (const size of sizes) {
   const A = engine(la), B = engine(lb);

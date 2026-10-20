@@ -4,7 +4,7 @@
   import { newGame, play, replay, winner, isStandard, sizeLabel, type GameState, type Player } from '../lib/engine/rules';
   import { saveActive, clearActive, leaveActive, type ActiveGame } from '../lib/resume';
   import { choiceSize } from '../lib/boardFit';
-  import { chooseMove, resetAI } from '../lib/engine/ai';
+  import { chooseMove, ponderAI, resetAI } from '../lib/engine/ai';
   import { xpFor, level, stats } from '../lib/progression';
   import { AI_NAMES, DIFF_LABEL, fmtClock, fmtTime, initials, uid } from '../lib/format';
   import { sfx } from '../lib/sound';
@@ -58,7 +58,9 @@
     clock = setInterval(() => { if (!over) ms = performance.now() - t0; }, 250);
     announce = from ? `Game resumed. Score ${score[0]} to ${score[1]}. ${names[turn]} to move.` : `${names[first]} starts.`;
     if (from) persist(); else clearActive();
-    queueAI();
+    // Back in a game on the player's turn (a reload): Hard starts thinking once the page has had time to appear.
+    if (from && st.turn === 0) { const my = token; setTimeout(() => { if (my === token && !st.over && st.turn === 0) queueAI(); }, 500); }
+    else queueAI();
   }
 
   /** Save the game in progress, so a reload or a closed app can't lose it. */
@@ -78,13 +80,17 @@
     sfx.play(done.length ? 'box' : 'line');
     announce = `${names[p]} drew a line${done.length ? ` and closed ${done.length} box${done.length > 1 ? 'es' : ''}` : ''}. Score ${score[0]} to ${score[1]}.`;
     if (st.over) { over = true; clearActive(); ms = performance.now() - t0; clearInterval(clock); setTimeout(finish, app.settings.anim ? 500 : 60); }
-    else { persist(); queueAI(); }
+    else { persist(); queueAI(p === 1); }
   }
 
-  async function queueAI() {
-    if (!vsAI() || st.over || st.turn !== 1) return;
+  /** The AI's next line, after a short readable pause: before the first line of its turn, and a shorter one before each
+   *  line after it closes a box (long enough for the line and box animations), so it takes a chain briskly. `again`:
+   *  the AI's last line closed a box. On the player's turn Hard thinks instead. */
+  async function queueAI(again = false) {
+    if (!vsAI() || st.over) return;
+    if (st.turn !== 1) { if (cfg.diff === 'hard') ponderAI(st); return; }
     const my = token; thinking = true;
-    const started = performance.now(), delay = 300 + Math.random() * 500; // readable "thinking" pause
+    const started = performance.now(), delay = again ? 200 + Math.random() * 80 : 250 + Math.random() * 200;
     const e = await chooseMove(st, cfg.diff);
     const wait = delay - (performance.now() - started);
     if (wait > 0) await new Promise(r => setTimeout(r, wait));
@@ -158,7 +164,7 @@
 
   start(app.resume); app.resume = null;
   onDestroy(() => {
-    token++; clearInterval(clock);
+    token++; clearInterval(clock); resetAI();   // also stops Hard thinking on the player's time
     document.removeEventListener('visibilitychange', onHide); window.removeEventListener('pagehide', persist);
     leaveActive();   // left for another screen: the game stays saved, and Home offers to continue it
   });

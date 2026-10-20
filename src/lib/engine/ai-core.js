@@ -28,7 +28,8 @@
  * Create an independent AI engine instance (holds its own transposition table).
  * `timeScale` scales Hard's thinking time (the benchmark uses it to play as a slower device would).
  * @param {{timeScale?: number}} [opts]
- * @returns {{choose:(g:any,d:Uint8Array,level:'easy'|'medium'|'hard')=>number, resetGame:()=>void}}
+ * @returns {{choose:(g:any,d:Uint8Array,level:'easy'|'medium'|'hard')=>number, resetGame:()=>void,
+ *   ponder:(g:any,d:Uint8Array,sliceMs:number)=>boolean}}
  */
 export function createAI({timeScale=1}={}){
   let ROWS,COLS,H,E,NB,boxEdges,edgeBoxes,geoKey='';
@@ -37,7 +38,7 @@ export function createAI({timeScale=1}={}){
     const key=g.rows+'x'+g.cols;
     if(geoKey===key) return; geoKey=key;
     ({rows:ROWS,cols:COLS,H,E,NB,boxEdges,edgeBoxes}=g);
-    vMemo.clear(); TT.clear(); initZobrist();
+    vMemo.clear(); initZobrist(); ttInit(); solved.clear(); pondKey=''; pondQueue=[];
   }
 const sides=(d,b)=>{let s=0;for(const e of boxEdges[b]) if(d[e]) s++;return s};
   const missingEdge=(d,b)=>boxEdges[b].find(e=>!d[e]);
@@ -354,43 +355,117 @@ const sides=(d,b)=>{let s=0;for(const e of boxEdges[b]) if(d[e]) s++;return s};
   }
 
   /* ---------- exact search: negamax + alpha-beta + transposition table ----------
-     Value = net boxes (from the remaining ones) for the player to move.
-     Pruning rule (Barker & Korf): if a 3-sided box's missing edge does not lead into a
-     2-sided box, capturing it is always optimal, so it is the only move searched.
-     Otherwise only "capture" or "decline (hand out)" need to be searched.
-     Keys are 53-bit Zobrist hashes so any board size fits in a JS number. */
-  let dx,scx,undrawnN=0,z1=0,z2=0,Z1,Z2;
-  function initZobrist(){ dx=new Uint8Array(E); scx=new Uint8Array(NB);
+     Value = net boxes (from the remaining ones) for the player to move. After Barker & Korf (2012): boxes that are
+     provably part of best play are taken first (all but the last two of a chain open at one end, all but the last four
+     of one open at both ends), and each chain left at that point is either taken or declined (handed out); a box's
+     undrawn border lines are interchangeable, so only one of them is searched; lines are tried from the centre out,
+     safe lines before lines that give a box its third side, the table's best line first. The table (typed arrays: two
+     bounds and the best line per entry, two slots per bucket) is keyed by the position's canonical form under the
+     board's symmetries (8 on a square board, 4 otherwise), so mirror images share an entry. A position with no safe line
+     where every open box has two sides is valued straight from its chains and loops (V above). */
+  let Z1,Z2,NS=1,ZS1,ZS2,XS,XI,ORDER,SIB,EB0,EB1,dx,scx,K1,K2,stk,sp=0,undrawnN=0,wE,MOVES,wl=0,wclosed=false;
+  function initZobrist(){
     Z1=new Int32Array(E); Z2=new Int32Array(E);
-    for(let e=0;e<E;e++){Z1[e]=(Math.random()*4294967296)|0;Z2[e]=(Math.random()*4294967296)|0} }
-  function load(d){ dx.set(d); scx.fill(0); undrawnN=0; z1=0; z2=0;
-    for(let e=0;e<E;e++){ if(d[e]){z1^=Z1[e];z2^=Z2[e];for(const b of edgeBoxes[e]) scx[b]++} else undrawnN++ } }
-  function put(e){dx[e]=1;undrawnN--;z1^=Z1[e];z2^=Z2[e];let k=0;for(const b of edgeBoxes[e]) if(++scx[b]===4)k++;return k}
-  function unput(e){dx[e]=0;undrawnN++;z1^=Z1[e];z2^=Z2[e];for(const b of edgeBoxes[e])scx[b]--}
-  const oth=(e,b)=>{const bs=edgeBoxes[e];return bs.length<2?-1:(bs[0]===b?bs[1]:bs[0])};
-  const missx=b=>{for(const e of boxEdges[b]) if(!dx[e]) return e};
-  function gen(){
-    let first=-1;
-    for(let b=0;b<NB;b++){ if(scx[b]!==3) continue; const e=missx(b),B=oth(e,b);
-      if(B<0||scx[B]!==2) return [e]; if(first<0) first=b }
-    if(first>=0){const e=missx(first),B=oth(e,first);let f=-1;for(const x of boxEdges[B]) if(!dx[x]&&x!==e) f=x;return f>=0?[e,f]:[e]}
-    const safe=[],rest=[];
-    for(let e=0;e<E;e++){ if(dx[e]) continue; let ok=true; for(const b of edgeBoxes[e]) if(scx[b]>=2) ok=false; (ok?safe:rest).push(e) }
-    return safe.concat(rest);
+    for(let e=0;e<E;e++){Z1[e]=(Math.random()*4294967296)|0;Z2[e]=(Math.random()*4294967296)|0}
+    // Edge e's end dots (as rules.ts numbers them), the board's symmetries as edge maps, and per-symmetry keys.
+    const ends=e=>{ if(e<H){const r=(e/COLS)|0,c=e%COLS;return [c,r,c+1,r]} const k=e-H,r=(k/(COLS+1))|0,c=k%(COLS+1);return [c,r,c,r+1] };
+    const at=new Map(); for(let e=0;e<E;e++) at.set(ends(e).join(),e);
+    const edgeAt=(x1,y1,x2,y2)=>at.get(x1<x2||y1<y2?[x1,y1,x2,y2].join():[x2,y2,x1,y1].join());
+    const T=[(x,y)=>[x,y],(x,y)=>[COLS-x,y],(x,y)=>[x,ROWS-y],(x,y)=>[COLS-x,ROWS-y]];
+    if(ROWS===COLS) T.push((x,y)=>[y,x],(x,y)=>[ROWS-y,x],(x,y)=>[y,COLS-x],(x,y)=>[ROWS-y,COLS-x]);
+    NS=T.length;
+    XS=T.map(f=>Int16Array.from({length:E},(_,e)=>{const [a,b,c,d]=ends(e),[x1,y1]=f(a,b),[x2,y2]=f(c,d);return edgeAt(x1,y1,x2,y2)}));
+    XI=XS.map(P=>{const Q=new Int16Array(E);for(let e=0;e<E;e++) Q[P[e]]=e;return Q});
+    ZS1=new Int32Array(E*NS); ZS2=new Int32Array(E*NS);
+    for(let e=0;e<E;e++) for(let s=0;s<NS;s++){ZS1[e*NS+s]=Z1[XS[s][e]];ZS2[e*NS+s]=Z2[XS[s][e]]}
+    const mid=e=>{const [x1,y1,x2,y2]=ends(e),mx=(x1+x2-COLS)/2,my=(y1+y2-ROWS)/2;return mx*mx+my*my};
+    ORDER=Int16Array.from([...Array(E).keys()].sort((a,b)=>mid(a)-mid(b)||a-b));
+    EB0=new Int16Array(E); EB1=new Int16Array(E);
+    for(let e=0;e<E;e++){EB0[e]=edgeBoxes[e][0];EB1[e]=edgeBoxes[e].length>1?edgeBoxes[e][1]:-1}
+    SIB=boxEdges.map(es=>es.filter(e=>EB1[e]<0).sort((a,b)=>a-b));   // each box's border lines
+    dx=new Uint8Array(E); scx=new Uint8Array(NB); K1=new Int32Array(NS); K2=new Int32Array(NS);
+    stk=new Int16Array(E+1); wE=new Int16Array(NB+1); MOVES=new Int16Array((E+1)*(E+1));
   }
-  const TT=new Map(); let nodes=0,deadline=0; const ABORT={};
-  function search(a,b){
-    if(!undrawnN) return 0;
-    // Check the clock every 2048 nodes: a time limit behaves the same on fast and slow devices.
-    if((++nodes&2047)===0&&performance.now()>deadline) throw ABORT;
-    const key=(z1>>>0)*2097152+(z2&0x1FFFFF), t=TT.get(key);
-    if(t!==undefined){ if(t[0]>=b) return t[0]; if(t[1]<=a) return t[1]; if(t[0]===t[1]) return t[0]; if(t[0]>a) a=t[0]; if(t[1]<b) b=t[1] }
-    const a0=a,b0=b; let best=-999;
-    for(const e of gen()){ const k=put(e); let v; try{ v=k?k+search(a-k,b-k):-search(-b,-a) } finally{ unput(e) }
-      if(v>best){best=v;if(v>a)a=v;if(a>=b)break} }
-    let lb=t?t[0]:-999, ub=t?t[1]:999;
-    if(best<=a0) ub=Math.min(ub,best); else if(best>=b0) lb=Math.max(lb,best); else lb=ub=best;
-    TT.set(key,[lb,ub]); return best;
+  const oth=(e,b)=>EB0[e]===b?EB1[e]:EB0[e];
+  const rep=e=>{ if(EB1[e]>=0) return e; for(const x of SIB[EB0[e]]) if(!dx[x]) return x; return e };   // first undrawn border line of e's box
+  const xsafe=e=>scx[EB0[e]]<2&&(EB1[e]<0||scx[EB1[e]]<2);
+  function put(e){ stk[sp++]=e; dx[e]=1; undrawnN--;
+    const o=e*NS; for(let s=0;s<NS;s++){K1[s]^=ZS1[o+s];K2[s]^=ZS2[o+s]}
+    let k=0; if(++scx[EB0[e]]===4) k++; const b=EB1[e]; if(b>=0&&++scx[b]===4) k++; return k }
+  function undoTo(p){ while(sp>p){ const e=stk[--sp]; dx[e]=0; undrawnN++;
+    const o=e*NS; for(let s=0;s<NS;s++){K1[s]^=ZS1[o+s];K2[s]^=ZS2[o+s]}
+    scx[EB0[e]]--; const b=EB1[e]; if(b>=0) scx[b]-- } }
+  function load(d){ sp=0; dx.fill(0); scx.fill(0); K1.fill(0); K2.fill(0); undrawnN=E; for(let e=0;e<E;e++) if(d[e]) put(e); sp=0 }
+  /** From 3-sided box b: the chain's lines in capture order (wE), its boxes (wl), closed = it ends at another 3-sided box. */
+  function walk(b){
+    let cur=b,prev=-1,n=0;
+    for(;;){ let e=-1; for(const x of boxEdges[cur]) if(!dx[x]&&x!==prev){e=x;break}
+      wE[n++]=e; const nx=oth(e,cur);
+      if(nx<0){wl=n;wclosed=false;return} const s=scx[nx];
+      if(s===3){wl=n+1;wclosed=true;return} if(s!==2){wl=n;wclosed=false;return}
+      cur=nx; prev=e }
+  }
+  /** Takes every box best play surely takes; returns how many. Chains left at their decision point stay (wl 2 open, 4 closed). */
+  function forced(){
+    let got=0;
+    for(;;){ let any=false;
+      for(let b=0;b<NB;b++){ if(scx[b]!==3) continue; walk(b); let n;
+        if(!wclosed){ if(wl===2) continue; n=wl===1?1:wl-2 } else { if(wl===4) continue; n=wl<=3?wl-1:wl-4 }
+        for(let i=0;i<n;i++) got+=put(wE[i]); any=true; break }
+      if(!any) return got }
+  }
+  /** Each chain left at its decision point: [take its first box, decline it] (a closed chain once, not from both ends). */
+  function decisions(){
+    let out=null,skip=null;
+    for(let b=0;b<NB;b++){ if(scx[b]!==3||(skip&&skip.includes(b))) continue; walk(b);
+      if(wclosed){let cur=b;for(let i=0;i<wl-1;i++) cur=oth(wE[i],cur);(skip??=[]).push(cur)}
+      (out??=[]).push(wE[0],wE[1]) }
+    return out;
+  }
+  const TS=1<<19, TM=TS-1; let TK1=null,TK2,TLB,TUB,TMV,TDP;
+  function ttInit(){ if(!TK1){TK1=new Int32Array(TS);TK2=new Int32Array(TS);TLB=new Int16Array(TS);TUB=new Int16Array(TS);TMV=new Int16Array(TS);TDP=new Uint16Array(TS)} else TDP.fill(0) }
+  function ttFind(k1,k2){ const i=(k1&TM)&~1; if(TDP[i]&&TK1[i]===k1&&TK2[i]===k2) return i; if(TDP[i+1]&&TK1[i+1]===k1&&TK2[i+1]===k2) return i+1; return -1 }
+  function ttStore(k1,k2,s,lb,ub,mv){
+    let j=ttFind(k1,k2);
+    if(j<0){ const i=(k1&TM)&~1;
+      if(TDP[i]<=undrawnN){ if(TDP[i]){TK1[i+1]=TK1[i];TK2[i+1]=TK2[i];TLB[i+1]=TLB[i];TUB[i+1]=TUB[i];TMV[i+1]=TMV[i];TDP[i+1]=TDP[i]} j=i } else j=i+1 }
+    TK1[j]=k1; TK2[j]=k2; TLB[j]=lb; TUB[j]=ub; TMV[j]=mv>=0?XS[s][mv]:-1; TDP[j]=undrawnN;
+  }
+  let nodes=0,deadline=0; const ABORT={};
+  function node(a,b){
+    const p0=sp, got=forced();
+    if(!undrawnN){ undoTo(p0); return got }
+    const dec=decisions(); let v;
+    if(dec){ let x=a-got,y=b-got; v=-999;
+      for(let i=0;i<dec.length;i+=2){
+        let p=sp, k=put(dec[i]), w=k+node(x-k,y-k); undoTo(p);              // take: the same player moves on
+        if(w>v){v=w;if(w>x)x=w;if(x>=y)break}
+        p=sp; put(dec[i+1]); w=-node(-y,-x); undoTo(p);                      // decline: the turn passes
+        if(w>v){v=w;if(w>x)x=w;if(x>=y)break} }
+    } else v=quiet(a-got,b-got);
+    undoTo(p0); return got+v;
+  }
+  function quiet(a,b){
+    // Check the clock every 4096 positions: a time limit behaves the same on fast and slow devices.
+    if((++nodes&4095)===0&&performance.now()>deadline) throw ABORT;
+    let k1=K1[0],k2=K2[0],s=0;
+    for(let t=1;t<NS;t++){ const u=K1[t]>>>0,w=k1>>>0; if(u<w||(u===w&&(K2[t]>>>0)<(k2>>>0))){k1=K1[t];k2=K2[t];s=t} }
+    const hit=ttFind(k1,k2); let hint=-1,lb=-999,ub=999;
+    if(hit>=0){ lb=TLB[hit]; ub=TUB[hit];
+      if(lb>=b) return lb; if(ub<=a) return ub; if(lb===ub) return lb; if(lb>a) a=lb; if(ub<b) b=ub;
+      if(TMV[hit]>=0){ hint=XI[s][TMV[hit]]; hint=dx[hint]?-1:rep(hint) } }
+    const base=(E-undrawnN)*(E+1); let n=0,safeN=0;
+    if(hint>=0){ MOVES[base+n++]=hint; if(xsafe(hint)) safeN++ }
+    for(let i=0;i<E;i++){ const e=ORDER[i]; if(dx[e]||e===hint||(EB1[e]<0&&rep(e)!==e)) continue; if(xsafe(e)){MOVES[base+n++]=e;safeN++} }
+    if(!safeN){ let simple=true; for(let x=0;x<NB;x++) if(scx[x]!==4&&scx[x]!==2){simple=false;break}
+      if(simple){ const v=Vof(components(dx)); ttStore(k1,k2,s,v,v,-1); return v } }
+    for(let i=0;i<E;i++){ const e=ORDER[i]; if(dx[e]||e===hint||(EB1[e]<0&&rep(e)!==e)) continue; if(!xsafe(e)) MOVES[base+n++]=e }
+    const a0=a; let best=-999,bm=-1;
+    for(let i=0;i<n;i++){ const e=MOVES[base+i],p=sp,sf=xsafe(e); put(e);
+      const v=sf?-quiet(-b,-a):-node(-b,-a); undoTo(p);                     // a safe line leaves nothing to take
+      if(v>best){best=v;bm=e;if(v>a){a=v;if(a>=b)break}} }
+    if(best<=a0) ub=Math.min(ub,best); else if(best>=b) lb=Math.max(lb,best); else lb=ub=best;
+    ttStore(k1,k2,s,lb,ub,bm); return best;
   }
   /* ---------- 3×3 opening book ----------
      Every optimal move for every position with at most BOOK_LINES lines drawn, taken from a full
@@ -428,29 +503,70 @@ const sides=(d,b)=>{let s=0;for(const e of boxEdges[b]) if(d[e]) s++;return s};
     const r=[]; for(let e=0;e<E;e++) if(!d[e]&&v>>SYM[t][e]&1) r.push(e);
     return r.length?r:null;
   }
-  // Exact search starts once this few lines remain; small boards are searched from the start.
-  // (Measured on positions from real play: 4×4 with 26 lines left takes about 0.1-0.2 s, 28 often over 0.5 s; 5×5 with
-  // 32 left about 10-30 ms; 6×6 to 8×8 with 40 left under 15 ms. A search that runs out isn't retried until fewer lines remain.)
-  const exactFrom=()=>NB<=9?99:NB<=16?26:NB<=25?32:40;
+  // Exact search starts once this few lines remain; small boards are searched from the start. Set so a phone (about 4x
+  // slower than the PC these were measured on) usually finishes inside the 0.4 s budget. Measured on a PC, all optimal moves
+  // from positions of real play, empty table: 4×4 with 26 left median 55 ms (90% under 70), 28 left 0.3 s; 5×5 with 34 left
+  // 49 ms (90% under 85), 36 left 0.3 s; 6×6 with 44 left 30 ms (90% under 61), 46 left 0.2 s; 7×7 with 56 left 46 ms (90%
+  // under 61), 60 left mostly over 0.4 s. A search that runs out isn't retried until fewer lines remain.
+  const exactFrom=()=>NB<=9?99:NB<=16?26:NB<=25?34:NB<=36?44:56;
   // Wall-clock limit for one Hard move, and the time one exact search may take within it. 3×3 gets
   // longer so it always finishes (that keeps its play perfect after the opening book); elsewhere a
   // search that runs out leaves the rest of the move's time to the strategy below.
   const MOVE_MS=700, budgetMs=()=>ROWS===3&&COLS===3?1500:NB<=9?600:400;
   let failAt=999;
+  /** Root lines worth searching: the first box best play surely takes; else each chain's take and decline; else every
+   *  line (one of each box's interchangeable border lines), safe lines first, from the centre out. */
+  function rootMoves(){
+    for(let b=0;b<NB;b++){ if(scx[b]!==3) continue; walk(b); if(wclosed?wl!==4:wl!==2) return [wE[0]] }
+    const dec=decisions(); if(dec) return dec;
+    const sf=[],rest=[]; for(let i=0;i<E;i++){ const e=ORDER[i]; if(dx[e]||(EB1[e]<0&&rep(e)!==e)) continue; (xsafe(e)?sf:rest).push(e) }
+    return sf.concat(rest);
+  }
+  /** Every optimal line in the loaded position, and its value. Each root line is searched only as far as needed to tell
+   *  whether it ties or beats the best so far: one that can't reach it fails low, cheaply. */
+  function rootSearch(){
+    let best=-999,bm=[];
+    for(const e of rootMoves()){ const p=sp,k=put(e), v=k?k+node(best-1-k,999-k):-node(-999,1-best); undoTo(p);
+      if(v>best){best=v;bm=[e]} else if(v===best) bm.push(e) }
+    for(const e of [...bm]) if(EB1[e]<0) for(const x of SIB[EB0[e]]) if(!dx[x]&&!bm.includes(x)) bm.push(x);   // its box's other border lines are as good
+    return {v:best,moves:bm};
+  }
   function exactBest(d,moveDeadline){
     load(d);
     if(undrawnN>exactFrom()||undrawnN>=failAt) return null;
-    if(TT.size>3000000) TT.clear();
     const now=performance.now();
     nodes=0; deadline=ROWS===3&&COLS===3?now+budgetMs()*timeScale:Math.min(now+budgetMs()*timeScale,moveDeadline-150*timeScale);
-    try{
-      // Root moves in the search's own order (forced captures, then safe lines first), each searched only as far as
-      // needed to tell whether it ties or beats the best so far: one that can't reach it fails low, cheaply.
-      let best=-999,bm=[];
-      for(const e of gen()){ const k=put(e); let v; try{ v=k?k+search(best-1-k,999-k):-search(-999,1-best) } finally{ unput(e) }
-        if(v>best){best=v;bm=[e]} else if(v===best) bm.push(e) }
-      return {v:best,moves:bm};
-    }catch(x){ if(x===ABORT){ failAt=undrawnN; return null } throw x }
+    try{ return rootSearch() }
+    catch(x){ if(x===ABORT){ undoTo(0); failAt=undrawnN; return null } throw x }
+  }
+
+  /* ---------- thinking on the other player's time (Hard) ----------
+     While the other player decides, solve the positions their replies would leave, a short slice at a time (the caller
+     yields between slices), one reply at a time, safe lines first from the centre out. Hard's next move is then exact,
+     and instant, up to a few lines before its own budget reaches. A reply still unsolved after PONDER_TURN ms goes to the
+     back of the queue (the table keeps what was found). Results are kept by position for the rest of the game. */
+  const PONDER_EXTRA=4, PONDER_TURN=1000;
+  let pondKey='',pondQueue=[],pondSpent=0; const solved=new Map();
+  /** One slice of thinking on position d (the other player to move). Returns true while there is more to do. */
+  function ponder(g,d,sliceMs){
+    setGeometry(g);
+    const key=d.join('');
+    if(key!==pondKey){ pondKey=key; pondQueue=[]; pondSpent=0;
+      if(capBoxes(d).length) return false;   // they take a box first and move again: nothing to prepare yet
+      const order=[...ORDER].filter(e=>!d[e]);
+      for(const e of order) if(edgeBoxes[e].every(b=>sides(d,b)<2)) pondQueue.push(e);
+      for(const e of order) if(!pondQueue.includes(e)) pondQueue.push(e) }
+    while(pondQueue.length){
+      const r=pondQueue[0], c=Uint8Array.from(d); c[r]=1; const ck=c.join('');
+      load(c);
+      if(solved.has(ck)||undrawnN>exactFrom()+PONDER_EXTRA||ROWS===3&&COLS===3&&bookMoves(c)){ pondQueue.shift(); pondSpent=0; continue }
+      const t=performance.now(); nodes=0; deadline=t+sliceMs;
+      try{ solved.set(ck,rootSearch()); pondQueue.shift(); pondSpent=0 }
+      catch(x){ if(x!==ABORT) throw x; undoTo(0);
+        if((pondSpent+=performance.now()-t)>=PONDER_TURN*timeScale){ pondQueue.push(pondQueue.shift()); pondSpent=0 } }
+      return pondQueue.length>0;
+    }
+    return false;
   }
 
   /** Main entry: returns an edge index. `d` is the 0/1 drawn mask. Always legal. */
@@ -474,6 +590,7 @@ const sides=(d,b)=>{let s=0;for(const e of boxEdges[b]) if(d[e]) s++;return s};
     const deadline=performance.now()+MOVE_MS*timeScale;
     // Every optimal move, from the 3×3 opening book or else the exact search.
     let best=ROWS===3&&COLS===3?bookMoves(d):null;
+    if(!best){const p=solved.get(d.join('')); if(p) best=p.moves}   // solved while the other player was thinking
     if(!best){const ex=exactBest(d,deadline); if(ex) best=ex.moves}
     if(best&&best.length){ // all equally good: prefer natural-looking ones (captures, then safe lines, then the fewest boxes given away), then pick at random
       const cap=best.filter(e=>edgeBoxes[e].some(b=>sides(d,b)===3)); if(cap.length) return pick(cap);
@@ -484,8 +601,8 @@ const sides=(d,b)=>{let s=0;for(const e of boxEdges[b]) if(d[e]) s++;return s};
     const e=hardMove(d,caps,safe,deadline);
     return (e>=0&&d[e]===0)?e:pick(free);
   }
-  // New game: also empty the search cache. With varied play, the last game's positions rarely come up
-  // again, and across a session the cache would grow by tens of thousands of entries per game.
-  const resetGame=()=>{failAt=999;TT.clear()};
-  return {choose,resetGame};
+  // New game: also empty the search table and what was solved on the other player's time (with varied play, the
+  // last game's positions rarely come up again).
+  const resetGame=()=>{failAt=999;if(TK1) TDP.fill(0);solved.clear();pondKey='';pondQueue=[];pondSpent=0};
+  return {choose,resetGame,ponder};
 }
