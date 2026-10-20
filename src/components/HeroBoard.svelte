@@ -15,6 +15,13 @@
   // Neon's layers only in Neon, the reflection and node glow only in Dark Neon (as on the game board).
   const neon = $derived(app.settings.skin === 'neon');
   const neonDark = $derived(neon && app.settings.theme === 'dark');
+  // Paper by day draws in pencil, as on the game board (Board.svelte): thinner lines bowed a little, with a faint second stroke.
+  const pencil = $derived(app.settings.skin === 'paper' && app.settings.theme === 'light');
+  function pencilPath(l: number[], i: number) {
+    const [x1, y1, x2, y2] = l, h = y1 === y2, mx = (x1 + x2) / 2, my = (y1 + y2) / 2, o = ((((i * 37) % 7) - 3) / 3) * 2.7;
+    const qx = h ? mx : mx + o, qy = h ? my + o : my, s = i % 2 ? 1 : -1, [ax, ay] = h ? [0, 1] : [1, 0];
+    return { d: `M${x1} ${y1}Q${qx} ${qy} ${x2} ${y2}`, g: `M${x1 + ax * s * 3.6} ${y1 + ay * s * 3.6}Q${qx + ax * s * 2.2} ${qy + ay * s * 2.2} ${x2 - ax * s * 0.5} ${y2 - ay * s * 0.5}` };
+  }
 </script>
 
 <svg class="hero-board" viewBox="0 0 300 110" aria-hidden="true">
@@ -73,7 +80,13 @@
   </g>
   <g class="lines">
   {#each lines as l, i (i)}
-    <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width="8" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
+    {#if pencil}
+      {@const pp = pencilPath(l, i)}{@const len = Math.hypot(l[2] - l[0], l[3] - l[1]) * 1.02}
+      <path class="ln" class:grow={anim} style="--len:{len}" d={pp.d} fill="none" stroke-width="5.5" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
+      <path class="ln ghost" class:grow={anim} style="--len:{len}" d={pp.g} fill="none" stroke-width="1.4" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
+    {:else}
+      <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width="8" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
+    {/if}
   {/each}
   </g>
   {#if neon}

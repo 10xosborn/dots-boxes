@@ -45,6 +45,8 @@
   --primary-shadow: 0 4px 0 #9E4E17, 0 12px 20px -12px rgba(96,40,8,.6); --primary-shadow-down: 0 1px 0 #9E4E17; --press: translateY(3px);
   --cta-glow: 0 0 0 0 transparent; --sel-glow: 0 0 0 0 transparent; --sel-ring: #9E4E17;   /* ring: the lip colour, 5:1 on the tint */
   --board: #C4DFC9; --lamp: rgba(255,255,255,.22);     /* pale mint felt, and the lamp's light on it */
+  --last-pct: 72%; --last-mix: #000;                    /* the last move's line, a shade darker (100% in Neon and Paper) */
+  --last-dot: #2B7BB9;                                  /* its pip: the mockup's blue, a shade darker for 3:1 on the mint felt */
   --frame: #B0602A; --frame-dark: #7A3E14; --frame-hi: rgba(255,214,160,.55); --cast: rgba(40,20,0,.6);   /* cast: the board's shadow on the table */
   --board-r: 16px; --grid: transparent;
   --scrim: rgba(40,24,8,.55); --modal-r: 4px;
@@ -77,6 +79,8 @@
   --primary-shadow: 0 1px 0 rgba(255,255,255,.45) inset, 0 4px 0 var(--accent-lip), 0 12px 22px -12px rgba(30,10,0,.85); --primary-shadow-down: 0 1px 0 var(--accent-lip);
   --press: translateY(3px); --cta-glow: 0 0 0 0 transparent; --sel-glow: 0 0 0 0 transparent;
   --board: #6A3A1C; --lamp: transparent;               /* deep Sienna felt, evenly lit */
+  --last-pct: 72%; --last-mix: #fff;                    /* the last move's line a shade lighter on the dark felt */
+  --last-dot: #4D9BD9;                                  /* its pip: the mockup's blue, lighter for 3:1 on the Sienna felt */
   --frame: #4A2410; --frame-dark: #331707; --frame-hi: rgba(255,220,190,.12); --cast: rgba(30,10,0,.6);   /* the rim: darker Sienna wood */
   --board-r: 16px; --grid: transparent;
   --scrim: rgba(24,8,0,.66);
@@ -123,6 +127,7 @@
   --cta-glow: 0 1px 0 rgba(255,255,255,.5) inset, 0 0 0 1px rgba(255,255,255,.2), 0 12px 30px -8px color-mix(in srgb,var(--accent) 85%,transparent), 0 0 52px -8px color-mix(in srgb,var(--accent) 70%,transparent);
   --sel-ring: var(--accent); --sel-glow: 0 0 14px -2px color-mix(in srgb,var(--accent) 60%,transparent);
   --board: #0B0F19; --grid: transparent;                  /* Obsidian Glass */
+  --last-pct: 100%; --last-fill: #0B0F19;               /* the last-move ring's centre: the obsidian board */
   --glass: rgba(255,255,255,.07); --glass-edge: rgba(255,255,255,.3);
   --aur-base: linear-gradient(160deg,#350014 0%,#14030A 30%,#07080B 60%,#050608 100%); --aur1: #BD0249; --aur2: #00F0FF; --aur3: transparent; --aur-op: .2;
   --lamp: transparent; --frame: transparent; --frame-dark: transparent; --frame-hi: transparent; --cast: rgba(0,0,0,.85);
@@ -160,6 +165,7 @@
   --cta-glow: 0 0 0 1px rgba(70,87,206,.6), 0 10px 28px -6px rgba(70,87,206,.7), 0 0 40px -6px rgba(0,71,255,.4);
   --sel-ring: #4657CE; --sel-glow: 0 0 14px -4px rgba(70,87,206,.6);
   --board: #EBF1F5; --grid: transparent;                  /* Frosted Opal Glass */
+  --last-pct: 100%; --last-fill: #EBF1F5;               /* the last-move ring's centre: the opal board */
   --glass: rgba(255,255,255,.6); --glass-edge: rgba(255,255,255,.95);
   --aur-base: linear-gradient(160deg,#DFE6EE 0%,#D5DEE7 55%,#D8E4EB 100%); --aur1: #FF4500; --aur2: #0047FF; --aur3: #39FF14; --aur-op: .12;
   --lamp: transparent; --frame: transparent; --frame-dark: transparent; --frame-hi: transparent; --cast: rgba(30,50,110,.45);
@@ -190,6 +196,7 @@
   --primary-shadow: 2px 2px 0 #303E9E; --primary-shadow-down: none;
   --cta-glow: 0 0 0 0 transparent; --sel-glow: 0 0 0 0 transparent;
   --board: #FCF8EF; --board-r: 3px; --grid: transparent;   /* the sheet */
+  --last-pct: 100%;
   --frame: transparent; --frame-dark: transparent; --frame-hi: transparent;
   --scrim: rgba(46,43,39,.4); --modal-r: 6px;
   --r-lg: 6px; --r-md: 4px; --r-sm: 4px; --r-pill: 4px; --r-primary: 4px;
@@ -535,7 +542,24 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
    dot to the line's ring). Animations off (.no-anim) stops the turning. */
 .land{fill:none;stroke:var(--line1);transform-box:fill-box;transform-origin:center;animation:land-turn 2.4s linear infinite}
 .land.p1{stroke:var(--line2)}
+/* Neon gives each ring a light core, like its lines (owner, 2026-10-14), mixed like them (--core-mix, so Dark Neon's
+   magenta-red never turns pink); --cores shows it in Neon only. */
+.land.land-core{display:var(--cores,none);stroke:color-mix(in srgb,var(--line1) var(--core-mix,40%),#fff)}
+.land.land-core.p1{stroke:color-mix(in srgb,var(--line2) var(--core-mix,40%),#fff)}
 @keyframes land-turn{to{transform:rotate(1turn)}}
+/* The last move (spec, step 2): Tabletop's pip sits on the line (which is drawn a shade stronger, see --last-pct) in the
+   mockup's blue (--last-dot; one in the dot colour read as one more dot), edged in the felt's colour and engraved like
+   the dots; Neon's indicator ring, in the dot colour, glows like its dots; Paper's pencil ellipse, in the ink colour, is
+   drawn twice, the second pass faint. */
+.last{pointer-events:none;filter:var(--dot-filter)}
+[data-skin="paper"] .last{filter:none}
+.last-pip{fill:var(--last-dot);stroke:var(--board)}
+.last-ring{fill:var(--last-fill);stroke:var(--dot)}
+.last-ell{fill:none;stroke:var(--dot);stroke-linecap:round;opacity:.85}
+.last-ell.ghost{opacity:.35}
+/* Paper's pencil (by day): the faint second stroke beside each line, and lines that draw like a pencil stroke (spec: 260 ms). */
+.ln.ghost{opacity:.4}
+[data-skin="paper"][data-theme="light"] .ln.grow{animation-duration:.26s;animation-timing-function:ease-in-out}
 #board.grab{cursor:grab}
 #board.grabbing{cursor:grabbing}
 .lines{filter:var(--ln-filter)}

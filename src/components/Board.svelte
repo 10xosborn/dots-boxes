@@ -16,14 +16,15 @@
   import { sfx } from '../lib/sound';
   import { app } from '../lib/state/app.svelte';
 
-  let { rows, cols, lines, boxes, turn, interactive, initials, anim, onmove }: {
+  let { rows, cols, lines, boxes, turn, interactive, initials, anim, bot = false, onmove }: {
     rows: number; cols: number;
-    lines: { e: number; p: number }[];
+    lines: { e: number; p: number }[];   // in the order they were drawn: the last one is the last move
     boxes: { b: number; p: number }[];
     turn: 0 | 1;
     interactive: boolean;
     initials: [string, string];
     anim: boolean;
+    bot?: boolean;   // player 2 is the AI (Tabletop shows a person and a bot in the boxes instead of initials)
     onmove: (e: number, how: 'tap' | 'drag' | 'key') => void;
   } = $props();
 
@@ -32,7 +33,11 @@
   const sp = $derived(L.sp);
   const P = (v: number) => PAD + v * sp;
   const drawn = $derived(new Set(lines.map(l => l.e)));
-  const stroke = $derived(Math.max(6, sp * 0.085));
+  const skin = $derived(app.settings.skin);
+  // Paper by day draws in pencil: thinner lines (0.06 of a gap), with a hand's wobble on boards up to 6x6, and hatched
+  // boxes (spec, step 2). Paper at night keeps its die-cut cardstock strips and parchment wash (the 2026-10-15 brief).
+  const pencil = $derived(skin === 'paper' && app.settings.theme === 'light'), wobbly = $derived(pencil && rows <= 6 && cols <= 6);
+  const stroke = $derived(pencil ? Math.max(4, sp * 0.06) : Math.max(6, sp * 0.085));
   const dotR = $derived(Math.max(5.5, sp * 0.075));
   // Theme colours (app.css): each player's line colour (also the mover's previews and drag line, through
   // .preview and .drag, at 3:1 or more on every board) and box colours.
@@ -47,6 +52,34 @@
   const neon = $derived(app.settings.skin === 'neon');
   const neonDark = $derived(neon && app.settings.theme === 'dark');
   const xy = (e: number) => { const [a, b, c, d] = g.coords(e); return [P(a), P(b), P(c), P(d)]; };
+  /** The last move: Tabletop draws its line a shade stronger (--last-pct and --last-mix; 100% elsewhere). */
+  const lastLine = $derived(lines.length ? lines[lines.length - 1] : null);
+  const strokeOf = (l: { e: number; p: number }) =>
+    l === lastLine ? `color-mix(in srgb, ${lineColor(l.p)} var(--last-pct), var(--last-mix))` : lineColor(l.p);
+  /** Paper's pencil line: a curve bowed a little through its middle (by an amount fixed per line, so it never shifts
+   *  between renders) and a faint second stroke that starts a little apart from it and joins it by the far end, as a
+   *  second pass of a pencil does. */
+  function pencilPath(e: number) {
+    const [x1, y1, x2, y2] = xy(e), h = y1 === y2, mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+    const o = ((((e * 37) % 7) - 3) / 3) * sp * 0.03, qx = h ? mx : mx + o, qy = h ? my + o : my;
+    const s = e % 2 ? 1 : -1, n0 = s * sp * 0.04, n1 = s * sp * 0.025, n2 = -s * sp * 0.006;   // across the line: start, middle, end
+    const [ax, ay] = h ? [0, 1] : [1, 0];
+    return { d: `M${x1} ${y1}Q${qx} ${qy} ${x2} ${y2}`,
+      g: `M${x1 + ax * n0} ${y1 + ay * n0}Q${qx + ax * n1} ${qy + ay * n1} ${x2 + ax * n2} ${y2 + ay * n2}` };
+  }
+  // Box marks: Tabletop's person and bot (against the AI), drawn as single paths (even-odd, so the bot's eyes are holes),
+  // in the mockup's units of a hundredth of a gap.
+  const circ = (x: number, y: number, r: number) => `M${x - r} ${y}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0Z`;
+  const rrect = (x: number, y: number, w: number, h: number, r: number) =>
+    `M${x + r} ${y}H${x + w - r}A${r} ${r} 0 0 1 ${x + w} ${y + r}V${y + h - r}A${r} ${r} 0 0 1 ${x + w - r} ${y + h}H${x + r}A${r} ${r} 0 0 1 ${x} ${y + h - r}V${y + r}A${r} ${r} 0 0 1 ${x + r} ${y}Z`;
+  function icon(p: number, x: number, y: number) {
+    const k = sp / 100;
+    if (p === 0) return circ(x, y - 11 * k, 9 * k) + `M${x - 17 * k} ${y + 19 * k}C${x - 17 * k} ${y + 2 * k} ${x + 17 * k} ${y + 2 * k} ${x + 17 * k} ${y + 19 * k}Z`;
+    return rrect(x - 17 * k, y - 8 * k, 34 * k, 26 * k, 7 * k) + circ(x - 7 * k, y + 4 * k, 3.6 * k) + circ(x + 7 * k, y + 4 * k, 3.6 * k)
+      + circ(x, y - 16 * k, 3.4 * k) + `M${x - 1.6 * k} ${y - 12.6 * k}H${x + 1.6 * k}V${y - 8 * k}H${x - 1.6 * k}Z`;
+  }
+  // Paper's handwritten initials lean a little, each box its own way; its last-move ellipse too.
+  const TILT = [-4, 3, -2, 5, -3, 2, -5, 4], ELL = [-8, 6, -5, 7, -6, 4];
   /** The printed guide under every possible line, as one path (cheap even on 12x12). */
   const lanes = $derived(Array.from({ length: g.E }, (_, e) => { const [a, b, c, d] = xy(e); return `M${a} ${b}L${c} ${d}`; }).join(''));
 
@@ -255,9 +288,13 @@
       <!-- Patterns keep ownership readable without color: stripes = player 1, dots = player 2. -->
       <pattern id="pat0" width={sp * 0.1} height={sp * 0.1} patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width={sp * 0.026} height={sp * 0.1} style="fill:var(--pat1)" opacity=".24" /></pattern>
       <pattern id="pat1" width={sp * 0.1} height={sp * 0.1} patternUnits="userSpaceOnUse"><circle cx={sp * 0.05} cy={sp * 0.05} r={sp * 0.016} style="fill:var(--pat2)" opacity=".24" /></pattern>
+      <!-- Paper hatches instead (spec): single pencil strokes for player 1, a cross-hatch for player 2. -->
+      <pattern id="hatch0" width={sp * 0.1} height={sp * 0.1} patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width={sp * 0.024} height={sp * 0.1} style="fill:var(--pat1)" opacity=".6" /></pattern>
+      <pattern id="hatch1" width={sp * 0.13} height={sp * 0.13} patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width={sp * 0.017} height={sp * 0.13} style="fill:var(--pat2)" opacity=".5" /><rect width={sp * 0.13} height={sp * 0.017} style="fill:var(--pat2)" opacity=".5" /></pattern>
       <!-- Materials. Each theme chooses through tokens (app.css): a bead for the dots, and engraved (Tabletop by day),
            pressed-into-paper (Paper by day), lifted (Tabletop at night) or flat-shadowed (Paper at night) lines and dots.
            Neon draws its glow with plain strokes instead (the halos below). Sizes follow the dot spacing. -->
+
       <radialGradient id="dot-bead" fx=".36" fy=".32"><stop offset="0" style="stop-color:var(--dot-hi)" /><stop offset=".58" style="stop-color:var(--dot)" /><stop offset="1" style="stop-color:var(--dot-lo)" /></radialGradient>
       <!-- Each filter covers the whole board (user space), not its group's box: while the lines group holds only lines along
            one row or one column (a game's first line, say), that box has no height or no width, a region sized from it is
@@ -319,9 +356,16 @@
         {#if neon}<rect class="tile-base" x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} />{/if}
         <rect x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} stroke-width={sp * 0.035} style:fill={bx.p === 0 ? 'var(--box1)' : 'var(--box2)'}
           style:fill-opacity="var(--box-op)" style:stroke={bx.p === 0 ? 'var(--box-rim1)' : 'var(--box-rim2)'} />
-        <rect x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} fill="url(#pat{bx.p})" />
+        <rect x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} fill={pencil ? `url(#hatch${bx.p})` : `url(#pat${bx.p})`} />
         {#if neon}<rect class="gloss" x={x + i} y={y + i} width={sp - 2 * i} height={sp - 2 * i} rx={sp * 0.12} fill="url(#tile-gloss)" />{/if}
-        <text x={x + sp / 2} y={y + sp / 2} text-anchor="middle" dominant-baseline="central" font-weight="800" font-size={sp * 0.34} paint-order="stroke" stroke-linejoin="round" stroke-width={sp * 0.07} style:stroke="var(--ini-halo)" style:font-family="var(--display)" style:fill={bx.p === 0 ? 'var(--box1-ink)' : 'var(--box2-ink)'}>{initials[bx.p]}</text>
+        {#if skin === 'table' && bot}
+          <path class="bx-icon" d={icon(bx.p, x + sp / 2, y + sp * 0.52)} fill-rule="evenodd" style:fill={bx.p === 0 ? 'var(--box1-ink)' : 'var(--box2-ink)'} />
+        {:else}
+          {@const cx = x + sp / 2}{@const cy = y + sp / 2}
+          <text x={cx} y={cy} text-anchor="middle" dominant-baseline="central" font-weight="800" font-size={pencil ? sp * 0.46 : sp * 0.34} paint-order="stroke" stroke-linejoin="round" stroke-width={sp * 0.07}
+            transform={pencil ? `rotate(${TILT[bx.b % 8]} ${cx} ${cy})` : undefined}
+            style:stroke="var(--ini-halo)" style:font-family="var(--display)" style:fill={bx.p === 0 ? 'var(--box1-ink)' : 'var(--box2-ink)'}>{initials[bx.p]}</text>
+        {/if}
       </g>
     {/each}
     </g>
@@ -333,8 +377,14 @@
 
     <g class="lines">
     {#each lines as l (l.e)}
-      {@const [x1, y1, x2, y2] = xy(l.e)}
-      <line class="ln" class:grow={anim} {x1} {y1} {x2} {y2} stroke-width={stroke} style="--len:{sp}" style:stroke={lineColor(l.p)} />
+      {#if wobbly}
+        {@const pp = pencilPath(l.e)}
+        <path class="ln" class:grow={anim} d={pp.d} fill="none" stroke-width={stroke} style="--len:{sp * 1.02}" style:stroke={strokeOf(l)} />
+        <path class="ln ghost" class:grow={anim} d={pp.g} fill="none" stroke-width={Math.max(1, sp * 0.016)} style="--len:{sp * 1.02}" style:stroke={strokeOf(l)} />
+      {:else}
+        {@const [x1, y1, x2, y2] = xy(l.e)}
+        <line class="ln" class:grow={anim} {x1} {y1} {x2} {y2} stroke-width={stroke} style="--len:{sp}" style:stroke={strokeOf(l)} />
+      {/if}
     {/each}
     </g>
     {#if neon}
@@ -355,6 +405,25 @@
     </g>
     {/if}
 
+    <!-- The last move (spec): a pip on its line (Tabletop, in the mockup's blue), an indicator ring (Neon) or a pencil
+         ellipse round it (Paper), those two in the board's dot or ink colour, so no mark reads as either player's or as a button. -->
+    {#if lastLine}
+      {@const [x1, y1, x2, y2] = xy(lastLine.e)}{@const mx = (x1 + x2) / 2}{@const my = (y1 + y2) / 2}{@const h = y1 === y2}
+      <g class="last" aria-hidden="true">
+        {#if skin === 'table'}
+          <circle class="last-pip" cx={mx} cy={my} r={Math.max(4.5, sp * 0.085)} stroke-width={Math.max(2, sp * 0.03)} />
+        {:else if skin === 'neon'}
+          <circle class="last-ring" cx={mx} cy={my} r={Math.max(5, sp * 0.09)} stroke-width={Math.max(2.5, sp * 0.035)} />
+        {:else}
+          {@const a = ELL[lastLine.e % 6]}{@const rx = sp * 0.3}{@const ry = sp * 0.19}{@const per = Math.PI * Math.sqrt(2 * (rx * rx + ry * ry))}
+          <ellipse class="last-ell" cx={mx} cy={my} rx={h ? rx : ry} ry={h ? ry : rx} transform="rotate({a} {mx} {my})"
+            stroke-width={Math.max(1.6, sp * 0.026)} stroke-dasharray="{per * 0.88} {per * 0.12}" />
+          <ellipse class="last-ell ghost" cx={mx} cy={my} rx={h ? rx * 1.06 : ry * 0.9} ry={h ? ry * 0.9 : rx * 1.06} transform="rotate({a / 2} {mx} {my})"
+            stroke-width={Math.max(1, sp * 0.013)} />
+        {/if}
+      </g>
+    {/if}
+
     <!-- A drag from a dot: the elastic band, thin while it stretches to the pointer and the line's full width once it
          snaps, when the line it will draw also gets the keyboard cursor's ring (3:1 on every board, even on Tabletop's
          lit felt). The curve passes through `bend` halfway along. -->
@@ -372,9 +441,10 @@
          the line's ring above, so the target never carries two outlines. -->
     {#each landings as d (d.e)}
       {#if d.e !== snap}
-        {@const per = (2 * Math.PI * sp * 0.22) / 8}
-        <circle class="land p{turn}" cx={d.x} cy={d.y} r={sp * 0.22} stroke-width={Math.max(3.5, sp * 0.045)}
-          stroke-dasharray="{per * 0.62} {per * 0.38}" />
+        {@const per = (2 * Math.PI * sp * 0.22) / 8}{@const rw = Math.max(3.5, sp * 0.045)}
+        <circle class="land p{turn}" cx={d.x} cy={d.y} r={sp * 0.22} stroke-width={rw} stroke-dasharray="{per * 0.62} {per * 0.38}" />
+        <!-- Neon lights each ring with a core, like its lines (owner, 2026-10-14); built in Neon only, like its other layers. -->
+        {#if neon}<circle class="land land-core p{turn}" cx={d.x} cy={d.y} r={sp * 0.22} stroke-width={rw * 0.4} stroke-dasharray="{per * 0.62} {per * 0.38}" />{/if}
       {/if}
     {/each}
 
