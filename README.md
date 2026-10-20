@@ -55,6 +55,7 @@ The AI (Node 22.18 or newer, which runs the TypeScript rules directly):
 npm run test:ai        # known endgames and random positions for every level (Vitest)
 npm run ai:bench       # self-play benchmark: win/draw/loss and think time per pairing and board size
 npm run ai:bench -- --sizes 4,5,6 --games 100 --slow 4   # e.g. as a phone 4x slower than this computer would play
+npm run ai:bench -- --sizes 4 --slow 4 --ponder 2000      # and Hard thinks during the other player's 2 s a move
 ```
 
 Testing against local Firebase emulators (needs Java 21 or newer; nothing touches the live project):
@@ -108,9 +109,12 @@ one from before custom boards, so the game and the rules can be updated in eithe
 - **Easy:** takes an available box about half the time, otherwise random.
 - **Medium:** always takes boxes; never gives a box its third side while a safe line exists.
 - **Hard:** counts the safe-line race, uses all-but-two / all-but-four to keep control,
-  opens chains in the cheapest order, and switches to exact search when the board is
-  small enough (with a time limit, so moves stay quick on slow phones). On 3×3 it plays
-  perfectly (opening book from a full solve). It works on every rows × cols shape.
+  opens chains in the cheapest order, and plays perfectly (exact search) once 26 to 56
+  lines are left, depending on the board size, with a time limit so moves stay quick on
+  slow phones. While you think, it solves the positions your possible replies would leave,
+  so its next move can be perfect a few lines earlier without making you wait. On 3×3 it
+  plays perfectly (opening book from a full solve); 4×4 is a draw with perfect play. It
+  works on every rows × cols shape.
 
 ## Known limits
 
