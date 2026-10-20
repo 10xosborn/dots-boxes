@@ -34,6 +34,8 @@
   --p2: #B07A12; --p2-deep: #9C6B0E; --p2-soft: #FDF0C8; --p2-glow: rgba(244,175,61,.5);   /* golden yellow, deepened for marks and digits */
   --box1: #D77027; --box2: #F4AF3D; --box1-ink: #FFFFFF; --box2-ink: #2B241D; --pat1: #FFFFFF; --pat2: #2B241D; --ini-halo: none;
   --box-op: 1; --box-rim1: #9E4E17; --box-rim2: #94650C;
+  --av1: #D77027; --av1-ink: #FFFFFF; --av2: #B07A12; --av2-ink: #FFFFFF;   /* avatars: a disc in the player's colour, the figure on it (3.4:1, 3.7:1) */
+  --bot: #B07A12; --bot-visor: #2B241D; --bot-eye: #7FD3DD;              /* the AI's bot: a white head on its colour (3.7:1), the spec's visor and eyes */
   --line1: #BF4E1E; --line2: #7C5E08; --lane: rgba(35,57,45,.17);    /* each player's own line, engraved in the mat: burnt orange and dark golden (3.4:1, 4.3:1), far enough apart in hue and lightness to tell at a glance */
   --dot: #2C4637; --dot-hi: #5F806C; --dot-lo: #14231A;
   --ln-filter: url(#fx-engrave); --dot-filter: url(#fx-engrave); --bx-filter: none; --cores: none;
@@ -67,6 +69,8 @@
   --p2: #E0A070; --p2-deep: #EFBC93; --p2-soft: #5E3218; --p2-glow: rgba(224,160,112,.4);        /* copper: the other player */
   --box1: #20160F; --box2: #20160F; --box1-ink: #F2F1EF; --box2-ink: #EFBC93; --pat1: #E5E4E2; --pat2: #E0A070; --ini-halo: none;
   --box-op: .4; --box-rim1: rgba(229,228,226,.55); --box-rim2: rgba(224,160,112,.7);   /* dark felt tint; clean edges in each player's colour */
+  --av1: #E5E4E2; --av1-ink: #6B3A1E; --av2: #E0A070; --av2-ink: #6B3A1E;   /* light discs take a dark figure (7.4:1, 4.2:1) */
+  --bot: #A86536; --bot-visor: #241C15; --bot-eye: #7FD3DD;              /* copper deepened, so the bot's white head reads (4.6:1) */
   --line1: #E5E4E2; --line2: #E0A070; --lane: rgba(229,228,226,.1);  /* platinum and copper on the felt */
   --dot: #D6D3CE; --dot-hi: #DCD9D4; --dot-lo: #CBC7C1;              /* ash grey, matte (an almost flat disc) */
   --ln-filter: url(#fx-lift); --dot-filter: url(#fx-lift); --bx-filter: none; --cores: none;
@@ -109,6 +113,8 @@
   --p2: #E28C19; --p2-deep: #E28C19; --p2-soft: #33200A; --p2-glow: rgba(226,140,25,.45);   /* Golden Orange: the other player */
   --box1: #7B2CBF; --box2: #7B2CBF; --box1-ink: #FFFFFF; --box2-ink: #FFD89A; --pat1: #FFFFFF; --pat2: #FFD89A; --ini-halo: none;
   --box-op: .78; --box-rim1: #A970F0; --box-rim2: #A970F0;   /* Electric Violet glass with a lit edge; white and pale gold initials */
+  --av1: #BD0249; --av1-ink: #FFFFFF; --av2: #E28C19; --av2-ink: #1F1C25;   /* 6.4:1 both */
+  --bot: #A9620C; --bot-visor: #1F1C25; --bot-eye: #F6F6F6;              /* Golden Orange deepened, so the bot's white head reads (4.7:1) */
   --line1: #C3064F; --line2: #E28C19; --lane: rgba(200,230,255,.08);   /* your lines a hair lighter than #BD0249 (2.98:1 on the glass) to keep 3:1 */
   --dot: #00F0FF; --dot-hi: #D2FDFF; --dot-lo: #00B9CC;       /* Cyber Cyan, a lit centre */
   --ln-filter: none; --dot-filter: none; --bx-filter: none; --cores: inline; --core-mix: 80%;   /* a core only a little lighter, so magenta-red never turns pink */
@@ -148,6 +154,8 @@
   --p2: #007F73; --p2-deep: #00756A; --p2-soft: #DDF2EF; --p2-glow: rgba(0,127,115,.3);     /* deep teal: the other player */
   --box1: #39FF14; --box2: #39FF14; --box1-ink: #0A2A8C; --box2-ink: #003F44; --pat1: #0A2A8C; --pat2: #003F44; --ini-halo: none;
   --box-op: .85; --box-rim1: #178A00; --box-rim2: #178A00;   /* Vivid Lime glass with a deeper lime edge (3.9:1 on the board); dark initials 8.3:1 or more */
+  --av1: #0047FF; --av1-ink: #FFFFFF; --av2: #007F73; --av2-ink: #FFFFFF;   /* 6.3:1, 4.9:1 */
+  --bot: #007F73; --bot-visor: #2B2731; --bot-eye: #F6F6F6;
   --line1: #0047FF; --line2: #007F73; --lane: rgba(0,71,255,.1);   /* 5.5:1 and 4.3:1 on the board */
   --dot: #FF4500; --dot-hi: #FF4500; --dot-lo: #D93A00;       /* Hot Coral, 3.0:1: no lighter highlight, a deeper edge */
   --ln-filter: none; --dot-filter: none; --bx-filter: none; --cores: inline; --core-mix: 85%;   /* a lighter core that still keeps 3:1 (blue 4.3, teal 3.3) */
@@ -185,6 +193,10 @@
   --p2: #4657CE; --p2-deep: #4657CE; --p2-soft: #E2E5FA; --p2-glow: transparent;   /* indigo ink: 5.6:1 */
   --box1: #FFE1D8; --box2: #E2E5FA; --box1-ink: #E0391A; --box2-ink: #4657CE; --pat1: #FC4422; --pat2: #4657CE; --ini-halo: #FCF8EF;
   --box-op: 1; --box-rim1: transparent; --box-rim2: transparent;
+  --av1: #FC4422; --av1-ink: #FFFFFF; --av2: #4657CE; --av2-ink: #FFFFFF;   /* 3.5:1, 6:1 */
+  --bot: #4657CE; --bot-visor: #2E2B27; --bot-eye: #FFE58A;
+  --rule: #D6E0EA; --margin: #E9B9B0; --sticker-edge: #FFFDF7;          /* the score sheet's ruled lines and margin; a sticker's white edge */
+  --highlight: #FFE58A; --hl-ink: #2E2B27;                              /* the extra-turn highlighter (11.3:1) */
   --line1: #EF4120; --line2: #4657CE; --lane: transparent;   /* your lines: the coral 5% deeper, for 3:1 on the textured sheet (owner, 2026-10-20) */
   --dot: #2E2B27; --dot-hi: #6B645B; --dot-lo: #171513;
   --ln-filter: url(#fx-emboss); --dot-filter: url(#fx-emboss); --bx-filter: none; --cores: none;
@@ -216,6 +228,10 @@
   --p2: #8FB8D6; --p2-deep: #A5C6E0; --p2-soft: #523425; --p2-glow: transparent;   /* denim blue: the other player */
   --box1: #F3EAD7; --box2: #F3EAD7; --box1-ink: #FFF6E4; --box2-ink: #C9E0F2; --pat1: #F3EAD7; --pat2: #A5C6E0; --ini-halo: var(--board);
   --box-op: .2; --box-rim1: rgba(201,176,133,.65); --box-rim2: rgba(143,184,214,.65);   /* a parchment wash; rims in each player's line colour */
+  --av1: #E8D5B5; --av1-ink: #6B3A1E; --av2: #8FB8D6; --av2-ink: #6B3A1E;   /* light discs take a dark figure (6.5:1, 4.4:1) */
+  --bot: #4F7A9A; --bot-visor: #2E2B27; --bot-eye: #FFE58A;              /* denim deepened, so the bot's white head reads (4.6:1) */
+  --rule: rgba(243,234,215,.16); --margin: rgba(233,150,140,.5); --sticker-edge: #F3EAD7;
+  --highlight: #FFE58A; --hl-ink: #2E2B27;                              /* the same yellow highlighter as by day */
   --line1: #C9B085; --line2: #8FB8D6; --lane: transparent;   /* your lines: Deep Sand Beige, clearer on the sheet (owner, 2026-10-20) */
   --dot: #F3EAD7; --dot-hi: #F7F1E4; --dot-lo: #EADFC8;             /* ivory discs, nearly flat */
   --ln-filter: url(#fx-flat); --dot-filter: url(#fx-flat); --bx-filter: none; --cores: none;
@@ -310,20 +326,33 @@ button,input{font:inherit;color:inherit}
 .brand .mark{width:30px;height:30px;flex:none}
 .brand .mark-table{width:32px;height:32px}
 .brand-name{display:flex;flex-direction:column;align-items:flex-start}
-.brand b{font-family:var(--display);font-weight:var(--display-w);font-size:1.15rem;letter-spacing:.01em;line-height:1.2}
+.brand b{font-family:var(--display);font-weight:var(--display-w);font-size:1.15rem;letter-spacing:.01em;line-height:1.2;white-space:nowrap}
 .mark-paper{width:100px;height:7px}
 [data-skin="table"] .mark-neon,[data-skin="table"] .mark-paper,[data-skin="neon"] .mark-table,[data-skin="neon"] .mark-paper,[data-skin="paper"] .mark-table,[data-skin="paper"] .mark-neon{display:none}
 [data-skin="neon"] .brand b{font-size:1rem}
 [data-skin="paper"] .brand b{font-size:1.4rem;line-height:1.1}
-.tb-right{display:flex;align-items:center;gap:8px}
+.tb-right{display:flex;align-items:center;gap:8px;min-width:0}   /* a long name truncates in the level chip; the bar never grows wider than the screen */
 .theme-btn{flex:none;width:44px;height:44px;display:grid;place-items:center;border-radius:var(--r-pill);background:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--chip-shadow);cursor:pointer;color:var(--text)}
 .theme-btn svg{width:22px;height:22px}
-.lvl-chip{display:flex;align-items:center;gap:8px;min-height:44px;padding:4px 14px 4px 4px;border-radius:var(--r-pill);background:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--chip-shadow);cursor:pointer;color:var(--text)}
-.lvl-badge{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;font-family:var(--display);font-weight:var(--score-w);font-size:.85rem;
-  background:conic-gradient(var(--ring) calc(var(--pct,0)*1%),var(--ring-track) 0);position:relative}
-.lvl-badge::before{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--panel)}
-.lvl-badge span{position:relative}
-.lvl-chip small{font-weight:700;font-size:.85rem}
+.lvl-chip{display:flex;align-items:center;gap:8px;min-width:0;min-height:44px;padding:4px 14px 4px 4px;border-radius:var(--r-pill);background:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--chip-shadow);cursor:pointer;color:var(--text)}
+/* Your avatar (26 px) inside a 3 px ring that fills towards the next level (spec: "the ring shows progress"). The ring is cut
+   out with a mask, so a translucent chip (Dark Neon) never shows it through the middle. */
+.lvl-ring{position:relative;flex:none;width:36px;height:36px;display:grid;place-items:center}
+.lvl-ring::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(var(--ring) calc(var(--pct,0)*1%),var(--ring-track) 0);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px))}
+.lvl-ring .avt{width:26px;height:26px}
+.lvl-txt{display:flex;flex-direction:column;align-items:flex-start;min-width:0;line-height:1.15;text-align:left}
+.lvl-txt b{min-width:0;max-width:min(9em,100%);font-weight:700;font-size:.95rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lvl-txt small{flex:none;font-weight:600;font-size:.75rem;color:var(--muted);white-space:nowrap}
+[data-skin="neon"] .lvl-txt b{font-weight:800;font-size:.875rem}
+/* Paper: a 28 px avatar ringed in graphite on its paper tab, the name handwritten (its mockup has no level ring). */
+[data-skin="paper"] .lvl-chip{padding:0 12px 0 8px}
+[data-skin="paper"] .lvl-ring{width:28px;height:28px}
+[data-skin="paper"] .lvl-ring::before{display:none}
+[data-skin="paper"] .lvl-ring .avt{width:28px;height:28px;box-shadow:0 0 0 1.5px var(--text)}
+[data-skin="paper"] .lvl-txt{flex-direction:row;align-items:baseline;gap:8px}
+[data-skin="paper"] .lvl-txt b{font-family:var(--display);font-size:1rem}
+[data-skin="paper"] .lvl-txt small{font-weight:400;font-size:.8125rem}
 .screen{display:none}
 .screen.active{display:block;animation:enter .32s ease-out}
 @keyframes enter{from{opacity:0;transform:translateY(8px)}}
@@ -433,7 +462,8 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .title .amp{display:inline-block;font-weight:500;color:var(--accent);margin:0 .08em}
 .tag{color:var(--muted);margin-top:12px;font-size:1.02rem}
 .profile{display:flex;align-items:center;gap:14px}
-.avatar{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:var(--score-w);font-size:1.25rem;color:var(--box1-ink);background:var(--box1)}
+.avatar{flex:none;margin:4px;border-radius:50%;outline:2px solid var(--p1);outline-offset:2px}
+[data-skin="paper"] .avatar{outline:0;box-shadow:0 0 0 2.5px var(--sticker-edge),0 0 0 4px var(--line1),1.5px 2.5px 0 4px rgba(46,43,39,.18);transform:rotate(-5deg)}
 .xpbar{height:10px;border-radius:999px;background:var(--ring-track);overflow:hidden;margin-top:8px}
 .xpbar b{display:block;height:100%;width:0;border-radius:inherit;background:var(--ring);transition:width .9s cubic-bezier(.2,.8,.2,1)}
 .menu{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
@@ -444,13 +474,19 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 /* ---------- game HUD ---------- */
 .hud{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .pcard{position:relative;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--r-md);background:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--shadow);transition:box-shadow .3s,border-color .3s;min-width:0}
-.pcard .av{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:var(--score-w)}
-.pcard.p0 .av{background:var(--box1);color:var(--box1-ink)} .pcard.p1 .av{background:var(--box2);color:var(--box2-ink)}
-/* Paper's avatars are stickers ringed in the player's pencil (spec); on the page colour the orange initial is 3.7:1, on its wash it was 3.0:1. */
-[data-skin="paper"] .avatar,[data-skin="paper"] .pcard .av{background:var(--page);box-shadow:inset 0 0 0 2px currentColor}
+/* Avatars (Avatar.svelte): the disc and figure in the player's colours, the bot's white head, visor and eyes. On a card the
+   avatar sits in a 2 px ring of the player's colour, 2 px out (spec: 40 px in Tabletop, 38 px in Neon). */
+.avt{display:block;flex:none;border-radius:50%}
+.avt .disc{fill:var(--av1)} .avt.p1 .disc{fill:var(--av2)} .avt.bot .disc{fill:var(--bot)}
+.avt .fig{fill:var(--av1-ink)} .avt.p1 .fig{fill:var(--av2-ink)}
+.avt .hd{fill:#fff} .avt .vs{fill:var(--bot-visor)} .avt .eye{fill:var(--bot-eye)}
+.avt .bulb{fill:var(--bot-eye);stroke:#fff;stroke-width:2} .avt .stalk{stroke:#fff;stroke-width:3;stroke-linecap:round}
+.pcard .avt{width:40px;height:40px;outline:2px solid var(--p1);outline-offset:2px}
+.pcard.p1 .avt{outline-color:var(--p2)}
+[data-skin="neon"] .pcard .avt{width:38px;height:38px}
 .pcard .who{min-width:0;flex:1}
 .pcard .nm{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pcard .sub{font-size:.78rem;color:var(--muted)}
+.pcard .sub{font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}   /* one line, so a two-digit score never makes the card taller */
 .pcard .sc{font-family:var(--display);font-weight:var(--score-w);font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
 .pcard.p0 .sc{color:var(--p1-deep)} .pcard.p1 .sc{color:var(--p2-deep)}
 .pcard.on.p0{box-shadow:0 0 0 2px var(--p1),0 0 22px -4px var(--p1-glow),var(--shadow)}
@@ -467,8 +503,27 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .turnbar.t1 .pill{transform:translateX(100%);background:var(--p2-soft);border-color:var(--p2)}
 [data-skin="neon"] .turnbar .pill{box-shadow:0 0 14px -3px var(--p1-glow),inset 0 0 10px -4px var(--p1-glow)}
 [data-skin="neon"] .turnbar.t1 .pill{box-shadow:0 0 14px -3px var(--p2-glow),inset 0 0 10px -4px var(--p2-glow)}
-.turnbar span{display:grid;place-items:center;height:100%;font-weight:700;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 10px}
-.turnbar.thinking span::after{content:"";display:inline-block;width:1.2em;text-align:left;animation:dots 1.2s steps(4) infinite}
+.turnbar .pill{display:flex;align-items:center;justify-content:center;padding:0 10px;font-weight:700;font-size:.9rem;white-space:nowrap}
+.turnbar :is(.tt,.xt){min-width:0;overflow:hidden;text-overflow:ellipsis}
+.turnbar .xt{flex:none}
+.turnbar .sep{margin:0 .4em}
+:is(.turnbar,.note) .tt::after{content:"";display:inline-block;width:1.2em;text-align:left;animation:dots 1.2s steps(4) infinite}
+.turnbar:not(.thinking) .tt::after{display:none}
+/* The extra-turn cue (spec: "Your turn · +1 extra turn" until the mover draws again), with the chain so far (x2, x3) on a
+   small tag. It appears in 160 ms. The pill keeps its height: on a phone, where half the bar is too narrow for one line,
+   the cue goes under the turn in smaller type. */
+.turnbar .xt{animation:cue .16s ease-out}
+@keyframes cue{from{opacity:0}}
+.turnbar .combo{display:inline-block;margin-left:.4em;padding:0 .45em;border-radius:var(--r-pill);background:color-mix(in srgb,currentColor 14%,transparent);font-weight:800;font-variant-numeric:tabular-nums}
+.turnbar{container-type:inline-size}
+@container (max-width:520px){
+  .turnbar.xt .pill{flex-direction:column;justify-content:center;line-height:1.12;font-size:.78rem}
+  .turnbar.xt :is(.tt,.xt){max-width:100%}
+  .turnbar .sep{display:none}
+  .turnbar .pill{padding:0 6px}
+  [data-skin="neon"] .turnbar .pill{font-size:.8125rem}   /* Neon's mockup size: its wider letters fit "Tactician is thinking" */
+  [data-skin="neon"] .turnbar.xt .pill{font-size:.75rem}
+}
 @keyframes dots{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
 .meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
 .chip{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:4px 14px;border-radius:var(--r-pill);background:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--chip-shadow);font-weight:var(--chip-w);font-size:.85rem}
@@ -477,6 +532,46 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 [data-skin="neon"] .chip b{font-family:var(--display)}
 .chip .mini{width:46px;height:6px;border-radius:999px;background:var(--ring-track);overflow:hidden}
 .chip .mini i{display:block;height:100%;background:var(--ring)}
+/* Paper's score sheet (spec: Cozy Paper's PlayerCards; phones: ruled rows above the board, stickers before the names): a
+   ruled card with a margin line, a line per player (a sticker ringed in their pencil colour, the name handwritten with an
+   underline while it is their turn, tally marks in gates of five, the score circled while it is their turn), then the turn
+   note and the game's details. The circle and underline draw themselves in 200 ms; the newest tally mark in 160 ms. Hidden,
+   their dash sits wholly off the path (dash 1, gap 1.5, offset 1.25 of a path length 1): a dash ending exactly at an end of
+   the path would leave its round cap there as a dot. */
+.sheet{position:relative;container-type:inline-size;padding:0 10px 0 34px;border-radius:var(--r-lg);background-color:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--shadow);
+  background-image:linear-gradient(90deg,transparent 22px,var(--margin) 22px 23.5px,transparent 23.5px),repeating-linear-gradient(180deg,transparent 0 39px,var(--rule) 39px 40px);
+  background-size:auto,100% 120px;background-repeat:no-repeat}
+.srow{display:grid;grid-template-columns:auto minmax(0,max-content) minmax(0,1fr) auto;align-items:center;gap:10px;height:40px}
+.stk{display:block;width:24px;height:24px;margin-right:-2px;border-radius:50%;box-shadow:0 0 0 2px var(--sticker-edge),0 0 0 3.5px var(--line1),1.5px 2.5px 0 3.5px rgba(46,43,39,.18);transform:rotate(-6deg)}
+.srow.p1 .stk{box-shadow:0 0 0 2px var(--sticker-edge),0 0 0 3.5px var(--line2),1.5px 2.5px 0 3.5px rgba(46,43,39,.18);transform:rotate(5deg)}
+.stk .avt{width:24px;height:24px}
+/* The name truncates itself and holds its underline (as wide as the name) in its own padding; the note beside it never shrinks. */
+.srow .nm{display:flex;align-items:baseline;gap:6px;min-width:0;font-family:var(--display);font-weight:700;font-size:22px;line-height:1.1}
+.srow .nm b{position:relative;min-width:0;padding-bottom:6px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.srow .nm small{flex:none;font-family:var(--ui);font-weight:400;font-size:12px;color:var(--muted)}
+.srow :is(.ul,.circ,.tally){overflow:visible;fill:none;stroke:var(--line1);stroke-linecap:round}
+.srow.p1 :is(.ul,.circ,.tally){stroke:var(--line2)}
+.srow .ul{position:absolute;left:0;bottom:0;width:100%;height:8px;stroke-width:2.6;stroke-dasharray:1 1.5;stroke-dashoffset:1.25;transition:stroke-dashoffset .2s ease-out}
+.srow .tally{justify-self:start;max-width:100%;height:26px;stroke-width:2.2}
+.srow .tally .new{stroke-dasharray:1 1.5;animation:mark .16s ease-out backwards}
+@keyframes mark{from{stroke-dashoffset:1.25}}
+.srow .sc{position:relative;display:inline-grid;place-items:center;width:44px;height:36px;font-family:var(--display);font-weight:700;font-size:28px;line-height:1;font-variant-numeric:tabular-nums;color:var(--text)}
+.srow .circ{position:absolute;left:-3px;top:-3px;width:50px;height:42px;stroke-width:2.4;stroke-dasharray:1 1.5;stroke-dashoffset:1.25;transition:stroke-dashoffset .2s ease-out}
+.srow.on :is(.ul,.circ){stroke-dashoffset:0}
+.note{display:flex;align-items:baseline;height:40px;margin:0;font-family:var(--display);font-weight:400;font-size:20px;line-height:40px;white-space:nowrap;overflow:hidden}
+/* A long name gives way, never "go again!": the mover's name truncates, the rest of the note stays whole. */
+.note .who{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.note .rest{flex:none;padding-right:3px;white-space:pre}   /* room for the highlighter's edge, which reaches 2 px past its words */
+/* "go again!" gets the highlighter's swipe (spec), a hand-cut edge, in 160 ms. */
+.note mark{padding:0 5px;margin:0 -2px;color:var(--hl-ink);background:linear-gradient(var(--highlight),var(--highlight)) no-repeat 0 0/100% 100%;border-radius:4px 10px 6px 12px/8px 4px 10px 5px;animation:swipe .16s ease-out}
+@keyframes swipe{from{background-size:0 100%}}
+@container (max-width:360px){ .note{font-size:18px} .note .lead{display:none} }
+.sheet .meta{height:40px;margin:0;flex-wrap:nowrap;gap:0;overflow:hidden;white-space:nowrap}
+.sheet .chip{min-height:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;font-weight:400;font-size:.875rem;color:var(--muted)}
+.sheet .chip+.chip::before{content:"·";margin:0 .45em}
+.sheet .chip b{color:var(--text)}
+.sheet .chip svg{width:15px;height:15px}
+.sheet .chip.lvl{display:none}   /* the level is on the top bar's tab (Paper's mockup leaves it out here) */
 .board-wrap{position:relative;margin:0 auto;width:clamp(280px,min(100%,calc(100dvh - 330px)),620px);aspect-ratio:1;border-radius:var(--board-r);background-color:var(--board)}
 /* Tabletop: a felt mat (fine nap, lighter where the lamp falls) inside a wooden rim, casting a shadow on the table.
    The rim is drawn with inset shadows so the board's size, and so boardFit.ts, are unchanged. */
