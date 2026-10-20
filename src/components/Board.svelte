@@ -1,7 +1,7 @@
 <script lang="ts">
   /**
    * The game board. Purely presentational: it renders lines and boxes it is given
-   * and reports the edge a player chooses through `onmove`.
+   * and reports the edge a player chooses through `onmove`, with how it was chosen (each has its own sound).
    * Pointer: drag from a dot towards a neighbouring dot; the line snaps into place once the pointer is far enough
    * along it, and letting go draws it (letting go anywhere else draws nothing). A press on a line still previews it
    * and releasing draws it (drag to adjust), and hovering shows a preview. Sounds: pick-up, snap and cancel.
@@ -9,7 +9,7 @@
    * onto the dot it snaps to and back to its own dot when let go with no line; broken rings turn round the dots it
    * can land on. With Animations off it follows the pointer exactly and nothing turns.
    * Keyboard: arrow keys move a cursor between free lines; Enter or Space draws.
-   * The cursor shows only in keyboard play: a click or tap also focuses the board, but hides it.
+   * The cursor shows only in keyboard play and on the player's turn: a click or tap also focuses the board, but hides it.
    */
   import { geometry } from '../lib/engine/rules';
   import { layout, PAD } from '../lib/boardFit';
@@ -24,7 +24,7 @@
     interactive: boolean;
     initials: [string, string];
     anim: boolean;
-    onmove: (e: number) => void;
+    onmove: (e: number, how: 'tap' | 'drag' | 'key') => void;
   } = $props();
 
   const g = $derived(geometry(rows, cols));
@@ -117,7 +117,8 @@
 
   // Clear stale preview/cursor/drag when it stops being our turn or the line gets drawn.
   $effect(() => { if (!interactive) { preview = -1; hoverDot = -1; if (pressing) reset(); stopBand(); } });
-  $effect(() => { if (cursor >= 0 && drawn.has(cursor)) cursor = nearestFree(); });
+  // The cursor's line drawn (by anyone): it moves to the free line nearest to it, not back to the middle of the board.
+  $effect(() => { if (cursor >= 0 && drawn.has(cursor)) cursor = nearestFree(mid(cursor)); });
 
   function toSvg(ev: PointerEvent) {
     const m = svg.getScreenCTM(); if (!m) return { x: -1, y: -1 };
@@ -192,11 +193,11 @@
   }
   function up(ev: PointerEvent) {
     if (!pressing || ev.pointerId !== pid) return;
-    const e = dragAt ? snap : anchor >= 0 ? tapNearDot(ev) : edgeAt(ev);
-    if (dragAt && e < 0) { sfx.play('cancel'); letGo(); }
+    const dragged = dragAt !== null, e = dragged ? snap : anchor >= 0 ? tapNearDot(ev) : edgeAt(ev);
+    if (dragged && e < 0) { sfx.play('cancel'); letGo(); }
     else stopBand();
     reset();
-    if (interactive && e >= 0) onmove(e);
+    if (interactive && e >= 0) onmove(e, dragged ? 'drag' : 'tap');
   }
   /** A drag let go with no line: the band springs back to its dot, then goes. */
   function letGo() { if (from) { back = true; onPointer = false; kick(); } }
@@ -220,6 +221,7 @@
     const dirs: Record<string, [number, number]> = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0] };
     if (dirs[ev.key]) {
       ev.preventDefault(); kbd = true;
+      if (!interactive) return;              // not the player's turn: the cursor is hidden, so it stays where it is
       const [dx, dy] = dirs[ev.key], [cx, cy] = cursor >= 0 ? mid(cursor) : [L.W / 2, L.H / 2];
       let best = -1, bs = Infinity;
       for (let e = 0; e < g.E; e++) {
@@ -232,7 +234,7 @@
     } else if ((ev.key === 'Enter' || ev.key === ' ') && cursor >= 0) {
       ev.preventDefault();
       if (!kbd) { kbd = true; return; }      // a hidden cursor is shown first, so no line is drawn unseen
-      if (interactive && !drawn.has(cursor)) onmove(cursor);
+      if (interactive && !drawn.has(cursor)) onmove(cursor, 'key');
     }
   }
 </script>
@@ -257,12 +259,15 @@
            pressed-into-paper (Paper by day), lifted (Tabletop at night) or flat-shadowed (Paper at night) lines and dots.
            Neon draws its glow with plain strokes instead (the halos below). Sizes follow the dot spacing. -->
       <radialGradient id="dot-bead" fx=".36" fy=".32"><stop offset="0" style="stop-color:var(--dot-hi)" /><stop offset=".58" style="stop-color:var(--dot)" /><stop offset="1" style="stop-color:var(--dot-lo)" /></radialGradient>
-      <filter id="fx-engrave" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <!-- Each filter covers the whole board (user space), not its group's box: while the lines group holds only lines along
+           one row or one column (a game's first line, say), that box has no height or no width, a region sized from it is
+           empty, and those lines weren't painted until a line in the other direction arrived. -->
+      <filter id="fx-engrave" filterUnits="userSpaceOnUse" x="0" y="0" width={L.W} height={L.H} color-interpolation-filters="sRGB">
         <feOffset in="SourceAlpha" dy={sp * 0.016} result="o1" /><feFlood style="flood-color:var(--fx-hi)" /><feComposite in2="o1" operator="in" result="hi" />
         <feOffset in="SourceAlpha" dy={-sp * 0.01} result="o2" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o2" operator="in" result="lo" />
         <feMerge><feMergeNode in="hi" /><feMergeNode in="lo" /><feMergeNode in="SourceGraphic" /></feMerge>
       </filter>
-      <filter id="fx-emboss" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <filter id="fx-emboss" filterUnits="userSpaceOnUse" x="0" y="0" width={L.W} height={L.H} color-interpolation-filters="sRGB">
         <feGaussianBlur in="SourceGraphic" stdDeviation={sp * 0.005} result="ink" />
         <feOffset in="SourceAlpha" dy={sp * 0.012} result="o1" /><feFlood style="flood-color:var(--fx-hi)" /><feComposite in2="o1" operator="in" result="hi" />
         <feOffset in="SourceAlpha" dy={-sp * 0.008} result="o2" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o2" operator="in" result="lo" />
@@ -270,7 +275,7 @@
       </filter>
       <!-- A soft drop shadow in three steps (no blur, so it stays cheap) under a faint lit top edge: pressed-paper strips and
            ash dots slightly raised off the felt-paper. -->
-      <filter id="fx-lift" x="-20%" y="-20%" width="140%" height="160%" color-interpolation-filters="sRGB">
+      <filter id="fx-lift" filterUnits="userSpaceOnUse" x="0" y="0" width={L.W} height={L.H} color-interpolation-filters="sRGB">
         <feOffset in="SourceAlpha" dy={sp * 0.009} result="o1" />
         <feOffset in="SourceAlpha" dy={sp * 0.018} result="o2" /><feComponentTransfer in="o2" result="s2"><feFuncA type="linear" slope=".5" /></feComponentTransfer>
         <feOffset in="SourceAlpha" dy={sp * 0.03} result="o3" /><feComponentTransfer in="o3" result="s3"><feFuncA type="linear" slope=".22" /></feComponentTransfer>
@@ -280,7 +285,7 @@
         <feMerge><feMergeNode in="sh" /><feMergeNode in="lit" /><feMergeNode in="SourceGraphic" /></feMerge>
       </filter>
       <!-- A flat drop shadow, like a separate layer of paper, under a faint lit top edge; crisp edges, no blur. -->
-      <filter id="fx-flat" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
+      <filter id="fx-flat" filterUnits="userSpaceOnUse" x="0" y="0" width={L.W} height={L.H} color-interpolation-filters="sRGB">
         <feOffset in="SourceAlpha" dx={sp * 0.008} dy={sp * 0.02} result="o1" /><feFlood style="flood-color:var(--fx-hi)" /><feComposite in2="o1" operator="in" result="sh" />
         <feOffset in="SourceAlpha" dy={-sp * 0.006} result="o2" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o2" operator="in" result="lit" />
         <feMerge><feMergeNode in="sh" /><feMergeNode in="lit" /><feMergeNode in="SourceGraphic" /></feMerge>
@@ -373,10 +378,11 @@
       {/if}
     {/each}
 
-    {#if focused && kbd && cursor >= 0}
+    {#if focused && kbd && cursor >= 0 && interactive}
       {@const [x1, y1, x2, y2] = xy(cursor)}{@const rg = ring(cursor)}
-      <line {x1} {y1} {x2} {y2} stroke-width={stroke * 2.4} stroke-linecap="round" style="stroke:var(--accent);opacity:.35" />
-      <!-- A 3 px focus ring round the line (.kbd-ring in app.css): the band alone is too faint on every board. -->
+      <!-- The line Enter would draw, previewed as hovering shows it (in the mover's line colour), inside a 3 px focus ring
+           (.kbd-ring in app.css), on the player's turn only. -->
+      <line class="preview p{turn}" {x1} {y1} {x2} {y2} stroke-width={stroke} stroke-linecap="round" stroke-dasharray="{stroke * 0.1} {stroke * 1.6}" />
       <rect class="kbd-ring" x={rg.x} y={rg.y} width={rg.width} height={rg.height} rx={rg.rx} />
     {/if}
 

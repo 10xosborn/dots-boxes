@@ -21,18 +21,19 @@
   <!-- The same materials as the game board (Board.svelte); only one of the two is ever on screen, so the ids can match. -->
   <defs>
     <radialGradient id="dot-bead" fx=".36" fy=".32"><stop offset="0" style="stop-color:var(--dot-hi)" /><stop offset=".58" style="stop-color:var(--dot)" /><stop offset="1" style="stop-color:var(--dot-lo)" /></radialGradient>
-    <filter id="fx-engrave" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+    <!-- Whole-board filter regions, as on the game board (see Board.svelte): the demo starts with a single line too. -->
+    <filter id="fx-engrave" filterUnits="userSpaceOnUse" x="0" y="0" width="300" height="110" color-interpolation-filters="sRGB">
       <feOffset in="SourceAlpha" dy="1.5" result="o1" /><feFlood style="flood-color:var(--fx-hi)" /><feComposite in2="o1" operator="in" result="hi" />
       <feOffset in="SourceAlpha" dy="-0.9" result="o2" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o2" operator="in" result="lo" />
       <feMerge><feMergeNode in="hi" /><feMergeNode in="lo" /><feMergeNode in="SourceGraphic" /></feMerge>
     </filter>
-    <filter id="fx-emboss" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+    <filter id="fx-emboss" filterUnits="userSpaceOnUse" x="0" y="0" width="300" height="110" color-interpolation-filters="sRGB">
       <feGaussianBlur in="SourceGraphic" stdDeviation="0.45" result="ink" />
       <feOffset in="SourceAlpha" dy="1.1" result="o1" /><feFlood style="flood-color:var(--fx-hi)" /><feComposite in2="o1" operator="in" result="hi" />
       <feOffset in="SourceAlpha" dy="-0.7" result="o2" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o2" operator="in" result="lo" />
       <feMerge><feMergeNode in="hi" /><feMergeNode in="lo" /><feMergeNode in="ink" /></feMerge>
     </filter>
-    <filter id="fx-lift" x="-20%" y="-20%" width="140%" height="160%" color-interpolation-filters="sRGB">
+    <filter id="fx-lift" filterUnits="userSpaceOnUse" x="0" y="0" width="300" height="110" color-interpolation-filters="sRGB">
       <feOffset in="SourceAlpha" dy="0.8" result="o1" />
       <feOffset in="SourceAlpha" dy="1.6" result="o2" /><feComponentTransfer in="o2" result="s2"><feFuncA type="linear" slope=".5" /></feComponentTransfer>
       <feOffset in="SourceAlpha" dy="2.7" result="o3" /><feComponentTransfer in="o3" result="s3"><feFuncA type="linear" slope=".22" /></feComponentTransfer>
@@ -41,7 +42,7 @@
       <feOffset in="SourceAlpha" dy="-0.54" result="o4" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o4" operator="in" result="lit" />
       <feMerge><feMergeNode in="sh" /><feMergeNode in="lit" /><feMergeNode in="SourceGraphic" /></feMerge>
     </filter>
-    <filter id="fx-flat" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
+    <filter id="fx-flat" filterUnits="userSpaceOnUse" x="0" y="0" width="300" height="110" color-interpolation-filters="sRGB">
       <feOffset in="SourceAlpha" dx="0.72" dy="1.8" result="o1" /><feFlood style="flood-color:var(--fx-hi)" /><feComposite in2="o1" operator="in" result="sh" />
       <feOffset in="SourceAlpha" dy="-0.54" result="o2" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o2" operator="in" result="lit" />
       <feMerge><feMergeNode in="sh" /><feMergeNode in="lit" /><feMergeNode in="SourceGraphic" /></feMerge>

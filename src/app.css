@@ -179,7 +179,7 @@
   --p2: #4657CE; --p2-deep: #4657CE; --p2-soft: #E2E5FA; --p2-glow: transparent;   /* indigo ink: 5.6:1 */
   --box1: #FFE1D8; --box2: #E2E5FA; --box1-ink: #E0391A; --box2-ink: #4657CE; --pat1: #FC4422; --pat2: #4657CE; --ini-halo: #FCF8EF;
   --box-op: 1; --box-rim1: transparent; --box-rim2: transparent;
-  --line1: #FC4422; --line2: #4657CE; --lane: transparent;
+  --line1: #EF4120; --line2: #4657CE; --lane: transparent;   /* your lines: the coral 5% deeper, for 3:1 on the textured sheet (owner, 2026-10-20) */
   --dot: #2E2B27; --dot-hi: #6B645B; --dot-lo: #171513;
   --ln-filter: url(#fx-emboss); --dot-filter: url(#fx-emboss); --bx-filter: none; --cores: none;
   --fx-hi: rgba(255,255,255,.85); --fx-lo: rgba(70,50,20,.22);
@@ -196,7 +196,7 @@
 }
 /* Cozy Paper at night (owner, 2026-10-19: "the texture the white theme uses" and Sienna Brown; never violet): the day's paper
    at night, a Sienna Brown desk and a deeper Sienna sheet, both with the day's formation, fibres and tooth; ivory paper discs
-   for dots, and warm beige die-cut strips for your lines (denim blue for the other player's), each with a flat drop shadow
+   for dots, and Deep Sand Beige die-cut strips for your lines (denim blue for the other player's), each with a flat drop shadow
    like a separate layer of paper; captured boxes a translucent parchment wash the paper shows through. Every colour token is
    set here. */
 [data-skin="paper"][data-theme="dark"] {
@@ -208,8 +208,8 @@
   --p1: #E8D5B5; --p1-deep: #F0E2C6; --p1-soft: #55301A; --p1-glow: transparent;   /* warm beige: you */
   --p2: #8FB8D6; --p2-deep: #A5C6E0; --p2-soft: #523425; --p2-glow: transparent;   /* denim blue: the other player */
   --box1: #F3EAD7; --box2: #F3EAD7; --box1-ink: #FFF6E4; --box2-ink: #C9E0F2; --pat1: #F3EAD7; --pat2: #A5C6E0; --ini-halo: var(--board);
-  --box-op: .2; --box-rim1: rgba(232,213,181,.55); --box-rim2: rgba(143,184,214,.65);   /* a parchment wash */
-  --line1: #E8D5B5; --line2: #8FB8D6; --lane: transparent;
+  --box-op: .2; --box-rim1: rgba(201,176,133,.65); --box-rim2: rgba(143,184,214,.65);   /* a parchment wash; rims in each player's line colour */
+  --line1: #C9B085; --line2: #8FB8D6; --lane: transparent;   /* your lines: Deep Sand Beige, clearer on the sheet (owner, 2026-10-20) */
   --dot: #F3EAD7; --dot-hi: #F7F1E4; --dot-lo: #EADFC8;             /* ivory discs, nearly flat */
   --ln-filter: url(#fx-flat); --dot-filter: url(#fx-flat); --bx-filter: none; --cores: none;
   --fx-hi: rgba(22,8,2,.55); --fx-lo: rgba(255,246,228,.12);        /* a flat shadow below, a faint lit top edge */

@@ -407,7 +407,8 @@ Canvas row 5: Desktop game (a two-page spread), Phone game (Tweaks → moment), 
 | --graphite | #2E2B27 | #F6EEDF; dots #F3EAD7 ivory discs | Text and printed dots |
 | --graphite-2 | #625A50 | #DCCBB3 | Secondary text |
 | --head-ink | #2E2B27 | #FFFFFF | Text straight on the desk (at night only white keeps 4.5:1 over the fibres) |
-| --p1 | #FC4422 (coral) | #E8D5B5 (warm beige) die-cut strips | You: printed lines, hatched boxes |
+| --p1 | #FC4422 (coral) | #E8D5B5 (warm beige) | You: hatched boxes, your card, ring and turn pill |
+| --line1 | #EF4120 (the coral 5% deeper, for 3:1 on the sheet; owner, 2026-10-20) | #C9B085 (Deep Sand Beige, owner, 2026-10-20) die-cut strips | Your lines, and the previews of them |
 | --p1-wash | #FFE1D8 | #F3EAD7 at 20% (parchment), both players | Your boxes |
 | --p2 | #4657CE (indigo) | #8FB8D6 (denim blue) die-cut strips | AI or player 2 |
 | --p2-wash | #E2E5FA | #F3EAD7 at 20% (parchment); initials #FFF6E4 and #C9E0F2 | Their boxes |

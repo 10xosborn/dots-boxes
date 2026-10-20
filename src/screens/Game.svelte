@@ -70,14 +70,15 @@
       first: st.first, moves: [...st.moves], ms: Math.round(performance.now() - t0), savedAt: Date.now() });
   }
 
-  /** Apply a move, update the view, then pass control on. */
-  function commit(e: number) {
+  /** Apply a move, update the view, then pass control on. `how`: the player's own line (the AI's lines have none): a line
+   *  dragged in drops in with its own sound, a tapped, clicked or keyboard one plays the line's note, as the AI's do. */
+  function commit(e: number, how?: 'tap' | 'drag' | 'key') {
     const p = st.turn, done = play(st, e);
     if (done === null) return;
     lines.push({ e, p });
     for (const b of done) boxes.push({ b, p });
     score = [st.score[0], st.score[1]]; turn = st.turn;
-    sfx.play(done.length ? 'box' : 'line');
+    sfx.play(done.length ? 'box' : how === 'drag' ? 'drop' : 'line');
     announce = `${names[p]} drew a line${done.length ? ` and closed ${done.length} box${done.length > 1 ? 'es' : ''}` : ''}. Score ${score[0]} to ${score[1]}.`;
     if (st.over) { over = true; clearActive(); ms = performance.now() - t0; clearInterval(clock); setTimeout(finish, app.settings.anim ? 500 : 60); }
     else { persist(); queueAI(p === 1); }
