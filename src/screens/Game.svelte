@@ -172,7 +172,7 @@
     {#if vsAI()}<span class="chip">{DIFF_LABEL[cfg.diff]}</span>{/if}
     <span class="chip">Lv {L.level}<span class="mini"><i style:width="{L.pct}%"></i></span></span>
   </div>
-  <Board rows={size.rows} cols={size.cols} {lines} {boxes} {turn} interactive={humanTurn} initials={ini} anim={app.settings.anim} onmove={commit} />
+  <Board rows={size.rows} cols={size.cols} {lines} {boxes} {turn} interactive={humanTurn} initials={ini} anim={app.settings.anim} bot={vsAI()} onmove={commit} />
   <div class="game-actions">
     <button class="btn small" onclick={quit}>Quit</button>
     <button class="btn small" onclick={restart}>Restart</button>
