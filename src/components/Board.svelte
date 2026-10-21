@@ -273,7 +273,7 @@
   }
 </script>
 
-<div class="board-wrap" style:aspect-ratio="{L.W} / {L.H}" style:width="min(100%, 620px, calc(max(260px, 100dvh - 330px) * {L.W / L.H}))">
+<div class="board-wrap" style:aspect-ratio="{L.W} / {L.H}" style:--ar={L.W / L.H}>
   <!-- The board is a custom keyboard/pointer widget (role="application"), so it must be focusable and take input. -->
   <!-- svelte-ignore a11y_no_noninteractive_tabindex, a11y_no_noninteractive_element_interactions -->
   <svg bind:this={svg} id="board" viewBox="0 0 {L.W} {L.H}" tabindex="0" role="application"

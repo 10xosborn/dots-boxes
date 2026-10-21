@@ -13,6 +13,7 @@
   import type { ScoreEntry, Leaderboard } from '../lib/data/types';
   import Board from '../components/Board.svelte';
   import PlayerCards from '../components/PlayerCards.svelte';
+  import TopBar from '../components/TopBar.svelte';
   import ResultsModal, { type ResultInfo } from '../components/ResultsModal.svelte';
 
   // Game settings are frozen at start so changing Setup mid-game can't affect it.
@@ -173,7 +174,9 @@
   });
 </script>
 
-<section aria-label="Game">
+<!-- The game layout (app.css): its own top bar, the HUD, then the board with the buttons, filling the screen. -->
+<section class="game fit own-bar" aria-label="Game">
+  <TopBar busy />
   <PlayerCards {names} {subs} {score} {turn} {over} {thinking} extra={streak} you={vsAI() ? 0 : null} bot={vsAI()}>
     {#snippet meta()}
       <span class="chip" title="Elapsed time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg><b>{fmtClock(ms)}</b></span>
@@ -182,10 +185,12 @@
       <span class="chip lvl">Lv {L.level}<span class="mini"><i style:width="{L.pct}%"></i></span></span>
     {/snippet}
   </PlayerCards>
-  <Board rows={size.rows} cols={size.cols} {lines} {boxes} {turn} interactive={humanTurn} initials={ini} anim={app.settings.anim} bot={vsAI()} onmove={commit} />
-  <div class="game-actions">
-    <button class="btn small" onclick={quit}>Quit</button>
-    <button class="btn small" onclick={restart}>Restart</button>
+  <div class="play">
+    <Board rows={size.rows} cols={size.cols} {lines} {boxes} {turn} interactive={humanTurn} initials={ini} anim={app.settings.anim} bot={vsAI()} onmove={commit} />
+    <div class="game-actions">
+      <button class="btn small" onclick={quit}>Quit</button>
+      <button class="btn small" onclick={restart}>Restart</button>
+    </div>
   </div>
   <p class="sr" aria-live="polite">{announce}</p>
 </section>

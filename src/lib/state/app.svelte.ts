@@ -41,6 +41,8 @@ export const app = $state({
   resume: null as ActiveGame | null,
   /** An online room for the Online screen to rejoin at start-up. */
   roomResume: null as SavedRoom | null,
+  /** An online game is on screen: it draws its own top bar, as the Game screen does. */
+  playing: false,
 });
 
 let adapter: DataAdapter | null = null;

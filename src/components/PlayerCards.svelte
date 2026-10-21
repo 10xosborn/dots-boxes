@@ -4,8 +4,9 @@
   import Avatar from './Avatar.svelte';
   // The game's heads-up display (spec, step 3). Tabletop and Neon: two player cards with avatars, then the turn pill whose
   // tinted half slides to the mover. Paper: a ruled score sheet, each player on a line (a sticker, the name, tally marks in
-  // gates of five, the score circled while it is their turn) and a handwritten turn note under them. `meta` holds the
-  // game's chips (clock, size, difficulty, level); Paper writes them as one line of its sheet.
+  // gates of five, the score circled while it is their turn) and a handwritten turn note under them, with a pencil arrow to
+  // the board on its two-page spread. `meta` holds the game's chips (clock, size, difficulty, level); Paper writes them as one
+  // line of its sheet.
   // `you`: the seat of whoever holds this device ("Your turn"), or null on one shared device (names are used instead);
   // `bot`: the second player is the AI; `extra`: boxes the mover has closed this turn (the extra-turn cue, and a chain's x2, x3).
   let { names, subs, score, turn, over, thinking = false, extra = 0, you = null, bot = false, meta }:
@@ -46,6 +47,7 @@
          A long name truncates (.who); the rest of the note, the cue included, stays whole (.rest). -->
     <p class="note">{#if over}Game over.{:else if xt}<span class="who">{#if yours}<span class="lead">{'Your turn. '}</span>You{:else}{mover}{/if}</span><span class="rest">{' ' + closed}<mark>{yours || (you === null && !thinking) ? 'go again!' : 'goes again.'}</mark></span>{:else if thinking}<span class="tt">{mover} is thinking</span>{:else}{yours ? 'Your turn.' : `${mover}'s turn.`}{/if}</p>
     <div class="meta">{@render meta?.()}</div>
+    {#if !over}<svg class="arrow" viewBox="0 0 96 58" aria-hidden="true"><path d="M4 8C30 2 58 8 72 30S84 50 90 52" /><path d="M80 47L91 53L88 41" /></svg>{/if}
   </div>
 {:else}
   <div class="hud">
