@@ -22,7 +22,8 @@ export { roomSize, type Room };
 
 /*
  * Realtime Database layout:
- *   rooms/{code} { host, guest, names:{host,guest}, rows, cols, n?, first, game, moves:[...], online:{uid:true}, updated, dbg? }
+ *   rooms/{code} { host, guest, names:{host,guest}, rows, cols, n?, first, game, moves:[...], online:{uid:true}, updated, dbg?,
+ *                  v: 2, turn, count, drawn:{edge:seat} }
  *   presence/{code}/{uid}/{connectionId}: server time, one child per open connection
  * `n` is also written for the standard square sizes, so rooms stay readable by older
  * versions of the game and valid under older security rules.
@@ -33,6 +34,10 @@ export { roomSize, type Room };
  * Presence lives outside the room so it never gets in the way of a move. The old
  * rooms/{code}/online flag is still written for older versions of the game.
  * `dbg` holds per-move timings, written only with ?debug=net.
+ * Server-checked turns: rooms made now also carry v: 2, the player to move (turn), the number of moves (count) and
+ * the lines drawn (drawn/{edge}: seat). In those rooms the database rules accept a move only as one update of
+ * moves/{count}, drawn/{edge}, count and turn, from the player whose turn it is, with the next turn right (the same
+ * player after closing a box); see scripts/database-rules.mjs. Rooms from older versions have no v and play as before.
  */
 
 const ALPH = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
@@ -51,6 +56,7 @@ export async function createRoom(name: string, size: BoardSize): Promise<string>
     const res = await runTransaction(roomRef(code), (cur: Room | null) => cur ? undefined : {
       host: u.uid, guest: null, names: { host: name }, rows: size.rows, cols: size.cols,
       ...(isStandard(size) ? { n: size.rows } : {}), first: 0, game: 1, moves: [], updated: Date.now(),
+      v: 2, turn: 0, count: 0,
     });
     if (res.committed) return code;
   }
@@ -130,14 +136,18 @@ export function watchFriend(code: string, uid: string, cb: (present: boolean | n
 }
 
 /**
- * Write move number `n` (edge `e`) into its own slot, rooms/{code}/moves/{n}, only if that slot is still empty.
- * The caller has checked, on the n moves it has, that the game isn't over, that it's this seat's turn and that the
- * line is free; moves never change once written, so the one check the server must make is that nobody took slot n
- * first (an empty slot means the other player hasn't moved since). The write is one number, the mover's screen shows
- * it at once (Firebase applies it locally first) and the room's listeners get just that slot.
- * Returns false if the slot was taken.
+ * Write move number `n` (edge `e`). The caller has checked, on the n moves it has, that the game isn't over, that it's
+ * this seat's turn and that the line is free; the mover's screen shows the line at once (Firebase applies the write
+ * locally first). Returns false if the server refused it: the room had moved on (the board then refreshes).
+ * A room with server-checked turns (`checked`: the mover's seat and who moves next) takes one update of four values,
+ * which the rules check; an older room, the move alone in its own slot, in a transaction that only succeeds while that
+ * slot is empty (an empty slot means the other player hasn't moved since).
  */
-export async function sendMove(code: string, e: number, n: number): Promise<boolean> {
+export async function sendMove(code: string, e: number, n: number, checked?: { seat: Player; next: Player }): Promise<boolean> {
+  if (checked) {
+    try { await track(update(roomRef(code), { [`moves/${n}`]: e, [`drawn/${e}`]: checked.seat, turn: checked.next, count: n + 1 })); return true; }
+    catch (err) { if (err instanceof Error && /permission/i.test(err.message)) return false; throw err; }
+  }
   const res = await track(runTransaction(ref(rtdb(), `rooms/${code}/moves/${n}`), (cur: number | null) => (cur === null ? e : undefined)));
   return res.committed;
 }
@@ -180,6 +190,7 @@ export async function rematch(code: string): Promise<void> {
     if (!r) return r;
     const st = replay(roomSize(r), r.first, r.moves ?? []);
     if (!st.over) return undefined;
-    return { ...r, game: r.game + 1, first: (1 - r.first) as Player, moves: [], dbg: null, updated: Date.now() };
+    const first = (1 - r.first) as Player;
+    return { ...r, game: r.game + 1, first, moves: [], dbg: null, updated: Date.now(), ...(r.v === 2 ? { turn: first, count: 0, drawn: null } : {}) };
   }));
 }

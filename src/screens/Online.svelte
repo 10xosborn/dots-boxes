@@ -165,7 +165,9 @@
     const slow = setTimeout(() => (sending = true), 600), stuck = setTimeout(() => a.checkLink(c, 2000), 3000);
     if (dbg) tick().then(() => requestAnimationFrame(() => dbg?.ownShown(n)));
     try {
-      const ok = await a.sendMove(c, e, n);
+      // Rooms with server-checked turns also send who moves next: the same player if this line closes a box.
+      const checked = room.v === 2 && size ? { seat, next: replay(size, room.first, [...st.moves, e]).turn } : undefined;
+      const ok = await a.sendMove(c, e, n, checked);
       dbg?.confirmed(n);
       error = ok ? '' : 'That move could not be sent. The board has been refreshed.';
     } catch { error = 'That move could not be sent. Tap again.'; }
