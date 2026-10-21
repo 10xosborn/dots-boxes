@@ -9,6 +9,9 @@ export interface Room {
   names: { host: string; guest?: string };
   rows?: number; cols?: number; n?: number;
   first: Player; game: number; moves?: number[];
+  /** Rooms made since server-checked turns: v 2, the player to move, the number of moves and the lines drawn
+   *  (edge → the seat that drew it), which the database rules check every move against. Older rooms have none. */
+  v?: number; turn?: Player; count?: number; drawn?: Record<string, Player>;
   online?: Record<string, boolean>;
   dbg?: Record<number, MoveTiming | undefined>;
 }
