@@ -62,7 +62,7 @@
   {#if neon}
   <g class="halos">
   {#each lines as l, i (i)}
-    {#each [['h4', 33.6], ['h3', 24.8], ['h2', 18.4], ['h1', 12.8]] as [k, w] (k)}
+    {#each [['h4', 26.9], ['h3', 19.8], ['h2', 14.7], ['h1', 10.2]] as [k, w] (k)}
       <line class="ln {k}" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width={w} style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
     {/each}
   {/each}
@@ -82,24 +82,24 @@
   {#each lines as l, i (i)}
     {#if pencil}
       {@const pp = pencilPath(l, i)}{@const len = Math.hypot(l[2] - l[0], l[3] - l[1]) * 1.02}
-      <path class="ln" class:grow={anim} style="--len:{len}" d={pp.d} fill="none" stroke-width="5.5" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
-      <path class="ln ghost" class:grow={anim} style="--len:{len}" d={pp.g} fill="none" stroke-width="1.4" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
+      <path class="ln" class:grow={anim} style="--len:{len}" d={pp.d} fill="none" stroke-width="4.4" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
+      <path class="ln ghost" class:grow={anim} style="--len:{len}" d={pp.g} fill="none" stroke-width="1.1" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
     {:else}
-      <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width="8" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
+      <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width="6.4" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
     {/if}
   {/each}
   </g>
   {#if neon}
   <g class="cores">
   {#each lines as l, i (i)}
-    <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width="3" style:stroke={`color-mix(in srgb, ${l[4] ? 'var(--line2)' : 'var(--line1)'} var(--core-mix, 40%), #fff)`} />
+    <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width="2.4" style:stroke={`color-mix(in srgb, ${l[4] ? 'var(--line2)' : 'var(--line1)'} var(--core-mix, 40%), #fff)`} />
   {/each}
   </g>
   {/if}
   {#if neonDark}
   <g class="reflect">
   {#each lines as l, i (i)}
-    <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0] + 4} y1={l[1] + 9} x2={l[2] + 4} y2={l[3] + 9} stroke-width="1.8" style:stroke={`color-mix(in srgb, ${l[4] ? 'var(--line2)' : 'var(--line1)'} var(--core-mix, 40%), #fff)`} />
+    <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0] + 4} y1={l[1] + 9} x2={l[2] + 4} y2={l[3] + 9} stroke-width="1.44" style:stroke={`color-mix(in srgb, ${l[4] ? 'var(--line2)' : 'var(--line1)'} var(--core-mix, 40%), #fff)`} />
   {/each}
   </g>
   {/if}

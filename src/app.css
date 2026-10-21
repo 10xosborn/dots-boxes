@@ -128,7 +128,7 @@
   --sel-ring: var(--accent); --sel-glow: 0 0 14px -2px color-mix(in srgb,var(--accent) 60%,transparent);
   --board: #0B0F19; --grid: transparent;                  /* Obsidian Glass */
   --last-pct: 100%; --last-fill: #0B0F19;               /* the last-move ring's centre: the obsidian board */
-  --glass: rgba(255,255,255,.07); --glass-edge: rgba(255,255,255,.3);
+  --glass: rgba(8,10,20,.36);                           /* the clear pane: the room's light shows through (--board stays under the tiles) */
   --aur-base: linear-gradient(160deg,#350014 0%,#14030A 30%,#07080B 60%,#050608 100%); --aur1: #BD0249; --aur2: #00F0FF; --aur3: transparent; --aur-op: .2;
   --lamp: transparent; --frame: transparent; --frame-dark: transparent; --frame-hi: transparent; --cast: rgba(0,0,0,.85);
   --scrim: rgba(2,4,10,.74);
@@ -166,7 +166,7 @@
   --sel-ring: #4657CE; --sel-glow: 0 0 14px -4px rgba(70,87,206,.6);
   --board: #EBF1F5; --grid: transparent;                  /* Frosted Opal Glass */
   --last-pct: 100%; --last-fill: #EBF1F5;               /* the last-move ring's centre: the opal board */
-  --glass: rgba(255,255,255,.6); --glass-edge: rgba(255,255,255,.95);
+  --glass: rgba(248,251,253,.74);                       /* the clear pane, light enough that the coral dots keep 3:1 */
   --aur-base: linear-gradient(160deg,#DFE6EE 0%,#D5DEE7 55%,#D8E4EB 100%); --aur1: #FF4500; --aur2: #0047FF; --aur3: #39FF14; --aur-op: .12;
   --lamp: transparent; --frame: transparent; --frame-dark: transparent; --frame-hi: transparent; --cast: rgba(30,50,110,.45);
   --scrim: rgba(20,24,50,.45);
@@ -497,19 +497,30 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 /* The rim: the day's maple stained darker Sienna (the tile multiplied onto a colour chosen so the wood averages --frame). */
 [data-skin="table"][data-theme="dark"] .board-wrap::before{background:linear-gradient(180deg,rgba(255,226,180,.14),transparent 35%,rgba(0,0,0,.2)),url('./assets/textures/wood-day.webp') 0 0/256px 128px #553323;
   background-blend-mode:normal,multiply}
-/* Neon: a pane of glass, faked with cheap static layers: a sheen, crisp highlights, a lit top edge and a glow round it. It is
-   opaque, with no backdrop-filter and no blur, so nothing behind it is redrawn while a line grows or a drag moves. */
-[data-skin="neon"][data-theme="dark"] .board-wrap{   /* Obsidian Glass: a top sheen and faint light streaks */
-  background-image:linear-gradient(170deg,rgba(255,255,255,.055),transparent 32%),repeating-linear-gradient(118deg,rgba(255,255,255,.014) 0 1px,transparent 1px 9px);
-  box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px rgba(255,255,255,.07),inset 0 -40px 60px -40px rgba(0,0,0,.7),
-    0 0 0 1px rgba(0,240,255,.2),0 0 32px -6px rgba(0,240,255,.28),0 34px 60px -30px var(--cast)}
-/* ...and a crisp specular streak across the glass, over the nodes and lines, so they read as lit from under it. */
-[data-skin="neon"][data-theme="dark"] .board-wrap::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:linear-gradient(118deg,transparent 13%,var(--glass) 13%,var(--glass) 14.4%,transparent 14.4%,transparent 17%,color-mix(in srgb,var(--glass) 55%,transparent) 17%,color-mix(in srgb,var(--glass) 55%,transparent) 21%,transparent 21%)}
-[data-skin="neon"][data-theme="light"] .board-wrap{   /* Frosted Opal Glass: a milky sheen and a soft inner glow, evenly lit (only ever lighter, so the dots keep 3:1) */
-  background-image:linear-gradient(165deg,var(--glass),transparent 40%),linear-gradient(345deg,rgba(255,255,255,.35),transparent 30%);
-  box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px rgba(255,255,255,.8),inset 0 0 28px 2px rgba(255,255,255,.75),
-    0 0 0 1px rgba(0,71,255,.12),0 0 26px -6px rgba(0,71,255,.28),0 22px 44px -24px var(--cast)}
+/* Neon: liquid glass, "Clear crystal" (the owner's choice, 2026-10-20, after "the glassy look of the board ... doesn't look
+   glassy at all"). A clear pane the room's light shows through (--glass), with an edge thick enough to gather light: a crisp
+   rim, bright where the light hits (top left, bottom right) and faint between; a lit band just inside it; thin colour fringes
+   like a prism; light catching the top and left edges; a soft glow in the corner. All static layers: no filter of any kind,
+   so nothing is redrawn behind the board while a line grows or a drag moves (the owner's 15 Oct rule: no per-element blur). */
+[data-skin="neon"] .board-wrap{isolation:isolate;background-color:var(--glass)}
+[data-skin="neon"] .board-wrap::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;z-index:2;
+  background:linear-gradient(135deg,rgba(255,255,255,1),rgba(255,255,255,.35) 20%,rgba(255,255,255,.08) 45%,rgba(255,255,255,.3) 72%,rgba(255,255,255,.9));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+[data-skin="neon"] .board-wrap::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;
+  background:linear-gradient(90deg,transparent 5%,rgba(255,255,255,.85) 16%,rgba(255,255,255,.15) 46%,transparent 70%) 0 4px/100% 1.5px no-repeat,
+    linear-gradient(180deg,transparent 5%,rgba(255,255,255,.6) 14%,transparent 46%) 4px 0/1.5px 100% no-repeat,
+    linear-gradient(270deg,transparent 6%,rgba(255,255,255,.45) 18%,transparent 48%) 0 calc(100% - 4px)/100% 1.5px no-repeat,
+    linear-gradient(0deg,transparent 6%,rgba(255,255,255,.35) 16%,transparent 44%) calc(100% - 4px) 0/1.5px 100% no-repeat}
+[data-skin="neon"][data-theme="dark"] .board-wrap{   /* the fringes: cyan where the light comes in, magenta-red where it leaves */
+  background-image:radial-gradient(80% 50% at 18% -4%,rgba(255,255,255,.12),transparent 70%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),inset 0 0 10px 2px rgba(255,255,255,.12),inset 0 0 26px 4px rgba(255,255,255,.05),
+    inset 4px 4px 6px -3px rgba(0,240,255,.5),inset -4px -4px 6px -3px rgba(255,20,110,.55),
+    0 0 0 1px rgba(255,255,255,.05),0 0 40px -10px rgba(0,240,255,.3),0 34px 60px -30px var(--cast)}
+[data-skin="neon"][data-theme="light"] .board-wrap{   /* lighter by day, so the coral dots keep 3:1; blue and coral fringes */
+  background-image:radial-gradient(80% 50% at 18% -4%,rgba(255,255,255,.8),transparent 70%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.85),inset 0 0 12px 3px rgba(255,255,255,.8),inset 0 0 28px 6px rgba(255,255,255,.35),
+    inset 4px 4px 6px -3px rgba(0,110,255,.35),inset -4px -4px 6px -3px rgba(255,69,0,.32),
+    0 0 0 1px rgba(0,71,255,.08),0 0 30px -8px rgba(0,71,255,.24),0 24px 44px -24px var(--cast)}
 /* Paper: a sheet with cloudy formation, short fibres and tooth, toned at its edges, lying slightly lifted on the desk. */
 [data-skin="paper"] .board-wrap{background-image:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 62%,rgba(150,110,50,.12)),url('./assets/textures/paper-day.webp');
   background-size:auto,512px 512px;background-blend-mode:normal,multiply;
