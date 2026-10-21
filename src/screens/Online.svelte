@@ -81,11 +81,12 @@
   // A finished game with no rematch stops being offered for rejoining after 10 minutes.
   $effect(() => { if (code && st) roomEnded(st.over); });
 
-  // Sound + confetti when moves arrive or the game ends.
-  let lastLen = 0;
+  // Sound + confetti when moves arrive or the game ends. Our own line dragged in drops in with its own sound (ownDrop: its
+  // move number); every other line plays the line's note.
+  let lastLen = 0, ownDrop = -1;
   $effect(() => {
     const len = st?.moves.length ?? 0;
-    if (st && len > lastLen) sfx.play('line');
+    if (st && len > lastLen) sfx.play(ownDrop === len - 1 ? 'drop' : 'line');
     if (st?.over && len !== lastLen) { const w = winner(st); sfx.play(w === seat ? 'win' : w === -1 ? 'draw' : 'lose'); if (w === seat && app.settings.anim) confetti(); }
     lastLen = len;
   });
@@ -153,9 +154,10 @@
     } catch { phase = 'lobby'; retry = { code: c, seat: s }; info = "Couldn't reach your game. Check your connection, then try again."; }
     busy = false;
   }
-  async function move(e: number) {
+  async function move(e: number, how?: 'tap' | 'drag' | 'key') {
     if (!room || !api || !myTurn || !st || st.lines[e] >= 0) return;
     const a = api, c = code, n = st.moves.length;
+    ownDrop = how === 'drag' ? n : -1;
     dbg?.sent(n);
     // The line shows at once (Firebase applies the write locally first). A slow network says "Sending…"; no answer
     // after 3 s means the connection may be dead, so check it (a new one resends the move).

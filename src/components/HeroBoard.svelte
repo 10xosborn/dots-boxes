@@ -28,18 +28,19 @@
   <!-- The same materials as the game board (Board.svelte); only one of the two is ever on screen, so the ids can match. -->
   <defs>
     <radialGradient id="dot-bead" fx=".36" fy=".32"><stop offset="0" style="stop-color:var(--dot-hi)" /><stop offset=".58" style="stop-color:var(--dot)" /><stop offset="1" style="stop-color:var(--dot-lo)" /></radialGradient>
-    <filter id="fx-engrave" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+    <!-- Whole-board filter regions, as on the game board (see Board.svelte): the demo starts with a single line too. -->
+    <filter id="fx-engrave" filterUnits="userSpaceOnUse" x="0" y="0" width="300" height="110" color-interpolation-filters="sRGB">
       <feOffset in="SourceAlpha" dy="1.5" result="o1" /><feFlood style="flood-color:var(--fx-hi)" /><feComposite in2="o1" operator="in" result="hi" />
       <feOffset in="SourceAlpha" dy="-0.9" result="o2" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o2" operator="in" result="lo" />
       <feMerge><feMergeNode in="hi" /><feMergeNode in="lo" /><feMergeNode in="SourceGraphic" /></feMerge>
     </filter>
-    <filter id="fx-emboss" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+    <filter id="fx-emboss" filterUnits="userSpaceOnUse" x="0" y="0" width="300" height="110" color-interpolation-filters="sRGB">
       <feGaussianBlur in="SourceGraphic" stdDeviation="0.45" result="ink" />
       <feOffset in="SourceAlpha" dy="1.1" result="o1" /><feFlood style="flood-color:var(--fx-hi)" /><feComposite in2="o1" operator="in" result="hi" />
       <feOffset in="SourceAlpha" dy="-0.7" result="o2" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o2" operator="in" result="lo" />
       <feMerge><feMergeNode in="hi" /><feMergeNode in="lo" /><feMergeNode in="ink" /></feMerge>
     </filter>
-    <filter id="fx-lift" x="-20%" y="-20%" width="140%" height="160%" color-interpolation-filters="sRGB">
+    <filter id="fx-lift" filterUnits="userSpaceOnUse" x="0" y="0" width="300" height="110" color-interpolation-filters="sRGB">
       <feOffset in="SourceAlpha" dy="0.8" result="o1" />
       <feOffset in="SourceAlpha" dy="1.6" result="o2" /><feComponentTransfer in="o2" result="s2"><feFuncA type="linear" slope=".5" /></feComponentTransfer>
       <feOffset in="SourceAlpha" dy="2.7" result="o3" /><feComponentTransfer in="o3" result="s3"><feFuncA type="linear" slope=".22" /></feComponentTransfer>
@@ -48,7 +49,7 @@
       <feOffset in="SourceAlpha" dy="-0.54" result="o4" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o4" operator="in" result="lit" />
       <feMerge><feMergeNode in="sh" /><feMergeNode in="lit" /><feMergeNode in="SourceGraphic" /></feMerge>
     </filter>
-    <filter id="fx-flat" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
+    <filter id="fx-flat" filterUnits="userSpaceOnUse" x="0" y="0" width="300" height="110" color-interpolation-filters="sRGB">
       <feOffset in="SourceAlpha" dx="0.72" dy="1.8" result="o1" /><feFlood style="flood-color:var(--fx-hi)" /><feComposite in2="o1" operator="in" result="sh" />
       <feOffset in="SourceAlpha" dy="-0.54" result="o2" /><feFlood style="flood-color:var(--fx-lo)" /><feComposite in2="o2" operator="in" result="lit" />
       <feMerge><feMergeNode in="sh" /><feMergeNode in="lit" /><feMergeNode in="SourceGraphic" /></feMerge>
@@ -61,7 +62,7 @@
   {#if neon}
   <g class="halos">
   {#each lines as l, i (i)}
-    {#each [['h4', 33.6], ['h3', 24.8], ['h2', 18.4], ['h1', 12.8]] as [k, w] (k)}
+    {#each [['h4', 26.9], ['h3', 19.8], ['h2', 14.7], ['h1', 10.2]] as [k, w] (k)}
       <line class="ln {k}" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width={w} style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
     {/each}
   {/each}
@@ -91,14 +92,14 @@
   {#if neon}
   <g class="cores">
   {#each lines as l, i (i)}
-    <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width="3" style:stroke={`color-mix(in srgb, ${l[4] ? 'var(--line2)' : 'var(--line1)'} var(--core-mix, 40%), #fff)`} />
+    <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width="2.4" style:stroke={`color-mix(in srgb, ${l[4] ? 'var(--line2)' : 'var(--line1)'} var(--core-mix, 40%), #fff)`} />
   {/each}
   </g>
   {/if}
   {#if neonDark}
   <g class="reflect">
   {#each lines as l, i (i)}
-    <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0] + 4} y1={l[1] + 9} x2={l[2] + 4} y2={l[3] + 9} stroke-width="1.8" style:stroke={`color-mix(in srgb, ${l[4] ? 'var(--line2)' : 'var(--line1)'} var(--core-mix, 40%), #fff)`} />
+    <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0] + 4} y1={l[1] + 9} x2={l[2] + 4} y2={l[3] + 9} stroke-width="1.44" style:stroke={`color-mix(in srgb, ${l[4] ? 'var(--line2)' : 'var(--line1)'} var(--core-mix, 40%), #fff)`} />
   {/each}
   </g>
   {/if}

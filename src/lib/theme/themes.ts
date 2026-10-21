@@ -29,7 +29,7 @@ export const SKINS: SkinInfo[] = [
     swatch: { light: ['#D5DEE7', '#EBF1F5', '#54FD36', '#0047FF', '#007F73', '#FF4500'], dark: ['#350014', '#0B0F19', '#62269A', '#BD0249', '#E28C19', '#00F0FF'] } },
   { id: 'paper', name: 'Paper', blurb: 'Printed on warm, textured paper', font: '"Kalam", system-ui, sans-serif',
     bar: { light: '#E6DCC7', dark: '#A0592B' },
-    swatch: { light: ['#E6DCC7', '#FCF8EF', '#FC4422', '#FC4422', '#4657CE', '#2E2B27'], dark: ['#A0592B', '#6A3A1C', '#855D41', '#E8D5B5', '#8FB8D6', '#F3EAD7'] } },
+    swatch: { light: ['#E6DCC7', '#FCF8EF', '#FC4422', '#EF4120', '#4657CE', '#2E2B27'], dark: ['#A0592B', '#6A3A1C', '#855D41', '#C9B085', '#8FB8D6', '#F3EAD7'] } },
 ];
 
 /** New players start on Minimalist Premium, the spec's recommended main look. */
