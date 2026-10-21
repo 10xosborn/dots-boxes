@@ -134,7 +134,7 @@
   --sel-ring: var(--accent); --sel-glow: 0 0 14px -2px color-mix(in srgb,var(--accent) 60%,transparent);
   --board: #0B0F19; --grid: transparent;                  /* Obsidian Glass */
   --last-pct: 100%; --last-fill: #0B0F19;               /* the last-move ring's centre: the obsidian board */
-  --glass: rgba(8,10,20,.36);                           /* the clear pane: the room's light shows through (--board stays under the tiles) */
+  --glass: rgba(255,255,255,.07); --glass-edge: rgba(255,255,255,.3);
   --aur-base: linear-gradient(160deg,#350014 0%,#14030A 30%,#07080B 60%,#050608 100%); --aur1: #BD0249; --aur2: #00F0FF; --aur3: transparent; --aur-op: .2;
   --lamp: transparent; --frame: transparent; --frame-dark: transparent; --frame-hi: transparent; --cast: rgba(0,0,0,.85);
   --scrim: rgba(2,4,10,.74);
@@ -174,7 +174,7 @@
   --sel-ring: #4657CE; --sel-glow: 0 0 14px -4px rgba(70,87,206,.6);
   --board: #EBF1F5; --grid: transparent;                  /* Frosted Opal Glass */
   --last-pct: 100%; --last-fill: #EBF1F5;               /* the last-move ring's centre: the opal board */
-  --glass: rgba(248,251,253,.74);                       /* the clear pane, light enough that the coral dots keep 3:1 */
+  --glass: rgba(255,255,255,.6); --glass-edge: rgba(255,255,255,.95);
   --aur-base: linear-gradient(160deg,#DFE6EE 0%,#D5DEE7 55%,#D8E4EB 100%); --aur1: #FF4500; --aur2: #0047FF; --aur3: #39FF14; --aur-op: .12;
   --lamp: transparent; --frame: transparent; --frame-dark: transparent; --frame-hi: transparent; --cast: rgba(30,50,110,.45);
   --scrim: rgba(20,24,50,.45);

@@ -25,7 +25,7 @@
     initials: [string, string];
     anim: boolean;
     bot?: boolean;   // player 2 is the AI (Tabletop shows a person and a bot in the boxes instead of initials)
-    onmove: (e: number, how: 'tap' | 'drag' | 'key') => void;
+    onmove: (e: number) => void;
   } = $props();
 
   const g = $derived(geometry(rows, cols));
@@ -37,8 +37,7 @@
   // Paper by day draws in pencil: thinner lines (0.06 of a gap), with a hand's wobble on boards up to 6x6, and hatched
   // boxes (spec, step 2). Paper at night keeps its die-cut cardstock strips and parchment wash (the 2026-10-15 brief).
   const pencil = $derived(skin === 'paper' && app.settings.theme === 'light'), wobbly = $derived(pencil && rows <= 6 && cols <= 6);
-  // Line widths (the owner, 2026-10-20: "reduce the size of the widths"): a fifth thinner than before in every theme.
-  const stroke = $derived(pencil ? Math.max(3.2, sp * 0.048) : Math.max(4.8, sp * 0.068));
+  const stroke = $derived(pencil ? Math.max(4, sp * 0.06) : Math.max(6, sp * 0.085));
   const dotR = $derived(Math.max(5.5, sp * 0.075));
   // Theme colours (app.css): each player's line colour (also the mover's previews and drag line, through
   // .preview and .drag, at 3:1 or more on every board) and box colours.
@@ -381,7 +380,7 @@
       {#if wobbly}
         {@const pp = pencilPath(l.e)}
         <path class="ln" class:grow={anim} d={pp.d} fill="none" stroke-width={stroke} style="--len:{sp * 1.02}" style:stroke={strokeOf(l)} />
-        <path class="ln ghost" class:grow={anim} d={pp.g} fill="none" stroke-width={Math.max(0.8, sp * 0.013)} style="--len:{sp * 1.02}" style:stroke={strokeOf(l)} />
+        <path class="ln ghost" class:grow={anim} d={pp.g} fill="none" stroke-width={Math.max(1, sp * 0.016)} style="--len:{sp * 1.02}" style:stroke={strokeOf(l)} />
       {:else}
         {@const [x1, y1, x2, y2] = xy(l.e)}
         <line class="ln" class:grow={anim} {x1} {y1} {x2} {y2} stroke-width={stroke} style="--len:{sp}" style:stroke={strokeOf(l)} />
