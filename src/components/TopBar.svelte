@@ -27,4 +27,5 @@
     </button>
   </div>
 </header>
+{#if app.notice}<div class="banner" role="status"><span>{app.notice}</span> <button class="btn small" onclick={() => (app.notice = '')}>Dismiss</button></div>{/if}
 {#if themeOpen}<ThemeSheet onclose={() => (themeOpen = false)} />{/if}

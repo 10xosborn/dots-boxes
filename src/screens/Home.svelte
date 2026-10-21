@@ -23,7 +23,7 @@
   function discard() { if (!confirm("Discard this game? It won't count.")) return; clearActive(); saved = null; }
 </script>
 
-<section aria-labelledby="homeTitle">
+<section class="home fit" aria-labelledby="homeTitle">
   {#if saved}
     <div class="panel resume" role="region" aria-labelledby="resumeTitle">
       <h2 id="resumeTitle">Continue your game</h2>
