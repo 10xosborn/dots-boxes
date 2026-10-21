@@ -99,8 +99,8 @@ Each player's own avatar sits beside their name, and the AI shows a friendly bot
 | Setup, "Your name" | 48 px Minimalist, 50 px Neon, 32 px Cozy Paper | Your avatar with a pencil badge; tapping it opens the avatar builder |
 | Cozy Paper score rows | 28 px desktop, 24 px phone | Round stickers ringed in the player's pencil colour: in the page margin on desktop, before the name on phones |
 
-- The AI's default avatar is a white robot head (antenna, dark visor, two lit eyes) on the AI's colour. Visor and eyes: #2B241D (#241C15 dark) and #7FD3DD in Minimalist; #1F1C25 (#2B2731 light) and #F6F6F6 in Neon; #2E2B27 and #FFE58A in Cozy Paper.
-- Players make their avatar in the avatar builder (below); Ama's is a sample. A player with no avatar yet gets a plain person silhouette in their colour.
+- The AI's default avatar is a white robot head (antenna, dark visor, two lit eyes) on the AI's colour. Visor and eyes: #2B241D (#241C15 dark) and #7FD3DD in Minimalist; #1F1C25 (#2B2731 light) and #F6F6F6 in Neon; #2E2B27 and #FFE58A in Cozy Paper. Where the AI's colour is too light for the white head (2026-10-20: copper at night in Minimalist, Golden Orange in Dark Neon, denim at night in Cozy Paper), its disc takes a deeper shade of it: #A86536, #A9620C and #4F7A9A.
+- Players make their avatar in the avatar builder (below); Ama's is a sample. A player with no avatar yet gets a plain person silhouette in their colour: a disc in the player's colour with a white figure, or a figure in the card colour on the light night colours (platinum, copper, beige, denim).
 - Two players on one device each pick an avatar on Setup. Showing an online opponent's avatar means storing it with their profile in Firebase, a change that needs your approval first.
 - The board's ownership marks stay as they are: an avatar is too detailed at box size.
 

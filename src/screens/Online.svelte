@@ -7,6 +7,7 @@
   import { initials } from '../lib/format';
   import { sfx } from '../lib/sound';
   import { confetti } from '../lib/confetti';
+  import { boxesThisTurn } from '../lib/extraTurn';
   import { roomSize, type Room } from '../lib/online/types';
   import { saveRoom, clearRoom, roomEnded } from '../lib/resume';
   import Board from '../components/Board.svelte';
@@ -50,7 +51,7 @@
   const over = $derived(!!st?.over);
   // Moves never wait for presence: a friend who stepped away sees the move when they're back.
   const myTurn = $derived(!!st && !st.over && st.turn === seat);
-  const turnText = $derived(!st ? '' : st.over ? 'Game over' : st.turn === seat ? 'Your turn' : `${names[st.turn]}'s turn`);
+  const extra = $derived(room && size ? boxesThisTurn(size, room.first, room.moves ?? []) : 0);   // the extra-turn cue
 
   // Nothing changes for the first 10 s a friend is gone (network blips); then a calm note,
   // and after 2 minutes an offer to leave (nothing is scored). Your own connection shows
@@ -218,8 +219,9 @@
   </section>
 {:else if room && st && size}
   <section aria-label="Online game">
-    <PlayerCards {names} initials={ini} subs={[seat === 0 ? 'You' : 'Host', seat === 1 ? 'You' : 'Guest']} score={[st.score[0], st.score[1]]} turn={st.turn} {over} {turnText} />
-    <div class="meta"><span class="chip">{sizeTag}</span><span class="chip">Game {room.game}</span><span class="chip">Code <b>{code}</b></span></div>
+    <PlayerCards {names} subs={[seat === 0 ? 'You' : 'Host', seat === 1 ? 'You' : 'Guest']} score={[st.score[0], st.score[1]]} turn={st.turn} {over} {extra} you={seat}>
+      {#snippet meta()}<span class="chip">{sizeTag}</span><span class="chip">Game {room?.game}</span><span class="chip">Code <b>{code}</b></span>{/snippet}
+    </PlayerCards>
     <Board rows={size.rows} cols={size.cols} {lines} {boxes} turn={st.turn} interactive={myTurn} initials={ini} anim={app.settings.anim} onmove={move} />
     <p class="muted net" role="status">{#if reconnecting}Reconnecting…{:else if sending}Sending…{:else if longAway}{friendName} has been away for 2 minutes. Leaving won't count as a loss.{:else if away}{friendName} stepped away.{myTurn ? ' Your move will be waiting.' : ''}{/if}</p>
     {#if longAway && !reconnecting}<button class="btn small" onclick={leave}>Leave game</button>{/if}
