@@ -82,10 +82,10 @@
   {#each lines as l, i (i)}
     {#if pencil}
       {@const pp = pencilPath(l, i)}{@const len = Math.hypot(l[2] - l[0], l[3] - l[1]) * 1.02}
-      <path class="ln" class:grow={anim} style="--len:{len}" d={pp.d} fill="none" stroke-width="4.4" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
-      <path class="ln ghost" class:grow={anim} style="--len:{len}" d={pp.g} fill="none" stroke-width="1.1" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
+      <path class="ln" class:grow={anim} style="--len:{len}" d={pp.d} fill="none" stroke-width="5.5" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
+      <path class="ln ghost" class:grow={anim} style="--len:{len}" d={pp.g} fill="none" stroke-width="1.4" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
     {:else}
-      <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width="6.4" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
+      <line class="ln" class:grow={anim} style="--len:{Math.hypot(l[2] - l[0], l[3] - l[1])}" x1={l[0]} y1={l[1]} x2={l[2]} y2={l[3]} stroke-width="8" style:stroke={l[4] ? 'var(--line2)' : 'var(--line1)'} />
     {/if}
   {/each}
   </g>
