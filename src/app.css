@@ -34,6 +34,8 @@
   --p2: #B07A12; --p2-deep: #9C6B0E; --p2-soft: #FDF0C8; --p2-glow: rgba(244,175,61,.5);   /* golden yellow, deepened for marks and digits */
   --box1: #D77027; --box2: #F4AF3D; --box1-ink: #FFFFFF; --box2-ink: #2B241D; --pat1: #FFFFFF; --pat2: #2B241D; --ini-halo: none;
   --box-op: 1; --box-rim1: #9E4E17; --box-rim2: #94650C;
+  --av1: #D77027; --av1-ink: #FFFFFF; --av2: #B07A12; --av2-ink: #FFFFFF;   /* avatars: a disc in the player's colour, the figure on it (3.4:1, 3.7:1) */
+  --bot: #B07A12; --bot-visor: #2B241D; --bot-eye: #7FD3DD;              /* the AI's bot: a white head on its colour (3.7:1), the spec's visor and eyes */
   --line1: #BF4E1E; --line2: #7C5E08; --lane: rgba(35,57,45,.17);    /* each player's own line, engraved in the mat: burnt orange and dark golden (3.4:1, 4.3:1), far enough apart in hue and lightness to tell at a glance */
   --dot: #2C4637; --dot-hi: #5F806C; --dot-lo: #14231A;
   --ln-filter: url(#fx-engrave); --dot-filter: url(#fx-engrave); --bx-filter: none; --cores: none;
@@ -67,6 +69,8 @@
   --p2: #E0A070; --p2-deep: #EFBC93; --p2-soft: #5E3218; --p2-glow: rgba(224,160,112,.4);        /* copper: the other player */
   --box1: #20160F; --box2: #20160F; --box1-ink: #F2F1EF; --box2-ink: #EFBC93; --pat1: #E5E4E2; --pat2: #E0A070; --ini-halo: none;
   --box-op: .4; --box-rim1: rgba(229,228,226,.55); --box-rim2: rgba(224,160,112,.7);   /* dark felt tint; clean edges in each player's colour */
+  --av1: #E5E4E2; --av1-ink: #6B3A1E; --av2: #E0A070; --av2-ink: #6B3A1E;   /* light discs take a dark figure (7.4:1, 4.2:1) */
+  --bot: #A86536; --bot-visor: #241C15; --bot-eye: #7FD3DD;              /* copper deepened, so the bot's white head reads (4.6:1) */
   --line1: #E5E4E2; --line2: #E0A070; --lane: rgba(229,228,226,.1);  /* platinum and copper on the felt */
   --dot: #D6D3CE; --dot-hi: #DCD9D4; --dot-lo: #CBC7C1;              /* ash grey, matte (an almost flat disc) */
   --ln-filter: url(#fx-lift); --dot-filter: url(#fx-lift); --bx-filter: none; --cores: none;
@@ -109,6 +113,8 @@
   --p2: #E28C19; --p2-deep: #E28C19; --p2-soft: #33200A; --p2-glow: rgba(226,140,25,.45);   /* Golden Orange: the other player */
   --box1: #7B2CBF; --box2: #7B2CBF; --box1-ink: #FFFFFF; --box2-ink: #FFD89A; --pat1: #FFFFFF; --pat2: #FFD89A; --ini-halo: none;
   --box-op: .78; --box-rim1: #A970F0; --box-rim2: #A970F0;   /* Electric Violet glass with a lit edge; white and pale gold initials */
+  --av1: #BD0249; --av1-ink: #FFFFFF; --av2: #E28C19; --av2-ink: #1F1C25;   /* 6.4:1 both */
+  --bot: #A9620C; --bot-visor: #1F1C25; --bot-eye: #F6F6F6;              /* Golden Orange deepened, so the bot's white head reads (4.7:1) */
   --line1: #C3064F; --line2: #E28C19; --lane: rgba(200,230,255,.08);   /* your lines a hair lighter than #BD0249 (2.98:1 on the glass) to keep 3:1 */
   --dot: #00F0FF; --dot-hi: #D2FDFF; --dot-lo: #00B9CC;       /* Cyber Cyan, a lit centre */
   --ln-filter: none; --dot-filter: none; --bx-filter: none; --cores: inline; --core-mix: 80%;   /* a core only a little lighter, so magenta-red never turns pink */
@@ -148,6 +154,8 @@
   --p2: #007F73; --p2-deep: #00756A; --p2-soft: #DDF2EF; --p2-glow: rgba(0,127,115,.3);     /* deep teal: the other player */
   --box1: #39FF14; --box2: #39FF14; --box1-ink: #0A2A8C; --box2-ink: #003F44; --pat1: #0A2A8C; --pat2: #003F44; --ini-halo: none;
   --box-op: .85; --box-rim1: #178A00; --box-rim2: #178A00;   /* Vivid Lime glass with a deeper lime edge (3.9:1 on the board); dark initials 8.3:1 or more */
+  --av1: #0047FF; --av1-ink: #FFFFFF; --av2: #007F73; --av2-ink: #FFFFFF;   /* 6.3:1, 4.9:1 */
+  --bot: #007F73; --bot-visor: #2B2731; --bot-eye: #F6F6F6;
   --line1: #0047FF; --line2: #007F73; --lane: rgba(0,71,255,.1);   /* 5.5:1 and 4.3:1 on the board */
   --dot: #FF4500; --dot-hi: #FF4500; --dot-lo: #D93A00;       /* Hot Coral, 3.0:1: no lighter highlight, a deeper edge */
   --ln-filter: none; --dot-filter: none; --bx-filter: none; --cores: inline; --core-mix: 85%;   /* a lighter core that still keeps 3:1 (blue 4.3, teal 3.3) */
@@ -185,6 +193,10 @@
   --p2: #4657CE; --p2-deep: #4657CE; --p2-soft: #E2E5FA; --p2-glow: transparent;   /* indigo ink: 5.6:1 */
   --box1: #FFE1D8; --box2: #E2E5FA; --box1-ink: #E0391A; --box2-ink: #4657CE; --pat1: #FC4422; --pat2: #4657CE; --ini-halo: #FCF8EF;
   --box-op: 1; --box-rim1: transparent; --box-rim2: transparent;
+  --av1: #FC4422; --av1-ink: #FFFFFF; --av2: #4657CE; --av2-ink: #FFFFFF;   /* 3.5:1, 6:1 */
+  --bot: #4657CE; --bot-visor: #2E2B27; --bot-eye: #FFE58A;
+  --rule: #D6E0EA; --margin: #E9B9B0; --sticker-edge: #FFFDF7;          /* the score sheet's ruled lines and margin; a sticker's white edge */
+  --highlight: #FFE58A; --hl-ink: #2E2B27;                              /* the extra-turn highlighter (11.3:1) */
   --line1: #EF4120; --line2: #4657CE; --lane: transparent;   /* your lines: the coral 5% deeper, for 3:1 on the textured sheet (owner, 2026-10-20) */
   --dot: #2E2B27; --dot-hi: #6B645B; --dot-lo: #171513;
   --ln-filter: url(#fx-emboss); --dot-filter: url(#fx-emboss); --bx-filter: none; --cores: none;
@@ -216,6 +228,10 @@
   --p2: #8FB8D6; --p2-deep: #A5C6E0; --p2-soft: #523425; --p2-glow: transparent;   /* denim blue: the other player */
   --box1: #F3EAD7; --box2: #F3EAD7; --box1-ink: #FFF6E4; --box2-ink: #C9E0F2; --pat1: #F3EAD7; --pat2: #A5C6E0; --ini-halo: var(--board);
   --box-op: .2; --box-rim1: rgba(201,176,133,.65); --box-rim2: rgba(143,184,214,.65);   /* a parchment wash; rims in each player's line colour */
+  --av1: #E8D5B5; --av1-ink: #6B3A1E; --av2: #8FB8D6; --av2-ink: #6B3A1E;   /* light discs take a dark figure (6.5:1, 4.4:1) */
+  --bot: #4F7A9A; --bot-visor: #2E2B27; --bot-eye: #FFE58A;              /* denim deepened, so the bot's white head reads (4.6:1) */
+  --rule: rgba(243,234,215,.16); --margin: rgba(233,150,140,.5); --sticker-edge: #F3EAD7;
+  --highlight: #FFE58A; --hl-ink: #2E2B27;                              /* the same yellow highlighter as by day */
   --line1: #C9B085; --line2: #8FB8D6; --lane: transparent;   /* your lines: Deep Sand Beige, clearer on the sheet (owner, 2026-10-20) */
   --dot: #F3EAD7; --dot-hi: #F7F1E4; --dot-lo: #EADFC8;             /* ivory discs, nearly flat */
   --ln-filter: url(#fx-flat); --dot-filter: url(#fx-flat); --bx-filter: none; --cores: none;
@@ -304,28 +320,58 @@ button,input{font:inherit;color:inherit}
 [hidden]{display:none!important}
 
 /* ---------- layout ---------- */
-.app{max-width:640px;margin:0 auto;padding:max(14px,env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom))}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px;min-height:48px}
+/* The breakpoints (spec, step 4): under 640 px one column, the board as wide as the screen less 32 px; from 640 px the same
+   column centred, at most 600 px wide; from 1024 px at most 680 px. The safe areas (a notch, a home bar) stay clear, and a
+   short screen (760 px tall or less) takes a little less room at the foot and under the top bar. A screen that must fit the
+   screen's height (.fit: the game screens and Home) gets a column exactly that tall and takes what the top bar leaves;
+   anything that still cannot fit scrolls. */
+.app{max-width:632px;margin:0 auto;display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;
+  padding:max(14px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+@media (min-width:1024px){ .app{max-width:712px} }
+.app:has(.fit){height:100vh;height:100dvh}
+.app:has(.fit)>main,.app:has(.fit) .screen.active{flex:1;min-height:0;display:flex;flex-direction:column}
+.fit{flex:1;min-height:0}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px;min-height:48px;container-type:inline-size}
+@media (max-height:760px){ .app{padding-bottom:calc(16px + env(safe-area-inset-bottom))} .topbar{margin-bottom:12px} }
 .brand{display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;cursor:pointer;color:var(--head-text);min-height:44px}
 .brand .mark{width:30px;height:30px;flex:none}
 .brand .mark-table{width:32px;height:32px}
 .brand-name{display:flex;flex-direction:column;align-items:flex-start}
-.brand b{font-family:var(--display);font-weight:var(--display-w);font-size:1.15rem;letter-spacing:.01em;line-height:1.2}
+.brand b{font-family:var(--display);font-weight:var(--display-w);font-size:1.15rem;letter-spacing:.01em;line-height:1.2;white-space:nowrap}
 .mark-paper{width:100px;height:7px}
 [data-skin="table"] .mark-neon,[data-skin="table"] .mark-paper,[data-skin="neon"] .mark-table,[data-skin="neon"] .mark-paper,[data-skin="paper"] .mark-table,[data-skin="paper"] .mark-neon{display:none}
 [data-skin="neon"] .brand b{font-size:1rem}
 [data-skin="paper"] .brand b{font-size:1.4rem;line-height:1.1}
-.tb-right{display:flex;align-items:center;gap:8px}
+.tb-right{display:flex;align-items:center;gap:8px;min-width:0}   /* a long name truncates in the level chip; the bar never grows wider than the screen */
 .theme-btn{flex:none;width:44px;height:44px;display:grid;place-items:center;border-radius:var(--r-pill);background:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--chip-shadow);cursor:pointer;color:var(--text)}
 .theme-btn svg{width:22px;height:22px}
-.lvl-chip{display:flex;align-items:center;gap:8px;min-height:44px;padding:4px 14px 4px 4px;border-radius:var(--r-pill);background:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--chip-shadow);cursor:pointer;color:var(--text)}
-.lvl-badge{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;font-family:var(--display);font-weight:var(--score-w);font-size:.85rem;
-  background:conic-gradient(var(--ring) calc(var(--pct,0)*1%),var(--ring-track) 0);position:relative}
-.lvl-badge::before{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--panel)}
-.lvl-badge span{position:relative}
-.lvl-chip small{font-weight:700;font-size:.85rem}
+.lvl-chip{display:flex;align-items:center;gap:8px;min-width:0;min-height:44px;padding:4px 14px 4px 4px;border-radius:var(--r-pill);background:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--chip-shadow);cursor:pointer;color:var(--text)}
+/* Your avatar (26 px) inside a 3 px ring that fills towards the next level (spec: "the ring shows progress"). The ring is cut
+   out with a mask, so a translucent chip (Dark Neon) never shows it through the middle. */
+.lvl-ring{position:relative;flex:none;width:36px;height:36px;display:grid;place-items:center}
+.lvl-ring::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(var(--ring) calc(var(--pct,0)*1%),var(--ring-track) 0);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px))}
+.lvl-ring .avt{width:26px;height:26px}
+.lvl-txt{display:flex;flex-direction:column;align-items:flex-start;min-width:0;line-height:1.15;text-align:left}
+.lvl-txt b{min-width:0;max-width:min(9em,100%);font-weight:700;font-size:.95rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lvl-txt small{flex:none;font-weight:600;font-size:.75rem;color:var(--muted);white-space:nowrap}
+[data-skin="neon"] .lvl-txt b{font-weight:800;font-size:.875rem}
+/* Paper: a 28 px avatar ringed in graphite on its paper tab, the name handwritten (its mockup has no level ring). */
+[data-skin="paper"] .lvl-chip{padding:0 12px 0 8px}
+[data-skin="paper"] .lvl-ring{width:28px;height:28px}
+[data-skin="paper"] .lvl-ring::before{display:none}
+[data-skin="paper"] .lvl-ring .avt{width:28px;height:28px;box-shadow:0 0 0 1.5px var(--text)}
+[data-skin="paper"] .lvl-txt{flex-direction:row;align-items:baseline;gap:8px}
+[data-skin="paper"] .lvl-txt b{font-family:var(--display);font-size:1rem}
+[data-skin="paper"] .lvl-txt small{font-weight:400;font-size:.8125rem}
+/* A narrow bar (a 320 px phone, Paper's page on a phone turned sideways) keeps the name and leaves out "Lv N" (still in the
+   chip's label and on Home): written on one line, Paper's chip would cut the name to one letter. */
+@container (max-width:290px){ [data-skin="paper"] .lvl-txt small{display:none} }
 .screen{display:none}
 .screen.active{display:block;animation:enter .32s ease-out}
+/* A screen that draws its own top bar (.own-bar: the game screens) keeps the bar still while the rest rises in. */
+.screen.active:has(>.own-bar){animation:none}
+.own-bar>:is(.hud,.meta,.sheet),.own-bar>.play>*{animation:enter .32s ease-out}
 @keyframes enter{from{opacity:0;transform:translateY(8px)}}
 .panel{background:var(--panel);border:var(--panel-bw) solid var(--panel-b);border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow)}
 .stack>*+*{margin-top:14px}
@@ -426,14 +472,32 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .theme-sheet .done{margin-top:16px;width:100%}
 
 /* ---------- home ---------- */
-.hero{text-align:center;padding:18px 0 22px}
-.hero-board{width:min(240px,64vw);margin:0 auto 18px;display:block}
+/* Home fits the screen too (spec, step 4): the hero takes what the cards and buttons leave (a size container), the demo board
+   shrinking first, then the tagline, the kicker and the title giving way in turn (the top bar keeps the name); a short
+   screen with a game waiting also leaves out the profile card (its name and level are on the top bar). */
+.home{display:flex;flex-direction:column}
+.hero{flex:1 1 auto;min-height:0;container-type:size;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px 0 16px}
+.hero-board{flex:none;height:clamp(0px,100cqh - 176px,min(88px,64vw * 110 / 300));margin:0 auto 18px;display:block}
+@container (max-height:216px){ .hero-board{display:none} }
+@container (max-height:162px){ .tag{display:none} }
+@container (max-height:100px){ .kicker{display:none} }
+@container (max-height:64px){ .title{display:none} }
+@media (max-height:760px){ .home:has(.resume)>.panel:has(.profile){display:none} }
+/* Home on a phone turned sideways: the hero (or the game waiting) and the profile on the left, the buttons on the right. */
+@media (orientation:landscape) and (max-height:540px){
+  .home{display:grid;grid-template-columns:minmax(0,1fr) minmax(min-content,1fr);grid-template-rows:auto minmax(0,1fr) auto;grid-template-areas:"resume menu" "hero menu" "profile menu";column-gap:20px}
+  .home>.resume{grid-area:resume}
+  .home>.hero{grid-area:hero}
+  .home>.panel:has(.profile){grid-area:profile}
+  .home>.menu{grid-area:menu;align-self:center;margin-top:0}
+}
 .title{font-family:var(--display);font-weight:800;font-size:clamp(2.3rem,10vw,3.6rem);line-height:.95;margin:0;letter-spacing:-.03em}
 [data-skin="paper"] .title{font-weight:700;letter-spacing:0}
 .title .amp{display:inline-block;font-weight:500;color:var(--accent);margin:0 .08em}
 .tag{color:var(--muted);margin-top:12px;font-size:1.02rem}
 .profile{display:flex;align-items:center;gap:14px}
-.avatar{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:var(--score-w);font-size:1.25rem;color:var(--box1-ink);background:var(--box1)}
+.avatar{flex:none;margin:4px;border-radius:50%;outline:2px solid var(--p1);outline-offset:2px}
+[data-skin="paper"] .avatar{outline:0;box-shadow:0 0 0 2.5px var(--sticker-edge),0 0 0 4px var(--line1),1.5px 2.5px 0 4px rgba(46,43,39,.18);transform:rotate(-5deg)}
 .xpbar{height:10px;border-radius:999px;background:var(--ring-track);overflow:hidden;margin-top:8px}
 .xpbar b{display:block;height:100%;width:0;border-radius:inherit;background:var(--ring);transition:width .9s cubic-bezier(.2,.8,.2,1)}
 .menu{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
@@ -444,13 +508,19 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 /* ---------- game HUD ---------- */
 .hud{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .pcard{position:relative;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--r-md);background:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--shadow);transition:box-shadow .3s,border-color .3s;min-width:0}
-.pcard .av{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:var(--score-w)}
-.pcard.p0 .av{background:var(--box1);color:var(--box1-ink)} .pcard.p1 .av{background:var(--box2);color:var(--box2-ink)}
-/* Paper's avatars are stickers ringed in the player's pencil (spec); on the page colour the orange initial is 3.7:1, on its wash it was 3.0:1. */
-[data-skin="paper"] .avatar,[data-skin="paper"] .pcard .av{background:var(--page);box-shadow:inset 0 0 0 2px currentColor}
+/* Avatars (Avatar.svelte): the disc and figure in the player's colours, the bot's white head, visor and eyes. On a card the
+   avatar sits in a 2 px ring of the player's colour, 2 px out (spec: 40 px in Tabletop, 38 px in Neon). */
+.avt{display:block;flex:none;border-radius:50%}
+.avt .disc{fill:var(--av1)} .avt.p1 .disc{fill:var(--av2)} .avt.bot .disc{fill:var(--bot)}
+.avt .fig{fill:var(--av1-ink)} .avt.p1 .fig{fill:var(--av2-ink)}
+.avt .hd{fill:#fff} .avt .vs{fill:var(--bot-visor)} .avt .eye{fill:var(--bot-eye)}
+.avt .bulb{fill:var(--bot-eye);stroke:#fff;stroke-width:2} .avt .stalk{stroke:#fff;stroke-width:3;stroke-linecap:round}
+.pcard .avt{width:40px;height:40px;outline:2px solid var(--p1);outline-offset:2px}
+.pcard.p1 .avt{outline-color:var(--p2)}
+[data-skin="neon"] .pcard .avt{width:38px;height:38px}
 .pcard .who{min-width:0;flex:1}
 .pcard .nm{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pcard .sub{font-size:.78rem;color:var(--muted)}
+.pcard .sub{font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}   /* one line, so a two-digit score never makes the card taller */
 .pcard .sc{font-family:var(--display);font-weight:var(--score-w);font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
 .pcard.p0 .sc{color:var(--p1-deep)} .pcard.p1 .sc{color:var(--p2-deep)}
 .pcard.on.p0{box-shadow:0 0 0 2px var(--p1),0 0 22px -4px var(--p1-glow),var(--shadow)}
@@ -467,17 +537,90 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .turnbar.t1 .pill{transform:translateX(100%);background:var(--p2-soft);border-color:var(--p2)}
 [data-skin="neon"] .turnbar .pill{box-shadow:0 0 14px -3px var(--p1-glow),inset 0 0 10px -4px var(--p1-glow)}
 [data-skin="neon"] .turnbar.t1 .pill{box-shadow:0 0 14px -3px var(--p2-glow),inset 0 0 10px -4px var(--p2-glow)}
-.turnbar span{display:grid;place-items:center;height:100%;font-weight:700;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 10px}
-.turnbar.thinking span::after{content:"";display:inline-block;width:1.2em;text-align:left;animation:dots 1.2s steps(4) infinite}
+.turnbar .pill{display:flex;align-items:center;justify-content:center;padding:0 10px;font-weight:700;font-size:.9rem;white-space:nowrap}
+.turnbar :is(.tt,.xt){min-width:0;overflow:hidden;text-overflow:ellipsis}
+.turnbar .xt{flex:none}
+.turnbar .sep{margin:0 .4em}
+:is(.turnbar,.note) .tt::after{content:"";display:inline-block;width:1.2em;text-align:left;animation:dots 1.2s steps(4) infinite}
+.turnbar:not(.thinking) .tt::after{display:none}
+/* The extra-turn cue (spec: "Your turn · +1 extra turn" until the mover draws again), with the chain so far (x2, x3) on a
+   small tag. It appears in 160 ms. The pill keeps its height: on a phone, where half the bar is too narrow for one line,
+   the cue goes under the turn in smaller type. */
+.turnbar .xt{animation:cue .16s ease-out}
+@keyframes cue{from{opacity:0}}
+.turnbar .combo{display:inline-block;margin-left:.4em;padding:0 .45em;border-radius:var(--r-pill);background:color-mix(in srgb,currentColor 14%,transparent);font-weight:800;font-variant-numeric:tabular-nums}
+.turnbar{container-type:inline-size}
+@container (max-width:520px){
+  .turnbar.xt .pill{flex-direction:column;justify-content:center;line-height:1.12;font-size:.78rem}
+  .turnbar.xt :is(.tt,.xt){max-width:100%}
+  .turnbar .sep{display:none}
+  .turnbar .pill{padding:0 6px}
+  [data-skin="neon"] .turnbar .pill{font-size:.8125rem}   /* Neon's mockup size: its wider letters fit "Tactician is thinking" */
+  [data-skin="neon"] .turnbar.xt .pill{font-size:.75rem}
+}
 @keyframes dots{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
-.meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+/* The game's chips keep to one line, so the HUD's height never changes: a chip that doesn't fit wraps onto a second line far
+   below, which is cut away (the chips' shadows kept), so on a narrow screen the level goes first (it is on the top bar too);
+   on the narrowest the chips get tighter. */
+.meta{position:relative;container-type:inline-size;display:flex;flex-wrap:wrap;column-gap:8px;row-gap:40px;height:34px;margin:12px 0;white-space:nowrap;clip-path:inset(-24px -24px -14px -24px)}
+@container (max-width:300px){ .meta>.chip{padding:4px 10px} }
+/* Online, a note (Reconnecting…, Sending…, your friend stepped away) or an error takes the chips' place while it lasts, in the
+   same space and up to two lines, so the board never moves; the error comes first. */
+.meta :is(.net,.err){position:absolute;inset:-6px 0;z-index:1;margin:0;min-height:0;display:flex;align-items:center;padding:0 12px;font-size:.85rem;line-height:1.3;font-weight:600;white-space:normal;text-wrap:pretty;pointer-events:none}
+.meta :is(.net,.err):not(:empty){background-color:var(--panel);border:var(--panel-bw) solid var(--panel-b);border-radius:var(--r-md);box-shadow:var(--chip-shadow)}
+.meta .err{color:var(--danger);font-weight:700}
+.meta:has(:is(.net,.err):not(:empty))>.chip,.meta:has(.err:not(:empty))>.net{visibility:hidden}
 .chip{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:4px 14px;border-radius:var(--r-pill);background:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--chip-shadow);font-weight:var(--chip-w);font-size:.85rem}
 .chip svg{width:16px;height:16px}
 .chip b{font-variant-numeric:tabular-nums;font-weight:700;font-size:.85rem}
 [data-skin="neon"] .chip b{font-family:var(--display)}
 .chip .mini{width:46px;height:6px;border-radius:999px;background:var(--ring-track);overflow:hidden}
 .chip .mini i{display:block;height:100%;background:var(--ring)}
-.board-wrap{position:relative;margin:0 auto;width:clamp(280px,min(100%,calc(100dvh - 330px)),620px);aspect-ratio:1;border-radius:var(--board-r);background-color:var(--board)}
+/* Paper's score sheet (spec: Cozy Paper's PlayerCards; phones: ruled rows above the board, stickers before the names): a
+   ruled card with a margin line, a line per player (a sticker ringed in their pencil colour, the name handwritten with an
+   underline while it is their turn, tally marks in gates of five, the score circled while it is their turn), then the turn
+   note and the game's details. The circle and underline draw themselves in 200 ms; the newest tally mark in 160 ms. Hidden,
+   their dash sits wholly off the path (dash 1, gap 1.5, offset 1.25 of a path length 1): a dash ending exactly at an end of
+   the path would leave its round cap there as a dot. */
+.sheet{position:relative;container-type:inline-size;padding:0 10px 0 34px;border-radius:var(--r-lg);background-color:var(--panel);border:var(--panel-bw) solid var(--panel-b);box-shadow:var(--shadow);
+  background-image:linear-gradient(90deg,transparent 22px,var(--margin) 22px 23.5px,transparent 23.5px),repeating-linear-gradient(180deg,transparent 0 39px,var(--rule) 39px 40px);
+  background-size:auto,100% 120px;background-repeat:no-repeat}
+.srow{display:grid;grid-template-columns:auto minmax(0,max-content) minmax(0,1fr) auto;align-items:center;gap:10px;height:40px}
+.stk{display:block;width:24px;height:24px;margin-right:-2px;border-radius:50%;box-shadow:0 0 0 2px var(--sticker-edge),0 0 0 3.5px var(--line1),1.5px 2.5px 0 3.5px rgba(46,43,39,.18);transform:rotate(-6deg)}
+.srow.p1 .stk{box-shadow:0 0 0 2px var(--sticker-edge),0 0 0 3.5px var(--line2),1.5px 2.5px 0 3.5px rgba(46,43,39,.18);transform:rotate(5deg)}
+.stk .avt{width:24px;height:24px}
+/* The name truncates itself and holds its underline (as wide as the name) in its own padding; the note beside it never shrinks. */
+.srow .nm{display:flex;align-items:baseline;gap:6px;min-width:0;font-family:var(--display);font-weight:700;font-size:22px;line-height:1.1}
+.srow .nm b{position:relative;min-width:0;padding-bottom:6px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.srow .nm small{flex:none;font-family:var(--ui);font-weight:400;font-size:12px;color:var(--muted)}
+.srow :is(.ul,.circ,.tally){overflow:visible;fill:none;stroke:var(--line1);stroke-linecap:round}
+.srow.p1 :is(.ul,.circ,.tally){stroke:var(--line2)}
+.srow .ul{position:absolute;left:0;bottom:0;width:100%;height:8px;stroke-width:2.6;stroke-dasharray:1 1.5;stroke-dashoffset:1.25;transition:stroke-dashoffset .2s ease-out}
+.srow .tally{justify-self:start;max-width:100%;height:26px;stroke-width:2.2}
+.srow .tally .new{stroke-dasharray:1 1.5;animation:mark .16s ease-out backwards}
+@keyframes mark{from{stroke-dashoffset:1.25}}
+.srow .sc{position:relative;display:inline-grid;place-items:center;width:44px;height:36px;font-family:var(--display);font-weight:700;font-size:28px;line-height:1;font-variant-numeric:tabular-nums;color:var(--text)}
+.srow .circ{position:absolute;left:-3px;top:-3px;width:50px;height:42px;stroke-width:2.4;stroke-dasharray:1 1.5;stroke-dashoffset:1.25;transition:stroke-dashoffset .2s ease-out}
+.srow.on :is(.ul,.circ){stroke-dashoffset:0}
+.note{display:flex;align-items:baseline;height:40px;margin:0;font-family:var(--display);font-weight:400;font-size:20px;line-height:40px;white-space:nowrap;overflow:hidden}
+/* A long name gives way, never "go again!": the mover's name truncates, the rest of the note stays whole. */
+.note .who{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.note .rest{flex:none;padding-right:3px;white-space:pre}   /* room for the highlighter's edge, which reaches 2 px past its words */
+/* "go again!" gets the highlighter's swipe (spec), a hand-cut edge, in 160 ms. */
+.note mark{padding:0 5px;margin:0 -2px;color:var(--hl-ink);background:linear-gradient(var(--highlight),var(--highlight)) no-repeat 0 0/100% 100%;border-radius:4px 10px 6px 12px/8px 4px 10px 5px;animation:swipe .16s ease-out}
+@keyframes swipe{from{background-size:0 100%}}
+@container (max-width:360px){ .note{font-size:18px} .note .lead{display:none} }
+.sheet .meta{height:40px;margin:0;flex-wrap:nowrap;gap:0;overflow:hidden;white-space:nowrap}
+.sheet .chip{min-height:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;font-weight:400;font-size:.875rem;color:var(--muted)}
+.sheet .chip+.chip::before{content:"·";margin:0 .45em}
+.sheet .chip b{color:var(--text)}
+.sheet .chip svg{width:15px;height:15px}
+.sheet .chip.lvl{display:none}   /* the level is on the top bar's tab (Paper's mockup leaves it out here) */
+.sheet .meta :is(.net,.err){inset:0;padding:0}   /* Paper writes the note on the sheet's line */
+.sheet .meta :is(.net,.err):not(:empty){background:none;border:0;box-shadow:none}
+/* The pencil arrow from the turn note to the board, on Paper's spread only (below). */
+.sheet .arrow{display:none;position:absolute;right:-40px;width:96px;height:58px;overflow:visible;fill:none;stroke:var(--text);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.board-wrap{position:relative;margin:0 auto;width:min(100%,600px);border-radius:var(--board-r);background-color:var(--board)}   /* its shape (--ar) from Board.svelte, its size from the game layout */
 /* Tabletop: a felt mat (fine nap, lighter where the lamp falls) inside a wooden rim, casting a shadow on the table.
    The rim is drawn with inset shadows so the board's size, and so boardFit.ts, are unchanged. */
 [data-skin="table"] .board-wrap{background-image:radial-gradient(ellipse 85% 65% at 50% 32%,var(--lamp),transparent 70%),url('./assets/textures/felt.webp');
@@ -590,6 +733,101 @@ input[type=text]::placeholder{color:var(--muted);font-weight:600}
 .game-actions{display:flex;gap:10px;margin-top:14px}
 .game-actions .btn{flex:1}
 
+/* ---------- game layout (spec, step 4) ---------- */
+/* The game screens (Game.svelte, Online's game) are a grid that fills the screen: the top bar (each game screen draws its own,
+   so it can move into the side column), the HUD and its chips, then the play area. The play area is a size
+   container, and the board is as large as fits in it above what follows it (the buttons, --below), at most 600 px wide (spec),
+   so nothing scrolls and the board is what shrinks when space runs short. Tabletop and Neon keep the buttons under the board;
+   Paper puts them at the foot of its page (mockups). No size here depends on what happens in a game, so the board never moves.
+   boardFit.ts mirrors these numbers for the size picker: keep the two in step. */
+.game{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr);grid-template-areas:"bar" "hud" "meta" "play"}
+.game>.topbar{grid-area:bar}
+/* A notice (offline, a failed save) floats over the top bar until dismissed, so it never takes the board's room. */
+.game>.banner{position:fixed;z-index:15;top:max(8px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);width:min(600px,calc(100% - 32px));margin:0;box-shadow:var(--shadow);
+  display:flex;align-items:center;gap:10px;padding:5px 5px 5px 12px;font-size:.85rem;line-height:1.25}   /* one row, clear of the cards below the bar */
+.game>.banner .btn{flex:none;margin-left:auto;min-height:44px}
+.game>:is(.hud,.sheet){grid-area:hud}
+.game>.meta{grid-area:meta}
+.play{grid-area:play;container-type:size;display:flex;flex-direction:column;align-items:center;--below:58px}
+.play .board-wrap{width:min(100cqw,600px,(100cqh - var(--below)) * var(--ar))}
+.play .game-actions{align-self:stretch}
+[data-skin="paper"] .play{margin-top:14px;justify-content:space-between}
+@media (max-height:760px){ .play{--below:56px} .game-actions{margin-top:12px} .meta{margin:10px 0} [data-skin="paper"] .play{margin-top:10px} }
+/* A phone turned sideways, or any short, wide window (540 px tall or less; the owner's choice "Side by side", 2026-10-21): the
+   board fills the height on the right and the rest stacks on the left, at least 300 px wide, the buttons at its foot. */
+@media (orientation:landscape) and (max-height:540px){
+  .app:has(.game){max-width:none;padding:max(10px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+  .game{--side-h:calc(100dvh - max(10px,env(safe-area-inset-top)) - max(10px,env(safe-area-inset-bottom)));
+    --side-w:calc(100vw - max(16px,env(safe-area-inset-left)) - max(16px,env(safe-area-inset-right)) - 320px);
+    grid-template-columns:minmax(0,1fr) auto;column-gap:20px;grid-template-rows:auto auto auto minmax(0,1fr) auto;
+    grid-template-areas:"bar board" "hud board" "meta board" ". board" "act board"}
+  .game>.topbar{margin-bottom:10px}
+  .game .play{display:contents}
+  .game .board-wrap{grid-area:board;align-self:center;width:min(var(--side-h) * var(--ar),var(--side-w),600px)}
+  .game .game-actions{grid-area:act}
+}
+/* Paper's two-page spread (spec: from 960 px wide; also on a phone turned sideways): the score sheet written on the left page,
+   ruled every 36 px with the margin line, the turn note with a pencil arrow to the board, the buttons at the foot; the board
+   alone on the right page; the spine shaded where the pages meet (14 px at 25%) and the spread lifted off
+   the desk (spec's elevation). The pages are the grid's ::before and ::after, under everything else; the board gives up its
+   own sheet. */
+@media (min-width:960px),(orientation:landscape) and (max-height:540px){
+  [data-skin="paper"] .game{--pl:54px;--pr:22px;--ml:36px;--bm:28px;isolation:isolate;column-gap:0;border-radius:6px;box-shadow:0 1px 0 #E0D6C2,0 18px 30px -18px rgba(70,52,30,.35)}
+  /* Each page on its own layer, so a new line or tally mark never re-rasters the textured paper under it (about a quarter less
+     drawing per line than #25's sheet on a 12x12 board at full HD). */
+  [data-skin="paper"] .game::before,[data-skin="paper"] .game::after{content:"";grid-row:1/-1;z-index:-1;will-change:transform}
+  [data-skin="paper"] .game::before{grid-column:1;border-radius:6px 0 0 6px;box-shadow:inset -14px 0 14px -14px rgba(46,43,39,.25);
+    background:linear-gradient(90deg,transparent var(--ml),var(--margin) var(--ml) calc(var(--ml) + 1.5px),transparent calc(var(--ml) + 1.5px)),
+      repeating-linear-gradient(180deg,transparent 0 35px,var(--rule) 35px 36px),url('./assets/textures/paper-day.webp') 0 0/512px 512px var(--board);
+    background-blend-mode:normal,normal,multiply}
+  [data-skin="paper"] .game::after{grid-column:2;border-radius:0 6px 6px 0;box-shadow:inset 14px 0 14px -14px rgba(46,43,39,.25);
+    background:url('./assets/textures/paper-day.webp') 0 0/512px 512px var(--board);background-blend-mode:multiply}
+  [data-skin="paper"][data-theme="dark"] .game{box-shadow:0 1px 0 rgba(30,10,0,.3),0 18px 30px -18px var(--cast)}
+  [data-skin="paper"][data-theme="dark"] .game::before{box-shadow:inset -14px 0 14px -14px rgba(20,6,0,.5);
+    background:linear-gradient(90deg,transparent var(--ml),var(--margin) var(--ml) calc(var(--ml) + 1.5px),transparent calc(var(--ml) + 1.5px)),
+      repeating-linear-gradient(180deg,transparent 0 35px,var(--rule) 35px 36px),url('./assets/textures/paper-day.webp') 0 0/512px 512px,url('./assets/textures/paper-day.webp') 173px 291px/512px 512px #734121;
+    background-blend-mode:normal,normal,multiply,multiply}
+  [data-skin="paper"][data-theme="dark"] .game::after{box-shadow:inset 14px 0 14px -14px rgba(20,6,0,.5);
+    background:url('./assets/textures/paper-day.webp') 0 0/512px 512px,url('./assets/textures/paper-day.webp') 173px 291px/512px 512px #734121;background-blend-mode:multiply}
+  [data-skin="paper"] .game>:is(.topbar,.sheet),[data-skin="paper"] .game .game-actions{margin-left:var(--pl);margin-right:var(--pr)}
+  [data-skin="paper"] .game>.topbar{margin-top:12px;margin-bottom:12px}   /* so the sheet starts on the second rule */
+  [data-skin="paper"] .game .game-actions{margin-top:12px;margin-bottom:18px}
+  [data-skin="paper"] .game .board-wrap{margin:var(--bm);background:none;box-shadow:none}
+  [data-skin="paper"] .game>.sheet{padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+  [data-skin="paper"] .game .srow,[data-skin="paper"] .game .sheet .meta{height:36px}
+  [data-skin="paper"] .game .note{height:36px;line-height:36px}
+}
+@media (orientation:landscape) and (max-height:540px){
+  [data-skin="paper"] .game{--pl:34px;--pr:14px;--ml:22px;--bm:14px;   /* a phone's sheet: stickers before the names (spec) */
+    --side-h:calc(100dvh - max(10px,env(safe-area-inset-top)) - max(10px,env(safe-area-inset-bottom)) - 28px);
+    --side-w:calc(100vw - max(16px,env(safe-area-inset-left)) - max(16px,env(safe-area-inset-right)) - 348px)}
+}
+/* The spread on a desktop: the 360 px score page and the board page, centred on the desk, the board at most 600 px and the
+   spread no taller than the screen; a blank line before the turn note, which has two lines here. */
+@media (min-width:960px) and (min-height:541px){
+  [data-skin="paper"] .app:has(.game){max-width:none;padding:max(28px,env(safe-area-inset-top)) max(20px,env(safe-area-inset-right)) max(28px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left))}
+  [data-skin="paper"] .game{flex:none;margin:auto;
+    --bs:min(600px,100dvh - max(28px,env(safe-area-inset-top)) - max(28px,env(safe-area-inset-bottom)) - 56px,100vw - max(20px,env(safe-area-inset-left)) - max(20px,env(safe-area-inset-right)) - 416px);
+    grid-template-columns:360px auto;grid-template-rows:auto auto minmax(0,1fr) auto;grid-template-areas:"bar board" "hud board" ". board" "act board"}
+  [data-skin="paper"] .game .play{display:contents}
+  [data-skin="paper"] .game .board-wrap{grid-area:board;align-self:center;width:calc(var(--bs) * min(1, var(--ar)))}
+  [data-skin="paper"] .game .game-actions{grid-area:act}
+  [data-skin="paper"] .game>.topbar{margin-left:calc(var(--ml) + 8px);margin-right:16px}   /* the name keeps room beside the theme button */
+  /* Desktop: the stickers out in the page margin (spec), the names a size up (mockup). */
+  [data-skin="paper"] .game .srow{position:relative;grid-template-columns:minmax(0,max-content) minmax(0,1fr) auto}
+  [data-skin="paper"] .game .stk{position:absolute;left:calc(6px - var(--pl));top:4px;width:28px;height:28px}
+  [data-skin="paper"] .game .stk .avt{width:28px;height:28px}
+  [data-skin="paper"] .game .srow .nm{font-size:24px}
+  [data-skin="paper"] .game .note{display:block;height:72px;margin-top:36px;font-size:22px;white-space:normal}
+  [data-skin="paper"] .game .note :is(.lead,.who){display:inline}
+  [data-skin="paper"] .game .note .rest{white-space:normal}
+  [data-skin="paper"] .game .note mark{white-space:nowrap}
+  /* The pencil arrow from the note's second line, clear of its words, to the board: desktop only (on a phone turned sideways the
+     note is one full line, as on phones, and the arrow would land on it); it steps aside while an online note is written below. */
+  [data-skin="paper"] .game .arrow{display:block;top:154px}
+  [data-skin="paper"] .game .sheet:has(.meta :is(.net,.err):not(:empty)) .arrow{display:none}
+}
+
 /* ---------- leaderboard & stats ---------- */
 .tabs{display:flex;gap:6px;margin:14px 0 10px;overflow-x:auto}
 .tabs button{white-space:nowrap;font-size:.88rem;padding:0 8px}
@@ -639,12 +877,12 @@ td:first-child,th:first-child{text-align:left;font-weight:800}
 
 /* ---------- motion off ---------- */
 .no-anim *,.no-anim *::before,.no-anim *::after{animation:none!important;transition:none!important}
-@media (min-width:900px){ .app{max-width:680px} }
 
 /* shared bits used by several components */
 .lb-list{list-style:none;margin:0;padding:0}
 .loading{padding:22px 10px;text-align:center;color:var(--muted)}
 .banner{margin-bottom:12px;padding:10px 14px;border-radius:var(--r-md);background:var(--panel);border:1.5px solid var(--gold);color:var(--text);font-weight:600;font-size:.9rem}
+.banner .btn{min-height:36px;margin-left:6px}
 .code-big{font-family:var(--display);font-weight:800;font-size:2.4rem;letter-spacing:.2em;text-align:center;margin:8px 0 12px}
 .code-in{font-family:var(--display);letter-spacing:.25em;text-align:center;text-transform:uppercase}
 .err{color:var(--danger);font-weight:700;font-size:.9rem;min-height:1.3em;margin-top:8px}

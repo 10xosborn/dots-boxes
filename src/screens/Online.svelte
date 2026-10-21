@@ -7,12 +7,14 @@
   import { initials } from '../lib/format';
   import { sfx } from '../lib/sound';
   import { confetti } from '../lib/confetti';
+  import { boxesThisTurn } from '../lib/extraTurn';
   import { roomSize, type Room } from '../lib/online/types';
   import { saveRoom, clearRoom, roomEnded } from '../lib/resume';
   import Board from '../components/Board.svelte';
   import PlayerCards from '../components/PlayerCards.svelte';
   import SizePicker from '../components/SizePicker.svelte';
   import BackTitle from '../components/BackTitle.svelte';
+  import TopBar from '../components/TopBar.svelte';
   import ResultsModal from '../components/ResultsModal.svelte';
 
   let { joinCode = '' }: { joinCode?: string } = $props();
@@ -50,7 +52,7 @@
   const over = $derived(!!st?.over);
   // Moves never wait for presence: a friend who stepped away sees the move when they're back.
   const myTurn = $derived(!!st && !st.over && st.turn === seat);
-  const turnText = $derived(!st ? '' : st.over ? 'Game over' : st.turn === seat ? 'Your turn' : `${names[st.turn]}'s turn`);
+  const extra = $derived(room && size ? boxesThisTurn(size, room.first, room.moves ?? []) : 0);   // the extra-turn cue
 
   // Nothing changes for the first 10 s a friend is gone (network blips); then a calm note,
   // and after 2 minutes an offer to leave (nothing is scored). Your own connection shows
@@ -67,6 +69,9 @@
   const away = $derived(awaySince !== null && now - awaySince >= 10_000);
   const longAway = $derived(awaySince !== null && now - awaySince >= 120_000);
   const reconnecting = $derived(offlineSince !== null && now - offlineSince >= 2000);
+  // The game on screen draws its own top bar (App leaves its out meanwhile).
+  const inGame = $derived(phase === 'playing' && !!room && !!st && !!size);
+  $effect(() => { app.playing = inGame; });
   function onSelf(up: boolean) {
     if (up) { everConnected = true; offlineSince = null; }
     else if (everConnected && offlineSince === null) offlineSince = now = Date.now();
@@ -164,7 +169,9 @@
     const slow = setTimeout(() => (sending = true), 600), stuck = setTimeout(() => a.checkLink(c, 2000), 3000);
     if (dbg) tick().then(() => requestAnimationFrame(() => dbg?.ownShown(n)));
     try {
-      const ok = await a.sendMove(c, e, n);
+      // Rooms with server-checked turns also send who moves next: the same player if this line closes a box.
+      const checked = room.v === 2 && size ? { seat, next: replay(size, room.first, [...st.moves, e]).turn } : undefined;
+      const ok = await a.sendMove(c, e, n, checked);
       dbg?.confirmed(n);
       error = ok ? '' : 'That move could not be sent. The board has been refreshed.';
     } catch { error = 'That move could not be sent. Tap again.'; }
@@ -181,7 +188,7 @@
   if (joinCode && onlineEnabled) join();
   else if (app.roomResume && onlineEnabled) { const r = app.roomResume; app.roomResume = null; rejoin(r.code, r.seat); }
   document.addEventListener('visibilitychange', wake); addEventListener('pageshow', wake); addEventListener('online', wake);
-  onDestroy(() => { stop(); document.removeEventListener('visibilitychange', wake); removeEventListener('pageshow', wake); removeEventListener('online', wake); });
+  onDestroy(() => { app.playing = false; stop(); document.removeEventListener('visibilitychange', wake); removeEventListener('pageshow', wake); removeEventListener('online', wake); });
 </script>
 
 {#if !onlineEnabled}
@@ -217,14 +224,18 @@
     <div class="row"><button class="btn" style="flex:1" onclick={copyInvite}>{copied ? 'Copied' : 'Copy invite'}</button><button class="btn" style="flex:1" onclick={leave}>Cancel</button></div>
   </section>
 {:else if room && st && size}
-  <section aria-label="Online game">
-    <PlayerCards {names} initials={ini} subs={[seat === 0 ? 'You' : 'Host', seat === 1 ? 'You' : 'Guest']} score={[st.score[0], st.score[1]]} turn={st.turn} {over} {turnText} />
-    <div class="meta"><span class="chip">{sizeTag}</span><span class="chip">Game {room.game}</span><span class="chip">Code <b>{code}</b></span></div>
-    <Board rows={size.rows} cols={size.cols} {lines} {boxes} turn={st.turn} interactive={myTurn} initials={ini} anim={app.settings.anim} onmove={move} />
-    <p class="muted net" role="status">{#if reconnecting}Reconnecting…{:else if sending}Sending…{:else if longAway}{friendName} has been away for 2 minutes. Leaving won't count as a loss.{:else if away}{friendName} stepped away.{myTurn ? ' Your move will be waiting.' : ''}{/if}</p>
-    {#if longAway && !reconnecting}<button class="btn small" onclick={leave}>Leave game</button>{/if}
-    <p class="err" role="alert">{error}</p>
-    <div class="game-actions"><button class="btn small" onclick={leave}>Leave</button></div>
+  <!-- The game layout (app.css), as on the Game screen. A note or an error takes the chips' place while it lasts (so the board
+       never moves); after 2 minutes away, Leave becomes the main button. -->
+  <section class="game fit own-bar" aria-label="Online game">
+    <TopBar />
+    <PlayerCards {names} subs={[seat === 0 ? 'You' : 'Host', seat === 1 ? 'You' : 'Guest']} score={[st.score[0], st.score[1]]} turn={st.turn} {over} {extra} you={seat}>
+      {#snippet meta()}<span class="chip">{sizeTag}</span><span class="chip">Game {room?.game}</span><span class="chip">Code <b>{code}</b></span>
+        <p class="net" role="status">{#if reconnecting}Reconnecting…{:else if sending}Sending…{:else if longAway}{friendName} has been away for 2 minutes. Leaving won't count as a loss.{:else if away}{friendName} stepped away.{myTurn ? ' Your move will be waiting.' : ''}{/if}</p><p class="err" role="alert">{error}</p>{/snippet}
+    </PlayerCards>
+    <div class="play">
+      <Board rows={size.rows} cols={size.cols} {lines} {boxes} turn={st.turn} interactive={myTurn} initials={ini} anim={app.settings.anim} onmove={move} />
+      <div class="game-actions"><button class="btn small" class:primary={longAway && !reconnecting} onclick={leave}>Leave</button></div>
+    </div>
   </section>
   {#if over && dismissed !== room.game}
     {@const w = winner(st)}
@@ -235,7 +246,8 @@
 {/if}
 
 <style>
-  /* Takes no room until there is something to say; stays in the page so screen readers hear it. */
-  .net { margin: 8px 0 0; font-weight: 600; text-wrap: pretty; }
-  .net:empty { margin: 0; }
+  /* Takes no room until there is something to say; stays in the page so screen readers hear it. (In a game, app.css puts it in
+     the chips' place.) */
+  .net:not(:global(.meta) .net) { margin: 8px 0 0; font-weight: 600; text-wrap: pretty; }
+  .net:not(:global(.meta) .net):empty { margin: 0; }
 </style>

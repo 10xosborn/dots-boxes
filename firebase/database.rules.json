@@ -3,11 +3,59 @@
     "rooms": {
       "$code": {
         ".read": "auth != null",
-        ".write": "auth != null && (!data.exists() ? newData.child('host').val() === auth.uid : (data.child('host').val() === auth.uid || data.child('guest').val() === auth.uid || (!data.child('guest').exists() && newData.child('guest').val() === auth.uid)))",
-        ".validate": "!newData.exists() || (newData.hasChildren(['host', 'first', 'game']) && (newData.hasChildren(['rows', 'cols']) || newData.hasChild('n')))",
-        "n": { ".validate": "newData.isNumber() && newData.val() >= 3 && newData.val() <= 6" },
-        "rows": { ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 12" },
-        "cols": { ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 12" }
+        ".write": "auth != null && (!data.exists() ? newData.child('host').val() === auth.uid : data.child('v').val() !== 2 ? (data.child('host').val() === auth.uid || data.child('guest').val() === auth.uid || (!data.child('guest').exists() && newData.child('guest').val() === auth.uid)) : (data.child('host').val() === auth.uid || data.child('guest').val() === auth.uid) && (!newData.exists() || data.child('count').val() === ((data.child('rows').val() + 1) * data.child('cols').val() + data.child('rows').val() * (data.child('cols').val() + 1)) && newData.child('game').val() === data.child('game').val() + 1 && newData.child('first').val() === 1 - data.child('first').val() && newData.child('v').val() === 2 && newData.child('host').val() === data.child('host').val() && newData.child('guest').val() === data.child('guest').val() && newData.child('rows').val() === data.child('rows').val() && newData.child('cols').val() === data.child('cols').val()))",
+        ".validate": "!newData.exists() || (newData.hasChildren(['host', 'first', 'game']) && (newData.hasChildren(['rows', 'cols']) || newData.hasChild('n')) && (newData.child('v').val() !== 2 || newData.hasChildren(['rows', 'cols', 'turn', 'count']) && (newData.child('first').val() === 0 || newData.child('first').val() === 1) && (data.exists() && newData.child('game').val() === data.child('game').val() || newData.child('count').val() === 0 && newData.child('turn').val() === newData.child('first').val() && !newData.child('moves').exists() && !newData.child('drawn').exists())))",
+        "n": {
+          ".validate": "newData.isNumber() && newData.val() >= 3 && newData.val() <= 6"
+        },
+        "rows": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 12"
+        },
+        "cols": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 12"
+        },
+        "v": {
+          ".validate": "newData.val() === 2"
+        },
+        "guest": {
+          ".write": "auth != null && data.parent().child('v').val() === 2 && !data.exists() && newData.val() === auth.uid && data.parent().child('host').val() !== auth.uid"
+        },
+        "names": {
+          "$who": {
+            ".write": "auth != null && data.parent().parent().child('v').val() === 2 && ($who === 'host' ? data.parent().parent().child('host').val() === auth.uid : $who === 'guest' && (data.parent().parent().child('guest').val() === auth.uid || !data.parent().parent().child('guest').exists() && newData.parent().parent().child('guest').val() === auth.uid))"
+          }
+        },
+        "updated": {
+          ".write": "auth != null && data.parent().child('v').val() === 2 && ((data.parent().child('host').val() === auth.uid || data.parent().child('guest').val() === auth.uid) || !data.parent().child('guest').exists() && newData.parent().child('guest').val() === auth.uid)"
+        },
+        "online": {
+          "$uid": {
+            ".write": "auth != null && data.parent().parent().child('v').val() === 2 && auth.uid === $uid && (data.parent().parent().child('host').val() === auth.uid || data.parent().parent().child('guest').val() === auth.uid)"
+          }
+        },
+        "dbg": {
+          ".write": "auth != null && data.parent().child('v').val() === 2 && (data.parent().child('host').val() === auth.uid || data.parent().child('guest').val() === auth.uid)"
+        },
+        "moves": {
+          "$n": {
+            ".write": "auth != null && data.parent().parent().child('v').val() === 2 && (data.parent().parent().child('host').val() === auth.uid && data.parent().parent().child('turn').val() === 0 || data.parent().parent().child('guest').val() === auth.uid && data.parent().parent().child('turn').val() === 1) && data.parent().parent().child('count').val() < ((data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val() + data.parent().parent().child('rows').val() * (data.parent().parent().child('cols').val() + 1)) && newData.exists() && !data.exists()",
+            ".validate": "!(data.parent().parent().child('v').val() === 2) || newData.isNumber() && newData.val() % 1 === 0 && newData.val() >= 0 && newData.val() < ((data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val() + data.parent().parent().child('rows').val() * (data.parent().parent().child('cols').val() + 1)) && $n === data.parent().parent().child('count').val() + '' && !data.parent().parent().child('drawn').child((newData.val()) + '').exists() && newData.parent().parent().child('drawn').child(newData.val() + '').val() === data.parent().parent().child('turn').val() && newData.parent().parent().child('count').val() === data.parent().parent().child('count').val() + 1 && newData.parent().parent().child('game').val() === data.parent().parent().child('game').val() && newData.parent().parent().child('turn').val() === ((newData.val() < (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val() ? ((newData.val() - newData.val() % data.parent().parent().child('cols').val()) / data.parent().parent().child('cols').val() > 0 && data.parent().parent().child('drawn').child((newData.val() - data.parent().parent().child('cols').val()) + '').exists() && data.parent().parent().child('drawn').child(((data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val() + ((newData.val() - newData.val() % data.parent().parent().child('cols').val()) / data.parent().parent().child('cols').val() - 1) * (data.parent().parent().child('cols').val() + 1) + newData.val() % data.parent().parent().child('cols').val()) + '').exists() && data.parent().parent().child('drawn').child(((data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val() + ((newData.val() - newData.val() % data.parent().parent().child('cols').val()) / data.parent().parent().child('cols').val() - 1) * (data.parent().parent().child('cols').val() + 1) + newData.val() % data.parent().parent().child('cols').val() + 1) + '').exists() || (newData.val() - newData.val() % data.parent().parent().child('cols').val()) / data.parent().parent().child('cols').val() < data.parent().parent().child('rows').val() && data.parent().parent().child('drawn').child((newData.val() + data.parent().parent().child('cols').val()) + '').exists() && data.parent().parent().child('drawn').child(((data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val() + ((newData.val() - newData.val() % data.parent().parent().child('cols').val()) / data.parent().parent().child('cols').val()) * (data.parent().parent().child('cols').val() + 1) + newData.val() % data.parent().parent().child('cols').val()) + '').exists() && data.parent().parent().child('drawn').child(((data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val() + ((newData.val() - newData.val() % data.parent().parent().child('cols').val()) / data.parent().parent().child('cols').val()) * (data.parent().parent().child('cols').val() + 1) + newData.val() % data.parent().parent().child('cols').val() + 1) + '').exists()) : ((newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) % (data.parent().parent().child('cols').val() + 1) > 0 && data.parent().parent().child('drawn').child(((((newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) - (newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) % (data.parent().parent().child('cols').val() + 1)) / (data.parent().parent().child('cols').val() + 1)) * data.parent().parent().child('cols').val() + (newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) % (data.parent().parent().child('cols').val() + 1) - 1) + '').exists() && data.parent().parent().child('drawn').child(((((newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) - (newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) % (data.parent().parent().child('cols').val() + 1)) / (data.parent().parent().child('cols').val() + 1) + 1) * data.parent().parent().child('cols').val() + (newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) % (data.parent().parent().child('cols').val() + 1) - 1) + '').exists() && data.parent().parent().child('drawn').child((newData.val() - 1) + '').exists() || (newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) % (data.parent().parent().child('cols').val() + 1) < data.parent().parent().child('cols').val() && data.parent().parent().child('drawn').child(((((newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) - (newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) % (data.parent().parent().child('cols').val() + 1)) / (data.parent().parent().child('cols').val() + 1)) * data.parent().parent().child('cols').val() + (newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) % (data.parent().parent().child('cols').val() + 1)) + '').exists() && data.parent().parent().child('drawn').child(((((newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) - (newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) % (data.parent().parent().child('cols').val() + 1)) / (data.parent().parent().child('cols').val() + 1) + 1) * data.parent().parent().child('cols').val() + (newData.val() - (data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val()) % (data.parent().parent().child('cols').val() + 1)) + '').exists() && data.parent().parent().child('drawn').child((newData.val() + 1) + '').exists())) ? data.parent().parent().child('turn').val() : 1 - data.parent().parent().child('turn').val())"
+          }
+        },
+        "drawn": {
+          "$e": {
+            ".write": "auth != null && data.parent().parent().child('v').val() === 2 && (data.parent().parent().child('host').val() === auth.uid && data.parent().parent().child('turn').val() === 0 || data.parent().parent().child('guest').val() === auth.uid && data.parent().parent().child('turn').val() === 1) && data.parent().parent().child('count').val() < ((data.parent().parent().child('rows').val() + 1) * data.parent().parent().child('cols').val() + data.parent().parent().child('rows').val() * (data.parent().parent().child('cols').val() + 1)) && newData.exists() && !data.exists()",
+            ".validate": "!(data.parent().parent().child('v').val() === 2) || newData.val() === data.parent().parent().child('turn').val() && newData.parent().parent().child('moves').child(data.parent().parent().child('count').val() + '').val() + '' === $e"
+          }
+        },
+        "turn": {
+          ".write": "auth != null && data.parent().child('v').val() === 2 && (data.parent().child('host').val() === auth.uid && data.parent().child('turn').val() === 0 || data.parent().child('guest').val() === auth.uid && data.parent().child('turn').val() === 1) && data.parent().child('count').val() < ((data.parent().child('rows').val() + 1) * data.parent().child('cols').val() + data.parent().child('rows').val() * (data.parent().child('cols').val() + 1)) && newData.exists()",
+          ".validate": "(newData.val() === 0 || newData.val() === 1) && (!(data.parent().child('v').val() === 2) || newData.parent().child('game').val() === data.parent().child('game').val() && newData.parent().child('count').val() === data.parent().child('count').val() + 1 || newData.parent().child('game').val() === data.parent().child('game').val() + 1 && newData.val() === newData.parent().child('first').val())"
+        },
+        "count": {
+          ".write": "auth != null && data.parent().child('v').val() === 2 && (data.parent().child('host').val() === auth.uid && data.parent().child('turn').val() === 0 || data.parent().child('guest').val() === auth.uid && data.parent().child('turn').val() === 1) && data.parent().child('count').val() < ((data.parent().child('rows').val() + 1) * data.parent().child('cols').val() + data.parent().child('rows').val() * (data.parent().child('cols').val() + 1)) && newData.exists()",
+          ".validate": "newData.isNumber() && (!(data.parent().child('v').val() === 2) || newData.parent().child('game').val() === data.parent().child('game').val() && newData.val() === data.parent().child('count').val() + 1 && newData.parent().child('moves').child(data.parent().child('count').val() + '').exists() || newData.parent().child('game').val() === data.parent().child('game').val() + 1 && newData.val() === 0)"
+        }
       }
     },
     "presence": {
@@ -16,7 +64,9 @@
         "$uid": {
           ".write": "auth != null && auth.uid === $uid && (!newData.exists() || root.child('rooms').child($code).child('host').val() === auth.uid || root.child('rooms').child($code).child('guest').val() === auth.uid)",
           ".validate": "newData.hasChildren()",
-          "$connection": { ".validate": "newData.isNumber()" }
+          "$connection": {
+            ".validate": "newData.isNumber()"
+          }
         }
       }
     }

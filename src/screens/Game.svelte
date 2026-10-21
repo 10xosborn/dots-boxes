@@ -9,9 +9,11 @@
   import { AI_NAMES, DIFF_LABEL, fmtClock, fmtTime, initials, uid } from '../lib/format';
   import { sfx } from '../lib/sound';
   import { confetti } from '../lib/confetti';
+  import { boxesThisTurn } from '../lib/extraTurn';
   import type { ScoreEntry, Leaderboard } from '../lib/data/types';
   import Board from '../components/Board.svelte';
   import PlayerCards from '../components/PlayerCards.svelte';
+  import TopBar from '../components/TopBar.svelte';
   import ResultsModal, { type ResultInfo } from '../components/ResultsModal.svelte';
 
   // Game settings are frozen at start so changing Setup mid-game can't affect it.
@@ -28,6 +30,7 @@
   let turn = $state<Player>(0);
   let over = $state(false);
   let thinking = $state(false);
+  let streak = $state(0);   // boxes the mover has closed this turn: the extra-turn cue
   let ms = $state(0);
   let result = $state<ResultInfo | null>(null);
   let announce = $state('');
@@ -38,7 +41,6 @@
   const ini = $derived(initials(names[0], names[1]));
   const L = $derived(level(stats(app.scores).xp));
   const subs = $derived<[string, string]>(vsAI() ? [`Level ${L.level}`, `${DIFF_LABEL[cfg.diff]} AI`] : ['Player 1', 'Player 2']);
-  const turnText = $derived(over ? 'Game over' : thinking ? `${names[1]} is thinking` : vsAI() ? 'Your turn' : `${names[turn]}'s turn`);
   const humanTurn = $derived(!over && !thinking && (!vsAI() || turn === 0));
 
   /** Start a new game, or continue a saved one (`from`) after a reload or restart. */
@@ -53,6 +55,7 @@
     lines = st.moves.map(e => ({ e, p: st.lines[e] }));
     boxes = [...st.owner].flatMap((p, b) => (p >= 0 ? [{ b, p }] : []));
     score = [st.score[0], st.score[1]]; turn = st.turn; over = false; thinking = false; result = null; ms = from?.ms ?? 0;
+    streak = from ? boxesThisTurn(size, first, from.moves) : 0;
     resetAI();
     t0 = performance.now() - ms;   // the clock carries on from the saved time
     clock = setInterval(() => { if (!over) ms = performance.now() - t0; }, 250);
@@ -77,9 +80,9 @@
     if (done === null) return;
     lines.push({ e, p });
     for (const b of done) boxes.push({ b, p });
-    score = [st.score[0], st.score[1]]; turn = st.turn;
+    score = [st.score[0], st.score[1]]; turn = st.turn; streak = done.length ? streak + done.length : 0;
     sfx.play(done.length ? 'box' : how === 'drag' ? 'drop' : 'line');
-    announce = `${names[p]} drew a line${done.length ? ` and closed ${done.length} box${done.length > 1 ? 'es' : ''}` : ''}. Score ${score[0]} to ${score[1]}.`;
+    announce = `${names[p]} drew a line${done.length ? ` and closed ${done.length} box${done.length > 1 ? 'es' : ''}` : ''}. Score ${score[0]} to ${score[1]}.${done.length && !st.over ? ' Extra turn.' : ''}`;
     if (st.over) { over = true; clearActive(); ms = performance.now() - t0; clearInterval(clock); setTimeout(finish, app.settings.anim ? 500 : 60); }
     else { persist(); queueAI(p === 1); }
   }
@@ -171,18 +174,23 @@
   });
 </script>
 
-<section aria-label="Game">
-  <PlayerCards {names} initials={ini} {subs} {score} {turn} {over} {turnText} {thinking} />
-  <div class="meta">
-    <span class="chip" title="Elapsed time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg><b>{fmtClock(ms)}</b></span>
-    <span class="chip">{sizeTag}</span>
-    {#if vsAI()}<span class="chip">{DIFF_LABEL[cfg.diff]}</span>{/if}
-    <span class="chip">Lv {L.level}<span class="mini"><i style:width="{L.pct}%"></i></span></span>
-  </div>
-  <Board rows={size.rows} cols={size.cols} {lines} {boxes} {turn} interactive={humanTurn} initials={ini} anim={app.settings.anim} bot={vsAI()} onmove={commit} />
-  <div class="game-actions">
-    <button class="btn small" onclick={quit}>Quit</button>
-    <button class="btn small" onclick={restart}>Restart</button>
+<!-- The game layout (app.css): its own top bar, the HUD, then the board with the buttons, filling the screen. -->
+<section class="game fit own-bar" aria-label="Game">
+  <TopBar busy />
+  <PlayerCards {names} {subs} {score} {turn} {over} {thinking} extra={streak} you={vsAI() ? 0 : null} bot={vsAI()}>
+    {#snippet meta()}
+      <span class="chip" title="Elapsed time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg><b>{fmtClock(ms)}</b></span>
+      <span class="chip">{sizeTag}</span>
+      {#if vsAI()}<span class="chip">{DIFF_LABEL[cfg.diff]}</span>{/if}
+      <span class="chip lvl">Lv {L.level}<span class="mini"><i style:width="{L.pct}%"></i></span></span>
+    {/snippet}
+  </PlayerCards>
+  <div class="play">
+    <Board rows={size.rows} cols={size.cols} {lines} {boxes} {turn} interactive={humanTurn} initials={ini} anim={app.settings.anim} bot={vsAI()} onmove={commit} />
+    <div class="game-actions">
+      <button class="btn small" onclick={quit}>Quit</button>
+      <button class="btn small" onclick={restart}>Restart</button>
+    </div>
   </div>
   <p class="sr" aria-live="polite">{announce}</p>
 </section>

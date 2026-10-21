@@ -35,8 +35,8 @@
 <!-- Neon's aurora: three soft lights drifting slowly behind everything (shown only in Neon; still when motion is off). -->
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="app">
-  <TopBar busy={app.screen === 'game'} />
-  {#if app.notice}<div class="banner" role="status">{app.notice} <button class="btn small" style="min-height:36px;margin-left:6px" onclick={() => (app.notice = '')}>Dismiss</button></div>{/if}
+  <!-- The game screens draw their own top bar, inside their layout (so it can move into a side column). -->
+  {#if app.screen !== 'game' && !app.playing}<TopBar />{/if}
   <main>
     {#if !app.ready}
       <p class="loading">Loading…</p>

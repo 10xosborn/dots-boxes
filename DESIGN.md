@@ -35,6 +35,10 @@ colors:
   table-light-focus: "#8A3F0E"
   table-light-gold: "#8C5F0A"
   table-light-last-dot: "#2B7BB9"   # the last-move pip: the mockup's blue, 3.18:1 on the mint felt
+  table-light-avatar-1: "#D77027"   # a silhouette's disc (white figure, 3.4:1); the bot's and player 2's disc below
+  table-light-avatar-2: "#B07A12"   # white figure or bot head 3.7:1
+  table-light-bot-visor: "#2B241D"
+  table-light-bot-eye: "#7FD3DD"
   table-dark-table: "#A0592B"   # the wood's average: the day's maple tile multiplied onto #B77D5F
   table-dark-felt: "#6A3A1C"
   table-dark-frame: "#4A2410"
@@ -61,6 +65,11 @@ colors:
   table-dark-sel-ring: "#F2B84B"
   table-dark-focus: "#F2B84B"
   table-dark-gold: "#FFD08A"
+  table-dark-avatar-1: "#E5E4E2"   # light discs take a figure in the card colour #6B3A1E (7.4:1)
+  table-dark-avatar-2: "#E0A070"   # figure #6B3A1E, 4.2:1
+  table-dark-bot: "#A86536"   # copper deepened, so the bot's white head reads (4.6:1)
+  table-dark-bot-visor: "#241C15"
+  table-dark-bot-eye: "#7FD3DD"
   # 2. Neon, dark and light (owner, 2026-10-15): glass and emitted light only. Dark Neon: a clear liquid-glass board (2026-10-20) over the room, Cyber Cyan
   #    nodes, Bright Magenta-Red lines for you and Golden Orange for the other player (2026-10-19), Electric Violet glass tiles (the
   #    only violet in any theme), a room fading from Dark Wine to near-black. White Neon: the same clear glass, lighter, Hot Coral nodes, Deep Electric Blue lines for you
@@ -91,6 +100,11 @@ colors:
   neon-dark-panel-strong: "rgba(30,32,38,.78)"
   neon-dark-focus: "#F2B84B"
   neon-dark-gold: "#FFD08A"
+  neon-dark-avatar-1: "#BD0249"   # white figure, 6.4:1
+  neon-dark-avatar-2: "#E28C19"   # figure #1F1C25, 6.4:1
+  neon-dark-bot: "#A9620C"   # Golden Orange deepened for the bot's white head (4.7:1)
+  neon-dark-bot-visor: "#1F1C25"
+  neon-dark-bot-eye: "#F6F6F6"
   neon-light-page: "#D5DEE7"
   neon-light-aurora: "linear-gradient(160deg, #DFE6EE, #D5DEE7 55%, #D8E4EB), lights #FF4500, #0047FF, #39FF14 at 12%"
   neon-light-board: "#EBF1F5"   # Opal: under the tiles and the last-move ring's centre
@@ -116,6 +130,10 @@ colors:
   neon-light-focus: "#4657CE"
   neon-light-gold: "#B5560C"
   neon-light-last-fill: "#EBF1F5"   # the last-move ring's centre: the board
+  neon-light-avatar-1: "#0047FF"   # white figure, 6.3:1
+  neon-light-avatar-2: "#007F73"   # white figure or bot head, 4.9:1
+  neon-light-bot-visor: "#2B2731"
+  neon-light-bot-eye: "#F6F6F6"
   # 3. Cozy Paper: a cream sheet on a kraft desk (light). By day orange, teal, indigo, cyan and coral. At night (owner, 2026-10-19:
   #    the day's texture in Sienna Brown): the day's paper on a Sienna desk and a deeper Sienna sheet, ivory paper dots, warm beige
   #    die-cut strips for you and denim blue for the other player, a parchment wash for boxes, gold buttons.
@@ -133,6 +151,14 @@ colors:
   paper-light-sel-ring: "#007F62"
   paper-light-ring: "#00936F"
   paper-light-gold: "#B04E07"
+  paper-light-avatar-1: "#FC4422"   # white figure, 3.5:1
+  paper-light-avatar-2: "#4657CE"   # white figure or bot head, 6:1
+  paper-light-bot-visor: "#2E2B27"
+  paper-light-bot-eye: "#FFE58A"
+  paper-light-rule: "#D6E0EA"   # the score sheet's ruled lines
+  paper-light-margin: "#E9B9B0"
+  paper-light-highlight: "#FFE58A"   # the extra-turn highlighter, under #2E2B27 text (11.3:1); the same at night
+  paper-light-sticker-edge: "#FFFDF7"
   paper-dark-desk: "#A0592B"   # the desk's average: the day's paper tile multiplied onto #A75E2F
   paper-dark-page: "#6A3A1C"   # the sheet's average: the paper tile twice over, onto #734121
   paper-dark-graphite: "#F6EEDF"
@@ -153,6 +179,12 @@ colors:
   paper-dark-sel-ring: "#F2B84B"
   paper-dark-ring: "#F2B84B"
   paper-dark-gold: "#FFD08A"
+  paper-dark-avatar-1: "#E8D5B5"   # figure in the card colour #6B3A1E, 6.5:1
+  paper-dark-avatar-2: "#8FB8D6"   # figure #6B3A1E, 4.4:1
+  paper-dark-bot: "#4F7A9A"   # denim deepened for the bot's white head (4.6:1)
+  paper-dark-rule: "rgba(243,234,215,.16)"
+  paper-dark-margin: "rgba(233,150,140,.5)"
+  paper-dark-sticker-edge: "#F3EAD7"
 typography:
   table-ui:
     fontFamily: Jost
@@ -260,7 +292,15 @@ As specified per theme, self-hosted (woff2, Latin and Latin Extended subsets, `f
 
 ## Layout
 
-The same single column in every theme: top bar (brand, level chip), two player cards, the turn pill, chips, the board, then Quit and Restart. Cozy Paper spreads into two pages on desktop. Breakpoints from the spec: phones under 640 px never scroll and the board is the viewport width minus 32 px; tablets use the phone layout up to 600 px wide; desktops one column at most 680 px. `available()` in `src/lib/boardFit.ts` must match each theme's chrome, or measure the board container.
+The same single column in every theme: top bar (brand, level chip), two player cards, the turn pill, chips, the board, then Quit and Restart (Paper writes a ruled score sheet in place of the cards and pill). The breakpoints (spec, step 4), in `src/app.css`:
+
+- **Phones, under 640 px:** one column, the board as wide as the screen less 32 px. The game screens and Home always fit the screen's height, so nothing scrolls: the board takes what the rest leaves and is what shrinks. On Home the demo board shrinks first, then the tagline, the kicker and the title give way; with a game waiting on a short screen the profile card makes room too (its name and level are on the top bar). A screen 760 px tall or less takes a little less room at the foot (16 px, not 28) and under the top bar (12, not 18).
+- **640-1023 px:** the same column, centred, at most 600 px wide.
+- **1024 px and up:** one centred column at most 680 px wide; the board at most 600 px and no taller than the screen less the rest.
+- **Short, wide screens** (landscape and 540 px tall or less: a phone turned sideways): the game goes side by side, the board filling the height on the right and the top bar, HUD, chips and buttons stacked on the left, at least 300 px wide (owner, 2026-10-21). Home puts the hero and profile on the left and the buttons on the right.
+- **Cozy Paper's spread** (960 px wide and up, and sideways): the score sheet on the left page, the board alone on the right page, the spine shaded where they meet (14 px at 25%) and the spread lifted off the desk; the top bar is written on the left page. On a desktop the left page is 360 px, ruled every 36 px with the stickers out in the margin, a blank line, then the turn note on two lines with a pencil arrow to the board, and Quit and Restart at its foot; the board is at most 600 px, the spread centred on the desk. Sideways it keeps a phone's sheet (stickers before the names).
+
+How it is built: the game screens (Game, Online's game) are a grid filling the screen, and each draws its own top bar, so the bar can move into the side column or onto the page. The board sits in a size container (`.play`) and is as large as fits above the buttons. Nothing in the game layout depends on what happens in a game, so the board never moves: a chip that doesn't fit wraps onto a line that is cut away (the level goes first), an online note or error takes the chips' place while it lasts, and a notice (offline, a failed save) floats over the top bar. `available()` in `src/lib/boardFit.ts` mirrors these numbers for each layout, so `fits()` and `MIN_TAP_PX` hold; keep the two in step. It measures the screen from the visual viewport (a page that overflows on a phone widens the layout viewport, and the game screen never would) and reads the safe areas from a hidden element.
 
 ## Components
 
@@ -269,6 +309,8 @@ The spec's component tables (per theme, with states) are the reference: player c
 **Playing the board.** Drag from a dot towards a neighbouring dot: a thin elastic band stretches from the picked-up dot (which gets a ring) to the pointer, bowing when swung and settling straight at rest, while a broken ring turns round each dot it can land on (its neighbours across a free line). Once the pointer is past halfway the band springs onto that dot with a small bounce, at the line's full width inside the keyboard cursor's ring, which takes over from that dot's turning ring; letting go draws the line, letting go anywhere else springs the band back to its dot. With Animations off the band follows the pointer exactly and nothing turns or bounces. Tapping or clicking a line still draws it, and a press on a line can be dragged to adjust before letting go. A tap right on a dot draws nothing when more than one free line meets there. Arrows and Enter play from the keyboard. With Sound on, picking up a dot ticks, a snap clicks, the drawn line plays its usual note and a cancelled drag falls away. The hover preview and the drag line use the mover's line colour (at least 3:1 on every board); a dot under the mouse shows a grab cursor. In Neon at night each landing ring carries a bright core, like the lines.
 
 **Board marks (the spec's step 2).** The last move is marked in the board's neutral dot or ink colour, never a player's or the buttons' gold: a pip on its line in Tabletop (edged in the felt's colour, engraved like the dots), with the line itself a shade stronger (darker by day, lighter at night); an indicator ring that glows like the dots in Neon; a hand-drawn pencil ellipse round it in Paper, drawn twice with the second pass faint. Boxes carry their owner's mark: in Tabletop against the AI a person for you and a bot for the AI (white, or dark on golden yellow), initials otherwise; in Neon an initial over stripes or dots; in Paper a bigger handwritten initial, leaning a little, over single or cross hatching. Never colour alone: every mark comes with a pattern, an initial or an icon.
+
+**The heads-up display (the spec's step 3).** Every player's avatar sits beside their name: the AI shows the spec's friendly bot (a white robot head with a dark visor and two lit eyes on the AI's colour, deepened where the white head needs it: Tabletop and Paper at night, Dark Neon), and anyone without an avatar of their own shows a plain person silhouette, a disc in their colour with the figure in white (in the card colour on the light night colours). Avatars of your own come with the avatar builder (step 6). In Tabletop and Neon the avatar sits in a 2 px ring of the player's colour, 2 px out from it, on each player card (40 px, 38 px in Neon); the top bar's level chip shows your avatar inside the ring that fills towards your next level, then your name and level. After a player closes a box the turn pill reads "Your turn · +1 extra turn" (the mover's name in pass and play and for the AI) until they draw again, with the chain so far (x2, x3) on a small tag; on a phone, where half the pill is too narrow for one line, the cue goes under the turn in smaller type, so the pill keeps its height. Cozy Paper turns the cards into a ruled score sheet: a line per player with a sticker ringed in their pencil colour, the name handwritten (underlined while it is their turn), tally marks in gates of five and the score circled while it is their turn; then a handwritten note ("Your turn. You closed a box, go again!", with "go again!" under a yellow highlighter) and the clock, size and difficulty on one line. Cards never change height with the score, so nothing under them moves when the turn changes. Long names give way, never the cue: the top bar keeps the brand on one line and truncates the name in the level chip, and Paper's note truncates the mover's name, never "go again!".
 
 ## Accessibility
 

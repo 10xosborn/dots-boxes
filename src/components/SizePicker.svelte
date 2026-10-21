@@ -5,15 +5,17 @@
    * screen (see boardFit.ts), and shrink the board if the screen gets smaller
    * (for example when a phone is rotated).
    */
-  import { onMount } from 'svelte';
+  import { onMount, untrack } from 'svelte';
+  import { app } from '../lib/state/app.svelte';
   import { fits, largestSquare, type BoardChoice } from '../lib/boardFit';
   import { MAX_SIDE, STANDARD_SIZES } from '../lib/engine/rules';
   import Seg from './Seg.svelte';
 
   let { value = $bindable() }: { value: BoardChoice } = $props();
 
-  // Bumped on resize so fit checks re-run.
+  // Bumped on resize, and when the theme changes (each lays the game out its own way), so fit checks re-run.
   let screenTick = $state(0);
+  $effect(() => { void app.settings.skin; untrack(() => { screenTick++; shrinkToFit(); }); });
   onMount(() => {
     const onResize = () => { screenTick++; shrinkToFit(); };
     addEventListener('resize', onResize);
@@ -75,9 +77,11 @@
 {/if}
 
 <style>
-  .custom { margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .custom .help { grid-column: 1 / -1; margin-top: 2px; }
-  .stepper { background: var(--panel); border: 1px solid var(--panel-b); border-radius: var(--r-md); padding: 10px; }
+  /* Rows and Columns side by side, or one under the other when they don't fit (a 320-360 px phone, Neon's wide numbers): never
+     wider than the screen. */
+  .custom { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .custom .help { flex-basis: 100%; margin-top: 2px; }
+  .stepper { flex: 1 1 0; min-width: max-content; background: var(--panel); border: 1px solid var(--panel-b); border-radius: var(--r-md); padding: 10px; }
   .lab { display: block; font-weight: 800; font-size: .85rem; margin-bottom: 6px; }
   .ctl { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
   output { font-family: var(--display); font-weight: 800; font-size: 1.4rem; min-width: 2ch; text-align: center; font-variant-numeric: tabular-nums; }
