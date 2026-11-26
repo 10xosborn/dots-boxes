@@ -25,3 +25,10 @@ dist-ssr
 
 # Lockfile not tracked: dependency versions are pinned exactly in package.json
 package-lock.json
+
+# Reports and screenshots from gstack (kept on the backup/reports branch)
+.gstack/
+
+# Local-only settings
+CLAUDE.local.md
+.claude/settings.local.json

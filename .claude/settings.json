@@ -1,0 +1,13 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git push *)",
+      "Bash(gh pr merge *)"
+    ]
+  }
+}
