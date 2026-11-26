@@ -1,0 +1,13 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-19T18:38:35.596Z","deadlineAt":"2026-10-19T18:53:35.596Z","budgetMs":900000,"observedAt":"2026-10-19T18:42:59.302Z","remainingMs":636294,"expired":false}
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+PASS  table-light textures: felt 32.5 KB, wood-day 44.9 KB  (expected felt, wood-day)  total 77.4 KB
+PASS  table-dark  textures: felt 32.5 KB, wood-day 44.9 KB  (expected felt, wood-day)  total 77.4 KB
+PASS  paper-light textures: paper-day 38.5 KB  (expected paper-day)  total 38.5 KB
+PASS  paper-dark  textures: paper-day 38.5 KB  (expected paper-day)  total 38.5 KB
+PASS  neon-light  textures: none  (expected none)  total 0.0 KB
+PASS  neon-dark   textures: none  (expected none)  total 0.0 KB
+6/6 checks passed
+servers stopped; child exit 0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-19T18:43:09.424Z","deadlineAt":"2026-10-19T18:53:35.596Z","timedOut":false,"exitCode":0}

@@ -1,0 +1,1 @@
+- 2026-10-15 design/05-four-modes: 3 findings, 3 fixed; design A- -> A, slop A -> A, detector 134 -> 134. Full report: /c/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261015/design-audit-127.0.0.1-four-modes.md

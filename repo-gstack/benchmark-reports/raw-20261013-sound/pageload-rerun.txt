@@ -1,0 +1,56 @@
+serving branch on :4176 and main on :4177
+ok home-table-light|main cold 173
+ok home-table-light|branch cold 114
+ok home-table-dark|main cold 105
+ok home-table-dark|branch cold 109
+ok home-paper-dark|main cold 135
+ok home-paper-dark|branch cold 106
+ok home-table-light|branch cold 98
+ok home-table-light|main cold 96
+ok home-table-dark|branch cold 93
+ok home-table-dark|main cold 97
+ok home-paper-dark|branch cold 111
+ok home-paper-dark|main cold 112
+ok home-table-light|main cold 99
+ok home-table-light|branch cold 97
+ok home-table-dark|main cold 112
+ok home-table-dark|branch cold 101
+ok home-paper-dark|main cold 126
+ok home-paper-dark|branch cold 123
+ok home-table-light|branch cold 98
+ok home-table-light|main cold 125
+ok home-table-dark|branch cold 104
+ok home-table-dark|main cold 107
+ok home-paper-dark|branch cold 151
+ok home-paper-dark|main cold 139
+ok home-table-light|main cold 108
+ok home-table-light|branch cold 128
+ok home-table-dark|main cold 111
+ok home-table-dark|branch cold 108
+ok home-paper-dark|main cold 113
+ok home-paper-dark|branch cold 111
+ok home-table-light|branch cold 98
+ok home-table-light|main cold 98
+ok home-table-dark|branch cold 106
+ok home-table-dark|main cold 92
+ok home-paper-dark|branch cold 121
+ok home-paper-dark|main cold 107
+home-table-light|main cold {"ttfb":1,"fcp":88,"lcp":472,"ready":99,"cls":25,"domInteractive":13,"domComplete":69,"load":69,"requests":8,"transfer":777760,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   warm {"ttfb":1,"fcp":64,"lcp":440,"ready":71,"cls":25,"domInteractive":14,"domComplete":41,"load":41,"requests":8,"transfer":777760,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-table-light|branch cold {"ttfb":1,"fcp":88,"lcp":464,"ready":98,"cls":25,"domInteractive":13,"domComplete":68,"load":68,"requests":8,"transfer":778774,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   warm {"ttfb":1,"fcp":64,"lcp":444,"ready":72,"cls":25,"domInteractive":14,"domComplete":42,"load":42,"requests":8,"transfer":778774,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-table-dark|main cold {"ttfb":1,"fcp":88,"lcp":480,"ready":105,"cls":25,"domInteractive":13,"domComplete":73,"load":73,"requests":8,"transfer":776636,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":23022} 
+                   warm {"ttfb":1,"fcp":64,"lcp":444,"ready":70,"cls":25,"domInteractive":13,"domComplete":41,"load":41,"requests":8,"transfer":776636,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":23022} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-table-dark|branch cold {"ttfb":1,"fcp":88,"lcp":472,"ready":104,"cls":25,"domInteractive":14,"domComplete":73,"load":73,"requests":8,"transfer":777650,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":23022} 
+                   warm {"ttfb":1,"fcp":60,"lcp":440,"ready":72,"cls":25,"domInteractive":14,"domComplete":41,"load":41,"requests":8,"transfer":777650,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":23022} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-paper-dark|main cold {"ttfb":1,"fcp":100,"lcp":188,"ready":113,"cls":24,"domInteractive":14,"domComplete":57,"load":57,"requests":11,"transfer":811538,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4388} 
+                   warm {"ttfb":1,"fcp":72,"lcp":456,"ready":73,"cls":24,"domInteractive":14,"domComplete":44,"load":44,"requests":11,"transfer":811538,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4388} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-paper-dark|branch cold {"ttfb":1,"fcp":92,"lcp":184,"ready":111,"cls":24,"domInteractive":14,"domComplete":57,"load":57,"requests":11,"transfer":812552,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4388} 
+                   warm {"ttfb":1,"fcp":72,"lcp":460,"ready":72,"cls":24,"domInteractive":13,"domComplete":43,"load":43,"requests":11,"transfer":812552,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4388} 
+                   third-party ["identitytoolkit.googleapis.com"]
+servers stopped; child exit 0

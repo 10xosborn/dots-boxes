@@ -1,0 +1,78 @@
+position: 6x6, score 13-13, Akosua to move after 69 lines
+PASS  table-light 360x640: no horizontal scroll  0
+PASS  table-light 360x640: ISSUE-002 the top bar fits the screen  page 360 px on a 360 px screen, "Kwabena Mensah-B"
+PASS  table-light 360x640: both cards one height  61,61
+PASS  table-light 360x640: avatar and score inside each card
+PASS  table-light 360x640: the pill  "Akosua Asantewaa's turn / +1 extra turn×6" clipped=false
+PASS  table-light 360x640: no page errors
+PASS  table-dark 360x640: no horizontal scroll  0
+PASS  table-dark 360x640: ISSUE-002 the top bar fits the screen  page 360 px on a 360 px screen, "Kwabena Mensah-B"
+PASS  table-dark 360x640: both cards one height  61,61
+PASS  table-dark 360x640: avatar and score inside each card
+PASS  table-dark 360x640: the pill  "Akosua Asantewaa's turn / +1 extra turn×6" clipped=false
+PASS  table-dark 360x640: no page errors
+PASS  neon-dark 360x640: no horizontal scroll  0
+PASS  neon-dark 360x640: ISSUE-002 the top bar fits the screen  page 360 px on a 360 px screen, "Kwabena Mensah-B"
+PASS  neon-dark 360x640: both cards one height  61,61
+PASS  neon-dark 360x640: avatar and score inside each card
+PASS  neon-dark 360x640: the pill  "Akosua Asantewaa's turn / +1 extra turn×6" clipped=false
+PASS  neon-dark 360x640: no page errors
+PASS  neon-light 360x640: no horizontal scroll  0
+PASS  neon-light 360x640: ISSUE-002 the top bar fits the screen  page 360 px on a 360 px screen, "Kwabena Mensah-B"
+PASS  neon-light 360x640: both cards one height  61,61
+PASS  neon-light 360x640: avatar and score inside each card
+PASS  neon-light 360x640: the pill  "Akosua Asantewaa's turn / +1 extra turn×6" clipped=false
+PASS  neon-light 360x640: no page errors
+PASS  paper-light 360x640: no horizontal scroll  0
+PASS  paper-light 360x640: ISSUE-002 the top bar fits the screen  page 360 px on a 360 px screen, "Kwabena Mensah-B"
+PASS  paper-light 360x640: Paper's lines stay 40 px  40,40
+PASS  paper-light 360x640: names truncate, tallies and scores stay on the sheet  trunc=true,true overflow=0
+PASS  paper-light 360x640: the note  "Akosua Asantewaa closed 6 boxes, go again!"
+PASS  paper-light 360x640: ISSUE-001 "go again!" is wholly on screen
+PASS  paper-light 360x640: no page errors
+PASS  paper-dark 360x640: no horizontal scroll  0
+PASS  paper-dark 360x640: ISSUE-002 the top bar fits the screen  page 360 px on a 360 px screen, "Kwabena Mensah-B"
+PASS  paper-dark 360x640: Paper's lines stay 40 px  40,40
+PASS  paper-dark 360x640: names truncate, tallies and scores stay on the sheet  trunc=true,true overflow=0
+PASS  paper-dark 360x640: the note  "Akosua Asantewaa closed 6 boxes, go again!"
+PASS  paper-dark 360x640: ISSUE-001 "go again!" is wholly on screen
+PASS  paper-dark 360x640: no page errors
+PASS  table-light 390x844: no horizontal scroll  0
+PASS  table-light 390x844: ISSUE-002 the top bar fits the screen  page 390 px on a 390 px screen, "Kwabena Mensah-B"
+PASS  table-light 390x844: both cards one height  61,61
+PASS  table-light 390x844: avatar and score inside each card
+PASS  table-light 390x844: the pill  "Akosua Asantewaa's turn / +1 extra turn×6" clipped=false
+PASS  table-light 390x844: no page errors
+PASS  table-dark 390x844: no horizontal scroll  0
+PASS  table-dark 390x844: ISSUE-002 the top bar fits the screen  page 390 px on a 390 px screen, "Kwabena Mensah-B"
+PASS  table-dark 390x844: both cards one height  61,61
+PASS  table-dark 390x844: avatar and score inside each card
+PASS  table-dark 390x844: the pill  "Akosua Asantewaa's turn / +1 extra turn×6" clipped=false
+PASS  table-dark 390x844: no page errors
+PASS  neon-dark 390x844: no horizontal scroll  0
+PASS  neon-dark 390x844: ISSUE-002 the top bar fits the screen  page 390 px on a 390 px screen, "Kwabena Mensah-B"
+PASS  neon-dark 390x844: both cards one height  61,61
+PASS  neon-dark 390x844: avatar and score inside each card
+PASS  neon-dark 390x844: the pill  "Akosua Asantewaa's turn / +1 extra turn×6" clipped=false
+PASS  neon-dark 390x844: no page errors
+PASS  neon-light 390x844: no horizontal scroll  0
+PASS  neon-light 390x844: ISSUE-002 the top bar fits the screen  page 390 px on a 390 px screen, "Kwabena Mensah-B"
+PASS  neon-light 390x844: both cards one height  61,61
+PASS  neon-light 390x844: avatar and score inside each card
+PASS  neon-light 390x844: the pill  "Akosua Asantewaa's turn / +1 extra turn×6" clipped=false
+PASS  neon-light 390x844: no page errors
+PASS  paper-light 390x844: no horizontal scroll  0
+PASS  paper-light 390x844: ISSUE-002 the top bar fits the screen  page 390 px on a 390 px screen, "Kwabena Mensah-B"
+PASS  paper-light 390x844: Paper's lines stay 40 px  40,40
+PASS  paper-light 390x844: names truncate, tallies and scores stay on the sheet  trunc=true,true overflow=0
+PASS  paper-light 390x844: the note  "Akosua Asantewaa closed 6 boxes, go again!"
+PASS  paper-light 390x844: ISSUE-001 "go again!" is wholly on screen
+PASS  paper-light 390x844: no page errors
+PASS  paper-dark 390x844: no horizontal scroll  0
+PASS  paper-dark 390x844: ISSUE-002 the top bar fits the screen  page 390 px on a 390 px screen, "Kwabena Mensah-B"
+PASS  paper-dark 390x844: Paper's lines stay 40 px  40,40
+PASS  paper-dark 390x844: names truncate, tallies and scores stay on the sheet  trunc=true,true overflow=0
+PASS  paper-dark 390x844: the note  "Akosua Asantewaa closed 6 boxes, go again!"
+PASS  paper-dark 390x844: ISSUE-001 "go again!" is wholly on screen
+PASS  paper-dark 390x844: no page errors
+76/76 checks passed

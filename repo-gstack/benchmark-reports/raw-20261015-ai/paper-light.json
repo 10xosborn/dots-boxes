@@ -1,0 +1,48 @@
+{
+  "cpu": 4,
+  "cold": 6,
+  "warm": 8,
+  "A": {
+    "home paper-light": {
+      "main": {
+        "cold": {
+          "ready": 407.8,
+          "fcp": 232,
+          "lcp": 528,
+          "load": 219.8,
+          "bytes": 854732,
+          "img": 39424
+        },
+        "warm": {
+          "ready": 192.5,
+          "fcp": 104,
+          "lcp": 276,
+          "load": 89.7,
+          "bytes": 854732,
+          "img": 39424
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 382.5,
+          "fcp": 212,
+          "lcp": 496,
+          "load": 199.7,
+          "bytes": 839936,
+          "img": 39424
+        },
+        "warm": {
+          "ready": 184.3,
+          "fcp": 96,
+          "lcp": 264,
+          "load": 86.5,
+          "bytes": 839936,
+          "img": 39424
+        }
+      }
+    }
+  },
+  "B": {},
+  "C": {},
+  "D": {}
+}

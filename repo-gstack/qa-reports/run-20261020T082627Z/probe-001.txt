@@ -1,0 +1,1 @@
+error: Module not found "\/c/Users/osbor/.claude/skills/gstack/bin/gstack-qa-deadline"

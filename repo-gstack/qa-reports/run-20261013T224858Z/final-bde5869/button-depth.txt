@@ -1,0 +1,66 @@
+PASS  table-light: the main action is the button colour under a sheen  rgb(215, 112, 39) (accent #d77027)
+PASS  table-light: the other buttons, the theme button and the level chip carry the sheen  6/6
+PASS  table-light: the main action's label at rest keeps 3:1 from pixels  3.28:1 (19.2px/800)
+PASS  table-light: a plain button's label at rest keeps 4.5:1  13.86:1
+PASS  table-light: hovering the main action makes it darker  rgb(215, 112, 39) -> color(srgb 0.731373 0.372549 0.121569)
+PASS  table-light: the main action's label on hover keeps 3:1  4.22:1
+PASS  table-light: a plain button's label on hover keeps 4.5:1  11.02:1
+PASS  table-light: a switch is a recessed track with a raised knob  {"knob":"rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.45) 0px 2px 4px -1px","track":"rgba(0, 0, 0, 0.28) 0px 2px 4px -1px inset"}
+PASS  table-light: the board-size steppers have the sheen and a shadow  4/4
+PASS  table-light: each chosen option has the sheen  3/3
+PASS  table-dark: the main action is the button colour under a sheen  rgb(242, 184, 75) (accent #f2b84b)
+PASS  table-dark: the button colour at night is gold  #f2b84b
+PASS  table-dark: the other buttons, the theme button and the level chip carry the sheen  6/6
+PASS  table-dark: the main action's label at rest keeps 3:1 from pixels  8.79:1 (19.2px/800)
+PASS  table-dark: a plain button's label at rest keeps 4.5:1  9.67:1
+PASS  table-dark: hovering the main action makes it lighter  rgb(242, 184, 75) -> color(srgb 0.954118 0.749412 0.364706)
+PASS  table-dark: the main action's label on hover keeps 3:1  9.23:1
+PASS  table-dark: a plain button's label on hover keeps 4.5:1  7.65:1
+PASS  table-dark: a switch is a recessed track with a raised knob  {"knob":"rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.45) 0px 2px 4px -1px","track":"rgba(0, 0, 0, 0.28) 0px 2px 4px -1px inset"}
+PASS  table-dark: the board-size steppers have the sheen and a shadow  4/4
+PASS  table-dark: each chosen option has the sheen  3/3
+PASS  neon-light: the main action is the button colour under a sheen  rgb(70, 87, 206) (accent #4657ce)
+PASS  neon-light: the other buttons, the theme button and the level chip carry the sheen  6/6
+PASS  neon-light: the main action's label at rest keeps 3:1 from pixels  5.75:1 (19.2px/800)
+PASS  neon-light: a plain button's label at rest keeps 4.5:1  15.62:1
+PASS  neon-light: hovering the main action makes it glow  rgb(70, 87, 206) -> rgb(70, 87, 206)
+PASS  neon-light: the main action's label on hover keeps 3:1  5.75:1
+PASS  neon-light: a plain button's label on hover keeps 4.5:1  15.62:1
+PASS  neon-light: a switch is a recessed track with a raised knob  {"knob":"rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.45) 0px 2px 4px -1px","track":"rgba(0, 0, 0, 0.28) 0px 2px 4px -1px inset"}
+PASS  neon-light: the board-size steppers have the sheen and a shadow  4/4
+PASS  neon-light: each chosen option has the sheen  3/3
+PASS  neon-dark: the main action is the button colour under a sheen  rgb(242, 184, 75) (accent #f2b84b)
+PASS  neon-dark: the button colour at night is gold  #f2b84b
+PASS  neon-dark: the other buttons, the theme button and the level chip carry the sheen  6/6
+PASS  neon-dark: the main action's label at rest keeps 3:1 from pixels  8.79:1 (19.2px/800)
+PASS  neon-dark: a plain button's label at rest keeps 4.5:1  7.91:1
+PASS  neon-dark: hovering the main action makes it lighter  rgb(242, 184, 75) -> color(srgb 0.954118 0.749412 0.364706)
+PASS  neon-dark: the main action's label on hover keeps 3:1  9.33:1
+PASS  neon-dark: a plain button's label on hover keeps 4.5:1  6.37:1
+PASS  neon-dark: a switch is a recessed track with a raised knob  {"knob":"rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.45) 0px 2px 4px -1px","track":"rgba(0, 0, 0, 0.28) 0px 2px 4px -1px inset"}
+PASS  neon-dark: the board-size steppers have the sheen and a shadow  4/4
+PASS  neon-dark: each chosen option has the sheen  3/3
+PASS  paper-light: the main action is the button colour under a sheen  rgb(70, 87, 206) (accent #4657ce)
+PASS  paper-light: the other buttons, the theme button and the level chip carry the sheen  6/6
+PASS  paper-light: the main action's label at rest keeps 4.5:1 from pixels  5.97:1 (17.6px/700)
+PASS  paper-light: a plain button's label at rest keeps 4.5:1  12.71:1
+PASS  paper-light: hovering the main action makes it darker  rgb(70, 87, 206) -> color(srgb 0.231373 0.292157 0.713726)
+PASS  paper-light: the main action's label on hover keeps 4.5:1  7.32:1
+PASS  paper-light: a plain button's label on hover keeps 4.5:1  10.13:1
+PASS  paper-light: a switch is a recessed track with a raised knob  {"knob":"rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.45) 0px 2px 4px -1px","track":"rgba(0, 0, 0, 0.28) 0px 2px 4px -1px inset"}
+PASS  paper-light: the board-size steppers have the sheen and a shadow  4/4
+PASS  paper-light: each chosen option has the sheen  3/3
+PASS  paper-dark: the main action is the button colour under a sheen  rgb(242, 184, 75) (accent #f2b84b)
+PASS  paper-dark: the button colour at night is gold  #f2b84b
+PASS  paper-dark: the other buttons, the theme button and the level chip carry the sheen  6/6
+PASS  paper-dark: the main action's label at rest keeps 4.5:1 from pixels  9:1 (17.6px/700)
+PASS  paper-dark: a plain button's label at rest keeps 4.5:1  11.16:1
+PASS  paper-dark: hovering the main action makes it lighter  rgb(242, 184, 75) -> color(srgb 0.954118 0.749412 0.364706)
+PASS  paper-dark: the main action's label on hover keeps 4.5:1  9.56:1
+PASS  paper-dark: a plain button's label on hover keeps 4.5:1  8.73:1
+PASS  paper-dark: a switch is a recessed track with a raised knob  {"knob":"rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.45) 0px 2px 4px -1px","track":"rgba(0, 0, 0, 0.28) 0px 2px 4px -1px inset"}
+PASS  paper-dark: the board-size steppers have the sheen and a shadow  4/4
+PASS  paper-dark: each chosen option has the sheen  3/3
+PASS  console: no errors
+
+64/64 checks passed

@@ -1,0 +1,42 @@
+{
+  "revision": "54f51101dacba8514ded91c065985a171fc1724e",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "Connection loss was simulated with the Firebase SDK goOffline()/goOnline(), which closes the socket cleanly; a phone that loses signal abruptly or freezes a background tab can take the live server much longer to notice, so the away note may appear later than 10 s there.",
+    "Online flows ran against the local Firebase emulators under the demo project, not the live project.",
+    "Reading the room again when the tab returns was smoke-tested by dispatching visibilitychange on a visible tab; a real frozen tab was not reproduced.",
+    "Touch was emulated (Chromium hasTouch at 390x844); the R1 acceptance tests on a real Android phone and iPhone remain for the owner.",
+    "No screen reader was used; the notes sit in a polite role=status live region.",
+    "Performance was not measured in this run (separate /benchmark)."
+  ],
+  "evidence": [],
+  "learning": [
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T005919Z/browser/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T005919Z/browser/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" O",
+      "hypothesis": "Home and the local-game paths still load cleanly on the production build after the shared Firebase setup changes (6/6, no console errors), so the baseline holds. The changed behaviour is online presence: next, play a real two-browser game against the emulators with the new rules (C1-C3): presence for both players plus the old flag, a dropped connection on the guest's turn with an offline move, the 10 s away note, recovery without lost or doubled moves, and a move made while the friend is away.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T005919Z/browser/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T005919Z/browser/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/online-r1b.mjs\" new"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T005919Z/browser/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T005919Z/browser/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/online-r1b.mjs\" new",
+      "hypothesis": "With the new rules every presence contract held (20/20): presence/ plus the old flag for both players, Reconnecting after the drop, the away note only after ~10 s, the offline move landing once, and a move saved while the friend was away. The deploy will reach players before the owner publishes the new rules, so the same flow must work under the rules published today (no presence/ path): load the published rules into the emulator and repeat (C4), expecting presence/ to be refused, the old flag to carry presence and come back after a reconnect, and no console errors.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T005919Z/browser/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T005919Z/browser/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/online-r1b.mjs\" old"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T005919Z/browser/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T005919Z/browser/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/online-r1b.mjs\" old",
+      "hypothesis": "Under the published rules presence/ was refused as expected and the old flag, now set up again on every reconnection, carried presence through a drop and recovery with no console errors (18/18), so shipping before the rules are published is safe. One contract is still unobserved: after 2 minutes away the other player must be offered Leave game, and the offer must go away when the friend returns (C5). It needs a real 2-minute wait (about 125 s of the ~800 s left).",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T005919Z/browser/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T005919Z/browser/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/online-r1b.mjs\" long"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T005919Z/browser/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T005919Z/browser/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/online-r1b.mjs\" long",
+      "hypothesis": "All online contracts C1-C5 are now observed passing, including the 2-minute Leave game offer that clears on return (4/4). The remaining risk is adjacent: this branch also changed the shared Firebase setup (config, app, data adapter) that local games use at start-up, and probe 001 only covered Home. Re-run the full local-game suite (resume after reload and restart, Continue and Discard, Quit and Restart, pass-and-play on a touch phone, resumed scoring) on the production build with Firebase blocked (C6), about 110 s of the ~650 s left.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T005919Z/browser/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T005919Z/browser/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" all"
+    }
+  ],
+  "verdict": {
+    "status": "inconclusive",
+    "open": [
+      "no evidence rows"
+    ]
+  }
+}

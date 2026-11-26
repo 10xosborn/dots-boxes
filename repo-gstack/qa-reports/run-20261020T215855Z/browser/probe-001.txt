@@ -1,0 +1,3 @@
+URL=http://127.0.0.1:4173/
+CONSOLE_ERRORS=[]
+TEXT=Grid Rivals 1 Player Could not reach Firebase, so results are saved on this device for now. Dismiss Grid Rivals Dots & Boxes Close a box, keep your turn. Beat t

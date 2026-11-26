@@ -1,0 +1,98 @@
+{
+  "revision": "8659ce4e803cf899082aa785f959176e269b6eeb",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "F4 npm run test:rules not applicable: no Firebase rules, data or online change in this diff (presentation only)",
+    "the token audit is a static read of app.css and the sources"
+  ],
+  "evidence": [
+    {
+      "command": "npx vitest run tests/theme",
+      "contract": "ISSUE-001 regression test reproduces the defect before the fix",
+      "expected": "fails only the neon dark case (bar and preview #05070D against the page #050608)",
+      "classification": "superseded",
+      "observed": "\n RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals\n\n ❯ tests/theme/theme-colours.test.ts (7 tests | 1 failed) 14ms\n   ❯ each mode paints the browser bar and its preview in its own page colour (7)\n     × neon dark 7ms\n\n Test Files  1 failed (1)\n      Tests  1 failed | 6 passed (7)\n   Start at  10:25:46\n   Duration  310ms (transform 60%, import 18%, tests 15%, worker 7%)\n\n"
+    },
+    {
+      "command": "npx vitest run tests/theme",
+      "contract": "ISSUE-001 regression test after the fix",
+      "expected": "7 of 7 pass",
+      "classification": "pass",
+      "observed": "\n RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals\n\n\n Test Files  1 passed (1)\n      Tests  7 passed (7)\n   Start at  10:26:21\n   Duration  305ms (transform 63%, import 23%, tests 7%, worker 7%)\n\n"
+    },
+    {
+      "command": "npm run check",
+      "contract": "F1 type check",
+      "expected": "exit 0, 0 errors, 0 warnings",
+      "classification": "pass",
+      "observed": "\n> dots-boxes@2.0.0 check\n> svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json\n\n1792060071973 START \"c:\\\\Users\\\\10xosborn\\\\SWE\\\\Grid Rivals\\\\grid-rivals\"\n1792060071975 COMPLETED 149 FILES 0 ERRORS 0 WARNINGS 0 FILES_WITH_PROBLEMS\n"
+    },
+    {
+      "command": "npm run build",
+      "contract": "F2 production build",
+      "expected": "exit 0",
+      "classification": "pass",
+      "observed": "\n> dots-boxes@2.0.0 build\n> vite build\n\n\u001b[36mvite v8.3.1 \u001b[32mbuilding client environment for production...\u001b[36m\u001b[39m\ntransforming...\n✓ 174 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                           1.58 kB │ gzip:   0.89 kB\ndist/assets/gh-inter-400-800-BUjur0u5.woff2               5.86 kB\ndist/assets/gh-noto-sans-400-700-BdxQ-ssZ.woff2           7.83 kB\ndist/assets/gh-montserrat-400-800-DT2Ym6Pt.woff2          8.36 kB\ndist/assets/atkinson-700-latin-ext-BoVPHkS0.woff2         9.37 kB\ndist/assets/atkinson-400-latin-ext-DRk46D-x.woff2         9.38 kB\ndist/assets/kalam-400-latin-ext-DtcdGa4L.woff2           12.14 kB\ndist/assets/kalam-700-latin-ext-CwgfRD_T.woff2           12.15 kB\ndist/assets/manrope-400-800-latin-ext-Ch3YOpNY.woff2     15.12 kB\ndist/assets/ai.worker-Duy7mktc.js                        15.60 kB\ndist/assets/jost-400-800-latin-ext-BDUtSsKd.woff2        17.10 kB\ndist/assets/atkinson-400-latin-BrHNak5F.woff2            17.20 kB\ndist/assets/atkinson-700-latin-GZI4o3u0.woff2            17.52 kB\ndist/assets/grain-D2MUzZyy.webp                          20.76 kB\ndist/assets/kalam-700-latin-D2H-9ISU.woff2               22.14 kB\ndist/assets/kalam-400-latin-BthBl_aR.woff2               22.33 kB\ndist/assets/manrope-400-800-latin-DHIcAJRg.woff2         24.83 kB\ndist/assets/jost-400-800-latin-ObQm3Zd1.woff2            26.57 kB\ndist/assets/felt-BB4yIumj.webp                           33.26 kB\ndist/assets/cardstock-B3gQC081.webp                      38.18 kB\ndist/assets/paper-day-RR9AWjoF.webp                      39.42 kB\ndist/assets/wood-day-Bg-8CmNo.webp                       45.98 kB\ndist/assets/unbounded-500-800-latin-D5afBTBx.woff2       50.90 kB\ndist/assets/unbounded-500-800-latin-ext-D6H-S6MW.woff2  118.34 kB\ndist/assets/index-Chfe61UK.css                           45.41 kB │ gzip:  10.28 kB\ndist/assets/netdebug-P3oaWjQi.js                          1.79 kB │ gzip:   1.06 kB\ndist/assets/app-CeGr9ZQG.js                             102.02 kB │ gzip:  31.20 kB\ndist/assets/room-CAE-kazY.js                            134.99 kB │ gzip:  40.28 kB\ndist/assets/index-mxt_zEQt.js                           141.89 kB │ gzip:  54.58 kB\ndist/assets/firebase-Bo8Pq0rV.js                        450.27 kB │ gzip: 132.35 kB\n\n\u001b[32m✓ built in 903ms\u001b[39m\n"
+    },
+    {
+      "command": "node token-audit2.mjs <repo>",
+      "contract": "F3 each restyled mode sets every colour token in its own block",
+      "expected": "exit 0, none missing in all four",
+      "classification": "pass",
+      "observed": "Tabletop at night    82 tokens checked; not set in its own block: none\nCozy Paper at night  82 tokens checked; not set in its own block: none\nDark Neon            98 tokens checked; not set in its own block: none\nWhite Neon           98 tokens checked; not set in its own block: none\n"
+    }
+  ],
+  "learning": [
+    {
+      "observationCapture": "002",
+      "observationArgv": [
+        "npx",
+        "vitest",
+        "run",
+        "tests/theme"
+      ],
+      "hypothesis": "F1: the regression test is green; type-check the whole app with the fix in place (expect 0 errors, 0 warnings).",
+      "nextCapture": "003",
+      "nextArgv": [
+        "npm",
+        "run",
+        "check"
+      ]
+    },
+    {
+      "observationCapture": "003",
+      "observationArgv": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "hypothesis": "F2: check passes; the production build must pass too (it is what the deploy publishes).",
+      "nextCapture": "004",
+      "nextArgv": [
+        "npm",
+        "run",
+        "build"
+      ]
+    },
+    {
+      "observationCapture": "004",
+      "observationArgv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "hypothesis": "F3: build passes; confirm each restyled mode still sets every colour token in its own block after the fix (exit 0, none missing).",
+      "nextCapture": "005",
+      "nextArgv": [
+        "node",
+        "C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/token-audit2.mjs",
+        "C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals"
+      ]
+    }
+  ],
+  "verdict": {
+    "status": "pass",
+    "open": []
+  }
+}

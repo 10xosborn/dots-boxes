@@ -1,0 +1,24 @@
+serving dist-qa-87b0ed6 on :4173
+PASS  a button (Play) ticks  click
+PASS  a button (Start game) ticks  click
+PASS  a clicked line plays the line note, no tick  line
+PASS  a dragged line: pick-up, snap, then its own drop (not the line note)  pick,snap,drop
+PASS  an arrow key shows the cursor: the preview line in a ring, silently  {"ring":true,"prev":1}
+PASS  Enter draws the cursor line with the line note  line
+PASS  a line that closes a box plays the box chime  box
+PASS  a click on a button that the press did not start on stays silent  0 notes
+PASS  no page errors (two players)
+PASS  the AI starts: two button ticks, then the AI's line note  click,click,line
+PASS  Tab to the board on the player's turn shows the cursor
+PASS  while the AI thinks, the cursor is hidden  false,false,false,false,false,false
+PASS  on the player's turn again the cursor is back, next to the line it drew (not the middle)  0.71 dot gaps away
+PASS  the player's keyboard line and the AI's reply play line notes  line,line
+PASS  no page errors (AI)
+PASS  switching Sound off: one tick  click
+PASS  with Sound off, buttons are silent
+PASS  switching Sound on: its chime alone  on
+PASS  a button pressed from the keyboard ticks  click
+PASS  no page errors (settings)
+
+20/20 checks passed (Brave)
+servers stopped; child exit 0

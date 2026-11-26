@@ -1,0 +1,2 @@
+neon-dark: ttfb 2 -> 2 | fcp 392 -> 352 | lcp 1260 -> 1192 | ready 743 -> 692| domComplete 471 -> 415 | load 471 -> 415| transfer 813718 -> 814535| css 123527 -> 124333
+neon-light: ttfb 2 -> 2 | fcp 356 -> 440 | lcp 1196 -> 1280 | ready 701 -> 814| domComplete 402 -> 505 | load 402 -> 505| transfer 813718 -> 814535| css 123527 -> 124333

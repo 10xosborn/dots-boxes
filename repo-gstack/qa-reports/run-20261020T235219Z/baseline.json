@@ -1,0 +1,28 @@
+{
+ "date": "2026-10-21",
+ "url": "http://127.0.0.1 (dist-hud3 = e4226a8)",
+ "healthScore": 100,
+ "provisional": true,
+ "issues": [
+  {
+   "id": "ISSUE-001",
+   "title": "Paper note lost go again! with a long name (fixed)",
+   "severity": "medium",
+   "category": "ux"
+  },
+  {
+   "id": "ISSUE-002",
+   "title": "Top bar wider than the screen with a long name (fixed)",
+   "severity": "medium",
+   "category": "visual"
+  }
+ ],
+ "categoryScores": {
+  "console": 100,
+  "visual": 100,
+  "functional": 100,
+  "ux": 100,
+  "content": 100,
+  "accessibility": 100
+ }
+}

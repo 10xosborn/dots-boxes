@@ -1,0 +1,6 @@
+{
+  "observationCommand": "CASE=theme-switch bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RD/browser/deadline.json\" -- node serve-one.mjs dist-qa-87b0ed6 -- node explore-fix.mjs",
+  "observed": "PASS  theme-switch: the lone line is painted after switching to Tabletop  skin table, line vs empty lane 260\nPASS  theme-switch: the lone line is painted after switching to Paper  skin paper, line vs empty lane 186\nPASS  theme-switch: the lone line is painted after switching to Neon  skin neon, line vs empty lane 195\nPASS  theme-switch: no page errors\n4/4 checks passed",
+  "hypothesis": "Theme changes keep a lone line painted. A reload rebuilds the board from the saved moves in one go; with a single saved line the lines group starts with one line, the exact shape that used to paint nothing, so a reload after one move is the next edge.",
+  "nextCommand": "CASE=resume-one bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RD/browser/deadline.json\" -- node serve-one.mjs dist-qa-87b0ed6 -- node explore-fix.mjs"
+}

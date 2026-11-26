@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/theme/theme-colours.test.ts > each mode paints the browser bar and its preview in its own page colour > neon dark
+AssertionError: themes.ts bar: expected '#05070D' to be '#050608' // Object.is equality
+
+Expected: "#050608"
+Received: "#05070D"
+
+ ❯ tests/theme/theme-colours.test.ts:30:58
+     28|       const own = page(s.id, mode);
+     29|       expect(own, 'the mode sets --page in its own block').toMatch(/^#…
+     30|       expect(s.bar[mode].toUpperCase(), 'themes.ts bar').toBe(own);
+       |                                                          ^
+     31|       expect(s.swatch[mode][0].toUpperCase(), 'themes.ts picker previe…
+     32|       expect(prePaint[s.id]?.[mode], 'index.html pre-paint map').toBe(…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

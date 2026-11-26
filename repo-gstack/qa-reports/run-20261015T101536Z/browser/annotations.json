@@ -1,0 +1,9 @@
+{
+  "evidence": [],
+  "limits": [
+    "checkpoints 009, 010 and 011 were written from the captured probe output by a short script (exact text, published before each probe) instead of the Write tool, to fit the 900 s budget",
+    "probe 010 did not run: Chromium failed to launch (spawn EBUSY, an environment lock on this PC); the same replay ran as probe 011",
+    "headless Chromium with a software renderer and CDP touch on this PC; no real phone or Brave check",
+    "violet is measured on 4x4-pixel block averages (hue 255-300, saturation 0.18+), so single anti-aliased text pixels are not counted"
+  ]
+}

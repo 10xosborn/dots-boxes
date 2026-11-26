@@ -1,0 +1,85 @@
+{
+  "revision": "3829b7fc2cc0c2b9427eebd1ef8608d2e0664339",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "capture 001 failed one property test whose contract was wrong for perfect play (replayed with ai-sac-repro.mjs: 2 cases, both confirmed optimal by the exact search); the test was narrowed to positions before the exact search and the engine now breaks exact ties toward the fewest boxes given; capture 002 reran the same command on the current inputs",
+    "the 100-game benchmark tables in the PR were run before this QA, on the commit before the tie-break change (which only changes which of several equally optimal moves is picked)"
+  ],
+  "evidence": [
+    {
+      "command": "node node_modules/vitest/vitest.mjs run tests/ai",
+      "contract": "F1 known endgames, random positions and exact 3x3 play",
+      "expected": "exit 0, 8 tests pass",
+      "classification": "superseded",
+      "observed": "\n RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals\n\n ❯ tests/ai/ai.test.ts (8 tests | 1 failed) 747ms\n   ❯ random positions (2)\n     × Hard never gives boxes away needlessly: with safe lines left, a third side is only ever a sacrifice of 1 or 2 boxes 566ms\n\n Test Files  1 failed (1)\n      Tests  1 failed | 7 passed (8)\n   Start at  06:55:45\n   Duration  1.07s (tests 85%, transform 12%, import 2%, worker 1%)\n\n"
+    },
+    {
+      "command": "node node_modules/vitest/vitest.mjs run tests/ai",
+      "contract": "F1 known endgames, random positions and exact 3x3 play",
+      "expected": "exit 0, 8 tests pass",
+      "classification": "pass",
+      "observed": "\n RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals\n\n\n Test Files  1 passed (1)\n      Tests  8 passed (8)\n   Start at  06:57:38\n   Duration  1.84s (tests 92%, transform 7%, import 2%)\n\n"
+    },
+    {
+      "command": "node scripts/opening-book.mjs --check 100",
+      "contract": "F2 3x3 book against a full solve; Hard vs Hard",
+      "expected": "exit 0, book matches, every game 6-3 to the second player",
+      "classification": "pass",
+      "observed": ""
+    },
+    {
+      "command": "node scripts/ai-bench.mjs --sizes 3,4 --games 10 --slow 4 --pairs hard:medium,medium:easy",
+      "contract": "F3 the benchmark runs with legal moves only",
+      "expected": "exit 0, a results table",
+      "classification": "pass",
+      "observed": "10 games per pairing and size, alternating who starts; baseline for old-* levels: 2f770e0\n\nA vs B                board   A wins  draws losses  A win % avg margin   think ms A avg / max   B avg / max\nhard vs medium        3x3          9      0      1     90.0       3.40       2.1 / 46         0.0 / 0.2\nhard vs medium        4x4         10      0      0    100.0       8.60        45 / 175        0.0 / 0.1\nmedium vs easy        3x3         10      0      0    100.0       7.20       0.0 / 0.0        0.0 / 0.0\nmedium vs easy        4x4         10      0      0    100.0      13.60       0.0 / 0.0        0.0 / 0.0\n"
+    }
+  ],
+  "learning": [
+    {
+      "observationCapture": "002",
+      "observationArgv": [
+        "node",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "tests/ai"
+      ],
+      "hypothesis": "F1 passes (8/8, and three more runs). Hard on 3x3 must stay perfect: the opening book (every optimal move up to 4 lines) is checked against a full solve of all 2^24 positions, then Hard plays Hard 100 times, where perfect play ends 6-3 to the second player every time.",
+      "nextCapture": "003",
+      "nextArgv": [
+        "node",
+        "scripts/opening-book.mjs",
+        "--check",
+        "100"
+      ]
+    },
+    {
+      "observationCapture": "003",
+      "observationArgv": [
+        "node",
+        "scripts/opening-book.mjs",
+        "--check",
+        "100"
+      ],
+      "hypothesis": "F2 passes: the book matches the full solve, Hard plays only optimal moves up to 4 lines, and Hard vs Hard ends 3-6 in all 100 games with every move optimal (no 3x3 regression). Last, the documented benchmark command must run end to end and play only legal moves (it throws on an illegal one): a short run on 3x3 and 4x4 at phone speed.",
+      "nextCapture": "004",
+      "nextArgv": [
+        "node",
+        "scripts/ai-bench.mjs",
+        "--sizes",
+        "3,4",
+        "--games",
+        "10",
+        "--slow",
+        "4",
+        "--pairs",
+        "hard:medium,medium:easy"
+      ]
+    }
+  ],
+  "verdict": {
+    "status": "pass",
+    "open": []
+  }
+}

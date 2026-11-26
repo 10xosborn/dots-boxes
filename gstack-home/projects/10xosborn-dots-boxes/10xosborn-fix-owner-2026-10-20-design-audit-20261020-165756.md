@@ -1,0 +1,1 @@
+Design review of fix/owner-2026-10-20: 1 polish finding fixed (Paper at night box rim), design A -> A, detector 72 -> 72. Full report: /c/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261020/design-audit-127.0.0.1-owner-fixes.md

@@ -1,0 +1,20 @@
+{
+ "date": "2026-10-20",
+ "url": "http://127.0.0.1:4173/",
+ "healthScore": 99,
+ "issues": [
+  {
+   "id": "ISSUE-001",
+   "title": "Paper by day's coral lines are 2.99:1 on the textured sheet (pre-existing)",
+   "severity": "low",
+   "category": "accessibility"
+  }
+ ],
+ "categoryScores": {
+  "console": 100,
+  "functional": 100,
+  "visual": 100,
+  "ux": 100,
+  "accessibility": 97
+ }
+}

@@ -1,0 +1,42 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-13T07:59:11.974Z","deadlineAt":"2026-10-13T08:14:11.974Z","budgetMs":900000,"observedAt":"2026-10-13T07:59:24.483Z","remainingMs":887491,"expired":false}
+--- chromium 151.0.7922.34
+PASS  chromium: with Sound on, no audio engine before the page is used  []
+PASS  chromium: the engine is created inside the first click  {"ev":"created","state":"running","active":true,"t":969.5}
+PASS  chromium: the engine is running before the game starts  running
+PASS  chromium: the first move's line sound plays at once  [[520,"running"],[1040,"running"]]
+PASS  chromium: the line sound peaks at a hearable level  -6.6 dBFS (was -26.3)
+PASS  chromium: a drag plays pick, snap, then the line, all at once  [660,990,1980,520,1040]
+PASS  chromium: closing a box plays the box chime  [520,1040,784,1175]
+PASS  chromium: the box chime is loud but not clipped  -6.4 dBFS (was -21.8)
+PASS  chromium: no "AudioContext was not allowed to start" warnings
+PASS  chromium: with Sound off, clicking around starts no audio engine
+PASS  chromium: switching Sound on plays the test chime straight away  ["created",[660,"running"],[990,"running"]]
+PASS  chromium: switching Sound off pauses the engine  suspended
+PASS  chromium: with Sound off again, a move is silent
+PASS  chromium phone: the engine starts on a tap, not before  {"ev":"created","state":"running","active":true,"t":220.90000000596046}
+PASS  chromium phone: the engine is running
+PASS  chromium phone: a tapped line is heard at once
+PASS  chromium phone: no AudioContext warnings
+--- brave 155.0.8059.40
+PASS  brave: with Sound on, no audio engine before the page is used  []
+PASS  brave: the engine is created inside the first click  {"ev":"created","state":"running","active":true,"t":873.2000000178814}
+PASS  brave: the engine is running before the game starts  running
+PASS  brave: the first move's line sound plays at once  [[520,"running"],[1040,"running"]]
+PASS  brave: the line sound peaks at a hearable level  -6.7 dBFS (was -26.3)
+PASS  brave: a drag plays pick, snap, then the line, all at once  [660,990,1980,520,1040]
+PASS  brave: closing a box plays the box chime  [520,1040,784,1175]
+PASS  brave: the box chime is loud but not clipped  -6.4 dBFS (was -21.8)
+PASS  brave: no "AudioContext was not allowed to start" warnings
+PASS  brave: with Sound off, clicking around starts no audio engine
+PASS  brave: switching Sound on plays the test chime straight away  ["created",[660,"running"],[990,"running"]]
+PASS  brave: switching Sound off pauses the engine  suspended
+PASS  brave: with Sound off again, a move is silent
+PASS  brave phone: the engine starts on a tap, not before  {"ev":"created","state":"running","active":true,"t":257.90000000596046}
+PASS  brave phone: the engine is running
+PASS  brave phone: a tapped line is heard at once
+PASS  brave phone: no AudioContext warnings
+
+34 passed, 0 failed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-13T07:59:47.537Z","deadlineAt":"2026-10-13T08:14:11.974Z","timedOut":false,"exitCode":0}

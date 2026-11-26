@@ -1,0 +1,11 @@
+{
+  "evidence": [],
+  "limits": [
+    "checkpoint 002: probe 001 never reached the app (the guard path carried a stray backslash from harness quoting); 002 reran the same baseline with the path fixed",
+    "checkpoint 005: the quit probe measured CPU after pondering had already finished its work at 28 lines left, so it could not show pondering stopping; checkpoint 006 calibrated the measure and checkpoint 007 repeated the quit earlier (968 ms/s before, 144 ms/s after)",
+    "checkpoint 011: the desktop game stopped at 55 of 60 lines because the harness guard counted waits, not turns; superseded by checkpoint 012 (same command after the harness fix, game completed); 012's screenshot replaced 011's desktop-end.jpg (same file name)",
+    "browser coverage: Chromium only (gstack's headless Chromium 151), no Firefox, Safari or real phones; phone size is emulated (390x844, touch); Firebase blocked by hostname, so the results dialog shows the offline note",
+    "categories not tested in this AI-scoped run: Links, Visual, Content, Accessibility (no UI markup changed)",
+    "the player in every game was random touch/mouse play; Hard's move quality is covered by npm run test:ai and the benches, not by this browser run"
+  ]
+}

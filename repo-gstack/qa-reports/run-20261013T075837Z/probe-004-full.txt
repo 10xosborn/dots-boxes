@@ -1,0 +1,40 @@
+serving branch on :4176 and main on :4177
+--- chromium 151.0.7922.34
+FAIL  chromium: with Sound on, no audio engine before the page is used  [{"ev":"created","state":"suspended","active":false,"t":302.69999998807907}]
+FAIL  chromium: the engine is created inside the first click  {"ev":"created","state":"suspended","active":false,"t":302.69999998807907}
+FAIL  chromium: the engine is running before the game starts  suspended
+FAIL  chromium: the first move's line sound plays at once  [[520,"suspended"]]
+FAIL  chromium: the line sound peaks at a hearable level  -Infinity dBFS (was -26.3)
+FAIL  chromium: a drag plays pick, snap, then the line, all at once  [660,990,520]
+PASS  chromium: closing a box plays the box chime  [520,784,1175]
+FAIL  chromium: the box chime is loud but not clipped  -Infinity dBFS (was -21.8)
+PASS  chromium: no "AudioContext was not allowed to start" warnings
+PASS  chromium: with Sound off, clicking around starts no audio engine
+FAIL  chromium: switching Sound on plays the test chime straight away  ["created"]
+FAIL  chromium: switching Sound off pauses the engine  running
+PASS  chromium: with Sound off again, a move is silent
+FAIL  chromium phone: the engine starts on a tap, not before  {"ev":"created","state":"suspended","active":false,"t":62.5}
+FAIL  chromium phone: the engine is running
+FAIL  chromium phone: a tapped line is heard at once
+PASS  chromium phone: no AudioContext warnings
+--- brave 155.0.8059.40
+FAIL  brave: with Sound on, no audio engine before the page is used  [{"ev":"created","state":"suspended","active":false,"t":406.09999999403954}]
+FAIL  brave: the engine is created inside the first click  {"ev":"created","state":"suspended","active":false,"t":406.09999999403954}
+FAIL  brave: the engine is running before the game starts  suspended
+FAIL  brave: the first move's line sound plays at once  [[520,"suspended"]]
+FAIL  brave: the line sound peaks at a hearable level  -Infinity dBFS (was -26.3)
+FAIL  brave: a drag plays pick, snap, then the line, all at once  [660,990,520]
+PASS  brave: closing a box plays the box chime  [520,784,1175]
+FAIL  brave: the box chime is loud but not clipped  -Infinity dBFS (was -21.8)
+PASS  brave: no "AudioContext was not allowed to start" warnings
+PASS  brave: with Sound off, clicking around starts no audio engine
+FAIL  brave: switching Sound on plays the test chime straight away  ["created"]
+FAIL  brave: switching Sound off pauses the engine  running
+PASS  brave: with Sound off again, a move is silent
+FAIL  brave phone: the engine starts on a tap, not before  {"ev":"created","state":"suspended","active":false,"t":125.10000002384186}
+FAIL  brave phone: the engine is running
+FAIL  brave phone: a tapped line is heard at once
+PASS  brave phone: no AudioContext warnings
+
+10 passed, 24 failed
+servers stopped; child exit 1

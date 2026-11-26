@@ -1,0 +1,86 @@
+{
+  "cpu": 4,
+  "cold": 8,
+  "warm": 8,
+  "A": {
+    "home paper-light": {
+      "main": {
+        "cold": {
+          "ready": 478.4,
+          "fcp": 252,
+          "lcp": 608,
+          "load": 244.5,
+          "bytes": 814810,
+          "img": 4206
+        },
+        "warm": {
+          "ready": 246.6,
+          "fcp": 120,
+          "lcp": 344,
+          "load": 111.5,
+          "bytes": 814810,
+          "img": 4206
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 490.5,
+          "fcp": 272,
+          "lcp": 636,
+          "load": 255.9,
+          "bytes": 853571,
+          "img": 39424
+        },
+        "warm": {
+          "ready": 217.8,
+          "fcp": 112,
+          "lcp": 312,
+          "load": 98.4,
+          "bytes": 853571,
+          "img": 39424
+        }
+      }
+    },
+    "home paper-dark": {
+      "main": {
+        "cold": {
+          "ready": 409.4,
+          "fcp": 232,
+          "lcp": 532,
+          "load": 221.3,
+          "bytes": 814992,
+          "img": 4388
+        },
+        "warm": {
+          "ready": 203.6,
+          "fcp": 104,
+          "lcp": 280,
+          "load": 95.1,
+          "bytes": 814992,
+          "img": 4388
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 391.7,
+          "fcp": 220,
+          "lcp": 508,
+          "load": 205,
+          "bytes": 879055,
+          "img": 64908
+        },
+        "warm": {
+          "ready": 208.6,
+          "fcp": 112,
+          "lcp": 296,
+          "load": 96,
+          "bytes": 879055,
+          "img": 64908
+        }
+      }
+    }
+  },
+  "B": {},
+  "C": {},
+  "D": {}
+}

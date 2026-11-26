@@ -1,0 +1,57 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-21T20:58:42.716Z","deadlineAt":"2026-10-21T21:13:42.716Z","budgetMs":900000,"observedAt":"2026-10-21T21:09:30.731Z","remainingMs":251985,"expired":false}
+PASS  table-light: the board never moves (fixed heights)  tops 251
+PASS  table-light: no extra-turn cue while no box has closed
+PASS  table-light: after Ama closes a box, the cue  "Ama's turn·+1 extra turn"
+PASS  table-light: the live region adds "Extra turn."  "Ama drew a line and closed 1 box. Score 1 to 0. Extra turn."
+PASS  table-light: a chain shows the count  "Ama's turn·+1 extra turn×2"
+PASS  table-light: the turn passes and the cue goes  "Kofi's turn"
+PASS  table-light: the active card or line follows the turn
+PASS  table-light: console: no errors
+PASS  table-dark: the board never moves (fixed heights)  tops 251
+PASS  table-dark: no extra-turn cue while no box has closed
+PASS  table-dark: after Ama closes a box, the cue  "Ama's turn·+1 extra turn"
+PASS  table-dark: the live region adds "Extra turn."  "Ama drew a line and closed 1 box. Score 1 to 0. Extra turn."
+PASS  table-dark: a chain shows the count  "Ama's turn·+1 extra turn×2"
+PASS  table-dark: the turn passes and the cue goes  "Kofi's turn"
+PASS  table-dark: the active card or line follows the turn
+PASS  table-dark: console: no errors
+PASS  neon-dark: the board never moves (fixed heights)  tops 251
+PASS  neon-dark: no extra-turn cue while no box has closed
+PASS  neon-dark: after Ama closes a box, the cue  "Ama's turn·+1 extra turn"
+PASS  neon-dark: the live region adds "Extra turn."  "Ama drew a line and closed 1 box. Score 1 to 0. Extra turn."
+PASS  neon-dark: a chain shows the count  "Ama's turn·+1 extra turn×2"
+PASS  neon-dark: the turn passes and the cue goes  "Kofi's turn"
+PASS  neon-dark: the active card or line follows the turn
+PASS  neon-dark: console: no errors
+PASS  neon-light: the board never moves (fixed heights)  tops 251
+PASS  neon-light: no extra-turn cue while no box has closed
+PASS  neon-light: after Ama closes a box, the cue  "Ama's turn·+1 extra turn"
+PASS  neon-light: the live region adds "Extra turn."  "Ama drew a line and closed 1 box. Score 1 to 0. Extra turn."
+PASS  neon-light: a chain shows the count  "Ama's turn·+1 extra turn×2"
+PASS  neon-light: the turn passes and the cue goes  "Kofi's turn"
+PASS  neon-light: the active card or line follows the turn
+PASS  neon-light: console: no errors
+PASS  paper-light: the board never moves (fixed heights)  tops 256
+PASS  paper-light: no extra-turn cue while no box has closed
+PASS  paper-light: after Ama closes a box, the cue  "Ama closed a box, go again!"
+PASS  paper-light: the live region adds "Extra turn."  "Ama drew a line and closed 1 box. Score 1 to 0. Extra turn."
+PASS  paper-light: a chain shows the count  "Ama closed 2 boxes, go again!"
+PASS  paper-light: the turn passes and the cue goes  "Kofi's turn."
+PASS  paper-light: the active card or line follows the turn
+PASS  paper-light: the circle goes round the mover's score  extra 0px,1.25px / passed 1.25px,0px
+PASS  paper-light: tally marks: Ama 2 (an old path and the newest mark), Kofi none  2,0 / 2,0
+PASS  paper-light: console: no errors
+PASS  paper-dark: the board never moves (fixed heights)  tops 256
+PASS  paper-dark: no extra-turn cue while no box has closed
+PASS  paper-dark: after Ama closes a box, the cue  "Ama closed a box, go again!"
+PASS  paper-dark: the live region adds "Extra turn."  "Ama drew a line and closed 1 box. Score 1 to 0. Extra turn."
+PASS  paper-dark: a chain shows the count  "Ama closed 2 boxes, go again!"
+PASS  paper-dark: the turn passes and the cue goes  "Kofi's turn."
+PASS  paper-dark: the active card or line follows the turn
+PASS  paper-dark: the circle goes round the mover's score  extra 0px,1.25px / passed 1.25px,0px
+PASS  paper-dark: tally marks: Ama 2 (an old path and the newest mark), Kofi none  2,0 / 2,0
+PASS  paper-dark: console: no errors
+52/52 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-21T21:10:17.309Z","deadlineAt":"2026-10-21T21:13:42.716Z","timedOut":false,"exitCode":0}

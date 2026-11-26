@@ -1,0 +1,87 @@
+{
+ "date": "2026-10-21",
+ "branch": "online/server-turns",
+ "commit": "4613e6f",
+ "base": "design/09-hud-avatars e4226a8",
+ "bundle": {
+  "js_gz": [
+   275371,
+   275511
+  ],
+  "index_gz": [
+   49351,
+   49393
+  ],
+  "room_gz": [
+   39805,
+   39905
+  ],
+  "css_gz": [
+   12026,
+   12026
+  ]
+ },
+ "online": {
+  "rounds": [
+   {
+    "other": [
+     114,
+     95
+    ],
+    "wire": [
+     44,
+     25
+    ],
+    "own": [
+     80,
+     78
+    ]
+   },
+   {
+    "other": [
+     102,
+     102
+    ],
+    "wire": [
+     34,
+     20
+    ],
+    "own": [
+     82,
+     82
+    ]
+   },
+   {
+    "other": [
+     141,
+     111
+    ],
+    "wire": [
+     61,
+     37
+    ],
+    "own": [
+     75,
+     84
+    ]
+   },
+   {
+    "other": [
+     87,
+     92
+    ],
+    "wire": [
+     34,
+     26
+    ],
+    "own": [
+     69,
+     78
+    ]
+   }
+  ],
+  "pairedOtherMs": 9.5,
+  "pairedWireMs": 16.5
+ },
+ "verdict": "no regressions; other screen +10% paired on the emulator (rules check), own screen unchanged"
+}

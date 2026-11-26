@@ -1,0 +1,11 @@
+serving dist-glass-A on :4173
+PASS  neon-dark: no duplicate ids on Home (hero board)
+PASS  neon-dark: no duplicate ids in a game
+PASS  neon-dark: no duplicate ids with the theme sheet open over the game
+PASS  table-light: no duplicate ids on Home (hero board)
+PASS  table-light: no duplicate ids in a game
+PASS  table-light: no duplicate ids with the theme sheet open over the game
+PASS  console: no errors
+
+7/7 checks passed
+servers stopped; child exit 0

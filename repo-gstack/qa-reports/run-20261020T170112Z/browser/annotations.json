@@ -1,0 +1,10 @@
+{
+  "evidence": [],
+  "limits": [
+    "checkpoint 001: the baseline load ran before the first guarded command, outside the deadline guard (it finished in seconds, inside the budget)",
+    "checkpoint 006: exploration stopped with about 10 minutes left; the remaining risks were covered by the required suites (C1-C9), which ran unbounded as explicit plan checks",
+    "Performance not scored here: /benchmark measures it next against main",
+    "Real phones and the owner's own Brave profile were not used: headless Chromium 151 and headless Brave 155 with throwaway profiles",
+    "Online ran against the local emulators only (never live Firebase); one room, three moves"
+  ]
+}

@@ -1,0 +1,1 @@
+Design review of design/09-hud-avatars (step 3 HUD): 2 found, 2 fixed, A- → A, slop A, detector 70 → 68. Full report: C:/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261020/design-audit-127.0.0.1-hud.md

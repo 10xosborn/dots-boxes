@@ -1,0 +1,40 @@
+[36m[1mi  emulators:[22m[39m Starting emulators: auth, firestore, database
+[36m[1mi  emulators:[22m[39m Detected demo project ID "demo-dnb", emulated services will use a demo configuration and attempts to access non-emulated services for this project will fail.
+[36m[1mi  firestore:[22m[39m Firestore Emulator logging to [1mfirestore-debug.log[22m
+[32m[1m+  firestore:[22m[39m Firestore Emulator was started in standard edition.
+[32m[1m+  firestore:[22m[39m Firestore Emulator UI websocket is running on 9150.
+[36m[1mi  database:[22m[39m Database Emulator logging to [1mdatabase-debug.log[22m
+[36m[1mi [22m[39m Running script: [1mnode C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/serve-one.mjs C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/dist-emu-branch 4175 -- node C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/online-r1b.mjs new[22m
+serving C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/dist-emu-branch on :4175
+PASS  N host creates a game and the guest joins with the code  J6WC2
+PASS  N both players appear in presence/ and in the old online flag  {"presence":{"LHzaWS728TptL4xnF8RnOdKj6No9":1,"OnouuGItb3K4SK8I3IDpFRbOz39v":1},"online":{"LHzaWS728TptL4xnF8RnOdKj6No9":true,"OnouuGItb3K4SK8I3IDpFRbOz39v":true}}
+PASS  N a move reaches the other player
+PASS  N the guest sees "Reconnecting…" about 2 s after losing the connection  Reconnecting…
+PASS  N the guest can still draw a line while offline (shows at once on their screen)
+PASS  N nothing changes for the host in the first seconds (network blips)
+PASS  N after about 10 s the host sees a calm note  "Your friend stepped away." after 8 s
+PASS  N on the guest's turn: "Your friend stepped away." (both players are "Player"), with no promise about the host's move  Your friend stepped away.
+PASS  N the guest's offline move arrives after reconnecting
+PASS  N the guest is marked present again after reconnecting  {"presence":{"LHzaWS728TptL4xnF8RnOdKj6No9":1,"OnouuGItb3K4SK8I3IDpFRbOz39v":1},"online":{"LHzaWS728TptL4xnF8RnOdKj6No9":true,"OnouuGItb3K4SK8I3IDpFRbOz39v":true}}
+PASS  N both notes clear
+PASS  N no move lost or doubled: the database, host and guest agree  db [9,3]
+PASS  N on the host's turn: "… stepped away. Your move will be waiting."  Your friend stepped away. Your move will be waiting.
+PASS  N the host's move is saved while the guest is away (moves never wait for presence)
+PASS  N the guest sees that move when they're back
+PASS  N host console: no errors
+PASS  N host: no permission errors with the new rules
+PASS  N guest console: no errors
+PASS  N guest: no permission errors with the new rules
+PASS  no request ever went to the live Firebase project
+
+20/20 checks passed
+servers stopped; child exit 0
+[32m[1m+ [22m[39m Script exited successfully (code 0)
+[36m[1mi  emulators:[22m[39m Shutting down emulators.
+[36m[1mi  database:[22m[39m Stopping Database Emulator
+[33m[1m! [22m[39m Database Emulator has exited upon receiving signal: SIGINT
+[36m[1mi  firestore:[22m[39m Stopping Firestore Emulator
+[33m[1m! [22m[39m Firestore Emulator has exited upon receiving signal: SIGINT
+[36m[1mi  auth:[22m[39m Stopping Authentication Emulator
+[36m[1mi  hub:[22m[39m Stopping emulator hub
+[36m[1mi  logging:[22m[39m Stopping Logging Emulator

@@ -1,0 +1,8 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-15T04:24:00.047Z","deadlineAt":"2026-10-15T04:39:00.047Z","budgetMs":900000,"observedAt":"2026-10-15T04:26:30.106Z","remainingMs":749941,"expired":false}
+A  waiting phone's link dies, other player moves -> it shows on the waiting phone after: 7.6 s (connections now 3)
+B  mover's link dies, it moves -> the other player sees it after: 5.1 s (mover's own screen 13 ms; its note at 1.2 s: "Sending…"; connections now 6)
+C  waiting phone's link dies, other player moves, the phone wakes -> it shows after: 3.3 s (connections now 9)
+(full output: C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/.gstack/qa-reports/run-20261015T042332Z/probe-003-full.txt)
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-15T04:27:31.995Z","deadlineAt":"2026-10-15T04:39:00.047Z","timedOut":false,"exitCode":0}

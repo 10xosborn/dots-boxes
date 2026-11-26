@@ -1,0 +1,18 @@
+serving branch on :4176 and main on :4177
+branch table-dark: painted after each tap (moves 0,1,2,25): y  yy  yyy  yyyy
+branch table-light: painted after each tap (moves 0,1,2,25): y  yy  yyy  yyyy
+branch neon-dark: painted after each tap (moves 0,1,2,25): y  yy  yyy  yyyy
+branch neon-light: painted after each tap (moves 0,1,2,25): y  yy  yyy  yyyy
+branch paper-dark: painted after each tap (moves 0,1,2,25): y  yy  yyy  yyyy
+branch paper-light: painted after each tap (moves 0,1,2,25): y  yy  yyy  yyyy
+branch: 0 of 60 line checks not painted
+
+main table-dark: painted after each tap (moves 0,1,2,25): N  NN  NNN  yyyy
+main table-light: painted after each tap (moves 0,1,2,25): N  NN  NNN  yyyy
+main neon-dark: painted after each tap (moves 0,1,2,25): y  yy  yyy  yyyy
+main neon-light: painted after each tap (moves 0,1,2,25): y  yy  yyy  yyyy
+main paper-dark: painted after each tap (moves 0,1,2,25): N  NN  NNN  yyyy
+main paper-light: painted after each tap (moves 0,1,2,25): N  NN  NNN  yyyy
+main: 24 of 60 line checks not painted
+
+servers stopped; child exit 0

@@ -1,0 +1,15 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/ai/ai.test.ts > random positions > Hard never gives boxes away needlessly: with safe lines left, a third side is only ever a sacrifice of 1 or 2 boxes
+AssertionError: expected 4 to be less than or equal to 2
+ ❯ tests/ai/ai.test.ts:123:126
+    121|       const e = createAI({ timeScale: 0.15 }).choose(g, d, 'hard'), fr…
+    122|       expect(d[e]).toBe(0);
+    123|       if (!free.some(x => completes(g, d, x)) && free.some(x => isSafe…
+       |                                                                                                                              ^
+    124|     }
+    125|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

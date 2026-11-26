@@ -1,0 +1,26 @@
+{
+  "revision": "87b0ed6f2b5b25efd366beda01e950d9b9447fa0",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "checkpoint 001: the baseline load ran before the first guarded command, outside the deadline guard (it finished in seconds, inside the budget)",
+    "checkpoint 006: exploration stopped with about 10 minutes left; the remaining risks were covered by the required suites (C1-C9), which ran unbounded as explicit plan checks",
+    "Performance not scored here: /benchmark measures it next against main",
+    "Real phones and the owner's own Brave profile were not used: headless Chromium 151 and headless Brave 155 with throwaway profiles",
+    "Online ran against the local emulators only (never live Firebase); one room, three moves"
+  ],
+  "evidence": [],
+  "learning": [
+    {
+      "observationCommand": "cd scratchpad && timeout 120 node serve-one.mjs dist-qa-87b0ed6 -- node -e '<baseline: phone 390x844, Firebase blocked, goto http://127.0.0.1:4173/, wait for Play, screenshot initial.jpg, print URL, console errors and page text>' \"$RD\"",
+      "hypothesis": "Home is healthy (the one network error is the Firebase request the probe blocks). The whole-board filter regions should keep a lone line painted when the theme changes under it: a single line drawn in Neon (no line filter) and then switched to Tabletop and Paper (filtered) is the case the old box-sized region broke.",
+      "nextCommand": "CASE=theme-switch bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RD/browser/deadline.json\" -- node serve-one.mjs dist-qa-87b0ed6 -- node explore-fix.mjs"
+    }
+  ],
+  "verdict": {
+    "status": "inconclusive",
+    "open": [
+      "no evidence rows"
+    ]
+  }
+}

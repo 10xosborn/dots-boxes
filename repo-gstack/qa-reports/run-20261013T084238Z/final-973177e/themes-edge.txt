@@ -1,0 +1,3 @@
+PASS  saved settings with an unknown theme name: table/light before the first paint and after start-up, no errors  first paint table/light, now table/light #e3b970
+PASS  saved settings with a theme name of the wrong type: table/dark before the first paint and after start-up, no errors  first paint table/dark, now table/dark #2a1f18
+PASS  saved settings with broken JSON: table/dark before the first paint and after start-up, no errors  first paint table/dark, now table/dark #2a1f18

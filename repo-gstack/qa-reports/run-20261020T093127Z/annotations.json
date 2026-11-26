@@ -1,0 +1,10 @@
+{
+  "evidence": [],
+  "limits": [
+    "checkpoint 006: probe 005's one failure was a test fixture error (spring-test.mjs expected Paper's pencil width in Paper at night, left from the superseded design); the expectation was corrected to Paper by day and 006 reran the same suite, 75/75; 005 is superseded",
+    "checkpoint 009: probe 008 (board-contrast.mjs) reads only straight <line> elements, so it measured no Paper by day lines, and its Neon player-2 worst of 1.00 was the last line under the ring's board-coloured centre; 009 measured every line along its middle (curves included) off the mark",
+    "checkpoint 010: the 2.99:1 for Paper by day's coral lines is the same on main (10e07f1): pre-existing, Low, deferred",
+    "Chromium only (gstack's headless Chromium 151), emulated phone 390x844 with touch plus desktop 1280x800 in the drag suites; Firebase blocked by hostname",
+    "not covered here: performance of the new marks (the /benchmark run covers it), real phones, online games (the board change is presentational and Online passes the same props as before)"
+  ]
+}

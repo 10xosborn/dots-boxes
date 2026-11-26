@@ -1,0 +1,32 @@
+serving branch on :4176 and main on :4177
+ok home-table-light|main cold 112
+ok home-table-light|branch cold 134
+ok home-table-light|branch cold 121
+ok home-table-light|main cold 98
+ok home-table-light|main cold 105
+ok home-table-light|branch cold 112
+ok home-table-light|branch cold 104
+ok home-table-light|main cold 102
+ok home-table-light|main cold 101
+ok home-table-light|branch cold 103
+ok home-table-light|branch cold 99
+ok home-table-light|main cold 173
+ok home-table-light|main cold 114
+ok home-table-light|branch cold 107
+ok home-table-light|branch cold 106
+ok home-table-light|main cold 111
+ok home-table-light|main cold 100
+ok home-table-light|branch cold 110
+ok home-table-light|branch cold 114
+ok home-table-light|main cold 129
+ok home-table-light|main cold 112
+ok home-table-light|branch cold 104
+ok home-table-light|branch cold 110
+ok home-table-light|main cold 104
+home-table-light|main cold {"ttfb":1,"fcp":88,"lcp":476,"ready":105,"cls":25,"domInteractive":15,"domComplete":74,"load":74,"requests":8,"transfer":778774,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   warm {"ttfb":1,"fcp":64,"lcp":444,"ready":74,"cls":25,"domInteractive":14,"domComplete":44,"load":44,"requests":8,"transfer":778774,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-table-light|branch cold {"ttfb":1,"fcp":88,"lcp":476,"ready":107,"cls":25,"domInteractive":14,"domComplete":74,"load":74,"requests":8,"transfer":781214,"jsDecoded":687152,"cssDecoded":39640,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   warm {"ttfb":1,"fcp":64,"lcp":436,"ready":74,"cls":25,"domInteractive":14,"domComplete":44,"load":44,"requests":8,"transfer":781214,"jsDecoded":687152,"cssDecoded":39640,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   third-party ["identitytoolkit.googleapis.com"]
+servers stopped; child exit 0

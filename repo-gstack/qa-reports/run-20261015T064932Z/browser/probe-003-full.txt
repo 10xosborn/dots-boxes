@@ -1,0 +1,6 @@
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+PASS  hard 7x7: the game plays to the end and shows the result
+PASS  hard 7x7: every AI move within 1.2 s of the line before it (CPU 4x; includes the 0.3-0.8 s pause)  median 536 ms, worst 825 ms over 79 AI moves
+PASS  hard 7x7: no main-thread task over 200 ms while playing (the AI thinks in its worker)  long tasks: 63
+PASS  hard 7x7: no page errors
+servers stopped; child exit 0

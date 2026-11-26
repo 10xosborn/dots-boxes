@@ -1,0 +1,315 @@
+{
+  "cpu": 4,
+  "cold": 3,
+  "warm": 5,
+  "A": {
+    "home table-light": {
+      "main": {
+        "cold": {
+          "ready": 469.4,
+          "fcp": 276,
+          "lcp": 560,
+          "load": 314.1,
+          "bytes": 781214,
+          "img": 24146
+        },
+        "warm": {
+          "ready": 237.8,
+          "fcp": 116,
+          "lcp": 612,
+          "load": 105.1,
+          "bytes": 781214,
+          "img": 24146
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 417.8,
+          "fcp": 252,
+          "lcp": 500,
+          "load": 275.7,
+          "bytes": 805945,
+          "img": 45988
+        },
+        "warm": {
+          "ready": 222.1,
+          "fcp": 120,
+          "lcp": 604,
+          "load": 101.6,
+          "bytes": 805945,
+          "img": 45988
+        }
+      }
+    },
+    "home table-dark": {
+      "main": {
+        "cold": {
+          "ready": 434.9,
+          "fcp": 240,
+          "lcp": 680,
+          "load": 275.1,
+          "bytes": 780090,
+          "img": 23022
+        },
+        "warm": {
+          "ready": 217.2,
+          "fcp": 116,
+          "lcp": 596,
+          "load": 101.8,
+          "bytes": 780090,
+          "img": 23022
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 424.8,
+          "fcp": 252,
+          "lcp": 500,
+          "load": 290.6,
+          "bytes": 788621,
+          "img": 28664
+        },
+        "warm": {
+          "ready": 219.1,
+          "fcp": 112,
+          "lcp": 300,
+          "load": 98.7,
+          "bytes": 788621,
+          "img": 28664
+        }
+      }
+    },
+    "home neon-dark": {
+      "main": {
+        "cold": {
+          "ready": 393.7,
+          "fcp": 216,
+          "lcp": 480,
+          "load": 255.5,
+          "bytes": 806232,
+          "img": 0
+        },
+        "warm": {
+          "ready": 216.7,
+          "fcp": 96,
+          "lcp": 604,
+          "load": 97.2,
+          "bytes": 806232,
+          "img": 0
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 475.3,
+          "fcp": 244,
+          "lcp": 560,
+          "load": 239.4,
+          "bytes": 809121,
+          "img": 0
+        },
+        "warm": {
+          "ready": 212.4,
+          "fcp": 112,
+          "lcp": 288,
+          "load": 93.5,
+          "bytes": 809121,
+          "img": 0
+        }
+      }
+    },
+    "home neon-light": {
+      "main": {
+        "cold": {
+          "ready": 379,
+          "fcp": 208,
+          "lcp": 460,
+          "load": 255.3,
+          "bytes": 806232,
+          "img": 0
+        },
+        "warm": {
+          "ready": 187.4,
+          "fcp": 84,
+          "lcp": 572,
+          "load": 86,
+          "bytes": 806232,
+          "img": 0
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 389.4,
+          "fcp": 220,
+          "lcp": 496,
+          "load": 218.3,
+          "bytes": 809121,
+          "img": 0
+        },
+        "warm": {
+          "ready": 210.4,
+          "fcp": 108,
+          "lcp": 592,
+          "load": 91.6,
+          "bytes": 809121,
+          "img": 0
+        }
+      }
+    },
+    "home paper-light": {
+      "main": {
+        "cold": {
+          "ready": 382.1,
+          "fcp": 212,
+          "lcp": 500,
+          "load": 201.3,
+          "bytes": 814810,
+          "img": 4206
+        },
+        "warm": {
+          "ready": 191,
+          "fcp": 100,
+          "lcp": 272,
+          "load": 87.5,
+          "bytes": 814810,
+          "img": 4206
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 359.6,
+          "fcp": 208,
+          "lcp": 488,
+          "load": 192.7,
+          "bytes": 852917,
+          "img": 39424
+        },
+        "warm": {
+          "ready": 201.7,
+          "fcp": 104,
+          "lcp": 284,
+          "load": 88.4,
+          "bytes": 852917,
+          "img": 39424
+        }
+      }
+    },
+    "home paper-dark": {
+      "main": {
+        "cold": {
+          "ready": 384,
+          "fcp": 216,
+          "lcp": 504,
+          "load": 206.1,
+          "bytes": 814992,
+          "img": 4388
+        },
+        "warm": {
+          "ready": 194.1,
+          "fcp": 96,
+          "lcp": 276,
+          "load": 83.9,
+          "bytes": 814992,
+          "img": 4388
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 386.7,
+          "fcp": 208,
+          "lcp": 504,
+          "load": 192.6,
+          "bytes": 878401,
+          "img": 64908
+        },
+        "warm": {
+          "ready": 189.9,
+          "fcp": 100,
+          "lcp": 272,
+          "load": 86.3,
+          "bytes": 878401,
+          "img": 64908
+        }
+      }
+    }
+  },
+  "B": {
+    "game reload table-dark": {
+      "main": {
+        "cold": {
+          "ready": 459.6,
+          "fcp": 204,
+          "lcp": 536,
+          "load": 246.3,
+          "bytes": 807349,
+          "img": 34080
+        },
+        "warm": {
+          "ready": 210.1,
+          "fcp": 100,
+          "lcp": 284,
+          "load": 86.7,
+          "bytes": 807349,
+          "img": 34080
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 433.2,
+          "fcp": 232,
+          "lcp": 512,
+          "load": 266.6,
+          "bytes": 838088,
+          "img": 61930
+        },
+        "warm": {
+          "ready": 207.3,
+          "fcp": 104,
+          "lcp": 284,
+          "load": 86.6,
+          "bytes": 838088,
+          "img": 61930
+        }
+      }
+    },
+    "game reload neon-dark": {
+      "main": {
+        "cold": {
+          "ready": 411.1,
+          "fcp": 204,
+          "lcp": 480,
+          "load": 254.1,
+          "bytes": 822133,
+          "img": 0
+        },
+        "warm": {
+          "ready": 219.7,
+          "fcp": 96,
+          "lcp": 292,
+          "load": 93.2,
+          "bytes": 822133,
+          "img": 0
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 528.7,
+          "fcp": 260,
+          "lcp": 660,
+          "load": 252.2,
+          "bytes": 825022,
+          "img": 0
+        },
+        "warm": {
+          "ready": 250.7,
+          "fcp": 124,
+          "lcp": 320,
+          "load": 109.3,
+          "bytes": 825022,
+          "img": 0
+        }
+      }
+    }
+  },
+  "C": {},
+  "D": {}
+}

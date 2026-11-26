@@ -1,0 +1,6887 @@
+{
+  "when": "2026-10-12T14:41:27.289Z",
+  "warmPasses": 10,
+  "coldPasses": 2,
+  "summary": {
+    "home|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 2,
+        "fcp": 1568,
+        "lcp": 1976,
+        "ready": 1560,
+        "cls": 28,
+        "domInteractive": 14,
+        "domComplete": 3178,
+        "load": 3178,
+        "requests": 7,
+        "transfer": 216406,
+        "jsDecoded": 669155,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 232,
+        "lcp": 432,
+        "ready": 233,
+        "cls": 25,
+        "domInteractive": 17,
+        "domComplete": 405,
+        "load": 405,
+        "requests": 7,
+        "transfer": 216406,
+        "jsDecoded": 669155,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "fonts.googleapis.com",
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "css2",
+          "type": "link",
+          "size": 1150,
+          "ms": 3205
+        },
+        {
+          "name": "firebase-CakvQstD.js",
+          "type": "script",
+          "size": 131321,
+          "ms": 30
+        },
+        {
+          "name": "index-CgT_-77i.js",
+          "type": "script",
+          "size": 47066,
+          "ms": 17
+        },
+        {
+          "name": "app-C5kKpe9M.js",
+          "type": "script",
+          "size": 31264,
+          "ms": 15
+        },
+        {
+          "name": "index-ihDkF0Uj.css",
+          "type": "link",
+          "size": 4616,
+          "ms": 13
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 5
+        }
+      ]
+    },
+    "home|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 88,
+        "lcp": 472,
+        "ready": 108,
+        "cls": 25,
+        "domInteractive": 15,
+        "domComplete": 72,
+        "load": 72,
+        "requests": 8,
+        "transfer": 269973,
+        "jsDecoded": 674407,
+        "cssDecoded": 29330,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 23022
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 52,
+        "lcp": 416,
+        "ready": 70,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 40,
+        "load": 40,
+        "requests": 8,
+        "transfer": 269973,
+        "jsDecoded": 674407,
+        "cssDecoded": 29330,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 23022
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-BwNITbmG.js",
+          "type": "script",
+          "size": 131320,
+          "ms": 21
+        },
+        {
+          "name": "index-DFsN1Qsr.js",
+          "type": "script",
+          "size": 48923,
+          "ms": 14
+        },
+        {
+          "name": "app-8AEndD3I.js",
+          "type": "script",
+          "size": 31264,
+          "ms": 11
+        },
+        {
+          "name": "index-BRM8RSyr.css",
+          "type": "link",
+          "size": 7078,
+          "ms": 10
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 7
+        },
+        {
+          "name": "wood-dark-CyWT4Hqh.webp",
+          "type": "css",
+          "size": 23322,
+          "ms": 5
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ]
+    },
+    "home-neon|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 2,
+        "fcp": 692,
+        "lcp": 1072,
+        "ready": 689,
+        "cls": 28,
+        "domInteractive": 14,
+        "domComplete": 1414,
+        "load": 1414,
+        "requests": 7,
+        "transfer": 216406,
+        "jsDecoded": 669155,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 232,
+        "lcp": 404,
+        "ready": 226,
+        "cls": 27,
+        "domInteractive": 15,
+        "domComplete": 383,
+        "load": 383,
+        "requests": 7,
+        "transfer": 216406,
+        "jsDecoded": 669155,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "fonts.googleapis.com",
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "css2",
+          "type": "link",
+          "size": 1150,
+          "ms": 610
+        },
+        {
+          "name": "firebase-CakvQstD.js",
+          "type": "script",
+          "size": 131321,
+          "ms": 19
+        },
+        {
+          "name": "index-CgT_-77i.js",
+          "type": "script",
+          "size": 47066,
+          "ms": 10
+        },
+        {
+          "name": "app-C5kKpe9M.js",
+          "type": "script",
+          "size": 31264,
+          "ms": 9
+        },
+        {
+          "name": "index-ihDkF0Uj.css",
+          "type": "link",
+          "size": 4616,
+          "ms": 8
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ]
+    },
+    "home-neon|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 68,
+        "lcp": 460,
+        "ready": 102,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 73,
+        "load": 73,
+        "requests": 8,
+        "transfer": 296115,
+        "jsDecoded": 674407,
+        "cssDecoded": 29330,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 36,
+        "lcp": 420,
+        "ready": 69,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 43,
+        "load": 43,
+        "requests": 8,
+        "transfer": 296115,
+        "jsDecoded": 674407,
+        "cssDecoded": 29330,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-BwNITbmG.js",
+          "type": "script",
+          "size": 131320,
+          "ms": 20
+        },
+        {
+          "name": "index-DFsN1Qsr.js",
+          "type": "script",
+          "size": 48923,
+          "ms": 11
+        },
+        {
+          "name": "app-8AEndD3I.js",
+          "type": "script",
+          "size": 31264,
+          "ms": 10
+        },
+        {
+          "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+          "type": "css",
+          "size": 25136,
+          "ms": 9
+        },
+        {
+          "name": "index-BRM8RSyr.css",
+          "type": "link",
+          "size": 7078,
+          "ms": 8
+        },
+        {
+          "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+          "type": "css",
+          "size": 51204,
+          "ms": 8
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 2
+        }
+      ]
+    },
+    "home-paper|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 2,
+        "fcp": 552,
+        "lcp": 916,
+        "ready": 548,
+        "cls": 28,
+        "domInteractive": 13,
+        "domComplete": 1297,
+        "load": 1297,
+        "requests": 7,
+        "transfer": 216406,
+        "jsDecoded": 669155,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 244,
+        "lcp": 424,
+        "ready": 238,
+        "cls": 25,
+        "domInteractive": 15,
+        "domComplete": 394,
+        "load": 394,
+        "requests": 7,
+        "transfer": 216406,
+        "jsDecoded": 669155,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "fonts.googleapis.com",
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "css2",
+          "type": "link",
+          "size": 1150,
+          "ms": 464
+        },
+        {
+          "name": "firebase-CakvQstD.js",
+          "type": "script",
+          "size": 131321,
+          "ms": 19
+        },
+        {
+          "name": "index-CgT_-77i.js",
+          "type": "script",
+          "size": 47066,
+          "ms": 11
+        },
+        {
+          "name": "index-ihDkF0Uj.css",
+          "type": "link",
+          "size": 4616,
+          "ms": 8
+        },
+        {
+          "name": "app-C5kKpe9M.js",
+          "type": "script",
+          "size": 31264,
+          "ms": 8
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ]
+    },
+    "home-paper|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 72,
+        "lcp": 160,
+        "ready": 97,
+        "cls": 24,
+        "domInteractive": 13,
+        "domComplete": 56,
+        "load": 56,
+        "requests": 11,
+        "transfer": 313649,
+        "jsDecoded": 674407,
+        "cssDecoded": 29330,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 13162
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 52,
+        "lcp": 108,
+        "ready": 73,
+        "cls": 24,
+        "domInteractive": 13,
+        "domComplete": 45,
+        "load": 45,
+        "requests": 11,
+        "transfer": 313649,
+        "jsDecoded": 674407,
+        "cssDecoded": 29330,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 13162
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-BwNITbmG.js",
+          "type": "script",
+          "size": 131320,
+          "ms": 21
+        },
+        {
+          "name": "kalam-400-latin-BthBl_aR.woff2",
+          "type": "css",
+          "size": 22636,
+          "ms": 21
+        },
+        {
+          "name": "atkinson-400-latin-BrHNak5F.woff2",
+          "type": "css",
+          "size": 17508,
+          "ms": 12
+        },
+        {
+          "name": "app-8AEndD3I.js",
+          "type": "script",
+          "size": 31264,
+          "ms": 11
+        },
+        {
+          "name": "index-DFsN1Qsr.js",
+          "type": "script",
+          "size": 48923,
+          "ms": 10
+        },
+        {
+          "name": "atkinson-700-latin-GZI4o3u0.woff2",
+          "type": "css",
+          "size": 17824,
+          "ms": 10
+        },
+        {
+          "name": "kalam-700-latin-D2H-9ISU.woff2",
+          "type": "css",
+          "size": 22444,
+          "ms": 8
+        },
+        {
+          "name": "index-BRM8RSyr.css",
+          "type": "link",
+          "size": 7078,
+          "ms": 7
+        }
+      ]
+    },
+    "game-reload|main": {
+      "ready": "__boardReady",
+      "cold": {
+        "ttfb": 2,
+        "fcp": 644,
+        "lcp": 716,
+        "ready": 665,
+        "cls": 26,
+        "domInteractive": 14,
+        "domComplete": 1358,
+        "load": 1358,
+        "requests": 8,
+        "transfer": 225108,
+        "jsDecoded": 684756,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 248,
+        "lcp": 296,
+        "ready": 244,
+        "cls": 26,
+        "domInteractive": 19,
+        "domComplete": 419,
+        "load": 419,
+        "requests": 8,
+        "transfer": 225108,
+        "jsDecoded": 684756,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "fonts.googleapis.com",
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "css2",
+          "type": "link",
+          "size": 1150,
+          "ms": 546
+        },
+        {
+          "name": "firebase-CakvQstD.js",
+          "type": "script",
+          "size": 131321,
+          "ms": 21
+        },
+        {
+          "name": "index-CgT_-77i.js",
+          "type": "script",
+          "size": 47066,
+          "ms": 12
+        },
+        {
+          "name": "index-ihDkF0Uj.css",
+          "type": "link",
+          "size": 4616,
+          "ms": 9
+        },
+        {
+          "name": "app-C5kKpe9M.js",
+          "type": "script",
+          "size": 31264,
+          "ms": 9
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 4
+        },
+        {
+          "name": "ai.worker-Duy7mktc.js",
+          "type": "other",
+          "size": 8702,
+          "ms": -66
+        }
+      ]
+    },
+    "game-reload|branch": {
+      "ready": "__boardReady",
+      "cold": {
+        "ttfb": 2,
+        "fcp": 72,
+        "lcp": 132,
+        "ready": 105,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 70,
+        "load": 70,
+        "requests": 9,
+        "transfer": 278675,
+        "jsDecoded": 690008,
+        "cssDecoded": 29330,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 23022
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 52,
+        "lcp": 104,
+        "ready": 75,
+        "cls": 25,
+        "domInteractive": 18,
+        "domComplete": 43,
+        "load": 43,
+        "requests": 9,
+        "transfer": 278675,
+        "jsDecoded": 690008,
+        "cssDecoded": 29330,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 23022
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-BwNITbmG.js",
+          "type": "script",
+          "size": 131320,
+          "ms": 21
+        },
+        {
+          "name": "index-DFsN1Qsr.js",
+          "type": "script",
+          "size": 48923,
+          "ms": 11
+        },
+        {
+          "name": "app-8AEndD3I.js",
+          "type": "script",
+          "size": 31264,
+          "ms": 10
+        },
+        {
+          "name": "index-BRM8RSyr.css",
+          "type": "link",
+          "size": 7078,
+          "ms": 8
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 8
+        },
+        {
+          "name": "wood-dark-CyWT4Hqh.webp",
+          "type": "css",
+          "size": 23322,
+          "ms": 5
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 2
+        },
+        {
+          "name": "ai.worker-Duy7mktc.js",
+          "type": "other",
+          "size": 8702,
+          "ms": -22
+        }
+      ]
+    }
+  },
+  "runs": {
+    "home|main": {
+      "cold": [
+        {
+          "ttfb": 4.5,
+          "fcp": 3380,
+          "lcp": 3788,
+          "ready": 3378.100000023842,
+          "cls": 27.529969203472135,
+          "domInteractive": 26.200000017881393,
+          "domComplete": 3975.4000000059605,
+          "load": 3975.4000000059605,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 3205
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 30
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 17
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 15
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 13
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 5
+            }
+          ]
+        },
+        {
+          "ttfb": 1.7000000178813934,
+          "fcp": 1568,
+          "lcp": 1976,
+          "ready": 1559.7000000178814,
+          "cls": 27.84067168235779,
+          "domInteractive": 13.900000005960464,
+          "domComplete": 3177.5999999940395,
+          "load": 3177.5999999940395,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 1454
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 22
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        }
+      ],
+      "warm": [
+        {
+          "ttfb": 2.399999976158142,
+          "fcp": 252,
+          "lcp": 400,
+          "ready": 250,
+          "cls": 27.31267937421799,
+          "domInteractive": 24.5,
+          "domComplete": 423.90000000596046,
+          "load": 423.90000000596046,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 156
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 43
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 28
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 27
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 20
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 2.0999999940395355,
+          "fcp": 304,
+          "lcp": 484,
+          "ready": 298.40000000596046,
+          "cls": 25.152835929393767,
+          "domInteractive": 18.599999994039536,
+          "domComplete": 589.9000000059605,
+          "load": 589.9000000059605,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 224
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 35
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 19
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 13
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 10
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.9000000059604645,
+          "fcp": 220,
+          "lcp": 328,
+          "ready": 214.7000000178814,
+          "cls": 27.31267937421799,
+          "domInteractive": 15.900000005960464,
+          "domComplete": 367.7000000178814,
+          "load": 367.7000000178814,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 139
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 30
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.7999999821186066,
+          "fcp": 544,
+          "lcp": 720,
+          "ready": 535.5999999940395,
+          "cls": 25.152835929393767,
+          "domInteractive": 14.5,
+          "domComplete": 690.0999999940395,
+          "load": 690.2000000178814,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 464
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 31
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 17
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 2.2999999821186066,
+          "fcp": 248,
+          "lcp": 432,
+          "ready": 244.5,
+          "cls": 25.152835929393767,
+          "domInteractive": 17.30000001192093,
+          "domComplete": 405.09999999403954,
+          "load": 405.09999999403954,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 172
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 31
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 17
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 2,
+          "fcp": 216,
+          "lcp": 524,
+          "ready": 211.80000001192093,
+          "cls": 25.152835929393767,
+          "domInteractive": 15.300000011920929,
+          "domComplete": 549.0999999940395,
+          "load": 549.0999999940395,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 141
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 33
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 16
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 12
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.899999976158142,
+          "fcp": 252,
+          "lcp": 616,
+          "ready": 245.19999998807907,
+          "cls": 27.84067168235779,
+          "domInteractive": 17.69999998807907,
+          "domComplete": 602.6999999880791,
+          "load": 602.6999999880791,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 173
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 30
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 12
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 9
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 2.199999988079071,
+          "fcp": 216,
+          "lcp": 412,
+          "ready": 208.5,
+          "cls": 25.152835929393767,
+          "domInteractive": 17.30000001192093,
+          "domComplete": 381.40000000596046,
+          "load": 381.5,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 139
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 31
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 13
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 10
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 2.199999988079071,
+          "fcp": 232,
+          "lcp": 444,
+          "ready": 225.40000000596046,
+          "cls": 25.152835929393767,
+          "domInteractive": 16.400000005960464,
+          "domComplete": 400.7999999821186,
+          "load": 400.7999999821186,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 150
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 32
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 2.2999999821186066,
+          "fcp": 232,
+          "lcp": 416,
+          "ready": 232.7000000178814,
+          "cls": 25.152835929393767,
+          "domInteractive": 18.700000017881393,
+          "domComplete": 382.30000001192093,
+          "load": 382.30000001192093,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 157
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 30
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 13
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 10
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 5
+            }
+          ]
+        }
+      ],
+      "ready": "__homeReady"
+    },
+    "home|branch": {
+      "cold": [
+        {
+          "ttfb": 3.699999988079071,
+          "fcp": 96,
+          "lcp": 472,
+          "ready": 113.39999997615814,
+          "cls": 24.501708984375,
+          "domInteractive": 17.69999998807907,
+          "domComplete": 80.89999997615814,
+          "load": 80.89999997615814,
+          "requests": 8,
+          "transfer": 269973,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 14
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 11
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 10
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 7
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.399999976158142,
+          "fcp": 88,
+          "lcp": 476,
+          "ready": 108,
+          "cls": 24.501708984375,
+          "domInteractive": 15.300000011920929,
+          "domComplete": 72.40000000596046,
+          "load": 72.40000000596046,
+          "requests": 8,
+          "transfer": 269973,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 14
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 11
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 10
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 7
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        }
+      ],
+      "warm": [
+        {
+          "ttfb": 9.5,
+          "fcp": 56,
+          "lcp": 436,
+          "ready": 97,
+          "cls": 24.501708984375,
+          "domInteractive": 26,
+          "domComplete": 62.400000005960464,
+          "load": 62.400000005960464,
+          "requests": 8,
+          "transfer": 269973,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 24
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 18
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 15
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 9
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 9
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.600000023841858,
+          "fcp": 52,
+          "lcp": 408,
+          "ready": 68.09999999403954,
+          "cls": 24.501708984375,
+          "domInteractive": 13.099999994039536,
+          "domComplete": 38.400000005960464,
+          "load": 38.400000005960464,
+          "requests": 8,
+          "transfer": 269973,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 22
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 6
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 48,
+          "lcp": 420,
+          "ready": 68.80000001192093,
+          "cls": 24.501708984375,
+          "domInteractive": 12.300000011920929,
+          "domComplete": 38.10000002384186,
+          "load": 38.10000002384186,
+          "requests": 8,
+          "transfer": 269973,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 23
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 10
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 7
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 48,
+          "lcp": 404,
+          "ready": 64,
+          "cls": 24.501708984375,
+          "domInteractive": 12.400000005960464,
+          "domComplete": 35.60000002384186,
+          "load": 35.60000002384186,
+          "requests": 8,
+          "transfer": 269973,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 6
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 48,
+          "lcp": 404,
+          "ready": 63.5,
+          "cls": 24.501708984375,
+          "domInteractive": 11.900000005960464,
+          "domComplete": 36,
+          "load": 36,
+          "requests": 8,
+          "transfer": 269973,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 6
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.699999988079071,
+          "fcp": 52,
+          "lcp": 420,
+          "ready": 70,
+          "cls": 24.501708984375,
+          "domInteractive": 14.900000005960464,
+          "domComplete": 41.599999994039536,
+          "load": 41.599999994039536,
+          "requests": 8,
+          "transfer": 269973,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 23
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 12
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 10
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 7
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.800000011920929,
+          "fcp": 52,
+          "lcp": 420,
+          "ready": 70.69999998807907,
+          "cls": 24.501708984375,
+          "domInteractive": 16,
+          "domComplete": 40.599999994039536,
+          "load": 40.599999994039536,
+          "requests": 8,
+          "transfer": 269973,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 6
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.7000000178813934,
+          "fcp": 60,
+          "lcp": 416,
+          "ready": 72.40000000596046,
+          "cls": 24.501708984375,
+          "domInteractive": 15.199999988079071,
+          "domComplete": 42.599999994039536,
+          "load": 42.599999994039536,
+          "requests": 8,
+          "transfer": 269973,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 20
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 14
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 10
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 6
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 2.4000000059604645,
+          "fcp": 48,
+          "lcp": 428,
+          "ready": 79.90000000596046,
+          "cls": 24.501708984375,
+          "domInteractive": 17,
+          "domComplete": 51.599999994039536,
+          "load": 51.599999994039536,
+          "requests": 8,
+          "transfer": 269973,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 26
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 16
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 12
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 12
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 11
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 9
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 56,
+          "lcp": 412,
+          "ready": 70.19999998807907,
+          "cls": 24.501708984375,
+          "domInteractive": 13.599999994039536,
+          "domComplete": 40.19999998807907,
+          "load": 40.30000001192093,
+          "requests": 8,
+          "transfer": 269973,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 6
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        }
+      ],
+      "ready": "__homeReady"
+    },
+    "home-neon|main": {
+      "cold": [
+        {
+          "ttfb": 1.9000000059604645,
+          "fcp": 716,
+          "lcp": 1092,
+          "ready": 711.9000000059605,
+          "cls": 27.529969203472135,
+          "domInteractive": 13.599999994039536,
+          "domComplete": 1436.5999999940395,
+          "load": 1436.5999999940395,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 610
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 19
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 10
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 692,
+          "lcp": 1072,
+          "ready": 689.2000000178814,
+          "cls": 27.529969203472135,
+          "domInteractive": 14.099999994039536,
+          "domComplete": 1414.2000000178814,
+          "load": 1414.2000000178814,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 595
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 20
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 12
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 10
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 9
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        }
+      ],
+      "warm": [
+        {
+          "ttfb": 2.4000000059604645,
+          "fcp": 216,
+          "lcp": 408,
+          "ready": 211,
+          "cls": 25.360678374767303,
+          "domInteractive": 16,
+          "domComplete": 387.80000001192093,
+          "load": 387.80000001192093,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 141
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 35
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 19
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 2.0999999940395355,
+          "fcp": 240,
+          "lcp": 404,
+          "ready": 231.2999999821186,
+          "cls": 27.31267937421799,
+          "domInteractive": 14.599999994039536,
+          "domComplete": 506.09999999403954,
+          "load": 506.09999999403954,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 154
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 37
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 15
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 9
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.9000000059604645,
+          "fcp": 232,
+          "lcp": 428,
+          "ready": 226.09999999403954,
+          "cls": 27.31267937421799,
+          "domInteractive": 15.400000005960464,
+          "domComplete": 432.30000001192093,
+          "load": 432.30000001192093,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 156
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 32
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.7999999821186066,
+          "fcp": 220,
+          "lcp": 372,
+          "ready": 217,
+          "cls": 25.152835929393767,
+          "domInteractive": 14.5,
+          "domComplete": 339.5,
+          "load": 339.5,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 153
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 27
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.600000023841858,
+          "fcp": 248,
+          "lcp": 404,
+          "ready": 241,
+          "cls": 27.31267937421799,
+          "domInteractive": 14.600000023841858,
+          "domComplete": 383.40000000596046,
+          "load": 383.40000000596046,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 173
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 30
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 12
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 2,
+          "fcp": 280,
+          "lcp": 476,
+          "ready": 273,
+          "cls": 25.152835929393767,
+          "domInteractive": 17.700000017881393,
+          "domComplete": 443.30000001192093,
+          "load": 443.30000001192093,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 196
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 30
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 12
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 9
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 2,
+          "fcp": 320,
+          "lcp": 616,
+          "ready": 315.30000001192093,
+          "cls": 27.31267937421799,
+          "domInteractive": 16.200000017881393,
+          "domComplete": 617,
+          "load": 617,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 237
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 33
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.9000000059604645,
+          "fcp": 208,
+          "lcp": 380,
+          "ready": 201.7999999821186,
+          "cls": 27.31267937421799,
+          "domInteractive": 17.799999982118607,
+          "domComplete": 357.09999999403954,
+          "load": 357.19999998807907,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 134
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 29
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 12
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 10
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.7999999821186066,
+          "fcp": 228,
+          "lcp": 372,
+          "ready": 220.80000001192093,
+          "cls": 27.31267937421799,
+          "domInteractive": 15.199999988079071,
+          "domComplete": 352.80000001192093,
+          "load": 352.80000001192093,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 154
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 29
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 12
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 2.0999999940395355,
+          "fcp": 232,
+          "lcp": 372,
+          "ready": 227.19999998807907,
+          "cls": 25.152835929393767,
+          "domInteractive": 14.400000005960464,
+          "domComplete": 338.40000000596046,
+          "load": 338.5,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 152
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 29
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 10
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 10
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        }
+      ],
+      "ready": "__homeReady"
+    },
+    "home-neon|branch": {
+      "cold": [
+        {
+          "ttfb": 1.600000023841858,
+          "fcp": 68,
+          "lcp": 460,
+          "ready": 101.80000001192093,
+          "cls": 24.801975917816165,
+          "domInteractive": 14.099999994039536,
+          "domComplete": 73.19999998807907,
+          "load": 73.19999998807907,
+          "requests": 8,
+          "transfer": 296115,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 75740,
+          "fontFiles": 2,
+          "imageBytes": 0,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 20
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 10
+            },
+            {
+              "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+              "type": "css",
+              "size": 25136,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            },
+            {
+              "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+              "type": "css",
+              "size": 51204,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.4000000059604645,
+          "fcp": 68,
+          "lcp": 468,
+          "ready": 110.09999999403954,
+          "cls": 24.801975917816165,
+          "domInteractive": 13.399999976158142,
+          "domComplete": 75.7999999821186,
+          "load": 75.7999999821186,
+          "requests": 8,
+          "transfer": 296115,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 75740,
+          "fontFiles": 2,
+          "imageBytes": 0,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 20
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 10
+            },
+            {
+              "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+              "type": "css",
+              "size": 25136,
+              "ms": 10
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            },
+            {
+              "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+              "type": "css",
+              "size": 51204,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        }
+      ],
+      "warm": [
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 36,
+          "lcp": 420,
+          "ready": 69.59999999403954,
+          "cls": 24.801975917816165,
+          "domInteractive": 12.800000011920929,
+          "domComplete": 42.599999994039536,
+          "load": 42.599999994039536,
+          "requests": 8,
+          "transfer": 296115,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 75740,
+          "fontFiles": 2,
+          "imageBytes": 0,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 22
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 11
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+              "type": "css",
+              "size": 51204,
+              "ms": 8
+            },
+            {
+              "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+              "type": "css",
+              "size": 25136,
+              "ms": 8
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.800000011920929,
+          "fcp": 36,
+          "lcp": 420,
+          "ready": 69,
+          "cls": 24.801975917816165,
+          "domInteractive": 13.300000011920929,
+          "domComplete": 43.099999994039536,
+          "load": 43.099999994039536,
+          "requests": 8,
+          "transfer": 296115,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 75740,
+          "fontFiles": 2,
+          "imageBytes": 0,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 10
+            },
+            {
+              "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+              "type": "css",
+              "size": 25136,
+              "ms": 8
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+              "type": "css",
+              "size": 51204,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 56,
+          "lcp": 412,
+          "ready": 68.90000000596046,
+          "cls": 24.800008392333982,
+          "domInteractive": 13.400000005960464,
+          "domComplete": 41.900000005960464,
+          "load": 41.900000005960464,
+          "requests": 8,
+          "transfer": 296115,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 75740,
+          "fontFiles": 2,
+          "imageBytes": 0,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 20
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            },
+            {
+              "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+              "type": "css",
+              "size": 25136,
+              "ms": 6
+            },
+            {
+              "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+              "type": "css",
+              "size": 51204,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 36,
+          "lcp": 420,
+          "ready": 66.7999999821186,
+          "cls": 24.801975917816165,
+          "domInteractive": 13.299999982118607,
+          "domComplete": 42.69999998807907,
+          "load": 42.69999998807907,
+          "requests": 8,
+          "transfer": 296115,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 75740,
+          "fontFiles": 2,
+          "imageBytes": 0,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 12
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+              "type": "css",
+              "size": 51204,
+              "ms": 9
+            },
+            {
+              "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+              "type": "css",
+              "size": 25136,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.2999999821186066,
+          "fcp": 36,
+          "lcp": 420,
+          "ready": 68.19999998807907,
+          "cls": 24.801975917816165,
+          "domInteractive": 12.599999994039536,
+          "domComplete": 41.89999997615814,
+          "load": 42,
+          "requests": 8,
+          "transfer": 296115,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 75740,
+          "fontFiles": 2,
+          "imageBytes": 0,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 11
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+              "type": "css",
+              "size": 51204,
+              "ms": 7
+            },
+            {
+              "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+              "type": "css",
+              "size": 25136,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.699999988079071,
+          "fcp": 52,
+          "lcp": 420,
+          "ready": 77.09999999403954,
+          "cls": 24.801975917816165,
+          "domInteractive": 15.799999982118607,
+          "domComplete": 48.400000005960464,
+          "load": 48.400000005960464,
+          "requests": 8,
+          "transfer": 296115,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 75740,
+          "fontFiles": 2,
+          "imageBytes": 0,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 24
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 12
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+              "type": "css",
+              "size": 25136,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            },
+            {
+              "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+              "type": "css",
+              "size": 51204,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 44,
+          "lcp": 412,
+          "ready": 69.80000001192093,
+          "cls": 24.801975917816165,
+          "domInteractive": 12.900000005960464,
+          "domComplete": 43.80000001192093,
+          "load": 43.80000001192093,
+          "requests": 8,
+          "transfer": 296115,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 75740,
+          "fontFiles": 2,
+          "imageBytes": 0,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 22
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 10
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+              "type": "css",
+              "size": 51204,
+              "ms": 6
+            },
+            {
+              "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+              "type": "css",
+              "size": 25136,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.699999988079071,
+          "fcp": 36,
+          "lcp": 420,
+          "ready": 68.09999999403954,
+          "cls": 24.801975917816165,
+          "domInteractive": 13,
+          "domComplete": 41.69999998807907,
+          "load": 41.69999998807907,
+          "requests": 8,
+          "transfer": 296115,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 75740,
+          "fontFiles": 2,
+          "imageBytes": 0,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 11
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+              "type": "css",
+              "size": 51204,
+              "ms": 8
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+              "type": "css",
+              "size": 25136,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.4000000059604645,
+          "fcp": 40,
+          "lcp": 420,
+          "ready": 78.69999998807907,
+          "cls": 24.800008392333982,
+          "domInteractive": 13,
+          "domComplete": 50.19999998807907,
+          "load": 50.19999998807907,
+          "requests": 8,
+          "transfer": 296115,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 75740,
+          "fontFiles": 2,
+          "imageBytes": 0,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 24
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+              "type": "css",
+              "size": 51204,
+              "ms": 11
+            },
+            {
+              "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+              "type": "css",
+              "size": 25136,
+              "ms": 11
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 2.5999999940395355,
+          "fcp": 60,
+          "lcp": 416,
+          "ready": 73.69999998807907,
+          "cls": 24.800008392333982,
+          "domInteractive": 15.900000005960464,
+          "domComplete": 44.69999998807907,
+          "load": 44.80000001192093,
+          "requests": 8,
+          "transfer": 296115,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 75740,
+          "fontFiles": 2,
+          "imageBytes": 0,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 22
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+              "type": "css",
+              "size": 51204,
+              "ms": 6
+            },
+            {
+              "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+              "type": "css",
+              "size": 25136,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        }
+      ],
+      "ready": "__homeReady"
+    },
+    "home-paper|main": {
+      "cold": [
+        {
+          "ttfb": 2.0999999940395355,
+          "fcp": 552,
+          "lcp": 916,
+          "ready": 547.5,
+          "cls": 27.529969203472135,
+          "domInteractive": 13.5,
+          "domComplete": 1297,
+          "load": 1297,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 464
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 19
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 2,
+          "fcp": 592,
+          "lcp": 972,
+          "ready": 597.7000000178814,
+          "cls": 27.529969203472135,
+          "domInteractive": 12.599999994039536,
+          "domComplete": 1298.5,
+          "load": 1298.5,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 497
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 20
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 10
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        }
+      ],
+      "warm": [
+        {
+          "ttfb": 1.9000000059604645,
+          "fcp": 248,
+          "lcp": 396,
+          "ready": 243.30000001192093,
+          "cls": 27.31267937421799,
+          "domInteractive": 15.199999988079071,
+          "domComplete": 385.30000001192093,
+          "load": 385.30000001192093,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 173
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 31
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.699999988079071,
+          "fcp": 252,
+          "lcp": 488,
+          "ready": 246.19999998807907,
+          "cls": 27.31267937421799,
+          "domInteractive": 17.299999982118607,
+          "domComplete": 500.59999999403954,
+          "load": 500.59999999403954,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 177
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 30
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 15
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 12
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 9
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 252,
+          "lcp": 436,
+          "ready": 244.7999999821186,
+          "cls": 25.152835929393767,
+          "domInteractive": 14.299999982118607,
+          "domComplete": 399.89999997615814,
+          "load": 399.89999997615814,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 175
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 29
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 15
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 10
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.699999988079071,
+          "fcp": 244,
+          "lcp": 436,
+          "ready": 237.5,
+          "cls": 25.152835929393767,
+          "domInteractive": 13.700000017881393,
+          "domComplete": 400.2000000178814,
+          "load": 400.2000000178814,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 172
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 30
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 10
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.7000000178813934,
+          "fcp": 236,
+          "lcp": 424,
+          "ready": 231.09999999403954,
+          "cls": 25.152835929393767,
+          "domInteractive": 14,
+          "domComplete": 394,
+          "load": 394,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 168
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 27
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 10
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.7999999821186066,
+          "fcp": 256,
+          "lcp": 460,
+          "ready": 248.30000001192093,
+          "cls": 25.360678374767303,
+          "domInteractive": 14.900000005960464,
+          "domComplete": 491.7000000178814,
+          "load": 491.7000000178814,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 172
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 31
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 14
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 11
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.600000023841858,
+          "fcp": 224,
+          "lcp": 464,
+          "ready": 219.09999999403954,
+          "cls": 27.31267937421799,
+          "domInteractive": 15.799999982118607,
+          "domComplete": 461.5,
+          "load": 461.5,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 153
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 26
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 12
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 9
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.7000000178813934,
+          "fcp": 204,
+          "lcp": 380,
+          "ready": 199,
+          "cls": 27.31267937421799,
+          "domInteractive": 14.400000005960464,
+          "domComplete": 356.7000000178814,
+          "load": 356.7000000178814,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 129
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 33
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 10
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 2,
+          "fcp": 252,
+          "lcp": 408,
+          "ready": 240.09999999403954,
+          "cls": 27.31267937421799,
+          "domInteractive": 14.599999994039536,
+          "domComplete": 384.30000001192093,
+          "load": 384.30000001192093,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 166
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 23
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 10
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.699999988079071,
+          "fcp": 244,
+          "lcp": 396,
+          "ready": 237.30000001192093,
+          "cls": 25.152835929393767,
+          "domInteractive": 14.699999988079071,
+          "domComplete": 367.59999999403954,
+          "load": 367.59999999403954,
+          "requests": 7,
+          "transfer": 216406,
+          "jsDecoded": 669155,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 171
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 27
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 12
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        }
+      ],
+      "ready": "__homeReady"
+    },
+    "home-paper|branch": {
+      "cold": [
+        {
+          "ttfb": 1.4000000059604645,
+          "fcp": 72,
+          "lcp": 160,
+          "ready": 96.7999999821186,
+          "cls": 24.338891601562498,
+          "domInteractive": 12.799999982118607,
+          "domComplete": 55.5,
+          "load": 55.5,
+          "requests": 11,
+          "transfer": 313649,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 79212,
+          "fontFiles": 4,
+          "imageBytes": 13162,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "kalam-400-latin-BthBl_aR.woff2",
+              "type": "css",
+              "size": 22636,
+              "ms": 21
+            },
+            {
+              "name": "atkinson-400-latin-BrHNak5F.woff2",
+              "type": "css",
+              "size": 17508,
+              "ms": 12
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 11
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "atkinson-700-latin-GZI4o3u0.woff2",
+              "type": "css",
+              "size": 17824,
+              "ms": 10
+            },
+            {
+              "name": "kalam-700-latin-D2H-9ISU.woff2",
+              "type": "css",
+              "size": 22444,
+              "ms": 8
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            }
+          ]
+        },
+        {
+          "ttfb": 2.899999976158142,
+          "fcp": 136,
+          "lcp": 216,
+          "ready": 146.90000000596046,
+          "cls": 24.338891601562498,
+          "domInteractive": 25.80000001192093,
+          "domComplete": 84.40000000596046,
+          "load": 84.40000000596046,
+          "requests": 11,
+          "transfer": 313649,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 79212,
+          "fontFiles": 4,
+          "imageBytes": 13162,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 29
+            },
+            {
+              "name": "kalam-400-latin-BthBl_aR.woff2",
+              "type": "css",
+              "size": 22636,
+              "ms": 27
+            },
+            {
+              "name": "atkinson-400-latin-BrHNak5F.woff2",
+              "type": "css",
+              "size": 17508,
+              "ms": 19
+            },
+            {
+              "name": "atkinson-700-latin-GZI4o3u0.woff2",
+              "type": "css",
+              "size": 17824,
+              "ms": 18
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 17
+            },
+            {
+              "name": "kalam-700-latin-D2H-9ISU.woff2",
+              "type": "css",
+              "size": 22444,
+              "ms": 17
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 16
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 13
+            }
+          ]
+        }
+      ],
+      "warm": [
+        {
+          "ttfb": 1.699999988079071,
+          "fcp": 52,
+          "lcp": 104,
+          "ready": 68.09999999403954,
+          "cls": 24.338891601562498,
+          "domInteractive": 12.299999982118607,
+          "domComplete": 41.69999998807907,
+          "load": 41.69999998807907,
+          "requests": 11,
+          "transfer": 313649,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 79212,
+          "fontFiles": 4,
+          "imageBytes": 13162,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 26
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "kalam-400-latin-BthBl_aR.woff2",
+              "type": "css",
+              "size": 22636,
+              "ms": 12
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "atkinson-400-latin-BrHNak5F.woff2",
+              "type": "css",
+              "size": 17508,
+              "ms": 10
+            },
+            {
+              "name": "atkinson-700-latin-GZI4o3u0.woff2",
+              "type": "css",
+              "size": 17824,
+              "ms": 9
+            },
+            {
+              "name": "kalam-700-latin-D2H-9ISU.woff2",
+              "type": "css",
+              "size": 22444,
+              "ms": 8
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            }
+          ]
+        },
+        {
+          "ttfb": 1.699999988079071,
+          "fcp": 52,
+          "lcp": 108,
+          "ready": 79.09999999403954,
+          "cls": 24.338891601562498,
+          "domInteractive": 13.5,
+          "domComplete": 49.79999998211861,
+          "load": 49.79999998211861,
+          "requests": 11,
+          "transfer": 313649,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 79212,
+          "fontFiles": 4,
+          "imageBytes": 13162,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 27
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 15
+            },
+            {
+              "name": "atkinson-400-latin-BrHNak5F.woff2",
+              "type": "css",
+              "size": 17508,
+              "ms": 15
+            },
+            {
+              "name": "kalam-700-latin-D2H-9ISU.woff2",
+              "type": "css",
+              "size": 22444,
+              "ms": 14
+            },
+            {
+              "name": "atkinson-700-latin-GZI4o3u0.woff2",
+              "type": "css",
+              "size": 17824,
+              "ms": 13
+            },
+            {
+              "name": "kalam-400-latin-BthBl_aR.woff2",
+              "type": "css",
+              "size": 22636,
+              "ms": 13
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            }
+          ]
+        },
+        {
+          "ttfb": 1.800000011920929,
+          "fcp": 48,
+          "lcp": 124,
+          "ready": 71.09999999403954,
+          "cls": 24.338891601562498,
+          "domInteractive": 14.699999988079071,
+          "domComplete": 44.599999994039536,
+          "load": 44.599999994039536,
+          "requests": 11,
+          "transfer": 313649,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 79212,
+          "fontFiles": 4,
+          "imageBytes": 13162,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 22
+            },
+            {
+              "name": "kalam-400-latin-BthBl_aR.woff2",
+              "type": "css",
+              "size": 22636,
+              "ms": 14
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 11
+            },
+            {
+              "name": "kalam-700-latin-D2H-9ISU.woff2",
+              "type": "css",
+              "size": 22444,
+              "ms": 10
+            },
+            {
+              "name": "atkinson-700-latin-GZI4o3u0.woff2",
+              "type": "css",
+              "size": 17824,
+              "ms": 10
+            },
+            {
+              "name": "atkinson-400-latin-BrHNak5F.woff2",
+              "type": "css",
+              "size": 17508,
+              "ms": 10
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            }
+          ]
+        },
+        {
+          "ttfb": 2.0999999940395355,
+          "fcp": 56,
+          "lcp": 124,
+          "ready": 89.5,
+          "cls": 24.338891601562498,
+          "domInteractive": 15.900000005960464,
+          "domComplete": 51.70000001788139,
+          "load": 51.70000001788139,
+          "requests": 11,
+          "transfer": 313649,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 79212,
+          "fontFiles": 4,
+          "imageBytes": 13162,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 28
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 16
+            },
+            {
+              "name": "atkinson-700-latin-GZI4o3u0.woff2",
+              "type": "css",
+              "size": 17824,
+              "ms": 15
+            },
+            {
+              "name": "atkinson-400-latin-BrHNak5F.woff2",
+              "type": "css",
+              "size": 17508,
+              "ms": 15
+            },
+            {
+              "name": "kalam-400-latin-BthBl_aR.woff2",
+              "type": "css",
+              "size": 22636,
+              "ms": 13
+            },
+            {
+              "name": "kalam-700-latin-D2H-9ISU.woff2",
+              "type": "css",
+              "size": 22444,
+              "ms": 12
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 44,
+          "lcp": 108,
+          "ready": 71.80000001192093,
+          "cls": 24.338891601562498,
+          "domInteractive": 12.5,
+          "domComplete": 43.20000001788139,
+          "load": 43.20000001788139,
+          "requests": 11,
+          "transfer": 313649,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 79212,
+          "fontFiles": 4,
+          "imageBytes": 13162,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 23
+            },
+            {
+              "name": "kalam-400-latin-BthBl_aR.woff2",
+              "type": "css",
+              "size": 22636,
+              "ms": 12
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 11
+            },
+            {
+              "name": "kalam-700-latin-D2H-9ISU.woff2",
+              "type": "css",
+              "size": 22444,
+              "ms": 11
+            },
+            {
+              "name": "atkinson-700-latin-GZI4o3u0.woff2",
+              "type": "css",
+              "size": 17824,
+              "ms": 11
+            },
+            {
+              "name": "atkinson-400-latin-BrHNak5F.woff2",
+              "type": "css",
+              "size": 17508,
+              "ms": 11
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 48,
+          "lcp": 104,
+          "ready": 73.19999998807907,
+          "cls": 24.338891601562498,
+          "domInteractive": 13.199999988079071,
+          "domComplete": 44.79999998211861,
+          "load": 44.79999998211861,
+          "requests": 11,
+          "transfer": 313649,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 79212,
+          "fontFiles": 4,
+          "imageBytes": 13162,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 25
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "kalam-400-latin-BthBl_aR.woff2",
+              "type": "css",
+              "size": 22636,
+              "ms": 13
+            },
+            {
+              "name": "atkinson-400-latin-BrHNak5F.woff2",
+              "type": "css",
+              "size": 17508,
+              "ms": 12
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "atkinson-700-latin-GZI4o3u0.woff2",
+              "type": "css",
+              "size": 17824,
+              "ms": 11
+            },
+            {
+              "name": "kalam-700-latin-D2H-9ISU.woff2",
+              "type": "css",
+              "size": 22444,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            }
+          ]
+        },
+        {
+          "ttfb": 1.699999988079071,
+          "fcp": 52,
+          "lcp": 124,
+          "ready": 78.19999998807907,
+          "cls": 24.338891601562498,
+          "domInteractive": 14.199999988079071,
+          "domComplete": 47.900000005960464,
+          "load": 47.900000005960464,
+          "requests": 11,
+          "transfer": 313649,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 79212,
+          "fontFiles": 4,
+          "imageBytes": 13162,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 26
+            },
+            {
+              "name": "kalam-700-latin-D2H-9ISU.woff2",
+              "type": "css",
+              "size": 22444,
+              "ms": 14
+            },
+            {
+              "name": "atkinson-700-latin-GZI4o3u0.woff2",
+              "type": "css",
+              "size": 17824,
+              "ms": 14
+            },
+            {
+              "name": "atkinson-400-latin-BrHNak5F.woff2",
+              "type": "css",
+              "size": 17508,
+              "ms": 14
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "kalam-400-latin-BthBl_aR.woff2",
+              "type": "css",
+              "size": 22636,
+              "ms": 12
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            }
+          ]
+        },
+        {
+          "ttfb": 2.199999988079071,
+          "fcp": 56,
+          "lcp": 120,
+          "ready": 75.89999997615814,
+          "cls": 24.338891601562498,
+          "domInteractive": 16.19999998807907,
+          "domComplete": 48,
+          "load": 48.099999994039536,
+          "requests": 11,
+          "transfer": 313649,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 79212,
+          "fontFiles": 4,
+          "imageBytes": 13162,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 22
+            },
+            {
+              "name": "kalam-400-latin-BthBl_aR.woff2",
+              "type": "css",
+              "size": 22636,
+              "ms": 13
+            },
+            {
+              "name": "atkinson-400-latin-BrHNak5F.woff2",
+              "type": "css",
+              "size": 17508,
+              "ms": 12
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 11
+            },
+            {
+              "name": "atkinson-700-latin-GZI4o3u0.woff2",
+              "type": "css",
+              "size": 17824,
+              "ms": 11
+            },
+            {
+              "name": "kalam-700-latin-D2H-9ISU.woff2",
+              "type": "css",
+              "size": 22444,
+              "ms": 10
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 52,
+          "lcp": 108,
+          "ready": 75.30000001192093,
+          "cls": 24.338891601562498,
+          "domInteractive": 12.699999988079071,
+          "domComplete": 43.400000005960464,
+          "load": 43.400000005960464,
+          "requests": 11,
+          "transfer": 313649,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 79212,
+          "fontFiles": 4,
+          "imageBytes": 13162,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 27
+            },
+            {
+              "name": "atkinson-400-latin-BrHNak5F.woff2",
+              "type": "css",
+              "size": 17508,
+              "ms": 13
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 12
+            },
+            {
+              "name": "atkinson-700-latin-GZI4o3u0.woff2",
+              "type": "css",
+              "size": 17824,
+              "ms": 12
+            },
+            {
+              "name": "kalam-400-latin-BthBl_aR.woff2",
+              "type": "css",
+              "size": 22636,
+              "ms": 12
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "kalam-700-latin-D2H-9ISU.woff2",
+              "type": "css",
+              "size": 22444,
+              "ms": 10
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 48,
+          "lcp": 144,
+          "ready": 69.40000000596046,
+          "cls": 24.338891601562498,
+          "domInteractive": 13.199999988079071,
+          "domComplete": 40.400000005960464,
+          "load": 40.5,
+          "requests": 11,
+          "transfer": 313649,
+          "jsDecoded": 674407,
+          "cssDecoded": 29330,
+          "fontBytes": 79212,
+          "fontFiles": 4,
+          "imageBytes": 13162,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 24
+            },
+            {
+              "name": "kalam-400-latin-BthBl_aR.woff2",
+              "type": "css",
+              "size": 22636,
+              "ms": 16
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 12
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "kalam-700-latin-D2H-9ISU.woff2",
+              "type": "css",
+              "size": 22444,
+              "ms": 8
+            },
+            {
+              "name": "atkinson-400-latin-BrHNak5F.woff2",
+              "type": "css",
+              "size": 17508,
+              "ms": 8
+            },
+            {
+              "name": "atkinson-700-latin-GZI4o3u0.woff2",
+              "type": "css",
+              "size": 17824,
+              "ms": 8
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            }
+          ]
+        }
+      ],
+      "ready": "__homeReady"
+    },
+    "game-reload|main": {
+      "cold": [
+        {
+          "ttfb": 2.4000000059604645,
+          "fcp": 644,
+          "lcp": 748,
+          "ready": 684.2999999821186,
+          "cls": 25.61723066568375,
+          "domInteractive": 14.699999988079071,
+          "domComplete": 1378.699999988079,
+          "load": 1378.7999999821186,
+          "requests": 8,
+          "transfer": 225108,
+          "jsDecoded": 684756,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 546
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 21
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 12
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 9
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -66
+            }
+          ]
+        },
+        {
+          "ttfb": 2.9000000059604645,
+          "fcp": 648,
+          "lcp": 716,
+          "ready": 664.9000000059605,
+          "cls": 25.61723066568375,
+          "domInteractive": 14.400000005960464,
+          "domComplete": 1357.800000011921,
+          "load": 1357.9000000059605,
+          "requests": 8,
+          "transfer": 225108,
+          "jsDecoded": 684756,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 556
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 19
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -28
+            }
+          ]
+        }
+      ],
+      "warm": [
+        {
+          "ttfb": 1.899999976158142,
+          "fcp": 264,
+          "lcp": 300,
+          "ready": 259.59999999403954,
+          "cls": 25.549374783039095,
+          "domInteractive": 21.30000001192093,
+          "domComplete": 479.30000001192093,
+          "load": 479.30000001192093,
+          "requests": 8,
+          "transfer": 225108,
+          "jsDecoded": 684756,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 160
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 47
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 15
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 14
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 10
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -12
+            }
+          ]
+        },
+        {
+          "ttfb": 2,
+          "fcp": 220,
+          "lcp": 332,
+          "ready": 217.30000001192093,
+          "cls": 25.663091727998108,
+          "domInteractive": 18.5,
+          "domComplete": 462.2000000178814,
+          "load": 462.2000000178814,
+          "requests": 8,
+          "transfer": 225108,
+          "jsDecoded": 684756,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 137
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 30
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 15
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 12
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 9
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -80
+            }
+          ]
+        },
+        {
+          "ttfb": 1.9000000059604645,
+          "fcp": 300,
+          "lcp": 340,
+          "ready": 290.40000000596046,
+          "cls": 25.54438866376877,
+          "domInteractive": 20.600000023841858,
+          "domComplete": 412.90000000596046,
+          "load": 413,
+          "requests": 8,
+          "transfer": 225108,
+          "jsDecoded": 684756,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 200
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 31
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -6
+            }
+          ]
+        },
+        {
+          "ttfb": 1.600000023841858,
+          "fcp": 264,
+          "lcp": 304,
+          "ready": 259.5,
+          "cls": 25.549374783039095,
+          "domInteractive": 19.099999994039536,
+          "domComplete": 416.19999998807907,
+          "load": 416.2999999821186,
+          "requests": 8,
+          "transfer": 225108,
+          "jsDecoded": 684756,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 181
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 30
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 13
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 10
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -5
+            }
+          ]
+        },
+        {
+          "ttfb": 1.699999988079071,
+          "fcp": 1180,
+          "lcp": 1208,
+          "ready": 1171.5,
+          "cls": 25.54438866376877,
+          "domInteractive": 19.099999994039536,
+          "domComplete": 1291.0999999940395,
+          "load": 1291.2000000178814,
+          "requests": 8,
+          "transfer": 225108,
+          "jsDecoded": 684756,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 1089
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 33
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 17
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 15
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 12
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -4
+            }
+          ]
+        },
+        {
+          "ttfb": 2,
+          "fcp": 240,
+          "lcp": 272,
+          "ready": 234.39999997615814,
+          "cls": 25.54438866376877,
+          "domInteractive": 18,
+          "domComplete": 490,
+          "load": 490.09999999403954,
+          "requests": 8,
+          "transfer": 225108,
+          "jsDecoded": 684756,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 162
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 27
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 12
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 10
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -11
+            }
+          ]
+        },
+        {
+          "ttfb": 1.800000011920929,
+          "fcp": 232,
+          "lcp": 264,
+          "ready": 228,
+          "cls": 25.659390151500705,
+          "domInteractive": 17.69999998807907,
+          "domComplete": 591.3999999761581,
+          "load": 591.3999999761581,
+          "requests": 8,
+          "transfer": 225108,
+          "jsDecoded": 684756,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 149
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 30
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 9
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -12
+            }
+          ]
+        },
+        {
+          "ttfb": 2,
+          "fcp": 248,
+          "lcp": 276,
+          "ready": 243.89999997615814,
+          "cls": 25.663095037732276,
+          "domInteractive": 16.899999976158142,
+          "domComplete": 418.69999998807907,
+          "load": 418.7999999821186,
+          "requests": 8,
+          "transfer": 225108,
+          "jsDecoded": 684756,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 169
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 27
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 10
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -8
+            }
+          ]
+        },
+        {
+          "ttfb": 2.4000000059604645,
+          "fcp": 224,
+          "lcp": 248,
+          "ready": 218.19999998807907,
+          "cls": 25.54438866376877,
+          "domInteractive": 23.5,
+          "domComplete": 350.89999997615814,
+          "load": 350.89999997615814,
+          "requests": 8,
+          "transfer": 225108,
+          "jsDecoded": 684756,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 145
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 26
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 13
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 10
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -9
+            }
+          ]
+        },
+        {
+          "ttfb": 1.899999976158142,
+          "fcp": 264,
+          "lcp": 296,
+          "ready": 260.39999997615814,
+          "cls": 25.54438866376877,
+          "domInteractive": 19.5,
+          "domComplete": 414.59999999403954,
+          "load": 414.59999999403954,
+          "requests": 8,
+          "transfer": 225108,
+          "jsDecoded": 684756,
+          "cssDecoded": 16364,
+          "fontBytes": 0,
+          "fontFiles": 0,
+          "imageBytes": 0,
+          "thirdParty": [
+            "fonts.googleapis.com",
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 184
+            },
+            {
+              "name": "firebase-CakvQstD.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 28
+            },
+            {
+              "name": "app-C5kKpe9M.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "index-CgT_-77i.js",
+              "type": "script",
+              "size": 47066,
+              "ms": 11
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -12
+            }
+          ]
+        }
+      ],
+      "ready": "__boardReady"
+    },
+    "game-reload|branch": {
+      "cold": [
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 76,
+          "lcp": 132,
+          "ready": 105.09999999403954,
+          "cls": 24.8477783203125,
+          "domInteractive": 13.899999976158142,
+          "domComplete": 73.2999999821186,
+          "load": 73.2999999821186,
+          "requests": 9,
+          "transfer": 278675,
+          "jsDecoded": 690008,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 10
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 8
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -22
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 72,
+          "lcp": 148,
+          "ready": 113.69999998807907,
+          "cls": 24.8477783203125,
+          "domInteractive": 12.599999994039536,
+          "domComplete": 69.59999999403954,
+          "load": 69.59999999403954,
+          "requests": 9,
+          "transfer": 278675,
+          "jsDecoded": 690008,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 19
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 8
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 7
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -45
+            }
+          ]
+        }
+      ],
+      "warm": [
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 56,
+          "lcp": 116,
+          "ready": 93,
+          "cls": 24.8477783203125,
+          "domInteractive": 22,
+          "domComplete": 56.79999998211861,
+          "load": 56.79999998211861,
+          "requests": 9,
+          "transfer": 278675,
+          "jsDecoded": 690008,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 28
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 17
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 14
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 13
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 12
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 9
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -11
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 48,
+          "lcp": 112,
+          "ready": 84.90000000596046,
+          "cls": 24.8477783203125,
+          "domInteractive": 17.69999998807907,
+          "domComplete": 43.79999998211861,
+          "load": 43.79999998211861,
+          "requests": 9,
+          "transfer": 278675,
+          "jsDecoded": 690008,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 24
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 12
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 7
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -5
+            }
+          ]
+        },
+        {
+          "ttfb": 1.600000023841858,
+          "fcp": 52,
+          "lcp": 108,
+          "ready": 83.69999998807907,
+          "cls": 24.8477783203125,
+          "domInteractive": 18.5,
+          "domComplete": 42.599999994039536,
+          "load": 42.599999994039536,
+          "requests": 9,
+          "transfer": 278675,
+          "jsDecoded": 690008,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 5
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -14
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 60,
+          "lcp": 128,
+          "ready": 93.7999999821186,
+          "cls": 24.8477783203125,
+          "domInteractive": 18.899999976158142,
+          "domComplete": 52.79999998211861,
+          "load": 52.79999998211861,
+          "requests": 9,
+          "transfer": 278675,
+          "jsDecoded": 690008,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 32
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 17
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 12
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 11
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -4
+            }
+          ]
+        },
+        {
+          "ttfb": 1.800000011920929,
+          "fcp": 56,
+          "lcp": 104,
+          "ready": 78.7000000178814,
+          "cls": 24.8477783203125,
+          "domInteractive": 20.200000017881393,
+          "domComplete": 46.70000001788139,
+          "load": 46.80000001192093,
+          "requests": 9,
+          "transfer": 278675,
+          "jsDecoded": 690008,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 23
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 13
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 11
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 10
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 7
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -4
+            }
+          ]
+        },
+        {
+          "ttfb": 1.399999976158142,
+          "fcp": 56,
+          "lcp": 92,
+          "ready": 74.80000001192093,
+          "cls": 24.8477783203125,
+          "domInteractive": 20.5,
+          "domComplete": 43.400000005960464,
+          "load": 43.400000005960464,
+          "requests": 9,
+          "transfer": 278675,
+          "jsDecoded": 690008,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 19
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 8
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 6
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -10
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 52,
+          "lcp": 104,
+          "ready": 71.5,
+          "cls": 24.8477783203125,
+          "domInteractive": 17.099999994039536,
+          "domComplete": 41.900000005960464,
+          "load": 41.900000005960464,
+          "requests": 9,
+          "transfer": 278675,
+          "jsDecoded": 690008,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 10
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 6
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 48,
+          "lcp": 92,
+          "ready": 73.30000001192093,
+          "cls": 24.8477783203125,
+          "domInteractive": 18.100000023841858,
+          "domComplete": 44.20000001788139,
+          "load": 44.20000001788139,
+          "requests": 9,
+          "transfer": 278675,
+          "jsDecoded": 690008,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 23
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 10
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 8
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 44,
+          "lcp": 96,
+          "ready": 70,
+          "cls": 24.8477783203125,
+          "domInteractive": 15.599999994039536,
+          "domComplete": 38.5,
+          "load": 38.5,
+          "requests": 9,
+          "transfer": 278675,
+          "jsDecoded": 690008,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 21
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 9
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 9
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 6
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 6
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.699999988079071,
+          "fcp": 52,
+          "lcp": 92,
+          "ready": 70.30000001192093,
+          "cls": 24.8477783203125,
+          "domInteractive": 17.200000017881393,
+          "domComplete": 38.20000001788139,
+          "load": 38.20000001788139,
+          "requests": 9,
+          "transfer": 278675,
+          "jsDecoded": 690008,
+          "cssDecoded": 29330,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 23022,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-BwNITbmG.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 20
+            },
+            {
+              "name": "index-DFsN1Qsr.js",
+              "type": "script",
+              "size": 48923,
+              "ms": 9
+            },
+            {
+              "name": "app-8AEndD3I.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 8
+            },
+            {
+              "name": "index-BRM8RSyr.css",
+              "type": "link",
+              "size": 7078,
+              "ms": 7
+            },
+            {
+              "name": "wood-dark-CyWT4Hqh.webp",
+              "type": "css",
+              "size": 23322,
+              "ms": 6
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            },
+            {
+              "name": "ai.worker-Duy7mktc.js",
+              "type": "other",
+              "size": 8702,
+              "ms": -13
+            }
+          ]
+        }
+      ],
+      "ready": "__boardReady"
+    }
+  }
+}

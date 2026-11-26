@@ -1,0 +1,38 @@
+serving branch on :4176 and main on :4177
+ok home-table-light|main cold 130
+ok home-table-light|branch cold 102
+ok home-paper-light|main cold 108
+ok home-paper-light|branch cold 112
+ok home-table-light|branch cold 105
+ok home-table-light|main cold 95
+ok home-paper-light|branch cold 110
+ok home-paper-light|main cold 95
+ok home-table-light|main cold 105
+ok home-table-light|branch cold 107
+ok home-paper-light|main cold 97
+ok home-paper-light|branch cold 116
+ok home-table-light|branch cold 98
+ok home-table-light|main cold 115
+ok home-paper-light|branch cold 112
+ok home-paper-light|main cold 97
+ok home-table-light|main cold 98
+ok home-table-light|branch cold 89
+ok home-paper-light|main cold 113
+ok home-paper-light|branch cold 109
+ok home-table-light|branch cold 101
+ok home-table-light|main cold 97
+ok home-paper-light|branch cold 126
+ok home-paper-light|main cold 115
+home-table-light|main cold {"ttfb":1,"fcp":72,"lcp":460,"ready":98,"cls":25,"domInteractive":14,"domComplete":68,"load":68,"requests":8,"transfer":778774,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   warm {"ttfb":1,"fcp":64,"lcp":440,"ready":69,"cls":25,"domInteractive":13,"domComplete":39,"load":39,"requests":8,"transfer":778774,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-table-light|branch cold {"ttfb":1,"fcp":88,"lcp":468,"ready":101,"cls":25,"domInteractive":14,"domComplete":69,"load":69,"requests":8,"transfer":781214,"jsDecoded":687152,"cssDecoded":39640,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   warm {"ttfb":1,"fcp":60,"lcp":432,"ready":66,"cls":25,"domInteractive":13,"domComplete":39,"load":39,"requests":8,"transfer":781214,"jsDecoded":687152,"cssDecoded":39640,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-paper-light|main cold {"ttfb":1,"fcp":88,"lcp":168,"ready":97,"cls":24,"domInteractive":13,"domComplete":55,"load":55,"requests":11,"transfer":812370,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4206} 
+                   warm {"ttfb":1,"fcp":68,"lcp":452,"ready":70,"cls":24,"domInteractive":13,"domComplete":42,"load":42,"requests":11,"transfer":812370,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4206} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-paper-light|branch cold {"ttfb":1,"fcp":88,"lcp":172,"ready":112,"cls":24,"domInteractive":13,"domComplete":56,"load":56,"requests":11,"transfer":814810,"jsDecoded":687152,"cssDecoded":39640,"fontBytes":79212,"fontFiles":4,"imageBytes":4206} 
+                   warm {"ttfb":1,"fcp":68,"lcp":448,"ready":71,"cls":24,"domInteractive":13,"domComplete":42,"load":42,"requests":11,"transfer":814810,"jsDecoded":687152,"cssDecoded":39640,"fontBytes":79212,"fontFiles":4,"imageBytes":4206} 
+                   third-party ["identitytoolkit.googleapis.com"]
+servers stopped; child exit 0

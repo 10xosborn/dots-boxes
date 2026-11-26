@@ -1,0 +1,10 @@
+{
+  "evidence": [],
+  "limits": [
+    "checkpoint 002: the first dialogs probe compared dialogs with the board's glass shown and hidden; Dark Neon's frosted panels and rounded corners let the board show through by design, so it was replaced by a solid-colour stacking test (checkpoint 003)",
+    "checkpoint 003: one sanity bound in the stacking test (30% of White Neon's theme sheet green) was too strict for its opaque option cards; the contract (no magenta) held everywhere",
+    "checkpoint 004: the first switch probe read a background string cut to 60 characters before the texture url; fixed and rerun (checkpoint 005)",
+    "Performance not scored here: /benchmark measures it next",
+    "Headless Chromium only (the owner's Brave and real phones not used in this pass)"
+  ]
+}

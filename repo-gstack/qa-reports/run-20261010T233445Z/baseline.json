@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-10",
+  "url": "http://127.0.0.1:4173/",
+  "healthScore": 100,
+  "issues": [],
+  "categoryScores": {
+    "console": 100,
+    "visual": 100,
+    "functional": 100,
+    "ux": 100,
+    "accessibility": 100,
+    "content": 100,
+    "links": null,
+    "performance": null
+  }
+}

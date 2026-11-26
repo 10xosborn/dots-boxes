@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch *)",
+      "Bash(git config *)",
+      "Bash(git add *)",
+      "Bash(git -c core.editor=true commit -q -F -)",
+      "Bash(git credential *)",
+      "Bash(git push *)",
+      "Bash(gh pr merge *)"
+    ]
+  }
+}

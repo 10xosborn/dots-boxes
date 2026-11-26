@@ -1,0 +1,15 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-12T14:21:14.442Z","deadlineAt":"2026-10-12T14:36:14.442Z","budgetMs":900000,"observedAt":"2026-10-12T14:28:31.558Z","remainingMs":462884,"expired":false}
+FAIL  saved settings with an unknown theme name: table/light before the first paint and after start-up, no errors  first paint table/light , now table/light
+FAIL  saved settings with a theme name of the wrong type: table/dark before the first paint and after start-up, no errors  first paint table/dark , now table/dark
+FAIL  saved settings with broken JSON: table/dark before the first paint and after start-up, no errors  first paint table/dark , now table/dark
+PASS  table/light: Tab reaches the theme button, a focus outline shows, Enter opens the picker  3px solid rgb(11, 122, 135)
+PASS  table/dark: Tab reaches the theme button, a focus outline shows, Enter opens the picker  3px solid rgb(127, 211, 221)
+PASS  neon/light: Tab reaches the theme button, a focus outline shows, Enter opens the picker  3px solid rgb(214, 63, 61)
+PASS  neon/dark: Tab reaches the theme button, a focus outline shows, Enter opens the picker  3px solid rgb(251, 85, 83)
+PASS  paper/light: Tab reaches the theme button, a focus outline shows, Enter opens the picker  2px dashed rgb(46, 43, 39)
+PASS  paper/dark: Tab reaches the theme button, a focus outline shows, Enter opens the picker  2px dashed rgb(236, 237, 230)
+
+6/9 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-12T14:28:35.349Z","deadlineAt":"2026-10-12T14:36:14.442Z","timedOut":false,"exitCode":1}

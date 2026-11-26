@@ -1,0 +1,16 @@
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+node:fs:1411
+    getValidatedPath(path),
+    ^
+
+TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+    at mkdirSync (node:fs:1411:5)
+    at file:///C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/drag-test.mjs:9:30
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  code: 'ERR_INVALID_ARG_TYPE'
+}
+
+Node.js v24.21.0
+servers stopped; child exit 1

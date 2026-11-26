@@ -1,0 +1,27 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-19T18:38:35.596Z","deadlineAt":"2026-10-19T18:53:35.596Z","budgetMs":900000,"observedAt":"2026-10-19T18:40:11.287Z","remainingMs":804309,"expired":false}
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+PASS  table-dark-phone: 7 screens, 152 text lines, all at their bar or above  worst 4.56:1 (bar 4.5) "Game resumed. Score 2 to 2. Player t" 16px/400 on game
+FAIL  table-dark-desktop game: text over its real background  BELOW: "Game resumed. Score 2 to 2. Player t" 4.4 (min 3.98, median 5.02, bar 4.5, 16px/400, rgb(245, 238, 230))
+PASS  neon-dark-phone: 7 screens, 151 text lines, all at their bar or above  worst 3.91:1 (bar 3) "2" 30.4px/800 on game
+PASS  neon-dark-desktop: 7 screens, 151 text lines, all at their bar or above  worst 3.96:1 (bar 3) "5" 38.4px/800 on results dialog
+FAIL  paper-dark-phone home (banner, Continue card): text over its real background  BELOW: "Grid Rivals" 1.9 (min 1.44, median 5.41, bar 3, 22.4px/700, rgb(255, 255, 255))
+FAIL  paper-dark-phone settings: text over its real background  BELOW: "Grid Rivals" 1.9 (min 1.44, median 5.41, bar 3, 22.4px/700, rgb(255, 255, 255))
+FAIL  paper-dark-phone leaderboard: text over its real background  BELOW: "Grid Rivals" 1.9 (min 1.44, median 5.41, bar 3, 22.4px/700, rgb(255, 255, 255))
+FAIL  paper-dark-phone stats: text over its real background  BELOW: "Grid Rivals" 1.9 (min 1.44, median 5.41, bar 3, 22.4px/700, rgb(255, 255, 255))
+FAIL  paper-dark-phone setup: text over its real background  BELOW: "Grid Rivals" 1.9 (min 1.44, median 5.41, bar 3, 22.4px/700, rgb(255, 255, 255))
+FAIL  paper-dark-phone game: text over its real background  BELOW: "Grid Rivals" 1.9 (min 1.44, median 5.41, bar 3, 22.4px/700, rgb(255, 255, 255)); "Game resumed. Score 2 to 2. Player t" 4.41 (min 4.25, median 4.89, bar 4.5, 16px/400, rgb(246, 238, 223))
+      (paper-dark-phone game, not counted: decorative "R" 3.9)
+FAIL  paper-dark-desktop home (banner, Continue card): text over its real background  BELOW: "Grid Rivals" 2.46 (min 1.44, median 5.04, bar 3, 22.4px/700, rgb(255, 255, 255))
+FAIL  paper-dark-desktop settings: text over its real background  BELOW: "Grid Rivals" 2.46 (min 1.44, median 5.04, bar 3, 22.4px/700, rgb(255, 255, 255))
+FAIL  paper-dark-desktop leaderboard: text over its real background  BELOW: "Grid Rivals" 2.46 (min 1.44, median 5.04, bar 3, 22.4px/700, rgb(255, 255, 255))
+FAIL  paper-dark-desktop stats: text over its real background  BELOW: "Grid Rivals" 2.46 (min 1.44, median 5.04, bar 3, 22.4px/700, rgb(255, 255, 255))
+FAIL  paper-dark-desktop setup: text over its real background  BELOW: "Grid Rivals" 2.46 (min 1.44, median 5.04, bar 3, 22.4px/700, rgb(255, 255, 255))
+FAIL  paper-dark-desktop game: text over its real background  BELOW: "Grid Rivals" 2.46 (min 1.44, median 5.04, bar 3, 22.4px/700, rgb(255, 255, 255)); "Game resumed. Score 2 to 2. Player t" 4.47 (min 4.25, median 4.89, bar 4.5, 16px/400, rgb(246, 238, 223))
+      (paper-dark-desktop game, not counted: decorative "R" 3.9)
+PASS  console: no errors
+
+4/17 checks passed
+servers stopped; child exit 0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-19T18:41:12.855Z","deadlineAt":"2026-10-19T18:53:35.596Z","timedOut":false,"exitCode":0}

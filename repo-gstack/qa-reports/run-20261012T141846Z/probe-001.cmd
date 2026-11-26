@@ -1,0 +1,1 @@
+QA_SHOTS=".gstack/qa-reports/run-20261012T141846Z/screenshots/" bun "$HOME/.claude/skills/gstack/bin/gstack-qa-deadline" run ".gstack/qa-reports/run-20261012T141846Z/deadline.json" -- node "C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs" O

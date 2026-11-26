@@ -1,0 +1,40 @@
+PASS  table-light-phone: Home in table/light, no sideways scroll  body font Jost
+PASS  table/light: contrast (text 4.5, muted 4.5, lines/boxes/initials/focus 3)  {"text":14.46,"muted":8.42,"p1":8.7,"p2":8.7,"box1":4.15,"box2":3.57,"boxInk1":3.37,"boxInk2":8.05,"focusPage":4.09,"focusPanel":7.1}
+PASS  table/light: pressed buttons are named by their label alone (no tick)
+PASS  table-light-desktop: Home in table/light, no sideways scroll  body font Jost
+PASS  table-dark-phone: Home in table/dark, no sideways scroll  body font Jost
+PASS  table/dark: contrast (text 4.5, muted 4.5, lines/boxes/initials/focus 3)  {"text":11.36,"muted":7.12,"p1":6.25,"p2":6.25,"box1":5.47,"box2":7.86,"boxInk1":3.8,"boxInk2":7.95,"focusPage":7.64,"focusPanel":6.39}
+PASS  table/dark: pressed buttons are named by their label alone (no tick)
+PASS  table-dark-desktop: Home in table/dark, no sideways scroll  body font Jost
+PASS  neon-light-phone: Home in neon/light, no sideways scroll  body font Manrope
+PASS  neon/light: contrast (text 4.5, muted 4.5, lines/boxes/initials/focus 3)  {"text":17.41,"muted":7.25,"p1":3.51,"p2":5.97,"box1":5.4,"box2":9.1,"boxInk1":3.51,"boxInk2":5.97,"focusPage":5.29,"focusPanel":5.97}
+PASS  neon/light: pressed buttons are named by their label alone (no tick)
+PASS  neon-light-desktop: Home in neon/light, no sideways scroll  body font Manrope
+PASS  neon-dark-phone: Home in neon/dark, no sideways scroll  body font Manrope
+PASS  neon/dark: contrast (text 4.5, muted 4.5, lines/boxes/initials/focus 3)  {"text":16.11,"muted":8.25,"p1":5.41,"p2":8.3,"box1":5.41,"box2":8.3,"boxInk1":12.76,"boxInk2":10.14,"focusPage":8.63,"focusPanel":7.94}
+PASS  neon/dark: pressed buttons are named by their label alone (no tick)
+PASS  neon-dark-desktop: Home in neon/dark, no sideways scroll  body font Manrope
+PASS  paper-light-phone: Home in paper/light, no sideways scroll  body font "Atkinson Hyperlegible"
+PASS  paper/light: contrast (text 4.5, muted 4.5, lines/boxes/initials/focus 3)  {"text":13.29,"muted":6.4,"p1":3.31,"p2":5.64,"box1":null,"box2":null,"boxInk1":4.15,"boxInk2":5.64,"focusPage":4.39,"focusPanel":5.64}
+PASS  paper/light: pressed buttons are named by their label alone (no tick)
+PASS  paper-light-desktop: Home in paper/light, no sideways scroll  body font "Atkinson Hyperlegible"
+PASS  paper-dark-phone: Home in paper/dark, no sideways scroll  body font "Atkinson Hyperlegible"
+PASS  paper/dark: contrast (text 4.5, muted 4.5, lines/boxes/initials/focus 3)  {"text":12.68,"muted":6.64,"p1":4.41,"p2":6.77,"box1":null,"box2":null,"boxInk1":5.5,"boxInk2":6.77,"focusPage":7.75,"focusPanel":6.77}
+PASS  paper/dark: pressed buttons are named by their label alone (no tick)
+PASS  paper-dark-desktop: Home in paper/dark, no sideways scroll  body font "Atkinson Hyperlegible"
+PASS  first visit: Tabletop is the default theme
+PASS  the top bar has a theme button named for the current theme
+PASS  the picker opens with focus on the current theme
+PASS  arrow down moves to Neon and applies it at once
+PASS  choosing Paper applies it, saves it and recolours the browser bar  {"skin":"paper","theme":"dark","saved":"paper","bar":"#1A1816"}
+PASS  the picker switches light and dark too  light #E6DCC7
+PASS  Esc closes the picker
+PASS  focus returns to the theme button, which now says Paper
+PASS  after a reload the theme is set before the app starts (no flash)  paper/dark
+PASS  Done closes the picker
+PASS  a tap on the dimmed background closes the picker
+PASS  settings saved before themes existed load as Tabletop and keep light
+PASS  no page errors or console errors
+Blocked Firebase requests reported in the console (expected): 15
+
+37/37 checks passed

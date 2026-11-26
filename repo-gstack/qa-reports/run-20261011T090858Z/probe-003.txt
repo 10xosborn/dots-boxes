@@ -1,0 +1,26 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-11T09:09:20.953Z","deadlineAt":"2026-10-11T09:24:20.953Z","budgetMs":900000,"observedAt":"2026-10-11T09:10:32.893Z","remainingMs":828060,"expired":false}
+PASS  N host creates a game and the guest joins with the code  2D9BN
+PASS  N both players appear in presence/ and in the old online flag  {"presence":{"96EUA5B4FCDgL8Y1yviYgXXcP1fq":1,"TLCexBwFZ7jhZABFTTOQ238AZEKp":1},"online":{"96EUA5B4FCDgL8Y1yviYgXXcP1fq":true,"TLCexBwFZ7jhZABFTTOQ238AZEKp":true}}
+PASS  N a move reaches the other player
+PASS  N the guest sees "Reconnecting…" about 2 s after losing the connection  Reconnecting…
+PASS  N the guest can still draw a line while offline (shows at once on their screen)
+PASS  N nothing changes for the host in the first seconds (network blips)
+PASS  N after about 10 s the host sees a calm note  "Your friend stepped away." after 8 s
+PASS  N on the guest's turn: "Your friend stepped away." (both players are "Player"), with no promise about the host's move  Your friend stepped away.
+PASS  N the guest's offline move arrives after reconnecting
+PASS  N the guest is marked present again after reconnecting  {"presence":{"96EUA5B4FCDgL8Y1yviYgXXcP1fq":1,"TLCexBwFZ7jhZABFTTOQ238AZEKp":1},"online":{"96EUA5B4FCDgL8Y1yviYgXXcP1fq":true,"TLCexBwFZ7jhZABFTTOQ238AZEKp":true}}
+PASS  N both notes clear
+PASS  N no move lost or doubled: the database, host and guest agree  db [8,5]
+PASS  N on the host's turn: "… stepped away. Your move will be waiting."  Your friend stepped away. Your move will be waiting.
+PASS  N the host's move is saved while the guest is away (moves never wait for presence)
+PASS  N the guest sees that move when they're back
+PASS  N host console: no errors
+PASS  N host: no permission errors with the new rules
+PASS  N guest console: no errors
+PASS  N guest: no permission errors with the new rules
+PASS  no request ever went to the live Firebase project
+
+20/20 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-11T09:10:59.255Z","deadlineAt":"2026-10-11T09:24:20.953Z","timedOut":false,"exitCode":0}

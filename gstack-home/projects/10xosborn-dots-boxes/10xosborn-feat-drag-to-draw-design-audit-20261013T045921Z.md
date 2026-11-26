@@ -1,0 +1,1 @@
+Design review of feat/drag-to-draw (2026-10-13): 1 finding (picked-up dot ring hidden under the finger), fixed in 7ff79a2. Design A -> A, AI slop A -> A. Full report: /c/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261013/design-audit-127.0.0.1-drag.md

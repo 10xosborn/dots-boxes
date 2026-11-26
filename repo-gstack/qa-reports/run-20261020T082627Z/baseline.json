@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-20",
+  "url": "http://127.0.0.1:4173/",
+  "healthScore": 100,
+  "issues": [
+    { "id": "ISSUE-001", "title": "Without a Web Worker, the player's line paints about 177 ms late on Hard's playout moves", "severity": "low", "category": "performance" }
+  ],
+  "categoryScores": { "console": 100, "functional": 100, "ux": 100, "performance": 97 }
+}

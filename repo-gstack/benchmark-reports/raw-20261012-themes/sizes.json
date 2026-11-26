@@ -1,0 +1,35 @@
+{
+ "main": {
+  "ai.worker.js": 8401,
+  "app.js": 30911,
+  "firebase.js": 130759,
+  "index.js": 46738,
+  "index.css": 4305,
+  "room.js": 39606
+ },
+ "branch": {
+  "ai.worker.js": 8401,
+  "app.js": 30910,
+  "atkinson-400-latin.woff2": 17208,
+  "atkinson-400-latin-ext.woff2": 9384,
+  "atkinson-700-latin-ext.woff2": 9372,
+  "atkinson-700-latin.woff2": 17524,
+  "firebase.js": 130759,
+  "index.css": 6758,
+  "index.js": 48596,
+  "jost-400-800-latin-ext.woff2": 17104,
+  "jost-400-800-latin.woff2": 26576,
+  "kalam-400-latin.woff2": 22336,
+  "kalam-400-latin-ext.woff2": 12140,
+  "kalam-700-latin.woff2": 22144,
+  "kalam-700-latin-ext.woff2": 12152,
+  "manrope-400-800-latin.woff2": 24836,
+  "manrope-400-800-latin-ext.woff2": 15120,
+  "paper-grain.webp": 13162,
+  "room.js": 39605,
+  "unbounded-500-800-latin.woff2": 50904,
+  "unbounded-500-800-latin-ext.woff2": 118348,
+  "wood-dark.webp": 23022,
+  "wood-light.webp": 24146
+ }
+}

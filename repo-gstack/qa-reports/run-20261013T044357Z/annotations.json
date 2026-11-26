@@ -1,0 +1,11 @@
+{
+  "evidence": [],
+  "limits": [
+    "Online play was not exercised: it needs the Firebase emulators (Java), and this PC had about 1.4 GB free. The online screen renders the same Board component with the same onmove callback and interactive flag.",
+    "Touch was emulated: CDP touch events (pointerType touch) and Playwright taps on a 390x844 Chromium page; no real phone, no Brave, no screen reader.",
+    "Sounds were checked by recording the oscillator frequencies the page starts (WebAudio), not by listening.",
+    "Firebase was blocked, so the app ran on its local adapter with the offline banner.",
+    "qa-r1a.mjs was updated before this run to make moves by tapping beside a dot on a line: a tap right on a dot no longer draws (the intended change in this branch), and its old helper tapped dot centres.",
+    "The repo has no UI test framework; every browser check is a throwaway script outside the repo (coverage debt, as recorded in CLAUDE.md)."
+  ]
+}

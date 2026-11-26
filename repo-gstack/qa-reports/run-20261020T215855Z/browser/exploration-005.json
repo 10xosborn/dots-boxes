@@ -1,0 +1,6 @@
+{
+  "observationCommand": "CASE=switch bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RDA/browser/deadline.json\" -- node serve-one.mjs dist-glass-A -- node glass-explore.mjs",
+  "observed": "PASS  switch: Dark Neon: the clear glass with its rim and edge highlights\nPASS  switch: to Tabletop: its felt and wooden frame, no Neon rim, glass or highlights\nPASS  switch: to Paper: its sheet, no Neon rim, glass or highlights\nPASS  switch: back to Neon: the glass, rim and highlights return, the game kept\nPASS  switch: no page errors\n5/5 checks passed",
+  "hypothesis": "Theme switches swap the board's surface cleanly. The glass adds 1.5 px highlight lines 4 px inside each edge over the board's content; on the densest board (12x12 at 1920x1080) and on a short landscape phone the outer row of dots sits closest to the edge, so they are where a highlight could cross a dot.",
+  "nextCommand": "CASE=edges bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RDA/browser/deadline.json\" -- node serve-one.mjs dist-glass-A -- node glass-explore.mjs"
+}

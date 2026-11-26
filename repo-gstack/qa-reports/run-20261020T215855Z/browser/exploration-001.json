@@ -1,0 +1,6 @@
+{
+  "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RDA/browser/deadline.json\" -- node serve-one.mjs dist-glass-A -- node -e '<baseline: phone 390x844, Dark Neon, Firebase blocked, goto http://127.0.0.1:4173/, wait for Play, screenshot initial.jpg, print URL, console errors and page text>' \"$RDA\"",
+  "observed": "URL=http://127.0.0.1:4173/\nCONSOLE_ERRORS=[]\nTEXT=Grid Rivals 1 Player Could not reach Firebase, so results are saved on this device for now. Dismiss Grid Rivals Dots & Boxes Close a box, keep your turn. Beat t",
+  "hypothesis": "The glass build loads cleanly. The board is now its own stacking context with a rim and edge highlights raised over its content; the results dialog and the theme sheet are the two things drawn over the board, so a pixel comparison of each dialog with the board's glass layers shown and hidden should prove nothing of the board paints over them.",
+  "nextCommand": "CASE=dialogs bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RDA/browser/deadline.json\" -- node serve-one.mjs dist-glass-A -- node glass-explore.mjs"
+}

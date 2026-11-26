@@ -1,0 +1,10 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-20T09:31:45.383Z","deadlineAt":"2026-10-20T09:46:45.383Z","budgetMs":900000,"observedAt":"2026-10-20T09:38:13.197Z","remainingMs":512186,"expired":false}
+serving C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/main-wt/dist on :4173
+paper-light line p1 {"median":"2.99","worst":"2.99"} (42 samples) | line p2 {"median":"5.09","worst":"5.09"} (42 samples)  [--line1 #fc4422]
+FAIL  paper-light: every line sample at 3:1 or more off the last-move mark  worst p1 2.99, p2 5.09
+
+0/1 checks passed
+servers stopped; child exit 1
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-20T09:38:18.188Z","deadlineAt":"2026-10-20T09:46:45.383Z","timedOut":false,"exitCode":1}

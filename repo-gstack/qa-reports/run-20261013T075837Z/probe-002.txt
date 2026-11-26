@@ -1,0 +1,12 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-13T07:59:11.974Z","deadlineAt":"2026-10-13T08:14:11.974Z","budgetMs":900000,"observedAt":"2026-10-13T08:01:04.099Z","remainingMs":787875,"expired":false}
+PASS  pvp: the game ends with the win jingle, every note heard  [520,1040,520,1040,520,1040,784,1175,523,659,784,1047]
+PASS  pvp: the win jingle is loud and unclipped  -3.7 dBFS
+PASS  pvp: no page errors
+PASS  ai: the game ends with the lose jingle, every note heard  [520,1040,520,1040,520,1040,784,1175,440,370,294]
+PASS  ai: the lose jingle is loud and unclipped  -3.9 dBFS
+PASS  ai: no page errors
+
+6 passed, 0 failed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-13T08:01:14.036Z","deadlineAt":"2026-10-13T08:14:11.974Z","timedOut":false,"exitCode":0}

@@ -1,0 +1,17 @@
+{
+  "observationCapture": "002",
+  "observationArgv": [
+    "npx",
+    "vitest",
+    "run",
+    "tests/theme"
+  ],
+  "observed": "\n RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals\n\n\n Test Files  1 passed (1)\n      Tests  7 passed (7)\n   Start at  10:26:21\n   Duration  305ms (transform 63%, import 23%, tests 7%, worker 7%)\n\n",
+  "hypothesis": "F1: the regression test is green; type-check the whole app with the fix in place (expect 0 errors, 0 warnings).",
+  "nextCapture": "003",
+  "nextArgv": [
+    "npm",
+    "run",
+    "check"
+  ]
+}

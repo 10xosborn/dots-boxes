@@ -1,0 +1,26 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-15T10:16:10.749Z","deadlineAt":"2026-10-15T10:31:10.749Z","budgetMs":900000,"observedAt":"2026-10-15T10:16:23.739Z","remainingMs":887010,"expired":false}
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+FAIL  start neon-dark: page, board, both line colours and the browser bar are the mode's own  got neon-dark page #050608 board #0B0F19 lines #FF007F #C6FF00 bar #05070D
+PASS  start neon-dark: violet present (the captured tiles)  3.00% of the screen
+PASS  switched to table-dark: page, board, both line colours and the browser bar are the mode's own  got table-dark page #4F3B32 board #5A4538 lines #E5E4E2 #E0A070 bar #4F3B32
+PASS  switched to table-dark: violet absent  0.00% of the screen
+PASS  reloaded in table-dark: page, board, both line colours and the browser bar are the mode's own  got table-dark page #4F3B32 board #5A4538 lines #E5E4E2 #E0A070 bar #4F3B32
+PASS  reloaded in table-dark: violet absent  0.00% of the screen
+PASS  switched to paper-dark: page, board, both line colours and the browser bar are the mode's own  got paper-dark page #492E1F board #513626 lines #E8D5B5 #8FB8D6 bar #492E1F
+PASS  switched to paper-dark: violet absent  0.00% of the screen
+PASS  switched to neon-light: page, board, both line colours and the browser bar are the mode's own  got neon-light page #D5DEE7 board #EBF1F5 lines #0047FF #007F73 bar #D5DEE7
+PASS  switched to neon-light: violet absent  0.01% of the screen
+PASS  reloaded in neon-light: page, board, both line colours and the browser bar are the mode's own  got neon-light page #D5DEE7 board #EBF1F5 lines #0047FF #007F73 bar #D5DEE7
+PASS  reloaded in neon-light: violet absent  0.01% of the screen
+PASS  switched to table-light: page, board, both line colours and the browser bar are the mode's own  got table-light page #E3B970 board #C4DFC9 lines #BF4E1E #7C5E08 bar #E3B970
+PASS  switched to table-light: violet absent  0.00% of the screen
+PASS  switched to paper-light: page, board, both line colours and the browser bar are the mode's own  got paper-light page #E6DCC7 board #FCF8EF lines #FC4422 #4657CE bar #E6DCC7
+PASS  switched to paper-light: violet absent  0.00% of the screen
+FAIL  switched to neon-dark: page, board, both line colours and the browser bar are the mode's own  got neon-dark page #050608 board #0B0F19 lines #FF007F #C6FF00 bar #05070D
+PASS  switched to neon-dark: violet present (the captured tiles)  2.38% of the screen
+PASS  no page errors while switching
+17/19 checks passed
+servers stopped; child exit 1
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-15T10:16:36.835Z","deadlineAt":"2026-10-15T10:31:10.749Z","timedOut":false,"exitCode":1}

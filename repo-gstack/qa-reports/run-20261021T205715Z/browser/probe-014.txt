@@ -1,0 +1,8 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-21T20:58:42.716Z","deadlineAt":"2026-10-21T21:13:42.716Z","budgetMs":900000,"observedAt":"2026-10-21T21:12:18.526Z","remainingMs":84190,"expired":false}
+#26 dpr 1: canvas box 0,0,390,844 (bitmap 390x844) in BODY; burst centre at x=202 of a 390 px screen
+#26 dpr 2: canvas box 0,0,780,1688 (bitmap 780x1688) in BODY; burst centre at x=407 of a 390 px screen
+branch dpr 1: canvas box 0,0,390,844 (bitmap 390x844) in DIALOG.modal; burst centre at x=199 of a 390 px screen
+branch dpr 2: canvas box 0,0,390,844 (bitmap 780x1688) in DIALOG.modal; burst centre at x=198 of a 390 px screen
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-21T21:12:31.039Z","deadlineAt":"2026-10-21T21:13:42.716Z","timedOut":false,"exitCode":0}

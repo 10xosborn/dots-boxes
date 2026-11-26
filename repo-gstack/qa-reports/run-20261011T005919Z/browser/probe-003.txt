@@ -1,0 +1,24 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-11T01:00:51.876Z","deadlineAt":"2026-10-11T01:15:51.876Z","budgetMs":900000,"observedAt":"2026-10-11T01:02:08.646Z","remainingMs":823230,"expired":false}
+PASS  O host creates a game and the guest joins with the code  CMQUE
+PASS  O old rules: presence/ is refused, the old online flag still marks both players  {"presence":{},"online":{"AElA7CSI1om2yDoWL07RpzdPTNcz":true,"RflHyrONDWRO4zDCLE2QmZYcTUaP":true}}
+PASS  O a move reaches the other player
+PASS  O the guest sees "Reconnecting…" about 2 s after losing the connection  Reconnecting…
+PASS  O the guest can still draw a line while offline (shows at once on their screen)
+PASS  O nothing changes for the host in the first seconds (network blips)
+PASS  O after about 10 s the host sees a calm note  "Player stepped away." after 8 s
+PASS  O on the guest's turn the note doesn't promise anything about the host's move  Player stepped away.
+PASS  O the guest's offline move arrives after reconnecting
+PASS  O the guest is marked present again after reconnecting  {"presence":{},"online":{"AElA7CSI1om2yDoWL07RpzdPTNcz":true,"RflHyrONDWRO4zDCLE2QmZYcTUaP":true}}
+PASS  O both notes clear
+PASS  O no move lost or doubled: the database, host and guest agree  db [9,19]
+PASS  O on the host's turn: "… stepped away. Your move will be waiting."  Player stepped away. Your move will be waiting.
+PASS  O the host's move is saved while the guest is away (moves never wait for presence)
+PASS  O the guest sees that move when they're back
+PASS  O host console: no errors
+PASS  O guest console: no errors
+PASS  no request ever went to the live Firebase project
+
+18/18 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-11T01:02:35.333Z","deadlineAt":"2026-10-11T01:15:51.876Z","timedOut":false,"exitCode":0}

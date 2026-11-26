@@ -1,0 +1,1 @@
+Design review of feat/springy-drag: 2 findings, 2 fixed (a4fc0f4, 973177e); design A -> A, AI slop A -> A; detector 38 -> 38. Full report: /c/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261013/design-audit-127.0.0.1-springy.md

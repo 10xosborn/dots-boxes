@@ -1,0 +1,29 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-13T07:59:11.974Z","deadlineAt":"2026-10-13T08:14:11.974Z","budgetMs":900000,"observedAt":"2026-10-13T08:02:50.458Z","remainingMs":681516,"expired":false}
+10 PASS, 24 FAIL (full output: .gstack/qa-reports/run-20261013T075837Z/probe-004-full.txt)
+FAIL  chromium: with Sound on, no audio engine before the page is used  [{"ev":"created","state":"suspended","active":false,"t":302.69999998807907}]
+FAIL  chromium: the engine is created inside the first click  {"ev":"created","state":"suspended","active":false,"t":302.69999998807907}
+FAIL  chromium: the engine is running before the game starts  suspended
+FAIL  chromium: the first move's line sound plays at once  [[520,"suspended"]]
+FAIL  chromium: the line sound peaks at a hearable level  -Infinity dBFS (was -26.3)
+FAIL  chromium: a drag plays pick, snap, then the line, all at once  [660,990,520]
+FAIL  chromium: the box chime is loud but not clipped  -Infinity dBFS (was -21.8)
+FAIL  chromium: switching Sound on plays the test chime straight away  ["created"]
+FAIL  chromium: switching Sound off pauses the engine  running
+FAIL  chromium phone: the engine starts on a tap, not before  {"ev":"created","state":"suspended","active":false,"t":62.5}
+FAIL  chromium phone: the engine is running
+FAIL  chromium phone: a tapped line is heard at once
+FAIL  brave: with Sound on, no audio engine before the page is used  [{"ev":"created","state":"suspended","active":false,"t":406.09999999403954}]
+FAIL  brave: the engine is created inside the first click  {"ev":"created","state":"suspended","active":false,"t":406.09999999403954}
+FAIL  brave: the engine is running before the game starts  suspended
+FAIL  brave: the first move's line sound plays at once  [[520,"suspended"]]
+FAIL  brave: the line sound peaks at a hearable level  -Infinity dBFS (was -26.3)
+FAIL  brave: a drag plays pick, snap, then the line, all at once  [660,990,520]
+FAIL  brave: the box chime is loud but not clipped  -Infinity dBFS (was -21.8)
+FAIL  brave: switching Sound on plays the test chime straight away  ["created"]
+FAIL  brave: switching Sound off pauses the engine  running
+FAIL  brave phone: the engine starts on a tap, not before  {"ev":"created","state":"suspended","active":false,"t":125.10000002384186}
+FAIL  brave phone: the engine is running
+FAIL  brave phone: a tapped line is heard at once
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-13T08:03:16.530Z","deadlineAt":"2026-10-13T08:14:11.974Z","timedOut":false,"exitCode":1}

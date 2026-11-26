@@ -1,0 +1,82 @@
+serving branch on :4176 and main on :4177
+ok home-table-light|main cold 173
+ok home-table-light|branch cold 210
+ok home-table-dark|main cold 124
+ok home-table-dark|branch cold 167
+ok home-neon-dark|main cold 120
+ok home-neon-dark|branch cold 127
+ok home-neon-light|main cold 143
+ok home-neon-light|branch cold 148
+ok home-paper-light|main cold 136
+ok home-paper-light|branch cold 114
+ok home-paper-dark|main cold 111
+ok home-paper-dark|branch cold 157
+ok game-reload-table|main cold 127
+ok game-reload-table|branch cold 119
+ok game-reload-neon|main cold 145
+ok game-reload-neon|branch cold 118
+ok home-table-light|branch cold 112
+ok home-table-light|main cold 97
+ok home-table-dark|branch cold 110
+ok home-table-dark|main cold 117
+ok home-neon-dark|branch cold 115
+ok home-neon-dark|main cold 109
+ok home-neon-light|branch cold 114
+ok home-neon-light|main cold 114
+ok home-paper-light|branch cold 181
+ok home-paper-light|main cold 115
+ok home-paper-dark|branch cold 123
+ok home-paper-dark|main cold 105
+ok game-reload-table|branch cold 152
+ok game-reload-table|main cold 124
+ok game-reload-neon|branch cold 111
+ok game-reload-neon|main cold 111
+home-table-light|main cold {"ttfb":1,"fcp":92,"lcp":472,"ready":97,"cls":0,"domInteractive":15,"domComplete":70,"load":70,"requests":8,"transfer":777760,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   warm {"ttfb":1,"fcp":64,"lcp":456,"ready":79,"cls":25,"domInteractive":18,"domComplete":48,"load":48,"requests":8,"transfer":777760,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-table-light|branch cold {"ttfb":2,"fcp":100,"lcp":484,"ready":112,"cls":25,"domInteractive":20,"domComplete":80,"load":80,"requests":8,"transfer":778774,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   warm {"ttfb":1,"fcp":72,"lcp":464,"ready":87,"cls":25,"domInteractive":16,"domComplete":48,"load":48,"requests":8,"transfer":778774,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-table-dark|main cold {"ttfb":1,"fcp":84,"lcp":496,"ready":117,"cls":25,"domInteractive":17,"domComplete":78,"load":78,"requests":8,"transfer":776636,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":23022} 
+                   warm {"ttfb":2,"fcp":72,"lcp":456,"ready":86,"cls":25,"domInteractive":16,"domComplete":54,"load":54,"requests":8,"transfer":776636,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":23022} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-table-dark|branch cold {"ttfb":1,"fcp":100,"lcp":472,"ready":110,"cls":25,"domInteractive":16,"domComplete":77,"load":77,"requests":8,"transfer":777650,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":23022} 
+                   warm {"ttfb":2,"fcp":72,"lcp":476,"ready":86,"cls":25,"domInteractive":16,"domComplete":54,"load":54,"requests":8,"transfer":777650,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":23022} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-neon-dark|main cold {"ttfb":1,"fcp":72,"lcp":480,"ready":109,"cls":25,"domInteractive":13,"domComplete":78,"load":78,"requests":8,"transfer":802778,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   warm {"ttfb":1,"fcp":60,"lcp":464,"ready":85,"cls":25,"domInteractive":16,"domComplete":54,"load":54,"requests":8,"transfer":802778,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-neon-dark|branch cold {"ttfb":1,"fcp":80,"lcp":476,"ready":115,"cls":25,"domInteractive":16,"domComplete":75,"load":75,"requests":8,"transfer":803792,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   warm {"ttfb":1,"fcp":52,"lcp":456,"ready":83,"cls":25,"domInteractive":15,"domComplete":52,"load":52,"requests":8,"transfer":803792,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-neon-light|main cold {"ttfb":1,"fcp":80,"lcp":476,"ready":114,"cls":25,"domInteractive":17,"domComplete":80,"load":80,"requests":8,"transfer":802778,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   warm {"ttfb":1,"fcp":48,"lcp":448,"ready":80,"cls":25,"domInteractive":14,"domComplete":49,"load":49,"requests":8,"transfer":802778,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-neon-light|branch cold {"ttfb":1,"fcp":76,"lcp":492,"ready":114,"cls":25,"domInteractive":17,"domComplete":81,"load":81,"requests":8,"transfer":803792,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   warm {"ttfb":1,"fcp":48,"lcp":460,"ready":80,"cls":25,"domInteractive":16,"domComplete":51,"load":51,"requests":8,"transfer":803792,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-paper-light|main cold {"ttfb":1,"fcp":84,"lcp":188,"ready":115,"cls":24,"domInteractive":17,"domComplete":67,"load":67,"requests":11,"transfer":811356,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4206} 
+                   warm {"ttfb":1,"fcp":72,"lcp":456,"ready":99,"cls":24,"domInteractive":16,"domComplete":57,"load":57,"requests":11,"transfer":811356,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4206} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-paper-light|branch cold {"ttfb":2,"fcp":80,"lcp":184,"ready":114,"cls":24,"domInteractive":18,"domComplete":69,"load":69,"requests":11,"transfer":812370,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4206} 
+                   warm {"ttfb":1,"fcp":72,"lcp":456,"ready":94,"cls":24,"domInteractive":17,"domComplete":55,"load":55,"requests":11,"transfer":812370,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4206} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-paper-dark|main cold {"ttfb":1,"fcp":72,"lcp":168,"ready":105,"cls":24,"domInteractive":14,"domComplete":55,"load":55,"requests":11,"transfer":811538,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4388} 
+                   warm {"ttfb":1,"fcp":72,"lcp":456,"ready":79,"cls":24,"domInteractive":15,"domComplete":48,"load":48,"requests":11,"transfer":811538,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4388} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-paper-dark|branch cold {"ttfb":1,"fcp":92,"lcp":188,"ready":123,"cls":24,"domInteractive":14,"domComplete":57,"load":57,"requests":11,"transfer":812552,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4388} 
+                   warm {"ttfb":1,"fcp":76,"lcp":476,"ready":83,"cls":24,"domInteractive":15,"domComplete":51,"load":51,"requests":11,"transfer":812552,"jsDecoded":684955,"cssDecoded":39397,"fontBytes":79212,"fontFiles":4,"imageBytes":4388} 
+                   third-party ["identitytoolkit.googleapis.com"]
+game-reload-table|main cold {"ttfb":1,"fcp":96,"lcp":512,"ready":124,"cls":25,"domInteractive":15,"domComplete":79,"load":79,"requests":10,"transfer":805019,"jsDecoded":699542,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":35204} 
+                   warm {"ttfb":1,"fcp":68,"lcp":456,"ready":83,"cls":25,"domInteractive":18,"domComplete":45,"load":45,"requests":10,"transfer":805019,"jsDecoded":699542,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":35204} 
+                   third-party ["identitytoolkit.googleapis.com"]
+game-reload-table|branch cold {"ttfb":2,"fcp":80,"lcp":492,"ready":119,"cls":25,"domInteractive":15,"domComplete":68,"load":68,"requests":10,"transfer":806033,"jsDecoded":700556,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":35204} 
+                   warm {"ttfb":1,"fcp":72,"lcp":468,"ready":88,"cls":25,"domInteractive":19,"domComplete":51,"load":51,"requests":10,"transfer":806033,"jsDecoded":700556,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":35204} 
+                   third-party ["identitytoolkit.googleapis.com"]
+game-reload-neon|main cold {"ttfb":1,"fcp":72,"lcp":148,"ready":111,"cls":25,"domInteractive":14,"domComplete":70,"load":70,"requests":9,"transfer":818679,"jsDecoded":699542,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   warm {"ttfb":1,"fcp":56,"lcp":124,"ready":88,"cls":25,"domInteractive":19,"domComplete":53,"load":53,"requests":9,"transfer":818679,"jsDecoded":699542,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   third-party ["identitytoolkit.googleapis.com"]
+game-reload-neon|branch cold {"ttfb":1,"fcp":72,"lcp":152,"ready":111,"cls":25,"domInteractive":12,"domComplete":66,"load":66,"requests":9,"transfer":819693,"jsDecoded":700556,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   warm {"ttfb":1,"fcp":60,"lcp":120,"ready":85,"cls":25,"domInteractive":19,"domComplete":53,"load":53,"requests":9,"transfer":819693,"jsDecoded":700556,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   third-party ["identitytoolkit.googleapis.com"]
+servers stopped; child exit 0

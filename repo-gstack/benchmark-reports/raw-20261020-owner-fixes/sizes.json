@@ -1,0 +1,33 @@
+{
+  "changed": [
+    {
+      "asset": "assets/index.js",
+      "main": "assets/index-Dj6M53Tm.js",
+      "branch": "assets/index-E7wstwfW.js",
+      "mainRaw": 128264,
+      "branchRaw": 129608,
+      "mainGz": 45374,
+      "branchGz": 45838
+    }
+  ],
+  "totals": {
+    "js": {
+      "mainRaw": 866082,
+      "branchRaw": 867426,
+      "mainGz": 271394,
+      "branchGz": 271855
+    },
+    "css": {
+      "mainRaw": 46094,
+      "branchRaw": 46094,
+      "mainGz": 10197,
+      "branchGz": 10203
+    },
+    "all": {
+      "mainRaw": 1429662,
+      "branchRaw": 1431006,
+      "mainGz": 282492,
+      "branchGz": 282957
+    }
+  }
+}

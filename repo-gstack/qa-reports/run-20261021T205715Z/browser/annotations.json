@@ -1,0 +1,9 @@
+{
+  "evidence": [],
+  "limits": [
+    "checkpoint 001: probe 1's command ended in `| tail -30`, so its observation is the last 30 lines of 96 checks (all passing, as its summary line shows)",
+    "checkpoints 001-013 cover the 14 guarded probes; probe 14 (confetti) closed the 900 s budget and needed no checkpoint after it",
+    "after the budget, required rechecks ran with fixed timeouts: confetti-none, the resume suites on #26's build (twice), hud/edge, the results-fit matrix, the online suite on the emulators",
+    "Chromium 151 headless only: no Safari, Firefox, real phones or a real screen reader (the accessibility tree is read through Playwright's ARIA snapshot)"
+  ]
+}

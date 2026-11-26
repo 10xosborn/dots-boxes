@@ -1,0 +1,1 @@
+Design review of design/08-liquid-glass: 0 findings, A -> A, detector 66 -> 66. Report: /c/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261020/design-audit-127.0.0.1-liquid-glass.md

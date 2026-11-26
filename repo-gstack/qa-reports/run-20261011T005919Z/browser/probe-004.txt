@@ -1,0 +1,10 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-11T01:00:51.876Z","deadlineAt":"2026-10-11T01:15:51.876Z","budgetMs":900000,"observedAt":"2026-10-11T01:02:48.950Z","remainingMs":782926,"expired":false}
+PASS  L host creates a game and the guest joins with the code  WTKUK
+PASS  L after 2 minutes away the host is offered "Leave game"  "Player stepped away. Your move will be waiting.", Leave game: true
+PASS  L when the guest comes back, the note and the offer go away
+PASS  no request ever went to the live Firebase project
+
+4/4 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-11T01:04:56.205Z","deadlineAt":"2026-10-11T01:15:51.876Z","timedOut":false,"exitCode":0}

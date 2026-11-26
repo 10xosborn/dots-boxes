@@ -1,0 +1,48 @@
+{
+  "cpu": 4,
+  "cold": 8,
+  "warm": 10,
+  "A": {
+    "home neon-dark": {
+      "main": {
+        "cold": {
+          "ready": 479.9,
+          "fcp": 244,
+          "lcp": 576,
+          "load": 299.1,
+          "bytes": 809775,
+          "img": 0
+        },
+        "warm": {
+          "ready": 253.5,
+          "fcp": 132,
+          "lcp": 604,
+          "load": 123.1,
+          "bytes": 809775,
+          "img": 0
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 480.4,
+          "fcp": 252,
+          "lcp": 580,
+          "load": 292,
+          "bytes": 810936,
+          "img": 0
+        },
+        "warm": {
+          "ready": 262.7,
+          "fcp": 128,
+          "lcp": 628,
+          "load": 120.1,
+          "bytes": 810936,
+          "img": 0
+        }
+      }
+    }
+  },
+  "B": {},
+  "C": {},
+  "D": {}
+}

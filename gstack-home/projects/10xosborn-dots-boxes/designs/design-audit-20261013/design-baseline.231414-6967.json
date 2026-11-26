@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-13",
+  "runId": "231414-6967",
+  "url": "http://127.0.0.1:4173/",
+  "designScore": "A",
+  "aiSlopScore": "A",
+  "categoryGrades": { "hierarchy": "A", "typography": "A", "spacing": "A", "color": "A", "interaction": "A", "responsive": "A", "content": "A", "aiSlop": "A", "motion": "A", "performance": "A" },
+  "findings": [
+    { "id": "FINDING-001", "title": "Buttons' darker foot turned cream grey by day", "impact": "polish", "category": "color" },
+    { "id": "FINDING-002", "title": "Tabletop's board cast the day's brown shadow at night", "impact": "polish", "category": "color" }
+  ],
+  "detector": { "mode": "dom", "engine": "0.1.3", "targetSet": "25ce4cf4e6ed932b577e2fd9cb3ce4d25c157882a56ab76ab744f9b5262a5a7c", "total": 63, "byRule": { "low-contrast": 5, "dark-glow": 20, "cramped-padding": 6, "nested-cards": 2, "repeating-stripes-gradient": 12, "codex-grid-background": 12, "layout-transition": 6 } }
+}

@@ -1,0 +1,37 @@
+serving branch on :4176 and main on :4177
+== main
+12x12 desktop      table-light       moves 30, median 33 ms, p95 34 ms, max 84 ms
+12x12 desktop      table-dark        moves 30, median 33 ms, p95 34 ms, max 35 ms
+12x12 desktop      neon-dark         moves 30, median 33 ms, p95 34 ms, max 34 ms
+12x12 desktop      neon-light        moves 30, median 33 ms, p95 34 ms, max 34 ms
+12x12 desktop      paper-light       moves 30, median 33 ms, p95 389 ms, max 849 ms
+12x12 desktop      paper-dark        moves 30, median 33 ms, p95 34 ms, max 34 ms
+7x7 phone, CPU 4x  table-light       moves 30, median 32 ms, p95 33 ms, max 34 ms
+7x7 phone, CPU 4x  table-dark        moves 30, median 32 ms, p95 33 ms, max 33 ms
+7x7 phone, CPU 4x  neon-dark         moves 30, median 31 ms, p95 33 ms, max 34 ms
+7x7 phone, CPU 4x  neon-light        moves 30, median 31 ms, p95 33 ms, max 34 ms
+7x7 phone, CPU 4x  paper-light       moves 30, median 32 ms, p95 33 ms, max 33 ms
+7x7 phone, CPU 4x  paper-dark        moves 30, median 31 ms, p95 33 ms, max 33 ms
+== branch
+12x12 desktop      table-light       moves 30, median 33 ms, p95 34 ms, max 34 ms
+12x12 desktop      table-dark        moves 30, median 33 ms, p95 34 ms, max 34 ms
+12x12 desktop      neon-dark         moves 30, median 33 ms, p95 34 ms, max 35 ms
+12x12 desktop      neon-light        moves 30, median 33 ms, p95 34 ms, max 34 ms
+12x12 desktop      paper-light       moves 30, median 33 ms, p95 34 ms, max 35 ms
+12x12 desktop      paper-dark        moves 30, median 33 ms, p95 34 ms, max 34 ms
+7x7 phone, CPU 4x  table-light       moves 30, median 32 ms, p95 47 ms, max 48 ms
+7x7 phone, CPU 4x  table-dark        moves 30, median 32 ms, p95 33 ms, max 34 ms
+7x7 phone, CPU 4x  neon-dark         moves 30, median 31 ms, p95 33 ms, max 35 ms
+7x7 phone, CPU 4x  neon-light        moves 30, median 31 ms, p95 33 ms, max 34 ms
+7x7 phone, CPU 4x  paper-light       moves 30, median 31 ms, p95 33 ms, max 33 ms
+7x7 phone, CPU 4x  paper-dark        moves 30, median 31 ms, p95 34 ms, max 34 ms
+== sound on, real input
+12x12 desktop      table-light   main    moves 30, median 12 ms, p95 35 ms, max 46 ms, lines drawn 30/30, notes started while running 24
+12x12 desktop      table-light   branch  moves 30, median 9 ms, p95 17 ms, max 20 ms, lines drawn 30/30, notes started while running 60
+12x12 desktop      neon-dark     main    moves 30, median 11 ms, p95 17 ms, max 18 ms, lines drawn 30/30, notes started while running 29
+12x12 desktop      neon-dark     branch  moves 30, median 11 ms, p95 17 ms, max 18 ms, lines drawn 30/30, notes started while running 60
+7x7 phone, CPU 4x  table-light   main    moves 30, median 28 ms, p95 41 ms, max 43 ms, lines drawn 30/30, notes started while running 29
+7x7 phone, CPU 4x  table-light   branch  moves 30, median 27 ms, p95 31 ms, max 49 ms, lines drawn 30/30, notes started while running 60
+7x7 phone, CPU 4x  neon-dark     main    moves 30, median 28 ms, p95 32 ms, max 37 ms, lines drawn 30/30, notes started while running 29
+7x7 phone, CPU 4x  neon-dark     branch  moves 30, median 28 ms, p95 31 ms, max 31 ms, lines drawn 30/30, notes started while running 60
+servers stopped; child exit 0

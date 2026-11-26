@@ -1,0 +1,68 @@
+{
+  "revision": "9e4d256e997d90fd1f8971417791bcf60452b79f",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "Touch was emulated (Chromium hasTouch at 390x844); no real phone, no Brave, and no screen reader were used. Accessible names were read from Chromium's accessibility tree through Playwright's aria snapshot.",
+    "Firebase was blocked, so the app ran on its local adapter with the offline banner; online play and the live leaderboard were not exercised (this PR has no data-layer change).",
+    "Performance was not measured in this run (separate /benchmark).",
+    "Checkpoint 004's observationCommand names probe 002's command by mistake; its observed text is probe 003's output, which is the right one. Published checkpoints are never edited, so it stays as written.",
+    "The ISSUE-001 regression check was added to themes-test.mjs after the repair. Its red evidence is the same exact-name lookup failing on the old build in probes 004, 005 and 006, not a red run of the new check itself.",
+    "The repo has no UI test framework; the browser checks are throwaway scripts kept outside the repo (coverage debt, as recorded in CLAUDE.md).",
+    "The three bad-settings checks in probe 007 failed on a test error (a colour read before the stylesheet applied); the test was corrected narrowly and probe 008 reran the same command."
+  ],
+  "evidence": [],
+  "learning": [
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261012T141846Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" O",
+      "hypothesis": "Orientation passed on the default theme (Tabletop): Home and the Continue card render with no console errors at phone and desktop size. Next, C1 and C2: every theme and mode on Home, a game, Settings and the picker, live token contrast, and the picker's behaviour, since the branch rewrote every colour token and added the picker.",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/themes-test.mjs\" \".gstack/qa-reports/run-20261012T141846Z/screenshots/themes/\""
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/themes-test.mjs\" \".gstack/qa-reports/run-20261012T141846Z/screenshots/themes/\"",
+      "hypothesis": "C1 and C2 passed 31/31: all six theme modes render with the right fonts and no sideways scroll, every token pair clears its contrast bar, and the picker applies, saves, closes and survives a reload without a flash. Those cover Home, a game, Settings and the picker only. Next, C3: the remaining screens (Continue card and offline banner, results dialog, Setup and Custom, Leaderboard, My stats, Online) in every theme and mode, plus the self-hosted font requests, because a screen styled with an old or missing token would only show there.",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/themes-screens.mjs\" \".gstack/qa-reports/run-20261012T141846Z/screenshots/screens/\""
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/themes-test.mjs\" \".gstack/qa-reports/run-20261012T141846Z/screenshots/themes/\"",
+      "hypothesis": "C3 passed 108/108: every other screen renders in all six theme modes at phone and desktop with no sideways scroll, the theme's own self-hosted fonts load and nothing else does, and no console errors. Phone pages that already scrolled (Home with the Continue card and banner, Custom setup, My stats) are layout matters for the responsive PR, to compare with main. Next, C4: the local-game regression suite, because the branch touched Board.svelte, the top bar and the saved settings that every game reads.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261012T141846Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" all"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261012T141846Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" all",
+      "hypothesis": "The replay failed the same way, so the failure is reproducible. Minimising: the same context (desktop, same Firebase block) and steps up to Setup, then report which buttons Setup exposes, any open dialog or inert subtree, and the accessibility snapshot, to tell a script problem from an app problem.",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/diag-setup.mjs\" \".gstack/qa-reports/run-20261012T141846Z/screenshots/diag-setup.png\""
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/diag-setup.mjs\" \".gstack/qa-reports/run-20261012T141846Z/screenshots/diag-setup.png\"",
+      "hypothesis": "Minimised: Setup renders every button, but each pressed segmented button's accessible name is now '✓ <label>' (aria snapshot: button '✓ Play the AI' [pressed]), because the branch added a CSS ::before check mark to .seg button[aria-pressed=true]; screen readers read it and exact-name lookups miss. That is ISSUE-001, and it blocks C4 until fixed. Before triage, one more baseline probe on edges the branch added: saved settings with an unknown theme, a wrong type or broken JSON must still paint a real theme before the app starts; and Tab must reach the new theme button with a visible focus outline in every theme.",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/themes-edge.mjs\""
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/themes-edge.mjs\"",
+      "hypothesis": "Edges pass 9/9 after the narrow test correction: unknown, wrongly typed or broken saved settings paint Tabletop with the saved mode before the app starts, and Tab reaches the theme button with a visible outline in every theme. Baseline finding stands: ISSUE-001. Repair applied in src/app.css (the tick keeps its look but gets empty alt text, old declaration kept first as a fallback); rebuilt and the preview restarted on the new CSS. Next: replay the original minimised interaction to capture the after evidence (aria snapshot and screenshot).",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/diag-setup.mjs\" \".gstack/qa-reports/run-20261012T141846Z/screenshots/issue-001-after.png\""
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/diag-setup.mjs\" \".gstack/qa-reports/run-20261012T141846Z/screenshots/issue-001-after.png\"",
+      "hypothesis": "After the repair the original interaction exposes 'Play the AI' [pressed], '4×4' [pressed], 'Medium' [pressed] and 'Me' [pressed] with no tick in any name, and the exact-name lookup finds the button (1, was 0). Next: the C4 local-games suite that ISSUE-001 blocked, same command as probe 004, on the repaired build.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261012T141846Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" all"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261012T141846Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" all",
+      "hypothesis": "C4 passes 31/31 on the repaired build: reload and restart resume, Continue and Discard, Quit and Restart, pass-and-play on touch, resumed scoring. Next: C1 and C2 again on the final inputs (the repair touched the segmented control used by Setup and the picker), with a regression check added for ISSUE-001: in every theme and mode, Setup's pressed Medium is found by its exact label and no pressed button's name starts with the tick.",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/themes-test.mjs\" \".gstack/qa-reports/run-20261012T141846Z/screenshots/themes-final/\""
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/themes-test.mjs\" \".gstack/qa-reports/run-20261012T141846Z/screenshots/themes-final/\"",
+      "hypothesis": "C1 and C2 pass 37/37 on the final inputs, including the new ISSUE-001 regression check in all six modes. Next: C3 again on the final build, since Setup and the Leaderboard filters use the repaired segmented control.",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T141846Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/themes-screens.mjs\" \".gstack/qa-reports/run-20261012T141846Z/screenshots/screens-final/\""
+    }
+  ],
+  "verdict": {
+    "status": "inconclusive",
+    "open": [
+      "no evidence rows"
+    ]
+  }
+}

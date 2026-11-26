@@ -1,0 +1,17 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-19T18:38:35.596Z","deadlineAt":"2026-10-19T18:53:35.596Z","budgetMs":900000,"observedAt":"2026-10-19T18:46:19.851Z","remainingMs":435745,"expired":false}
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+PASS  table-dark-phone: 7 screens, 151 text lines, all at their bar or above  worst 4.68:1 (bar 4.5) "&" 16.38px/500 on home (banner, Continue card)
+PASS  table-dark-desktop: 7 screens, 151 text lines, all at their bar or above  worst 4.62:1 (bar 4.5) "Close a box, keep your turn. Beat th" 16.32px/400 on home (banner, Continue card)
+PASS  neon-dark-phone: 7 screens, 150 text lines, all at their bar or above  worst 3.91:1 (bar 3) "2" 30.4px/800 on game
+PASS  neon-dark-desktop: 7 screens, 150 text lines, all at their bar or above  worst 3.96:1 (bar 3) "7" 38.4px/800 on results dialog
+      (paper-dark-phone game, not counted: decorative "R" 3.9)
+PASS  paper-dark-phone: 7 screens, 151 text lines, all at their bar or above  worst 4.65:1 (bar 4.5) "Paper" 16.8px/700 on settings
+      (paper-dark-desktop game, not counted: decorative "R" 3.9)
+PASS  paper-dark-desktop: 7 screens, 151 text lines, all at their bar or above  worst 4.65:1 (bar 4.5) "Paper" 16.8px/700 on settings
+PASS  console: no errors
+
+7/7 checks passed
+servers stopped; child exit 0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-19T18:47:21.319Z","deadlineAt":"2026-10-19T18:53:35.596Z","timedOut":false,"exitCode":0}

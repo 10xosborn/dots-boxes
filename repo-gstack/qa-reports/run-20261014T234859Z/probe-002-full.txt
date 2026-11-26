@@ -1,0 +1,63 @@
+serving C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/main-wt/dist on :4173
+PASS  table-light: no last-move mark before the first move  marks 0
+FAIL  table-light: after a move, one mark of the theme's kind, centred on that line  0  at null vs 192.5,90
+FAIL  table-light: the mark follows the next move  at null vs 807.5,500
+FAIL  table-light: the last line is drawn a shade darker  rgb(191, 78, 30) -> rgb(191, 78, 30)
+PASS  table-light: lines are straight, no pencil strokes  line,line,line
+FAIL  table-light: landing rings carry no core  {"rings":4,"cores":0,"shown":0,"turning":true}
+PASS  table-light: pass-and-play boxes carry initials  3 texts, 0 icons, 3 boxes
+PASS  table-light: boxes keep stripes and dots, upright initials  url(#pat1),url(#pat0)
+FAIL  table-light: against the AI the boxes carry a person and a bot  0 icons, 3 texts, 3 boxes
+FAIL  table-light: the person (head and shoulders) and the bot (head, eyes, antenna) both appear   subpaths
+PASS  table-dark: no last-move mark before the first move  marks 0
+FAIL  table-dark: after a move, one mark of the theme's kind, centred on that line  0  at null vs 192.5,90
+FAIL  table-dark: the mark follows the next move  at null vs 807.5,500
+FAIL  table-dark: the last line is drawn a shade lighter  rgb(245, 154, 134) -> rgb(245, 154, 134)
+PASS  table-dark: lines are straight, no pencil strokes  line,line,line
+FAIL  table-dark: landing rings carry no core  {"rings":4,"cores":0,"shown":0,"turning":true}
+PASS  table-dark: pass-and-play boxes carry initials  2 texts, 0 icons, 2 boxes
+PASS  table-dark: boxes keep stripes and dots, upright initials  url(#pat0),url(#pat1)
+FAIL  table-dark: against the AI the boxes carry a person and a bot  0 icons, 2 texts, 2 boxes
+FAIL  table-dark: the person (head and shoulders) and the bot (head, eyes, antenna) both appear   subpaths
+PASS  neon-dark: no last-move mark before the first move  marks 0
+FAIL  neon-dark: after a move, one mark of the theme's kind, centred on that line  0  at null vs 192.5,90
+FAIL  neon-dark: the mark follows the next move  at null vs 807.5,500
+PASS  neon-dark: the last line is drawn in the player's own colour  rgb(255, 106, 77) -> rgb(255, 106, 77)
+PASS  neon-dark: lines are straight, no pencil strokes  line,line,line
+FAIL  neon-dark: landing rings carry a bright core  {"rings":4,"cores":0,"shown":0,"turning":true}
+PASS  neon-dark: pass-and-play boxes carry initials  2 texts, 0 icons, 2 boxes
+PASS  neon-dark: boxes keep stripes and dots, upright initials  url(#pat1),url(#pat0)
+PASS  neon-dark: against the AI the boxes carry initials  0 icons, 2 texts, 2 boxes
+PASS  neon-light: no last-move mark before the first move  marks 0
+FAIL  neon-light: after a move, one mark of the theme's kind, centred on that line  0  at null vs 192.5,90
+FAIL  neon-light: the mark follows the next move  at null vs 807.5,500
+PASS  neon-light: the last line is drawn in the player's own colour  rgb(252, 68, 34) -> rgb(252, 68, 34)
+PASS  neon-light: lines are straight, no pencil strokes  line,line,line
+FAIL  neon-light: landing rings carry no core  {"rings":4,"cores":0,"shown":0,"turning":true}
+PASS  neon-light: pass-and-play boxes carry initials  2 texts, 0 icons, 2 boxes
+PASS  neon-light: boxes keep stripes and dots, upright initials  url(#pat0),url(#pat1)
+PASS  neon-light: against the AI the boxes carry initials  0 icons, 2 texts, 2 boxes
+PASS  paper-light: no last-move mark before the first move  marks 0
+FAIL  paper-light: after a move, one mark of the theme's kind, centred on that line  0  at null vs 192.5,90
+FAIL  paper-light: the mark follows the next move  at null vs 807.5,500
+PASS  paper-light: the last line is drawn in the player's own colour  rgb(252, 68, 34) -> rgb(252, 68, 34)
+FAIL  paper-light: 4x4 lines are pencil curves with a faint second stroke  line,line,line ghosts 0/3 op null width 17.425
+FAIL  paper-light: landing rings carry no core  {"rings":4,"cores":0,"shown":0,"turning":true}
+PASS  paper-light: pass-and-play boxes carry initials  2 texts, 0 icons, 2 boxes
+FAIL  paper-light: boxes hatched, initials bigger and tilted  url(#pat0),url(#pat1) size 69.7 
+PASS  paper-light: against the AI the boxes carry initials  0 icons, 2 texts, 2 boxes
+PASS  paper-light: 7x7 lines are straight (no wobble above 6x6)  69 lines, line, ghosts 0
+PASS  paper-dark: no last-move mark before the first move  marks 0
+FAIL  paper-dark: after a move, one mark of the theme's kind, centred on that line  0  at null vs 192.5,90
+FAIL  paper-dark: the mark follows the next move  at null vs 807.5,500
+PASS  paper-dark: the last line is drawn in the player's own colour  rgb(242, 140, 118) -> rgb(242, 140, 118)
+FAIL  paper-dark: 4x4 lines are pencil curves with a faint second stroke  line,line,line ghosts 0/3 op null width 17.425
+FAIL  paper-dark: landing rings carry no core  {"rings":4,"cores":0,"shown":0,"turning":true}
+PASS  paper-dark: pass-and-play boxes carry initials  2 texts, 0 icons, 2 boxes
+FAIL  paper-dark: boxes hatched, initials bigger and tilted  url(#pat0),url(#pat1) size 69.7 
+PASS  paper-dark: against the AI the boxes carry initials  0 icons, 2 texts, 2 boxes
+PASS  paper-dark: 7x7 lines are straight (no wobble above 6x6)  69 lines, line, ghosts 0
+PASS  console: no errors
+
+31/59 checks passed
+servers stopped; child exit 1

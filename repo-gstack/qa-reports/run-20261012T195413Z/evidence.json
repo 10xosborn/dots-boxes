@@ -1,0 +1,55 @@
+{
+  "revision": "9501ba40513231ab50c5e9db90bd2c15267792dd",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "Touch was emulated (Chromium hasTouch at 390x844, 2x); no real phone, no Brave and no screen reader were used.",
+    "Firebase was blocked, so the app ran on its local adapter with the offline banner; online play and the live leaderboard were not exercised (this branch has no data-layer change).",
+    "The 900 s budget ran out before C3 (themes-test), C5 (themes-screens), C6 (qa-r1a all), C7 (acceptance), C9 (Ghanaian names) and C10 (perf-filters) could run inside this QA invocation; they are not QA evidence here and are run separately as PR checks.",
+    "texture-text.mjs measures the 5th percentile of per-pixel contrast under each line of text with the text hidden in place; it skips SVG text (decorative box initials), input values and placeholders, and lists aria-hidden and disabled text apart instead of counting it.",
+    "The keyboard-cursor check measures pixels at desktop size (1x) in Chromium only. Its 'board' sample is 6 px beyond the ring on the felt, paper or glass at the cursor's position, not the whole board.",
+    "After the repair the probe measures the new focus ring as the indicator (the translucent band before); on the old build there is no ring, so the same check reads the band and fails.",
+    "The cursor screenshots (screenshots/materials/*-cursor.png) were overwritten by the recheck runs (same file names); the before evidence for ISSUE-001 is the numeric output of probes 003-005.",
+    "The repo has no UI test framework; every browser check is a throwaway script outside the repo (coverage debt, as recorded in CLAUDE.md).",
+    "The committed fix (9501ba4) differs from the tested build only by an HTML comment, which the compiler strips: a rebuild gives the same index-CHc2sBM_.js and index-CfmFkBHR.css that probes 007-010 tested."
+  ],
+  "evidence": [],
+  "learning": [
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261012T195413Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T195413Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" O",
+      "hypothesis": "The baseline holds: Home renders on the new Tabletop materials at both sizes with no errors. The highest risk this branch adds is invisible to the token-based contrast checks: text now sits on wood grain, felt, paper fibres, vignettes and glow gradients. C1 measures every text line against the real pixels under it in all six modes, at both sizes, on seven screens.",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T195413Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/texture-text.mjs\" \".gstack/qa-reports/run-20261012T195413Z/screenshots/texture-text/\""
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T195413Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/texture-text.mjs\" \".gstack/qa-reports/run-20261012T195413Z/screenshots/texture-text/\"",
+      "hypothesis": "C1 holds: all 151 text lines per mode clear their bar over the real pixels (tightest 4.51:1, Paper by day's tagline on the desk). The next risk is the board itself: its SVG was restructured (one lanes path, separate box, line, core and dot layers, effects referenced by id), which odd shapes, duplicate ids, the keyboard cursor and confetti could expose. C2 tests those in every mode.",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T195413Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/materials-probe.mjs\" \".gstack/qa-reports/run-20261012T195413Z/screenshots/materials/\""
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T195413Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/materials-probe.mjs\" \".gstack/qa-reports/run-20261012T195413Z/screenshots/materials/\"",
+      "hypothesis": "The exact replay reproduces the same six cursor failures with identical numbers, so the defect is deterministic, not a flake. Minimize it: the cursor section alone, on the same fresh fixtures, should fail the same way without the shape, id and confetti work around it.",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T195413Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/materials-probe.mjs\" \".gstack/qa-reports/run-20261012T195413Z/screenshots/materials/\" cursor"
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T195413Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/materials-probe.mjs\" \".gstack/qa-reports/run-20261012T195413Z/screenshots/materials/\" cursor",
+      "hypothesis": "The repaired cursor passes in all six modes (3.98-7.39:1 from pixels, serving index-CHc2sBM_.js and index-CfmFkBHR.css). The repair touched Board.svelte's keyboard-cursor markup, so the adjacent happy path is play itself: game integrity (keyboard and touch input, lines, boxes, scores, extra turns, AI moves, results) on the repaired build.",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T195413Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/integrity-r1a.mjs\" all"
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T195413Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/integrity-r1a.mjs\" all",
+      "hypothesis": "Play holds on the repaired board: 35/35, including a 3x3 game played with the keyboard only. About two minutes remain, enough only for the short edge suite: the start-up script's new browser-bar colours on bad saved settings and the visible Tab outline on the theme button in every theme.",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T195413Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/themes-edge.mjs\""
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T195413Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/themes-edge.mjs\"",
+      "hypothesis": "The start-up script paints the new bar colours (#e3b970, #2a1f18) on bad settings and the theme button's outline shows in every theme. About 85 s remain, enough for the quick close-up capture of the board materials in all six modes (C11), reviewed afterwards from the screenshots.",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261012T195413Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/board-closeups.mjs\" \".gstack/qa-reports/run-20261012T195413Z/screenshots/closeups/\""
+    }
+  ],
+  "verdict": {
+    "status": "inconclusive",
+    "open": [
+      "no evidence rows"
+    ]
+  }
+}

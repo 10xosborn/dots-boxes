@@ -1,0 +1,191 @@
+{
+ "results-390-dark": {
+  "text": "You win! / 6–3 / Time / 45.0 s / 3×3 / Easy / Level 1 / +66 XP / 66 / 100 XP to level 2 / Resumed games don't set fastest-win times. / Play again / Change settings / Leaderboard",
+  "line": {
+   "tag": "P",
+   "cls": "res-note",
+   "fontSize": "16px",
+   "color": "rgb(242, 240, 255)"
+  },
+  "siblings": [
+   {
+    "tag": "svg",
+    "cls": {},
+    "text": ""
+   },
+   {
+    "tag": "H2",
+    "cls": "res-title",
+    "text": "You win!"
+   },
+   {
+    "tag": "DIV",
+    "cls": "res-score",
+    "text": "6–3"
+   },
+   {
+    "tag": "DIV",
+    "cls": "res-meta",
+    "text": "Time 45.0 s3×3Easy"
+   },
+   {
+    "tag": "DIV",
+    "cls": "xpblock",
+    "text": "Level 1+66 XP  66 / 100 XP to level 2"
+   },
+   {
+    "tag": "P",
+    "cls": "res-note",
+    "text": "Resumed games don't set fastest-win times."
+   },
+   {
+    "tag": "DIV",
+    "cls": "res-actions",
+    "text": "Play again Change settingsLeaderboard"
+   }
+  ],
+  "fitsWidth": true
+ },
+ "results-1280-dark": {
+  "text": "You win! / 6–3 / Time / 45.0 s / 3×3 / Easy / Level 1 / +66 XP / 66 / 100 XP to level 2 / Resumed games don't set fastest-win times. / Play again / Change settings / Leaderboard",
+  "line": {
+   "tag": "P",
+   "cls": "res-note",
+   "fontSize": "16px",
+   "color": "rgb(242, 240, 255)"
+  },
+  "siblings": [
+   {
+    "tag": "svg",
+    "cls": {},
+    "text": ""
+   },
+   {
+    "tag": "H2",
+    "cls": "res-title",
+    "text": "You win!"
+   },
+   {
+    "tag": "DIV",
+    "cls": "res-score",
+    "text": "6–3"
+   },
+   {
+    "tag": "DIV",
+    "cls": "res-meta",
+    "text": "Time 45.0 s3×3Easy"
+   },
+   {
+    "tag": "DIV",
+    "cls": "xpblock",
+    "text": "Level 1+66 XP  66 / 100 XP to level 2"
+   },
+   {
+    "tag": "P",
+    "cls": "res-note",
+    "text": "Resumed games don't set fastest-win times."
+   },
+   {
+    "tag": "DIV",
+    "cls": "res-actions",
+    "text": "Play again Change settingsLeaderboard"
+   }
+  ],
+  "fitsWidth": true
+ },
+ "results-390-light": {
+  "text": "You win! / 6–3 / Time / 45.0 s / 3×3 / Easy / Level 1 / +66 XP / 66 / 100 XP to level 2 / Resumed games don't set fastest-win times. / Play again / Change settings / Leaderboard",
+  "line": {
+   "tag": "P",
+   "cls": "res-note",
+   "fontSize": "16px",
+   "color": "rgb(27, 23, 66)"
+  },
+  "siblings": [
+   {
+    "tag": "svg",
+    "cls": {},
+    "text": ""
+   },
+   {
+    "tag": "H2",
+    "cls": "res-title",
+    "text": "You win!"
+   },
+   {
+    "tag": "DIV",
+    "cls": "res-score",
+    "text": "6–3"
+   },
+   {
+    "tag": "DIV",
+    "cls": "res-meta",
+    "text": "Time 45.0 s3×3Easy"
+   },
+   {
+    "tag": "DIV",
+    "cls": "xpblock",
+    "text": "Level 1+66 XP  66 / 100 XP to level 2"
+   },
+   {
+    "tag": "P",
+    "cls": "res-note",
+    "text": "Resumed games don't set fastest-win times."
+   },
+   {
+    "tag": "DIV",
+    "cls": "res-actions",
+    "text": "Play again Change settingsLeaderboard"
+   }
+  ],
+  "fitsWidth": true
+ },
+ "results-1280-light": {
+  "text": "You win! / 6–3 / Time / 45.0 s / 3×3 / Easy / Level 1 / +66 XP / 66 / 100 XP to level 2 / Resumed games don't set fastest-win times. / Play again / Change settings / Leaderboard",
+  "line": {
+   "tag": "P",
+   "cls": "res-note",
+   "fontSize": "16px",
+   "color": "rgb(27, 23, 66)"
+  },
+  "siblings": [
+   {
+    "tag": "svg",
+    "cls": {},
+    "text": ""
+   },
+   {
+    "tag": "H2",
+    "cls": "res-title",
+    "text": "You win!"
+   },
+   {
+    "tag": "DIV",
+    "cls": "res-score",
+    "text": "6–3"
+   },
+   {
+    "tag": "DIV",
+    "cls": "res-meta",
+    "text": "Time 45.0 s3×3Easy"
+   },
+   {
+    "tag": "DIV",
+    "cls": "xpblock",
+    "text": "Level 1+66 XP  66 / 100 XP to level 2"
+   },
+   {
+    "tag": "P",
+    "cls": "res-note",
+    "text": "Resumed games don't set fastest-win times."
+   },
+   {
+    "tag": "DIV",
+    "cls": "res-actions",
+    "text": "Play again Change settingsLeaderboard"
+   }
+  ],
+  "fitsWidth": true
+ },
+ "consoleErrors": []
+}

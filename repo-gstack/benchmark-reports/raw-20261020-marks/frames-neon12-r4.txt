@@ -1,0 +1,6 @@
+serving branch on :4176 and main on :4177
+12x12 desktop      neon-dark     main    drag moves median 33.3 p95 45.8 ms | held p95 16.7 ms, 0% >25 ms | let-go p95 16.8 | tap to paint median 51 p95 73.9 ms | growing frames p95 33.3 ms, 12% >25 ms
+12x12 desktop      neon-dark     branch  drag moves median 33.4 p95 38.9 ms | held p95 16.8 ms, 0% >25 ms | let-go p95 16.8 | tap to paint median 53.5 p95 71.3 ms | growing frames p95 33.3 ms, 11% >25 ms
+12x12 desktop      neon-light    main    drag moves median 33.3 p95 35.1 ms | held p95 16.7 ms, 0% >25 ms | let-go p95 16.8 | tap to paint median 56 p95 68.9 ms | growing frames p95 33.4 ms, 23% >25 ms
+12x12 desktop      neon-light    branch  drag moves median 33.4 p95 34.9 ms | held p95 16.7 ms, 0% >25 ms | let-go p95 16.8 | tap to paint median 48.7 p95 67.5 ms | growing frames p95 33.4 ms, 22% >25 ms
+servers stopped; child exit 0

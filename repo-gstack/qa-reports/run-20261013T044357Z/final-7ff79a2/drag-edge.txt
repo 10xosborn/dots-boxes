@@ -1,0 +1,12 @@
+PASS  a drag during the AI's turn draws nothing; the AI then moves once
+PASS  a second finger during a drag is ignored; the first finger's line is drawn once
+PASS  outside the board: a drag past the last dot draws that line; one with no line to snap to draws nothing
+PASS  table-light: the hover preview is the mover's line colour, 3:1 or more
+PASS  table-dark: the hover preview is the mover's line colour, 3:1 or more
+PASS  neon-dark: the hover preview is the mover's line colour, 3:1 or more
+PASS  neon-light: the hover preview is the mover's line colour, 3:1 or more
+PASS  paper-light: the hover preview is the mover's line colour, 3:1 or more
+PASS  paper-dark: the hover preview is the mover's line colour, 3:1 or more
+PASS  console: no page errors
+
+10/10 checks passed

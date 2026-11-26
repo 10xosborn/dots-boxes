@@ -1,0 +1,42 @@
+{
+  "changed": [
+    {
+      "asset": "assets/index.css",
+      "main": "assets/index-B_pd92fR.css",
+      "branch": "assets/index-DPof4mWV.css",
+      "mainRaw": 39397,
+      "branchRaw": 39640,
+      "mainGz": 8807,
+      "branchGz": 8866
+    },
+    {
+      "asset": "assets/index.js",
+      "main": "assets/index-D4rNLOBV.js",
+      "branch": "assets/index-CRdgP4r8.js",
+      "mainRaw": 132663,
+      "branchRaw": 134860,
+      "mainGz": 51218,
+      "branchGz": 52187
+    }
+  ],
+  "totals": {
+    "js": {
+      "mainRaw": 834966,
+      "branchRaw": 837163,
+      "mainGz": 260894,
+      "branchGz": 261862
+    },
+    "css": {
+      "mainRaw": 39397,
+      "branchRaw": 39640,
+      "mainGz": 8807,
+      "branchGz": 8866
+    },
+    "all": {
+      "mainRaw": 1339991,
+      "branchRaw": 1342431,
+      "mainGz": 270605,
+      "branchGz": 271632
+    }
+  }
+}

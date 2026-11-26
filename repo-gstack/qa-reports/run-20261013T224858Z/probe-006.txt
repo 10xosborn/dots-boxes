@@ -1,0 +1,5 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-13T22:56:09.096Z","deadlineAt":"2026-10-13T23:11:09.096Z","budgetMs":900000,"observedAt":"2026-10-13T23:02:55.864Z","remainingMs":493232,"expired":false}
+75 PASS, 0 FAIL (full output: .gstack/qa-reports/run-20261013T224858Z/probe-006-full.txt)
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-13T23:03:42.523Z","deadlineAt":"2026-10-13T23:11:09.096Z","timedOut":false,"exitCode":0}

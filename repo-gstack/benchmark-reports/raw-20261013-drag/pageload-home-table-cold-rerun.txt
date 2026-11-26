@@ -1,0 +1,8 @@
+serving branch on :4176 and main on :4177
+home-table-light|main cold {"ttfb":1,"fcp":88,"lcp":472,"ready":100,"cls":25,"domInteractive":15,"domComplete":70,"load":70,"requests":8,"transfer":774971,"jsDecoded":681309,"cssDecoded":39240,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   warm {"ttfb":1,"fcp":64,"lcp":444,"ready":72,"cls":25,"domInteractive":14,"domComplete":43,"load":43,"requests":8,"transfer":774971,"jsDecoded":681309,"cssDecoded":39240,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   third-party ["identitytoolkit.googleapis.com"]
+home-table-light|branch cold {"ttfb":1,"fcp":92,"lcp":476,"ready":111,"cls":25,"domInteractive":14,"domComplete":74,"load":74,"requests":8,"transfer":777760,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   warm {"ttfb":1,"fcp":64,"lcp":444,"ready":72,"cls":25,"domInteractive":13,"domComplete":42,"load":42,"requests":8,"transfer":777760,"jsDecoded":683941,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":24146} 
+                   third-party ["identitytoolkit.googleapis.com"]
+servers stopped; child exit 0

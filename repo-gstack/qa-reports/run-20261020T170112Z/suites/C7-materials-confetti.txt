@@ -1,0 +1,17 @@
+serving dist-qa-87b0ed6 on :4173
+PASS  table-light: confetti uses only the theme's colours
+PASS  table-light: the confetti canvas is removed after the burst
+PASS  table-dark: confetti uses only the theme's colours
+PASS  table-dark: the confetti canvas is removed after the burst
+PASS  neon-dark: confetti uses only the theme's colours
+PASS  neon-dark: the confetti canvas is removed after the burst
+PASS  neon-light: confetti uses only the theme's colours
+PASS  neon-light: the confetti canvas is removed after the burst
+PASS  paper-light: confetti uses only the theme's colours
+PASS  paper-light: the confetti canvas is removed after the burst
+PASS  paper-dark: confetti uses only the theme's colours
+PASS  paper-dark: the confetti canvas is removed after the burst
+PASS  console: no errors
+
+13/13 checks passed
+servers stopped; child exit 0

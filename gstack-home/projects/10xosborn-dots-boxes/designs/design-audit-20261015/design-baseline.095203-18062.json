@@ -1,0 +1,4 @@
+{"schemaVersion":2,"date":"2026-10-15","runId":"095203-18062","url":"http://127.0.0.1:4173/ (design/05-four-modes: four theme modes)","designScore":"A","aiSlopScore":"A",
+ "categoryGrades":{"hierarchy":"A","typography":"A","spacing":"A","color":"A","interaction":"A","responsive":"A","content":"A","aiSlop":"A","motion":"A","performance":"A"},
+ "findings":[{"id":"FINDING-001","title":"White Neon light-pipe cores below 3:1","impact":"high","category":"color"},{"id":"FINDING-002","title":"Dark Neon hover light in the old cyan","impact":"polish","category":"interaction"},{"id":"FINDING-003","title":"Tabletop at night downloads the day wood tile","impact":"medium","category":"performance"}],
+ "detector":{"mode":"dom","engine":"0.1.3","targetSet":"263a14a5e39d5b2111d0619e5d82cd6aedc27043f47b349615b5c005edee819c","total":134,"byRule":{"dark-glow":66,"cramped-padding":24,"repeating-stripes-gradient":32,"layout-transition":12}}}

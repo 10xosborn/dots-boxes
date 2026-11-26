@@ -1,0 +1,6 @@
+[design-daemon] spawning new daemon
+DAEMON_STARTED port=53051 version=a3ed43c9b31183c49339f8a7f997168430e5eeb2
+BOARD_PUBLISHED: http://127.0.0.1:53051/boards/b-20261020-182132-ztte4o/
+BOARD_URL: http://127.0.0.1:53051/boards/b-20261020-182132-ztte4o/
+SERVE_STARTED: port=53051 html=C:/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/neon-liquid-glass-20261020/design-board.html
+Open this URL in your browser: http://127.0.0.1:53051/boards/b-20261020-182132-ztte4o/

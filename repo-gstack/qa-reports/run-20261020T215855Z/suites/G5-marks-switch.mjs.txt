@@ -1,0 +1,26 @@
+serving dist-glass-A on :4173
+PASS  start: six lines and a box on Tabletop by day  {"mode":"table-light","n":6,"tags":["line"],"curvy":false,"ghosts":0,"mark":"last-pip","fills":["url(#pat0)"],"tilt":"","boxes":1}
+PASS  paper-light: switched mid-game, the same six lines and box  paper-light 6 lines 1 box
+PASS  paper-light: the last-move mark is the mode's kind (last-ell)  last-ell
+PASS  paper-light: pencil curves with a ghost stroke  path ghosts 6
+PASS  paper-light: hatched box, tilted initial  url(#hatch0) rotate(-4 192.5 192.5)
+PASS  paper-dark: switched mid-game, the same six lines and box  paper-dark 6 lines 1 box
+PASS  paper-dark: the last-move mark is the mode's kind (last-ell)  last-ell
+PASS  paper-dark: straight lines, no ghost strokes  line ghosts 0
+PASS  paper-dark: stripes or dots, upright initial  url(#pat0) 
+PASS  neon-dark: switched mid-game, the same six lines and box  neon-dark 6 lines 1 box
+PASS  neon-dark: the last-move mark is the mode's kind (last-ring)  last-ring
+PASS  neon-dark: straight lines, no ghost strokes  line ghosts 0
+PASS  neon-dark: stripes or dots, upright initial  url(#pat0) 
+PASS  neon-light: switched mid-game, the same six lines and box  neon-light 6 lines 1 box
+PASS  neon-light: the last-move mark is the mode's kind (last-ring)  last-ring
+PASS  neon-light: straight lines, no ghost strokes  line ghosts 0
+PASS  neon-light: stripes or dots, upright initial  url(#pat0) 
+PASS  table-dark: switched mid-game, the same six lines and box  table-dark 6 lines 1 box
+PASS  table-dark: the last-move mark is the mode's kind (last-pip)  last-pip
+PASS  table-dark: straight lines, no ghost strokes  line ghosts 0
+PASS  table-dark: stripes or dots, upright initial  url(#pat0) 
+PASS  no page errors
+
+22/22 checks passed
+servers stopped; child exit 0

@@ -1,0 +1,11 @@
+serving branch on :4176 and main on :4177
+FAIL  table-light: picking up an inner dot rings its four neighbours, dashed and turning  []
+file:///C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/spring-test.mjs:60
+  check(maxBend > 3 && rest.bendPx < 0.5, `${tag}: a sideways swing bends the band, which straightens at rest`, `max bend ${maxBend.toFixed(1)} px, at rest ${rest.bendPx.toFixed(2)} px`);
+                                                                                                                                                                   ^
+
+TypeError: Cannot read properties of null (reading 'bendPx')
+    at file:///C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/spring-test.mjs:60:164
+
+Node.js v24.21.0
+servers stopped; child exit 1

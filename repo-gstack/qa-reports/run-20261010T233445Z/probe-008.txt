@@ -1,0 +1,15 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-10T23:35:41.923Z","deadlineAt":"2026-10-10T23:50:41.923Z","budgetMs":900000,"observedAt":"2026-10-10T23:40:48.111Z","remainingMs":593812,"expired":false}
+PASS  E1 a saved game near the end shows on Home
+PASS  E2 the resumed game finishes with a win  You win! / 6–3
+PASS  E3 results say resumed games set no fastest-win time
+PASS  E4 the win is saved once, with its game id, resumed flag and XP  xp 66, ms 45040
+PASS  E5 saved exactly once
+PASS  E6 3×3 Easy fastest-win board: no time from the resumed win   Best winning time against the AI. Lower is better. No ranked players yet on 3×3 Easy. Win a game there to claim the first spot. Offline mode: this board only s
+PASS  E7 3×3 Easy most-wins board counts the resumed win   Total wins against the AI. 1 Player (you) 1 games 1 Offline mode: this board only shows games on this device.
+PASS  E8 Stats show no fastest time from the resumed win  My stats / P / Player / Level 1 / 66 / 100 XP, 34 to level 2 / 1 / Games / 1 / Wins / 0 / Losses / 0 / Draws / 100% / Win rate / 1
+PASS  E console: no errors
+
+9/9 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-10T23:40:55.800Z","deadlineAt":"2026-10-10T23:50:41.923Z","timedOut":false,"exitCode":0}

@@ -1,0 +1,79 @@
+serving dist-glass-A on :4173
+PASS  table-light: picking up an inner dot rings its four neighbours, dashed and turning  [[false,"21.9613px, 1",true],[false,"21.9613px, 1",true],[false,"21.9613px, 1",true],[false,"21.9613px, 1",true]]
+PASS  table-light: a sideways swing bends the band, which straightens at rest  max bend 11.3 px, at rest 0.00 px
+PASS  table-light: at rest the band stops changing (no frames left running)
+PASS  table-light: on the snap the tip bounces past the dot and settles on it  9.8 px past (gap 96), settled by frame 15 of 41
+PASS  table-light: snapped, the band is the line's full width  13.94 vs 13.940000000000001
+PASS  table-light: snapped, the target dot's ring gives way to the line's ring; the others keep turning  [[[447,390],true],[[544,293],true],[[544,486],true]]
+PASS  table-light: let go with no line, the band springs home and goes; rings at once; nothing drawn  gone in 109 ms over 7 frames, last tip 3.2 px from its dot
+PASS  table-light: a drag that draws leaves no band behind
+PASS  table-light: rings skip a line already drawn (three left)  3 rings
+PASS  table-light: a corner dot rings its two neighbours
+PASS  table-light: no page errors
+PASS  table-dark: picking up an inner dot rings its four neighbours, dashed and turning  [[false,"21.9613px, 1",true],[false,"21.9613px, 1",true],[false,"21.9613px, 1",true],[false,"21.9613px, 1",true]]
+PASS  table-dark: a sideways swing bends the band, which straightens at rest  max bend 11.3 px, at rest 0.00 px
+PASS  table-dark: at rest the band stops changing (no frames left running)
+PASS  table-dark: on the snap the tip bounces past the dot and settles on it  9.8 px past (gap 96), settled by frame 15 of 45
+PASS  table-dark: snapped, the band is the line's full width  13.94 vs 13.940000000000001
+PASS  table-dark: snapped, the target dot's ring gives way to the line's ring; the others keep turning  [[[447,390],true],[[544,293],true],[[544,486],true]]
+PASS  table-dark: let go with no line, the band springs home and goes; rings at once; nothing drawn  gone in 114 ms over 7 frames, last tip 3.2 px from its dot
+PASS  table-dark: a drag that draws leaves no band behind
+PASS  table-dark: rings skip a line already drawn (three left)  3 rings
+PASS  table-dark: a corner dot rings its two neighbours
+PASS  table-dark: no page errors
+PASS  neon-dark: picking up an inner dot rings its four neighbours, dashed and turning  [[false,"21.9613px, 1",true],[false,"21.9613px, 1",true],[false,"21.9613px, 1",true],[false,"21.9613px, 1",true]]
+PASS  neon-dark: a sideways swing bends the band, which straightens at rest  max bend 12.5 px, at rest 0.00 px
+PASS  neon-dark: at rest the band stops changing (no frames left running)
+PASS  neon-dark: on the snap the tip bounces past the dot and settles on it  9.8 px past (gap 96), settled by frame 15 of 44
+PASS  neon-dark: snapped, the band is the line's full width  13.94 vs 13.940000000000001
+PASS  neon-dark: snapped, the target dot's ring gives way to the line's ring; the others keep turning  [[[447,390],true],[[544,293],true],[[544,486],true]]
+PASS  neon-dark: let go with no line, the band springs home and goes; rings at once; nothing drawn  gone in 110 ms over 7 frames, last tip 3.2 px from its dot
+PASS  neon-dark: a drag that draws leaves no band behind
+PASS  neon-dark: rings skip a line already drawn (three left)  3 rings
+PASS  neon-dark: a corner dot rings its two neighbours
+PASS  neon-dark: no page errors
+PASS  neon-light: picking up an inner dot rings its four neighbours, dashed and turning  [[false,"21.9613px, 1",true],[false,"21.9613px, 1",true],[false,"21.9613px, 1",true],[false,"21.9613px, 1",true]]
+PASS  neon-light: a sideways swing bends the band, which straightens at rest  max bend 12.7 px, at rest 0.00 px
+PASS  neon-light: at rest the band stops changing (no frames left running)
+PASS  neon-light: on the snap the tip bounces past the dot and settles on it  9.8 px past (gap 96), settled by frame 15 of 45
+PASS  neon-light: snapped, the band is the line's full width  13.94 vs 13.940000000000001
+PASS  neon-light: snapped, the target dot's ring gives way to the line's ring; the others keep turning  [[[447,390],true],[[544,293],true],[[544,486],true]]
+PASS  neon-light: let go with no line, the band springs home and goes; rings at once; nothing drawn  gone in 114 ms over 7 frames, last tip 3.2 px from its dot
+PASS  neon-light: a drag that draws leaves no band behind
+PASS  neon-light: rings skip a line already drawn (three left)  3 rings
+PASS  neon-light: a corner dot rings its two neighbours
+PASS  neon-light: no page errors
+PASS  paper-light: picking up an inner dot rings its four neighbours, dashed and turning  [[false,"21.9613px, 1",true],[false,"21.9613px, 1",true],[false,"21.9613px, 1",true],[false,"21.9613px, 1",true]]
+PASS  paper-light: a sideways swing bends the band, which straightens at rest  max bend 12.8 px, at rest 0.00 px
+PASS  paper-light: at rest the band stops changing (no frames left running)
+PASS  paper-light: on the snap the tip bounces past the dot and settles on it  9.8 px past (gap 96), settled by frame 15 of 45
+PASS  paper-light: snapped, the band is the line's full width  9.84 vs 9.84
+PASS  paper-light: snapped, the target dot's ring gives way to the line's ring; the others keep turning  [[[447,389],true],[[544,292],true],[[544,485],true]]
+PASS  paper-light: let go with no line, the band springs home and goes; rings at once; nothing drawn  gone in 114 ms over 7 frames, last tip 3.2 px from its dot
+PASS  paper-light: a drag that draws leaves no band behind
+PASS  paper-light: rings skip a line already drawn (three left)  3 rings
+PASS  paper-light: a corner dot rings its two neighbours
+PASS  paper-light: no page errors
+PASS  paper-dark: picking up an inner dot rings its four neighbours, dashed and turning  [[false,"21.9613px, 1",true],[false,"21.9613px, 1",true],[false,"21.9613px, 1",true],[false,"21.9613px, 1",true]]
+PASS  paper-dark: a sideways swing bends the band, which straightens at rest  max bend 13.0 px, at rest 0.00 px
+PASS  paper-dark: at rest the band stops changing (no frames left running)
+PASS  paper-dark: on the snap the tip bounces past the dot and settles on it  9.7 px past (gap 96), settled by frame 15 of 45
+PASS  paper-dark: snapped, the band is the line's full width  13.94 vs 13.940000000000001
+PASS  paper-dark: snapped, the target dot's ring gives way to the line's ring; the others keep turning  [[[447,389],true],[[544,292],true],[[544,485],true]]
+PASS  paper-dark: let go with no line, the band springs home and goes; rings at once; nothing drawn  gone in 112 ms over 7 frames, last tip 3.2 px from its dot
+PASS  paper-dark: a drag that draws leaves no band behind
+PASS  paper-dark: rings skip a line already drawn (three left)  3 rings
+PASS  paper-dark: a corner dot rings its two neighbours
+PASS  paper-dark: no page errors
+PASS  Animations off: the band stays straight with its end on the pointer  max bend 0.00 px
+PASS  Animations off: the rings show but do not turn
+PASS  Animations off: the snapped end sits on the dot at once, no bounce
+PASS  Animations off: let go with no line, the band is gone at once
+PASS  Animations off: no page errors
+PASS  phone touch: a picked-up dot rings its four neighbours
+PASS  phone touch: the band bounces onto the dot and settles
+PASS  phone touch: let go with no line, the band springs home and goes, nothing drawn  136 ms
+PASS  phone touch: no page errors
+
+75 passed, 0 failed
+servers stopped; child exit 0

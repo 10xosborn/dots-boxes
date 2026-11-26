@@ -1,0 +1,12 @@
+
+ RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals
+
+ ❯ tests/theme/theme-colours.test.ts (7 tests | 1 failed) 14ms
+   ❯ each mode paints the browser bar and its preview in its own page colour (7)
+     × neon dark 7ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  10:25:46
+   Duration  310ms (transform 60%, import 18%, tests 15%, worker 7%)
+

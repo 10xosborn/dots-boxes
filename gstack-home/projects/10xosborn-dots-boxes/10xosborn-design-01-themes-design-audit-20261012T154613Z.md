@@ -1,0 +1,1 @@
+Design review of design/01-themes (2026-10-12): 9 findings, 8 fixed (01c2c74..06d45e5), 1 deferred to spec step 4; design A- -> A, AI slop A -> A; detector 138 -> 122. Full report: C:/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261012/design-audit-127.0.0.1.md

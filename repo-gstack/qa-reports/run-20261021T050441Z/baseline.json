@@ -1,0 +1,13 @@
+{
+ "date": "2026-10-21",
+ "url": "http://127.0.0.1 (dist-emu-v2 = 4613e6f, emulators)",
+ "healthScore": 100,
+ "provisional": true,
+ "issues": [],
+ "categoryScores": {
+  "console": 100,
+  "functional": 100,
+  "ux": 100,
+  "content": 100
+ }
+}

@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-21",
+  "url": "http://127.0.0.1:4173/ (dist-step4)",
+  "healthScore": 100,
+  "issues": [
+    { "id": "ISSUE-001", "title": "Size picker allowed boards with dots under 40 px on small phones (widened layout viewport)", "severity": "medium", "category": "functional" },
+    { "id": "ISSUE-002", "title": "Setup Custom steppers overflowed on 320-360 px phones", "severity": "medium", "category": "visual" },
+    { "id": "ISSUE-003", "title": "Floating notice covered the top of the player cards on phones", "severity": "low", "category": "visual" }
+  ],
+  "categoryScores": { "console": 100, "visual": 100, "functional": 100, "ux": 100, "accessibility": 100 }
+}

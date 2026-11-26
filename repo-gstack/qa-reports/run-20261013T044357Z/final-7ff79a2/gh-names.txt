@@ -1,0 +1,32 @@
+PASS  table-light: no fallback subset loads while no name needs it  none
+PASS  table-light: both names show on the player cards  Ɛ Ɛsi Ɔkyere Player 1 0 | Ɖ Ɖela Ʋɔŋɣ ₵ Player 2 0
+PASS  table-light: the theme's fallback subset loaded and is in use  gh-montserrat; faces Jost 400 800
+PASS  table-light: no other theme's subset loads  gh-montserrat
+PASS  table-light: Home shows the saved name, no page errors
+PASS  table-dark: no fallback subset loads while no name needs it  none
+PASS  table-dark: both names show on the player cards  Ɛ Ɛsi Ɔkyere Player 1 0 | Ɖ Ɖela Ʋɔŋɣ ₵ Player 2 0
+PASS  table-dark: the theme's fallback subset loaded and is in use  gh-montserrat; faces Jost 400 800
+PASS  table-dark: no other theme's subset loads  gh-montserrat
+PASS  table-dark: Home shows the saved name, no page errors
+PASS  neon-dark: no fallback subset loads while no name needs it  none
+PASS  neon-dark: both names show on the player cards  Ɛ Ɛsi Ɔkyere Player 1 0 | Ɖ Ɖela Ʋɔŋɣ ₵ Player 2 0
+PASS  neon-dark: the theme's fallback subset loaded and is in use  gh-inter; faces Manrope 400 800
+PASS  neon-dark: no other theme's subset loads  gh-inter
+PASS  neon-dark: Home shows the saved name, no page errors
+PASS  neon-light: no fallback subset loads while no name needs it  none
+PASS  neon-light: both names show on the player cards  Ɛ Ɛsi Ɔkyere Player 1 0 | Ɖ Ɖela Ʋɔŋɣ ₵ Player 2 0
+PASS  neon-light: the theme's fallback subset loaded and is in use  gh-inter; faces Manrope 400 800
+PASS  neon-light: no other theme's subset loads  gh-inter
+PASS  neon-light: Home shows the saved name, no page errors
+PASS  paper-light: no fallback subset loads while no name needs it  none
+PASS  paper-light: both names show on the player cards  Ɛ Ɛsi Ɔkyere Player 1 0 | Ɖ Ɖela Ʋɔŋɣ ₵ Player 2 0
+PASS  paper-light: the theme's fallback subset loaded and is in use  gh-noto-sans; faces Kalam 700, Atkinson Hyperlegible 400, Atkinson Hyperlegible 700
+PASS  paper-light: no other theme's subset loads  gh-noto-sans
+PASS  paper-light: Home shows the saved name, no page errors
+PASS  paper-dark: no fallback subset loads while no name needs it  none
+PASS  paper-dark: both names show on the player cards  Ɛ Ɛsi Ɔkyere Player 1 0 | Ɖ Ɖela Ʋɔŋɣ ₵ Player 2 0
+PASS  paper-dark: the theme's fallback subset loaded and is in use  gh-noto-sans; faces Kalam 700, Atkinson Hyperlegible 400, Atkinson Hyperlegible 700
+PASS  paper-dark: no other theme's subset loads  gh-noto-sans
+PASS  paper-dark: Home shows the saved name, no page errors
+
+30/30 checks passed

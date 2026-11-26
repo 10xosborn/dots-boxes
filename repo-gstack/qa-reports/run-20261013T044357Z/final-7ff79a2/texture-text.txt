@@ -1,0 +1,25 @@
+      (table-light-phone game, not counted: decorative "P" 3.37)
+PASS  table-light-phone: 7 screens, 151 text lines, all at their bar or above  worst 4.52:1 (bar 4.5) "Offline mode: this board only shows " 13.6px/400 on leaderboard
+      (table-light-desktop game, not counted: decorative "P" 3.37)
+PASS  table-light-desktop: 7 screens, 151 text lines, all at their bar or above  worst 4.54:1 (bar 4.5) "Offline mode: this board only shows " 13.6px/400 on leaderboard
+      (table-dark-phone game, not counted: decorative "P" 3.8)
+PASS  table-dark-phone: 7 screens, 151 text lines, all at their bar or above  worst 6.11:1 (bar 4.5) "Glowing lights in a dark room" 13.6px/400 on settings
+      (table-dark-desktop game, not counted: decorative "P" 3.8)
+PASS  table-dark-desktop: 7 screens, 151 text lines, all at their bar or above  worst 6.11:1 (bar 4.5) "Glowing lights in a dark room" 13.6px/400 on settings
+      (neon-light-phone game, not counted: decorative "P" 3.51)
+PASS  neon-light-phone: 7 screens, 151 text lines, all at their bar or above  worst 4.17:1 (bar 3) "2" 30.4px/800 on game
+      (neon-light-desktop game, not counted: decorative "P" 3.51)
+PASS  neon-light-desktop: 7 screens, 151 text lines, all at their bar or above  worst 4.17:1 (bar 3) "2" 30.4px/800 on game
+      (neon-dark-phone game, not counted: decorative "P" 3.51; decorative "R" 2.28)
+PASS  neon-dark-phone: 7 screens, 151 text lines, all at their bar or above  worst 7.57:1 (bar 4.5) "4×4 against Rookie: 24 of 40 lines d" 16px/400 on home (banner, Continue card)
+      (neon-dark-desktop game, not counted: decorative "P" 3.51; decorative "R" 2.28)
+PASS  neon-dark-desktop: 7 screens, 151 text lines, all at their bar or above  worst 7.52:1 (bar 4.5) "4×4 against Rookie: 24 of 40 lines d" 16px/400 on home (banner, Continue card)
+      (paper-light-phone game, not counted: decorative "P" 3.23; decorative "R" 4.39)
+PASS  paper-light-phone: 7 screens, 151 text lines, all at their bar or above  worst 4.57:1 (bar 4.5) "Close a box, keep your turn. Beat th" 16.32px/400 on home (banner, Continue card)
+      (paper-light-desktop game, not counted: decorative "P" 3.23; decorative "R" 4.39)
+PASS  paper-light-desktop: 7 screens, 151 text lines, all at their bar or above  worst 4.51:1 (bar 4.5) "Close a box, keep your turn. Beat th" 16.32px/400 on home (banner, Continue card)
+PASS  paper-dark-phone: 7 screens, 151 text lines, all at their bar or above  worst 5.55:1 (bar 4.5) "Offline mode: this board only shows " 13.6px/400 on leaderboard
+PASS  paper-dark-desktop: 7 screens, 151 text lines, all at their bar or above  worst 5.61:1 (bar 4.5) "Close a box, keep your turn. Beat th" 16.32px/400 on home (banner, Continue card)
+PASS  console: no errors
+
+13/13 checks passed

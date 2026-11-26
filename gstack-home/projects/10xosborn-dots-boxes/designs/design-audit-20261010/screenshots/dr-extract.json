@@ -1,0 +1,244 @@
+{
+  "extract": {
+    "fonts": {
+      "\"Times New Roman\"": 15,
+      "Manrope, system-ui, sans-serif": 76,
+      "Unbounded, system-ui, sans-serif": 8,
+      "Unbounded, sans-serif": 3
+    },
+    "colorCount": 9,
+    "colors": [
+      "rgb(0, 0, 0)",
+      "rgb(242, 240, 255)",
+      "rgb(255, 92, 122)",
+      "rgb(62, 214, 234)",
+      "rgb(183, 164, 255)",
+      "rgba(255, 255, 255, 0.06)",
+      "rgb(169, 166, 208)",
+      "rgb(255, 255, 255)",
+      "rgba(255, 255, 255, 0.1)"
+    ],
+    "headings": [
+      {
+        "tag": "H2",
+        "text": "Continue your game",
+        "size": "17.6px",
+        "weight": "700",
+        "lh": "normal",
+        "family": "Unbounded",
+        "wrap": "wrap"
+      },
+      {
+        "tag": "H1",
+        "text": "Grid Rivals",
+        "size": "57.6px",
+        "weight": "800",
+        "lh": "54.72px",
+        "family": "Unbounded",
+        "wrap": "wrap"
+      }
+    ],
+    "small": [
+      {
+        "text": "Grid Rivals",
+        "w": 122,
+        "h": 30
+      }
+    ],
+    "panels": [
+      {
+        "cls": "panel resume svelte-n7tyl6",
+        "text": "Continue your game 4×4 against Maestro: ",
+        "padding": "18px",
+        "borderRadius": "22px",
+        "backgroundColor": "rgba(255, 255, 255, 0.06)",
+        "backgroundImage": "none",
+        "border": "1px solid rgba(255, 255, 255, 0.12)",
+        "boxShadow": "rgba(0, 0, 0, 0.7) 0px 20px 50px -24px",
+        "backdropFilter": "none",
+        "gap": "normal",
+        "marginTop": "0px",
+        "marginBottom": "18px"
+      },
+      {
+        "cls": "panel",
+        "text": "P PlayerLevel 1 0 / 100 XP, 100 to level",
+        "padding": "18px",
+        "borderRadius": "22px",
+        "backgroundColor": "rgba(255, 255, 255, 0.06)",
+        "backgroundImage": "none",
+        "border": "1px solid rgba(255, 255, 255, 0.12)",
+        "boxShadow": "rgba(0, 0, 0, 0.7) 0px 20px 50px -24px",
+        "backdropFilter": "none",
+        "gap": "normal",
+        "marginTop": "0px",
+        "marginBottom": "0px"
+      }
+    ],
+    "card": {
+      "box": {
+        "padding": "18px",
+        "borderRadius": "22px",
+        "backgroundColor": "rgba(255, 255, 255, 0.06)",
+        "backgroundImage": "none",
+        "border": "1px solid rgba(255, 255, 255, 0.12)",
+        "boxShadow": "rgba(0, 0, 0, 0.7) 0px 20px 50px -24px",
+        "backdropFilter": "none",
+        "gap": "normal",
+        "marginTop": "0px",
+        "marginBottom": "18px"
+      },
+      "h2": {
+        "fontSize": "17.6px",
+        "fontWeight": "700",
+        "lineHeight": "normal",
+        "fontFamily": "Unbounded",
+        "color": "rgb(242, 240, 255)",
+        "letterSpacing": "-0.176px"
+      },
+      "p": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "fontFamily": "Manrope",
+        "color": "rgb(169, 166, 208)",
+        "letterSpacing": "normal"
+      },
+      "rowGap": "10px",
+      "buttons": [
+        {
+          "text": "Continue",
+          "cls": "btn primary",
+          "w": 299,
+          "h": 50,
+          "fontSize": "16px",
+          "fontWeight": "800",
+          "lineHeight": "normal",
+          "fontFamily": "Manrope",
+          "color": "rgb(255, 255, 255)",
+          "letterSpacing": "normal",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bgImg": "linear-gradient(120deg, rgb(255, 92, 122), rgb(164, 92, 255)",
+          "radius": "14px"
+        },
+        {
+          "text": "Discard",
+          "cls": "btn",
+          "w": 301,
+          "h": 50,
+          "fontSize": "16px",
+          "fontWeight": "800",
+          "lineHeight": "normal",
+          "fontFamily": "Manrope",
+          "color": "rgb(242, 240, 255)",
+          "letterSpacing": "normal",
+          "bg": "rgba(255, 255, 255, 0.1)",
+          "bgImg": "none",
+          "radius": "14px"
+        }
+      ]
+    },
+    "play": {
+      "cls": "btn primary",
+      "h": 60,
+      "bg": "rgba(0, 0, 0, 0)",
+      "bgImg": "linear-gradient(120deg, rgb(255, 92, 122), rgb(164, 92, 255)"
+    },
+    "gaps": [
+      {
+        "between": "panel resume svelte-n7tyl6 → hero",
+        "px": 18
+      },
+      {
+        "between": "hero → panel",
+        "px": 0
+      },
+      {
+        "between": "panel → menu",
+        "px": 14
+      }
+    ],
+    "tabOrder": [
+      "Grid Rivals",
+      "1Player",
+      "Continue",
+      "Discard",
+      "Play",
+      "Play a friend online",
+      "Leaderboard",
+      "My stats"
+    ],
+    "quotes": {
+      "straight": 0,
+      "curly": 0
+    },
+    "rootVars": [
+      "--bg1: #0c0a24",
+      "--bg2: #22114a",
+      "--text: #f2f0ff",
+      "--muted: #a9a6d0",
+      "--accent: #b7a4ff",
+      "--p1: #ff5c7a",
+      "--p2: #3ed6ea",
+      "--p1-soft: #ff5c7a33",
+      "--p2-soft: #3ed6ea33",
+      "--panel: #ffffff0f",
+      "--panel-b: #ffffff1f",
+      "--panel-strong: #ffffff1a",
+      "--dot: #e9e6ff",
+      "--grid: #ffffff0f",
+      "--gold: #ffd166",
+      "--r-lg: 22px",
+      "--r-md: 14px",
+      "--r-sm: 10px",
+      "--shadow: 0 20px 50px -24px #000000b3",
+      "--display: \"Unbounded\",system-ui,sans-serif",
+      "--ui: \"Manrope\",system-ui,sans-serif"
+    ],
+    "region": {
+      "role": "region",
+      "label": "resumeTitle"
+    }
+  },
+  "contrastDark": {
+    "h2": {
+      "fg": "rgb(242, 240, 255)",
+      "bg": [
+        41,
+        29,
+        61
+      ],
+      "ratio": 13.99
+    },
+    "p": {
+      "fg": "rgb(169, 166, 208)",
+      "bg": [
+        41,
+        29,
+        62
+      ],
+      "ratio": 6.76
+    }
+  },
+  "contrastLight": {
+    "h2": {
+      "fg": "rgb(27, 23, 66)",
+      "bg": [
+        250,
+        249,
+        253
+      ],
+      "ratio": 16.05
+    },
+    "p": {
+      "fg": "rgb(85, 90, 128)",
+      "bg": [
+        250,
+        249,
+        253
+      ],
+      "ratio": 6.34
+    }
+  },
+  "consoleErrors": []
+}

@@ -1,0 +1,122 @@
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+PASS  table-light-phone: Home shows the Continue card and the offline banner  page 179 px taller than the screen
+PASS  table-light-phone: the results dialog after a win  page fits the screen
+PASS  table-light-phone: Setup  page fits the screen
+PASS  table-light-phone: Setup with the Custom rows and columns  page 133 px taller than the screen
+PASS  table-light-phone: Leaderboard  page fits the screen
+PASS  table-light-phone: My stats  page 514 px taller than the screen
+PASS  table-light-phone: Play a friend online  page fits the screen
+PASS  table-light-phone: self-hosted fonts load  5 font files, 0 failed
+PASS  table-light-phone: no page errors or console errors
+PASS  table-light-desktop: Home shows the Continue card and the offline banner
+PASS  table-light-desktop: the results dialog after a win
+PASS  table-light-desktop: Setup
+PASS  table-light-desktop: Setup with the Custom rows and columns
+PASS  table-light-desktop: Leaderboard
+PASS  table-light-desktop: My stats
+PASS  table-light-desktop: Play a friend online
+PASS  table-light-desktop: self-hosted fonts load  5 font files, 0 failed
+PASS  table-light-desktop: no page errors or console errors
+PASS  table-dark-phone: Home shows the Continue card and the offline banner  page 179 px taller than the screen
+PASS  table-dark-phone: the results dialog after a win  page fits the screen
+PASS  table-dark-phone: Setup  page fits the screen
+PASS  table-dark-phone: Setup with the Custom rows and columns  page 133 px taller than the screen
+PASS  table-dark-phone: Leaderboard  page fits the screen
+PASS  table-dark-phone: My stats  page 514 px taller than the screen
+PASS  table-dark-phone: Play a friend online  page fits the screen
+PASS  table-dark-phone: self-hosted fonts load  5 font files, 0 failed
+PASS  table-dark-phone: no page errors or console errors
+PASS  table-dark-desktop: Home shows the Continue card and the offline banner
+PASS  table-dark-desktop: the results dialog after a win
+PASS  table-dark-desktop: Setup
+PASS  table-dark-desktop: Setup with the Custom rows and columns
+PASS  table-dark-desktop: Leaderboard
+PASS  table-dark-desktop: My stats
+PASS  table-dark-desktop: Play a friend online
+PASS  table-dark-desktop: self-hosted fonts load  5 font files, 0 failed
+PASS  table-dark-desktop: no page errors or console errors
+PASS  neon-light-phone: Home shows the Continue card and the offline banner  page 175 px taller than the screen
+PASS  neon-light-phone: the results dialog after a win  page fits the screen
+PASS  neon-light-phone: Setup  page fits the screen
+PASS  neon-light-phone: Setup with the Custom rows and columns  page 148 px taller than the screen
+PASS  neon-light-phone: Leaderboard  page fits the screen
+PASS  neon-light-phone: My stats  page 494 px taller than the screen
+PASS  neon-light-phone: Play a friend online  page fits the screen
+PASS  neon-light-phone: self-hosted fonts load  10 font files, 0 failed
+PASS  neon-light-phone: no page errors or console errors
+PASS  neon-light-desktop: Home shows the Continue card and the offline banner
+PASS  neon-light-desktop: the results dialog after a win
+PASS  neon-light-desktop: Setup
+PASS  neon-light-desktop: Setup with the Custom rows and columns
+PASS  neon-light-desktop: Leaderboard
+PASS  neon-light-desktop: My stats
+PASS  neon-light-desktop: Play a friend online
+PASS  neon-light-desktop: self-hosted fonts load  10 font files, 0 failed
+PASS  neon-light-desktop: no page errors or console errors
+PASS  neon-dark-phone: Home shows the Continue card and the offline banner  page 175 px taller than the screen
+PASS  neon-dark-phone: the results dialog after a win  page fits the screen
+PASS  neon-dark-phone: Setup  page fits the screen
+PASS  neon-dark-phone: Setup with the Custom rows and columns  page 148 px taller than the screen
+PASS  neon-dark-phone: Leaderboard  page fits the screen
+PASS  neon-dark-phone: My stats  page 494 px taller than the screen
+PASS  neon-dark-phone: Play a friend online  page fits the screen
+PASS  neon-dark-phone: self-hosted fonts load  10 font files, 0 failed
+PASS  neon-dark-phone: no page errors or console errors
+PASS  neon-dark-desktop: Home shows the Continue card and the offline banner
+PASS  neon-dark-desktop: the results dialog after a win
+PASS  neon-dark-desktop: Setup
+PASS  neon-dark-desktop: Setup with the Custom rows and columns
+PASS  neon-dark-desktop: Leaderboard
+PASS  neon-dark-desktop: My stats
+PASS  neon-dark-desktop: Play a friend online
+PASS  neon-dark-desktop: self-hosted fonts load  10 font files, 0 failed
+PASS  neon-dark-desktop: no page errors or console errors
+PASS  paper-light-phone: Home shows the Continue card and the offline banner  page 174 px taller than the screen
+PASS  paper-light-phone: the results dialog after a win  page fits the screen
+PASS  paper-light-phone: Setup  page fits the screen
+PASS  paper-light-phone: Setup with the Custom rows and columns  page 136 px taller than the screen
+PASS  paper-light-phone: Leaderboard  page fits the screen
+PASS  paper-light-phone: My stats  page 513 px taller than the screen
+PASS  paper-light-phone: Play a friend online  page fits the screen
+PASS  paper-light-phone: self-hosted fonts load  20 font files, 0 failed
+PASS  paper-light-phone: no page errors or console errors
+PASS  paper-light-desktop: Home shows the Continue card and the offline banner
+PASS  paper-light-desktop: the results dialog after a win
+PASS  paper-light-desktop: Setup
+PASS  paper-light-desktop: Setup with the Custom rows and columns
+PASS  paper-light-desktop: Leaderboard
+PASS  paper-light-desktop: My stats
+PASS  paper-light-desktop: Play a friend online
+PASS  paper-light-desktop: self-hosted fonts load  20 font files, 0 failed
+PASS  paper-light-desktop: no page errors or console errors
+PASS  paper-dark-phone: Home shows the Continue card and the offline banner  page 174 px taller than the screen
+PASS  paper-dark-phone: the results dialog after a win  page fits the screen
+PASS  paper-dark-phone: Setup  page fits the screen
+PASS  paper-dark-phone: Setup with the Custom rows and columns  page 136 px taller than the screen
+PASS  paper-dark-phone: Leaderboard  page fits the screen
+PASS  paper-dark-phone: My stats  page 513 px taller than the screen
+PASS  paper-dark-phone: Play a friend online  page fits the screen
+PASS  paper-dark-phone: self-hosted fonts load  20 font files, 0 failed
+PASS  paper-dark-phone: no page errors or console errors
+PASS  paper-dark-desktop: Home shows the Continue card and the offline banner
+PASS  paper-dark-desktop: the results dialog after a win
+PASS  paper-dark-desktop: Setup
+PASS  paper-dark-desktop: Setup with the Custom rows and columns
+PASS  paper-dark-desktop: Leaderboard
+PASS  paper-dark-desktop: My stats
+PASS  paper-dark-desktop: Play a friend online
+PASS  paper-dark-desktop: self-hosted fonts load  20 font files, 0 failed
+PASS  paper-dark-desktop: no page errors or console errors
+
+Phone page heights beyond the 844 px screen (0 = fits):
+  home-continue  table-light 179, table-dark 179, neon-light 175, neon-dark 175, paper-light 174, paper-dark 174
+  results        table-light 0, table-dark 0, neon-light 0, neon-dark 0, paper-light 0, paper-dark 0
+  setup          table-light 0, table-dark 0, neon-light 0, neon-dark 0, paper-light 0, paper-dark 0
+  setup-custom   table-light 133, table-dark 133, neon-light 148, neon-dark 148, paper-light 136, paper-dark 136
+  leaderboard    table-light 0, table-dark 0, neon-light 0, neon-dark 0, paper-light 0, paper-dark 0
+  stats          table-light 514, table-dark 514, neon-light 494, neon-dark 494, paper-light 513, paper-dark 513
+  online         table-light 0, table-dark 0, neon-light 0, neon-dark 0, paper-light 0, paper-dark 0
+Blocked Firebase requests reported in the console (expected): 60
+
+108/108 checks passed
+servers stopped; child exit 0

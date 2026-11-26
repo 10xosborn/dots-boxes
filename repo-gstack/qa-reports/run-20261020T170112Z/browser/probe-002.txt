@@ -1,0 +1,9 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-20T17:01:35.794Z","deadlineAt":"2026-10-20T17:16:35.794Z","budgetMs":900000,"observedAt":"2026-10-20T17:03:03.634Z","remainingMs":812160,"expired":false}
+PASS  theme-switch: the lone line is painted after switching to Tabletop  skin table, line vs empty lane 260
+PASS  theme-switch: the lone line is painted after switching to Paper  skin paper, line vs empty lane 186
+PASS  theme-switch: the lone line is painted after switching to Neon  skin neon, line vs empty lane 195
+PASS  theme-switch: no page errors
+4/4 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-20T17:03:11.085Z","deadlineAt":"2026-10-20T17:16:35.794Z","timedOut":false,"exitCode":0}

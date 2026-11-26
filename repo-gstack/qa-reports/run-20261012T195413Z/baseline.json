@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-12",
+  "url": "http://127.0.0.1:4173/",
+  "branch": "design/02-materials",
+  "commitTested": "9b21b74",
+  "commitFixed": "9501ba4",
+  "healthScore": 98,
+  "finalHealthScore": 99,
+  "provisional": true,
+  "issues": [
+    { "id": "ISSUE-001", "title": "The keyboard cursor is too faint against the board in every theme (1.4-1.9:1 from pixels)", "severity": "medium", "category": "accessibility", "status": "fixed (verified)", "commit": "9501ba4" },
+    { "id": "ISSUE-002", "title": "The hover preview reaches 1.9-3.4:1 against the board (below 3:1 in four modes)", "severity": "low", "category": "accessibility", "status": "deferred to the drag-to-draw PR, which redraws the preview" }
+  ],
+  "categoryScores": {
+    "console": 100,
+    "links": null,
+    "visual": 100,
+    "functional": 100,
+    "ux": 100,
+    "performance": null,
+    "content": 100,
+    "accessibility": { "baseline": 89, "final": 97 }
+  }
+}

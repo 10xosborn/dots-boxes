@@ -1,0 +1,10 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-15T10:16:10.749Z","deadlineAt":"2026-10-15T10:31:10.749Z","budgetMs":900000,"observedAt":"2026-10-15T10:17:11.928Z","remainingMs":838821,"expired":false}
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+table-dark  board rgb(90,69,56) from 23 empty cells | line p1 median 7.05 worst 7.05 (15 lines) | line p2 median 4.03 worst 4.03 (15 lines) | dots median 6.12 worst 5.72 | initials p1 worst 11.16 | initials p2 worst 7.12
+paper-dark  board rgb(81,54,38) from 23 empty cells | line p1 median 7.67 worst 7.67 (15 lines) | line p2 median 5.25 worst 5.25 (15 lines) | dots median 9.38 worst 8.90 | initials p1 worst 5.65 | initials p2 worst 4.78
+neon-dark   board rgb(11,15,25) from 23 empty cells | line p1 median 6.31 worst 5.07 (15 lines) | line p2 median 16.72 worst 16.15 (15 lines) | dots median 14.23 worst 11.46 | initials p1 worst 6.90 | initials p2 worst 8.46
+neon-light  board rgb(235,241,245) from 23 empty cells | line p1 median 4.93 worst 4.28 (15 lines) | line p2 median 3.80 worst 3.32 (15 lines) | dots median 3.02 worst 3.02 | initials p1 worst 8.99 | initials p2 worst 8.63
+servers stopped; child exit 0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-15T10:17:19.947Z","deadlineAt":"2026-10-15T10:31:10.749Z","timedOut":false,"exitCode":0}

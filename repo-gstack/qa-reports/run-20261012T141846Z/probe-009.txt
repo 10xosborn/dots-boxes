@@ -1,0 +1,62 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-12T14:21:14.442Z","deadlineAt":"2026-10-12T14:36:14.442Z","budgetMs":900000,"observedAt":"2026-10-12T14:30:46.818Z","remainingMs":327624,"expired":false}
+dismiss buttons before Play: 1
+{
+ "heading": "New game",
+ "openDialogs": [],
+ "inert": [],
+ "buttons": [
+  " [label Back]",
+  "Play the AI",
+  "Two players, one device",
+  "3×3",
+  "4×4",
+  "5×5",
+  "6×6",
+  "Custom",
+  "Easy",
+  "Medium",
+  "Hard",
+  "Me",
+  "AI",
+  "Random",
+  "Start game"
+ ],
+ "active": "BODY Grid Rivals  1Player    New ga"
+}
+getByRole Play the AI: 1 | text-is: 1 | getByRole Start game: 1 | getByRole Custom: 1
+ARIA_START
+- main:
+  - region "New game":
+    - button "Back"
+    - heading "New game" [level=2]
+    - text: Your name
+    - textbox "Your name":
+      - /placeholder: Enter a name
+      - text: Player
+    - text: Your stats and leaderboard entries use this name. Mode
+    - group "Mode":
+      - button "Play the AI" [pressed]
+      - button "Two players, one device"
+    - text: Board size (boxes per side)
+    - group "Board size":
+      - button "3×3"
+      - button "4×4" [pressed]
+      - button "5×5"
+      - button "6×6"
+      - button "Custom"
+    - text: Difficulty
+    - group "Difficulty":
+      - button "Easy"
+      - button "Medium" [pressed]
+      - button "Hard"
+    - text: Grabs every box and never gives a free one away early. Who starts
+    - group "Who starts":
+      - button "Me" [pressed]
+      - button "AI"
+      - button "Random"
+    - button "Start game"
+ARIA_END
+DIAG_DONE
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-12T14:30:51.711Z","deadlineAt":"2026-10-12T14:36:14.442Z","timedOut":false,"exitCode":0}

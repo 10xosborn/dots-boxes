@@ -1,0 +1,2 @@
+table-dark  ready main 489 branch 480 ms, paired diff median 5 ms (branch slower in 9/16) | LCP main 920 branch 916 ms, paired diff median -8 ms
+paper-dark  ready main 602 branch 590 ms, paired diff median 36 ms (branch slower in 8/16) | LCP main 1064 branch 1044 ms, paired diff median 8 ms

@@ -1,0 +1,16 @@
+# QA charters: fix/owner-2026-10-20 (0ad568e + 87b0ed6 on main ab4c706)
+
+Target: local production build `dist-qa-87b0ed6` (identical to dist-fix3), served by scratchpad `serve-one.mjs` (127.0.0.1:4173) or `serve-two.mjs` (branch :4176, main :4177). Firebase blocked by hostname (fonts allowed). Online charter: emulator build against the local Realtime Database emulator only. Driver: gstack's bundled Playwright with its Chromium; Brave 155 (the owner's browser) where marked.
+
+| # | Contract | Risk | Entry point / command | Isolation | Exit condition |
+| --- | --- | --- | --- | --- | --- |
+| C1 | Every drawn line is painted within 600 ms in all six theme modes, including a game's first line and lines along one row | The owner's main report (moves invisible until the next one) | `paint-check.mjs` (Chromium, Brave), `paint-collinear.mjs` (branch vs main, Chromium, Brave) | Fresh contexts, pvp 4x4, Animations on | 0 unpainted on the branch; main shows the defect (control) |
+| C2 | "Random" picks either player across rematches, pvp and vs AI | Owner: "I am the one who starts first" | `first-random.mjs` GAMES=16 | 1x1 games, phone touch | Both starters appear in both modes |
+| C3 | A resting or gliding mouse never draws a line | Owner: "the lines draws as if I have clicked" | `hover-check.mjs` | Desktop mouse, AI and pvp, Tabletop and Neon | Line counts unchanged without clicks |
+| C4 | Keyboard cursor: the preview in the mover's colour inside the focus ring; hidden off-turn; stays near its last line; 3:1 | Owner: "a line that is highlighted, why" | `sound-check.mjs` (cursor part), `materials-probe.mjs cursor` | Desktop keyboard (Tab focus) | All checks pass |
+| C5 | Sounds: button tick, tapped/clicked/keyboard line note, dragged line pick+snap+drop, box chime, Sound switch (off ticks, on chimes alone), ghost click silent | Owner: three kinds of click should sound different | `sound-check.mjs` (Chromium, Brave), `drag-test.mjs` sound rows | Audio nodes spied in the page | All checks pass |
+| C6 | Paper's own lines: #EF4120 by day, #C9B085 at night, every line sample 3:1 or more | Owner's colour request; day coral was 2.99:1 | `line-contrast2.mjs` (all six modes) | Phone 2x, pixels | 6/6 pass |
+| C7 | No regressions: drag to draw (mouse, touch), drag edge cases, elastic band and rings, ids, confetti, theme tokens | Board input and rendering changed | `drag-test.mjs`, `drag-edge.mjs`, `spring-test.mjs`, `materials-probe.mjs ids|confetti`, `npx vitest run tests/theme` | Fresh contexts | Pass, or a failure proven stale on main too |
+| C8 | Resume and game integrity (reload mid-game, Continue, Discard; legal moves, scores) | Game.svelte's commit gained a parameter | `qa-r1a.mjs`, `integrity-r1a.mjs` | Local storage per context | Pass |
+| C9 | Online: moves reach the other screen, own drag drops, the other player's line plays the note, first line painted on both | Online.svelte changed (ownDrop) | Emulator build + `online-lag.mjs`-style two-browser run | Local emulator only (demo project) | Pass, or reported blocked |
+| C10 | Exploratory (bounded 900 s): theme switch with a single line, reload after one move, keyboard extra turn, a dragged line that closes a box, two players on one keyboard | Edges around C1, C4, C5 | `explore-fix.mjs CASE=...` | Fresh contexts | Each case passes or yields an issue |

@@ -1,0 +1,35 @@
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+PASS  small phone 360x640 table/light: no sideways scroll, board shown, no errors  board 310px wide
+PASS  small phone 360x640 table/dark: no sideways scroll, board shown, no errors  board 310px wide
+PASS  small phone 360x640 neon/dark: no sideways scroll, board shown, no errors  board 310px wide
+PASS  small phone 360x640 neon/light: no sideways scroll, board shown, no errors  board 310px wide
+PASS  small phone 360x640 paper/light: no sideways scroll, board shown, no errors  board 310px wide
+PASS  small phone 360x640 paper/dark: no sideways scroll, board shown, no errors  board 310px wide
+   page height beyond the screen at 360x640: table-light home +286 game +7, table-dark home +286 game +7, neon-dark home +282 game +49, neon-light home +282 game +49, paper-light home +284 game +6, paper-dark home +284 game +6
+PASS  phone sideways 844x390 table/light: no sideways scroll, board shown, no errors  board 260px wide
+PASS  phone sideways 844x390 table/dark: no sideways scroll, board shown, no errors  board 260px wide
+PASS  phone sideways 844x390 neon/dark: no sideways scroll, board shown, no errors  board 260px wide
+PASS  phone sideways 844x390 neon/light: no sideways scroll, board shown, no errors  board 260px wide
+PASS  phone sideways 844x390 paper/light: no sideways scroll, board shown, no errors  board 260px wide
+PASS  phone sideways 844x390 paper/dark: no sideways scroll, board shown, no errors  board 260px wide
+   page height beyond the screen at 844x390: table-light home +520 game +207, table-dark home +520 game +207, neon-dark home +516 game +207, neon-light home +516 game +207, paper-light home +517 game +206, paper-dark home +517 game +206
+PASS  tablet 768x1024 table/light: no sideways scroll, board shown, no errors  board 608px wide
+PASS  tablet 768x1024 table/dark: no sideways scroll, board shown, no errors  board 608px wide
+PASS  tablet 768x1024 neon/dark: no sideways scroll, board shown, no errors  board 608px wide
+PASS  tablet 768x1024 neon/light: no sideways scroll, board shown, no errors  board 608px wide
+PASS  tablet 768x1024 paper/light: no sideways scroll, board shown, no errors  board 608px wide
+PASS  tablet 768x1024 paper/dark: no sideways scroll, board shown, no errors  board 608px wide
+   page height beyond the screen at 768x1024: table-light home +0 game +0, table-dark home +0 game +0, neon-dark home +0 game +0, neon-light home +0 game +0, paper-light home +0 game +0, paper-dark home +0 game +0
+PASS  large desktop 1920x1080 table/light: no sideways scroll, board shown, no errors  board 620px wide
+PASS  large desktop 1920x1080 table/dark: no sideways scroll, board shown, no errors  board 620px wide
+PASS  large desktop 1920x1080 neon/dark: no sideways scroll, board shown, no errors  board 620px wide
+PASS  large desktop 1920x1080 neon/light: no sideways scroll, board shown, no errors  board 620px wide
+PASS  large desktop 1920x1080 paper/light: no sideways scroll, board shown, no errors  board 620px wide
+PASS  large desktop 1920x1080 paper/dark: no sideways scroll, board shown, no errors  board 620px wide
+   page height beyond the screen at 1920x1080: table-light home +0 game +0, table-dark home +0 game +0, neon-dark home +0 game +0, neon-light home +0 game +0, paper-light home +0 game +0, paper-dark home +0 game +0
+PASS  colour-vision pictures saved for review (4 emulations x 6 modes)
+PASS  reduced motion on a first visit: animations off  {"cls":" no-anim","saved":null,"anim":"none"}
+PASS  the Animations toggle off: no animation  {"cls":" no-anim","anim":"none"}
+
+27/27 checks passed
+servers stopped; child exit 0

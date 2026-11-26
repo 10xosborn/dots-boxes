@@ -1,0 +1,8 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-10T23:35:41.923Z","deadlineAt":"2026-10-10T23:50:41.923Z","budgetMs":900000,"observedAt":"2026-10-10T23:36:58.106Z","remainingMs":823817,"expired":false}
+INFO 390x844 card=true {"scrollH":937,"viewH":844,"scrolled":93,"bodyBgAttach":"fixed","bottomEl":"div.app"} -> scroll-bottom-390x844-card.jpg
+INFO 360x640 card=false {"scrollH":737,"viewH":640,"scrolled":97,"bodyBgAttach":"fixed","bottomEl":"div.app"} -> scroll-bottom-360x640.jpg
+
+0/0 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-10T23:37:01.923Z","deadlineAt":"2026-10-10T23:50:41.923Z","timedOut":false,"exitCode":0}

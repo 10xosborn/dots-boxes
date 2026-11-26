@@ -1,0 +1,9 @@
+{
+  "evidence": [],
+  "limits": [
+    "checkpoint 005 was published in error before probe C had output; its claim that C3 passed is void (see checkpoint 006). Probes 004 and 005 did not run because bun.exe was locked for about 30 s.",
+    "Firebase traffic was blocked to keep production untouched, so the Firebase adapter path (resumed wins keep best unchanged; the create-only rules refuse a second save) was verified by code reading, not live.",
+    "Touch was emulated (Chromium hasTouch at 390x844); no real Android phone or iPhone was used.",
+    "Performance was not measured in this run; /benchmark compares the build separately."
+  ]
+}

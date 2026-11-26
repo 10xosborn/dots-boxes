@@ -1,0 +1,12 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-10T23:35:41.923Z","deadlineAt":"2026-10-10T23:50:41.923Z","budgetMs":900000,"observedAt":"2026-10-10T23:40:06.800Z","remainingMs":635123,"expired":false}
+PASS  C1 a game is saved after the first move
+PASS  C2 Quit (after the confirm) clears it: no Continue card
+PASS  C3 Restart starts fresh and clears the saved game  0 lines, saved false
+PASS  C4 a finished game is not saved for later
+PASS  C5 Play again starts a new game  0 lines
+PASS  C console: no errors
+
+6/6 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-10T23:40:22.391Z","deadlineAt":"2026-10-10T23:50:41.923Z","timedOut":false,"exitCode":0}

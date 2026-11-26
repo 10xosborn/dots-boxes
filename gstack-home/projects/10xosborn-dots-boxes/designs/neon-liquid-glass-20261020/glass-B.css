@@ -1,0 +1,19 @@
+/* B, "Liquid frost": the iOS look without a blur: the glass deepens and brightens the colours behind it (a saturate and
+   brightness backdrop filter, no blur), under a milky veil thickest at the top; a soft glowing rim, light caught along the
+   top edge and a shadowed foot that gives the pane its thickness. */
+[data-skin="neon"] .board-wrap{isolation:isolate}
+[data-skin="neon"] .board-wrap::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:2;
+  background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(255,255,255,.3) 30%,rgba(255,255,255,.12) 65%,rgba(255,255,255,.45));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+[data-skin="neon"][data-theme] .board-wrap::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;
+  background:linear-gradient(90deg,transparent 4%,rgba(255,255,255,.7) 22%,rgba(255,255,255,.7) 60%,transparent 92%) 0 3px/100% 1.5px no-repeat}
+[data-skin="neon"][data-theme="dark"] .board-wrap{background-color:rgba(16,20,36,.34);
+  -webkit-backdrop-filter:saturate(2) brightness(1.25);backdrop-filter:saturate(2) brightness(1.25);
+  background-image:radial-gradient(130% 60% at 50% -14%,rgba(255,255,255,.2),rgba(255,255,255,.06) 55%,transparent 74%),linear-gradient(180deg,rgba(255,255,255,.07),transparent 45%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),inset 0 0 18px 3px rgba(255,255,255,.1),inset 0 -32px 42px -30px rgba(0,0,0,.55),
+    0 0 0 1px rgba(255,255,255,.06),0 0 46px -12px rgba(0,240,255,.3),0 36px 64px -30px var(--cast)}
+[data-skin="neon"][data-theme="light"] .board-wrap{background-color:rgba(248,250,253,.55);
+  -webkit-backdrop-filter:saturate(1.8) brightness(1.08);backdrop-filter:saturate(1.8) brightness(1.08);
+  background-image:radial-gradient(130% 60% at 50% -14%,rgba(255,255,255,.9),rgba(255,255,255,.35) 55%,transparent 74%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),inset 0 0 22px 4px rgba(255,255,255,.65),inset 0 -28px 36px -28px rgba(40,70,130,.3),
+    0 0 0 1px rgba(0,71,255,.08),0 0 34px -10px rgba(0,71,255,.22),0 26px 48px -26px var(--cast)}

@@ -1,0 +1,45 @@
+{
+ "focus-dark": {
+  "on": "Continue",
+  "tabs": 1,
+  "outline": "solid 3px rgb(183, 164, 255)",
+  "offset": "3px",
+  "boxShadow": "rgb(255, 92, 122) 0px 12px 30px -12px"
+ },
+ "pointer-dark": {
+  "before": "rgba(0, 0, 0, 0) linear-gradient(120deg, rgb(255, 92, 122), rgb(164 none none",
+  "hover": "rgba(0, 0, 0, 0) linear-gradient(120deg, rgb(255, 92, 122), rgb(164 none none",
+  "press": "matrix(0.97, 0, 0, 0.97, 0, 0) none rgba(0, 0, 0, 0)",
+  "ringAfterClick": null
+ },
+ "discard-cancel-dark": {
+  "confirm": "Discard this game? It won't count.",
+  "cardStays": true
+ },
+ "continue-dark": {
+  "ms": 73,
+  "said": "Game resumed. Score 2 to 1. Player to move."
+ },
+ "focus-light": {
+  "on": "Continue",
+  "tabs": 1,
+  "outline": "solid 3px rgb(107, 70, 224)",
+  "offset": "3px",
+  "boxShadow": "rgb(211, 47, 85) 0px 12px 30px -12px"
+ },
+ "pointer-light": {
+  "before": "rgba(0, 0, 0, 0) linear-gradient(120deg, rgb(211, 47, 85), rgb(164, none none",
+  "hover": "rgba(0, 0, 0, 0) linear-gradient(120deg, rgb(211, 47, 85), rgb(164, none none",
+  "press": "matrix(0.97, 0, 0, 0.97, 0, 0) none rgba(0, 0, 0, 0)",
+  "ringAfterClick": null
+ },
+ "discard-cancel-light": {
+  "confirm": "Discard this game? It won't count.",
+  "cardStays": true
+ },
+ "continue-light": {
+  "ms": 45,
+  "said": "Game resumed. Score 2 to 1. Player to move."
+ },
+ "consoleErrors": []
+}

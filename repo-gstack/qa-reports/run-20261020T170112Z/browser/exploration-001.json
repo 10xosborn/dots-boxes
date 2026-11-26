@@ -1,0 +1,6 @@
+{
+  "observationCommand": "cd scratchpad && timeout 120 node serve-one.mjs dist-qa-87b0ed6 -- node -e '<baseline: phone 390x844, Firebase blocked, goto http://127.0.0.1:4173/, wait for Play, screenshot initial.jpg, print URL, console errors and page text>' \"$RD\"",
+  "observed": "URL=http://127.0.0.1:4173/\nCONSOLE_ERRORS=[]\nBLOCKED_REQUEST_ERRORS=1\nTEXT=Grid Rivals 1 Player Could not reach Firebase, so results are saved on this device for now. Dismiss Grid Rivals Dots & Boxes Close a box, keep your turn. Beat the AI, then beat your best time. P Player Level 1 0 / 100 XP, 100 to level 2 Play Play a friend online Leaderboard My stats Settings",
+  "hypothesis": "Home is healthy (the one network error is the Firebase request the probe blocks). The whole-board filter regions should keep a lone line painted when the theme changes under it: a single line drawn in Neon (no line filter) and then switched to Tabletop and Paper (filtered) is the case the old box-sized region broke.",
+  "nextCommand": "CASE=theme-switch bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RD/browser/deadline.json\" -- node serve-one.mjs dist-qa-87b0ed6 -- node explore-fix.mjs"
+}

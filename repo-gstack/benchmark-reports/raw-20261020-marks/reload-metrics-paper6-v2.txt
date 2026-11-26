@@ -1,0 +1,4 @@
+serving branch on :4176 and main on :4177
+paper-light 6x6 main   ready 522 ms | script 221 | style 131 | layout 184 | all tasks 902 ms | board elements 246
+paper-light 6x6 branch ready 527 ms | script 228 | style 136 | layout 202 | all tasks 896 ms | board elements 246
+servers stopped; child exit 0

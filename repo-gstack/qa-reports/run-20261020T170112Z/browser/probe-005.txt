@@ -1,0 +1,5 @@
+
+PASS  drag-box-sound: a dragged line that closes a box: pick, snap, then the box chime only  1 box; pick,snap,box
+PASS  drag-box-sound: no page errors
+2/2 checks passed
+

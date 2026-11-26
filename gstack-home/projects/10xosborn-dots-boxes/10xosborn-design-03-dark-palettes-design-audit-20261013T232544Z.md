@@ -1,0 +1,1 @@
+Design review of design/03-dark-palettes: 2 polish findings fixed (bd699d7, b013542), design A -> A, AI slop A -> A, detector 64 -> 63. Full report: /c/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261013/design-audit-127.0.0.1-palettes.md

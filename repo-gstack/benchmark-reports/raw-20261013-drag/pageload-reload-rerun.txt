@@ -1,0 +1,14 @@
+serving branch on :4176 and main on :4177
+game-reload-table|main cold {"ttfb":1,"fcp":88,"lcp":492,"ready":116,"cls":25,"domInteractive":16,"domComplete":69,"load":69,"requests":10,"transfer":802230,"jsDecoded":696910,"cssDecoded":39240,"fontBytes":26576,"fontFiles":1,"imageBytes":35204} 
+                   warm {"ttfb":1,"fcp":64,"lcp":460,"ready":81,"cls":25,"domInteractive":19,"domComplete":48,"load":48,"requests":10,"transfer":802230,"jsDecoded":696910,"cssDecoded":39240,"fontBytes":26576,"fontFiles":1,"imageBytes":35204} 
+                   third-party ["identitytoolkit.googleapis.com"]
+game-reload-table|branch cold {"ttfb":1,"fcp":88,"lcp":484,"ready":111,"cls":25,"domInteractive":14,"domComplete":71,"load":71,"requests":10,"transfer":805019,"jsDecoded":699542,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":35204} 
+                   warm {"ttfb":1,"fcp":64,"lcp":456,"ready":79,"cls":25,"domInteractive":20,"domComplete":47,"load":47,"requests":10,"transfer":805019,"jsDecoded":699542,"cssDecoded":39397,"fontBytes":26576,"fontFiles":1,"imageBytes":35204} 
+                   third-party ["identitytoolkit.googleapis.com"]
+game-reload-neon|main cold {"ttfb":1,"fcp":72,"lcp":148,"ready":115,"cls":25,"domInteractive":14,"domComplete":75,"load":75,"requests":9,"transfer":815890,"jsDecoded":696910,"cssDecoded":39240,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   warm {"ttfb":1,"fcp":56,"lcp":116,"ready":82,"cls":25,"domInteractive":18,"domComplete":50,"load":50,"requests":9,"transfer":815890,"jsDecoded":696910,"cssDecoded":39240,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   third-party ["identitytoolkit.googleapis.com"]
+game-reload-neon|branch cold {"ttfb":1,"fcp":72,"lcp":148,"ready":105,"cls":25,"domInteractive":14,"domComplete":67,"load":67,"requests":9,"transfer":818679,"jsDecoded":699542,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   warm {"ttfb":1,"fcp":52,"lcp":116,"ready":81,"cls":25,"domInteractive":18,"domComplete":49,"load":49,"requests":9,"transfer":818679,"jsDecoded":699542,"cssDecoded":39397,"fontBytes":75740,"fontFiles":2,"imageBytes":0} 
+                   third-party ["identitytoolkit.googleapis.com"]
+servers stopped; child exit 0

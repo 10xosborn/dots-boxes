@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en" data-dir="A" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grid Rivals: six directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Fira+Sans:wght@400;600;700&family=Fredoka:wght@400..700&family=League+Gothic&family=M+PLUS+Rounded+1c:wght@400;800&family=Marcellus&family=Noto+Sans:wght@400..800&family=Onest:wght@400..800&family=Overpass:wght@400..800&family=Pixelify+Sans:wght@400..700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* ---------- tokens: five directions x two themes (PROVISIONAL) ---------- */
+:root { --gap: 16px; }
+[data-dir="A"] { --display: "Bricolage Grotesque", sans-serif; --body: "Andika", sans-serif; --r-sm: 4px; --r-md: 6px; --r-lg: 10px; --board-r: 6px; --d-line: 140ms; --e-line: cubic-bezier(.2,.75,.25,1); --d-box: 240ms; --stagger: 90ms; }
+[data-dir="B"] { --display: "Fredoka", sans-serif; --body: "M PLUS Rounded 1c", sans-serif; --r-sm: 10px; --r-md: 14px; --r-lg: 20px; --board-r: 28px; --d-line: 160ms; --e-line: cubic-bezier(.25,.8,.3,1); --d-box: 150ms; --stagger: 60ms; }
+[data-dir="C"] { --display: "Marcellus", serif; --body: "Fira Sans", sans-serif; --r-sm: 2px; --r-md: 3px; --r-lg: 4px; --board-r: 2px; --d-line: 120ms; --e-line: cubic-bezier(.3,.6,.3,1); --d-box: 340ms; --stagger: 110ms; }
+[data-dir="D"] { --display: "Zen Maru Gothic", sans-serif; --body: "Onest", sans-serif; --r-sm: 8px; --r-md: 12px; --r-lg: 18px; --board-r: 14px; --d-line: 260ms; --e-line: cubic-bezier(.45,.05,.35,1); --d-box: 520ms; --stagger: 150ms; }
+[data-dir="E"] { --display: "Pixelify Sans", sans-serif; --body: "Overpass", sans-serif; --r-sm: 0px; --r-md: 0px; --r-lg: 0px; --board-r: 0px; --d-line: 240ms; --e-line: steps(8, end); --d-box: 180ms; --stagger: 80ms; }
+
+[data-dir="A"][data-theme="light"] { --page:#ECEBE7; --surface:#F7F6F2; --board:#E2DED5; --text:#23201C; --muted:#5C564E; --p1:#B23F0C; --p2:#2B4F86; --dot:#4A443C; --accent:#D9A21B; --focus:#23201C; --label:#F4F1EA; --initials:#23201C; --mark:#23201C; --btn:#23201C; --on-btn:#F7F6F2; --line-hi:rgba(255,255,255,.34); --hair:rgba(35,32,28,.14); }
+[data-dir="A"][data-theme="dark"]  { --page:#1A1917; --surface:#24221F; --board:#25231F; --text:#EEEAE2; --muted:#AAA397; --p1:#F07A45; --p2:#7EAAE3; --dot:#CFC8BC; --accent:#E8B739; --focus:#EEEAE2; --label:#2F2C27; --initials:#EEEAE2; --mark:#EEEAE2; --btn:#EEEAE2; --on-btn:#1A1917; --line-hi:rgba(255,255,255,.26); --hair:rgba(238,234,226,.14); }
+[data-dir="B"][data-theme="light"] { --page:#E4EAF0; --surface:#FFFFFF; --board:#F6F8FA; --text:#17202A; --muted:#4B5662; --p1:#D9480F; --p2:#1C64D6; --dot:#66727F; --accent:#FFC627; --focus:#17202A; --tile1:#F2762E; --ini1:#1A1208; --edge1:#B33C0A; --tile2:#1C64D6; --ini2:#FFFFFF; --edge2:#123F8C; --slab:#C9D3DD; --peg-shadow:rgba(23,32,42,.28); --mark:#17202A; --btn:#FFC627; --on-btn:#17202A; --btn-edge:#C99400; --line-hi:rgba(255,255,255,.3); --hair:rgba(23,32,42,.14); }
+[data-dir="B"][data-theme="dark"]  { --page:#0F1318; --surface:#1A2028; --board:#171C23; --text:#F2F5F8; --muted:#A9B3BE; --p1:#FF8A3D; --p2:#5AA5FF; --dot:#C9D1DA; --accent:#FFD24D; --focus:#F2F5F8; --tile1:#FF8A3D; --ini1:#1A1208; --edge1:#B85A1C; --tile2:#5AA5FF; --ini2:#0B1A2E; --edge2:#2B6FC0; --slab:#07090C; --peg-shadow:rgba(0,0,0,.55); --mark:#F2F5F8; --btn:#FFD24D; --on-btn:#17202A; --btn-edge:#B38F1F; --line-hi:rgba(255,255,255,.25); --hair:rgba(242,245,248,.12); }
+[data-dir="C"][data-theme="light"] { --page:#ECEEEC; --surface:#F8F9F8; --board:#DDE5E4; --text:#1B1F24; --muted:#4D555F; --p1:#A85A0A; --p2:#2A55B5; --dot:#4C535C; --line:#353A40; --accent:#A3213F; --focus:#1B1F24; --label:#EEF2F1; --initials:#1B1F24; --mark:#A3213F; --btn:#2C3138; --on-btn:#F8F9F8; --p1-hi:#F2B264; --p2-hi:#8FB0F5; --line-hi:rgba(255,255,255,.4); --hair:rgba(27,31,36,.14); }
+[data-dir="C"][data-theme="dark"]  { --page:#111317; --surface:#1B1E23; --board:#1C2026; --text:#ECEEF1; --muted:#A3AAB4; --p1:#F3A638; --p2:#6D98F2; --dot:#B9C0C8; --line:#9AA1AA; --accent:#E0577A; --focus:#ECEEF1; --label:#262B32; --initials:#ECEEF1; --mark:#E0577A; --btn:#D5DADF; --on-btn:#111317; --p1-hi:#FFD58F; --p2-hi:#B7CCFA; --line-hi:rgba(255,255,255,.3); --hair:rgba(236,238,241,.12); }
+[data-dir="D"][data-theme="light"] { --page:#E6E3DC; --surface:#F5F3EE; --board:#D7D1C4; --text:#1E2321; --muted:#4F5652; --p1:#A8481A; --p2:#2E4C7C; --dot:#5F665F; --line:#6A6255; --groove-hi:#EDE9E0; --accent:#2D7A68; --focus:#1E2321; --label:#EFEBE3; --initials:#1E2321; --mark:#1E2321; --btn:#2D7A68; --on-btn:#F5F3EE; --hair:rgba(30,35,33,.12); }
+[data-dir="D"][data-theme="dark"]  { --page:#141719; --surface:#1E2225; --board:#22272A; --text:#E7E5E0; --muted:#A3A8A5; --p1:#F08D4E; --p2:#86AADD; --dot:#B8BDB9; --line:#9AA2A6; --groove-hi:#15191B; --accent:#5DBEA6; --focus:#E7E5E0; --label:#2B3034; --initials:#E7E5E0; --mark:#E7E5E0; --btn:#5DBEA6; --on-btn:#101314; --hair:rgba(231,229,224,.12); }
+[data-dir="E"][data-theme="light"] { --page:#EFEEE8; --surface:#FFFFFF; --board:#FFFFFF; --text:#121212; --muted:#474747; --p1:#C44D00; --p2:#0A5FC4; --dot:#121212; --accent:#FFD400; --focus:#121212; --label:#FFFFFF; --initials:#121212; --mark:#121212; --frame:#121212; --bevel-hi:#FFFFFF; --bevel-lo:#9B9B95; --btn:#FFD400; --on-btn:#121212; --line-hi:rgba(255,255,255,.35); --hair:#121212; }
+[data-dir="E"][data-theme="dark"]  { --page:#0D0E12; --surface:#191B23; --board:#171922; --text:#F1F1F1; --muted:#A9ACB8; --p1:#FF9A1F; --p2:#3AA9FF; --dot:#E8E8E8; --accent:#FFE047; --focus:#F1F1F1; --label:#22252F; --initials:#F1F1F1; --mark:#FFE047; --frame:#2B2F3D; --bevel-hi:#4A5068; --bevel-lo:#05060A; --btn:#FFE047; --on-btn:#121212; --line-hi:rgba(255,255,255,.3); --hair:#3A3F52; }
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--page); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; transition: background .2s, color .2s; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px 64px; }
+h1, h2, h3 { font-family: var(--display); margin: 0; font-weight: 700; }
+[data-dir="C"] h1, [data-dir="C"] h2, [data-dir="C"] h3 { font-weight: 400; letter-spacing: .02em; }
+[data-dir="E"] h1, [data-dir="E"] h2, [data-dir="E"] h3 { font-weight: 600; }
+p { margin: 0; }
+.muted { color: var(--muted); }
+
+/* switcher */
+.bar { position: sticky; top: 0; z-index: 5; background: var(--page); border-bottom: 1px solid var(--hair); }
+.bar .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding-top: 10px; padding-bottom: 10px; }
+.bar .title { font-family: var(--display); font-weight: 700; font-size: 1.05rem; margin-right: auto; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.tabs button, .themes button { min-height: 44px; min-width: 44px; padding: 6px 12px; border-radius: var(--r-md); border: 1px solid var(--hair); background: var(--surface); cursor: pointer; font-weight: 700; }
+.tabs button[aria-pressed="true"], .themes button[aria-pressed="true"] { background: var(--text); color: var(--page); border-color: var(--text); }
+.themes { display: flex; gap: 6px; }
+.note { font-size: .85rem; color: var(--muted); }
+
+/* sections */
+section { margin-top: 40px; }
+section > h2 { font-size: 1.5rem; margin-bottom: 4px; }
+section > .lede { color: var(--muted); max-width: 62ch; margin-bottom: 16px; }
+.hero { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; margin-top: 28px; }
+.hero svg { width: 112px; height: 112px; }
+.wordmark { font-family: var(--display); font-size: clamp(2.4rem, 7vw, 3.6rem); line-height: 1; font-weight: 800; letter-spacing: -.02em; }
+[data-dir="C"] .wordmark { font-weight: 400; letter-spacing: .01em; }
+[data-dir="E"] .wordmark { font-weight: 700; letter-spacing: 0; }
+.sub { font-size: 1.1rem; color: var(--muted); margin-top: 6px; }
+.thesis { margin-top: 12px; max-width: 64ch; }
+.dirname { font-weight: 800; }
+
+.two { display: grid; grid-template-columns: minmax(0, 390px) minmax(0, 1fr); gap: 32px; align-items: start; }
+@media (max-width: 820px) { .two { grid-template-columns: 1fr; } .hero { grid-template-columns: 1fr; } }
+
+/* phone mockup: the Game screen */
+.phone { width: 100%; max-width: 390px; border-radius: 28px; border: 1px solid var(--hair); background: var(--page); padding: 14px 16px 20px; box-shadow: 0 18px 40px -28px rgba(0,0,0,.55); }
+[data-dir="E"] .phone { border-radius: 0; border: 4px solid var(--frame); box-shadow: 6px 6px 0 var(--bevel-lo); }
+.topbar { display: flex; align-items: center; justify-content: space-between; min-height: 48px; margin-bottom: 10px; }
+.brand { display: flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 700; }
+[data-dir="C"] .brand { font-weight: 400; }
+.brand svg { width: 28px; height: 28px; }
+.lvl { min-height: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 0 12px; border-radius: var(--r-md); border: 1px solid var(--hair); background: var(--surface); font-weight: 700; font-size: .9rem; }
+.hud { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pcard { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--hair); min-width: 0; }
+.pcard .av { flex: none; width: 36px; height: 36px; display: grid; place-items: center; border-radius: var(--r-sm); font-weight: 800; color: var(--page); }
+.pcard.p1 .av { background: var(--p1); }
+.pcard.p2 .av { background: var(--p2); }
+[data-dir="B"] .pcard.p1 .av { background: var(--tile1); color: var(--ini1); }
+[data-dir="B"] .pcard.p2 .av { background: var(--tile2); color: var(--ini2); }
+.pcard .nm { font-weight: 700; font-size: .9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pcard .sc { margin-left: auto; font-weight: 800; font-size: 1.7rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.pcard.p1 .sc { color: var(--p1); } .pcard.p2 .sc { color: var(--p2); }
+.pcard.on { border: 2px solid var(--text); padding: 7px 9px; }
+.turn { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 4px; font-weight: 700; font-size: .92rem; }
+.turn .pip { width: 12px; height: 12px; border-radius: 50%; background: var(--p2); flex: none; }
+[data-dir="E"] .turn .pip { border-radius: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; }
+.chip { display: inline-flex; align-items: center; min-height: 32px; padding: 0 10px; border-radius: var(--r-sm); border: 1px solid var(--hair); background: var(--surface); font-weight: 700; font-size: .82rem; font-variant-numeric: tabular-nums; }
+.boardbox { width: 100%; aspect-ratio: 1; }
+.boardbox svg { display: block; width: 100%; height: 100%; }
+.actions { display: flex; gap: 8px; margin-top: 12px; }
+.actions .btn { flex: 1; }
+
+/* buttons and controls */
+.btn { min-height: 48px; padding: 10px 16px; border-radius: var(--r-md); border: 1px solid var(--hair); background: var(--surface); font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; -webkit-tap-highlight-color: transparent; transition: transform 50ms, background-color 120ms, box-shadow 50ms; }
+.btn.primary { background: var(--btn); color: var(--on-btn); border-color: transparent; }
+.btn.ghost { background: transparent; border-color: transparent; text-decoration: underline; text-underline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .btn:hover { background: color-mix(in srgb, var(--surface) 82%, var(--text)); } .btn.primary:hover { background: color-mix(in srgb, var(--btn) 86%, var(--text)); } .btn.ghost:hover { background: color-mix(in srgb, var(--page) 88%, var(--text)); } }
+.btn:active { transform: translateY(1px) scale(.98); }
+.btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.btn[aria-busy="true"] { cursor: progress; }
+.btn[aria-busy="true"]::before { content: ""; width: 14px; height: 14px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+/* direction details on buttons */
+[data-dir="A"] .btn.primary { box-shadow: inset 0 0 0 3px var(--btn), inset 0 0 0 4px var(--on-btn); outline-offset: 3px; }
+[data-dir="A"] .btn.primary { background-image: linear-gradient(var(--btn), var(--btn)); }
+[data-dir="A"] .btn.primary::after { content: none; }
+[data-dir="B"] .btn { box-shadow: 0 4px 0 var(--hair); }
+[data-dir="B"] .btn.primary { box-shadow: 0 4px 0 var(--btn-edge); }
+[data-dir="B"] .btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--hair); }
+[data-dir="B"] .btn.primary:active { box-shadow: 0 1px 0 var(--btn-edge); }
+[data-dir="C"] .btn.primary { box-shadow: inset 0 1px 0 rgba(255,255,255,.18); letter-spacing: .02em; }
+[data-dir="D"] .btn { box-shadow: 0 6px 14px -10px rgba(0,0,0,.45); }
+[data-dir="E"] .btn { border: 0; box-shadow: inset 3px 3px 0 var(--bevel-hi), inset -3px -3px 0 var(--bevel-lo); text-transform: uppercase; letter-spacing: .04em; }
+[data-dir="E"] .btn.primary { box-shadow: inset 3px 3px 0 rgba(255,255,255,.55), inset -3px -3px 0 rgba(0,0,0,.35); }
+[data-dir="E"] .btn:active { transform: none; box-shadow: inset -3px -3px 0 var(--bevel-hi), inset 3px 3px 0 var(--bevel-lo); }
+[data-dir="E"] .btn.ghost, [data-dir="E"] .btn.ghost:active { box-shadow: none; }
+/* F. Proof: key ink on paper, no cards, panels or shadows; player tags coded by shape */
+[data-dir="F"] { --display: "League Gothic", sans-serif; --body: "Noto Sans", sans-serif; --r-sm: 0px; --r-md: 0px; --r-lg: 0px; --board-r: 0px; --d-line: 120ms; --e-line: cubic-bezier(.2,.7,.3,1); --d-box: 160ms; --stagger: 60ms; }
+[data-dir="F"][data-theme="light"] { --page:#F1F3F4; --surface:#F1F3F4; --board:#F1F3F4; --text:#1E2228; --muted:#545A60; --p1:#B84300; --p2:#1F56B8; --dot:#1E2228; --line:#1E2228; --accent:#1E2228; --focus:#1E2228; --label:#F1F3F4; --initials:#F1F3F4; --mark:#1E2228; --btn:#1E2228; --on-btn:#F1F3F4; --hair:rgba(30,34,40,.22); }
+[data-dir="F"][data-theme="dark"]  { --page:#191C21; --surface:#191C21; --board:#191C21; --text:#ECEEEF; --muted:#A7ADB4; --p1:#F2711C; --p2:#8FC1FF; --dot:#ECEEEF; --line:#ECEEEF; --accent:#ECEEEF; --focus:#ECEEEF; --label:#191C21; --initials:#191C21; --mark:#ECEEEF; --btn:#ECEEEF; --on-btn:#191C21; --hair:rgba(236,238,239,.22); }
+[data-dir="F"] h1, [data-dir="F"] h2, [data-dir="F"] h3 { font-weight: 400; letter-spacing: .01em; }
+[data-dir="F"] .wordmark { font-size: clamp(3.4rem, 10vw, 5rem); font-weight: 400; letter-spacing: .005em; line-height: .95; }
+[data-dir="F"] section > h2 { font-size: 2.2rem; }
+[data-dir="F"] .type .s1 { font-size: 4rem; font-weight: 400; }
+[data-dir="F"] .type .s2 { font-size: 2.4rem; font-weight: 400; }
+[data-dir="F"] .result h3 { font-size: 2.6rem; }
+[data-dir="F"] .brand { font-weight: 400; font-size: 1.35rem; letter-spacing: .01em; }
+[data-dir="F"] .phone { box-shadow: none; }
+[data-dir="F"] .pcard { background: transparent; border: 2px solid var(--text); }
+[data-dir="F"] .pcard.p1 { border-color: var(--p1); border-top-right-radius: 16px; }
+[data-dir="F"] .pcard.p2 { border-color: var(--p2); clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%); }
+[data-dir="F"] .pcard.on { padding: 8px 10px; }
+[data-dir="F"] .pcard.p1.on { background: var(--p1); color: var(--page); }
+[data-dir="F"] .pcard.p2.on { background: var(--p2); color: var(--page); }
+[data-dir="F"] .pcard.on .sc { color: var(--page); }
+[data-dir="F"] .pcard.p1.on .av { background: var(--page); color: var(--p1); }
+[data-dir="F"] .pcard.p2.on .av { background: var(--page); color: var(--p2); }
+[data-dir="F"] .turn .pip { border-radius: 0; }
+[data-dir="F"] .chip, [data-dir="F"] .lvl { background: transparent; border: 1.5px solid var(--text); }
+[data-dir="F"] .btn { background: transparent; border: 2px solid var(--text); box-shadow: none; }
+[data-dir="F"] .btn.primary { background: var(--text); color: var(--page); border-color: var(--text); }
+[data-dir="F"] .btn.ghost { border-color: transparent; }
+[data-dir="F"] .switch .tr, [data-dir="F"] .switch .tr::after { border-radius: 0; }
+[data-dir="F"] .result { background: transparent; border: 0; box-shadow: none; padding: 0; }
+[data-dir="F"] .part, [data-dir="F"] .sw { background: transparent; border: 1.5px solid var(--text); }
+
+.controls { display: grid; gap: 18px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.seg { display: inline-flex; gap: 4px; padding: 4px; border-radius: var(--r-md); border: 1px solid var(--hair); background: var(--surface); }
+.seg button { min-height: 44px; min-width: 56px; border: 0; border-radius: var(--r-sm); background: transparent; font-weight: 700; color: var(--muted); cursor: pointer; font-variant-numeric: tabular-nums; }
+.seg button[aria-pressed="true"] { background: var(--text); color: var(--page); }
+.seg button[aria-pressed="true"]::before { content: "\2713\00a0"; }
+.switch { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; cursor: pointer; background: none; border: 0; padding: 0; font-weight: 700; }
+.switch .tr { width: 52px; height: 30px; border-radius: 15px; border: 2px solid var(--text); position: relative; background: var(--surface); }
+[data-dir="E"] .switch .tr, [data-dir="C"] .switch .tr { border-radius: var(--r-sm); }
+.switch .tr::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--text); transition: transform 150ms; }
+[data-dir="E"] .switch .tr::after, [data-dir="C"] .switch .tr::after { border-radius: 0; }
+.switch[aria-checked="true"] .tr { background: var(--text); }
+.switch[aria-checked="true"] .tr::after { transform: translateX(22px); background: var(--page); }
+.field label { display: block; font-weight: 700; margin-bottom: 6px; }
+.field input { width: min(320px, 100%); min-height: 48px; padding: 8px 12px; border-radius: var(--r-sm); border: 2px solid var(--muted); background: var(--surface); }
+.field input:focus-visible { border-color: var(--focus); }
+
+/* parts, type, colour */
+.parts { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 12px; }
+.part { border: 1px solid var(--hair); border-radius: var(--r-md); background: var(--surface); padding: 8px; }
+.part svg { display: block; width: 100%; aspect-ratio: 1; }
+.part p { font-size: .85rem; font-weight: 700; margin-top: 6px; }
+.type { display: grid; gap: 14px; }
+.type .s1 { font-family: var(--display); font-size: 3rem; line-height: 1; font-weight: 800; }
+[data-dir="C"] .type .s1, [data-dir="C"] .type .s2 { font-weight: 400; }
+.type .s2 { font-family: var(--display); font-size: 1.75rem; line-height: 1.15; font-weight: 700; }
+.type .s3 { max-width: 60ch; }
+.type .s4 { font-size: .82rem; font-weight: 700; color: var(--muted); }
+.type .s5 { font-size: 2.6rem; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
+.type .s5 .a { color: var(--p1); } .type .s5 .b { color: var(--p2); }
+.type small { display: block; color: var(--muted); font-size: .78rem; }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.sw { border: 1px solid var(--hair); border-radius: var(--r-md); overflow: hidden; background: var(--surface); }
+.sw i { display: block; height: 56px; }
+.sw div { padding: 8px 10px; font-size: .82rem; }
+.sw b { display: block; font-size: .9rem; }
+
+/* results: the artifact */
+.result { max-width: 420px; border-radius: var(--r-lg); background: var(--surface); border: 1px solid var(--hair); padding: 20px; box-shadow: 0 18px 40px -30px rgba(0,0,0,.6); }
+[data-dir="E"] .result { border: 4px solid var(--frame); box-shadow: 6px 6px 0 var(--bevel-lo); }
+.result .artifact { position: relative; margin: 0 auto 14px; width: 100%; }
+.result h3 { font-size: 1.9rem; line-height: 1.1; }
+.result .score { font-weight: 800; font-size: 1.15rem; font-variant-numeric: tabular-nums; margin-top: 4px; }
+.result .cap { font-size: .85rem; color: var(--muted); margin-top: 2px; }
+.result .tip { margin-top: 12px; }
+.result .acts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
+.result .acts .primary { grid-column: 1 / -1; }
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.notes div { border-top: 2px solid var(--text); padding-top: 8px; }
+.notes b { display: block; margin-bottom: 4px; }
+
+/* board animation helpers (transform and opacity only) */
+.anim-line { transform-box: fill-box; }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <span class="title">Grid Rivals: six directions</span>
+  <div class="tabs" role="group" aria-label="Direction">
+    <button data-set-dir="A" aria-pressed="true">A Loom</button>
+    <button data-set-dir="B" aria-pressed="false">B Pegboard</button>
+    <button data-set-dir="C" aria-pressed="false">C Glasswork</button>
+    <button data-set-dir="D" aria-pressed="false">D Zen Garden</button>
+    <button data-set-dir="E" aria-pressed="false">E Retro Pixel</button>
+    <button data-set-dir="F" aria-pressed="false">F Proof</button>
+  </div>
+  <div class="themes" role="group" aria-label="Theme">
+    <button data-set-theme="light" aria-pressed="true">Light</button>
+    <button data-set-theme="dark" aria-pressed="false">Dark</button>
+  </div>
+</div></div>
+
+<main class="wrap">
+  <div class="hero">
+    <svg id="mark" viewBox="0 0 1000 1000" aria-hidden="true"></svg>
+    <div>
+      <div class="wordmark">Grid Rivals</div>
+      <div class="sub">Dots and Boxes</div>
+      <p class="thesis"><span class="dirname" id="dirname"></span> <span id="thesis"></span></p>
+      <p class="note" style="margin-top:8px">Provisional tokens for comparison only. Nothing here is final until you choose a direction.</p>
+    </div>
+  </div>
+
+  <section aria-labelledby="h-game">
+    <h2 id="h-game">The game screen</h2>
+    <p class="lede">A 4&times;4 match on a 390&times;844 phone: Ama has just taken a three-box chain and Maestro is thinking.</p>
+    <div class="two">
+      <div class="phone">
+        <div class="topbar"><span class="brand"><svg id="brandmark" viewBox="0 0 1000 1000" aria-hidden="true"></svg>Grid Rivals</span><span class="lvl">Level 7</span></div>
+        <div class="hud">
+          <div class="pcard p1"><span class="av">A</span><span class="nm">Ama</span><span class="sc">4</span></div>
+          <div class="pcard p2 on"><span class="av">M</span><span class="nm">Maestro</span><span class="sc">2</span></div>
+          <div class="turn" role="status"><span class="pip"></span>Maestro is thinking</div>
+        </div>
+        <div class="meta"><span class="chip">4&times;4</span><span class="chip">Maestro</span><span class="chip">1:42</span></div>
+        <div class="boardbox"><svg id="board" viewBox="0 0 1000 1000" role="img" aria-label="Board: Ama owns 4 boxes, Maestro owns 2"></svg></div>
+        <div class="actions"><button class="btn">Restart</button><button class="btn">Quit</button></div>
+      </div>
+      <div>
+        <h3 style="font-size:1.2rem">Board parts</h3>
+        <p class="muted" style="margin:4px 0 12px">Every state the board needs. Players differ by colour, pattern and initials.</p>
+        <div class="parts" id="parts"></div>
+        <div class="row" style="margin-top:16px"><button class="btn primary" id="replay">Replay Ama's turn</button><span class="note" id="motionnote"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-type">
+    <h2 id="h-type">Type</h2>
+    <p class="lede" id="typenote"></p>
+    <div class="type">
+      <div><div class="s1">Your move</div><small id="t-display"></small></div>
+      <div><div class="s2">Maestro sees long chains coming</div><small id="t-display2"></small></div>
+      <div><p class="s3">Close a box and you move again. When only long chains are left, give away the short ones first and keep the last chain for yourself.</p><small id="t-body"></small></div>
+      <div><div class="s4">Board size</div><small>Label, 13 px, weight 700</small></div>
+      <div><p class="s3" style="font-weight:700">Ama · Ɔsei · Kwadwo · Ɛ ɛ Ɔ ɔ Ŋ ŋ Ɖ ɖ Ɣ ɣ Ʋ ʋ Ƒ ƒ Ʒ ʒ</p><small>Names are always set in the body face, which has every letter used in Twi, Ewe, Ga and Dagbani names</small></div>
+      <div><div class="s5"><span class="a">9</span> <span class="muted">&ndash;</span> <span class="b">7</span></div><small>Scores use equal-width digits, so numbers never shift</small></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-colour">
+    <h2 id="h-colour">Colour</h2>
+    <p class="lede">Contrast is measured live from these exact colours. Rules: text at least 4.5:1, player colours at least 3:1 against the board, focus at least 3:1.</p>
+    <div class="swatches" id="swatches"></div>
+  </section>
+
+  <section aria-labelledby="h-controls">
+    <h2 id="h-controls">Controls and states</h2>
+    <p class="lede">Hover (mouse only), press, keyboard focus (try Tab), disabled and busy. Every control is at least 44 px tall.</p>
+    <div class="controls">
+      <div class="row"><button class="btn primary">Play</button><button class="btn">Change rival</button><button class="btn ghost">How to play</button><button class="btn" disabled>Join</button><button class="btn primary" aria-busy="true">Creating game</button></div>
+      <div class="row"><div class="seg" role="group" aria-label="Board size"><button aria-pressed="false">3&times;3</button><button aria-pressed="true">4&times;4</button><button aria-pressed="false">5&times;5</button><button aria-pressed="false">6&times;6</button></div>
+        <button class="switch" role="switch" aria-checked="true" id="snd"><span class="tr"></span>Sound</button></div>
+      <div class="field"><label for="nm">Your name</label><input id="nm" value="Ama" maxlength="18"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-results">
+    <h2 id="h-results">The artifact: results</h2>
+    <p class="lede">The finished board is the reward. It leads the results; the score comes second.</p>
+    <div class="result">
+      <div class="artifact"><svg id="final" viewBox="0 0 1000 1000" role="img" aria-label="The finished board: Ama 9 boxes, Maestro 7"></svg></div>
+      <h3 id="restitle">You won</h3>
+      <div class="score"><span style="color:var(--p1)">Ama 9</span> &middot; <span style="color:var(--p2)">Maestro 7</span></div>
+      <div class="cap" id="rescap"></div>
+      <p class="tip">You kept the last long chain for yourself. That's how Maestro is beaten.</p>
+      <div class="acts"><button class="btn primary">Play again</button><button class="btn">Change rival</button><button class="btn">Save image</button></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-notes">
+    <h2 id="h-notes">Motion and sound</h2>
+    <div class="notes" id="notes"></div>
+  </section>
+</main>
+
+<script>
+const NS = 'http://www.w3.org/2000/svg';
+const PAD = 90;
+const DIRS = {
+  A: { name: 'A · Loom.', thesis: 'A hand loom at rest: dyed threads pulled taut across matte cotton. Every box you close is woven in your own weave, and the finished board is a swatch of cloth you keep.',
+       type: 'Bricolage Grotesque for display: a grotesque with ink traps that read like cut thread ends at large sizes. Andika for everything else: made by SIL for new readers and for African languages, so names like Ɔsei render in the same face. About 83 KB for both, self-hosted.',
+       display: 'Bricolage Grotesque 800, 48 px', display2: 'Bricolage Grotesque 700, 28 px', body: 'Andika 400, 16 px / 1.5',
+       cap: 'Woven 11 October 2026 · 4×4 against Maestro',
+       motion: 'Threads pull taut in 140 ms (ease-out, no bounce). Boxes weave in from left to right in 240 ms; each box in a chain starts 90 ms after the last.',
+       sound: 'Wooden mallets (marimba-like), C major pentatonic. A line plays the note of its position, so the board plays a scale; a chain climbs it.',
+       moment: 'Results: the cloth comes off the loom with a fringed edge and the date woven into its label.' },
+  B: { name: 'B · Pegboard.', thesis: 'A classroom geoboard on a sunny desk: chunky moulded pegs, rubber bands that snap taut, and tiles that click into place with a solid offset shadow.',
+       type: 'Fredoka for display: round, chunky letters like moulded plastic. M PLUS Rounded 1c for everything else: soft and friendly, with equal-width digits and every Ghanaian letter. About 77 KB for both.',
+       display: 'Fredoka 700, 48 px', display2: 'Fredoka 600, 28 px', body: 'M PLUS Rounded 1c 400, 16 px / 1.5',
+       cap: 'Built 11 October 2026 · 4×4 against Maestro',
+       motion: 'Bands stretch and snap in 160 ms (ease-out, no overshoot). Tiles drop in 150 ms, 60 ms apart. Buttons press down 3 px.',
+       sound: 'A rubber-band twang for lines (pitch by position) and a wooden clack for tiles, G major pentatonic.',
+       moment: 'Results: the tiles pop off the board as one sticker-like mosaic card.' },
+  C: { name: 'C · Glasswork.', thesis: 'A leaded window at dusk: lead cames trace every line, and each box you close fills with coloured light. The finished board is a window you made together.',
+       type: 'Marcellus for display: flared capitals in the tradition of lettering set into windows. Fira Sans for everything else: a clear humanist face with equal-width digits and every Ghanaian letter. About 65 KB for both.',
+       display: 'Marcellus 400, 48 px', display2: 'Marcellus 400, 28 px', body: 'Fira Sans 400, 16 px / 1.5',
+       cap: 'Set 11 October 2026 · 4×4 against Maestro',
+       motion: 'Cames set in 120 ms. Panes fill with light over 340 ms, 110 ms apart. Light comes from inside the glass; nothing glows outside it.',
+       sound: 'Soft glass chimes with long tails, D major pentatonic.',
+       moment: 'Results: light sweeps across the finished window from one side.' },
+  D: { name: 'D · Zen Garden.', thesis: 'A raked garden in the early morning: lines are grooves pressed into grey sand, closed boxes settle into raked patterns, and the finished board is a garden you shaped together.',
+       type: 'Zen Maru Gothic for display: soft, rounded strokes like water-worn stone. Onest for everything else: calm and even, with equal-width digits and every Ghanaian letter. About 59 KB for both.',
+       display: 'Zen Maru Gothic 700, 48 px', display2: 'Zen Maru Gothic 500, 28 px', body: 'Onest 400, 16 px / 1.5',
+       cap: 'Raked 11 October 2026 · 4×4 against Maestro',
+       motion: 'Grooves are drawn in 260 ms. Boxes bloom over 520 ms, 150 ms apart. Everything eases in and out; nothing bounces.',
+       sound: 'Soft piano at very low volume, A major pentatonic; music is a slow ambient bed.',
+       moment: 'Results: the garden seen from above, with the winner’s initials on a stone.' },
+  E: { name: 'E · Retro Pixel.', thesis: 'An arcade cabinet in a corner shop: a chunky 8-bit board with bevelled borders, dithered ownership and stepped animation. Sharp and readable, never flickering.',
+       type: 'Pixelify Sans for headings only (24 px and up, never body text or names). Overpass for everything else: a road-sign grotesque with equal-width digits and every Ghanaian letter. About 55 KB for both.',
+       display: 'Pixelify Sans 700, 48 px', display2: 'Pixelify Sans 600, 28 px', body: 'Overpass 400, 16 px / 1.5',
+       cap: 'HIGH SCORE · 11 October 2026 · 4×4 against Maestro',
+       motion: 'Lines fill in 8 steps over 240 ms; boxes dither in over 6 steps. No flicker, no flashes, no screen shake.',
+       sound: 'Low-tempo chiptune (square and triangle waves) at low volume, A minor pentatonic.',
+       moment: 'Results: an arcade high-score screen where the winner’s three initials go up in lights (steady, not blinking).' },
+  F: { name: 'F · Proof.', thesis: 'A print studio: each player is one ink, every move cuts the stencil, and the finished board is a numbered two-ink print. Paper, but never a notebook: no grid, no ruled lines, no pencil. A ribbon cut through each box follows the order it was captured, so a long chain prints as one river. (Proposed by the outside voice.)',
+       type: 'League Gothic for display: the classic wood-type poster gothic, condensed and loud on a print. Noto Sans for everything else: plain and steady, with equal-width digits and every Ghanaian letter. About 53 KB for both.',
+       display: 'League Gothic 400, 64 px', display2: 'League Gothic 400, 38 px', body: 'Noto Sans 400, 16 px / 1.5',
+       cap: 'Proof No. 47 · 4×4 · AM 9–7 MA · 3:12',
+       motion: 'Lines draw like a squeegee pass in 120 ms (ease-out, no bounce). Boxes print 60 ms apart along the capture path. Each ink sits up to 1.5 px out of register, different every match (never the text).',
+       sound: 'A squeegee shh for each line, a soft paper pat for each box (chains patter up F major pentatonic), and one press clunk when the match ends.',
+       moment: 'Results: the sheet lifts, the inks land one at a time with the winner’s last, the longest ribbon traces box by box, and the margin prints the proof number, score and time.' },
+};
+
+// ---- board state: 4x4, Ama (0) has just taken a 3-box chain, Maestro (1) to move ----
+const H = (r, c) => ['h', r, c], V = (r, c) => ['v', r, c];
+const MID = {
+  rows: 4, cols: 4,
+  // [row, col, player, tag, capture path: the side that gave the box its third line - the side that closed it]
+  boxes: [[1, 0, 0, 'chain', 'T-B'], [2, 0, 0, 'chain', 'T-B'], [3, 0, 0, 'chain', 'T-B'], [3, 3, 0, '', 'L-B'], [0, 2, 1, '', 'L-R'], [0, 3, 1, '', 'L-R']],
+  lines: [
+    [H(2, 0), 0], [H(3, 0), 0], [H(4, 0), 0], [V(1, 0), 0], [V(2, 0), 0], [V(3, 0), 1], [V(3, 1), 0], [H(3, 3), 0], [V(3, 4), 0], [H(0, 1), 0], [H(4, 2), 0], [V(2, 2), 0, 'last'],
+    [H(1, 0), 1], [V(1, 1), 1], [V(2, 1), 1], [H(0, 2), 1], [H(1, 2), 1], [V(0, 2), 1], [V(0, 3), 1], [H(0, 3), 1], [H(1, 3), 1], [V(0, 4), 1], [H(0, 0), 1], [H(4, 1), 1], [V(2, 4), 1], [V(1, 2), 1], [H(4, 3), 1], [V(3, 3), 1],
+  ],
+};
+const OWN = [[1, 1, 0, 0], [0, 1, 1, 0], [0, 0, 1, 0], [0, 1, 1, 0]];
+function finalState() {
+  const boxes = [], lines = [];
+  // Capture paths: Maestro's 7-box snake, Ama's 5-box chain down the right, a 3-box chain and one single box.
+  const PATHS = { '0,0': 'L-R', '0,1': 'L-B', '1,1': 'T-R', '1,2': 'L-B', '2,2': 'T-B', '3,2': 'T-L', '3,1': 'R-B', '0,2': 'L-R', '0,3': 'L-B', '1,3': 'T-B', '2,3': 'T-B', '3,3': 'T-B', '1,0': 'T-B', '2,0': 'T-R', '2,1': 'L-T', '3,0': 'R-B' };
+  OWN.forEach((row, r) => row.forEach((p, c) => boxes.push([r, c, p, '', PATHS[`${r},${c}`]])));
+  const own = (r, c) => (r >= 0 && r < 4 && c >= 0 && c < 4 ? OWN[r][c] : null);
+  for (let r = 0; r <= 4; r++) for (let c = 0; c < 4; c++) { const a = own(r - 1, c), b = own(r, c); lines.push([H(r, c), a === 0 || b === 0 ? 0 : 1]); }
+  for (let r = 0; r < 4; r++) for (let c = 0; c <= 4; c++) { const a = own(r, c - 1), b = own(r, c); lines.push([V(r, c), a === 0 || b === 0 ? 0 : 1]); }
+  return { rows: 4, cols: 4, boxes, lines };
+}
+
+const el = (tag, attrs = {}, parent) => { const e = document.createElementNS(NS, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (parent) parent.appendChild(e); return e; };
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+let uid = 0;
+
+function geom(rows, cols) { const sp = 820 / Math.max(rows, cols); return { sp, W: 2 * PAD + cols * sp, H: 2 * PAD + rows * sp, P: v => PAD + v * sp }; }
+function ends(g, [k, r, c]) { return k === 'h' ? [g.P(c), g.P(r), g.P(c + 1), g.P(r)] : [g.P(c), g.P(r), g.P(c), g.P(r + 1)]; }
+const pc = p => (p === 0 ? 'var(--p1)' : 'var(--p2)');
+
+// ---- painters: one per direction; each draws ground, boxes, lines, dots and markers ----
+function defsFor(svg, dir, sp) {
+  const id = 'd' + (uid++); const d = el('defs', {}, svg);
+  if (dir === 'A') {
+    const t = Math.min(sp * 0.15, 34), c = t / 4;
+    const tw = el('pattern', { id: id + 'p0', width: t, height: t, patternUnits: 'userSpaceOnUse' }, d);
+    for (let y = 0; y < 4; y++) for (let x = 0; x < 4; x++) if ((x + y) % 4 < 2) el('rect', { x: x * c, y: y * c, width: c, height: c, style: 'fill:var(--p1)', opacity: .62 }, tw);
+    const b = Math.min(sp * 0.17, 38), h = b / 2;
+    const bw = el('pattern', { id: id + 'p1', width: b, height: b, patternUnits: 'userSpaceOnUse' }, d);
+    [[0, 0, 'h'], [h, 0, 'v'], [0, h, 'v'], [h, h, 'h']].forEach(([x, y, o]) => { for (let i = 0; i < 2; i++) el('rect', o === 'h' ? { x, y: y + i * h / 2 + h * 0.08, width: h, height: h * 0.34, rx: h * 0.1, style: 'fill:var(--p2)', opacity: .55 } : { x: x + i * h / 2 + h * 0.08, y, width: h * 0.34, height: h, rx: h * 0.1, style: 'fill:var(--p2)', opacity: .55 }, bw); });
+    const g = el('pattern', { id: id + 'g', width: 14, height: 14, patternUnits: 'userSpaceOnUse' }, d);
+    el('path', { d: 'M0 3.5h7M7 10.5h7M3.5 0v7M10.5 7v7', style: 'stroke:var(--text)', 'stroke-width': 1.4, opacity: .07 }, g);
+  }
+  if (dir === 'B') {
+    const r = el('pattern', { id: id + 'p0', width: 22, height: 22, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, d);
+    el('rect', { width: 7, height: 22, fill: '#fff', opacity: .26 }, r);
+    const m = el('pattern', { id: id + 'p1', width: 24, height: 24, patternUnits: 'userSpaceOnUse' }, d);
+    el('circle', { cx: 12, cy: 12, r: 4.5, fill: '#000', opacity: .2 }, m);
+  }
+  if (dir === 'C') {
+    [0, 1].forEach(p => { const rg = el('radialGradient', { id: id + 'g' + p, cx: '50%', cy: '42%', r: '70%' }, d); el('stop', { offset: '0%', style: `stop-color:var(--p${p + 1}-hi)` }, rg); el('stop', { offset: '100%', style: `stop-color:var(--p${p + 1})` }, rg); });
+    const s = el('pattern', { id: id + 'p0', width: 26, height: 26, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(-30)' }, d);
+    el('rect', { width: 2.2, height: 26, fill: '#fff', opacity: .2 }, s); el('rect', { x: 11, width: 1.2, height: 26, fill: '#fff', opacity: .14 }, s);
+    const b = el('pattern', { id: id + 'p1', width: 30, height: 30, patternUnits: 'userSpaceOnUse' }, d);
+    [[6, 8, 2.4], [20, 5, 1.5], [15, 19, 2.8], [26, 24, 1.6], [4, 25, 1.9]].forEach(([x, y, rr]) => el('circle', { cx: x, cy: y, r: rr, fill: '#fff', opacity: .3 }, b));
+    const rip = el('pattern', { id: id + 'r', width: 60, height: 60, patternUnits: 'userSpaceOnUse' }, d);
+    el('path', { d: 'M0 30 Q15 22 30 30 T60 30', fill: 'none', style: 'stroke:var(--text)', 'stroke-width': 1.2, opacity: .06 }, rip);
+  }
+  if (dir === 'D') {
+    const gr = el('pattern', { id: id + 'g', width: 48, height: 48, patternUnits: 'userSpaceOnUse' }, d);
+    let s = 7; const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+    for (let i = 0; i < 46; i++) el('circle', { cx: rnd() * 48, cy: rnd() * 48, r: 0.6 + rnd() * 1.2, style: i % 3 ? 'fill:var(--text)' : 'fill:var(--groove-hi)', opacity: i % 3 ? .1 : .5 }, gr);
+    const rk = el('pattern', { id: id + 'k', width: 16, height: 16, patternUnits: 'userSpaceOnUse' }, d);
+    el('path', { d: 'M0 8h16', style: 'stroke:var(--text)', 'stroke-width': 1.2, opacity: .05 }, rk);
+  }
+  if (dir === 'E') {
+    const u = sp / 16;
+    const ck = el('pattern', { id: id + 'p0', width: 2 * u, height: 2 * u, patternUnits: 'userSpaceOnUse' }, d);
+    el('rect', { width: u, height: u, style: 'fill:var(--p1)' }, ck); el('rect', { x: u, y: u, width: u, height: u, style: 'fill:var(--p1)' }, ck);
+    const ln = el('pattern', { id: id + 'p1', width: 2 * u, height: 2 * u, patternUnits: 'userSpaceOnUse' }, d);
+    el('rect', { width: 2 * u, height: u, style: 'fill:var(--p2)' }, ln);
+  }
+  return id;
+}
+
+function paint(svg, dir, state, opt = {}) {
+  svg.textContent = '';
+  const g = geom(state.rows, state.cols), sp = g.sp;
+  svg.setAttribute('viewBox', `0 0 ${g.W} ${g.H}`);
+  if (dir === 'E') svg.setAttribute('shape-rendering', 'crispEdges'); else svg.removeAttribute('shape-rendering');
+  const id = defsFor(svg, dir, sp);
+  const root = el('g', {}, svg);
+  // ground
+  if (dir === 'A') { el('rect', { x: 18, y: 18, width: g.W - 36, height: g.H - 36, rx: 8, style: 'fill:var(--board)' }, root); el('rect', { x: 18, y: 18, width: g.W - 36, height: g.H - 36, rx: 8, fill: `url(#${id}g)` }, root); }
+  if (dir === 'B') { el('rect', { x: 20, y: 34, width: g.W - 40, height: g.H - 40, rx: 70, style: 'fill:var(--slab)' }, root); el('rect', { x: 20, y: 20, width: g.W - 40, height: g.H - 44, rx: 70, style: 'fill:var(--board)' }, root); }
+  if (dir === 'C') { el('rect', { x: 14, y: 14, width: g.W - 28, height: g.H - 28, rx: 4, style: 'fill:var(--board)' }, root); el('rect', { x: 14, y: 14, width: g.W - 28, height: g.H - 28, rx: 4, fill: `url(#${id}r)` }, root); el('rect', { x: 14, y: 14, width: g.W - 28, height: g.H - 28, rx: 4, fill: 'none', style: 'stroke:var(--line)', 'stroke-width': 14 }, root); }
+  if (dir === 'D') { el('rect', { x: 16, y: 16, width: g.W - 32, height: g.H - 32, rx: 40, style: 'fill:var(--board)' }, root); el('rect', { x: 16, y: 16, width: g.W - 32, height: g.H - 32, rx: 40, fill: `url(#${id}k)` }, root); el('rect', { x: 16, y: 16, width: g.W - 32, height: g.H - 32, rx: 40, fill: `url(#${id}g)` }, root); }
+  if (dir === 'E') { el('rect', { x: 0, y: 0, width: g.W, height: g.H, style: 'fill:var(--frame)' }, root); el('rect', { x: 0, y: 0, width: g.W, height: 14, style: 'fill:var(--bevel-hi)' }, root); el('rect', { x: 0, y: 0, width: 14, height: g.H, style: 'fill:var(--bevel-hi)' }, root); el('rect', { x: 0, y: g.H - 14, width: g.W, height: 14, style: 'fill:var(--bevel-lo)' }, root); el('rect', { x: g.W - 14, y: 0, width: 14, height: g.H, style: 'fill:var(--bevel-lo)' }, root); el('rect', { x: 30, y: 30, width: g.W - 60, height: g.H - 60, style: 'fill:var(--board)' }, root); }
+
+  if (dir === 'F') { el('rect', { x: 0, y: 0, width: g.W, height: g.H, style: 'fill:var(--board)' }, root);
+    // crop marks at the sheet corners
+    const cm = el('g', { style: 'stroke:var(--line)', 'stroke-width': 3 }, root), a = 26, b = 58;
+    [[0, 0, 1, 1], [g.W, 0, -1, 1], [0, g.H, 1, -1], [g.W, g.H, -1, -1]].forEach(([x, y, sx, sy]) => { el('line', { x1: x + sx * 6, y1: y + sy * a, x2: x + sx * b, y2: y + sy * a }, cm); el('line', { x1: x + sx * a, y1: y + sy * 6, x2: x + sx * a, y2: y + sy * b }, cm); }); }
+
+  const boxLayer = el('g', {}, root), lineLayer = el('g', {}, root), dotLayer = el('g', {}, root), markLayer = el('g', {}, root);
+  const initials = ['A', 'M'];
+  const owner = new Map(state.boxes.map(([r, c, p]) => [`${r},${c}`, p]));
+  // F. Proof: the capture ribbon runs from the side that gave the box its third line to the side that closed it.
+  const side = (x, y, s) => ({ T: [x + sp / 2, y], B: [x + sp / 2, y + sp], L: [x, y + sp / 2], R: [x + sp, y + sp / 2] }[s]);
+  const ribbonPath = (x, y, spec, round) => { const [a, b] = (spec || 'L-R').split('-'), p0 = side(x, y, a), p1 = side(x, y, b), cxy = [x + sp / 2, y + sp / 2];
+    const straight = (a === 'T' && b === 'B') || (a === 'B' && b === 'T') || (a === 'L' && b === 'R') || (a === 'R' && b === 'L');
+    if (straight) return `M${p0} L${p1}`; return round ? `M${p0} Q${cxy} ${p1}` : `M${p0} L${cxy} L${p1}`; };
+  const freeCorner = spec => { const used = new Set((spec || 'L-R').split('-')); const cs = [['T', 'L', .24, .27], ['T', 'R', .76, .27], ['B', 'L', .24, .77], ['B', 'R', .76, .77]]; const f = cs.find(([v, h]) => !used.has(v) && !used.has(h)) || cs[0]; return [f[2], f[3]]; };
+  const REG = [[3, -2], [-2, 3]];   // misregistration per ink, seeded per match in the real game
+  // boxes
+  state.boxes.forEach(([r, c, p, tag, spec], i) => {
+    const x = g.P(c), y = g.P(r), b = el('g', { class: 'bx', 'data-i': i, 'data-tag': tag || '' }, boxLayer);
+    const cx = x + sp / 2, cy = y + sp / 2;
+    if (dir === 'A') { const n = sp * 0.07; el('rect', { x: x + n, y: y + n, width: sp - 2 * n, height: sp - 2 * n, style: `fill:${pc(p)}`, 'fill-opacity': .2 }, b); el('rect', { x: x + n, y: y + n, width: sp - 2 * n, height: sp - 2 * n, fill: `url(#${id}p${p})` }, b);
+      el('rect', { x: cx - sp * 0.19, y: cy - sp * 0.14, width: sp * 0.38, height: sp * 0.28, rx: 5, style: 'fill:var(--label);stroke:' + pc(p), 'stroke-width': 3, 'stroke-dasharray': '7 5' }, b); }
+    if (dir === 'B') { const n = sp * 0.1; el('rect', { x: x + n, y: y + n + sp * 0.04, width: sp - 2 * n, height: sp - 2 * n, rx: sp * 0.14, style: `fill:var(--edge${p + 1})` }, b); el('rect', { x: x + n, y: y + n, width: sp - 2 * n, height: sp - 2 * n, rx: sp * 0.14, style: `fill:var(--tile${p + 1})` }, b); el('rect', { x: x + n, y: y + n, width: sp - 2 * n, height: sp - 2 * n, rx: sp * 0.14, fill: `url(#${id}p${p})` }, b); }
+    if (dir === 'C') { const n = sp * 0.03; el('rect', { x: x + n, y: y + n, width: sp - 2 * n, height: sp - 2 * n, fill: `url(#${id}g${p})` }, b); el('rect', { x: x + n, y: y + n, width: sp - 2 * n, height: sp - 2 * n, fill: `url(#${id}p${p})` }, b); el('circle', { cx, cy, r: sp * 0.16, style: 'fill:var(--label)', opacity: .9 }, b); }
+    if (dir === 'D') { const n = sp * 0.09, cid = id + 'c' + i; const cp = el('clipPath', { id: cid }, svg.querySelector('defs')); el('rect', { x: x + n, y: y + n, width: sp - 2 * n, height: sp - 2 * n, rx: sp * 0.18 }, cp);
+      el('rect', { x: x + n, y: y + n, width: sp - 2 * n, height: sp - 2 * n, rx: sp * 0.18, style: `fill:${pc(p)}`, 'fill-opacity': .16 }, b);
+      const pat = el('g', { 'clip-path': `url(#${cid})`, style: `stroke:${pc(p)}`, 'stroke-width': 3, fill: 'none', opacity: .55 }, b);
+      if (p === 0) for (let k = 1; k < 7; k++) el('circle', { cx, cy, r: k * sp * 0.075 }, pat); else for (let k = 1; k < 12; k++) el('line', { x1: x, y1: y + k * sp * 0.075, x2: x + sp, y2: y + k * sp * 0.075 }, pat);
+      el('ellipse', { cx: cx + 3, cy: cy + 6, rx: sp * 0.17, ry: sp * 0.12, fill: '#000', opacity: .14 }, b); el('ellipse', { cx, cy, rx: sp * 0.17, ry: sp * 0.12, style: 'fill:var(--label)' }, b); }
+    if (dir === 'E') { const n = sp * 0.06, u = sp / 16; el('rect', { x: x + n, y: y + n, width: sp - 2 * n, height: sp - 2 * n, fill: `url(#${id}p${p})` }, b); el('rect', { x: cx - 3.5 * u, y: cy - 2.5 * u, width: 7 * u, height: 5 * u, style: `fill:var(--label);stroke:${pc(p)}`, 'stroke-width': u * 0.6 }, b); }
+    if (dir === 'F') { const plate = el('g', { transform: `translate(${REG[p][0]} ${REG[p][1]})` }, b);
+      el('rect', { x, y, width: sp, height: sp, style: `fill:${pc(p)}` }, plate);
+      if (p === 0) el('path', { d: ribbonPath(x, y, spec, true), fill: 'none', style: 'stroke:var(--page)', 'stroke-width': sp * 0.11, 'stroke-linecap': 'butt', 'stroke-linejoin': 'round' }, plate);
+      else { el('path', { d: ribbonPath(x, y, spec, false), fill: 'none', style: 'stroke:var(--page)', 'stroke-width': sp * 0.15, 'stroke-linecap': 'butt', 'stroke-linejoin': 'miter' }, plate); el('path', { d: ribbonPath(x, y, spec, false), fill: 'none', style: `stroke:${pc(p)}`, 'stroke-width': sp * 0.06, 'stroke-linecap': 'butt', 'stroke-linejoin': 'miter' }, plate); } }
+    const [fx, fy] = dir === 'F' ? freeCorner(spec) : [.5, .5];
+    const t = el('text', { x: x + sp * fx, y: y + sp * fy + (dir === 'B' ? 1 : 0), 'text-anchor': 'middle', 'dominant-baseline': 'central', 'font-size': sp * (dir === 'B' ? 0.34 : dir === 'F' ? 0.2 : 0.17), 'font-weight': 800, style: `font-family:var(--body);fill:${dir === 'B' ? `var(--ini${p + 1})` : 'var(--initials)'}` }, b);
+    t.textContent = initials[p];
+  });
+  // lines
+  state.lines.forEach(([e, p, tag]) => {
+    const [x1, y1, x2, y2] = ends(g, e); const ln = el('g', { class: 'ln', 'data-tag': tag || '', 'data-x1': x1, 'data-y1': y1 }, lineLayer);
+    if (dir === 'A') { el('line', { x1, y1, x2, y2, style: `stroke:${pc(p)}`, 'stroke-width': sp * 0.07, 'stroke-linecap': 'round' }, ln); el('line', { x1, y1, x2, y2, style: 'stroke:var(--line-hi)', 'stroke-width': sp * 0.03, 'stroke-dasharray': `${sp * 0.022} ${sp * 0.04}` }, ln); }
+    if (dir === 'B') { el('line', { x1, y1, x2, y2, style: `stroke:${pc(p)}`, 'stroke-width': sp * 0.1, 'stroke-linecap': 'round' }, ln); el('line', { x1, y1, x2, y2, style: 'stroke:var(--line-hi)', 'stroke-width': sp * 0.024, 'stroke-linecap': 'round' }, ln); }
+    if (dir === 'C') { el('line', { x1, y1, x2, y2, style: 'stroke:var(--line)', 'stroke-width': sp * 0.085, 'stroke-linecap': 'round' }, ln); el('line', { x1, y1, x2, y2, style: 'stroke:var(--line-hi)', 'stroke-width': sp * 0.016, 'stroke-linecap': 'round' }, ln); if (tag === 'last') el('line', { x1, y1, x2, y2, style: 'stroke:var(--mark)', 'stroke-width': sp * 0.03, 'stroke-linecap': 'round' }, ln); }
+    if (dir === 'D') { el('line', { x1: x1 + 3, y1: y1 + 4, x2: x2 + 3, y2: y2 + 4, style: 'stroke:var(--groove-hi)', 'stroke-width': sp * 0.06, 'stroke-linecap': 'round' }, ln); el('line', { x1, y1, x2, y2, style: 'stroke:var(--line)', 'stroke-width': sp * 0.04, 'stroke-linecap': 'round' }, ln); }
+    if (dir === 'E') { const u = sp / 16, w = 1.6 * u; if (y1 === y2) { el('rect', { x: x1, y: y1 - w / 2, width: x2 - x1, height: w, style: `fill:${pc(p)}` }, ln); el('rect', { x: x1, y: y1 - w / 2, width: x2 - x1, height: w * 0.3, style: 'fill:var(--line-hi)' }, ln); } else { el('rect', { x: x1 - w / 2, y: y1, width: w, height: y2 - y1, style: `fill:${pc(p)}` }, ln); el('rect', { x: x1 - w / 2, y: y1, width: w * 0.3, height: y2 - y1, style: 'fill:var(--line-hi)' }, ln); } }
+    if (dir === 'F') { const [k, r, c] = e, a = k === 'h' ? owner.get(`${r - 1},${c}`) : owner.get(`${r},${c - 1}`), bb = owner.get(`${r},${c}`);
+      if (!(a !== undefined && a === bb)) el('line', { x1, y1, x2, y2, style: 'stroke:var(--line)', 'stroke-width': sp * 0.04, 'stroke-linecap': 'round' }, ln); }   // lines inside one player's territory sink into the ink
+    if (tag === 'last') lastMarker(markLayer, dir, [x1, y1, x2, y2], sp);
+  });
+  // preview / pressed / cursor (parts panel)
+  if (opt.preview) { const [x1, y1, x2, y2] = ends(g, opt.preview); const w = { A: .07, B: .1, C: .085, D: .045, E: .1, F: .04 }[dir] * sp;
+    el('line', { x1, y1, x2, y2, style: `stroke:${dir === 'C' || dir === 'D' || dir === 'F' ? 'var(--line)' : pc(opt.turn || 0)}`, 'stroke-width': opt.pressed ? w * 1.25 : w, 'stroke-linecap': dir === 'E' ? 'butt' : 'round', 'stroke-dasharray': opt.pressed ? 'none' : `${sp * 0.05} ${sp * 0.06}`, opacity: opt.pressed ? .95 : .6 }, markLayer); }
+  if (opt.cursor && dir === 'F') { const [x1, y1, x2, y2] = ends(g, opt.cursor), mx = (x1 + x2) / 2, my = (y1 + y2) / 2, rr = Math.min(sp * 0.08, 48);
+    el('circle', { cx: mx, cy: my, r: rr * 1.6, style: 'fill:var(--page)' }, markLayer); el('circle', { cx: mx, cy: my, r: rr, fill: 'none', style: 'stroke:var(--focus)', 'stroke-width': 6 }, markLayer);
+    el('line', { x1: mx - rr * 1.5, y1: my, x2: mx + rr * 1.5, y2: my, style: 'stroke:var(--focus)', 'stroke-width': 5 }, markLayer); el('line', { x1: mx, y1: my - rr * 1.5, x2: mx, y2: my + rr * 1.5, style: 'stroke:var(--focus)', 'stroke-width': 5 }, markLayer); }
+  if (opt.cursor && dir !== 'F') { const [x1, y1, x2, y2] = ends(g, opt.cursor); const hor = y1 === y2, m = Math.min(sp * 0.12, PAD * 0.7);
+    el('rect', { x: Math.min(x1, x2) - (hor ? 0 : m), y: Math.min(y1, y2) - (hor ? m : 0), width: hor ? x2 - x1 : 2 * m, height: hor ? 2 * m : y2 - y1, rx: dir === 'E' || dir === 'C' ? 0 : m, fill: 'none', style: 'stroke:var(--focus)', 'stroke-width': 6, 'stroke-dasharray': dir === 'E' ? 'none' : '14 8' }, markLayer); }
+  // dots
+  for (let r = 0; r <= state.rows; r++) for (let c = 0; c <= state.cols; c++) {
+    const cx = g.P(c), cy = g.P(r);
+    if (dir === 'A') { el('circle', { cx, cy, r: sp * 0.058, style: 'fill:var(--dot)' }, dotLayer); el('circle', { cx: cx - sp * 0.017, cy: cy - sp * 0.017, r: sp * 0.02, fill: '#fff', opacity: .32 }, dotLayer); }
+    if (dir === 'B') { el('circle', { cx, cy: cy + sp * 0.03, r: sp * 0.082, style: 'fill:var(--peg-shadow)' }, dotLayer); el('circle', { cx, cy, r: sp * 0.082, style: 'fill:var(--dot)' }, dotLayer); el('circle', { cx: cx - sp * 0.024, cy: cy - sp * 0.024, r: sp * 0.03, fill: '#fff', opacity: .45 }, dotLayer); }
+    if (dir === 'C') { el('circle', { cx, cy, r: sp * 0.056, style: 'fill:var(--dot)' }, dotLayer); el('circle', { cx: cx - sp * 0.014, cy: cy - sp * 0.016, r: sp * 0.018, fill: '#fff', opacity: .38 }, dotLayer); }
+    if (dir === 'D') { el('ellipse', { cx: cx + 3, cy: cy + 6, rx: sp * 0.075, ry: sp * 0.06, fill: '#000', opacity: .16 }, dotLayer); el('ellipse', { cx, cy, rx: sp * 0.075, ry: sp * 0.062, style: 'fill:var(--dot)' }, dotLayer); }
+    if (dir === 'E') { const s = sp * 0.13; el('rect', { x: cx - s / 2, y: cy - s / 2, width: s, height: s, style: 'fill:var(--dot)' }, dotLayer); }
+    if (dir === 'F') { const corner = (r === 0 || r === state.rows) && (c === 0 || c === state.cols), rr = Math.min(sp * 0.075, 46);
+      el('circle', { cx, cy, r: Math.min(sp * 0.04, 22), style: 'fill:var(--dot)' }, dotLayer);
+      if (corner) { el('circle', { cx, cy, r: rr, fill: 'none', style: 'stroke:var(--dot)', 'stroke-width': 4 }, dotLayer); el('line', { x1: cx - rr * 1.55, y1: cy, x2: cx + rr * 1.55, y2: cy, style: 'stroke:var(--dot)', 'stroke-width': 3 }, dotLayer); el('line', { x1: cx, y1: cy - rr * 1.55, x2: cx, y2: cy + rr * 1.55, style: 'stroke:var(--dot)', 'stroke-width': 3 }, dotLayer); } }
+  }
+  return g;
+}
+function lastMarker(layer, dir, [x1, y1, x2, y2], sp) {
+  const hor = y1 === y2, o = sp * 0.1;
+  if (dir === 'A') el('line', { x1: hor ? x1 + sp * 0.18 : x1 + o, y1: hor ? y1 + o : y1 + sp * 0.18, x2: hor ? x2 - sp * 0.18 : x2 + o, y2: hor ? y2 + o : y2 - sp * 0.18, style: 'stroke:var(--mark)', 'stroke-width': 4, 'stroke-dasharray': '10 8', opacity: .7 }, layer);
+  if (dir === 'B') [[x1, y1], [x2, y2]].forEach(([cx, cy]) => el('circle', { cx, cy, r: sp * 0.125, fill: 'none', style: 'stroke:var(--mark)', 'stroke-width': 5 }, layer));
+  if (dir === 'D') el('circle', { cx: (x1 + x2) / 2, cy: (y1 + y2) / 2, r: sp * 0.07, fill: 'none', style: 'stroke:var(--mark)', 'stroke-width': 3.5, opacity: .6 }, layer);
+  if (dir === 'F') { const mx = (x1 + x2) / 2, my = (y1 + y2) / 2, h = Math.min(sp * 0.07, 40), d = Math.min(sp * 0.03, 16);
+    [-d, d].forEach(o => el('line', hor ? { x1: mx + o, y1: my - h, x2: mx + o, y2: my + h } : { x1: mx - h, y1: my + o, x2: mx + h, y2: my + o }, layer).setAttribute('style', 'stroke:var(--mark);stroke-width:5')); }
+  if (dir === 'E') { const u = sp / 16, w = 1.6 * u; el('rect', { x: Math.min(x1, x2) - (hor ? 0 : w / 2 + u * 0.6), y: Math.min(y1, y2) - (hor ? w / 2 + u * 0.6 : 0), width: hor ? x2 - x1 : w + 1.2 * u, height: hor ? w + 1.2 * u : y2 - y1, fill: 'none', style: 'stroke:var(--mark)', 'stroke-width': u * 0.5 }, layer); }
+}
+
+// ---- parts panel ----
+const PARTS = [
+  ['Dot', { rows: 1, cols: 1, boxes: [], lines: [] }, {}],
+  ['Line', { rows: 1, cols: 1, boxes: [], lines: [[H(0, 0), 0]] }, {}],
+  ['Preview (hover)', { rows: 1, cols: 1, boxes: [], lines: [] }, { preview: H(0, 0) }],
+  ['Pressed', { rows: 1, cols: 1, boxes: [], lines: [] }, { preview: H(0, 0), pressed: true }],
+  ['Keyboard cursor', { rows: 1, cols: 1, boxes: [], lines: [[V(0, 0), 1]] }, { cursor: H(0, 0) }],
+  ['Last move', { rows: 1, cols: 1, boxes: [], lines: [[V(0, 0), 1], [H(0, 0), 0, 'last']] }, {}],
+  ['Ama’s box', { rows: 1, cols: 1, boxes: [[0, 0, 0, '', 'L-B']], lines: [[H(0, 0), 0], [H(1, 0), 0], [V(0, 0), 1], [V(0, 1), 0]] }, {}],
+  ['Maestro’s box', { rows: 1, cols: 1, boxes: [[0, 0, 1, '', 'T-R']], lines: [[H(0, 0), 1], [H(1, 0), 0], [V(0, 0), 1], [V(0, 1), 1]] }, {}],
+];
+
+// ---- swatches with live contrast ----
+function hexOf(v) { const c = document.createElement('canvas').getContext('2d'); c.fillStyle = v; return c.fillStyle; }
+function lum(h) { const n = [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255).map(c => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4)); return 0.2126 * n[0] + 0.7152 * n[1] + 0.0722 * n[2]; }
+function ratio(a, b) { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+function swatches() {
+  const box = document.getElementById('swatches'); box.textContent = '';
+  const v = n => hexOf(css(n));
+  const items = [['Page', '--page', null], ['Surface', '--surface', null], ['Board', '--board', null], ['Text', '--text', '--page'], ['Muted text', '--muted', '--page'], ['Player 1 (Ama)', '--p1', '--board'], ['Player 2 (Maestro)', '--p2', '--board'], ['Accent', '--accent', null], ['Focus', '--focus', '--page']];
+  if (css('--line')) items.splice(7, 0, ['Lines', '--line', '--board']);
+  items.forEach(([name, tok, on]) => { const d = document.createElement('div'); d.className = 'sw'; const hx = v(tok); const r = on ? ratio(hx, v(on)) : null;
+    d.innerHTML = `<i style="background:${hx}"></i><div><b>${name}</b>${hx.toUpperCase()}${r ? ` &middot; ${r.toFixed(1)}:1 on ${on.replace('--', '')}` : ''}</div>`; box.appendChild(d); });
+}
+
+// ---- replay: Ama's turn (transform and opacity only) ----
+function replay() {
+  const dir = document.documentElement.dataset.dir, svg = document.getElementById('board');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const dl = parseInt(css('--d-line')), db = parseInt(css('--d-box')), st = parseInt(css('--stagger')), ease = css('--e-line');
+  const chain = [...svg.querySelectorAll('.bx[data-tag="chain"]')], last = svg.querySelector('.ln[data-tag="last"]');
+  chain.forEach(b => (b.style.opacity = 0)); if (last) last.style.opacity = 0;
+  let t = 300;
+  chain.forEach((b, i) => {
+    const start = t + i * st;
+    if (reduce) { b.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 150, delay: start, fill: 'forwards' }); return; }
+    const from = { A: 'scaleX(0)', B: 'translateY(-14px)', C: 'scale(1)', D: 'scale(.9)', E: 'scale(1)', F: 'scale(1.04)' }[dir];
+    b.style.transformBox = 'fill-box'; b.style.transformOrigin = dir === 'A' ? 'left center' : 'center';
+    b.animate([{ opacity: dir === 'A' ? 1 : 0, transform: from }, { opacity: 1, transform: 'none' }], { duration: db, delay: start, easing: dir === 'E' ? 'steps(6, end)' : (dir === 'D' ? 'cubic-bezier(.45,.05,.35,1)' : 'cubic-bezier(.2,.75,.25,1)'), fill: 'forwards' });
+  });
+  t += chain.length * st + db + 200;
+  if (last) {
+    if (reduce) { last.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 150, delay: t, fill: 'forwards' }); return; }
+    last.style.transformBox = 'fill-box'; last.style.transformOrigin = 'center top';
+    last.animate([{ opacity: 1, transform: 'scaleY(0)' }, { opacity: 1, transform: 'none' }], { duration: dl, delay: t, easing: ease, fill: 'forwards' });
+  }
+}
+
+function render() {
+  const dir = document.documentElement.dataset.dir, D = DIRS[dir];
+  document.getElementById('dirname').textContent = D.name;
+  document.getElementById('thesis').textContent = D.thesis;
+  document.getElementById('typenote').textContent = D.type;
+  document.getElementById('t-display').textContent = D.display;
+  document.getElementById('t-display2').textContent = D.display2;
+  document.getElementById('t-body').textContent = D.body;
+  document.getElementById('rescap').textContent = D.cap;
+  document.getElementById('motionnote').textContent = D.motion;
+  document.getElementById('notes').innerHTML = `<div><b>Motion</b>${D.motion}</div><div><b>Sound</b>${D.sound}</div><div><b>The authored moment</b>${D.moment}</div>`;
+  paint(document.getElementById('board'), dir, MID);
+  paint(document.getElementById('final'), dir, finalState());
+  const brand = { rows: 1, cols: 1, boxes: [[0, 0, 0, '', 'L-B']], lines: [[H(0, 0), 0], [H(1, 0), 0], [V(0, 0), 0], [V(0, 1), 1]] };
+  paint(document.getElementById('mark'), dir, brand); paint(document.getElementById('brandmark'), dir, brand);
+  const parts = document.getElementById('parts'); parts.textContent = '';
+  PARTS.forEach(([name, st, opt]) => { const d = document.createElement('div'); d.className = 'part'; const s = document.createElementNS(NS, 'svg'); s.setAttribute('aria-hidden', 'true'); d.appendChild(s); const p = document.createElement('p'); p.textContent = name; d.appendChild(p); parts.appendChild(d); paint(s, dir, st, opt); });
+  swatches();
+}
+document.querySelectorAll('[data-set-dir]').forEach(b => b.addEventListener('click', () => { document.documentElement.dataset.dir = b.dataset.setDir; document.querySelectorAll('[data-set-dir]').forEach(x => x.setAttribute('aria-pressed', x === b)); render(); }));
+document.querySelectorAll('[data-set-theme]').forEach(b => b.addEventListener('click', () => { document.documentElement.dataset.theme = b.dataset.setTheme; document.querySelectorAll('[data-set-theme]').forEach(x => x.setAttribute('aria-pressed', x === b)); swatches(); }));
+document.getElementById('replay').addEventListener('click', replay);
+document.getElementById('snd').addEventListener('click', e => { const s = e.currentTarget; s.setAttribute('aria-checked', s.getAttribute('aria-checked') !== 'true'); });
+document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b))));
+const q = new URLSearchParams(location.search);
+if (q.get('dir') && DIRS[q.get('dir')]) document.documentElement.dataset.dir = q.get('dir');
+if (q.get('theme') === 'dark' || q.get('theme') === 'light') document.documentElement.dataset.theme = q.get('theme');
+else document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';   // follow the device, as the game will
+document.querySelectorAll('[data-set-dir]').forEach(x => x.setAttribute('aria-pressed', x.dataset.setDir === document.documentElement.dataset.dir));
+document.querySelectorAll('[data-set-theme]').forEach(x => x.setAttribute('aria-pressed', x.dataset.setTheme === document.documentElement.dataset.theme));
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(render);
+render();
+</script>
+</body>
+</html>

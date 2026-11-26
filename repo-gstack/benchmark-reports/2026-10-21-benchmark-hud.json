@@ -1,0 +1,114 @@
+{
+ "date": "2026-10-21",
+ "branch": "design/09-hud-avatars",
+ "commit": "e4226a8",
+ "base": "design/08-liquid-glass c421b05",
+ "bundle": {
+  "css_gz": [
+   10619,
+   12026
+  ],
+  "js_gz": [
+   273682,
+   275371
+  ],
+  "total_gz": [
+   285201,
+   288297
+  ]
+ },
+ "home": {
+  "table-dark": {
+   "rounds": 15,
+   "fcp": [
+    708,
+    696
+   ],
+   "lcp": [
+    2240,
+    2140
+   ],
+   "ready": [
+    1618,
+    1526
+   ]
+  },
+  "paper-light": {
+   "rounds": 15,
+   "fcp": [
+    576,
+    636
+   ],
+   "lcp": [
+    1948,
+    1600
+   ],
+   "ready": [
+    1364,
+    1390
+   ]
+  },
+  "neon-dark": {
+   "rounds": 8,
+   "fcp": [
+    636,
+    660
+   ],
+   "lcp": [
+    1996,
+    1868
+   ],
+   "ready": [
+    1362,
+    1306
+   ]
+  }
+ },
+ "reload": {
+  "neon-dark": {
+   "rounds": 15,
+   "ready": [
+    1807,
+    1701
+   ],
+   "pairedMs": -61
+  },
+  "table-dark": {
+   "rounds": 15,
+   "ready": [
+    1600,
+    1627
+   ],
+   "pairedMs": -73
+  },
+  "paper-light": {
+   "rounds": 10,
+   "ready": [
+    1550,
+    1571
+   ],
+   "pairedMs": 37
+  }
+ },
+ "taps": {
+  "measured": {
+   "4x4-phone-cpu4-table-dark": {
+    "paintMedian": [
+     54.1,
+     49.7
+    ],
+    "pairedMs": 0.6,
+    "growMedian": [
+     16.7,
+     16.7
+    ],
+    "cpuPerTap": [
+     900.4,
+     899.4
+    ]
+   }
+  },
+  "stopped": "Claude Code stopped the run for low memory after the first scenario"
+ },
+ "verdict": "no regressions measured; CSS +13% warning; tap-to-paint set incomplete"
+}

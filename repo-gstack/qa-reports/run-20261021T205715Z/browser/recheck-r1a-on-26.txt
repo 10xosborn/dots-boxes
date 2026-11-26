@@ -1,0 +1,4 @@
+FAIL  A2 same board after reload  11 lines before, 12 after
+FAIL  A4 screen reader hears "Game resumed"  Tactician drew a line. Score 0 to 2.
+29/31 checks passed
+31/31 checks passed

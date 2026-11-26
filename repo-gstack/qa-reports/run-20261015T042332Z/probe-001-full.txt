@@ -1,0 +1,65 @@
+room D83UU, 5x5, table-dark, Animations on, Sound off, network none
+move  1 by desktop own screen   14 ms, other screen    19 ms
+move  2 by phone   own screen   49 ms, other screen    63 ms
+move  3 by desktop own screen   12 ms, other screen    29 ms
+move  4 by phone   own screen   41 ms, other screen    58 ms
+move  5 by desktop own screen   10 ms, other screen    28 ms
+move  6 by phone   own screen   49 ms, other screen    51 ms
+move  7 by desktop own screen   14 ms, other screen    31 ms
+move  8 by phone   own screen   40 ms, other screen    41 ms
+move  9 by desktop own screen   12 ms, other screen    30 ms
+move 10 by phone   own screen   53 ms, other screen    56 ms
+move 11 by desktop own screen   14 ms, other screen    21 ms
+move 12 by phone   own screen   45 ms, other screen    63 ms
+move 13 by desktop own screen   16 ms, other screen    16 ms
+move 14 by phone   own screen   47 ms, other screen    48 ms
+move 15 by desktop own screen   14 ms, other screen    28 ms
+move 16 by desktop own screen   14 ms, other screen    16 ms
+move 17 by phone   own screen   39 ms, other screen    51 ms
+move 18 by desktop own screen   18 ms, other screen    18 ms
+move 19 by phone   own screen   33 ms, other screen    44 ms
+move 20 by desktop own screen    9 ms, other screen    23 ms
+move 21 by phone   own screen   36 ms, other screen    53 ms
+move 22 by desktop own screen   11 ms, other screen    28 ms
+move 23 by phone   own screen   46 ms, other screen    47 ms
+move 24 by desktop own screen   14 ms, other screen    31 ms
+move 25 by phone   own screen   45 ms, other screen    46 ms
+move 26 by desktop own screen   19 ms, other screen    36 ms
+move 27 by phone   own screen   44 ms, other screen    46 ms
+move 28 by phone   own screen   33 ms, other screen    43 ms
+move 29 by phone   own screen   33 ms, other screen    45 ms
+move 30 by desktop own screen   14 ms, other screen    31 ms
+move 31 by phone   own screen   25 ms, other screen    37 ms
+move 32 by desktop own screen   13 ms, other screen    30 ms
+move 33 by phone   own screen   45 ms, other screen    46 ms
+move 34 by desktop own screen    8 ms, other screen    20 ms
+move 35 by phone   own screen   61 ms, other screen    77 ms
+move 36 by phone   own screen   28 ms, other screen    44 ms
+move 37 by phone   own screen   32 ms, other screen    44 ms
+move 38 by phone   own screen   25 ms, other screen    38 ms
+move 39 by desktop own screen   14 ms, other screen    30 ms
+move 40 by desktop own screen   15 ms, other screen    15 ms
+move 41 by phone   own screen   44 ms, other screen    45 ms
+move 42 by phone   own screen   34 ms, other screen    47 ms
+move 43 by phone   own screen   47 ms, other screen    51 ms
+move 44 by desktop own screen   17 ms, other screen    16 ms
+move 45 by desktop own screen   11 ms, other screen    21 ms
+move 46 by phone   own screen   31 ms, other screen    41 ms
+move 47 by phone   own screen   29 ms, other screen    40 ms
+move 48 by desktop own screen   12 ms, other screen    27 ms
+move 49 by phone   own screen   36 ms, other screen    37 ms
+move 50 by desktop own screen   14 ms, other screen    29 ms
+move 51 by desktop own screen   21 ms, other screen    30 ms
+move 52 by desktop own screen   17 ms, other screen    28 ms
+move 53 by phone   own screen   27 ms, other screen    39 ms
+move 54 by phone   own screen   39 ms, other screen    41 ms
+move 55 by phone   own screen   41 ms, other screen    43 ms
+move 56 by phone   own screen   48 ms, other screen    49 ms
+move 57 by phone   own screen   41 ms, other screen    40 ms
+move 58 by phone   own screen   47 ms, other screen    48 ms
+move 59 by desktop own screen   19 ms, other screen    20 ms
+move 60 by desktop own screen   25 ms, other screen    39 ms
+
+60 moves; db has 60. Own screen: median 28 ms, worst 61 ms. Other screen: median 39 ms, worst 77 ms. Not seen within 3 s: 0.
+final line counts: host 60, guest 60; production Firebase requests: 0; page errors: none
+requests while playing: 0

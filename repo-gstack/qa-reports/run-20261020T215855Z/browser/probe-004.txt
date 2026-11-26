@@ -1,0 +1,8 @@
+
+PASS  switch: Dark Neon: the clear glass with its rim and edge highlights  {"skin":"neon","bg":"rgba(8, 10, 20, 0.36)","iso":"isolate","before":"\"\"","beforeImg":"linear-gradient(135deg, rgb(255, 255, 255), rgba(255, 255, 2","beforeMask":"linear-gradient(rgb(","after":"\"\"","afterImg":"linear-gradient(90deg, rgba(0, 0, 0, 0) "
+FAIL  switch: to Tabletop: its felt and wooden frame, no Neon rim, glass or highlights  {"skin":"table","bg":"rgb(106, 58, 28)","iso":"auto","before":"\"\"","beforeImg":"linear-gradient(rgba(255, 226, 180, 0.14), rgba(0, 0, 0, 0) ","beforeMask":"linear-gradient(rgb(","after":"none","afterImg":"none","lines":3}
+PASS  switch: to Paper: its sheet, no Neon rim, glass or highlights  {"skin":"paper","bg":"rgb(115, 65, 33)","iso":"auto","before":"none","beforeImg":"none","beforeMask":"none","after":"none","afterImg":"none","lines":3}
+PASS  switch: back to Neon: the glass, rim and highlights return, the game kept  {"skin":"neon","bg":"rgba(8, 10, 20, 0.36)","iso":"isolate","before":"\"\"","beforeImg":"linear-gradient(135deg, rgb(255, 255, 255), rgba(255, 255, 2","beforeMask":"linear-gradient(rgb(","after":"\"\"","afterImg":"linear-gradient(90deg, rgba(0, 0, 0
+PASS  switch: no page errors
+4/5 checks passed
+

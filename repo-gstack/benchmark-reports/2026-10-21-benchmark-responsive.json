@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-21",
+  "branch": "design/10-responsive",
+  "base": "online/server-turns 4613e6f",
+  "bundle": { "startup_js_gz": [49393, 50057], "all_js_gz": [275511, 276176], "css_gz": [12026, 13718], "status": "css WARNING +14.1%" },
+  "home_load_phone_cpu4": { "table-dark": { "fcp": [628, 536], "lcp": [1816, 1632], "ready": [1272, 1106] }, "paper-light": { "fcp": [548, 568], "lcp": [1768, 1544], "ready": [1465, 1230] } },
+  "game_reload_phone_cpu4": { "paper-light_15": { "ready": [1324, 1421], "lcp": [1328, 1664] }, "table-dark_15": { "ready": [1484, 1602], "lcp": [1788, 1960] }, "main_thread_task_paired_ms": { "table-dark": 134, "paper-light": 106 }, "style_recalc_paired_ms": { "table-dark": 38, "paper-light": 45 }, "status": "WARNING (noisy): Paper LCP +25% in one run, -3% in another" },
+  "tap_12x12_desktop": { "paper-light_renderer_cpu_per_tap": [367.6, 269.9], "paper-dark_renderer_cpu_per_tap": [293.8, 203.5], "table-light_renderer_cpu_per_tap": [407.0, 393.3] },
+  "verdict": "no regressions; warnings: CSS +14%, game reload main-thread work +5-7% (style recalc)"
+}

@@ -1,0 +1,39 @@
+PASS  table-light: theme-button changes on hover
+PASS  table-light: segment changes on hover
+PASS  table-light: back changes on hover
+PASS  table-light: a pressed option scales down
+PASS  table-light: theme-card changes on hover
+PASS  table-light: switch changes on hover
+PASS  table-dark: theme-button changes on hover
+PASS  table-dark: segment changes on hover
+PASS  table-dark: back changes on hover
+PASS  table-dark: a pressed option scales down
+PASS  table-dark: theme-card changes on hover
+PASS  table-dark: switch changes on hover
+PASS  neon-dark: theme-button changes on hover
+PASS  neon-dark: segment changes on hover
+PASS  neon-dark: back changes on hover
+PASS  neon-dark: a pressed option scales down
+PASS  neon-dark: theme-card changes on hover
+PASS  neon-dark: switch changes on hover
+PASS  neon-light: theme-button changes on hover
+PASS  neon-light: segment changes on hover
+PASS  neon-light: back changes on hover
+PASS  neon-light: a pressed option scales down
+PASS  neon-light: theme-card changes on hover
+PASS  neon-light: switch changes on hover
+PASS  paper-light: theme-button changes on hover
+PASS  paper-light: segment changes on hover
+PASS  paper-light: back changes on hover
+PASS  paper-light: a pressed option scales down
+PASS  paper-light: theme-card changes on hover
+PASS  paper-light: switch changes on hover
+PASS  paper-dark: theme-button changes on hover
+PASS  paper-dark: segment changes on hover
+PASS  paper-dark: back changes on hover
+PASS  paper-dark: a pressed option scales down
+PASS  paper-dark: theme-card changes on hover
+PASS  paper-dark: switch changes on hover
+PASS  console: no page errors
+
+37/37 checks passed

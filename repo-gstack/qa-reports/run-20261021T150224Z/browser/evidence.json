@@ -1,0 +1,53 @@
+{
+  "revision": "4613e6fba10ab8bca44f01322fa126965d9328e5",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "checkpoint 001: the size picker probe (baseline); ISSUE-001 and ISSUE-002 found, confirmed by the exact replay in checkpoint 002",
+    "checkpoints 002-007: top bar and notice, rotation and spread, Home, edge states, the fit check and the online main scenario, all inside the 900 s budget",
+    "two diagnosis runs (picker-debug.mjs, setup-wide.mjs) ran outside the deadline guard and without checkpoints, between checkpoints 001 and 002; disclosed, and their finding was confirmed by the guarded replay",
+    "the online 2-minute scenario and the earlier suites (hud/flow, hud/edge, theme-switch, drag-test, qa-r1a, integrity-r1a) did not fit the budget and ran as required rechecks after it expired, with fixed command timeouts",
+    "every check the verdict relies on was rerun on the final build (index CSS ecf63fd68d4b) after the last fix",
+    "one rerun of qa-r1a on the branch printed no summary (most likely a browser launch failure); the run before it passed 31/31",
+    "not covered: real phones and Safari (safe-area insets, the iOS toolbar), production Firebase (never touched)"
+  ],
+  "evidence": [],
+  "learning": [
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T150224Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step4/qa-run.sh picker 2>&1 | grep -E \"FAIL|checks passed|QA_DEADLINE\"",
+      "hypothesis": "The exact replay reproduces both picker failures (ISSUE-001, with ISSUE-002 as the trigger), so they are confirmed. With the remaining budget, probe the next riskiest new behaviour before any repair: the top bar the game screens now draw themselves and the offline notice that floats over it (C6).",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T150224Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step4/qa-run.sh topbar"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T150224Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step4/qa-run.sh topbar",
+      "hypothesis": "The game's own top bar and the floating notice behave on phone and desktop (C6). Next riskiest: a layout switch mid-game (a phone turned sideways and back) and Paper's spread with a mouse drag and the keyboard (C3), where the board's grid area and the play area's display change under a live game.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T150224Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step4/qa-run.sh flow"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T150224Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step4/qa-run.sh flow",
+      "hypothesis": "Layout switches mid-game and input on the spread work (C3). Next: Home on every phone held upright and sideways, with and without a saved game (C5), since Home's hero now flexes with the screen and hides parts by container queries.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T150224Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step4/qa-run.sh home"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T150224Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step4/qa-run.sh home",
+      "hypothesis": "Home fits every phone upright and sideways with no widening (the Neon WIDE rows are the aurora's lights in their fixed layer). Next: the game's edge states, two 16-letter names with an extra turn and a two-line online note in the chips' place, on the spread, sideways and the smallest phones (C1/C4), where truncation and the fixed-height rows are most stressed.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T150224Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step4/qa-run.sh edge"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T150224Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step4/qa-run.sh edge",
+      "hypothesis": "Every edge measure passes (no scroll, no widening, the note fits, chips hidden, no errors); the four Paper FAIL lines come only from the probe flagging .srow .sc, whose pencil circle is drawn 3 px outside its 44 px box by design (a probe false positive, to be corrected in the final pass). Last exploration probe in the budget: boardFit's prediction against the real board on nine viewports, four modes, five shapes (C1), on saved games reopened (no Setup page, so no widened viewport).",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T150224Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step4/qa-run.sh fit"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T150224Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step4/qa-run.sh fit 2>&1 | grep -E \"MISMATCH|SCROLL|boards,|QA_DEADLINE|Error\"",
+      "hypothesis": "On the game screen itself (saved games reopened) boardFit's prediction equals the real board everywhere (C1); the picker's failures are confined to pages that widen the viewport (ISSUE-001/002). With about four minutes left, the online game is the last unprobed new behaviour: notes in the chips' place, both boards still, Leave as the main button after 2 minutes (C4). Run the two-player suite's main scenario on the emulators.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T150224Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step4/qa-online.sh new"
+    }
+  ],
+  "verdict": {
+    "status": "inconclusive",
+    "open": [
+      "no evidence rows"
+    ]
+  }
+}

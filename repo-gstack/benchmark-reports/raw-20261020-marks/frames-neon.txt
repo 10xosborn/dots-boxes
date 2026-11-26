@@ -1,0 +1,10 @@
+serving branch on :4176 and main on :4177
+12x12 desktop      neon-dark     main    drag moves median 33.4 p95 37.3 ms | held p95 16.7 ms, 0% >25 ms | let-go p95 16.8 | tap to paint median 65 p95 72.2 ms | growing frames p95 33.3 ms, 9% >25 ms
+12x12 desktop      neon-dark     branch  drag moves median 33.4 p95 46.4 ms | held p95 16.7 ms, 0% >25 ms | let-go p95 16.8 | tap to paint median 51.3 p95 71.4 ms | growing frames p95 33.3 ms, 12% >25 ms
+12x12 desktop      neon-light    main    drag moves median 33.4 p95 35.3 ms | held p95 16.8 ms, 0% >25 ms | let-go p95 16.8 | tap to paint median 60.8 p95 66.7 ms | growing frames p95 33.4 ms, 19% >25 ms
+12x12 desktop      neon-light    branch  drag moves median 33.4 p95 35 ms | held p95 16.7 ms, 0% >25 ms | let-go p95 16.8 | tap to paint median 59.3 p95 66.3 ms | growing frames p95 33.4 ms, 24% >25 ms
+7x7 phone, CPU 4x  neon-dark     main    drag moves median 33.4 p95 35.5 ms | held p95 16.7 ms, 0% >25 ms | let-go p95 33.4 | tap to paint median 32.1 p95 34.2 ms | growing frames p95 16.7 ms, 0% >25 ms
+7x7 phone, CPU 4x  neon-dark     branch  drag moves median 33.2 p95 35.2 ms | held p95 16.7 ms, 0% >25 ms | let-go p95 33.4 | tap to paint median 32.7 p95 48.9 ms | growing frames p95 16.8 ms, 0% >25 ms
+7x7 phone, CPU 4x  neon-light    main    drag moves median 33.4 p95 35.5 ms | held p95 16.7 ms, 0% >25 ms | let-go p95 30 | tap to paint median 31.7 p95 48.3 ms | growing frames p95 16.8 ms, 0% >25 ms
+7x7 phone, CPU 4x  neon-light    branch  drag moves median 33.3 p95 35.4 ms | held p95 16.7 ms, 0% >25 ms | let-go p95 29.2 | tap to paint median 31.1 p95 38.5 ms | growing frames p95 16.8 ms, 0% >25 ms
+servers stopped; child exit 0

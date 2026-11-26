@@ -1,0 +1,10 @@
+serving dist-qa-87b0ed6 on :4173
+table-dark: pixel change at the line 60/250/600 ms after the tap: 261/261/261  137/137/137  257/257/257  152/152/152  263/263/263  144/144/144
+table-light: pixel change at the line 60/250/600 ms after the tap: 190/190/190  216/216/216  194/194/194  199/199/199  189/189/189  204/204/204
+neon-dark: pixel change at the line 60/250/600 ms after the tap: 184/184/184  236/236/236  190/190/190  243/243/243  191/191/191  243/243/243
+neon-light: pixel change at the line 60/250/600 ms after the tap: 226/226/226  233/233/233  221/221/221  223/223/223  229/229/229  223/223/223
+paper-dark: pixel change at the line 60/250/600 ms after the tap: 179/179/179  229/229/229  188/188/188  230/230/230  182/182/182  224/224/224
+paper-light: pixel change at the line 60/250/600 ms after the tap: 260/260/260  228/228/228  252/252/252  222/222/222  249/249/249  226/226/226
+
+Chromium 151.0.7922.34: 0 of 36 drawn lines not painted 600 ms after the tap
+servers stopped; child exit 0

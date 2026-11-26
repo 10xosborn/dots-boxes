@@ -1,0 +1,12 @@
+serving branch on :4176 and main on :4177
+table-light home     0 pixels differ 
+table-light setup    0 pixels differ 
+table-light game     0 pixels differ 
+table-light results  226 pixels differ 366,909-382,928 (2x px)
+table-light settings 12519 pixels differ 96,594-568,697 (2x px)
+paper-light home     0 pixels differ 
+paper-light setup    0 pixels differ 
+paper-light game     0 pixels differ 
+paper-light results  0 pixels differ 
+paper-light settings 12570 pixels differ 98,578-578,681 (2x px)
+servers stopped; child exit 0

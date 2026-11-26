@@ -1,0 +1,3271 @@
+{
+  "when": "2026-10-13T09:30:38.974Z",
+  "warmPasses": 12,
+  "coldPasses": 12,
+  "summary": {
+    "home-table-light|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 88,
+        "lcp": 476,
+        "ready": 105,
+        "cls": 25,
+        "domInteractive": 15,
+        "domComplete": 74,
+        "load": 74,
+        "requests": 8,
+        "transfer": 778774,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 64,
+        "lcp": 444,
+        "ready": 74,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 44,
+        "load": 44,
+        "requests": 8,
+        "transfer": 778774,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "passes": {
+        "cold": 12,
+        "warm": 12
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-C3yyRqcr.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 13
+        },
+        {
+          "name": "wood-light-v9V9a8I5.webp",
+          "type": "css",
+          "size": 24446,
+          "ms": 12
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 11
+        },
+        {
+          "name": "index-B_pd92fR.css",
+          "type": "link",
+          "size": 39697,
+          "ms": 9
+        },
+        {
+          "name": "app-UGSktirB.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 9
+        },
+        {
+          "name": "index-D4rNLOBV.js",
+          "type": "script",
+          "size": 132963,
+          "ms": 8
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ]
+    },
+    "home-table-light|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 88,
+        "lcp": 476,
+        "ready": 107,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 74,
+        "load": 74,
+        "requests": 8,
+        "transfer": 781214,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 64,
+        "lcp": 436,
+        "ready": 74,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 44,
+        "load": 44,
+        "requests": 8,
+        "transfer": 781214,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "passes": {
+        "cold": 12,
+        "warm": 12
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "index-DPof4mWV.css",
+          "type": "link",
+          "size": 39940,
+          "ms": 12
+        },
+        {
+          "name": "firebase-DboIqrRP.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 12
+        },
+        {
+          "name": "index-CRdgP4r8.js",
+          "type": "script",
+          "size": 135160,
+          "ms": 11
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 11
+        },
+        {
+          "name": "wood-light-v9V9a8I5.webp",
+          "type": "css",
+          "size": 24446,
+          "ms": 8
+        },
+        {
+          "name": "app-lVPha40q.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 8
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 5
+        }
+      ]
+    }
+  },
+  "runs": {
+    "home-table-light|main": {
+      "cold": [
+        {
+          "ttfb": 8,
+          "fcp": 1128,
+          "lcp": 1460,
+          "ready": 112.10000002384186,
+          "cls": 0,
+          "domInteractive": 26.80000001192093,
+          "domComplete": 68.7000000178814,
+          "load": 68.7000000178814,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 13
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 12
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 9
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 9
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 2.4000000059604645,
+          "fcp": 88,
+          "lcp": 468,
+          "ready": 98.40000000596046,
+          "cls": 24.501708984375,
+          "domInteractive": 14.699999988079071,
+          "domComplete": 70.69999998807907,
+          "load": 70.69999998807907,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 10
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 7
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 7
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 7
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 92,
+          "lcp": 476,
+          "ready": 105.40000000596046,
+          "cls": 24.501708984375,
+          "domInteractive": 13.599999994039536,
+          "domComplete": 75.69999998807907,
+          "load": 75.69999998807907,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 9
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 7
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 7
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.2999999821186066,
+          "fcp": 72,
+          "lcp": 464,
+          "ready": 102.40000000596046,
+          "cls": 24.501708984375,
+          "domInteractive": 17.100000023841858,
+          "domComplete": 73.80000001192093,
+          "load": 73.80000001192093,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 10
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 10
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 9
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 9
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.300000011920929,
+          "fcp": 88,
+          "lcp": 472,
+          "ready": 100.80000001192093,
+          "cls": 24.501708984375,
+          "domInteractive": 13.400000005960464,
+          "domComplete": 72.2000000178814,
+          "load": 72.2000000178814,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 9
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 7
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 7
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 7
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 3.600000023841858,
+          "fcp": 132,
+          "lcp": 552,
+          "ready": 173.30000001192093,
+          "cls": 24.501708984375,
+          "domInteractive": 30.400000005960464,
+          "domComplete": 120.90000000596046,
+          "load": 120.90000000596046,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 16
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 15
+            },
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 15
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 14
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 14
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 12
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 5
+            }
+          ]
+        },
+        {
+          "ttfb": 1.300000011920929,
+          "fcp": 84,
+          "lcp": 492,
+          "ready": 114.40000000596046,
+          "cls": 24.501708984375,
+          "domInteractive": 15.699999988079071,
+          "domComplete": 81.90000000596046,
+          "load": 81.90000000596046,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 13
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 10
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 10
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.0999999940395355,
+          "fcp": 100,
+          "lcp": 476,
+          "ready": 110.59999999403954,
+          "cls": 24.501708984375,
+          "domInteractive": 15.199999988079071,
+          "domComplete": 75.09999999403954,
+          "load": 75.09999999403954,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 9
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 9
+            },
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 8
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 1,
+          "fcp": 72,
+          "lcp": 476,
+          "ready": 100.09999999403954,
+          "cls": 24.501708984375,
+          "domInteractive": 13,
+          "domComplete": 67.5,
+          "load": 67.5,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 9
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 9
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 7
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 7
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.100000023841858,
+          "fcp": 104,
+          "lcp": 488,
+          "ready": 129.40000000596046,
+          "cls": 24.501708984375,
+          "domInteractive": 18,
+          "domComplete": 75.5,
+          "load": 75.5,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 11
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 10
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 10
+            },
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 7
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.2000000178813934,
+          "fcp": 100,
+          "lcp": 488,
+          "ready": 111.59999999403954,
+          "cls": 24.501708984375,
+          "domInteractive": 14.800000011920929,
+          "domComplete": 76.09999999403954,
+          "load": 76.09999999403954,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 10
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 10
+            },
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 9
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 7
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1,
+          "fcp": 88,
+          "lcp": 472,
+          "ready": 104,
+          "cls": 24.501708984375,
+          "domInteractive": 13.800000011920929,
+          "domComplete": 72.10000002384186,
+          "load": 72.10000002384186,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 8
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 8
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 7
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        }
+      ],
+      "warm": [
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 96,
+          "lcp": 476,
+          "ready": 108.19999998807907,
+          "cls": 24.501708984375,
+          "domInteractive": 25.899999976158142,
+          "domComplete": 61.29999998211861,
+          "load": 61.29999998211861,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 9
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 8
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 8
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 1.7000000178813934,
+          "fcp": 52,
+          "lcp": 432,
+          "ready": 69.2999999821186,
+          "cls": 24.501708984375,
+          "domInteractive": 14.099999994039536,
+          "domComplete": 44.19999998807907,
+          "load": 44.19999998807907,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 10
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 10
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 8
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 8
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.2999999821186066,
+          "fcp": 64,
+          "lcp": 456,
+          "ready": 71.7000000178814,
+          "cls": 24.501708984375,
+          "domInteractive": 14,
+          "domComplete": 45.900000005960464,
+          "load": 46,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 11
+            },
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 10
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 8
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 7
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.2999999821186066,
+          "fcp": 60,
+          "lcp": 444,
+          "ready": 72.40000000596046,
+          "cls": 24.501708984375,
+          "domInteractive": 14.800000011920929,
+          "domComplete": 44,
+          "load": 44,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 9
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 9
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 8
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 7
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.199999988079071,
+          "fcp": 60,
+          "lcp": 444,
+          "ready": 69.89999997615814,
+          "cls": 24.501708984375,
+          "domInteractive": 14.899999976158142,
+          "domComplete": 43.29999998211861,
+          "load": 43.39999997615814,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 9
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 8
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 7
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 7
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.9000000059604645,
+          "fcp": 92,
+          "lcp": 480,
+          "ready": 101.89999997615814,
+          "cls": 24.501708984375,
+          "domInteractive": 30.19999998807907,
+          "domComplete": 69.89999997615814,
+          "load": 70,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 15
+            },
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 15
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 13
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.300000011920929,
+          "fcp": 72,
+          "lcp": 444,
+          "ready": 75.5,
+          "cls": 24.501708984375,
+          "domInteractive": 12.400000005960464,
+          "domComplete": 38.5,
+          "load": 38.599999994039536,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 8
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 8
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 6
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 5
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.199999988079071,
+          "fcp": 72,
+          "lcp": 448,
+          "ready": 74,
+          "cls": 24.501708984375,
+          "domInteractive": 13.5,
+          "domComplete": 42.30000001192093,
+          "load": 42.30000001192093,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 7
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 7
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 72,
+          "lcp": 448,
+          "ready": 81.5,
+          "cls": 24.501708984375,
+          "domInteractive": 15.699999988079071,
+          "domComplete": 47.599999994039536,
+          "load": 47.599999994039536,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 9
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 8
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 8
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.0999999940395355,
+          "fcp": 64,
+          "lcp": 436,
+          "ready": 84.59999999403954,
+          "cls": 24.501708984375,
+          "domInteractive": 13.200000017881393,
+          "domComplete": 48.80000001192093,
+          "load": 48.80000001192093,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 17
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 10
+            },
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 8
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.300000011920929,
+          "fcp": 72,
+          "lcp": 460,
+          "ready": 84,
+          "cls": 24.501708984375,
+          "domInteractive": 16.200000017881393,
+          "domComplete": 51.30000001192093,
+          "load": 51.30000001192093,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 13
+            },
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 12
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 12
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 9
+            },
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 7
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.4000000059604645,
+          "fcp": 56,
+          "lcp": 436,
+          "ready": 71.09999999403954,
+          "cls": 24.501708984375,
+          "domInteractive": 13.800000011920929,
+          "domComplete": 41.400000005960464,
+          "load": 41.400000005960464,
+          "requests": 8,
+          "transfer": 778774,
+          "jsDecoded": 684955,
+          "cssDecoded": 39397,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-B_pd92fR.css",
+              "type": "link",
+              "size": 39697,
+              "ms": 8
+            },
+            {
+              "name": "firebase-C3yyRqcr.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 8
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 8
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 8
+            },
+            {
+              "name": "index-D4rNLOBV.js",
+              "type": "script",
+              "size": 132963,
+              "ms": 7
+            },
+            {
+              "name": "app-UGSktirB.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        }
+      ],
+      "ready": "__homeReady"
+    },
+    "home-table-light|branch": {
+      "cold": [
+        {
+          "ttfb": 2.800000011920929,
+          "fcp": 116,
+          "lcp": 500,
+          "ready": 133.69999998807907,
+          "cls": 24.501708984375,
+          "domInteractive": 21.899999976158142,
+          "domComplete": 97.09999999403954,
+          "load": 97.09999999403954,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 12
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 12
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 8
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 5
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 88,
+          "lcp": 496,
+          "ready": 121.10000002384186,
+          "cls": 24.501708984375,
+          "domInteractive": 15.400000005960464,
+          "domComplete": 81.60000002384186,
+          "load": 81.7000000178814,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 11
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 11
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 9
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.399999976158142,
+          "fcp": 80,
+          "lcp": 476,
+          "ready": 111.90000000596046,
+          "cls": 24.501708984375,
+          "domInteractive": 12.900000005960464,
+          "domComplete": 75.80000001192093,
+          "load": 75.80000001192093,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 16
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 10
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 9
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 7
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 5
+            }
+          ]
+        },
+        {
+          "ttfb": 1.199999988079071,
+          "fcp": 88,
+          "lcp": 472,
+          "ready": 104.09999999403954,
+          "cls": 24.501708984375,
+          "domInteractive": 14.300000011920929,
+          "domComplete": 74.80000001192093,
+          "load": 74.90000000596046,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 10
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 8
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 7
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.0999999940395355,
+          "fcp": 76,
+          "lcp": 472,
+          "ready": 103.09999999403954,
+          "cls": 24.501708984375,
+          "domInteractive": 14.400000005960464,
+          "domComplete": 71.80000001192093,
+          "load": 71.80000001192093,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 10
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 10
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 9
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 8
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.100000023841858,
+          "fcp": 92,
+          "lcp": 476,
+          "ready": 99.19999998807907,
+          "cls": 24.501708984375,
+          "domInteractive": 12.900000005960464,
+          "domComplete": 70.19999998807907,
+          "load": 70.19999998807907,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 8
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 8
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 7
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 5
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 100,
+          "lcp": 480,
+          "ready": 106.5,
+          "cls": 24.501708984375,
+          "domInteractive": 14.099999994039536,
+          "domComplete": 71.90000000596046,
+          "load": 72,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 8
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 7
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 72,
+          "lcp": 484,
+          "ready": 105.7999999821186,
+          "cls": 24.501708984375,
+          "domInteractive": 15.5,
+          "domComplete": 70.59999999403954,
+          "load": 70.59999999403954,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 10
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 9
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 9
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 9
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 8
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 0.9000000059604645,
+          "fcp": 96,
+          "lcp": 476,
+          "ready": 110,
+          "cls": 24.501708984375,
+          "domInteractive": 14.100000023841858,
+          "domComplete": 74,
+          "load": 74,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 9
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 8
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 8
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 8
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1,
+          "fcp": 96,
+          "lcp": 492,
+          "ready": 113.5,
+          "cls": 24.501708984375,
+          "domInteractive": 15.5,
+          "domComplete": 72.7000000178814,
+          "load": 72.80000001192093,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 9
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 8
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 7
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.199999988079071,
+          "fcp": 80,
+          "lcp": 460,
+          "ready": 104.2000000178814,
+          "cls": 24.501708984375,
+          "domInteractive": 13.800000011920929,
+          "domComplete": 74.90000000596046,
+          "load": 74.90000000596046,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 13
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 10
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 8
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 1,
+          "fcp": 96,
+          "lcp": 492,
+          "ready": 109.59999999403954,
+          "cls": 24.501708984375,
+          "domInteractive": 13.300000011920929,
+          "domComplete": 79.5,
+          "load": 79.5,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 9
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 9
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 8
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 8
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        }
+      ],
+      "warm": [
+        {
+          "ttfb": 1.300000011920929,
+          "fcp": 64,
+          "lcp": 448,
+          "ready": 76.40000000596046,
+          "cls": 24.501708984375,
+          "domInteractive": 13,
+          "domComplete": 48.099999994039536,
+          "load": 48.099999994039536,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 12
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 10
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 9
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 8
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 8
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.2000000178813934,
+          "fcp": 64,
+          "lcp": 436,
+          "ready": 67.09999999403954,
+          "cls": 24.501708984375,
+          "domInteractive": 12.099999994039536,
+          "domComplete": 39.89999997615814,
+          "load": 39.89999997615814,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 7
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 6
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5999999940395355,
+          "fcp": 64,
+          "lcp": 436,
+          "ready": 70.80000001192093,
+          "cls": 24.501708984375,
+          "domInteractive": 15.800000011920929,
+          "domComplete": 43.10000002384186,
+          "load": 43.10000002384186,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 9
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 8
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 8
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 8
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.0999999940395355,
+          "fcp": 64,
+          "lcp": 424,
+          "ready": 66,
+          "cls": 24.501708984375,
+          "domInteractive": 13.5,
+          "domComplete": 39.39999997615814,
+          "load": 39.39999997615814,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 8
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 8
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 8
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 7
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.300000011920929,
+          "fcp": 64,
+          "lcp": 436,
+          "ready": 73.59999999403954,
+          "cls": 24.501708984375,
+          "domInteractive": 16.69999998807907,
+          "domComplete": 48.29999998211861,
+          "load": 48.29999998211861,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 8
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 7
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.300000011920929,
+          "fcp": 72,
+          "lcp": 444,
+          "ready": 75.19999998807907,
+          "cls": 24.501708984375,
+          "domInteractive": 15.5,
+          "domComplete": 43.29999998211861,
+          "load": 43.29999998211861,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 8
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 7
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 6
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.2000000178813934,
+          "fcp": 60,
+          "lcp": 436,
+          "ready": 68.80000001192093,
+          "cls": 24.501708984375,
+          "domInteractive": 13.600000023841858,
+          "domComplete": 40.80000001192093,
+          "load": 40.80000001192093,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 10
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 10
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 7
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.100000023841858,
+          "fcp": 60,
+          "lcp": 436,
+          "ready": 78.30000001192093,
+          "cls": 24.501708984375,
+          "domInteractive": 13.400000005960464,
+          "domComplete": 43.60000002384186,
+          "load": 43.60000002384186,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 10
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 7
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 7
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.100000023841858,
+          "fcp": 68,
+          "lcp": 444,
+          "ready": 79.10000002384186,
+          "cls": 24.501708984375,
+          "domInteractive": 17.100000023841858,
+          "domComplete": 49,
+          "load": 49.10000002384186,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 9
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 8
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 8
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 1.5,
+          "fcp": 52,
+          "lcp": 448,
+          "ready": 74.40000000596046,
+          "cls": 24.501708984375,
+          "domInteractive": 14.800000011920929,
+          "domComplete": 46.099999994039536,
+          "load": 46.099999994039536,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 10
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 9
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 8
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 7
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 6
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.199999988079071,
+          "fcp": 64,
+          "lcp": 440,
+          "ready": 74.2999999821186,
+          "cls": 24.501708984375,
+          "domInteractive": 14.400000005960464,
+          "domComplete": 45,
+          "load": 45,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 8
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 7
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 7
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1,
+          "fcp": 60,
+          "lcp": 440,
+          "ready": 73.90000000596046,
+          "cls": 24.501708984375,
+          "domInteractive": 15,
+          "domComplete": 45.900000005960464,
+          "load": 45.900000005960464,
+          "requests": 8,
+          "transfer": 781214,
+          "jsDecoded": 687152,
+          "cssDecoded": 39640,
+          "fontBytes": 26576,
+          "fontFiles": 1,
+          "imageBytes": 24146,
+          "thirdParty": [
+            "identitytoolkit.googleapis.com"
+          ],
+          "slowest": [
+            {
+              "name": "app-lVPha40q.js",
+              "type": "script",
+              "size": 102320,
+              "ms": 11
+            },
+            {
+              "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+              "type": "css",
+              "size": 26876,
+              "ms": 11
+            },
+            {
+              "name": "firebase-DboIqrRP.js",
+              "type": "script",
+              "size": 450572,
+              "ms": 10
+            },
+            {
+              "name": "index-CRdgP4r8.js",
+              "type": "script",
+              "size": 135160,
+              "ms": 6
+            },
+            {
+              "name": "index-DPof4mWV.css",
+              "type": "link",
+              "size": 39940,
+              "ms": 6
+            },
+            {
+              "name": "wood-light-v9V9a8I5.webp",
+              "type": "css",
+              "size": 24446,
+              "ms": 5
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        }
+      ],
+      "ready": "__homeReady"
+    }
+  }
+}

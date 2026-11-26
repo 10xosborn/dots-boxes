@@ -1,0 +1,163 @@
+{
+  "cpu": 4,
+  "cold": 3,
+  "warm": 5,
+  "A": {},
+  "B": {},
+  "C": {
+    "home neon-dark anim on": {
+      "main": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.7,
+        "max": 17,
+        "over25": 0
+      },
+      "branch": {
+        "frames": 180,
+        "median": 16.7,
+        "p95": 16.7,
+        "max": 17,
+        "over25": 0
+      }
+    },
+    "game neon-dark anim on": {
+      "main": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.8,
+        "max": 17,
+        "over25": 0
+      },
+      "branch": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.7,
+        "max": 17,
+        "over25": 0
+      }
+    },
+    "home neon-light anim on": {
+      "main": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.8,
+        "max": 17,
+        "over25": 0
+      },
+      "branch": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.8,
+        "max": 17,
+        "over25": 0
+      }
+    },
+    "game neon-light anim on": {
+      "main": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.8,
+        "max": 17,
+        "over25": 0
+      },
+      "branch": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.8,
+        "max": 17,
+        "over25": 0
+      }
+    },
+    "home table-dark anim on": {
+      "main": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.8,
+        "max": 17,
+        "over25": 0
+      },
+      "branch": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.7,
+        "max": 17,
+        "over25": 0
+      }
+    },
+    "game table-dark anim on": {
+      "main": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.7,
+        "max": 17,
+        "over25": 0
+      },
+      "branch": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.7,
+        "max": 17,
+        "over25": 0
+      }
+    },
+    "home neon-dark anim off": {
+      "main": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.7,
+        "max": 17,
+        "over25": 0
+      },
+      "branch": {
+        "frames": 181,
+        "median": 16.7,
+        "p95": 16.7,
+        "max": 17,
+        "over25": 0
+      }
+    },
+    "game neon-dark anim off": {
+      "main": {
+        "frames": 180,
+        "median": 16.7,
+        "p95": 16.7,
+        "max": 17,
+        "over25": 0
+      },
+      "branch": {
+        "frames": 180,
+        "median": 16.7,
+        "p95": 16.7,
+        "max": 17,
+        "over25": 0
+      }
+    }
+  },
+  "D": {
+    "table-dark": {
+      "main": {
+        "moves": 16,
+        "median": 29.1,
+        "p95": 30.3
+      },
+      "branch": {
+        "moves": 16,
+        "median": 28.6,
+        "p95": 30.1
+      }
+    },
+    "neon-dark": {
+      "main": {
+        "moves": 16,
+        "median": 28,
+        "p95": 34.1
+      },
+      "branch": {
+        "moves": 16,
+        "median": 27.4,
+        "p95": 42.2
+      }
+    }
+  }
+}

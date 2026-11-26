@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-11",
+  "runId": "010903-29553",
+  "url": "http://127.0.0.1:4175/",
+  "designScore": "A",
+  "aiSlopScore": "D",
+  "categoryGrades": {
+    "hierarchy": "A",
+    "typography": "A",
+    "spacing": "A",
+    "color": "A",
+    "interaction": "A",
+    "responsive": "A",
+    "content": "A",
+    "aiSlop": "D",
+    "motion": "A",
+    "performance": "A"
+  },
+  "findings": [
+    {
+      "id": "FINDING-001",
+      "title": "Away note names a player who could be you",
+      "impact": "medium",
+      "category": "content",
+      "status": "verified",
+      "commit": "117c7df"
+    },
+    {
+      "id": "FINDING-002",
+      "title": "2-minute offer does not say leaving is free",
+      "impact": "polish",
+      "category": "ux",
+      "status": "verified",
+      "commit": "62fbec5"
+    },
+    {
+      "id": "FINDING-003",
+      "title": "Single word alone on the note second line",
+      "impact": "polish",
+      "category": "typography",
+      "status": "verified",
+      "commit": "2193c45"
+    }
+  ],
+  "detector": {
+    "mode": "none"
+  }
+}

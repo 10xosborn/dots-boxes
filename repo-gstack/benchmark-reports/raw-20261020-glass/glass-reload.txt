@@ -1,0 +1,3 @@
+neon-dark   ready main 1034 branch 925 ms, paired diff median -118 ms (branch slower in 2/8) | LCP main 1236 branch 1160 ms, paired diff median -120 ms
+neon-light  ready main 773 branch 762 ms, paired diff median -5 ms (branch slower in 2/8) | LCP main 904 branch 908 ms, paired diff median -20 ms
+table-light ready main 681 branch 680 ms, paired diff median -17 ms (branch slower in 3/8) | LCP main 1152 branch 1124 ms, paired diff median -28 ms

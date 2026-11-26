@@ -1,0 +1,11 @@
+# Charters: server-checked turns online (online/server-turns, 4613e6f)
+
+Isolation: the local Firebase emulators only (Auth 9099, Database 9000, Firestore 8080, project demo-dnb), emulator builds of the branch (`dist-emu-v2`) and of #24 (`dist-emu-hud`) served locally; production Firebase hosts blocked and counted. Driver: gstack's bundled Playwright with headless Chromium 151 (host on a 1280x800 desktop with a mouse, guest on a 390x844 phone with touch). Functional: `npm run test:rules` (Vitest + @firebase/rules-unit-testing against the Database emulator). Nothing touches live Firebase; nothing is published.
+
+| # | Contract | Risk | Probe | Exit condition |
+|---|---|---|---|---|
+| F1 | The rules: honest moves of every kind accepted (extra turns, double boxes, chains, whole games on six board shapes, 6x6 and 12x12); out-of-turn, wrong slot, off-board, reused line, wrong next turn, counters or lines alone, rewriting or deleting history, moves after the end, malformed rematches, strangers all refused; joins, names, flags, timings allowed; new rooms clean; old rooms unchanged | a hole lets a modified copy cheat, or an honest move gets refused (a stuck game) | `npm run test:rules` | all pass |
+| B1 | Two new copies under the new rules: a whole game, room state consistent, results, a clean rematch, game 2 | refused honest moves; counters drifting from the moves | `hud/online-v2.mjs` (new-new) | both screens finish and agree |
+| B2 | Mixed versions under the new rules: an old host's room (no v) with a new guest plays fully; a new room with an old guest refuses the old guest's move and tells them | old rooms broken; a confusing failure | `hud/online-v2.mjs` (old-new, new-old) | as stated |
+| B3 | The rules published today with the new site (deploy before publish) | new copies refused before the owner publishes | `hud/online-v2.mjs` with RULES=old | everything plays |
+| B4 | Presence, moves made offline, reconnects and rejoining after a reload or browser restart, in v2 rooms | the four-value update misbehaving offline or on rejoin | `online-r1b.mjs all`, `online-resume.mjs` | all pass (one known probe quirk in the pre-presence rules scenario, failing on #24's build too) |

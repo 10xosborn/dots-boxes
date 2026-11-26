@@ -1,0 +1,52 @@
+[
+ {
+  "label": "12x12 desktop",
+  "mode": "neon-dark",
+  "main": {
+   "paintMed": 68.20000000298023,
+   "paintP90": 99.09999999403954,
+   "growMed": 16.699999999999818,
+   "growP90": 33.400000000000546,
+   "janky": 22.818791946308725,
+   "cpuPerTap": 152.76808333333332,
+   "gpuPerTap": 0
+  },
+  "branch": {
+   "paintMed": 69.39999999850988,
+   "paintP90": 99.5,
+   "growMed": 16.699999999999818,
+   "growP90": 33.400000000000546,
+   "janky": 21.662303664921467,
+   "cpuPerTap": 147.78275,
+   "gpuPerTap": 0
+  },
+  "pairPaint": 13.00000000745058,
+  "pairCpu": -7.912250000000029,
+  "slowerRounds": 5
+ },
+ {
+  "label": "12x12 desktop",
+  "mode": "neon-light",
+  "main": {
+   "paintMed": 58,
+   "paintP90": 87,
+   "growMed": 33.29999999999973,
+   "growP90": 50,
+   "janky": 57.960644007155636,
+   "cpuPerTap": 229.81325,
+   "gpuPerTap": 0
+  },
+  "branch": {
+   "paintMed": 50.100000001490116,
+   "paintP90": 83.90000000596046,
+   "growMed": 33.30000000000018,
+   "growP90": 50,
+   "janky": 62.32427366447985,
+   "cpuPerTap": 297.80275,
+   "gpuPerTap": 0
+  },
+  "pairPaint": -9.49999999254942,
+  "pairCpu": 72.40408333333329,
+  "slowerRounds": 0
+ }
+]

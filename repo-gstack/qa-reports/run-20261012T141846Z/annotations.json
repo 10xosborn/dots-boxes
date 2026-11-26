@@ -1,0 +1,12 @@
+{
+  "evidence": [],
+  "limits": [
+    "Touch was emulated (Chromium hasTouch at 390x844); no real phone, no Brave, and no screen reader were used. Accessible names were read from Chromium's accessibility tree through Playwright's aria snapshot.",
+    "Firebase was blocked, so the app ran on its local adapter with the offline banner; online play and the live leaderboard were not exercised (this PR has no data-layer change).",
+    "Performance was not measured in this run (separate /benchmark).",
+    "Checkpoint 004's observationCommand names probe 002's command by mistake; its observed text is probe 003's output, which is the right one. Published checkpoints are never edited, so it stays as written.",
+    "The ISSUE-001 regression check was added to themes-test.mjs after the repair. Its red evidence is the same exact-name lookup failing on the old build in probes 004, 005 and 006, not a red run of the new check itself.",
+    "The repo has no UI test framework; the browser checks are throwaway scripts kept outside the repo (coverage debt, as recorded in CLAUDE.md).",
+    "The three bad-settings checks in probe 007 failed on a test error (a colour read before the stylesheet applied); the test was corrected narrowly and probe 008 reran the same command."
+  ]
+}

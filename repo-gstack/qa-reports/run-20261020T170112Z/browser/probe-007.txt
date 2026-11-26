@@ -1,0 +1,6 @@
+
+PASS  phone-tick: a tapped button ticks exactly once  ["noise"]
+PASS  phone-tick: a tapped line plays the line note and no tick  line
+PASS  phone-tick: no page errors
+3/3 checks passed
+

@@ -1,0 +1,16 @@
+{
+  "observationCapture": "003",
+  "observationArgv": [
+    "npm",
+    "run",
+    "check"
+  ],
+  "observed": "\n> dots-boxes@2.0.0 check\n> svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json\n\n1792060071973 START \"c:\\\\Users\\\\10xosborn\\\\SWE\\\\Grid Rivals\\\\grid-rivals\"\n1792060071975 COMPLETED 149 FILES 0 ERRORS 0 WARNINGS 0 FILES_WITH_PROBLEMS\n",
+  "hypothesis": "F2: check passes; the production build must pass too (it is what the deploy publishes).",
+  "nextCapture": "004",
+  "nextArgv": [
+    "npm",
+    "run",
+    "build"
+  ]
+}

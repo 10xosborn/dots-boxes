@@ -1,0 +1,455 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "compare": "http://127.0.0.1:4174/ (main 7b3affd)",
+  "timestamp": "2026-10-11T00:15:58.871Z",
+  "branch": "fix/r1a-resume-local-games",
+  "commit": "e872a0f",
+  "conditions": "Firebase blocked, Google Fonts allowed, 1280x800, 2 cold + 10 warm per build and case, medians",
+  "regressions": 0,
+  "buildGzipBytes": {
+    "main": {
+      "index_js": 44743,
+      "index_css": 4237,
+      "app_js": 30908,
+      "firebase_js": 130752,
+      "room_js": 39051,
+      "ai_worker_raw": 15601
+    },
+    "branch": {
+      "index_js": 45630,
+      "index_css": 4267,
+      "app_js": 30909,
+      "firebase_js": 130760,
+      "room_js": 39051,
+      "ai_worker_raw": 15601
+    }
+  },
+  "summary": {
+    "home|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 708,
+        "lcp": 1108,
+        "ready": 602,
+        "domInteractive": 15,
+        "domComplete": 1276,
+        "load": 1276,
+        "requests": 7,
+        "transfer": 214329,
+        "jsDecoded": 663020,
+        "cssDecoded": 16061
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 252,
+        "lcp": 436,
+        "ready": 245,
+        "domInteractive": 19,
+        "domComplete": 402,
+        "load": 402,
+        "requests": 7,
+        "transfer": 214329,
+        "jsDecoded": 663020,
+        "cssDecoded": 16061
+      },
+      "slowestCold": [
+        {
+          "name": "css2",
+          "type": "link",
+          "size": 1150,
+          "ms": 510
+        },
+        {
+          "name": "firebase-7_eqCJzK.js",
+          "type": "script",
+          "size": 131313,
+          "ms": 24
+        },
+        {
+          "name": "index-CcOp5EGt.js",
+          "type": "script",
+          "size": 45064,
+          "ms": 13
+        },
+        {
+          "name": "app-1FrQBJQT.js",
+          "type": "script",
+          "size": 31262,
+          "ms": 12
+        },
+        {
+          "name": "index-AitTuMmg.css",
+          "type": "link",
+          "size": 4548,
+          "ms": 10
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 7
+        }
+      ],
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "home|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 2,
+        "fcp": 620,
+        "lcp": 1024,
+        "ready": 611,
+        "domInteractive": 14,
+        "domComplete": 1268,
+        "load": 1268,
+        "requests": 7,
+        "transfer": 215259,
+        "jsDecoded": 665772,
+        "cssDecoded": 16243
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 260,
+        "lcp": 420,
+        "ready": 250,
+        "domInteractive": 18,
+        "domComplete": 420,
+        "load": 420,
+        "requests": 7,
+        "transfer": 215259,
+        "jsDecoded": 665772,
+        "cssDecoded": 16243
+      },
+      "slowestCold": [
+        {
+          "name": "css2",
+          "type": "link",
+          "size": 1150,
+          "ms": 517
+        },
+        {
+          "name": "firebase-Dpd3zW03.js",
+          "type": "script",
+          "size": 131321,
+          "ms": 20
+        },
+        {
+          "name": "index-C7qG_S-M.js",
+          "type": "script",
+          "size": 45955,
+          "ms": 12
+        },
+        {
+          "name": "index-DomFT63Y.css",
+          "type": "link",
+          "size": 4577,
+          "ms": 9
+        },
+        {
+          "name": "app-NqdtnTKE.js",
+          "type": "script",
+          "size": 31263,
+          "ms": 9
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ],
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "home-saved|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 2,
+        "fcp": 608,
+        "lcp": 984,
+        "ready": 605,
+        "domInteractive": 13,
+        "domComplete": 1136,
+        "load": 1136,
+        "requests": 7,
+        "transfer": 214329,
+        "jsDecoded": 663020,
+        "cssDecoded": 16061
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 228,
+        "lcp": 392,
+        "ready": 217,
+        "domInteractive": 16,
+        "domComplete": 387,
+        "load": 387,
+        "requests": 7,
+        "transfer": 214329,
+        "jsDecoded": 663020,
+        "cssDecoded": 16061
+      },
+      "slowestCold": [
+        {
+          "name": "css2",
+          "type": "link",
+          "size": 1150,
+          "ms": 543
+        },
+        {
+          "name": "firebase-7_eqCJzK.js",
+          "type": "script",
+          "size": 131313,
+          "ms": 22
+        },
+        {
+          "name": "index-CcOp5EGt.js",
+          "type": "script",
+          "size": 45064,
+          "ms": 14
+        },
+        {
+          "name": "app-1FrQBJQT.js",
+          "type": "script",
+          "size": 31262,
+          "ms": 11
+        },
+        {
+          "name": "index-AitTuMmg.css",
+          "type": "link",
+          "size": 4548,
+          "ms": 10
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ],
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "home-saved|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 2,
+        "fcp": 680,
+        "lcp": 1052,
+        "ready": 669,
+        "domInteractive": 13,
+        "domComplete": 1131,
+        "load": 1131,
+        "requests": 7,
+        "transfer": 215259,
+        "jsDecoded": 665772,
+        "cssDecoded": 16243
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 236,
+        "lcp": 432,
+        "ready": 225,
+        "domInteractive": 17,
+        "domComplete": 384,
+        "load": 384,
+        "requests": 7,
+        "transfer": 215259,
+        "jsDecoded": 665772,
+        "cssDecoded": 16243
+      },
+      "slowestCold": [
+        {
+          "name": "css2",
+          "type": "link",
+          "size": 1150,
+          "ms": 587
+        },
+        {
+          "name": "firebase-Dpd3zW03.js",
+          "type": "script",
+          "size": 131321,
+          "ms": 21
+        },
+        {
+          "name": "index-C7qG_S-M.js",
+          "type": "script",
+          "size": 45955,
+          "ms": 13
+        },
+        {
+          "name": "index-DomFT63Y.css",
+          "type": "link",
+          "size": 4577,
+          "ms": 10
+        },
+        {
+          "name": "app-NqdtnTKE.js",
+          "type": "script",
+          "size": 31263,
+          "ms": 9
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ],
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "game-reload|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 612,
+        "lcp": 980,
+        "ready": 611,
+        "domInteractive": 13,
+        "domComplete": 1142,
+        "load": 1142,
+        "requests": 7,
+        "transfer": 214329,
+        "jsDecoded": 663020,
+        "cssDecoded": 16061
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 240,
+        "lcp": 384,
+        "ready": 232,
+        "domInteractive": 15,
+        "domComplete": 377,
+        "load": 377,
+        "requests": 7,
+        "transfer": 214329,
+        "jsDecoded": 663020,
+        "cssDecoded": 16061
+      },
+      "slowestCold": [
+        {
+          "name": "css2",
+          "type": "link",
+          "size": 1150,
+          "ms": 636
+        },
+        {
+          "name": "index-CcOp5EGt.js",
+          "type": "script",
+          "size": 45064,
+          "ms": 22
+        },
+        {
+          "name": "index-AitTuMmg.css",
+          "type": "link",
+          "size": 4548,
+          "ms": 21
+        },
+        {
+          "name": "firebase-7_eqCJzK.js",
+          "type": "script",
+          "size": 131313,
+          "ms": 21
+        },
+        {
+          "name": "app-1FrQBJQT.js",
+          "type": "script",
+          "size": 31262,
+          "ms": 11
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 7
+        }
+      ],
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "game-reload|branch": {
+      "ready": "__boardReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 468,
+        "lcp": 560,
+        "ready": 494,
+        "domInteractive": 11,
+        "domComplete": 988,
+        "load": 988,
+        "requests": 8,
+        "transfer": 223961,
+        "jsDecoded": 681373,
+        "cssDecoded": 16243
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 236,
+        "lcp": 268,
+        "ready": 234,
+        "domInteractive": 19,
+        "domComplete": 364,
+        "load": 364,
+        "requests": 8,
+        "transfer": 223961,
+        "jsDecoded": 681373,
+        "cssDecoded": 16243
+      },
+      "slowestCold": [
+        {
+          "name": "css2",
+          "type": "link",
+          "size": 1150,
+          "ms": 378
+        },
+        {
+          "name": "firebase-Dpd3zW03.js",
+          "type": "script",
+          "size": 131321,
+          "ms": 18
+        },
+        {
+          "name": "index-C7qG_S-M.js",
+          "type": "script",
+          "size": 45955,
+          "ms": 11
+        },
+        {
+          "name": "index-DomFT63Y.css",
+          "type": "link",
+          "size": 4577,
+          "ms": 9
+        },
+        {
+          "name": "app-NqdtnTKE.js",
+          "type": "script",
+          "size": 31263,
+          "ms": 9
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 2
+        }
+      ],
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    }
+  }
+}

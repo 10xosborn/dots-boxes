@@ -1,0 +1,7 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-21T20:58:42.716Z","deadlineAt":"2026-10-21T21:13:42.716Z","budgetMs":900000,"observedAt":"2026-10-21T21:12:00.956Z","remainingMs":101760,"expired":false}
+top-left padding (DIV.cf-body): dialog stays open
+right padding beside the title (DIV.cf-body): dialog stays open
+gap above the buttons (DIV.cf-actions): dialog stays open
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-21T21:12:05.122Z","deadlineAt":"2026-10-21T21:13:42.716Z","timedOut":false,"exitCode":0}

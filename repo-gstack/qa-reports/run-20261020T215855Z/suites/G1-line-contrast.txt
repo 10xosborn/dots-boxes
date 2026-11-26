@@ -1,0 +1,16 @@
+serving dist-glass-A on :4173
+paper-light line p1 {"median":"3.29","worst":"3.28"} (42 samples) | line p2 {"median":"5.11","worst":"5.09"} (35 samples)  [--line1 #ef4120]
+PASS  paper-light: every line sample at 3:1 or more off the last-move mark  worst p1 3.28, p2 5.09
+paper-dark  line p1 {"median":"4.38","worst":"4.38"} (42 samples) | line p2 {"median":"4.37","worst":"4.37"} (35 samples)  [--line1 #c9b085]
+PASS  paper-dark: every line sample at 3:1 or more off the last-move mark  worst p1 4.38, p2 4.37
+table-light line p1 {"median":"3.52","worst":"3.52"} (42 samples) | line p2 {"median":"4.39","worst":"4.39"} (39 samples)  [--line1 #bf4e1e]
+PASS  table-light: every line sample at 3:1 or more off the last-move mark  worst p1 3.52, p2 4.39
+table-dark  line p1 {"median":"7.12","worst":"7.12"} (42 samples) | line p2 {"median":"4.06","worst":"4.06"} (39 samples)  [--line1 #e5e4e2]
+PASS  table-dark: every line sample at 3:1 or more off the last-move mark  worst p1 7.12, p2 4.06
+neon-dark   line p1 {"median":"4.20","worst":"3.94"} (42 samples) | line p2 {"median":"8.93","worst":"8.69"} (39 samples)  [--line1 #c3064f]
+PASS  neon-dark: every line sample at 3:1 or more off the last-move mark  worst p1 3.94, p2 8.69
+neon-light  line p1 {"median":"4.35","worst":"4.35"} (42 samples) | line p2 {"median":"3.52","worst":"3.46"} (39 samples)  [--line1 #0047ff]
+PASS  neon-light: every line sample at 3:1 or more off the last-move mark  worst p1 4.35, p2 3.46
+
+6/6 checks passed
+servers stopped; child exit 0

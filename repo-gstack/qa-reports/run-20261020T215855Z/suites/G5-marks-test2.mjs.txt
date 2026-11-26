@@ -1,0 +1,67 @@
+serving dist-glass-A on :4173
+PASS  table-light: no last-move mark before the first move  marks 0
+PASS  table-light: after a move, one mark of the theme's kind, centred on that line  1 last-pip at 192.5,90 vs 192.5,90
+PASS  table-light: the mark follows the next move  at 807.5,500 vs 807.5,500
+PASS  table-light: the pip is the mockup's blue (rgb(43, 123, 185)) at 3:1 or more on its felt edge  rgb(43, 123, 185) on rgb(196, 223, 201): 3.18:1
+PASS  table-light: the last line is drawn a shade darker  rgb(191, 78, 30) -> color(srgb 0.539294 0.220235 0.0847059)
+PASS  table-light: lines are straight, no pencil strokes  line,line,line
+PASS  table-light: landing rings carry no core (none built)  {"rings":4,"cores":0,"shown":0,"turning":true}
+PASS  table-light: pass-and-play boxes carry initials  3 texts, 0 icons, 3 boxes
+PASS  table-light: boxes keep stripes and dots, upright initials  url(#pat1),url(#pat0)
+PASS  table-light: against the AI the boxes carry a person and a bot  3 icons, 0 texts, 3 boxes
+PASS  table-light: the person (head and shoulders) and the bot (head, eyes, antenna) both appear  2,5 subpaths
+PASS  table-dark: no last-move mark before the first move  marks 0
+PASS  table-dark: after a move, one mark of the theme's kind, centred on that line  1 last-pip at 192.5,90 vs 192.5,90
+PASS  table-dark: the mark follows the next move  at 807.5,500 vs 807.5,500
+PASS  table-dark: the pip is the mockup's blue (rgb(77, 155, 217)) at 3:1 or more on its felt edge  rgb(77, 155, 217) on rgb(106, 58, 28): 3.13:1
+PASS  table-dark: the last line is drawn a shade lighter  rgb(229, 228, 226) -> color(srgb 0.926588 0.923765 0.918118)
+PASS  table-dark: lines are straight, no pencil strokes  line,line,line
+PASS  table-dark: landing rings carry no core (none built)  {"rings":4,"cores":0,"shown":0,"turning":true}
+PASS  table-dark: pass-and-play boxes carry initials  2 texts, 0 icons, 2 boxes
+PASS  table-dark: boxes keep stripes and dots, upright initials  url(#pat0),url(#pat1)
+PASS  table-dark: against the AI the boxes carry a person and a bot  2 icons, 0 texts, 2 boxes
+PASS  table-dark: the person (head and shoulders) and the bot (head, eyes, antenna) both appear  2,5 subpaths
+PASS  neon-dark: no last-move mark before the first move  marks 0
+PASS  neon-dark: after a move, one mark of the theme's kind, centred on that line  1 last-ring at 192.5,90 vs 192.5,90
+PASS  neon-dark: the mark follows the next move  at 807.5,500 vs 807.5,500
+PASS  neon-dark: the ring's centre is the board colour  rgb(11, 15, 25)
+PASS  neon-dark: the last line is drawn in the player's own colour  rgb(195, 6, 79) -> color(srgb 0.764706 0.0235294 0.309804)
+PASS  neon-dark: lines are straight, no pencil strokes  line,line,line
+PASS  neon-dark: landing rings carry a core  {"rings":4,"cores":4,"shown":4,"turning":true}
+PASS  neon-dark: pass-and-play boxes carry initials  2 texts, 0 icons, 2 boxes
+PASS  neon-dark: boxes keep stripes and dots, upright initials  url(#pat1),url(#pat0)
+PASS  neon-dark: against the AI the boxes carry initials  0 icons, 2 texts, 2 boxes
+PASS  neon-light: no last-move mark before the first move  marks 0
+PASS  neon-light: after a move, one mark of the theme's kind, centred on that line  1 last-ring at 192.5,90 vs 192.5,90
+PASS  neon-light: the mark follows the next move  at 807.5,500 vs 807.5,500
+PASS  neon-light: the ring's centre is the board colour  rgb(235, 241, 245)
+PASS  neon-light: the last line is drawn in the player's own colour  rgb(0, 71, 255) -> color(srgb 0 0.278431 1)
+PASS  neon-light: lines are straight, no pencil strokes  line,line,line
+PASS  neon-light: landing rings carry a core  {"rings":4,"cores":4,"shown":4,"turning":true}
+PASS  neon-light: pass-and-play boxes carry initials  2 texts, 0 icons, 2 boxes
+PASS  neon-light: boxes keep stripes and dots, upright initials  url(#pat0),url(#pat1)
+PASS  neon-light: against the AI the boxes carry initials  0 icons, 2 texts, 2 boxes
+PASS  paper-light: no last-move mark before the first move  marks 0
+PASS  paper-light: after a move, one mark of the theme's kind, centred on that line  1 last-ell,last-ell ghost at 192.5,90 vs 192.5,90
+PASS  paper-light: the mark follows the next move  at 807.5,500 vs 807.5,500
+PASS  paper-light: the last line is drawn in the player's own colour  rgb(239, 65, 32) -> color(srgb 0.937255 0.254902 0.12549)
+PASS  paper-light: 4x4 lines are pencil curves with a faint second stroke  path,path,path ghosts 3/3 op 0.4 width 9.84
+PASS  paper-light: landing rings carry no core (none built)  {"rings":4,"cores":0,"shown":0,"turning":true}
+PASS  paper-light: pass-and-play boxes carry initials  2 texts, 0 icons, 2 boxes
+PASS  paper-light: boxes hatched, initials bigger and tilted  url(#hatch0),url(#hatch1) size 94.3 rotate(-2 602.5 602.5)
+PASS  paper-light: against the AI the boxes carry initials  0 icons, 2 texts, 2 boxes
+PASS  paper-light: 7x7 lines are straight (no wobble above 6x6)  69 lines, line, ghosts 0
+PASS  paper-dark: no last-move mark before the first move  marks 0
+PASS  paper-dark: after a move, one mark of the theme's kind, centred on that line  1 last-ell,last-ell ghost at 192.5,90 vs 192.5,90
+PASS  paper-dark: the mark follows the next move  at 807.5,500 vs 807.5,500
+PASS  paper-dark: the last line is drawn in the player's own colour  rgb(201, 176, 133) -> color(srgb 0.788235 0.690196 0.521569)
+PASS  paper-dark: lines are straight, no pencil strokes  line,line,line
+PASS  paper-dark: landing rings carry no core (none built)  {"rings":4,"cores":0,"shown":0,"turning":true}
+PASS  paper-dark: pass-and-play boxes carry initials  2 texts, 0 icons, 2 boxes
+PASS  paper-dark: boxes keep stripes and dots, upright initials  url(#pat0),url(#pat1)
+PASS  paper-dark: against the AI the boxes carry initials  0 icons, 2 texts, 2 boxes
+PASS  paper-dark: 7x7 lines are straight (no wobble above 6x6)  69 lines, line, ghosts 0
+PASS  console: no errors
+
+63/63 checks passed
+servers stopped; child exit 0

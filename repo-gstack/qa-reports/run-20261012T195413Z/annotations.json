@@ -1,0 +1,14 @@
+{
+  "evidence": [],
+  "limits": [
+    "Touch was emulated (Chromium hasTouch at 390x844, 2x); no real phone, no Brave and no screen reader were used.",
+    "Firebase was blocked, so the app ran on its local adapter with the offline banner; online play and the live leaderboard were not exercised (this branch has no data-layer change).",
+    "The 900 s budget ran out before C3 (themes-test), C5 (themes-screens), C6 (qa-r1a all), C7 (acceptance), C9 (Ghanaian names) and C10 (perf-filters) could run inside this QA invocation; they are not QA evidence here and are run separately as PR checks.",
+    "texture-text.mjs measures the 5th percentile of per-pixel contrast under each line of text with the text hidden in place; it skips SVG text (decorative box initials), input values and placeholders, and lists aria-hidden and disabled text apart instead of counting it.",
+    "The keyboard-cursor check measures pixels at desktop size (1x) in Chromium only. Its 'board' sample is 6 px beyond the ring on the felt, paper or glass at the cursor's position, not the whole board.",
+    "After the repair the probe measures the new focus ring as the indicator (the translucent band before); on the old build there is no ring, so the same check reads the band and fails.",
+    "The cursor screenshots (screenshots/materials/*-cursor.png) were overwritten by the recheck runs (same file names); the before evidence for ISSUE-001 is the numeric output of probes 003-005.",
+    "The repo has no UI test framework; every browser check is a throwaway script outside the repo (coverage debt, as recorded in CLAUDE.md).",
+    "The committed fix (9501ba4) differs from the tested build only by an HTML comment, which the compiler strips: a rebuild gives the same index-CHc2sBM_.js and index-CfmFkBHR.css that probes 007-010 tested."
+  ]
+}

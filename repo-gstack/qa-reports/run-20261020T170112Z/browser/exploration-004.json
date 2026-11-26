@@ -1,0 +1,6 @@
+{
+  "observationCommand": "CASE=kbd-extra-turn bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RD/browser/deadline.json\" -- node serve-one.mjs dist-qa-87b0ed6 -- node explore-fix.mjs",
+  "observed": "PASS  kbd-extra-turn: the first Enter shows the hidden cursor without drawing\nPASS  kbd-extra-turn: Enter closes the box and the cursor stays for the extra turn, beside that line  1 box, ring 0.71 gaps from it; Kofi's turn\nPASS  kbd-extra-turn: the keyboard line that closes a box plays the box chime  box\nPASS  kbd-extra-turn: no page errors\n4/4 checks passed",
+  "hypothesis": "Box chime wins over the line note for keyboard lines. A dragged line that closes a box is the other path through the new sound choice (drop vs box): it must give pick, snap and only the box chime, never the drop stacked on it.",
+  "nextCommand": "CASE=drag-box-sound bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RD/browser/deadline.json\" -- node serve-one.mjs dist-qa-87b0ed6 -- node explore-fix.mjs"
+}

@@ -1,0 +1,170 @@
+{
+ "date": "2026-10-20",
+ "branch": "ai/4x4-and-speed",
+ "commit": "324768f",
+ "main": "10e07f1",
+ "sizes": {
+  "main": {
+   "ai-core.js": {
+    "file": "ai-core-DEIhvNym.js",
+    "raw": 20017,
+    "gzip": 9941
+   },
+   "ai.worker.js": {
+    "file": "ai.worker-D9IryGg9.js",
+    "raw": 20780,
+    "gzip": 10277
+   },
+   "app.js": {
+    "file": "app-oT5dsmsN.js",
+    "raw": 102020,
+    "gzip": 30911
+   },
+   "firebase.js": {
+    "file": "firebase-Dh3AVBdE.js",
+    "raw": 450272,
+    "gzip": 130759
+   },
+   "index.css": {
+    "file": "index-CypOb4LT.css",
+    "raw": 46094,
+    "gzip": 10197
+   },
+   "index.js": {
+    "file": "index-xWGg2yOc.js",
+    "raw": 128009,
+    "gzip": 45271
+   },
+   "netdebug.js": {
+    "file": "netdebug-P3oaWjQi.js",
+    "raw": 1794,
+    "gzip": 1066
+   },
+   "room.js": {
+    "file": "room-Da0tiwMj.js",
+    "raw": 134996,
+    "gzip": 39804
+   }
+  },
+  "branch": {
+   "ai-core.js": {
+    "file": "ai-core-CiqBmo_7.js",
+    "raw": 23860,
+    "gzip": 11541
+   },
+   "ai.worker.js": {
+    "file": "ai.worker-B9WXTDFK.js",
+    "raw": 24876,
+    "gzip": 11937
+   },
+   "app.js": {
+    "file": "app-CB9w0LO7.js",
+    "raw": 102020,
+    "gzip": 30910
+   },
+   "firebase.js": {
+    "file": "firebase-B5GqZwlt.js",
+    "raw": 450272,
+    "gzip": 130759
+   },
+   "index.css": {
+    "file": "index-CypOb4LT.css",
+    "raw": 46094,
+    "gzip": 10197
+   },
+   "index.js": {
+    "file": "index-DrXBpAd6.js",
+    "raw": 128178,
+    "gzip": 45340
+   },
+   "netdebug.js": {
+    "file": "netdebug-P3oaWjQi.js",
+    "raw": 1794,
+    "gzip": 1066
+   },
+   "room.js": {
+    "file": "room-YyJv0TOJ.js",
+    "raw": 134996,
+    "gzip": 39805
+   }
+  }
+ },
+ "summary": {
+  "main": {
+   "homeReadyCold": 514,
+   "fcp": 220,
+   "lcp": 804,
+   "load": 252,
+   "bytes": 800759,
+   "gamesOver": "2/2",
+   "gameSeconds": "26.2, 26.2",
+   "aiFirstLine": {
+    "n": 26,
+    "median": 701,
+    "p90": 772,
+    "max": 803
+   },
+   "aiFurtherLine": {
+    "n": 26,
+    "median": 629,
+    "p90": 795,
+    "max": 817
+   },
+   "longTasksOver50": 6,
+   "longestTask": 76
+  },
+  "branch": {
+   "homeReadyCold": 541,
+   "fcp": 248,
+   "lcp": 872,
+   "load": 277,
+   "bytes": 800928,
+   "gamesOver": "2/2",
+   "gameSeconds": "19.8, 20.0",
+   "aiFirstLine": {
+    "n": 26,
+    "median": 448,
+    "p90": 706,
+    "max": 709
+   },
+   "aiFurtherLine": {
+    "n": 28,
+    "median": 252,
+    "p90": 284,
+    "max": 291
+   },
+   "longTasksOver50": 4,
+   "longestTask": 69
+  },
+  "homeReadyPairedDelta": {
+   "median": 7,
+   "branchSlowerRounds": "5/8"
+  }
+ },
+ "reloads": {
+  "table-dark-24-10r": {
+   "readyMain": 458,
+   "readyBranch": 484,
+   "pairedReady": 26,
+   "slower": "6/10"
+  },
+  "table-dark-24-16r": {
+   "readyMain": 466,
+   "readyBranch": 484,
+   "pairedReady": 12,
+   "slower": "10/16"
+  },
+  "table-dark-6-16r": {
+   "readyMain": 454,
+   "readyBranch": 447,
+   "pairedReady": -3,
+   "slower": "6/16"
+  },
+  "neon-dark-24-10r": {
+   "readyMain": 479,
+   "readyBranch": 480,
+   "pairedReady": -3,
+   "slower": "4/10"
+  }
+ }
+}

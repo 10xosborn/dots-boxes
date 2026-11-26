@@ -1,0 +1,8 @@
+serving dist-qa-87b0ed6 on :4173
+pvp: saved cfg {"board":{"custom":true,"n":4,"rows":1,"cols":1},"diff":"easy","mode":"pvp","p2":"Kofi","first":"r"}
+pvp: who started each of 16 games via Play again: Kofi, Kofi, Player, Player, Player, Player, Player, Kofi, Player, Kofi, Player, Player, Kofi, Player, Kofi, Player
+pvp: errors none
+ai: saved cfg {"board":{"custom":true,"n":4,"rows":1,"cols":1},"diff":"easy","mode":"ai","p2":"Kofi","first":"r"}
+ai: who started each of 16 games via Play again: Rookie, Player, Player, Player, Player, Rookie, Player, Player, Player, Rookie, Rookie, Rookie, Rookie, Player, Player, Player
+ai: errors none
+servers stopped; child exit 0

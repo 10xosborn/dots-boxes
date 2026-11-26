@@ -1,0 +1,7 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-20T08:28:36.465Z","deadlineAt":"2026-10-20T08:43:36.465Z","budgetMs":900000,"observedAt":"2026-10-20T08:30:57.750Z","remainingMs":758715,"expired":false}
+serving C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/dist-qa-324768f on :4173
+{"mode":"quit","url":"http://127.0.0.1:4173/","linesAtQuit":0,"rendererCpuMsPerSecond":{"yourTurnBeforeQuit":67,"afterQuit":120},"lastMessagesBeforeQuit":",choose*,ponder,choose*,ponder,choose*,ponder,choose*,ponder","messagesAfterQuit":"r,reset","screen":"Grid Rivals\n1\nPlayer\nCould not reach Firebase, so results are saved on this devi","consoleErrors":[],"longTasks":[],"firebaseBlocked":1}
+servers stopped; child exit 0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-20T08:31:12.383Z","deadlineAt":"2026-10-20T08:43:36.465Z","timedOut":false,"exitCode":0}

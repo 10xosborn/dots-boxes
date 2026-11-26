@@ -1,0 +1,21 @@
+room 5SMDC, 4x4, table-dark, Animations on, Sound off, network none
+move  1 by desktop own screen   21 ms, other screen   310 ms
+move  2 by phone   own screen   40 ms, other screen   273 ms
+move  3 by desktop own screen    9 ms, other screen   277 ms
+move  4 by phone   own screen   32 ms, other screen   283 ms
+move  5 by desktop own screen   18 ms, other screen   254 ms
+move  6 by phone   own screen   23 ms, other screen   290 ms
+move  7 by desktop own screen   18 ms, other screen   301 ms
+move  8 by phone   own screen   34 ms, other screen   300 ms
+move  9 by desktop own screen   10 ms, other screen   277 ms
+move 10 by phone   own screen   28 ms, other screen   295 ms
+move 11 by desktop own screen   17 ms, other screen   269 ms
+move 12 by phone   own screen   29 ms, other screen   263 ms
+move 13 by desktop own screen   10 ms, other screen   279 ms
+move 14 by phone   own screen   34 ms, other screen   299 ms
+move 15 by desktop own screen   15 ms, other screen   269 ms
+move 16 by phone   own screen   44 ms, other screen   307 ms
+
+16 moves; db has 16. Own screen: median 23 ms, worst 44 ms. Other screen: median 283 ms, worst 310 ms. Not seen within 3 s: 0.
+final line counts: host 16, guest 16; production Firebase requests: 0; page errors: none
+requests while playing: 0

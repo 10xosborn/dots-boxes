@@ -1,0 +1,48 @@
+{
+ "neon-light": {
+  "ttfb": {
+   "main": 2,
+   "branch": 2
+  },
+  "fcp": {
+   "main": 324,
+   "branch": 348
+  },
+  "lcp": {
+   "main": 1152,
+   "branch": 1156
+  },
+  "ready": {
+   "main": 653,
+   "branch": 681
+  },
+  "domInteractive": {
+   "main": 80,
+   "branch": 92
+  },
+  "domComplete": {
+   "main": 379,
+   "branch": 385
+  },
+  "load": {
+   "main": 379,
+   "branch": 385
+  },
+  "requests": {
+   "main": 7,
+   "branch": 7
+  },
+  "transfer": {
+   "main": 813718,
+   "branch": 814535
+  },
+  "js": {
+   "main": 688291,
+   "branch": 688302
+  },
+  "css": {
+   "main": 123527,
+   "branch": 124333
+  }
+ }
+}

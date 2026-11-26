@@ -1,0 +1,6 @@
+{
+  "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" C",
+  "observed": "/c/Users/osbor/AppData/Roaming/npm/bun: line 12: C:\\Users\\osbor\\AppData\\Roaming\\npm/node_modules/bun/bin/bun.exe: Device or resource busy\n",
+  "hypothesis": "C3 passes: Quit, Restart and finishing leave nothing to continue, and Play again starts an empty game. Next: C4, pass-and-play on a 390x844 phone with real touch taps, reloaded mid-game.",
+  "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" D"
+}

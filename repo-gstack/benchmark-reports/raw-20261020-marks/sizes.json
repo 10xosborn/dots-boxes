@@ -1,0 +1,86 @@
+{
+ "main": {
+  "ai.js": {
+   "file": "ai-core-DEIhvNym.js",
+   "raw": 20017,
+   "gzip": 9941
+  },
+  "ai.worker.js": {
+   "file": "ai.worker-D9IryGg9.js",
+   "raw": 20780,
+   "gzip": 10277
+  },
+  "app.js": {
+   "file": "app-oT5dsmsN.js",
+   "raw": 102020,
+   "gzip": 30911
+  },
+  "firebase.js": {
+   "file": "firebase-Dh3AVBdE.js",
+   "raw": 450272,
+   "gzip": 130759
+  },
+  "index.css": {
+   "file": "index-CypOb4LT.css",
+   "raw": 46094,
+   "gzip": 10197
+  },
+  "index.js": {
+   "file": "index-xWGg2yOc.js",
+   "raw": 128009,
+   "gzip": 45271
+  },
+  "netdebug.js": {
+   "file": "netdebug-P3oaWjQi.js",
+   "raw": 1794,
+   "gzip": 1066
+  },
+  "room.js": {
+   "file": "room-Da0tiwMj.js",
+   "raw": 134996,
+   "gzip": 39804
+  }
+ },
+ "branch": {
+  "ai.js": {
+   "file": "ai-core-DEIhvNym.js",
+   "raw": 20017,
+   "gzip": 9941
+  },
+  "ai.worker.js": {
+   "file": "ai.worker-D9IryGg9.js",
+   "raw": 20780,
+   "gzip": 10277
+  },
+  "app.js": {
+   "file": "app-OhRwm8Ja.js",
+   "raw": 102020,
+   "gzip": 30910
+  },
+  "firebase.js": {
+   "file": "firebase-DSRKJP2G.js",
+   "raw": 450272,
+   "gzip": 130759
+  },
+  "index.js": {
+   "file": "index-Bs6F-eLL.js",
+   "raw": 133507,
+   "gzip": 47113
+  },
+  "index.css": {
+   "file": "index-C968i9ka.css",
+   "raw": 46887,
+   "gzip": 10408
+  },
+  "netdebug.js": {
+   "file": "netdebug-P3oaWjQi.js",
+   "raw": 1794,
+   "gzip": 1066
+  },
+  "room.js": {
+   "file": "room-C6T0xTga.js",
+   "raw": 134996,
+   "gzip": 39804
+  }
+ }
+}

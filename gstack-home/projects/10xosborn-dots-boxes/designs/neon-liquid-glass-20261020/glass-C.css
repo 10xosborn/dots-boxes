@@ -1,0 +1,22 @@
+/* C, "Liquid slab": a thick block of glass with a bevelled edge: a bright outer lip, a darker band where the bevel bends the
+   light, then a lit inner edge; the room's colours pool along the bottom and sides inside the glass (cyan and magenta-red at
+   night, blue and coral by day) and a broad reflection crosses it. No filter of any kind. */
+[data-skin="neon"] .board-wrap{isolation:isolate}
+[data-skin="neon"] .board-wrap::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2px;pointer-events:none;z-index:2;
+  background:linear-gradient(160deg,rgba(255,255,255,1),rgba(255,255,255,.45) 26%,rgba(255,255,255,.14) 58%,rgba(255,255,255,.6));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+[data-skin="neon"][data-theme] .board-wrap::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;
+  background:linear-gradient(122deg,transparent 8%,rgba(255,255,255,.08) 8%,rgba(255,255,255,.08) 19%,transparent 19%,transparent 23%,rgba(255,255,255,.05) 23%,rgba(255,255,255,.05) 26%,transparent 26%)}
+[data-skin="neon"][data-theme="dark"] .board-wrap{background-color:rgba(8,11,20,.58);
+  background-image:radial-gradient(100% 46% at 30% -8%,rgba(255,255,255,.13),transparent 62%),
+    radial-gradient(70% 34% at 86% 106%,rgba(0,240,255,.3),transparent 70%),radial-gradient(60% 32% at 10% 106%,rgba(189,2,73,.36),transparent 70%),
+    radial-gradient(34% 60% at -6% 42%,rgba(189,2,73,.16),transparent 70%),radial-gradient(34% 60% at 106% 48%,rgba(0,240,255,.14),transparent 70%);
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.05),inset 0 0 0 9px rgba(0,0,0,.18),inset 0 0 0 10px rgba(255,255,255,.08),inset 0 0 22px 10px rgba(0,0,0,.28),
+    0 3px 0 rgba(255,255,255,.07),0 0 52px -12px rgba(0,240,255,.36),0 40px 70px -30px var(--cast)}
+[data-skin="neon"][data-theme="light"] .board-wrap{background-color:rgba(247,250,253,.84);
+  background-image:radial-gradient(100% 46% at 30% -8%,rgba(255,255,255,.9),transparent 62%),
+    radial-gradient(70% 34% at 86% 106%,rgba(0,71,255,.09),transparent 70%),radial-gradient(60% 32% at 10% 106%,rgba(255,69,0,.06),transparent 70%);
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.7),inset 0 0 0 9px rgba(40,70,130,.025),inset 0 0 0 10px rgba(255,255,255,.75),inset 0 0 22px 10px rgba(40,70,130,.035),
+    0 3px 0 rgba(255,255,255,.8),0 0 38px -10px rgba(0,71,255,.24),0 28px 50px -26px var(--cast)}
+/* By day the reflection goes under the board's marks, so the coral dots keep their full contrast. */
+[data-skin="neon"][data-theme="light"] .board-wrap::after{z-index:-1}

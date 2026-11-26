@@ -1,0 +1,52 @@
+{
+ "date": "2026-10-20",
+ "branch": "design/07-board-marks",
+ "commit": "3e7ea88",
+ "main": "10e07f1",
+ "sizes": {
+  "entryGzipDelta": 1842,
+  "cssGzipDelta": 211
+ },
+ "reloads": {
+  "table-dark-4x4-ai": {
+   "pairedReady": 10,
+   "slower": "5/10"
+  },
+  "neon-dark-4x4": {
+   "pairedReady": 25,
+   "slower": "6/10"
+  },
+  "paper-light-6x6-counters": {
+   "readyMain": 425,
+   "readyBranch": 412,
+   "styleDelta": 22,
+   "layoutDelta": 14,
+   "allTasksDelta": 86
+  }
+ },
+ "movePaint": {
+  "paper-light-6x6": {
+   "main": 21.7,
+   "branch": 23.8
+  },
+  "table-dark-4x4-ai": {
+   "main": 22.6,
+   "branch": 22.2
+  }
+ },
+ "frames12Neon4r": {
+  "neon-dark": {
+   "growingOver25": [
+    12,
+    11
+   ]
+  },
+  "neon-light": {
+   "growingOver25": [
+    23,
+    22
+   ]
+  }
+ },
+ "verdict": "no regressions; Paper by day 6x6 reload +86 ms render work noted"
+}

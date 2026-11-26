@@ -1,0 +1,15 @@
+{
+  "evidence": [
+    {
+      "capture": "001",
+      "command": "npm run test:rules",
+      "contract": "F1 Realtime Database rules (charters.md): rooms unchanged; old online flag writable by the room players only; presence/ readable by the two players only, writable only under one own id while in the room, values are times, own presence always removable, onDisconnect cleanup registrable",
+      "expected": "exit code 0 and 18 of 18 Vitest tests passing against the Realtime Database emulator",
+      "classification": "pass"
+    }
+  ],
+  "limits": [
+    "Rules were tested on the Realtime Database emulator (firebase-database-emulator v4.11.2), not on the live project; the owner publishes them in the Firebase console.",
+    "Older cached versions of the game were not run against the new rules in a browser (they only talk to the live project); their write paths (rooms and the old online flag) are covered by the rules tests."
+  ]
+}

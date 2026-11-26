@@ -1,0 +1,9 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-21T20:58:42.716Z","deadlineAt":"2026-10-21T21:13:42.716Z","budgetMs":900000,"observedAt":"2026-10-21T21:11:44.747Z","remainingMs":117969,"expired":false}
+theme sheet Tab: stays  Light > Dark > Done > PaperPrinted o > Light > Dark > Done > PaperPrinted o > Light > Dark > Done > PaperPrinted o
+theme sheet Shift+Tab: stays  Done > Dark > Light > PaperPrinted o > Done > Dark > Light > PaperPrinted o > Done > Dark > Light > PaperPrinted o
+confirm Tab: stays  Delete > Keep my stats > Delete > Keep my stats > Delete > Keep my stats > Delete > Keep my stats > Delete > Keep my stats > Delete > Keep my stats
+confirm Shift+Tab: stays  Delete > Keep my stats > Delete > Keep my stats > Delete > Keep my stats > Delete > Keep my stats > Delete > Keep my stats > Delete > Keep my stats
+0 failed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-21T21:11:48.604Z","deadlineAt":"2026-10-21T21:13:42.716Z","timedOut":false,"exitCode":0}

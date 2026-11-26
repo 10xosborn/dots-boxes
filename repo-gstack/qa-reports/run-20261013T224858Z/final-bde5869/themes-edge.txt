@@ -1,0 +1,11 @@
+PASS  saved settings with an unknown theme name: table/light before the first paint and after start-up, no errors  first paint table/light, now table/light #e3b970
+PASS  saved settings with a theme name of the wrong type: table/dark before the first paint and after start-up, no errors  first paint table/dark, now table/dark #200b32
+PASS  saved settings with broken JSON: table/dark before the first paint and after start-up, no errors  first paint table/dark, now table/dark #200b32
+PASS  table/light: Tab reaches the theme button, a focus outline shows, Enter opens the picker  3px solid rgb(138, 63, 14)
+PASS  table/dark: Tab reaches the theme button, a focus outline shows, Enter opens the picker  3px solid rgb(242, 184, 75)
+PASS  neon/light: Tab reaches the theme button, a focus outline shows, Enter opens the picker  3px solid rgb(70, 87, 206)
+PASS  neon/dark: Tab reaches the theme button, a focus outline shows, Enter opens the picker  3px solid rgb(242, 184, 75)
+PASS  paper/light: Tab reaches the theme button, a focus outline shows, Enter opens the picker  2px dashed rgb(70, 87, 206)
+PASS  paper/dark: Tab reaches the theme button, a focus outline shows, Enter opens the picker  2px dashed rgb(242, 184, 75)
+
+9/9 checks passed

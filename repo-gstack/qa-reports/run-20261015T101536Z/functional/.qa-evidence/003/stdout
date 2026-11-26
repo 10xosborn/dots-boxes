@@ -1,0 +1,6 @@
+
+> dots-boxes@2.0.0 check
+> svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json
+
+1792060071973 START "c:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals"
+1792060071975 COMPLETED 149 FILES 0 ERRORS 0 WARNINGS 0 FILES_WITH_PROBLEMS

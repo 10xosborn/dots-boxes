@@ -1,0 +1,17 @@
+{
+  "observationCapture": "003",
+  "observationArgv": [
+    "npx",
+    "vitest",
+    "run",
+    "tests/theme"
+  ],
+  "observed": "\n RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals\n\n\n Test Files  1 passed (1)\n      Tests  7 passed (7)\n   Start at  18:47:47\n   Duration  240ms (transform 64%, import 20%, tests 8%, worker 7%)\n\n",
+  "hypothesis": "theme test 7/7; next the per-mode token audit: each restyled mode sets every colour token itself",
+  "nextCapture": "004",
+  "nextArgv": [
+    "node",
+    "C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/token-audit2.mjs",
+    "C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals"
+  ]
+}

@@ -1,0 +1,34 @@
+Keyboard-only full game (3x3 vs Hard, desktop, dark), 2026-09-30T01:07:12.720Z
+Home: Play reached after 1 Tab(s)
+Setup: "3×3" after 5 Tab(s), Enter
+Setup: "Hard" after 7 Tab(s), Enter
+Setup: "Me" after 1 Tab(s), Enter
+Setup: Start game after 3 Tab(s)
+Game: board reached after 1 Tab(s)
+Game: 9 ArrowRight+Enter presses; result: Maestro wins / 0–9 / Time; focus moved to "Play again"
+
+Live-region announcements (screen-reader proxy):
+1. Player drew a line. Score 0 to 0.
+2. Maestro drew a line. Score 0 to 0.
+3. Player drew a line. Score 0 to 0.
+4. Maestro drew a line. Score 0 to 0.
+5. Player drew a line. Score 0 to 0.
+6. Maestro drew a line. Score 0 to 0.
+7. Player drew a line. Score 0 to 0.
+8. Maestro drew a line and closed 1 box. Score 0 to 1.
+9. Maestro drew a line. Score 0 to 1.
+10. Player drew a line. Score 0 to 1.
+11. Maestro drew a line and closed 1 box. Score 0 to 2.
+12. Maestro drew a line. Score 0 to 2.
+13. Player drew a line. Score 0 to 2.
+14. Maestro drew a line and closed 1 box. Score 0 to 3.
+15. Maestro drew a line and closed 1 box. Score 0 to 4.
+16. Maestro drew a line. Score 0 to 4.
+17. Player drew a line. Score 0 to 4.
+18. Maestro drew a line and closed 1 box. Score 0 to 5.
+19. Maestro drew a line and closed 1 box. Score 0 to 6.
+20. Maestro drew a line. Score 0 to 6.
+21. Player drew a line. Score 0 to 6.
+22. Maestro drew a line and closed 1 box. Score 0 to 7.
+23. Maestro drew a line and closed 1 box. Score 0 to 8.
+24. Maestro drew a line and closed 1 box. Score 0 to 9.

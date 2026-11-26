@@ -1,0 +1,3 @@
+serving branch on :4176 and main on :4177
+paper-light ready main 592 branch 547 ms, paired diff median 55 ms (branch slower in 5/10) | LCP main 1068 branch 1024 ms, paired diff median 76 ms
+servers stopped; child exit 0

@@ -1,0 +1,174 @@
+{
+ "dotsboxes-appstore": {
+  "url": "https://apps.apple.com/us/app/dots-boxes-reimagined/id592828165",
+  "title": "‎Dots & Boxes: Reimagined App - App Store",
+  "body": {
+   "font": "-apple-system, BlinkMacSystemFont, \"Apple Color Emoji\", \"SF Pro\", \"SF Pro Icons\", \"Helveti",
+   "size": "13px",
+   "weight": "400",
+   "color": "rgba(0, 0, 0, 0.88)",
+   "bg": "rgb(245, 245, 247)"
+  },
+  "h1": {
+   "font": "-apple-system, BlinkMacSystemFont, \"Apple Color Emoji\", \"SF Pro\", \"SF Pro Icons\", \"Helveti",
+   "size": "34px",
+   "weight": "700",
+   "color": "rgb(255, 255, 255)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "h2": {
+   "font": "-apple-system, BlinkMacSystemFont, \"Apple Color Emoji\", \"SF Pro\", \"SF Pro Icons\", \"Helveti",
+   "size": "17px",
+   "weight": "700",
+   "color": "rgba(0, 0, 0, 0.88)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "button": {
+   "font": "-apple-system, BlinkMacSystemFont, \"Apple Color Emoji\", \"SF Pro\", \"SF Pro Icons\", \"Helveti",
+   "size": "17px",
+   "weight": "400",
+   "color": "rgba(0, 0, 0, 0.88)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "loadedFonts": [
+   "SF Pro 1 1000",
+   "SF Pro Icons 400",
+   "Locale Switcher 400",
+   "Locale Switcher PingFang TC 400"
+  ]
+ },
+ "dinopoloclub": {
+  "url": "https://dinopoloclub.com/",
+  "title": "Homepage - Dinosaur Polo Club",
+  "body": {
+   "font": "Montserrat, sans-serif",
+   "size": "16px",
+   "weight": "400",
+   "color": "rgb(64, 64, 64)",
+   "bg": "rgb(255, 255, 255)"
+  },
+  "h1": {
+   "font": "Montserrat, sans-serif",
+   "size": "60px",
+   "weight": "800",
+   "color": "rgb(255, 255, 255)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "h2": null,
+  "button": {
+   "font": "Montserrat, sans-serif",
+   "size": "16px",
+   "weight": "800",
+   "color": "rgb(64, 64, 64)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "loadedFonts": [
+   "Montserrat 400",
+   "Montserrat 700",
+   "Montserrat 800"
+  ]
+ },
+ "weaving-tides": {
+  "url": "https://store.steampowered.com/app/1075170/Weaving_Tides/",
+  "title": "Weaving Tides on Steam",
+  "body": {
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "12px",
+   "weight": "400",
+   "color": "rgb(198, 212, 223)",
+   "bg": "rgb(27, 40, 56)"
+  },
+  "h1": null,
+  "h2": {
+   "font": "\"Motiva Sans\", sans-serif",
+   "size": "21px",
+   "weight": "400",
+   "color": "rgb(255, 255, 255)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "button": {
+   "font": "\"Motiva Sans\", sans-serif",
+   "size": "13px",
+   "weight": "400",
+   "color": "rgb(255, 255, 255)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "loadedFonts": [
+   "Motiva Sans normal",
+   "Motiva Sans 300",
+   "Motiva Sans 200",
+   "Motiva Sans 500",
+   "Motiva Sans bold"
+  ]
+ },
+ "geoboard": {
+  "url": "https://www.mathlearningcenter.org/apps/geoboard",
+  "title": "Geoboard | The Math Learning Center",
+  "body": {
+   "font": "\"Work Sans\", Arial, sans-serif",
+   "size": "18px",
+   "weight": "400",
+   "color": "rgb(5, 24, 42)",
+   "bg": "rgb(255, 255, 255)"
+  },
+  "h1": {
+   "font": "Montserrat, Arial, sans-serif",
+   "size": "42px",
+   "weight": "700",
+   "color": "rgb(0, 62, 126)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "h2": {
+   "font": "Montserrat, Arial, sans-serif",
+   "size": "20px",
+   "weight": "700",
+   "color": "rgb(255, 255, 255)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "button": {
+   "font": "Arial, sans-serif",
+   "size": "18px",
+   "weight": "700",
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgb(237, 237, 237)"
+  },
+  "loadedFonts": [
+   "Montserrat 700",
+   "Work Sans 400",
+   "Work Sans 600"
+  ]
+ },
+ "glass-masquerade": {
+  "url": "https://store.steampowered.com/app/511470/Glass_Masquerade/",
+  "title": "Glass Masquerade on Steam",
+  "body": {
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "12px",
+   "weight": "400",
+   "color": "rgb(198, 212, 223)",
+   "bg": "rgb(27, 40, 56)"
+  },
+  "h1": null,
+  "h2": {
+   "font": "\"Motiva Sans\", sans-serif",
+   "size": "21px",
+   "weight": "400",
+   "color": "rgb(255, 255, 255)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "button": {
+   "font": "\"Motiva Sans\", sans-serif",
+   "size": "13px",
+   "weight": "400",
+   "color": "rgb(255, 255, 255)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "loadedFonts": [
+   "Motiva Sans normal",
+   "Motiva Sans 300",
+   "Motiva Sans 200",
+   "Motiva Sans 500",
+   "Motiva Sans bold"
+  ]
+ }
+}

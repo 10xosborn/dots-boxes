@@ -1,0 +1,8 @@
+serving dist-glass-A on :4173
+table-dark  board rgb(105,57,27) from 23 empty cells | line p1 median 7.51 worst 7.51 (15 lines) | line p2 median 4.28 worst 3.18 (15 lines) | dots median 6.52 worst 6.09 | initials p1 worst 10.77 | initials p2 worst 6.91
+paper-dark  board rgb(105,57,28) from 23 empty cells | line p1 median 4.55 worst 4.55 (15 lines) | line p2 median 4.54 worst 4.54 (15 lines) | dots median 8.11 worst 7.70 | initials p1 worst 5.75 | initials p2 worst 4.36
+neon-dark   board rgb(7,11,15) from 23 empty cells | line p1 median 3.62 worst 3.25 (15 lines) | line p2 median 7.99 worst 1.03 (15 lines) | dots median 14.67 worst 11.81 | initials p1 worst 9.33 | initials p2 worst 6.91
+neon-light  board rgb(235,244,242) from 23 empty cells | line p1 median 5.01 worst 4.35 (15 lines) | line p2 median 3.62 worst 1.02 (15 lines) | dots median 3.07 worst 3.07 | initials p1 worst 8.99 | initials p2 worst 8.63
+table-light board rgb(198,224,203) from 23 empty cells | line p1 median 3.45 worst 3.45 (15 lines) | line p2 median 4.31 worst 3.22 (15 lines) | dots median 5.58 worst 4.52 | initials p1 worst 3.37 | initials p2 worst 8.05
+paper-light board rgb(243,236,222) from 23 empty cells | dots median 9.31 worst 7.47 | initials p1 worst 3.57 | initials p2 worst 3.75
+servers stopped; child exit 0

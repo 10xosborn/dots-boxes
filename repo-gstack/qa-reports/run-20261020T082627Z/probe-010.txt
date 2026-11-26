@@ -1,0 +1,7 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-20T08:28:36.465Z","deadlineAt":"2026-10-20T08:43:36.465Z","budgetMs":900000,"observedAt":"2026-10-20T08:34:31.601Z","remainingMs":544864,"expired":false}
+serving C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/dist-qa-324768f on :4173
+{"mode":"fallback","url":"http://127.0.0.1:4173/","workerPresent":false,"over":true,"result":"Maestro wins | 2–14 | Time","playerLines":15,"lines":40,"aiFirstLine":{"n":13,"min":105,"median":328,"max":420},"aiFurtherLine":{"n":12,"min":217,"median":257,"max":284},"consoleErrors":[],"longTasks":[177,177,177,177,176],"firebaseBlocked":1}
+servers stopped; child exit 0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-20T08:34:50.194Z","deadlineAt":"2026-10-20T08:43:36.465Z","timedOut":false,"exitCode":0}

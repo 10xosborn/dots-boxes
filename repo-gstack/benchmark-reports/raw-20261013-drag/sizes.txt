@@ -1,0 +1,6 @@
+assets/index.css                   assets/index-Cb0yuf9I.css -> assets/index-B_pd92fR.css   raw 39240 -> 39397 (+157) gz 8749 -> 8807 (+58)
+assets/index.js                    assets/index-B2ZprNGg.js -> assets/index-Mt9-zyyv.js     raw 129017 -> 131649 (+2632) gz 49896 -> 50867 (+971)
+unchanged files: 27
+total js: raw 831320 -> 833952 (+2632), gz 259573 -> 260546 (+973)
+total css: raw 39240 -> 39397 (+157), gz 8749 -> 8807 (+58)
+total all: raw 1336188 -> 1338977 (+2789), gz 269225 -> 270256 (+1031)

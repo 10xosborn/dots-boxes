@@ -1,0 +1,50 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-15T10:16:10.749Z","deadlineAt":"2026-10-15T10:31:10.749Z","budgetMs":900000,"observedAt":"2026-10-15T10:21:31.342Z","remainingMs":579407,"expired":false}
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+shots saved to C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/.gstack/qa-reports/run-20261015T101536Z/browser/screenshots/violet/
+neon-dark-desktop-game.png         violet 3.67%  most saturated h269 s0.69 l0.71 rgb(179,131,232) at 648,508
+   map (rows top to bottom): ......../..323.../..4.4.../......../..43..../..3...../..3.3.../..3.3.../..453.../..4542../..4564../..4554../..454.../..442.../......../........
+neon-dark-phone-board.png          violet 14.87%  most saturated h267 s0.81 l0.69 rgb(169,112,240) at 640,512
+   map (rows top to bottom): 3444441./4......./4....4../3....4../2....3../355..4../355..4../354.44../.5535553/.5535553/.5435552/3543443./354333../354233../......../........
+neon-dark-phone-corner.png         violet 13.25%  most saturated h264 s0.8 l0.69 rgb(163,114,239) at 200,240
+   map (rows top to bottom): 23333333/2......./3......./3......./2......./1......./......../......../......../......../......../.34442../.24443../.34343../.34343../.34443..
+neon-dark-phone-game.png           violet 7.85%  most saturated h267 s0.81 l0.69 rgb(169,112,240) at 520,960
+   map (rows top to bottom): 2...1121/44..4331/54..5421/.....332/4555542./4....4../344..4../465.44../16546653/36545553/365444../......../......../......../......../........
+neon-dark-phone-home.png           violet 3.56%  most saturated h261 s0.78 l0.69 rgb(158,116,238) at 588,720
+   map (rows top to bottom): 2...1121/....1.11/2.....4./1......./......../.454443./.366664./...2312./......../......../.3....../56....../......../......../......../........
+neon-dark-phone-picker.png         violet 0.84%  most saturated h267 s0.62 l0.13 rgb(32,13,55) at 72,192
+   map (rows top to bottom): .332..../44..42../44..53../2121..../......../......../.3....../......../......../1...443./......../......../......../......../......../........
+neon-light-desktop-game.png        violet 0.01%  most saturated h271 s0.28 l0.44 rgb(114,81,144) at 728,584
+neon-light-phone-board.png         violet 0.06%  most saturated h272 s0.33 l0.41 rgb(107,70,139) at 524,244
+   map (rows top to bottom): ......../.....2../......../......../.....1../1.1..1../......../......../....1.../......../..1..1.1/1......./......../1..111../......../........
+neon-light-phone-corner.png        violet 0.04%  most saturated h272 s0.33 l0.41 rgb(107,70,139) at 224,232
+neon-light-phone-game.png          violet 0.03%  most saturated h263 s0.36 l0.42 rgb(99,69,147) at 524,1008
+neon-light-phone-home.png          violet 0.00%  most saturated h260 s0.19 l0.88 rgb(222,218,230) at 36,180
+neon-light-phone-picker.png        violet 0.00%  most saturated h289 s0.29 l0.44 rgb(133,80,145) at 156,904
+paper-dark-desktop-game.png        violet 0.00%  
+paper-dark-phone-board.png         violet 0.00%  
+paper-dark-phone-corner.png        violet 0.00%  
+paper-dark-phone-game.png          violet 0.00%  
+paper-dark-phone-home.png          violet 0.00%  
+paper-dark-phone-picker.png        violet 0.02%  most saturated h283 s0.64 l0.36 rgb(117,33,150) at 140,728
+paper-light-desktop-game.png       violet 0.01%  most saturated h255 s0.38 l0.78 rgb(188,177,220) at 496,428
+paper-light-phone-board.png        violet 0.00%  
+paper-light-phone-corner.png       violet 0.00%  
+paper-light-phone-game.png         violet 0.00%  most saturated h261 s0.25 l0.72 rgb(179,167,202) at 468,208
+paper-light-phone-home.png         violet 0.01%  most saturated h258 s0.44 l0.92 rgb(232,227,244) at 164,436
+paper-light-phone-picker.png       violet 0.00%  most saturated h289 s0.29 l0.44 rgb(133,80,145) at 156,912
+table-dark-desktop-game.png        violet 0.00%  
+table-dark-phone-board.png         violet 0.00%  
+table-dark-phone-corner.png        violet 0.00%  
+table-dark-phone-game.png          violet 0.00%  
+table-dark-phone-home.png          violet 0.00%  
+table-dark-phone-picker.png        violet 0.03%  most saturated h286 s0.65 l0.35 rgb(121,32,149) at 136,744
+table-light-desktop-game.png       violet 0.00%  
+table-light-phone-board.png        violet 0.00%  
+table-light-phone-corner.png       violet 0.00%  
+table-light-phone-game.png         violet 0.00%  
+table-light-phone-home.png         violet 0.00%  
+table-light-phone-picker.png       violet 0.00%  
+servers stopped; child exit 0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-15T10:22:03.678Z","deadlineAt":"2026-10-15T10:31:10.749Z","timedOut":false,"exitCode":0}

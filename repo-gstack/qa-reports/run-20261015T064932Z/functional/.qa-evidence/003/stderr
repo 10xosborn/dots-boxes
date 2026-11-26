@@ -1,0 +1,8 @@
+Solved every 3×3 position in 2.0 s. First player's result with perfect play: -3 (net boxes).
+PASS  the book in ai-core.js matches the solve (1693 entries, 6772 characters)
+PASS  Hard plays only optimal moves in all 12951 positions with up to 4 lines (20 tries each)
+PASS  first move on an empty board, 2400 tries: all 24 lines used, each 73–120 times
+PASS  Hard vs Hard, 100 games: every move was optimal
+PASS  Hard vs Hard results (first–second player): 3–6 ×100
+      openings (first 4 lines): 100 different in 100 games
+      slowest Hard move: 128 ms; 45 ms per game on average

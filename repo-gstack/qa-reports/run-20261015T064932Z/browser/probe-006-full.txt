@@ -1,0 +1,35 @@
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+PASS  A1 reload during a game reopens the game directly  screen game
+PASS  A2 same board after reload  11 lines before, 11 after
+PASS  A3 clock carries on (not reset, no downtime added)  0:04 -> 0:04
+PASS  A4 screen reader hears "Game resumed"  Game resumed. Score 0 to 0. Tactician to move.
+PASS  A5 the AI moves after the reload (it was its turn)  11 -> 12 lines
+PASS  A console: no errors
+PASS  B1 after a browser restart Home offers "Continue your game"  screen home+continue
+PASS  B2 the card describes the game  Continue your game /  / 4×4 against Tactician: 12 of 40 lines drawn, score 0–0. /  / Continue / Discard
+PASS  B3 Continue opens the same game  12 lines
+PASS  B4 leaving through the Home button keeps the game for later
+PASS  B5 a reload after leaving the game goes to Home (not straight into the game)
+PASS  B6 Discard (after the confirm) removes the saved game
+PASS  B console: no errors
+PASS  C1 a game is saved after the first move
+PASS  C2 Quit (after the confirm) clears it: no Continue card
+PASS  C3 Restart starts fresh and clears the saved game  0 lines, saved false
+PASS  C4 a finished game is not saved for later
+PASS  C5 Play again starts a new game  0 lines
+PASS  C console: no errors
+PASS  D1 pass-and-play survives a reload on a phone (touch)  5 -> 5 lines
+PASS  D2 the right player is up after the reload  2's turn
+PASS  D console: no errors
+PASS  E1 a saved game near the end shows on Home
+PASS  E2 the resumed game finishes with a win  You win! / 8–1
+PASS  E3 results say resumed games set no fastest-win time
+PASS  E4 the win is saved once, with its game id, resumed flag and XP  xp 74, ms 45034
+PASS  E5 saved exactly once
+PASS  E6 3×3 Easy fastest-win board: no time from the resumed win   Best winning time against the AI. Lower is better. No ranked players yet on 3×3 Easy. Win a game there to claim the first spot. Offline mode: this board only s
+PASS  E7 3×3 Easy most-wins board counts the resumed win   Total wins against the AI. 1 Player (you) 1 games 1 Offline mode: this board only shows games on this device.
+PASS  E8 Stats show no fastest time from the resumed win  My stats / P / Player / Level 1 / 74 / 100 XP, 26 to level 2 / 1 / Games / 1 / Wins / 0 / Losses / 0 / Draws / 100% / Win rate / 1
+PASS  E console: no errors
+
+31/31 checks passed
+servers stopped; child exit 0

@@ -1,0 +1,55 @@
+{
+  "revision": "8b5d5048801d5ed4b786da8d0684fc31cb87799c",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "checkpoint 005 was published in error before probe C had output; its claim that C3 passed is void (see checkpoint 006). Probes 004 and 005 did not run because bun.exe was locked for about 30 s.",
+    "Firebase traffic was blocked to keep production untouched, so the Firebase adapter path (resumed wins keep best unchanged; the create-only rules refuse a second save) was verified by code reading, not live.",
+    "Touch was emulated (Chromium hasTouch at 390x844); no real Android phone or iPhone was used.",
+    "Performance was not measured in this run; /benchmark compares the build separately."
+  ],
+  "evidence": [],
+  "learning": [
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" O",
+      "hypothesis": "The full-page phone screenshot of Home with the Continue card shows a white band at the bottom and a near-invisible Settings button. The card makes Home taller than 844 px, so it scrolls. Either the page background does not cover scrolled content (a real defect, possibly pre-existing at 360x640), or Chromium full-page capture does not paint the fixed body background beyond the first viewport (an artifact). A viewport screenshot after scrolling to the bottom shows what a player sees; repeating it at 360x640 without the card shows whether it predates this branch.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" S"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" S",
+      "hypothesis": "Viewport screenshots after scrolling show the dark background and a readable Settings button at 390x844 with the card and at 360x640 without it, so the white band was a Chromium full-page capture artifact of the fixed body background, not a player-facing defect. Next: the core contracts C1 and C2, an AI game reloaded mid-move and a browser restart, which this branch exists to fix.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" A"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" A",
+      "hypothesis": "C1 and C2 pass on current inputs: the reload kept the board, clock and turn, the AI moved once, and restart, leave, reload and Discard behaved. Next: C3, the paths that must clear a saved game (Quit, Restart, finishing) and Play again, which now calls start() through a wrapper.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" C"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" C",
+      "hypothesis": "C3 passes: Quit, Restart and finishing leave nothing to continue, and Play again starts an empty game. Next: C4, pass-and-play on a 390x844 phone with real touch taps, reloaded mid-game.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" D"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" D",
+      "hypothesis": "Probes C (after checkpoint 004) and D (after checkpoint 005) did not run: the deadline tool could not start because bun.exe was locked by another process for about 30 s, most likely an antivirus scan of the freshly installed binary. Checkpoint 005 was published in error before probe C's output was read; its claim that C3 passes is void. bun runs again, so re-dispatch probe C (C3) first, then D.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" C"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" C",
+      "hypothesis": "C3 passes on current inputs: Quit, Restart and a finished game leave nothing to continue, and Play again starts an empty game. Next: C4, pass-and-play on a 390x844 phone with real touch taps, reloaded mid-game.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" D"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" D",
+      "hypothesis": "C4 passes: a pass-and-play game reloaded on a 390x844 touch phone kept its 5 lines and the right player's turn. Next: C5, a resumed ranked 3x3 win against Easy, to check it counts once with XP and wins but sets no fastest-win time anywhere (results, leaderboard, stats).",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" E"
+    }
+  ],
+  "verdict": {
+    "status": "inconclusive",
+    "open": [
+      "no evidence rows"
+    ]
+  }
+}

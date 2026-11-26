@@ -1,0 +1,7 @@
+
+PASS  kbd-extra-turn: the first Enter shows the hidden cursor without drawing
+PASS  kbd-extra-turn: Enter closes the box and the cursor stays for the extra turn, beside that line  1 box, ring 0.71 gaps from it; Kofi's turn
+PASS  kbd-extra-turn: the keyboard line that closes a box plays the box chime  box
+PASS  kbd-extra-turn: no page errors
+4/4 checks passed
+

@@ -1,0 +1,2 @@
+table-dark: ttfb 1 -> 1 | fcp 256 -> 260 | lcp 884 -> 892 | ready 451 -> 471 | domInteractive 54 -> 58 | domComplete 288 -> 303 | load 288 -> 303 | requests 7 -> 7 | transfer 802914 -> 804258 | js 681456 -> 682800 | css 119558 -> 119558
+paper-light: ttfb 1 -> 1 | fcp 288 -> 280 | lcp 1024 -> 1008 | ready 551 -> 554 | domInteractive 64 -> 64 | domComplete 274 -> 257 | load 274 -> 257 | requests 10 -> 10 | transfer 849886 -> 851230 | js 681456 -> 682800 | css 166530 -> 166530

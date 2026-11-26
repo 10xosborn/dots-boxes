@@ -1,0 +1,22 @@
+/* A, "Clear crystal": a clear pane the room shows through, its edge thick enough to gather light: a crisp rim that is bright
+   where the light hits (top left, bottom right), a lit band just inside it, thin colour fringes like a prism, and light
+   catching the top and left edges. No filter of any kind. */
+[data-skin="neon"] .board-wrap{isolation:isolate}
+[data-skin="neon"] .board-wrap::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;z-index:2;
+  background:linear-gradient(135deg,rgba(255,255,255,1),rgba(255,255,255,.35) 20%,rgba(255,255,255,.08) 45%,rgba(255,255,255,.3) 72%,rgba(255,255,255,.9));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+[data-skin="neon"][data-theme] .board-wrap::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;
+  background:linear-gradient(90deg,transparent 5%,rgba(255,255,255,.85) 16%,rgba(255,255,255,.15) 46%,transparent 70%) 0 4px/100% 1.5px no-repeat,
+    linear-gradient(180deg,transparent 5%,rgba(255,255,255,.6) 14%,transparent 46%) 4px 0/1.5px 100% no-repeat,
+    linear-gradient(270deg,transparent 6%,rgba(255,255,255,.45) 18%,transparent 48%) 0 calc(100% - 4px)/100% 1.5px no-repeat,
+    linear-gradient(0deg,transparent 6%,rgba(255,255,255,.35) 16%,transparent 44%) calc(100% - 4px) 0/1.5px 100% no-repeat}
+[data-skin="neon"][data-theme="dark"] .board-wrap{background-color:rgba(8,10,20,.36);
+  background-image:radial-gradient(80% 50% at 18% -4%,rgba(255,255,255,.12),transparent 70%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),inset 0 0 10px 2px rgba(255,255,255,.12),inset 0 0 26px 4px rgba(255,255,255,.05),
+    inset 4px 4px 6px -3px rgba(0,240,255,.5),inset -4px -4px 6px -3px rgba(255,20,110,.55),
+    0 0 0 1px rgba(255,255,255,.05),0 0 40px -10px rgba(0,240,255,.3),0 34px 60px -30px var(--cast)}
+[data-skin="neon"][data-theme="light"] .board-wrap{background-color:rgba(248,251,253,.74);
+  background-image:radial-gradient(80% 50% at 18% -4%,rgba(255,255,255,.8),transparent 70%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.85),inset 0 0 12px 3px rgba(255,255,255,.8),inset 0 0 28px 6px rgba(255,255,255,.35),
+    inset 4px 4px 6px -3px rgba(0,110,255,.35),inset -4px -4px 6px -3px rgba(255,69,0,.32),
+    0 0 0 1px rgba(0,71,255,.08),0 0 30px -8px rgba(0,71,255,.24),0 24px 44px -24px var(--cast)}

@@ -1,0 +1,12 @@
+serving dist-qa-87b0ed6 on :4173
+PASS  ai table: gliding over every line (no click) draws nothing  0 -> 0 lines; Your turn
+PASS  ai table: a click draws its line (the AI replies), gliding after it draws nothing  0 -> 2 -> 2
+PASS  ai neon: gliding over every line (no click) draws nothing  0 -> 0 lines; Your turn
+PASS  ai neon: a click draws its line (the AI replies), gliding after it draws nothing  0 -> 2 -> 2
+PASS  pvp table: gliding over every line (no click) draws nothing  0 -> 0 lines; Player's turn
+PASS  pvp table: a click draws its line (the AI replies), gliding after it draws nothing  0 -> 1 -> 1
+PASS  pvp neon: gliding over every line (no click) draws nothing  0 -> 0 lines; Player's turn
+PASS  pvp neon: a click draws its line (the AI replies), gliding after it draws nothing  0 -> 1 -> 1
+
+8/8 checks passed
+servers stopped; child exit 0

@@ -1,0 +1,152 @@
+[
+ {
+  "label": "4x4 phone, CPU 4x",
+  "mode": "table-dark",
+  "main": {
+   "paintMed": 32.70000000298023,
+   "paintP90": 51.5,
+   "growMed": 16.699999999999818,
+   "growP90": 16.700000000000728,
+   "janky": 0.09940357852882703,
+   "cpuPerTap": 843.1736666666666,
+   "gpuPerTap": 0
+  },
+  "branch": {
+   "paintMed": 32.80000000447035,
+   "paintP90": 43.100000001490116,
+   "growMed": 16.699999999999818,
+   "growP90": 16.700000000000728,
+   "janky": 0.0992063492063492,
+   "cpuPerTap": 818.3065833333332,
+   "gpuPerTap": 0
+  },
+  "pairPaint": 0.4000000059604645,
+  "pairCpu": -11.252333333333354,
+  "slowerRounds": 2
+ },
+ {
+  "label": "4x4 phone, CPU 4x",
+  "mode": "table-light",
+  "main": {
+   "paintMed": 32.600000001490116,
+   "paintP90": 35.29999999701977,
+   "growMed": 16.699999999999818,
+   "growP90": 16.700000000000728,
+   "janky": 0.0992063492063492,
+   "cpuPerTap": 747.3405833333333,
+   "gpuPerTap": 0
+  },
+  "branch": {
+   "paintMed": 32.600000001490116,
+   "paintP90": 48.5,
+   "growMed": 16.699999999999818,
+   "growP90": 16.700000000000728,
+   "janky": 0.0992063492063492,
+   "cpuPerTap": 770.3934166666667,
+   "gpuPerTap": 0
+  },
+  "pairPaint": 0,
+  "pairCpu": 11.76075000000003,
+  "slowerRounds": 1
+ },
+ {
+  "label": "4x4 phone, CPU 4x",
+  "mode": "paper-dark",
+  "main": {
+   "paintMed": 32.599999994039536,
+   "paintP90": 34.900000005960464,
+   "growMed": 16.699999999999818,
+   "growP90": 16.700000000000728,
+   "janky": 0,
+   "cpuPerTap": 735.75525,
+   "gpuPerTap": 0
+  },
+  "branch": {
+   "paintMed": 32.899999998509884,
+   "paintP90": 49.899999998509884,
+   "growMed": 16.699999999999818,
+   "growP90": 16.700000000000728,
+   "janky": 0.5055611729019212,
+   "cpuPerTap": 733.8589999999999,
+   "gpuPerTap": 0
+  },
+  "pairPaint": 0.9000000059604645,
+  "pairCpu": -1.8962500000001228,
+  "slowerRounds": 2
+ },
+ {
+  "label": "4x4 phone, CPU 4x",
+  "mode": "paper-light",
+  "main": {
+   "paintMed": 34.70000000298023,
+   "paintP90": 54.100000001490116,
+   "growMed": 16.699999999999818,
+   "growP90": 16.700000000000728,
+   "janky": 0.4024144869215292,
+   "cpuPerTap": 619.7230000000001,
+   "gpuPerTap": 0
+  },
+  "branch": {
+   "paintMed": 36.29999999701977,
+   "paintP90": 52.29999999701977,
+   "growMed": 16.699999999999818,
+   "growP90": 16.700000000000728,
+   "janky": 0.0992063492063492,
+   "cpuPerTap": 619.9098333333333,
+   "gpuPerTap": 0
+  },
+  "pairPaint": 2,
+  "pairCpu": -2.501583333333315,
+  "slowerRounds": 2
+ },
+ {
+  "label": "4x4 phone, CPU 4x",
+  "mode": "neon-dark",
+  "main": {
+   "paintMed": 48.899999998509884,
+   "paintP90": 56.5,
+   "growMed": 16.699999999999818,
+   "growP90": 16.700000000000728,
+   "janky": 0.1984126984126984,
+   "cpuPerTap": 679.8335,
+   "gpuPerTap": 0
+  },
+  "branch": {
+   "paintMed": 48.19999999552965,
+   "paintP90": 62.899999998509884,
+   "growMed": 16.699999999999818,
+   "growP90": 16.700000000000728,
+   "janky": 0,
+   "cpuPerTap": 662.3789166666667,
+   "gpuPerTap": 0
+  },
+  "pairPaint": -0.8999999910593033,
+  "pairCpu": -17.45458333333329,
+  "slowerRounds": 1
+ },
+ {
+  "label": "4x4 phone, CPU 4x",
+  "mode": "neon-light",
+  "main": {
+   "paintMed": 33.5,
+   "paintP90": 49.29999999701977,
+   "growMed": 16.699999999999818,
+   "growP90": 16.700000000000728,
+   "janky": 0.499001996007984,
+   "cpuPerTap": 641.3656666666666,
+   "gpuPerTap": 0
+  },
+  "branch": {
+   "paintMed": 36.100000001490116,
+   "paintP90": 50.30000000447035,
+   "growMed": 16.699999999999818,
+   "growP90": 16.700000000000728,
+   "janky": 0.09930486593843098,
+   "cpuPerTap": 653.167,
+   "gpuPerTap": 0
+  },
+  "pairPaint": 1.2000000029802322,
+  "pairCpu": 17.51225000000011,
+  "slowerRounds": 3
+ }
+]

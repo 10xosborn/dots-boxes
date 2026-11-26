@@ -1,0 +1,16 @@
+{
+  "evidence": [],
+  "limits": [
+    "checkpoint 002",
+    "checkpoint 003",
+    "checkpoint 004",
+    "checkpoint 005",
+    "checkpoint 006",
+    "checkpoint 007",
+    "browser-only run: results are in probe-001.txt to probe-007.txt and their -full.txt outputs, not evidence rows",
+    "no real speakers: audibility is inferred from the engine state when each note starts and from the level at the app's limiter output",
+    "Brave ran headless with a throwaway profile and Brave's defaults; the owner's own profile may carry a per-site autoplay setting this run cannot see",
+    "online play not exercised (needs the Firebase emulators; low memory on this PC); its sound calls are unchanged",
+    "on main the level checks read -Infinity because main has no limiter to tap; main's real levels were measured offline at -26.3 dBFS (line) and -21.8 dBFS (box)"
+  ]
+}

@@ -1,0 +1,8 @@
+
+FAIL  dialogs: neon-dark: nothing of the glass board paints over the results dialog  1205 pixels differ
+FAIL  dialogs: neon-dark: nothing of the glass board paints over the theme sheet  240 pixels differ
+FAIL  dialogs: neon-light: nothing of the glass board paints over the results dialog  33 pixels differ
+PASS  dialogs: neon-light: nothing of the glass board paints over the theme sheet  0 pixels differ
+PASS  dialogs: no page errors
+2/5 checks passed
+

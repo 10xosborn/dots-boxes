@@ -1,0 +1,95 @@
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+PASS  table-light-desktop 1x1: 4 lanes, 4 dots, inside the screen, wood rim only in Tabletop
+PASS  table-light-desktop 1x1: one click draws one line; bright cores hidden
+PASS  table-light-desktop 1x1: the closed box has its player's rim and the theme's opacity
+PASS  table-light-desktop 1x1: the game ends with the results dialog
+PASS  table-light-desktop 1x12: 37 lanes, 26 dots, inside the screen, wood rim only in Tabletop
+PASS  table-light-desktop 1x12: one click draws one line; bright cores hidden
+PASS  table-light-desktop 12x12: 312 lanes, 169 dots, inside the screen, wood rim only in Tabletop
+PASS  table-light-desktop 12x12: one click draws one line; bright cores hidden
+PASS  table-light-phone 2x7: 37 lanes, 24 dots, inside the screen, wood rim only in Tabletop
+PASS  table-light-phone 2x7: one tap draws one line; bright cores hidden
+PASS  table-dark-desktop 1x1: 4 lanes, 4 dots, inside the screen, wood rim only in Tabletop
+PASS  table-dark-desktop 1x1: one click draws one line; bright cores hidden
+PASS  table-dark-desktop 1x1: the closed box has its player's rim and the theme's opacity
+PASS  table-dark-desktop 1x1: the game ends with the results dialog
+PASS  table-dark-desktop 1x12: 37 lanes, 26 dots, inside the screen, wood rim only in Tabletop
+PASS  table-dark-desktop 1x12: one click draws one line; bright cores hidden
+PASS  table-dark-desktop 12x12: 312 lanes, 169 dots, inside the screen, wood rim only in Tabletop
+PASS  table-dark-desktop 12x12: one click draws one line; bright cores hidden
+PASS  table-dark-phone 2x7: 37 lanes, 24 dots, inside the screen, wood rim only in Tabletop
+PASS  table-dark-phone 2x7: one tap draws one line; bright cores hidden
+PASS  neon-dark-desktop 1x1: 4 lanes, 4 dots, inside the screen, wood rim only in Tabletop
+PASS  neon-dark-desktop 1x1: one click draws one line; bright cores shown
+PASS  neon-dark-desktop 1x1: the closed box has its player's rim and the theme's opacity
+PASS  neon-dark-desktop 1x1: the game ends with the results dialog
+PASS  neon-dark-desktop 1x12: 37 lanes, 26 dots, inside the screen, wood rim only in Tabletop
+PASS  neon-dark-desktop 1x12: one click draws one line; bright cores shown
+PASS  neon-dark-desktop 12x12: 312 lanes, 169 dots, inside the screen, wood rim only in Tabletop
+PASS  neon-dark-desktop 12x12: one click draws one line; bright cores shown
+PASS  neon-dark-phone 2x7: 37 lanes, 24 dots, inside the screen, wood rim only in Tabletop
+PASS  neon-dark-phone 2x7: one tap draws one line; bright cores shown
+PASS  neon-light-desktop 1x1: 4 lanes, 4 dots, inside the screen, wood rim only in Tabletop
+PASS  neon-light-desktop 1x1: one click draws one line; bright cores hidden
+PASS  neon-light-desktop 1x1: the closed box has its player's rim and the theme's opacity
+PASS  neon-light-desktop 1x1: the game ends with the results dialog
+PASS  neon-light-desktop 1x12: 37 lanes, 26 dots, inside the screen, wood rim only in Tabletop
+PASS  neon-light-desktop 1x12: one click draws one line; bright cores hidden
+PASS  neon-light-desktop 12x12: 312 lanes, 169 dots, inside the screen, wood rim only in Tabletop
+PASS  neon-light-desktop 12x12: one click draws one line; bright cores hidden
+PASS  neon-light-phone 2x7: 37 lanes, 24 dots, inside the screen, wood rim only in Tabletop
+PASS  neon-light-phone 2x7: one tap draws one line; bright cores hidden
+PASS  paper-light-desktop 1x1: 4 lanes, 4 dots, inside the screen, wood rim only in Tabletop
+PASS  paper-light-desktop 1x1: one click draws one line; bright cores hidden
+PASS  paper-light-desktop 1x1: the closed box has its player's rim and the theme's opacity
+PASS  paper-light-desktop 1x1: the game ends with the results dialog
+PASS  paper-light-desktop 1x12: 37 lanes, 26 dots, inside the screen, wood rim only in Tabletop
+PASS  paper-light-desktop 1x12: one click draws one line; bright cores hidden
+PASS  paper-light-desktop 12x12: 312 lanes, 169 dots, inside the screen, wood rim only in Tabletop
+PASS  paper-light-desktop 12x12: one click draws one line; bright cores hidden
+PASS  paper-light-phone 2x7: 37 lanes, 24 dots, inside the screen, wood rim only in Tabletop
+PASS  paper-light-phone 2x7: one tap draws one line; bright cores hidden
+PASS  paper-dark-desktop 1x1: 4 lanes, 4 dots, inside the screen, wood rim only in Tabletop
+PASS  paper-dark-desktop 1x1: one click draws one line; bright cores hidden
+PASS  paper-dark-desktop 1x1: the closed box has its player's rim and the theme's opacity
+PASS  paper-dark-desktop 1x1: the game ends with the results dialog
+PASS  paper-dark-desktop 1x12: 37 lanes, 26 dots, inside the screen, wood rim only in Tabletop
+PASS  paper-dark-desktop 1x12: one click draws one line; bright cores hidden
+PASS  paper-dark-desktop 12x12: 312 lanes, 169 dots, inside the screen, wood rim only in Tabletop
+PASS  paper-dark-desktop 12x12: one click draws one line; bright cores hidden
+PASS  paper-dark-phone 2x7: 37 lanes, 24 dots, inside the screen, wood rim only in Tabletop
+PASS  paper-dark-phone 2x7: one tap draws one line; bright cores hidden
+PASS  neon-dark: no duplicate ids on Home (hero board)
+PASS  neon-dark: no duplicate ids in a game
+PASS  neon-dark: no duplicate ids with the theme sheet open over the game
+PASS  table-light: no duplicate ids on Home (hero board)
+PASS  table-light: no duplicate ids in a game
+PASS  table-light: no duplicate ids with the theme sheet open over the game
+PASS  table-light: keyboard cursor stands out from the board (3:1)  tokens 5.27:1, pixels 5.53:1 (rgb(138, 63, 14) at 1; on 138,63,14 vs board 204,227,208)
+INFO  table-light: hover preview rgb(191, 78, 30) at 1, 3.41:1 against the board (tokens)
+PASS  table-dark: keyboard cursor stands out from the board (3:1)  tokens 5.38:1, pixels 4.7:1 (rgb(242, 184, 75) at 1; on 242,184,75 vs board 21,87,74)
+INFO  table-dark: hover preview rgb(245, 154, 134) at 1, 4.51:1 against the board (tokens)
+PASS  neon-dark: keyboard cursor stands out from the board (3:1)  tokens n/a (glass), pixels 5.4:1 (rgb(242, 184, 75) at 1; on 242,184,75 vs board 55,51,164)
+INFO  neon-dark: hover preview rgb(255, 106, 77) at 1, NaN:1 against the board (tokens)
+PASS  neon-light: keyboard cursor stands out from the board (3:1)  tokens n/a (glass), pixels 5.21:1 (rgb(70, 87, 206) at 1; on 70,87,206 vs board 235,239,255)
+INFO  neon-light: hover preview rgb(252, 68, 34) at 1, NaN:1 against the board (tokens)
+PASS  paper-light: keyboard cursor stands out from the board (3:1)  tokens 5.64:1, pixels 5.18:1 (rgb(70, 87, 206) at 1; on 70,87,206 vs board 246,238,224)
+INFO  paper-light: hover preview rgb(252, 68, 34) at 1, 3.31:1 against the board (tokens)
+PASS  paper-dark: keyboard cursor stands out from the board (3:1)  tokens 6.41:1, pixels 6.41:1 (rgb(242, 184, 75) at 1; on 242,184,75 vs board 74,44,99)
+INFO  paper-dark: hover preview rgb(242, 140, 118) at 1, 4.8:1 against the board (tokens)
+PASS  table-light: confetti uses only the theme's colours
+PASS  table-light: the confetti canvas is removed after the burst
+PASS  table-dark: confetti uses only the theme's colours
+PASS  table-dark: the confetti canvas is removed after the burst
+PASS  neon-dark: confetti uses only the theme's colours
+PASS  neon-dark: the confetti canvas is removed after the burst
+PASS  neon-light: confetti uses only the theme's colours
+PASS  neon-light: the confetti canvas is removed after the burst
+PASS  paper-light: confetti uses only the theme's colours
+PASS  paper-light: the confetti canvas is removed after the burst
+PASS  paper-dark: confetti uses only the theme's colours
+PASS  paper-dark: the confetti canvas is removed after the burst
+PASS  console: no errors
+
+85/85 checks passed
+servers stopped; child exit 0

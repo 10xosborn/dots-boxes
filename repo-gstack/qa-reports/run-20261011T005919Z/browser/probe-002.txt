@@ -1,0 +1,26 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-11T01:00:51.876Z","deadlineAt":"2026-10-11T01:15:51.876Z","budgetMs":900000,"observedAt":"2026-10-11T01:01:23.492Z","remainingMs":868384,"expired":false}
+PASS  N host creates a game and the guest joins with the code  WEMUS
+PASS  N both players appear in presence/ and in the old online flag  {"presence":{"DVHam5KGaMj8AAgcVcy9Mi8gNnzL":1,"YdtR1d0Mn9My7s8okDqBl12hkis6":1},"online":{"DVHam5KGaMj8AAgcVcy9Mi8gNnzL":true,"YdtR1d0Mn9My7s8okDqBl12hkis6":true}}
+PASS  N a move reaches the other player
+PASS  N the guest sees "Reconnecting…" about 2 s after losing the connection  Reconnecting…
+PASS  N the guest can still draw a line while offline (shows at once on their screen)
+PASS  N nothing changes for the host in the first seconds (network blips)
+PASS  N after about 10 s the host sees a calm note  "Player stepped away." after 8 s
+PASS  N on the guest's turn the note doesn't promise anything about the host's move  Player stepped away.
+PASS  N the guest's offline move arrives after reconnecting
+PASS  N the guest is marked present again after reconnecting  {"presence":{"DVHam5KGaMj8AAgcVcy9Mi8gNnzL":1,"YdtR1d0Mn9My7s8okDqBl12hkis6":1},"online":{"DVHam5KGaMj8AAgcVcy9Mi8gNnzL":true,"YdtR1d0Mn9My7s8okDqBl12hkis6":true}}
+PASS  N both notes clear
+PASS  N no move lost or doubled: the database, host and guest agree  db [14,19]
+PASS  N on the host's turn: "… stepped away. Your move will be waiting."  Player stepped away. Your move will be waiting.
+PASS  N the host's move is saved while the guest is away (moves never wait for presence)
+PASS  N the guest sees that move when they're back
+PASS  N host console: no errors
+PASS  N host: no permission errors with the new rules
+PASS  N guest console: no errors
+PASS  N guest: no permission errors with the new rules
+PASS  no request ever went to the live Firebase project
+
+20/20 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-11T01:01:56.121Z","deadlineAt":"2026-10-11T01:15:51.876Z","timedOut":false,"exitCode":0}

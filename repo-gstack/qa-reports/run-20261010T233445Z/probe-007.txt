@@ -1,0 +1,9 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-10T23:35:41.923Z","deadlineAt":"2026-10-10T23:50:41.923Z","budgetMs":900000,"observedAt":"2026-10-10T23:40:32.457Z","remainingMs":609466,"expired":false}
+PASS  D1 pass-and-play survives a reload on a phone (touch)  5 -> 5 lines
+PASS  D2 the right player is up after the reload  2's turn
+PASS  D console: no errors
+
+3/3 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-10T23:40:36.849Z","deadlineAt":"2026-10-10T23:50:41.923Z","timedOut":false,"exitCode":0}

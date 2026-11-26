@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-12",
+  "url": "http://127.0.0.1:4173/",
+  "healthScore": 100,
+  "baselineHealthScore": 99,
+  "issues": [
+    { "id": "ISSUE-001", "title": "The tick on a selected segmented option was part of its accessible name", "severity": "low", "category": "accessibility", "status": "fixed", "commit": "9e4d256" }
+  ],
+  "categoryScores": { "console": 100, "visual": 100, "functional": 100, "ux": 100, "content": 100, "accessibility": 100 }
+}

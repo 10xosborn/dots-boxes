@@ -1,0 +1,175 @@
+{
+  "fold-360x640-dark": {
+    "innerHeight": 640,
+    "scrollHeight": 930,
+    "sideScroll": false,
+    "card": {
+      "top": 80,
+      "bottom": 255,
+      "h": 175
+    },
+    "play": {
+      "top": 662,
+      "bottom": 722,
+      "h": 60,
+      "primary": true
+    },
+    "hero": {
+      "top": 273,
+      "bottom": 545,
+      "h": 272
+    }
+  },
+  "fold-390x844-dark": {
+    "innerHeight": 844,
+    "scrollHeight": 937,
+    "sideScroll": false,
+    "card": {
+      "top": 80,
+      "bottom": 255,
+      "h": 175
+    },
+    "play": {
+      "top": 669,
+      "bottom": 729,
+      "h": 60,
+      "primary": true
+    },
+    "hero": {
+      "top": 273,
+      "bottom": 552,
+      "h": 279
+    }
+  },
+  "fold-768x1024-dark": {
+    "innerHeight": 1024,
+    "scrollHeight": 1024,
+    "sideScroll": false,
+    "card": {
+      "top": 80,
+      "bottom": 231,
+      "h": 151
+    },
+    "play": {
+      "top": 646,
+      "bottom": 706,
+      "h": 60,
+      "primary": true
+    },
+    "hero": {
+      "top": 249,
+      "bottom": 529,
+      "h": 280
+    }
+  },
+  "fold-1280x800-dark": {
+    "innerHeight": 800,
+    "scrollHeight": 914,
+    "sideScroll": false,
+    "card": {
+      "top": 80,
+      "bottom": 231,
+      "h": 151
+    },
+    "play": {
+      "top": 646,
+      "bottom": 706,
+      "h": 60,
+      "primary": true
+    },
+    "hero": {
+      "top": 249,
+      "bottom": 529,
+      "h": 280
+    }
+  },
+  "fold-360x640-light": {
+    "innerHeight": 640,
+    "scrollHeight": 930,
+    "sideScroll": false,
+    "card": {
+      "top": 80,
+      "bottom": 255,
+      "h": 175
+    },
+    "play": {
+      "top": 662,
+      "bottom": 722,
+      "h": 60,
+      "primary": true
+    },
+    "hero": {
+      "top": 273,
+      "bottom": 545,
+      "h": 272
+    }
+  },
+  "fold-390x844-light": {
+    "innerHeight": 844,
+    "scrollHeight": 937,
+    "sideScroll": false,
+    "card": {
+      "top": 80,
+      "bottom": 255,
+      "h": 175
+    },
+    "play": {
+      "top": 669,
+      "bottom": 729,
+      "h": 60,
+      "primary": true
+    },
+    "hero": {
+      "top": 273,
+      "bottom": 552,
+      "h": 279
+    }
+  },
+  "fold-768x1024-light": {
+    "innerHeight": 1024,
+    "scrollHeight": 1024,
+    "sideScroll": false,
+    "card": {
+      "top": 80,
+      "bottom": 231,
+      "h": 151
+    },
+    "play": {
+      "top": 646,
+      "bottom": 706,
+      "h": 60,
+      "primary": true
+    },
+    "hero": {
+      "top": 249,
+      "bottom": 529,
+      "h": 280
+    }
+  },
+  "fold-1280x800-light": {
+    "innerHeight": 800,
+    "scrollHeight": 914,
+    "sideScroll": false,
+    "card": {
+      "top": 80,
+      "bottom": 231,
+      "h": 151
+    },
+    "play": {
+      "top": 646,
+      "bottom": 706,
+      "h": 60,
+      "primary": true
+    },
+    "hero": {
+      "top": 249,
+      "bottom": 529,
+      "h": 280
+    }
+  },
+  "fold-nocard-390x844": {
+    "playTop": 476,
+    "scrollHeight": 844
+  },
+  "consoleErrors": []
+}

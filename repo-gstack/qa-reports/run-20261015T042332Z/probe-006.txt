@@ -1,0 +1,6 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-15T04:24:00.047Z","deadlineAt":"2026-10-15T04:39:00.047Z","budgetMs":900000,"observedAt":"2026-10-15T04:29:47.984Z","remainingMs":552063,"expired":false}
+23 PASS, 0 FAIL
+(full output: C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/.gstack/qa-reports/run-20261015T042332Z/probe-006-full.txt)
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-15T04:30:41.421Z","deadlineAt":"2026-10-15T04:39:00.047Z","timedOut":false,"exitCode":0}

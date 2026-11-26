@@ -1,0 +1,10 @@
+serving dist-qa-87b0ed6 on :4173
+table-dark: pixel change at the line 60/250/600 ms after the tap: 261/261/261  137/137/137  256/256/256  151/151/151  263/263/263  144/144/144
+table-light: pixel change at the line 60/250/600 ms after the tap: 190/190/190  217/217/217  194/194/194  200/200/200  189/189/189  204/204/204
+neon-dark: pixel change at the line 60/250/600 ms after the tap: 183/183/183  235/235/235  189/189/189  242/242/242  190/190/190  242/242/242
+neon-light: pixel change at the line 60/250/600 ms after the tap: 225/225/225  234/234/234  221/221/221  222/222/222  230/230/230  222/222/222
+paper-dark: pixel change at the line 60/250/600 ms after the tap: 180/180/180  230/230/230  189/189/189  230/230/230  182/182/182  225/225/225
+paper-light: pixel change at the line 60/250/600 ms after the tap: 261/261/261  228/228/228  253/253/253  222/222/222  249/249/249  226/226/226
+
+Brave 155.0.8059.85: 0 of 36 drawn lines not painted 600 ms after the tap
+servers stopped; child exit 0

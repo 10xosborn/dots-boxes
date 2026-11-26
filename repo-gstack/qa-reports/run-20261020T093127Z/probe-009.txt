@@ -1,0 +1,14 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-20T09:31:45.383Z","deadlineAt":"2026-10-20T09:46:45.383Z","budgetMs":900000,"observedAt":"2026-10-20T09:37:33.995Z","remainingMs":551388,"expired":false}
+serving C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/dist-marks-fix1 on :4173
+paper-light line p1 {"median":"2.99","worst":"2.99"} (42 samples) | line p2 {"median":"5.11","worst":"5.09"} (35 samples)  [--line1 #fc4422]
+FAIL  paper-light: every line sample at 3:1 or more off the last-move mark  worst p1 2.99, p2 5.09
+neon-dark   line p1 {"median":"4.07","worst":"4.04"} (42 samples) | line p2 {"median":"8.90","worst":"8.69"} (39 samples)  [--line1 #c3064f]
+PASS  neon-dark: every line sample at 3:1 or more off the last-move mark  worst p1 4.04, p2 8.69
+neon-light  line p1 {"median":"4.28","worst":"4.28"} (42 samples) | line p2 {"median":"3.32","worst":"3.32"} (39 samples)  [--line1 #0047ff]
+PASS  neon-light: every line sample at 3:1 or more off the last-move mark  worst p1 4.28, p2 3.32
+
+2/3 checks passed
+servers stopped; child exit 1
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-20T09:37:45.616Z","deadlineAt":"2026-10-20T09:46:45.383Z","timedOut":false,"exitCode":1}

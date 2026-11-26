@@ -1,0 +1,18 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-20T09:31:45.383Z","deadlineAt":"2026-10-20T09:46:45.383Z","budgetMs":900000,"observedAt":"2026-10-20T09:36:01.098Z","remainingMs":644285,"expired":false}
+serving C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/dist-marks-fix1 on :4173
+PASS  a drag during the AI's turn draws nothing; the AI then moves once
+PASS  a second finger during a drag is ignored; the first finger's line is drawn once
+PASS  outside the board: a drag past the last dot draws that line; one with no line to snap to draws nothing
+PASS  table-light: the hover preview is the mover's line colour, 3:1 or more
+PASS  table-dark: the hover preview is the mover's line colour, 3:1 or more
+PASS  neon-dark: the hover preview is the mover's line colour, 3:1 or more
+PASS  neon-light: the hover preview is the mover's line colour, 3:1 or more
+PASS  paper-light: the hover preview is the mover's line colour, 3:1 or more
+PASS  paper-dark: the hover preview is the mover's line colour, 3:1 or more
+PASS  console: no page errors
+
+10/10 checks passed
+servers stopped; child exit 0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-20T09:36:12.242Z","deadlineAt":"2026-10-20T09:46:45.383Z","timedOut":false,"exitCode":0}

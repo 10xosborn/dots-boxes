@@ -1,0 +1,12 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-15T10:16:10.749Z","deadlineAt":"2026-10-15T10:31:10.749Z","budgetMs":900000,"observedAt":"2026-10-15T10:17:38.830Z","remainingMs":811919,"expired":false}
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+table-dark  board backdrop-filter: none | board colour rgb(90, 69, 56) | textures loaded: grain-D2MUzZyy.webp 20.3KB
+paper-dark  board backdrop-filter: none | board colour rgb(81, 54, 38) | textures loaded: cardstock-B3gQC081.webp 37.3KB
+neon-dark   board backdrop-filter: none | board colour rgb(11, 15, 25) | textures loaded: none
+neon-light  board backdrop-filter: none | board colour rgb(235, 241, 245) | textures loaded: none
+table-light board backdrop-filter: none | board colour rgb(196, 223, 201) | textures loaded: wood-day-Bg-8CmNo.webp 44.9KB, felt-BB4yIumj.webp 32.5KB
+paper-light board backdrop-filter: none | board colour rgb(252, 248, 239) | textures loaded: paper-day-RR9AWjoF.webp 38.5KB
+servers stopped; child exit 0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-15T10:17:46.843Z","deadlineAt":"2026-10-15T10:31:10.749Z","timedOut":false,"exitCode":0}

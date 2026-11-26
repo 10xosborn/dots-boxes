@@ -1,0 +1,7 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-20T08:50:36.813Z","deadlineAt":"2026-10-20T08:55:36.813Z","budgetMs":300000,"observedAt":"2026-10-20T08:51:16.625Z","remainingMs":260188,"expired":false}
+serving C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/dist-qa-fix on :4173
+{"mode":"resume","url":"http://127.0.0.1:4173/","resetToPonderMs":505,"linesBeforeReload":12,"linesAfterReload":12,"yourTurnAfterReload":true,"messagesAfterReload":"reset,ponder","over":true,"result":"Maestro wins | 1–15 | Time","worker":{"types":{"reset":1,"ponder":9,"choose":19},"answers":[{"drawn":13,"ms":32},{"drawn":14,"ms":29},{"drawn":15,"ms":26},{"drawn":17,"ms":12},{"drawn":19,"ms":2},{"drawn":21,"ms":5},{"drawn":23,"ms":14},{"drawn":24,"ms":3},{"drawn":25,"ms":2},{"drawn":27,"ms":10},{"drawn":28,"ms":1},{"drawn":30,"ms":12},{"drawn":31,"ms":2},{"drawn":32,"ms":1},{"drawn":33,"ms":1},{"drawn":34,"ms":1},{"drawn":35,"ms":1},{"drawn":38,"ms":3},{"drawn":39,"ms":1}],"sequence":"reset,ponder,choose*,ponder,choose*,ponder,choose*,ponder,choose*,ponder,choose*,ponder,choose*,ponder,choose*,ponder,ponder,choose*,"},"consoleErrors":[],"longTasks":[],"firebaseBlocked":2}
+servers stopped; child exit 0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-20T08:51:38.519Z","deadlineAt":"2026-10-20T08:55:36.813Z","timedOut":false,"exitCode":0}

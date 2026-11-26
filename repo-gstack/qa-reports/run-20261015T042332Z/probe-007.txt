@@ -1,0 +1,13 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-15T04:24:00.047Z","deadlineAt":"2026-10-15T04:39:00.047Z","budgetMs":900000,"observedAt":"2026-10-15T04:30:59.115Z","remainingMs":480932,"expired":false}
+== SIZE=4,HOST_APP=http://127.0.0.1:4177/,GUEST_APP=http://127.0.0.1:4176/
+room TXSGB, 4x4, table-dark, Animations on, Sound off, network none
+40 moves; db has 40. Own screen: median 25 ms, worst 70 ms. Other screen: median 40 ms, worst 88 ms. Not seen within 3 s: 0.
+final line counts: host 40, guest 40; production Firebase requests: 0; page errors: none
+== SIZE=4,HOST_APP=http://127.0.0.1:4176/,GUEST_APP=http://127.0.0.1:4177/
+room CUZWS, 4x4, table-dark, Animations on, Sound off, network none
+40 moves; db has 40. Own screen: median 44 ms, worst 170 ms. Other screen: median 62 ms, worst 189 ms. Not seen within 3 s: 0.
+final line counts: host 40, guest 40; production Firebase requests: 0; page errors: none
+(full output: C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/.gstack/qa-reports/run-20261015T042332Z/probe-007-full.txt)
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-15T04:31:35.735Z","deadlineAt":"2026-10-15T04:39:00.047Z","timedOut":false,"exitCode":0}

@@ -1,0 +1,7 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-20T08:28:36.465Z","deadlineAt":"2026-10-20T08:43:36.465Z","budgetMs":900000,"observedAt":"2026-10-20T08:34:00.816Z","remainingMs":575649,"expired":false}
+serving C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/dist-qa-324768f on :4173
+{"mode":"modes","url":"http://127.0.0.1:4173/","byMode":{"medium":{"worker":{"reset":1,"choose":9},"lines":17,"consoleErrors":[],"longTasks":[],"firebaseBlocked":1},"easy":{"worker":{"reset":1,"choose":9},"lines":16,"consoleErrors":[],"longTasks":[],"firebaseBlocked":1},"two players":{"worker":{"reset":1},"lines":8,"consoleErrors":[],"longTasks":[],"firebaseBlocked":1}}}
+servers stopped; child exit 0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-20T08:34:19.562Z","deadlineAt":"2026-10-20T08:43:36.465Z","timedOut":false,"exitCode":0}

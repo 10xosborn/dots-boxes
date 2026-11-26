@@ -1,0 +1,28 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-11T09:09:20.953Z","deadlineAt":"2026-10-11T09:24:20.953Z","budgetMs":900000,"observedAt":"2026-10-11T09:09:37.764Z","remainingMs":883189,"expired":false}
+PASS  R1 creating a game saves it on this device (dnb:room, host seat)  {"v":1,"code":"4HP4H","seat":0,"savedAt":1791709785225}
+PASS  R1 a reload while waiting for the friend comes back to the same code  waiting 4HP4H
+PASS  R2 joining saves the room on the guest's device (guest seat)
+PASS  R2 the host is back in the game, same board, same seat (host)  online-game, 2 lines, seat cards [true,false]
+PASS  R2 within 3 s of the reload (acceptance)  443 ms to the board
+PASS  R2 the host can play on after rejoining; the guest gets the move
+PASS  R2 the guest never sees "stepped away" for a quick reload
+PASS  R3 the guest is back in the same seat after a reload  416 ms, seat cards [false,true]
+PASS  R4 after a browser restart the app opens straight into the game, same seat  424 ms
+PASS  R5 Leave clears the saved room
+PASS  R5 the next start opens Home, not the old game
+PASS  R6 a room that is gone: the lobby says "That game has ended." and forgets it  lobby, "That game has ended.", err ""
+PASS  R7 a seat that is not yours any more: "That game has ended." and the save is cleared  lobby, "That game has ended."
+PASS  R8 when a game ends, both devices note when (the 10-minute clock starts)  host true, guest true
+PASS  R8 a game that ended over 10 minutes ago (no rematch) is not reopened, and is forgotten  home
+PASS  R8 a rematch clears the end time, so the room stays rejoinable
+PASS  R9 a room saved over 24 hours ago is not reopened, and is forgotten  home
+PASS  R10 an invite link still joins, and the game is saved for rejoining
+PASS  R11 a room closed during play: "This game was closed." and the save is cleared  lobby, "This game was closed."
+PASS  console (host, last session): no errors
+PASS  console (guest, last session): no errors
+PASS  no request ever went to the live Firebase project
+
+22/22 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-11T09:10:18.102Z","deadlineAt":"2026-10-11T09:24:20.953Z","timedOut":false,"exitCode":0}

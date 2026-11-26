@@ -1,0 +1,21 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-12T14:21:14.442Z","deadlineAt":"2026-10-12T14:36:14.442Z","budgetMs":900000,"observedAt":"2026-10-12T14:24:20.342Z","remainingMs":714100,"expired":false}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: 'Play the AI', exact: true })[22m
+
+    at newGameUI (C:\Users\osbor\AppData\Local\Temp\claude\C--Users-10xosborn-SWE-Grid-Rivals\0f966282-6aa2-4b9e-a828-6622b347074d\scratchpad\qa-r1a.mjs:28:76)
+    at async file:///C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs:96:3 {
+  log: [
+    "  - waiting for getByRole('button', { name: 'Play the AI', exact: true })"
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.21.0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-12T14:24:54.789Z","deadlineAt":"2026-10-12T14:36:14.442Z","timedOut":false,"exitCode":1}

@@ -1,0 +1,75 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-21T20:58:42.716Z","deadlineAt":"2026-10-21T21:13:42.716Z","budgetMs":900000,"observedAt":"2026-10-21T21:07:28.270Z","remainingMs":374446,"expired":false}
+PASS  table-light: a modal dialog named by its title  - dialog "You win!":
+PASS  table-light: Play again focused on open
+PASS  table-light: Esc twice leaves it open
+PASS  table-light: Tab and Shift+Tab stay inside the dialog
+PASS  table-light: the level bar is a labelled progress bar  ["8","150","Progress to level 3"]
+PASS  table-light: Play again (Enter) starts a fresh board  {"dialog":false,"lines":0}
+PASS  table-light: no page errors
+PASS  table-light: Change settings opens Setup
+PASS  table-light: no page errors
+PASS  table-light: Leaderboard opens the leaderboard
+PASS  table-light: no page errors
+PASS  table-dark: a modal dialog named by its title  - dialog "You win!":
+PASS  table-dark: Play again focused on open
+PASS  table-dark: Esc twice leaves it open
+PASS  table-dark: Tab and Shift+Tab stay inside the dialog
+PASS  table-dark: the level bar is a labelled progress bar  ["8","150","Progress to level 3"]
+PASS  table-dark: Play again (Enter) starts a fresh board  {"dialog":false,"lines":0}
+PASS  table-dark: no page errors
+PASS  table-dark: Change settings opens Setup
+PASS  table-dark: no page errors
+PASS  table-dark: Leaderboard opens the leaderboard
+PASS  table-dark: no page errors
+PASS  neon-dark: a modal dialog named by its title  - dialog "You win!":
+PASS  neon-dark: Play again focused on open
+PASS  neon-dark: Esc twice leaves it open
+PASS  neon-dark: Tab and Shift+Tab stay inside the dialog
+PASS  neon-dark: the level bar is a labelled progress bar  ["8","150","Progress to level 3"]
+PASS  neon-dark: Play again (Enter) starts a fresh board  {"dialog":false,"lines":0}
+PASS  neon-dark: no page errors
+PASS  neon-dark: Change settings opens Setup
+PASS  neon-dark: no page errors
+PASS  neon-dark: Leaderboard opens the leaderboard
+PASS  neon-dark: no page errors
+PASS  neon-light: a modal dialog named by its title  - dialog "You win!":
+PASS  neon-light: Play again focused on open
+PASS  neon-light: Esc twice leaves it open
+PASS  neon-light: Tab and Shift+Tab stay inside the dialog
+PASS  neon-light: the level bar is a labelled progress bar  ["8","150","Progress to level 3"]
+PASS  neon-light: Play again (Enter) starts a fresh board  {"dialog":false,"lines":0}
+PASS  neon-light: no page errors
+PASS  neon-light: Change settings opens Setup
+PASS  neon-light: no page errors
+PASS  neon-light: Leaderboard opens the leaderboard
+PASS  neon-light: no page errors
+PASS  paper-light: a modal dialog named by its title  - dialog "You win!":
+PASS  paper-light: Play again focused on open
+PASS  paper-light: Esc twice leaves it open
+PASS  paper-light: Tab and Shift+Tab stay inside the dialog
+PASS  paper-light: the level bar is a labelled progress bar  ["8","150","Progress to level 3"]
+PASS  paper-light: turned sideways, the scorecard is centred in two columns and fits  {"placed":false,"cols":2,"fits":true,"scroll":false}
+PASS  paper-light: back upright, it covers the page from under the score rows to its foot again  {"placed":true,"top":167,"rowsBottom":161,"bottom":816,"foot":816}
+PASS  paper-light: Play again (Enter) starts a fresh board  {"dialog":false,"lines":0}
+PASS  paper-light: no page errors
+PASS  paper-light: Change settings opens Setup
+PASS  paper-light: no page errors
+PASS  paper-light: Leaderboard opens the leaderboard
+PASS  paper-light: no page errors
+PASS  paper-dark: a modal dialog named by its title  - dialog "You win!":
+PASS  paper-dark: Play again focused on open
+PASS  paper-dark: Esc twice leaves it open
+PASS  paper-dark: Tab and Shift+Tab stay inside the dialog
+PASS  paper-dark: the level bar is a labelled progress bar  ["8","150","Progress to level 3"]
+PASS  paper-dark: turned sideways, the scorecard is centred in two columns and fits  {"placed":false,"cols":2,"fits":true,"scroll":false}
+PASS  paper-dark: back upright, it covers the page from under the score rows to its foot again  {"placed":true,"top":167,"rowsBottom":161,"bottom":816,"foot":816}
+PASS  paper-dark: Play again (Enter) starts a fresh board  {"dialog":false,"lines":0}
+PASS  paper-dark: no page errors
+PASS  paper-dark: Change settings opens Setup
+PASS  paper-dark: no page errors
+PASS  paper-dark: Leaderboard opens the leaderboard
+PASS  paper-dark: no page errors
+0 failed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-21T21:08:52.343Z","deadlineAt":"2026-10-21T21:13:42.716Z","timedOut":false,"exitCode":0}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-19",
+  "runId": "182541-5291",
+  "url": "http://127.0.0.1:4173/",
+  "designScore": "A",
+  "aiSlopScore": "A",
+  "categoryGrades": { "hierarchy": "A", "typography": "A", "spacing": "A", "color": "A", "interaction": "A", "responsive": "A", "content": "A", "aiSlop": "A", "motion": "A", "performance": "A" },
+  "findings": [
+    { "id": "FINDING-001", "title": "Text straight on the Sienna table and desk under 4.5:1", "impact": "high", "category": "color" },
+    { "id": "FINDING-002", "title": "Selected option label on Tabletop at night 4.44:1", "impact": "medium", "category": "color" },
+    { "id": "FINDING-003", "title": "Dark Neon magenta-red lines 2.98:1 worst", "impact": "medium", "category": "color" },
+    { "id": "FINDING-004", "title": "Dark Neon player 1 initials faint pink", "impact": "polish", "category": "color" }
+  ],
+  "detector": { "mode": "dom", "engine": "0.1.3", "targetSet": "table-dark,paper-dark,neon-dark x home,settings,setup,game,results,stats,desktop-home,desktop-game", "total": 154, "byRule": { "low-contrast": 40, "dark-glow": 63, "cramped-padding": 18, "layout-transition": 9, "repeating-stripes-gradient": 24 } }
+}

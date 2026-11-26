@@ -1,0 +1,10 @@
+serving branch on :4176 and main on :4177
+12x12 desktop      table-light   main    moves median 33.4 p95 34.6 max 49 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 17 ms, 0 of 364 over 25 ms, rings 3 | let go: frame p95 16.8 max 17 ms
+12x12 desktop      table-light   branch  moves median 33.4 p95 34.5 max 50 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 17 ms, 0 of 364 over 25 ms, rings 3 | let go: frame p95 16.7 max 17 ms
+12x12 desktop      neon-dark     main    moves median 33.3 p95 34.7 max 35 ms (band on 120/120) | held 1.5 s x4: frame p95 16.7 max 17 ms, 0 of 364 over 25 ms, rings 3 | let go: frame p95 16.8 max 17 ms
+12x12 desktop      neon-dark     branch  moves median 59.6 p95 95.6 max 122 ms (band on 120/120) | held 1.5 s x4: frame p95 50 max 67 ms, 134 of 206 over 25 ms, rings 3 | let go: frame p95 50 max 83 ms
+7x7 phone, CPU 4x  table-light   main    moves median 33.2 p95 35 max 36 ms (band on 120/120) | held 1.5 s x4: frame p95 16.7 max 17 ms, 0 of 364 over 25 ms, rings 3 | let go: frame p95 16.8 max 17 ms
+7x7 phone, CPU 4x  table-light   branch  moves median 33.2 p95 34.8 max 36 ms (band on 120/120) | held 1.5 s x4: frame p95 16.7 max 17 ms, 0 of 364 over 25 ms, rings 3 | let go: frame p95 16.8 max 17 ms
+7x7 phone, CPU 4x  neon-dark     main    moves median 33.2 p95 35.5 max 36 ms (band on 120/120) | held 1.5 s x4: frame p95 16.7 max 100 ms, 1 of 359 over 25 ms, rings 3 | let go: frame p95 16.7 max 17 ms
+7x7 phone, CPU 4x  neon-dark     branch  moves median 33.1 p95 35.5 max 36 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 17 ms, 0 of 364 over 25 ms, rings 3 | let go: frame p95 16.7 max 17 ms
+servers stopped; child exit 0

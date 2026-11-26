@@ -1,0 +1,25 @@
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+      (table-light-phone game, not counted: decorative "P" 3.37)
+PASS  table-light-phone: 7 screens, 151 text lines, all at their bar or above  worst 3.19:1 (bar 3) "Play again" 19.2px/800 on results dialog
+      (table-light-desktop game, not counted: decorative "P" 3.37)
+PASS  table-light-desktop: 7 screens, 151 text lines, all at their bar or above  worst 4.71:1 (bar 4.5) "&" 21.6px/500 on home (banner, Continue card)
+PASS  table-dark-phone: 7 screens, 151 text lines, all at their bar or above  worst 7:1 (bar 4.5) "Glowing lights in a dark room" 13.6px/400 on settings
+PASS  table-dark-desktop: 7 screens, 151 text lines, all at their bar or above  worst 7.09:1 (bar 4.5) "Glowing lights in a dark room" 13.6px/400 on settings
+      (neon-light-phone game, not counted: decorative "P" 3.51)
+PASS  neon-light-phone: 7 screens, 151 text lines, all at their bar or above  worst 4.94:1 (bar 4.5) "Offline mode: this board only shows " 13.6px/400 on leaderboard
+      (neon-light-desktop game, not counted: decorative "P" 3.51)
+PASS  neon-light-desktop: 7 screens, 151 text lines, all at their bar or above  worst 4.89:1 (bar 4.5) "Offline mode: this board only shows " 13.6px/400 on leaderboard
+      (neon-dark-phone game, not counted: decorative "R" 3.45)
+PASS  neon-dark-phone: 7 screens, 151 text lines, all at their bar or above  worst 4.75:1 (bar 4.5) "Close a box, keep your turn. Beat th" 16.32px/400 on home (banner, Continue card)
+      (neon-dark-desktop game, not counted: decorative "R" 3.45)
+PASS  neon-dark-desktop: 7 screens, 151 text lines, all at their bar or above  worst 5.12:1 (bar 4.5) "Close a box, keep your turn. Beat th" 16.32px/400 on home (banner, Continue card)
+      (paper-light-phone game, not counted: decorative "P" 3.23; decorative "R" 4.39)
+PASS  paper-light-phone: 7 screens, 151 text lines, all at their bar or above  worst 5.76:1 (bar 4.5) "Start game" 16px/700 on setup
+      (paper-light-desktop game, not counted: decorative "P" 3.23; decorative "R" 4.39)
+PASS  paper-light-desktop: 7 screens, 151 text lines, all at their bar or above  worst 5.88:1 (bar 4.5) "&" 21.6px/500 on home (banner, Continue card)
+PASS  paper-dark-phone: 7 screens, 151 text lines, all at their bar or above  worst 3.65:1 (bar 3) "Grid Rivals" 22.4px/700 on home (banner, Continue card)
+PASS  paper-dark-desktop: 7 screens, 151 text lines, all at their bar or above  worst 7.14:1 (bar 4.5) "Paper" 16.8px/700 on settings
+PASS  console: no errors
+
+13/13 checks passed
+servers stopped; child exit 0

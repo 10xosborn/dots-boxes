@@ -1,0 +1,17 @@
+{
+  "observationCapture": "002",
+  "observationArgv": [
+    "npm",
+    "run",
+    "build"
+  ],
+  "observed": "\n> dots-boxes@2.0.0 build\n> vite build\n\n\u001b[36mvite v8.3.1 \u001b[32mbuilding client environment for production...\u001b[36m\u001b[39m\ntransforming...\n✓ 174 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                           1.58 kB │ gzip:   0.89 kB\ndist/assets/gh-inter-400-800-BUjur0u5.woff2               5.86 kB\ndist/assets/gh-noto-sans-400-700-BdxQ-ssZ.woff2           7.83 kB\ndist/assets/gh-montserrat-400-800-DT2Ym6Pt.woff2          8.36 kB\ndist/assets/atkinson-700-latin-ext-BoVPHkS0.woff2         9.37 kB\ndist/assets/atkinson-400-latin-ext-DRk46D-x.woff2         9.38 kB\ndist/assets/kalam-400-latin-ext-DtcdGa4L.woff2           12.14 kB\ndist/assets/kalam-700-latin-ext-CwgfRD_T.woff2           12.15 kB\ndist/assets/manrope-400-800-latin-ext-Ch3YOpNY.woff2     15.12 kB\ndist/assets/jost-400-800-latin-ext-BDUtSsKd.woff2        17.10 kB\ndist/assets/atkinson-400-latin-BrHNak5F.woff2            17.20 kB\ndist/assets/atkinson-700-latin-GZI4o3u0.woff2            17.52 kB\ndist/assets/ai.worker-D9IryGg9.js                        20.78 kB\ndist/assets/kalam-700-latin-D2H-9ISU.woff2               22.14 kB\ndist/assets/kalam-400-latin-BthBl_aR.woff2               22.33 kB\ndist/assets/manrope-400-800-latin-DHIcAJRg.woff2         24.83 kB\ndist/assets/jost-400-800-latin-ObQm3Zd1.woff2            26.57 kB\ndist/assets/felt-BB4yIumj.webp                           33.26 kB\ndist/assets/paper-day-RR9AWjoF.webp                      39.42 kB\ndist/assets/wood-day-Bg-8CmNo.webp                       45.98 kB\ndist/assets/unbounded-500-800-latin-D5afBTBx.woff2       50.90 kB\ndist/assets/unbounded-500-800-latin-ext-D6H-S6MW.woff2  118.34 kB\ndist/assets/index-CypOb4LT.css                           46.09 kB │ gzip:  10.31 kB\ndist/assets/netdebug-P3oaWjQi.js                          1.79 kB │ gzip:   1.06 kB\ndist/assets/ai-core-DEIhvNym.js                          20.01 kB │ gzip:   9.99 kB\ndist/assets/app-oT5dsmsN.js                             102.02 kB │ gzip:  31.20 kB\ndist/assets/index-xWGg2yOc.js                           128.00 kB │ gzip:  45.73 kB\ndist/assets/room-Da0tiwMj.js                            134.99 kB │ gzip:  40.28 kB\ndist/assets/firebase-Dh3AVBdE.js                        450.27 kB │ gzip: 132.35 kB\n\n\u001b[32m✓ built in 816ms\u001b[39m\n",
+  "hypothesis": "build passed; next the theme colour test: every mode's bar, preview and pre-paint colour equals its own page",
+  "nextCapture": "003",
+  "nextArgv": [
+    "npx",
+    "vitest",
+    "run",
+    "tests/theme"
+  ]
+}

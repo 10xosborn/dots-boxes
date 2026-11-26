@@ -1,0 +1,1 @@
+- 2026-10-19 design-review on design/06-owner-colours: 4 found, 4 fixed (text on the Sienna table/desk white, selected tint, Dark Neon line shade 3:1, white initials); design B+ -> A. Full report: /c/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261019/design-audit-127.0.0.1-owner-colours.md

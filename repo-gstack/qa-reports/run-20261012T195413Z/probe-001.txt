@@ -1,0 +1,12 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-12T20:06:04.182Z","deadlineAt":"2026-10-12T20:21:04.182Z","budgetMs":900000,"observedAt":"2026-10-12T20:06:04.601Z","remainingMs":899581,"expired":false}
+PASS  O-desktop Home loads with no console errors  Grid Rivals Dots & Boxes Close a box, keep your turn. Beat the AI, then beat your best time. P Player Level 1 0 / 100 XP, 100 to level 2 Play Play a friend online Leaderboard My stats Settings
+PASS  O-phone Home loads with no console errors  Grid Rivals Dots & Boxes Close a box, keep your turn. Beat the AI, then beat your best time. P Player Level 1 0 / 100 XP, 100 to level 2 Play Play a friend online Leaderboard My stats Settings
+PASS  O-phone the Continue card shows, fits the screen, no sideways scroll  card 358x178 px at x=16
+PASS  O-phone the card text reads correctly  Continue your game 4×4 against Maestro: 4 of 40 lines drawn, score 0–0. Continue Discard
+PASS  O-phone Continue is at least 44 px tall  52 px
+PASS  O-phone console: no errors
+
+6/6 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-12T20:06:07.688Z","deadlineAt":"2026-10-12T20:21:04.182Z","timedOut":false,"exitCode":0}

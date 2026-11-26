@@ -1,0 +1,1 @@
+- 2026-10-21 design/11-dialogs: /design-review of step 5 (dialogs): 2 found, 2 fixed, A- -> A; report /c/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261021/design-audit-127.0.0.1-dialogs.md

@@ -1,0 +1,92 @@
+serving dist-qa-87b0ed6 on :4173
+PASS  table-light-desktop: a short drag shows the dotted line and the dot's ring, no snap, and draws nothing
+PASS  table-light-desktop: short drag sounds pick then cancel
+PASS  table-light-desktop: a drag to the next dot snaps (ring) and draws that line
+PASS  table-light-desktop: drag sounds pick, snap, then the drop
+PASS  table-light-desktop: a drag down draws the vertical line
+PASS  table-light-desktop: a drag onto a drawn line draws nothing (no snap)
+PASS  table-light-desktop: a drag off the board's edge draws nothing
+PASS  table-light-desktop: a tap on a line still draws it
+PASS  table-light-desktop: a tap right on a dot draws nothing (four lines meet there)
+PASS  table-light-desktop: a tap near a dot along a line draws that line
+PASS  table-light-desktop: the cursor is a hand over a dot
+PASS  table-dark-desktop: a short drag shows the dotted line and the dot's ring, no snap, and draws nothing
+PASS  table-dark-desktop: short drag sounds pick then cancel
+PASS  table-dark-desktop: a drag to the next dot snaps (ring) and draws that line
+PASS  table-dark-desktop: drag sounds pick, snap, then the drop
+PASS  table-dark-desktop: a drag down draws the vertical line
+PASS  table-dark-desktop: a drag onto a drawn line draws nothing (no snap)
+PASS  table-dark-desktop: a drag off the board's edge draws nothing
+PASS  table-dark-desktop: a tap on a line still draws it
+PASS  table-dark-desktop: a tap right on a dot draws nothing (four lines meet there)
+PASS  table-dark-desktop: a tap near a dot along a line draws that line
+PASS  table-dark-desktop: the cursor is a hand over a dot
+PASS  neon-dark-desktop: a short drag shows the dotted line and the dot's ring, no snap, and draws nothing
+PASS  neon-dark-desktop: short drag sounds pick then cancel
+PASS  neon-dark-desktop: a drag to the next dot snaps (ring) and draws that line
+PASS  neon-dark-desktop: drag sounds pick, snap, then the drop
+PASS  neon-dark-desktop: a drag down draws the vertical line
+PASS  neon-dark-desktop: a drag onto a drawn line draws nothing (no snap)
+PASS  neon-dark-desktop: a drag off the board's edge draws nothing
+PASS  neon-dark-desktop: a tap on a line still draws it
+PASS  neon-dark-desktop: a tap right on a dot draws nothing (four lines meet there)
+PASS  neon-dark-desktop: a tap near a dot along a line draws that line
+PASS  neon-dark-desktop: the cursor is a hand over a dot
+PASS  neon-light-desktop: a short drag shows the dotted line and the dot's ring, no snap, and draws nothing
+PASS  neon-light-desktop: short drag sounds pick then cancel
+PASS  neon-light-desktop: a drag to the next dot snaps (ring) and draws that line
+PASS  neon-light-desktop: drag sounds pick, snap, then the drop
+PASS  neon-light-desktop: a drag down draws the vertical line
+PASS  neon-light-desktop: a drag onto a drawn line draws nothing (no snap)
+PASS  neon-light-desktop: a drag off the board's edge draws nothing
+PASS  neon-light-desktop: a tap on a line still draws it
+PASS  neon-light-desktop: a tap right on a dot draws nothing (four lines meet there)
+PASS  neon-light-desktop: a tap near a dot along a line draws that line
+PASS  neon-light-desktop: the cursor is a hand over a dot
+PASS  paper-light-desktop: a short drag shows the dotted line and the dot's ring, no snap, and draws nothing
+PASS  paper-light-desktop: short drag sounds pick then cancel
+PASS  paper-light-desktop: a drag to the next dot snaps (ring) and draws that line
+PASS  paper-light-desktop: drag sounds pick, snap, then the drop
+PASS  paper-light-desktop: a drag down draws the vertical line
+PASS  paper-light-desktop: a drag onto a drawn line draws nothing (no snap)
+PASS  paper-light-desktop: a drag off the board's edge draws nothing
+PASS  paper-light-desktop: a tap on a line still draws it
+PASS  paper-light-desktop: a tap right on a dot draws nothing (four lines meet there)
+PASS  paper-light-desktop: a tap near a dot along a line draws that line
+PASS  paper-light-desktop: the cursor is a hand over a dot
+PASS  paper-dark-desktop: a short drag shows the dotted line and the dot's ring, no snap, and draws nothing
+PASS  paper-dark-desktop: short drag sounds pick then cancel
+PASS  paper-dark-desktop: a drag to the next dot snaps (ring) and draws that line
+PASS  paper-dark-desktop: drag sounds pick, snap, then the drop
+PASS  paper-dark-desktop: a drag down draws the vertical line
+PASS  paper-dark-desktop: a drag onto a drawn line draws nothing (no snap)
+PASS  paper-dark-desktop: a drag off the board's edge draws nothing
+PASS  paper-dark-desktop: a tap on a line still draws it
+PASS  paper-dark-desktop: a tap right on a dot draws nothing (four lines meet there)
+PASS  paper-dark-desktop: a tap near a dot along a line draws that line
+PASS  paper-dark-desktop: the cursor is a hand over a dot
+PASS  table-light-phone: a short drag shows the dotted line and the dot's ring, no snap, and draws nothing
+PASS  table-light-phone: short drag sounds pick then cancel
+PASS  table-light-phone: a drag to the next dot snaps (ring) and draws that line
+PASS  table-light-phone: drag sounds pick, snap, then the drop
+PASS  table-light-phone: a drag down draws the vertical line
+PASS  table-light-phone: a drag onto a drawn line draws nothing (no snap)
+PASS  table-light-phone: a drag off the board's edge draws nothing
+PASS  table-light-phone: a tap on a line still draws it
+PASS  table-light-phone: a tap right on a dot draws nothing (four lines meet there)
+PASS  table-light-phone: a tap near a dot along a line draws that line
+PASS  neon-dark-phone: a short drag shows the dotted line and the dot's ring, no snap, and draws nothing
+PASS  neon-dark-phone: short drag sounds pick then cancel
+PASS  neon-dark-phone: a drag to the next dot snaps (ring) and draws that line
+PASS  neon-dark-phone: drag sounds pick, snap, then the drop
+PASS  neon-dark-phone: a drag down draws the vertical line
+PASS  neon-dark-phone: a drag onto a drawn line draws nothing (no snap)
+PASS  neon-dark-phone: a drag off the board's edge draws nothing
+PASS  neon-dark-phone: a tap on a line still draws it
+PASS  neon-dark-phone: a tap right on a dot draws nothing (four lines meet there)
+PASS  neon-dark-phone: a tap near a dot along a line draws that line
+PASS  Sound off: the drag draws the line in silence
+PASS  console: no page errors
+
+88/88 checks passed
+servers stopped; child exit 0

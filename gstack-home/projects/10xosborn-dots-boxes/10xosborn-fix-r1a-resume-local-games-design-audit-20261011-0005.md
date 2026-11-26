@@ -1,0 +1,1 @@
+Design review (fix/r1a-resume-local-games, 2026-10-10): 1 medium finding fixed (e872a0f), design B+ → A−, AI slop D → D. Full report: /c/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261010/design-audit-127.0.0.1.md

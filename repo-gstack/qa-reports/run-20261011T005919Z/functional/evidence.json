@@ -1,0 +1,23 @@
+{
+  "revision": "54f51101dacba8514ded91c065985a171fc1724e",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "Rules were tested on the Realtime Database emulator (firebase-database-emulator v4.11.2), not on the live project; the owner publishes them in the Firebase console.",
+    "Older cached versions of the game were not run against the new rules in a browser (they only talk to the live project); their write paths (rooms and the old online flag) are covered by the rules tests."
+  ],
+  "evidence": [
+    {
+      "command": "npm run test:rules",
+      "contract": "F1 Realtime Database rules (charters.md): rooms unchanged; old online flag writable by the room players only; presence/ readable by the two players only, writable only under one own id while in the room, values are times, own presence always removable, onDisconnect cleanup registrable",
+      "expected": "exit code 0 and 18 of 18 Vitest tests passing against the Realtime Database emulator",
+      "classification": "pass",
+      "observed": "\n> dots-boxes@2.0.0 test:rules\n> npx --yes firebase-tools@15.33.0 emulators:exec --only database --project demo-dnb \"vitest run tests/rules\"\n\n\u001b[36m\u001b[1mi  emulators:\u001b[22m\u001b[39m Starting emulators: database\r\n\u001b[36m\u001b[1mi  emulators:\u001b[22m\u001b[39m Detected demo project ID \"demo-dnb\", emulated services will use a demo configuration and attempts to access non-emulated services for this project will fail.\r\n\u001b[36m\u001b[1mi  database:\u001b[22m\u001b[39m Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m\r\n\u001b[36m\u001b[1mi \u001b[22m\u001b[39m Running script: \u001b[1mvitest run tests/rules\u001b[22m\r\n\n RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals\n\n\n Test Files  1 passed (1)\n      Tests  18 passed (18)\n   Start at  01:00:15\n   Duration  4.10s (tests 90%, import 8%, transform 1%)\n\n\u001b[32m\u001b[1m+ \u001b[22m\u001b[39m Script exited successfully (code 0)\r\n\u001b[36m\u001b[1mi  emulators:\u001b[22m\u001b[39m Shutting down emulators.\r\n\u001b[36m\u001b[1mi  database:\u001b[22m\u001b[39m Stopping Database Emulator\r\n\u001b[33m\u001b[1m! \u001b[22m\u001b[39m Database Emulator has exited upon receiving signal: SIGINT\r\n\u001b[36m\u001b[1mi  hub:\u001b[22m\u001b[39m Stopping emulator hub\r\n\u001b[36m\u001b[1mi  logging:\u001b[22m\u001b[39m Stopping Logging Emulator\r\n"
+    }
+  ],
+  "learning": [],
+  "verdict": {
+    "status": "pass",
+    "open": []
+  }
+}

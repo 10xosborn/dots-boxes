@@ -1,0 +1,37 @@
+{
+  "revision": "4125292337476e2682f2ec6d463c0cb7a10cd32a",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "A browser restart was simulated with a new tab in the same browser profile (sessionStorage gone, localStorage and the IndexedDB sign-in kept); a real Android phone and iPhone restart remains for the owner.",
+    "Online flows ran against the local Firebase emulators under a demo project, not the live project.",
+    "The 10-minute and 24-hour rules were tested by ageing the saved timestamps, not by waiting.",
+    "The Getting back into your game panel shows for about 0.3 s on this PC; it was not captured on slow networks.",
+    "Touch was emulated (Chromium hasTouch at 390x844). No screen reader was used.",
+    "Performance was not measured in this run (separate /benchmark)."
+  ],
+  "evidence": [],
+  "learning": [
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T090858Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T090858Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" O",
+      "hypothesis": "Home and the local Continue card load cleanly on the production build with the new start-up step (6/6, no console errors), so the baseline holds. The change is rejoining online rooms: run the two-browser rejoin suite on the emulators (C1-C4): saving on create and join, host and guest reloads and a browser restart back in the same seat within 3 s, Leave and a closed room clearing the save, That game has ended for a gone room or a lost seat, the 10-minute and 24-hour rules, rematch, and invite links.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T090858Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T090858Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/online-resume.mjs\""
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T090858Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T090858Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/online-resume.mjs\"",
+      "hypothesis": "Every rejoin contract held (22/22): the host was back in the same seat 443 ms after a reload, guest reload and restart rejoined, closed or lost rooms said so and were forgotten, and the 10-minute and 24-hour rules worked. The same Online screen also runs presence from R1b-1, and rejoin now calls joinPresence again on start-up, so re-run the presence flow (C5) to make sure dropped connections, the away note and offline moves still behave.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T090858Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T090858Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/online-r1b.mjs\" new"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T090858Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T090858Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/online-r1b.mjs\" new",
+      "hypothesis": "Presence is intact on this build (20/20). The one remaining risk is adjacent: App.svelte now decides between reopening an AI game, rejoining an online room and Home at start-up, and probe 001 only covered Home. Re-run the full local-game suite on the production build (C6): reload and restart resume, Continue and Discard, Quit and Restart, pass-and-play on a touch phone, resumed scoring.",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261011T090858Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261011T090858Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" all"
+    }
+  ],
+  "verdict": {
+    "status": "inconclusive",
+    "open": [
+      "no evidence rows"
+    ]
+  }
+}

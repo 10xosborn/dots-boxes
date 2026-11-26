@@ -1,0 +1,438 @@
+{
+ "table-light": {
+  "fonts": [
+   [
+    "Jost",
+    152
+   ],
+   [
+    "\"Times New Roman\"",
+    13
+   ]
+  ],
+  "colors": [
+   [
+    "rgb(43, 36, 29)",
+    147
+   ],
+   [
+    "rgb(0, 0, 0)",
+    13
+   ],
+   [
+    "rgb(255, 248, 233)",
+    7
+   ],
+   [
+    "rgb(215, 112, 39)",
+    3
+   ],
+   [
+    "rgb(255, 255, 255)",
+    2
+   ],
+   [
+    "rgb(90, 70, 50)",
+    2
+   ],
+   [
+    "rgb(227, 185, 112)",
+    1
+   ],
+   [
+    "color(srgb 0.404706 0.24549 0.127451)",
+    1
+   ],
+   [
+    "rgb(241, 227, 198)",
+    1
+   ]
+  ],
+  "headings": [
+   {
+    "tag": "H1",
+    "text": "Grid Rivals",
+    "size": "39px",
+    "weight": "800",
+    "lh": "37.05px",
+    "wrap": "wrap"
+   }
+  ],
+  "smallTargets": [],
+  "bodySize": "16px",
+  "colorScheme": "normal",
+  "selection": "color(srgb 0.843137 0.439216 0.152941 / 0.32)"
+ },
+ "table-dark": {
+  "fonts": [
+   [
+    "Jost",
+    152
+   ],
+   [
+    "\"Times New Roman\"",
+    13
+   ]
+  ],
+  "colors": [
+   [
+    "rgb(244, 235, 221)",
+    147
+   ],
+   [
+    "rgb(255, 255, 255)",
+    14
+   ],
+   [
+    "rgb(58, 44, 35)",
+    7
+   ],
+   [
+    "rgb(42, 31, 24)",
+    2
+   ],
+   [
+    "rgb(201, 187, 166)",
+    2
+   ],
+   [
+    "color(srgb 0.956863 0.902353 0.770588)",
+    1
+   ],
+   [
+    "rgb(233, 73, 75)",
+    1
+   ],
+   [
+    "rgb(74, 59, 48)",
+    1
+   ],
+   [
+    "rgb(99, 193, 200)",
+    1
+   ],
+   [
+    "rgb(244, 221, 151)",
+    1
+   ]
+  ],
+  "headings": [
+   {
+    "tag": "H1",
+    "text": "Grid Rivals",
+    "size": "39px",
+    "weight": "800",
+    "lh": "37.05px",
+    "wrap": "wrap"
+   }
+  ],
+  "smallTargets": [],
+  "bodySize": "16px",
+  "colorScheme": "dark",
+  "selection": "color(srgb 0.956863 0.866667 0.592157 / 0.32)"
+ },
+ "neon-dark": {
+  "fonts": [
+   [
+    "Manrope",
+    142
+   ],
+   [
+    "\"Times New Roman\"",
+    13
+   ],
+   [
+    "Unbounded",
+    10
+   ]
+  ],
+  "colors": [
+   [
+    "rgb(238, 241, 255)",
+    146
+   ],
+   [
+    "rgb(255, 255, 255)",
+    14
+   ],
+   [
+    "rgb(22, 27, 58)",
+    4
+   ],
+   [
+    "rgb(16, 20, 44)",
+    3
+   ],
+   [
+    "rgb(167, 174, 203)",
+    3
+   ],
+   [
+    "rgb(7, 10, 24)",
+    1
+   ],
+   [
+    "color(srgb 0.606667 0.862745 0.842157)",
+    1
+   ],
+   [
+    "rgb(252, 68, 34)",
+    1
+   ],
+   [
+    "rgb(35, 42, 77)",
+    1
+   ],
+   [
+    "rgb(33, 189, 202)",
+    1
+   ],
+   [
+    "rgb(4, 17, 13)",
+    1
+   ],
+   [
+    "rgb(0, 181, 140)",
+    1
+   ]
+  ],
+  "headings": [
+   {
+    "tag": "H1",
+    "text": "Grid Rivals",
+    "size": "39px",
+    "weight": "800",
+    "lh": "37.05px",
+    "wrap": "wrap"
+   }
+  ],
+  "smallTargets": [],
+  "bodySize": "16px",
+  "colorScheme": "dark",
+  "selection": "color(srgb 0 0.709804 0.54902 / 0.32)"
+ },
+ "neon-light": {
+  "fonts": [
+   [
+    "Manrope",
+    142
+   ],
+   [
+    "\"Times New Roman\"",
+    13
+   ],
+   [
+    "Unbounded",
+    10
+   ]
+  ],
+  "colors": [
+   [
+    "rgb(20, 24, 50)",
+    146
+   ],
+   [
+    "rgb(0, 0, 0)",
+    13
+   ],
+   [
+    "rgb(255, 255, 255)",
+    5
+   ],
+   [
+    "rgb(246, 247, 253)",
+    4
+   ],
+   [
+    "rgb(79, 85, 119)",
+    3
+   ],
+   [
+    "rgb(70, 87, 206)",
+    2
+   ],
+   [
+    "rgb(238, 241, 250)",
+    1
+   ],
+   [
+    "color(srgb 0.147059 0.180588 0.410196)",
+    1
+   ],
+   [
+    "rgb(252, 68, 34)",
+    1
+   ],
+   [
+    "rgb(225, 229, 244)",
+    1
+   ]
+  ],
+  "headings": [
+   {
+    "tag": "H1",
+    "text": "Grid Rivals",
+    "size": "39px",
+    "weight": "800",
+    "lh": "37.05px",
+    "wrap": "wrap"
+   }
+  ],
+  "smallTargets": [],
+  "bodySize": "16px",
+  "colorScheme": "normal",
+  "selection": "color(srgb 0.27451 0.341176 0.807843 / 0.32)"
+ },
+ "paper-light": {
+  "fonts": [
+   [
+    "\"Atkinson Hyperlegible\"",
+    142
+   ],
+   [
+    "\"Times New Roman\"",
+    13
+   ],
+   [
+    "Kalam",
+    10
+   ]
+  ],
+  "colors": [
+   [
+    "rgb(46, 43, 39)",
+    146
+   ],
+   [
+    "rgb(0, 0, 0)",
+    13
+   ],
+   [
+    "rgb(252, 248, 239)",
+    7
+   ],
+   [
+    "rgb(98, 90, 80)",
+    3
+   ],
+   [
+    "rgb(230, 220, 199)",
+    2
+   ],
+   [
+    "color(srgb 0.213333 0.22902 0.382157)",
+    1
+   ],
+   [
+    "rgb(224, 57, 26)",
+    1
+   ],
+   [
+    "rgb(228, 220, 203)",
+    1
+   ],
+   [
+    "rgb(0, 147, 111)",
+    1
+   ],
+   [
+    "rgb(255, 255, 255)",
+    1
+   ],
+   [
+    "rgb(70, 87, 206)",
+    1
+   ]
+  ],
+  "headings": [
+   {
+    "tag": "H1",
+    "text": "Grid Rivals",
+    "size": "39px",
+    "weight": "700",
+    "lh": "37.05px",
+    "wrap": "wrap"
+   }
+  ],
+  "smallTargets": [],
+  "bodySize": "16px",
+  "colorScheme": "normal",
+  "selection": "color(srgb 0.27451 0.341176 0.807843 / 0.32)"
+ },
+ "paper-dark": {
+  "fonts": [
+   [
+    "\"Atkinson Hyperlegible\"",
+    142
+   ],
+   [
+    "\"Times New Roman\"",
+    13
+   ],
+   [
+    "Kalam",
+    10
+   ]
+  ],
+  "colors": [
+   [
+    "rgb(239, 232, 218)",
+    146
+   ],
+   [
+    "rgb(255, 255, 255)",
+    13
+   ],
+   [
+    "rgb(39, 36, 31)",
+    7
+   ],
+   [
+    "rgb(179, 169, 148)",
+    3
+   ],
+   [
+    "rgb(26, 24, 22)",
+    2
+   ],
+   [
+    "color(srgb 0.609216 0.839804 0.747843)",
+    1
+   ],
+   [
+    "rgb(255, 107, 79)",
+    1
+   ],
+   [
+    "rgb(58, 53, 48)",
+    1
+   ],
+   [
+    "rgb(33, 189, 202)",
+    1
+   ],
+   [
+    "rgb(18, 16, 14)",
+    1
+   ],
+   [
+    "rgb(0, 181, 140)",
+    1
+   ]
+  ],
+  "headings": [
+   {
+    "tag": "H1",
+    "text": "Grid Rivals",
+    "size": "39px",
+    "weight": "700",
+    "lh": "37.05px",
+    "wrap": "wrap"
+   }
+  ],
+  "smallTargets": [],
+  "bodySize": "16px",
+  "colorScheme": "dark",
+  "selection": "color(srgb 0 0.709804 0.54902 / 0.32)"
+ }
+}

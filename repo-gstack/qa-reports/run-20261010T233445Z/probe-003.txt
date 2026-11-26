@@ -1,0 +1,19 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-10T23:35:41.923Z","deadlineAt":"2026-10-10T23:50:41.923Z","budgetMs":900000,"observedAt":"2026-10-10T23:37:47.045Z","remainingMs":774878,"expired":false}
+PASS  A1 reload during a game reopens the game directly  screen game
+PASS  A2 same board after reload  11 lines before, 11 after
+PASS  A3 clock carries on (not reset, no downtime added)  0:04 -> 0:04
+PASS  A4 screen reader hears "Game resumed"  Game resumed. Score 0 to 0. Tactician to move.
+PASS  A5 the AI moves after the reload (it was its turn)  11 -> 12 lines
+PASS  A console: no errors
+PASS  B1 after a browser restart Home offers "Continue your game"  screen home+continue
+PASS  B2 the card describes the game  Continue your game /  / 4×4 against Tactician: 12 of 40 lines drawn, score 0–0. /  / Continue / Discard
+PASS  B3 Continue opens the same game  12 lines
+PASS  B4 leaving through the Home button keeps the game for later
+PASS  B5 a reload after leaving the game goes to Home (not straight into the game)
+PASS  B6 Discard (after the confirm) removes the saved game
+PASS  B console: no errors
+
+13/13 checks passed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-10T23:37:56.963Z","deadlineAt":"2026-10-10T23:50:41.923Z","timedOut":false,"exitCode":0}

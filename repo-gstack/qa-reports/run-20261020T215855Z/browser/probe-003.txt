@@ -1,0 +1,8 @@
+
+PASS  dialogs: neon-dark: nothing of the glass board paints over the results dialog  {"magenta":0,"green":233839,"total":401760}
+PASS  dialogs: neon-dark: nothing of the glass board paints over the theme sheet  {"magenta":0,"green":403645,"total":533824}
+PASS  dialogs: neon-light: nothing of the glass board paints over the results dialog  {"magenta":0,"green":238375,"total":401760}
+FAIL  dialogs: neon-light: nothing of the glass board paints over the theme sheet  {"magenta":0,"green":104015,"total":533824}
+PASS  dialogs: no page errors
+4/5 checks passed
+

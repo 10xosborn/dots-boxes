@@ -1,0 +1,12 @@
+{
+  "evidence": [],
+  "limits": [
+    "checkpoint 001: the size picker probe (baseline); ISSUE-001 and ISSUE-002 found, confirmed by the exact replay in checkpoint 002",
+    "checkpoints 002-007: top bar and notice, rotation and spread, Home, edge states, the fit check and the online main scenario, all inside the 900 s budget",
+    "two diagnosis runs (picker-debug.mjs, setup-wide.mjs) ran outside the deadline guard and without checkpoints, between checkpoints 001 and 002; disclosed, and their finding was confirmed by the guarded replay",
+    "the online 2-minute scenario and the earlier suites (hud/flow, hud/edge, theme-switch, drag-test, qa-r1a, integrity-r1a) did not fit the budget and ran as required rechecks after it expired, with fixed command timeouts",
+    "every check the verdict relies on was rerun on the final build (index CSS ecf63fd68d4b) after the last fix",
+    "one rerun of qa-r1a on the branch printed no summary (most likely a browser launch failure); the run before it passed 31/31",
+    "not covered: real phones and Safari (safe-area insets, the iOS toolbar), production Firebase (never touched)"
+  ]
+}

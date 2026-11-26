@@ -1,0 +1,36 @@
+== dist-marks-on-22
+neon-dark now: idle 5 s gpu 244 ms, renderer 108 ms | held drag 3 s gpu 296 ms, renderer 441 ms, frames median 16.7 ms, >20 ms 0.0%
+neon-light now: idle 5 s gpu 209 ms, renderer 105 ms | held drag 3 s gpu 322 ms, renderer 391 ms, frames median 16.7 ms, >20 ms 0.0%
+== dist-glass-A
+neon-dark now: idle 5 s gpu 253 ms, renderer 110 ms | held drag 3 s gpu 362 ms, renderer 461 ms, frames median 16.7 ms, >20 ms 0.0%
+neon-light now: idle 5 s gpu 263 ms, renderer 117 ms | held drag 3 s gpu 417 ms, renderer 580 ms, frames median 16.7 ms, >20 ms 1.7%
+== dist-marks-on-22
+neon-dark now: idle 5 s gpu 297 ms, renderer 114 ms | held drag 3 s gpu 385 ms, renderer 493 ms, frames median 16.7 ms, >20 ms 0.0%
+neon-light now: idle 5 s gpu 248 ms, renderer 115 ms | held drag 3 s gpu 357 ms, renderer 424 ms, frames median 16.7 ms, >20 ms 0.0%
+== dist-glass-A
+neon-dark now: idle 5 s gpu 292 ms, renderer 120 ms | held drag 3 s gpu 389 ms, renderer 496 ms, frames median 16.7 ms, >20 ms 0.0%
+neon-light now: idle 5 s gpu 237 ms, renderer 111 ms | held drag 3 s gpu 335 ms, renderer 460 ms, frames median 16.7 ms, >20 ms 0.0%
+== dist-glass-A
+neon-dark now: idle 5 s gpu 247 ms, renderer 105 ms | held drag 3 s gpu 320 ms, renderer 421 ms, frames median 16.7 ms, >20 ms 0.0%
+neon-light now: idle 5 s gpu 206 ms, renderer 99 ms | held drag 3 s gpu 279 ms, renderer 394 ms, frames median 16.7 ms, >20 ms 0.0%
+== dist-marks-on-22
+neon-dark now: idle 5 s gpu 328 ms, renderer 121 ms | held drag 3 s gpu 381 ms, renderer 565 ms, frames median 16.7 ms, >20 ms 1.7%
+neon-light now: idle 5 s gpu 253 ms, renderer 113 ms | held drag 3 s gpu 321 ms, renderer 386 ms, frames median 16.7 ms, >20 ms 0.0%
+== dist-glass-A
+neon-dark now: idle 5 s gpu 283 ms, renderer 113 ms | held drag 3 s gpu 341 ms, renderer 456 ms, frames median 16.7 ms, >20 ms 0.0%
+neon-light now: idle 5 s gpu 219 ms, renderer 110 ms | held drag 3 s gpu 289 ms, renderer 400 ms, frames median 16.7 ms, >20 ms 0.0%
+== dist-marks-on-22
+neon-dark now: idle 5 s gpu 292 ms, renderer 117 ms | held drag 3 s gpu 339 ms, renderer 468 ms, frames median 16.7 ms, >20 ms 0.6%
+neon-light now: idle 5 s gpu 247 ms, renderer 116 ms | held drag 3 s gpu 324 ms, renderer 388 ms, frames median 16.7 ms, >20 ms 0.0%
+== dist-marks-on-22
+neon-dark now: idle 5 s gpu 252 ms, renderer 105 ms | held drag 3 s gpu 296 ms, renderer 417 ms, frames median 16.7 ms, >20 ms 0.0%
+neon-light now: idle 5 s gpu 190 ms, renderer 101 ms | held drag 3 s gpu 283 ms, renderer 354 ms, frames median 16.7 ms, >20 ms 0.0%
+== dist-glass-A
+neon-dark now: idle 5 s gpu 374 ms, renderer 122 ms | held drag 3 s gpu 334 ms, renderer 459 ms, frames median 16.7 ms, >20 ms 0.6%
+neon-light now: idle 5 s gpu 220 ms, renderer 110 ms | held drag 3 s gpu 289 ms, renderer 397 ms, frames median 16.7 ms, >20 ms 0.6%
+== dist-marks-on-22
+neon-dark now: idle 5 s gpu 268 ms, renderer 118 ms | held drag 3 s gpu 344 ms, renderer 503 ms, frames median 16.7 ms, >20 ms 0.0%
+neon-light now: idle 5 s gpu 209 ms, renderer 109 ms | held drag 3 s gpu 317 ms, renderer 378 ms, frames median 16.7 ms, >20 ms 0.6%
+== dist-glass-A
+neon-dark now: idle 5 s gpu 304 ms, renderer 117 ms | held drag 3 s gpu 359 ms, renderer 485 ms, frames median 16.7 ms, >20 ms 0.0%
+neon-light now: idle 5 s gpu 239 ms, renderer 114 ms | held drag 3 s gpu 354 ms, renderer 463 ms, frames median 16.7 ms, >20 ms 0.0%

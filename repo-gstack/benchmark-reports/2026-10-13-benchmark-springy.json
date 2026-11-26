@@ -1,0 +1,2104 @@
+{
+  "date": "2026-10-13",
+  "branch": "feat/springy-drag",
+  "commit": "973177e",
+  "base": {
+    "branch": "main",
+    "commit": "af69571"
+  },
+  "serving": "serve-two.mjs (plain static, no compression)",
+  "browser": "Chromium 151, playwright-core 1.62.1, headless",
+  "dragFrames": [
+    "12x12 desktop      table-light   main    moves median 33.3 p95 34.3 max 35 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 17 ms, 0 of 364 over 25 ms, rings 0 | let go: frame p95 16.8 max 17 ms",
+    "12x12 desktop      table-light   branch  moves median 33.3 p95 34.4 max 35 ms (band on 120/120) | held 1.5 s x4: frame p95 16.7 max 17 ms, 0 of 364 over 25 ms, rings 3 | let go: frame p95 16.8 max 17 ms",
+    "12x12 desktop      neon-dark     main    moves median 33.3 p95 34.7 max 36 ms (band on 120/120) | held 1.5 s x4: frame p95 16.7 max 17 ms, 0 of 364 over 25 ms, rings 0 | let go: frame p95 16.7 max 17 ms",
+    "12x12 desktop      neon-dark     branch  moves median 33.3 p95 34.6 max 36 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 17 ms, 0 of 364 over 25 ms, rings 3 | let go: frame p95 16.7 max 17 ms",
+    "7x7 phone, CPU 4x  table-light   main    moves median 33.1 p95 34.4 max 35 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 17 ms, 0 of 364 over 25 ms, rings 0 | let go: frame p95 16.7 max 17 ms",
+    "7x7 phone, CPU 4x  table-light   branch  moves median 33.2 p95 35.2 max 39 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 17 ms, 0 of 364 over 25 ms, rings 3 | let go: frame p95 16.7 max 17 ms",
+    "7x7 phone, CPU 4x  neon-dark     main    moves median 33.2 p95 34.4 max 38 ms (band on 120/120) | held 1.5 s x4: frame p95 16.7 max 17 ms, 0 of 364 over 25 ms, rings 0 | let go: frame p95 16.7 max 17 ms",
+    "7x7 phone, CPU 4x  neon-dark     branch  moves median 33.3 p95 35.1 max 37 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 50 ms, 1 of 362 over 25 ms, rings 3 | let go: frame p95 16.8 max 17 ms"
+  ],
+  "dragFramesPhoneRerun": [
+    "7x7 phone, CPU 4x  table-light   main    moves median 33.3 p95 34.4 max 35 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 17 ms, 0 of 364 over 25 ms, rings 0 | let go: frame p95 16.7 max 17 ms",
+    "7x7 phone, CPU 4x  table-light   branch  moves median 33.3 p95 35.8 max 66 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 17 ms, 0 of 364 over 25 ms, rings 3 | let go: frame p95 16.8 max 17 ms",
+    "7x7 phone, CPU 4x  neon-dark     main    moves median 33.1 p95 34.9 max 35 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 33 ms, 1 of 363 over 25 ms, rings 0 | let go: frame p95 16.7 max 17 ms",
+    "7x7 phone, CPU 4x  neon-dark     branch  moves median 33.2 p95 34.8 max 36 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 83 ms, 1 of 360 over 25 ms, rings 3 | let go: frame p95 16.7 max 17 ms",
+    "7x7 phone, CPU 4x  table-light   main    moves median 33.1 p95 35.3 max 36 ms (band on 120/120) | held 1.5 s x4: frame p95 16.7 max 17 ms, 0 of 364 over 25 ms, rings 0 | let go: frame p95 16.8 max 17 ms",
+    "7x7 phone, CPU 4x  table-light   branch  moves median 33.3 p95 35 max 42 ms (band on 120/120) | held 1.5 s x4: frame p95 16.7 max 17 ms, 0 of 364 over 25 ms, rings 3 | let go: frame p95 16.7 max 17 ms",
+    "7x7 phone, CPU 4x  neon-dark     main    moves median 33.1 p95 34.9 max 45 ms (band on 120/120) | held 1.5 s x4: frame p95 16.8 max 17 ms, 0 of 364 over 25 ms, rings 0 | let go: frame p95 16.7 max 17 ms",
+    "7x7 phone, CPU 4x  neon-dark     branch  moves median 33.3 p95 35.2 max 44 ms (band on 120/120) | held 1.5 s x4: frame p95 16.7 max 17 ms, 0 of 364 over 25 ms, rings 3 | let go: frame p95 16.8 max 17 ms"
+  ],
+  "pageload": {
+    "home-table-light|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 72,
+        "lcp": 484,
+        "ready": 99,
+        "cls": 0,
+        "domInteractive": 14,
+        "domComplete": 71,
+        "load": 71,
+        "requests": 8,
+        "transfer": 778774,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 60,
+        "lcp": 432,
+        "ready": 66,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 39,
+        "load": 39,
+        "requests": 8,
+        "transfer": 778774,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-C3yyRqcr.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 13
+        },
+        {
+          "name": "wood-light-v9V9a8I5.webp",
+          "type": "css",
+          "size": 24446,
+          "ms": 12
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 12
+        },
+        {
+          "name": "index-B_pd92fR.css",
+          "type": "link",
+          "size": 39697,
+          "ms": 9
+        },
+        {
+          "name": "app-UGSktirB.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 9
+        },
+        {
+          "name": "index-D4rNLOBV.js",
+          "type": "script",
+          "size": 132963,
+          "ms": 8
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 4
+        }
+      ]
+    },
+    "home-table-light|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 88,
+        "lcp": 480,
+        "ready": 99,
+        "cls": 25,
+        "domInteractive": 12,
+        "domComplete": 66,
+        "load": 66,
+        "requests": 8,
+        "transfer": 781214,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 60,
+        "lcp": 440,
+        "ready": 70,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 43,
+        "load": 43,
+        "requests": 8,
+        "transfer": 781214,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-DboIqrRP.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 11
+        },
+        {
+          "name": "wood-light-v9V9a8I5.webp",
+          "type": "css",
+          "size": 24446,
+          "ms": 11
+        },
+        {
+          "name": "app-lVPha40q.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 9
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 9
+        },
+        {
+          "name": "index-CRdgP4r8.js",
+          "type": "script",
+          "size": 135160,
+          "ms": 8
+        },
+        {
+          "name": "index-DPof4mWV.css",
+          "type": "link",
+          "size": 39940,
+          "ms": 8
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 4
+        }
+      ]
+    },
+    "home-table-dark|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 84,
+        "lcp": 460,
+        "ready": 93,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 63,
+        "load": 63,
+        "requests": 8,
+        "transfer": 777650,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 23022
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 64,
+        "lcp": 440,
+        "ready": 68,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 41,
+        "load": 41,
+        "requests": 8,
+        "transfer": 777650,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 23022
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "index-D4rNLOBV.js",
+          "type": "script",
+          "size": 132963,
+          "ms": 8
+        },
+        {
+          "name": "index-B_pd92fR.css",
+          "type": "link",
+          "size": 39697,
+          "ms": 8
+        },
+        {
+          "name": "wood-dark-CyWT4Hqh.webp",
+          "type": "css",
+          "size": 23322,
+          "ms": 8
+        },
+        {
+          "name": "firebase-C3yyRqcr.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 8
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 7
+        },
+        {
+          "name": "app-UGSktirB.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 6
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ]
+    },
+    "home-table-dark|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 84,
+        "lcp": 464,
+        "ready": 96,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 65,
+        "load": 65,
+        "requests": 8,
+        "transfer": 780090,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 23022
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 64,
+        "lcp": 440,
+        "ready": 69,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 39,
+        "load": 39,
+        "requests": 8,
+        "transfer": 780090,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 23022
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-DboIqrRP.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 10
+        },
+        {
+          "name": "index-CRdgP4r8.js",
+          "type": "script",
+          "size": 135160,
+          "ms": 9
+        },
+        {
+          "name": "index-DPof4mWV.css",
+          "type": "link",
+          "size": 39940,
+          "ms": 9
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 9
+        },
+        {
+          "name": "wood-dark-CyWT4Hqh.webp",
+          "type": "css",
+          "size": 23322,
+          "ms": 7
+        },
+        {
+          "name": "app-lVPha40q.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 7
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ]
+    },
+    "home-neon-dark|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 64,
+        "lcp": 468,
+        "ready": 100,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 67,
+        "load": 67,
+        "requests": 8,
+        "transfer": 803792,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 52,
+        "lcp": 444,
+        "ready": 79,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 46,
+        "load": 46,
+        "requests": 8,
+        "transfer": 803792,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-C3yyRqcr.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 10
+        },
+        {
+          "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+          "type": "css",
+          "size": 51204,
+          "ms": 10
+        },
+        {
+          "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+          "type": "css",
+          "size": 25136,
+          "ms": 10
+        },
+        {
+          "name": "index-D4rNLOBV.js",
+          "type": "script",
+          "size": 132963,
+          "ms": 9
+        },
+        {
+          "name": "index-B_pd92fR.css",
+          "type": "link",
+          "size": 39697,
+          "ms": 9
+        },
+        {
+          "name": "app-UGSktirB.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 7
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 4
+        }
+      ]
+    },
+    "home-neon-dark|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 64,
+        "lcp": 460,
+        "ready": 92,
+        "cls": 25,
+        "domInteractive": 12,
+        "domComplete": 65,
+        "load": 65,
+        "requests": 8,
+        "transfer": 806232,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 48,
+        "lcp": 440,
+        "ready": 68,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 40,
+        "load": 40,
+        "requests": 8,
+        "transfer": 806232,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-DboIqrRP.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 10
+        },
+        {
+          "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+          "type": "css",
+          "size": 25136,
+          "ms": 10
+        },
+        {
+          "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+          "type": "css",
+          "size": 51204,
+          "ms": 9
+        },
+        {
+          "name": "app-lVPha40q.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 8
+        },
+        {
+          "name": "index-CRdgP4r8.js",
+          "type": "script",
+          "size": 135160,
+          "ms": 7
+        },
+        {
+          "name": "index-DPof4mWV.css",
+          "type": "link",
+          "size": 39940,
+          "ms": 7
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 4
+        }
+      ]
+    },
+    "home-neon-light|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 68,
+        "lcp": 464,
+        "ready": 103,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 71,
+        "load": 71,
+        "requests": 8,
+        "transfer": 803792,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 48,
+        "lcp": 444,
+        "ready": 73,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 46,
+        "load": 46,
+        "requests": 8,
+        "transfer": 803792,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-C3yyRqcr.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 10
+        },
+        {
+          "name": "app-UGSktirB.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 10
+        },
+        {
+          "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+          "type": "css",
+          "size": 51204,
+          "ms": 10
+        },
+        {
+          "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+          "type": "css",
+          "size": 25136,
+          "ms": 10
+        },
+        {
+          "name": "index-B_pd92fR.css",
+          "type": "link",
+          "size": 39697,
+          "ms": 8
+        },
+        {
+          "name": "index-D4rNLOBV.js",
+          "type": "script",
+          "size": 132963,
+          "ms": 7
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 4
+        }
+      ]
+    },
+    "home-neon-light|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 72,
+        "lcp": 476,
+        "ready": 102,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 73,
+        "load": 73,
+        "requests": 8,
+        "transfer": 806232,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 48,
+        "lcp": 444,
+        "ready": 76,
+        "cls": 25,
+        "domInteractive": 15,
+        "domComplete": 49,
+        "load": 49,
+        "requests": 8,
+        "transfer": 806232,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-DboIqrRP.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 9
+        },
+        {
+          "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+          "type": "css",
+          "size": 25136,
+          "ms": 9
+        },
+        {
+          "name": "index-CRdgP4r8.js",
+          "type": "script",
+          "size": 135160,
+          "ms": 8
+        },
+        {
+          "name": "index-DPof4mWV.css",
+          "type": "link",
+          "size": 39940,
+          "ms": 8
+        },
+        {
+          "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+          "type": "css",
+          "size": 51204,
+          "ms": 8
+        },
+        {
+          "name": "app-lVPha40q.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 7
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 2
+        }
+      ]
+    },
+    "home-paper-light|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 68,
+        "lcp": 156,
+        "ready": 99,
+        "cls": 24,
+        "domInteractive": 12,
+        "domComplete": 51,
+        "load": 51,
+        "requests": 11,
+        "transfer": 812370,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 4206
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 68,
+        "lcp": 456,
+        "ready": 76,
+        "cls": 24,
+        "domInteractive": 14,
+        "domComplete": 48,
+        "load": 48,
+        "requests": 11,
+        "transfer": 812370,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 4206
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "kalam-400-latin-BthBl_aR.woff2",
+          "type": "css",
+          "size": 22636,
+          "ms": 24
+        },
+        {
+          "name": "atkinson-700-latin-GZI4o3u0.woff2",
+          "type": "css",
+          "size": 17824,
+          "ms": 12
+        },
+        {
+          "name": "atkinson-400-latin-BrHNak5F.woff2",
+          "type": "css",
+          "size": 17508,
+          "ms": 12
+        },
+        {
+          "name": "paper-light-Bvcj7cfM.webp",
+          "type": "css",
+          "size": 4506,
+          "ms": 11
+        },
+        {
+          "name": "kalam-700-latin-D2H-9ISU.woff2",
+          "type": "css",
+          "size": 22444,
+          "ms": 11
+        },
+        {
+          "name": "app-UGSktirB.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 8
+        },
+        {
+          "name": "index-B_pd92fR.css",
+          "type": "link",
+          "size": 39697,
+          "ms": 7
+        },
+        {
+          "name": "firebase-C3yyRqcr.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 7
+        }
+      ]
+    },
+    "home-paper-light|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 92,
+        "lcp": 176,
+        "ready": 109,
+        "cls": 24,
+        "domInteractive": 13,
+        "domComplete": 58,
+        "load": 58,
+        "requests": 11,
+        "transfer": 814810,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 4206
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 72,
+        "lcp": 452,
+        "ready": 75,
+        "cls": 24,
+        "domInteractive": 14,
+        "domComplete": 46,
+        "load": 46,
+        "requests": 11,
+        "transfer": 814810,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 4206
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "kalam-400-latin-BthBl_aR.woff2",
+          "type": "css",
+          "size": 22636,
+          "ms": 21
+        },
+        {
+          "name": "firebase-DboIqrRP.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 10
+        },
+        {
+          "name": "atkinson-400-latin-BrHNak5F.woff2",
+          "type": "css",
+          "size": 17508,
+          "ms": 10
+        },
+        {
+          "name": "atkinson-700-latin-GZI4o3u0.woff2",
+          "type": "css",
+          "size": 17824,
+          "ms": 10
+        },
+        {
+          "name": "kalam-700-latin-D2H-9ISU.woff2",
+          "type": "css",
+          "size": 22444,
+          "ms": 9
+        },
+        {
+          "name": "index-CRdgP4r8.js",
+          "type": "script",
+          "size": 135160,
+          "ms": 7
+        },
+        {
+          "name": "index-DPof4mWV.css",
+          "type": "link",
+          "size": 39940,
+          "ms": 7
+        },
+        {
+          "name": "paper-light-Bvcj7cfM.webp",
+          "type": "css",
+          "size": 4506,
+          "ms": 5
+        }
+      ]
+    },
+    "home-paper-dark|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 72,
+        "lcp": 184,
+        "ready": 115,
+        "cls": 24,
+        "domInteractive": 14,
+        "domComplete": 63,
+        "load": 63,
+        "requests": 11,
+        "transfer": 812552,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 4388
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 68,
+        "lcp": 456,
+        "ready": 70,
+        "cls": 24,
+        "domInteractive": 14,
+        "domComplete": 41,
+        "load": 42,
+        "requests": 11,
+        "transfer": 812552,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 4388
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "kalam-400-latin-BthBl_aR.woff2",
+          "type": "css",
+          "size": 22636,
+          "ms": 24
+        },
+        {
+          "name": "firebase-C3yyRqcr.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 15
+        },
+        {
+          "name": "atkinson-400-latin-BrHNak5F.woff2",
+          "type": "css",
+          "size": 17508,
+          "ms": 15
+        },
+        {
+          "name": "kalam-700-latin-D2H-9ISU.woff2",
+          "type": "css",
+          "size": 22444,
+          "ms": 12
+        },
+        {
+          "name": "atkinson-700-latin-GZI4o3u0.woff2",
+          "type": "css",
+          "size": 17824,
+          "ms": 12
+        },
+        {
+          "name": "index-B_pd92fR.css",
+          "type": "link",
+          "size": 39697,
+          "ms": 9
+        },
+        {
+          "name": "index-D4rNLOBV.js",
+          "type": "script",
+          "size": 132963,
+          "ms": 8
+        },
+        {
+          "name": "paper-soft-jIbIcWR3.webp",
+          "type": "css",
+          "size": 4688,
+          "ms": 8
+        }
+      ]
+    },
+    "home-paper-dark|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 64,
+        "lcp": 156,
+        "ready": 92,
+        "cls": 24,
+        "domInteractive": 13,
+        "domComplete": 52,
+        "load": 52,
+        "requests": 11,
+        "transfer": 814992,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 4388
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 68,
+        "lcp": 444,
+        "ready": 70,
+        "cls": 24,
+        "domInteractive": 13,
+        "domComplete": 42,
+        "load": 42,
+        "requests": 11,
+        "transfer": 814992,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 4388
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "kalam-400-latin-BthBl_aR.woff2",
+          "type": "css",
+          "size": 22636,
+          "ms": 20
+        },
+        {
+          "name": "atkinson-700-latin-GZI4o3u0.woff2",
+          "type": "css",
+          "size": 17824,
+          "ms": 12
+        },
+        {
+          "name": "atkinson-400-latin-BrHNak5F.woff2",
+          "type": "css",
+          "size": 17508,
+          "ms": 12
+        },
+        {
+          "name": "paper-soft-jIbIcWR3.webp",
+          "type": "css",
+          "size": 4688,
+          "ms": 11
+        },
+        {
+          "name": "kalam-700-latin-D2H-9ISU.woff2",
+          "type": "css",
+          "size": 22444,
+          "ms": 11
+        },
+        {
+          "name": "firebase-DboIqrRP.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 10
+        },
+        {
+          "name": "app-lVPha40q.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 8
+        },
+        {
+          "name": "index-CRdgP4r8.js",
+          "type": "script",
+          "size": 135160,
+          "ms": 7
+        }
+      ]
+    },
+    "game-reload-table|main": {
+      "ready": "__boardReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 88,
+        "lcp": 492,
+        "ready": 107,
+        "cls": 25,
+        "domInteractive": 15,
+        "domComplete": 68,
+        "load": 68,
+        "requests": 10,
+        "transfer": 806033,
+        "jsDecoded": 700556,
+        "cssDecoded": 39397,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 35204
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 64,
+        "lcp": 452,
+        "ready": 78,
+        "cls": 25,
+        "domInteractive": 23,
+        "domComplete": 48,
+        "load": 48,
+        "requests": 10,
+        "transfer": 806033,
+        "jsDecoded": 700556,
+        "cssDecoded": 39397,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 35204
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "grain-CGOehb0-.webp",
+          "type": "css",
+          "size": 11358,
+          "ms": 29
+        },
+        {
+          "name": "index-B_pd92fR.css",
+          "type": "link",
+          "size": 39697,
+          "ms": 9
+        },
+        {
+          "name": "index-D4rNLOBV.js",
+          "type": "script",
+          "size": 132963,
+          "ms": 8
+        },
+        {
+          "name": "firebase-C3yyRqcr.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 7
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 7
+        },
+        {
+          "name": "wood-light-v9V9a8I5.webp",
+          "type": "css",
+          "size": 24446,
+          "ms": 6
+        },
+        {
+          "name": "app-UGSktirB.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 6
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ]
+    },
+    "game-reload-table|branch": {
+      "ready": "__boardReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 84,
+        "lcp": 492,
+        "ready": 104,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 64,
+        "load": 64,
+        "requests": 10,
+        "transfer": 808473,
+        "jsDecoded": 702753,
+        "cssDecoded": 39640,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 35204
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 64,
+        "lcp": 448,
+        "ready": 76,
+        "cls": 25,
+        "domInteractive": 18,
+        "domComplete": 44,
+        "load": 44,
+        "requests": 10,
+        "transfer": 808473,
+        "jsDecoded": 702753,
+        "cssDecoded": 39640,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 35204
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "grain-CGOehb0-.webp",
+          "type": "css",
+          "size": 11358,
+          "ms": 17
+        },
+        {
+          "name": "firebase-DboIqrRP.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 8
+        },
+        {
+          "name": "index-CRdgP4r8.js",
+          "type": "script",
+          "size": 135160,
+          "ms": 7
+        },
+        {
+          "name": "index-DPof4mWV.css",
+          "type": "link",
+          "size": 39940,
+          "ms": 7
+        },
+        {
+          "name": "app-lVPha40q.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 7
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 7
+        },
+        {
+          "name": "wood-light-v9V9a8I5.webp",
+          "type": "css",
+          "size": 24446,
+          "ms": 5
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ]
+    },
+    "game-reload-neon|main": {
+      "ready": "__boardReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 72,
+        "lcp": 180,
+        "ready": 112,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 66,
+        "load": 66,
+        "requests": 9,
+        "transfer": 819693,
+        "jsDecoded": 700556,
+        "cssDecoded": 39397,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 56,
+        "lcp": 152,
+        "ready": 81,
+        "cls": 25,
+        "domInteractive": 20,
+        "domComplete": 50,
+        "load": 50,
+        "requests": 9,
+        "transfer": 819693,
+        "jsDecoded": 700556,
+        "cssDecoded": 39397,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+          "type": "css",
+          "size": 25136,
+          "ms": 10
+        },
+        {
+          "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+          "type": "css",
+          "size": 51204,
+          "ms": 9
+        },
+        {
+          "name": "firebase-C3yyRqcr.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 8
+        },
+        {
+          "name": "index-D4rNLOBV.js",
+          "type": "script",
+          "size": 132963,
+          "ms": 6
+        },
+        {
+          "name": "index-B_pd92fR.css",
+          "type": "link",
+          "size": 39697,
+          "ms": 6
+        },
+        {
+          "name": "app-UGSktirB.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 5
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 4
+        },
+        {
+          "name": "ai.worker-Duy7mktc.js",
+          "type": "other",
+          "size": 15901,
+          "ms": -27
+        }
+      ]
+    },
+    "game-reload-neon|branch": {
+      "ready": "__boardReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 76,
+        "lcp": 188,
+        "ready": 111,
+        "cls": 25,
+        "domInteractive": 12,
+        "domComplete": 69,
+        "load": 69,
+        "requests": 9,
+        "transfer": 822133,
+        "jsDecoded": 702753,
+        "cssDecoded": 39640,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 60,
+        "lcp": 156,
+        "ready": 81,
+        "cls": 25,
+        "domInteractive": 20,
+        "domComplete": 51,
+        "load": 51,
+        "requests": 9,
+        "transfer": 822133,
+        "jsDecoded": 702753,
+        "cssDecoded": 39640,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-DboIqrRP.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 11
+        },
+        {
+          "name": "manrope-400-800-latin-DHIcAJRg.woff2",
+          "type": "css",
+          "size": 25136,
+          "ms": 11
+        },
+        {
+          "name": "unbounded-500-800-latin-D5afBTBx.woff2",
+          "type": "css",
+          "size": 51204,
+          "ms": 10
+        },
+        {
+          "name": "app-lVPha40q.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 8
+        },
+        {
+          "name": "index-CRdgP4r8.js",
+          "type": "script",
+          "size": 135160,
+          "ms": 7
+        },
+        {
+          "name": "index-DPof4mWV.css",
+          "type": "link",
+          "size": 39940,
+          "ms": 7
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 2
+        },
+        {
+          "name": "ai.worker-Duy7mktc.js",
+          "type": "other",
+          "size": 15901,
+          "ms": -26
+        }
+      ]
+    }
+  },
+  "pageloadRerun": {
+    "home-table-light|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 72,
+        "lcp": 460,
+        "ready": 98,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 68,
+        "load": 68,
+        "requests": 8,
+        "transfer": 778774,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 64,
+        "lcp": 440,
+        "ready": 69,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 39,
+        "load": 39,
+        "requests": 8,
+        "transfer": 778774,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "passes": {
+        "cold": 6,
+        "warm": 30
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-C3yyRqcr.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 13
+        },
+        {
+          "name": "wood-light-v9V9a8I5.webp",
+          "type": "css",
+          "size": 24446,
+          "ms": 12
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 12
+        },
+        {
+          "name": "index-B_pd92fR.css",
+          "type": "link",
+          "size": 39697,
+          "ms": 11
+        },
+        {
+          "name": "app-UGSktirB.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 11
+        },
+        {
+          "name": "index-D4rNLOBV.js",
+          "type": "script",
+          "size": 132963,
+          "ms": 10
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 4
+        }
+      ]
+    },
+    "home-table-light|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 88,
+        "lcp": 468,
+        "ready": 101,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 69,
+        "load": 69,
+        "requests": 8,
+        "transfer": 781214,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 60,
+        "lcp": 432,
+        "ready": 66,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 39,
+        "load": 39,
+        "requests": 8,
+        "transfer": 781214,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "passes": {
+        "cold": 6,
+        "warm": 30
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "index-DPof4mWV.css",
+          "type": "link",
+          "size": 39940,
+          "ms": 10
+        },
+        {
+          "name": "index-CRdgP4r8.js",
+          "type": "script",
+          "size": 135160,
+          "ms": 9
+        },
+        {
+          "name": "firebase-DboIqrRP.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 8
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 8
+        },
+        {
+          "name": "app-lVPha40q.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 6
+        },
+        {
+          "name": "wood-light-v9V9a8I5.webp",
+          "type": "css",
+          "size": 24446,
+          "ms": 5
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ]
+    },
+    "home-paper-light|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 88,
+        "lcp": 168,
+        "ready": 97,
+        "cls": 24,
+        "domInteractive": 13,
+        "domComplete": 55,
+        "load": 55,
+        "requests": 11,
+        "transfer": 812370,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 4206
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 68,
+        "lcp": 452,
+        "ready": 70,
+        "cls": 24,
+        "domInteractive": 13,
+        "domComplete": 42,
+        "load": 42,
+        "requests": 11,
+        "transfer": 812370,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 4206
+      },
+      "passes": {
+        "cold": 6,
+        "warm": 30
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "kalam-400-latin-BthBl_aR.woff2",
+          "type": "css",
+          "size": 22636,
+          "ms": 22
+        },
+        {
+          "name": "atkinson-700-latin-GZI4o3u0.woff2",
+          "type": "css",
+          "size": 17824,
+          "ms": 11
+        },
+        {
+          "name": "atkinson-400-latin-BrHNak5F.woff2",
+          "type": "css",
+          "size": 17508,
+          "ms": 11
+        },
+        {
+          "name": "kalam-700-latin-D2H-9ISU.woff2",
+          "type": "css",
+          "size": 22444,
+          "ms": 10
+        },
+        {
+          "name": "index-B_pd92fR.css",
+          "type": "link",
+          "size": 39697,
+          "ms": 8
+        },
+        {
+          "name": "index-D4rNLOBV.js",
+          "type": "script",
+          "size": 132963,
+          "ms": 7
+        },
+        {
+          "name": "firebase-C3yyRqcr.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 7
+        },
+        {
+          "name": "paper-light-Bvcj7cfM.webp",
+          "type": "css",
+          "size": 4506,
+          "ms": 6
+        }
+      ]
+    },
+    "home-paper-light|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 88,
+        "lcp": 172,
+        "ready": 112,
+        "cls": 24,
+        "domInteractive": 13,
+        "domComplete": 56,
+        "load": 56,
+        "requests": 11,
+        "transfer": 814810,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 4206
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 68,
+        "lcp": 448,
+        "ready": 71,
+        "cls": 24,
+        "domInteractive": 13,
+        "domComplete": 42,
+        "load": 42,
+        "requests": 11,
+        "transfer": 814810,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 4206
+      },
+      "passes": {
+        "cold": 6,
+        "warm": 30
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "kalam-400-latin-BthBl_aR.woff2",
+          "type": "css",
+          "size": 22636,
+          "ms": 21
+        },
+        {
+          "name": "kalam-700-latin-D2H-9ISU.woff2",
+          "type": "css",
+          "size": 22444,
+          "ms": 12
+        },
+        {
+          "name": "atkinson-400-latin-BrHNak5F.woff2",
+          "type": "css",
+          "size": 17508,
+          "ms": 12
+        },
+        {
+          "name": "firebase-DboIqrRP.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 11
+        },
+        {
+          "name": "atkinson-700-latin-GZI4o3u0.woff2",
+          "type": "css",
+          "size": 17824,
+          "ms": 11
+        },
+        {
+          "name": "app-lVPha40q.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 10
+        },
+        {
+          "name": "index-DPof4mWV.css",
+          "type": "link",
+          "size": 39940,
+          "ms": 8
+        },
+        {
+          "name": "index-CRdgP4r8.js",
+          "type": "script",
+          "size": 135160,
+          "ms": 7
+        }
+      ]
+    }
+  },
+  "pageloadCold12": {
+    "home-table-light|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 88,
+        "lcp": 476,
+        "ready": 105,
+        "cls": 25,
+        "domInteractive": 15,
+        "domComplete": 74,
+        "load": 74,
+        "requests": 8,
+        "transfer": 778774,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 64,
+        "lcp": 444,
+        "ready": 74,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 44,
+        "load": 44,
+        "requests": 8,
+        "transfer": 778774,
+        "jsDecoded": 684955,
+        "cssDecoded": 39397,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "passes": {
+        "cold": 12,
+        "warm": 12
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "firebase-C3yyRqcr.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 13
+        },
+        {
+          "name": "wood-light-v9V9a8I5.webp",
+          "type": "css",
+          "size": 24446,
+          "ms": 12
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 11
+        },
+        {
+          "name": "index-B_pd92fR.css",
+          "type": "link",
+          "size": 39697,
+          "ms": 9
+        },
+        {
+          "name": "app-UGSktirB.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 9
+        },
+        {
+          "name": "index-D4rNLOBV.js",
+          "type": "script",
+          "size": 132963,
+          "ms": 8
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 3
+        }
+      ]
+    },
+    "home-table-light|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 1,
+        "fcp": 88,
+        "lcp": 476,
+        "ready": 107,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 74,
+        "load": 74,
+        "requests": 8,
+        "transfer": 781214,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "warm": {
+        "ttfb": 1,
+        "fcp": 64,
+        "lcp": 436,
+        "ready": 74,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 44,
+        "load": 44,
+        "requests": 8,
+        "transfer": 781214,
+        "jsDecoded": 687152,
+        "cssDecoded": 39640,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 24146
+      },
+      "passes": {
+        "cold": 12,
+        "warm": 12
+      },
+      "thirdParty": [
+        "identitytoolkit.googleapis.com"
+      ],
+      "slowestCold": [
+        {
+          "name": "index-DPof4mWV.css",
+          "type": "link",
+          "size": 39940,
+          "ms": 12
+        },
+        {
+          "name": "firebase-DboIqrRP.js",
+          "type": "script",
+          "size": 450572,
+          "ms": 12
+        },
+        {
+          "name": "index-CRdgP4r8.js",
+          "type": "script",
+          "size": 135160,
+          "ms": 11
+        },
+        {
+          "name": "jost-400-800-latin-ObQm3Zd1.woff2",
+          "type": "css",
+          "size": 26876,
+          "ms": 11
+        },
+        {
+          "name": "wood-light-v9V9a8I5.webp",
+          "type": "css",
+          "size": 24446,
+          "ms": 8
+        },
+        {
+          "name": "app-lVPha40q.js",
+          "type": "script",
+          "size": 102320,
+          "ms": 8
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 5
+        }
+      ]
+    }
+  },
+  "moveToPaint": [
+    "== main",
+    "12x12 desktop      table-light       moves 30, median 33 ms, p95 34 ms, max 35 ms",
+    "12x12 desktop      table-dark        moves 30, median 33 ms, p95 34 ms, max 35 ms",
+    "12x12 desktop      neon-dark         moves 30, median 33 ms, p95 34 ms, max 34 ms",
+    "12x12 desktop      neon-light        moves 30, median 33 ms, p95 34 ms, max 34 ms",
+    "12x12 desktop      paper-light       moves 30, median 33 ms, p95 34 ms, max 34 ms",
+    "12x12 desktop      paper-dark        moves 30, median 33 ms, p95 34 ms, max 34 ms",
+    "7x7 phone, CPU 4x  table-light       moves 30, median 31 ms, p95 34 ms, max 34 ms",
+    "7x7 phone, CPU 4x  table-dark        moves 30, median 32 ms, p95 33 ms, max 33 ms",
+    "7x7 phone, CPU 4x  neon-dark         moves 30, median 32 ms, p95 33 ms, max 35 ms",
+    "7x7 phone, CPU 4x  neon-light        moves 30, median 32 ms, p95 33 ms, max 33 ms",
+    "7x7 phone, CPU 4x  paper-light       moves 30, median 32 ms, p95 33 ms, max 34 ms",
+    "7x7 phone, CPU 4x  paper-dark        moves 30, median 32 ms, p95 44 ms, max 45 ms",
+    "== branch",
+    "12x12 desktop      table-light       moves 30, median 33 ms, p95 34 ms, max 35 ms",
+    "12x12 desktop      table-dark        moves 30, median 33 ms, p95 34 ms, max 136 ms",
+    "12x12 desktop      neon-dark         moves 30, median 33 ms, p95 34 ms, max 35 ms",
+    "12x12 desktop      neon-light        moves 30, median 33 ms, p95 35 ms, max 35 ms",
+    "12x12 desktop      paper-light       moves 30, median 33 ms, p95 34 ms, max 34 ms",
+    "12x12 desktop      paper-dark        moves 30, median 33 ms, p95 34 ms, max 35 ms",
+    "7x7 phone, CPU 4x  table-light       moves 30, median 32 ms, p95 34 ms, max 34 ms",
+    "7x7 phone, CPU 4x  table-dark        moves 30, median 31 ms, p95 33 ms, max 33 ms",
+    "7x7 phone, CPU 4x  neon-dark         moves 30, median 32 ms, p95 34 ms, max 34 ms",
+    "7x7 phone, CPU 4x  neon-light        moves 30, median 31 ms, p95 33 ms, max 34 ms",
+    "7x7 phone, CPU 4x  paper-light       moves 30, median 32 ms, p95 34 ms, max 34 ms",
+    "7x7 phone, CPU 4x  paper-dark        moves 30, median 32 ms, p95 33 ms, max 33 ms"
+  ],
+  "bundles": {
+    "changed": [
+      {
+        "asset": "assets/index.css",
+        "main": "assets/index-B_pd92fR.css",
+        "branch": "assets/index-DPof4mWV.css",
+        "mainRaw": 39397,
+        "branchRaw": 39640,
+        "mainGz": 8807,
+        "branchGz": 8866
+      },
+      {
+        "asset": "assets/index.js",
+        "main": "assets/index-D4rNLOBV.js",
+        "branch": "assets/index-CRdgP4r8.js",
+        "mainRaw": 132663,
+        "branchRaw": 134860,
+        "mainGz": 51218,
+        "branchGz": 52187
+      }
+    ],
+    "totals": {
+      "js": {
+        "mainRaw": 834966,
+        "branchRaw": 837163,
+        "mainGz": 260894,
+        "branchGz": 261862
+      },
+      "css": {
+        "mainRaw": 39397,
+        "branchRaw": 39640,
+        "mainGz": 8807,
+        "branchGz": 8866
+      },
+      "all": {
+        "mainRaw": 1339991,
+        "branchRaw": 1342431,
+        "mainGz": 270605,
+        "branchGz": 271632
+      }
+    }
+  },
+  "verdict": "No regressions: JS +969 B gz, CSS +59 B gz; drag frames with Animations on unchanged (moves on the two-frame floor, held frames p95 16.7-16.8 ms, let-go no missed frames); page loads flat (Home Tabletop by day cold FCP 88 -> 88 ms over 12 cold loads); move-to-paint unchanged"
+}

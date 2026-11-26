@@ -1,0 +1,1 @@
+{"date":"2026-10-15","url":"http://127.0.0.1:4173/","healthScore":100,"provisional":true,"issues":[{"id":"ISSUE-001","title":"Dark Neon browser bar kept the first page colour","severity":"low","category":"visual"}],"categoryScores":{"console":100,"functional":100,"ux":100,"visual":100,"performance":100,"content":100,"accessibility":100}}

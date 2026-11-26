@@ -1,0 +1,1389 @@
+{
+  "when": "2026-10-11T09:21:37.115Z",
+  "warmPasses": 10,
+  "coldPasses": 2,
+  "summary": {
+    "home|main": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 3,
+        "fcp": 588,
+        "lcp": 992,
+        "ready": 596,
+        "domInteractive": 17,
+        "domComplete": 1388,
+        "load": 1388,
+        "requests": 7,
+        "transfer": 215842,
+        "jsDecoded": 667388,
+        "cssDecoded": 16364
+      },
+      "warm": {
+        "ttfb": 3,
+        "fcp": 280,
+        "lcp": 536,
+        "ready": 272,
+        "domInteractive": 24,
+        "domComplete": 489,
+        "load": 489,
+        "requests": 7,
+        "transfer": 215842,
+        "jsDecoded": 667388,
+        "cssDecoded": 16364
+      },
+      "slowestCold": [
+        {
+          "name": "css2",
+          "type": "link",
+          "size": 1150,
+          "ms": 526
+        },
+        {
+          "name": "index-C52KpewG.js",
+          "type": "script",
+          "size": 46501,
+          "ms": 35
+        },
+        {
+          "name": "index-ihDkF0Uj.css",
+          "type": "link",
+          "size": 4616,
+          "ms": 31
+        },
+        {
+          "name": "firebase-B4F3Wnpz.js",
+          "type": "script",
+          "size": 131320,
+          "ms": 30
+        },
+        {
+          "name": "app-CCcOIGFc.js",
+          "type": "script",
+          "size": 31264,
+          "ms": 14
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 10
+        }
+      ],
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "home|branch": {
+      "ready": "__homeReady",
+      "cold": {
+        "ttfb": 3,
+        "fcp": 556,
+        "lcp": 964,
+        "ready": 561,
+        "domInteractive": 21,
+        "domComplete": 1257,
+        "load": 1257,
+        "requests": 7,
+        "transfer": 216414,
+        "jsDecoded": 669163,
+        "cssDecoded": 16364
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 248,
+        "lcp": 452,
+        "ready": 234,
+        "domInteractive": 21,
+        "domComplete": 442,
+        "load": 442,
+        "requests": 7,
+        "transfer": 216414,
+        "jsDecoded": 669163,
+        "cssDecoded": 16364
+      },
+      "slowestCold": [
+        {
+          "name": "css2",
+          "type": "link",
+          "size": 1150,
+          "ms": 429
+        },
+        {
+          "name": "firebase-Bd_obles.js",
+          "type": "script",
+          "size": 131321,
+          "ms": 26
+        },
+        {
+          "name": "index-CWK_lDyo.js",
+          "type": "script",
+          "size": 47069,
+          "ms": 16
+        },
+        {
+          "name": "index-ihDkF0Uj.css",
+          "type": "link",
+          "size": 4616,
+          "ms": 13
+        },
+        {
+          "name": "app-CRZBMTkM.js",
+          "type": "script",
+          "size": 31264,
+          "ms": 12
+        },
+        {
+          "name": "accounts:signUp",
+          "type": "fetch",
+          "size": 0,
+          "ms": 5
+        }
+      ],
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    }
+  },
+  "runs": {
+    "home|main": {
+      "cold": [
+        {
+          "ttfb": 5.399999998509884,
+          "fcp": 744,
+          "lcp": 1236,
+          "ready": 780.3999999985099,
+          "domInteractive": 65.39999999850988,
+          "domComplete": 1509.3999999985099,
+          "load": 1509.3999999985099,
+          "requests": 7,
+          "transfer": 215842,
+          "jsDecoded": 667388,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 526
+            },
+            {
+              "name": "index-C52KpewG.js",
+              "type": "script",
+              "size": 46501,
+              "ms": 35
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 31
+            },
+            {
+              "name": "firebase-B4F3Wnpz.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 30
+            },
+            {
+              "name": "app-CCcOIGFc.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 10
+            }
+          ]
+        },
+        {
+          "ttfb": 2.900000002235174,
+          "fcp": 588,
+          "lcp": 992,
+          "ready": 595.5,
+          "domInteractive": 17.400000002235174,
+          "domComplete": 1387.9000000022352,
+          "load": 1387.9000000022352,
+          "requests": 7,
+          "transfer": 215842,
+          "jsDecoded": 667388,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 466
+            },
+            {
+              "name": "firebase-B4F3Wnpz.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 25
+            },
+            {
+              "name": "index-C52KpewG.js",
+              "type": "script",
+              "size": 46501,
+              "ms": 15
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 12
+            },
+            {
+              "name": "app-CCcOIGFc.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 12
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        }
+      ],
+      "warm": [
+        {
+          "ttfb": 3.199999999254942,
+          "fcp": 308,
+          "lcp": 632,
+          "ready": 311.4000000022352,
+          "domInteractive": 31.199999999254942,
+          "domComplete": 701.1000000014901,
+          "load": 701.1000000014901,
+          "requests": 7,
+          "transfer": 215842,
+          "jsDecoded": 667388,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 163
+            },
+            {
+              "name": "firebase-B4F3Wnpz.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 68
+            },
+            {
+              "name": "index-C52KpewG.js",
+              "type": "script",
+              "size": 46501,
+              "ms": 39
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 38
+            },
+            {
+              "name": "app-CCcOIGFc.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 30
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 8
+            }
+          ]
+        },
+        {
+          "ttfb": 3.600000001490116,
+          "fcp": 280,
+          "lcp": 564,
+          "ready": 272.19999999925494,
+          "domInteractive": 24.899999998509884,
+          "domComplete": 592.3000000007451,
+          "load": 592.3000000007451,
+          "requests": 7,
+          "transfer": 215842,
+          "jsDecoded": 667388,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 148
+            },
+            {
+              "name": "firebase-B4F3Wnpz.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 54
+            },
+            {
+              "name": "app-CCcOIGFc.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 29
+            },
+            {
+              "name": "index-C52KpewG.js",
+              "type": "script",
+              "size": 46501,
+              "ms": 22
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 18
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 5
+            }
+          ]
+        },
+        {
+          "ttfb": 2.900000002235174,
+          "fcp": 256,
+          "lcp": 416,
+          "ready": 246.10000000149012,
+          "domInteractive": 22.300000000745058,
+          "domComplete": 385.30000000074506,
+          "load": 385.30000000074506,
+          "requests": 7,
+          "transfer": 215842,
+          "jsDecoded": 667388,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 138
+            },
+            {
+              "name": "firebase-B4F3Wnpz.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 44
+            },
+            {
+              "name": "index-C52KpewG.js",
+              "type": "script",
+              "size": 46501,
+              "ms": 18
+            },
+            {
+              "name": "app-CCcOIGFc.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 17
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 15
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 4,
+          "fcp": 308,
+          "lcp": 460,
+          "ready": 298.5999999977648,
+          "domInteractive": 28,
+          "domComplete": 436.19999999925494,
+          "load": 436.19999999925494,
+          "requests": 7,
+          "transfer": 215842,
+          "jsDecoded": 667388,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 198
+            },
+            {
+              "name": "firebase-B4F3Wnpz.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 43
+            },
+            {
+              "name": "app-CCcOIGFc.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 22
+            },
+            {
+              "name": "index-C52KpewG.js",
+              "type": "script",
+              "size": 46501,
+              "ms": 18
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 15
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 5
+            }
+          ]
+        },
+        {
+          "ttfb": 2.199999999254942,
+          "fcp": 236,
+          "lcp": 440,
+          "ready": 229.10000000149012,
+          "domInteractive": 21.100000001490116,
+          "domComplete": 380.70000000298023,
+          "load": 380.80000000074506,
+          "requests": 7,
+          "transfer": 215842,
+          "jsDecoded": 667388,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 135
+            },
+            {
+              "name": "firebase-B4F3Wnpz.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 42
+            },
+            {
+              "name": "app-CCcOIGFc.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 20
+            },
+            {
+              "name": "index-C52KpewG.js",
+              "type": "script",
+              "size": 46501,
+              "ms": 16
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 11
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 2.399999998509884,
+          "fcp": 248,
+          "lcp": 472,
+          "ready": 239.89999999850988,
+          "domInteractive": 18,
+          "domComplete": 513.1999999992549,
+          "load": 513.1999999992549,
+          "requests": 7,
+          "transfer": 215842,
+          "jsDecoded": 667388,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 150
+            },
+            {
+              "name": "firebase-B4F3Wnpz.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 39
+            },
+            {
+              "name": "app-CCcOIGFc.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 18
+            },
+            {
+              "name": "index-C52KpewG.js",
+              "type": "script",
+              "size": 46501,
+              "ms": 14
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 10
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 5,
+          "fcp": 276,
+          "lcp": 656,
+          "ready": 266.19999999925494,
+          "domInteractive": 29.300000000745058,
+          "domComplete": 579.5,
+          "load": 579.5,
+          "requests": 7,
+          "transfer": 215842,
+          "jsDecoded": 667388,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 155
+            },
+            {
+              "name": "firebase-B4F3Wnpz.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 36
+            },
+            {
+              "name": "index-C52KpewG.js",
+              "type": "script",
+              "size": 46501,
+              "ms": 21
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 16
+            },
+            {
+              "name": "app-CCcOIGFc.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 2.300000000745058,
+          "fcp": 304,
+          "lcp": 536,
+          "ready": 293.1000000014901,
+          "domInteractive": 21.399999998509884,
+          "domComplete": 477.6000000014901,
+          "load": 477.69999999925494,
+          "requests": 7,
+          "transfer": 215842,
+          "jsDecoded": 667388,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 196
+            },
+            {
+              "name": "firebase-B4F3Wnpz.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 37
+            },
+            {
+              "name": "app-CCcOIGFc.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 18
+            },
+            {
+              "name": "index-C52KpewG.js",
+              "type": "script",
+              "size": 46501,
+              "ms": 15
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 11
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 2.699999999254942,
+          "fcp": 376,
+          "lcp": 540,
+          "ready": 366.29999999701977,
+          "domInteractive": 25.799999997019768,
+          "domComplete": 488.5999999977648,
+          "load": 488.5999999977648,
+          "requests": 7,
+          "transfer": 215842,
+          "jsDecoded": 667388,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 195
+            },
+            {
+              "name": "firebase-B4F3Wnpz.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 61
+            },
+            {
+              "name": "app-CCcOIGFc.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 28
+            },
+            {
+              "name": "index-C52KpewG.js",
+              "type": "script",
+              "size": 46501,
+              "ms": 19
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 15
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 11
+            }
+          ]
+        },
+        {
+          "ttfb": 2.399999998509884,
+          "fcp": 372,
+          "lcp": 604,
+          "ready": 357.6000000014901,
+          "domInteractive": 23.800000000745058,
+          "domComplete": 535.8000000007451,
+          "load": 535.8000000007451,
+          "requests": 7,
+          "transfer": 215842,
+          "jsDecoded": 667388,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 255
+            },
+            {
+              "name": "firebase-B4F3Wnpz.js",
+              "type": "script",
+              "size": 131320,
+              "ms": 41
+            },
+            {
+              "name": "app-CCcOIGFc.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 20
+            },
+            {
+              "name": "index-C52KpewG.js",
+              "type": "script",
+              "size": 46501,
+              "ms": 17
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 13
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        }
+      ],
+      "ready": "__homeReady"
+    },
+    "home|branch": {
+      "cold": [
+        {
+          "ttfb": 6,
+          "fcp": 560,
+          "lcp": 1004,
+          "ready": 585.7000000029802,
+          "domInteractive": 21.800000000745058,
+          "domComplete": 1405.2000000029802,
+          "load": 1405.300000000745,
+          "requests": 7,
+          "transfer": 216414,
+          "jsDecoded": 669163,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 429
+            },
+            {
+              "name": "firebase-Bd_obles.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 26
+            },
+            {
+              "name": "index-CWK_lDyo.js",
+              "type": "script",
+              "size": 47069,
+              "ms": 16
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 13
+            },
+            {
+              "name": "app-CRZBMTkM.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 12
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 5
+            }
+          ]
+        },
+        {
+          "ttfb": 2.5,
+          "fcp": 556,
+          "lcp": 964,
+          "ready": 560.8999999985099,
+          "domInteractive": 21,
+          "domComplete": 1256.8999999985099,
+          "load": 1257,
+          "requests": 7,
+          "transfer": 216414,
+          "jsDecoded": 669163,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 429
+            },
+            {
+              "name": "firebase-Bd_obles.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 27
+            },
+            {
+              "name": "index-CWK_lDyo.js",
+              "type": "script",
+              "size": 47069,
+              "ms": 18
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 15
+            },
+            {
+              "name": "app-CRZBMTkM.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 14
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        }
+      ],
+      "warm": [
+        {
+          "ttfb": 4.600000001490116,
+          "fcp": 260,
+          "lcp": 464,
+          "ready": 254.40000000223517,
+          "domInteractive": 29.5,
+          "domComplete": 521.9000000022352,
+          "load": 522,
+          "requests": 7,
+          "transfer": 216414,
+          "jsDecoded": 669163,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 145
+            },
+            {
+              "name": "firebase-Bd_obles.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 56
+            },
+            {
+              "name": "app-CRZBMTkM.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 23
+            },
+            {
+              "name": "index-CWK_lDyo.js",
+              "type": "script",
+              "size": 47069,
+              "ms": 22
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 17
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 3.300000000745058,
+          "fcp": 240,
+          "lcp": 616,
+          "ready": 230,
+          "domInteractive": 23.199999999254942,
+          "domComplete": 541.8000000007451,
+          "load": 541.8000000007451,
+          "requests": 7,
+          "transfer": 216414,
+          "jsDecoded": 669163,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 139
+            },
+            {
+              "name": "firebase-Bd_obles.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 37
+            },
+            {
+              "name": "app-CRZBMTkM.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 20
+            },
+            {
+              "name": "index-CWK_lDyo.js",
+              "type": "script",
+              "size": 47069,
+              "ms": 18
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 13
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 2,
+          "fcp": 236,
+          "lcp": 396,
+          "ready": 232.5,
+          "domInteractive": 19.5,
+          "domComplete": 390.4000000022352,
+          "load": 390.4000000022352,
+          "requests": 7,
+          "transfer": 216414,
+          "jsDecoded": 669163,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 135
+            },
+            {
+              "name": "firebase-Bd_obles.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 50
+            },
+            {
+              "name": "app-CRZBMTkM.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 28
+            },
+            {
+              "name": "index-CWK_lDyo.js",
+              "type": "script",
+              "size": 47069,
+              "ms": 15
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 12
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 1.9000000022351742,
+          "fcp": 260,
+          "lcp": 452,
+          "ready": 251.19999999925494,
+          "domInteractive": 19.099999997764826,
+          "domComplete": 393.3999999985099,
+          "load": 393.5,
+          "requests": 7,
+          "transfer": 216414,
+          "jsDecoded": 669163,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 161
+            },
+            {
+              "name": "firebase-Bd_obles.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 40
+            },
+            {
+              "name": "index-CWK_lDyo.js",
+              "type": "script",
+              "size": 47069,
+              "ms": 19
+            },
+            {
+              "name": "app-CRZBMTkM.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 18
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 16
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 1.800000000745058,
+          "fcp": 272,
+          "lcp": 496,
+          "ready": 270.4000000022352,
+          "domInteractive": 19.300000000745058,
+          "domComplete": 402.6000000014901,
+          "load": 402.6000000014901,
+          "requests": 7,
+          "transfer": 216414,
+          "jsDecoded": 669163,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 157
+            },
+            {
+              "name": "firebase-Bd_obles.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 49
+            },
+            {
+              "name": "app-CRZBMTkM.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 27
+            },
+            {
+              "name": "index-CWK_lDyo.js",
+              "type": "script",
+              "size": 47069,
+              "ms": 13
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 10
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 6
+            }
+          ]
+        },
+        {
+          "ttfb": 2.5,
+          "fcp": 248,
+          "lcp": 448,
+          "ready": 234.39999999850988,
+          "domInteractive": 18.5,
+          "domComplete": 442.30000000074506,
+          "load": 442.30000000074506,
+          "requests": 7,
+          "transfer": 216414,
+          "jsDecoded": 669163,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 149
+            },
+            {
+              "name": "firebase-Bd_obles.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 34
+            },
+            {
+              "name": "app-CRZBMTkM.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 22
+            },
+            {
+              "name": "index-CWK_lDyo.js",
+              "type": "script",
+              "size": 47069,
+              "ms": 14
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 10
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 2
+            }
+          ]
+        },
+        {
+          "ttfb": 2.699999999254942,
+          "fcp": 236,
+          "lcp": 548,
+          "ready": 226,
+          "domInteractive": 22.600000001490116,
+          "domComplete": 641.3999999985099,
+          "load": 641.3999999985099,
+          "requests": 7,
+          "transfer": 216414,
+          "jsDecoded": 669163,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 137
+            },
+            {
+              "name": "firebase-Bd_obles.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 38
+            },
+            {
+              "name": "app-CRZBMTkM.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 19
+            },
+            {
+              "name": "index-CWK_lDyo.js",
+              "type": "script",
+              "size": 47069,
+              "ms": 16
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 12
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 2.899999998509884,
+          "fcp": 264,
+          "lcp": 448,
+          "ready": 252.40000000223517,
+          "domInteractive": 21.199999999254942,
+          "domComplete": 453.6000000014901,
+          "load": 453.6000000014901,
+          "requests": 7,
+          "transfer": 216414,
+          "jsDecoded": 669163,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 152
+            },
+            {
+              "name": "firebase-Bd_obles.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 43
+            },
+            {
+              "name": "app-CRZBMTkM.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 22
+            },
+            {
+              "name": "index-CWK_lDyo.js",
+              "type": "script",
+              "size": 47069,
+              "ms": 17
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 13
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 4
+            }
+          ]
+        },
+        {
+          "ttfb": 2.300000000745058,
+          "fcp": 300,
+          "lcp": 508,
+          "ready": 291.30000000074506,
+          "domInteractive": 21.600000001490116,
+          "domComplete": 449.30000000074506,
+          "load": 449.4000000022352,
+          "requests": 7,
+          "transfer": 216414,
+          "jsDecoded": 669163,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 194
+            },
+            {
+              "name": "firebase-Bd_obles.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 42
+            },
+            {
+              "name": "app-CRZBMTkM.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 20
+            },
+            {
+              "name": "index-CWK_lDyo.js",
+              "type": "script",
+              "size": 47069,
+              "ms": 15
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 12
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        },
+        {
+          "ttfb": 2,
+          "fcp": 240,
+          "lcp": 428,
+          "ready": 233.19999999925494,
+          "domInteractive": 23.5,
+          "domComplete": 387,
+          "load": 387,
+          "requests": 7,
+          "transfer": 216414,
+          "jsDecoded": 669163,
+          "cssDecoded": 16364,
+          "slowest": [
+            {
+              "name": "css2",
+              "type": "link",
+              "size": 1150,
+              "ms": 138
+            },
+            {
+              "name": "firebase-Bd_obles.js",
+              "type": "script",
+              "size": 131321,
+              "ms": 36
+            },
+            {
+              "name": "index-CWK_lDyo.js",
+              "type": "script",
+              "size": 47069,
+              "ms": 16
+            },
+            {
+              "name": "app-CRZBMTkM.js",
+              "type": "script",
+              "size": 31264,
+              "ms": 16
+            },
+            {
+              "name": "index-ihDkF0Uj.css",
+              "type": "link",
+              "size": 4616,
+              "ms": 13
+            },
+            {
+              "name": "accounts:signUp",
+              "type": "fetch",
+              "size": 0,
+              "ms": 3
+            }
+          ]
+        }
+      ],
+      "ready": "__homeReady"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+ "neon-dark": {
+  "ttfb": {
+   "main": 2,
+   "branch": 2
+  },
+  "fcp": {
+   "main": 392,
+   "branch": 352
+  },
+  "lcp": {
+   "main": 1260,
+   "branch": 1192
+  },
+  "ready": {
+   "main": 743,
+   "branch": 692
+  },
+  "domInteractive": {
+   "main": 104,
+   "branch": 87
+  },
+  "domComplete": {
+   "main": 471,
+   "branch": 415
+  },
+  "load": {
+   "main": 471,
+   "branch": 415
+  },
+  "requests": {
+   "main": 7,
+   "branch": 7
+  },
+  "transfer": {
+   "main": 813718,
+   "branch": 814535
+  },
+  "js": {
+   "main": 688291,
+   "branch": 688302
+  },
+  "css": {
+   "main": 123527,
+   "branch": 124333
+  }
+ },
+ "neon-light": {
+  "ttfb": {
+   "main": 2,
+   "branch": 2
+  },
+  "fcp": {
+   "main": 356,
+   "branch": 440
+  },
+  "lcp": {
+   "main": 1196,
+   "branch": 1280
+  },
+  "ready": {
+   "main": 701,
+   "branch": 814
+  },
+  "domInteractive": {
+   "main": 86,
+   "branch": 91
+  },
+  "domComplete": {
+   "main": 402,
+   "branch": 505
+  },
+  "load": {
+   "main": 402,
+   "branch": 505
+  },
+  "requests": {
+   "main": 7,
+   "branch": 7
+  },
+  "transfer": {
+   "main": 813718,
+   "branch": 814535
+  },
+  "js": {
+   "main": 688291,
+   "branch": 688302
+  },
+  "css": {
+   "main": 123527,
+   "branch": 124333
+  }
+ }
+}

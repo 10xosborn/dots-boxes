@@ -1,0 +1,21 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-19T18:38:35.596Z","deadlineAt":"2026-10-19T18:53:35.596Z","budgetMs":900000,"observedAt":"2026-10-19T18:42:19.277Z","remainingMs":676319,"expired":false}
+serving branch on :4176 and main on :4177
+table-light home     0 pixels differ 
+table-light setup    0 pixels differ 
+table-light game     0 pixels differ 
+table-light results  222 pixels differ 366,908-382,928 (2x px)
+table-light settings 0 pixels differ 
+paper-light home     0 pixels differ 
+paper-light setup    0 pixels differ 
+paper-light game     0 pixels differ 
+paper-light results  0 pixels differ 
+paper-light settings 0 pixels differ 
+neon-light home     0 pixels differ 
+neon-light setup    0 pixels differ 
+neon-light game     0 pixels differ 
+neon-light results  305 pixels differ 368,895-388,916 (2x px)
+neon-light settings 0 pixels differ 
+servers stopped; child exit 0
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-19T18:42:58.353Z","deadlineAt":"2026-10-19T18:53:35.596Z","timedOut":false,"exitCode":0}

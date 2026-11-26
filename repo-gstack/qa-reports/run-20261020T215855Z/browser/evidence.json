@@ -1,0 +1,36 @@
+{
+  "revision": "c421b054e4ab7345dc20a71271b9fd037c5de544",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "checkpoint 002: the first dialogs probe compared dialogs with the board's glass shown and hidden; Dark Neon's frosted panels and rounded corners let the board show through by design, so it was replaced by a solid-colour stacking test (checkpoint 003)",
+    "checkpoint 003: one sanity bound in the stacking test (30% of White Neon's theme sheet green) was too strict for its opaque option cards; the contract (no magenta) held everywhere",
+    "checkpoint 004: the first switch probe read a background string cut to 60 characters before the texture url; fixed and rerun (checkpoint 005)",
+    "Performance not scored here: /benchmark measures it next",
+    "Headless Chromium only (the owner's Brave and real phones not used in this pass)"
+  ],
+  "evidence": [],
+  "learning": [
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RDA/browser/deadline.json\" -- node serve-one.mjs dist-glass-A -- node -e '<baseline: phone 390x844, Dark Neon, Firebase blocked, goto http://127.0.0.1:4173/, wait for Play, screenshot initial.jpg, print URL, console errors and page text>' \"$RDA\"",
+      "hypothesis": "The glass build loads cleanly. The board is now its own stacking context with a rim and edge highlights raised over its content; the results dialog and the theme sheet are the two things drawn over the board, so a pixel comparison of each dialog with the board's glass layers shown and hidden should prove nothing of the board paints over them.",
+      "nextCommand": "CASE=dialogs bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RDA/browser/deadline.json\" -- node serve-one.mjs dist-glass-A -- node glass-explore.mjs"
+    },
+    {
+      "observationCommand": "CASE=dialogs bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RDA/browser/deadline.json\" -- node serve-one.mjs dist-glass-A -- node glass-explore.mjs",
+      "hypothesis": "The probe's premise was wrong, not the product: Dark Neon's panels are frosted glass (translucent with a backdrop blur, by design), so hiding the board's rim changes what shows through them, and the results panel's rounded corners leave page pixels inside its box by day (33 pixels). The stacking question is tested directly instead: dialogs painted solid green, the board's glass layers solid magenta and thick, and the dialog sampled inside its corners; any magenta there would mean the board paints over the dialog.",
+      "nextCommand": "CASE=dialogs bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RDA/browser/deadline.json\" -- node serve-one.mjs dist-glass-A -- node glass-explore.mjs   (dialogs case now uses magentaOver)"
+    },
+    {
+      "observationCommand": "CASE=switch bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RDA/browser/deadline.json\" -- node serve-one.mjs dist-glass-A -- node glass-explore.mjs",
+      "hypothesis": "Tabletop's values are all its own (felt #6A3A1C, its frame's warm gradient, no ::after, no isolation, game kept); the probe looked for the wood texture url in a string it had cut to 60 characters, before the url. The check now reads the full background for the url; rerun the same case.",
+      "nextCommand": "CASE=switch bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$RDA/browser/deadline.json\" -- node serve-one.mjs dist-glass-A -- node glass-explore.mjs   (url read from the full background)"
+    }
+  ],
+  "verdict": {
+    "status": "inconclusive",
+    "open": [
+      "no evidence rows"
+    ]
+  }
+}

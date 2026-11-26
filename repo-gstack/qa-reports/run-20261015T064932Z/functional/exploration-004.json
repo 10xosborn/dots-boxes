@@ -1,0 +1,24 @@
+{
+  "observationCapture": "003",
+  "observationArgv": [
+    "node",
+    "scripts/opening-book.mjs",
+    "--check",
+    "100"
+  ],
+  "observed": "",
+  "hypothesis": "F2 passes: the book matches the full solve, Hard plays only optimal moves up to 4 lines, and Hard vs Hard ends 3-6 in all 100 games with every move optimal (no 3x3 regression). Last, the documented benchmark command must run end to end and play only legal moves (it throws on an illegal one): a short run on 3x3 and 4x4 at phone speed.",
+  "nextCapture": "004",
+  "nextArgv": [
+    "node",
+    "scripts/ai-bench.mjs",
+    "--sizes",
+    "3,4",
+    "--games",
+    "10",
+    "--slow",
+    "4",
+    "--pairs",
+    "hard:medium,medium:easy"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" D",
+  "observed": "/c/Users/osbor/AppData/Roaming/npm/bun: line 12: C:\\Users\\osbor\\AppData\\Roaming\\npm/node_modules/bun/bin/bun.exe: Device or resource busy\n",
+  "hypothesis": "Probes C (after checkpoint 004) and D (after checkpoint 005) did not run: the deadline tool could not start because bun.exe was locked by another process for about 30 s, most likely an antivirus scan of the freshly installed binary. Checkpoint 005 was published in error before probe C's output was read; its claim that C3 passes is void. bun runs again, so re-dispatch probe C (C3) first, then D.",
+  "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261010T233445Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261010T233445Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" C"
+}

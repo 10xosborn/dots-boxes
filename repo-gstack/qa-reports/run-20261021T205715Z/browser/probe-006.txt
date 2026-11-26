@@ -1,0 +1,10 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-21T20:58:42.716Z","deadlineAt":"2026-10-21T21:13:42.716Z","budgetMs":900000,"observedAt":"2026-10-21T21:05:28.490Z","remainingMs":494226,"expired":false}
+PASS  a line runs under one of the dialog buttons on the phone  line 9 at 63,577 under "Leave"
+PASS  the final tap draws the last line and does not start a rematch  game 1, 24 moves in the room
+PASS  the guest stays on the finished board with the results dialog (did not leave)  board 1, dialog 1, 24 lines on screen
+PASS  a tap on Rematch after that starts the next game  game 2
+PASS  the guest got to draw the last line within 8 games
+PASS  no page errors
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-21T21:07:01.596Z","deadlineAt":"2026-10-21T21:13:42.716Z","timedOut":false,"exitCode":0}

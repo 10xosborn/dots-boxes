@@ -1,0 +1,5 @@
+
+PASS  resume-one: after a reload the game reopens with its one line painted  1 line(s), line vs empty lane 264
+PASS  resume-one: no page errors
+2/2 checks passed
+

@@ -1,0 +1,85 @@
+{
+  "revision": "634f5191ee04e665b09e4c6a8d86b07d530e9d67",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "checkpoint 001: probe 1's command ended in `| tail -30`, so its observation is the last 30 lines of 96 checks (all passing, as its summary line shows)",
+    "checkpoints 001-013 cover the 14 guarded probes; probe 14 (confetti) closed the 900 s budget and needed no checkpoint after it",
+    "after the budget, required rechecks ran with fixed timeouts: confetti-none, the resume suites on #26's build (twice), hud/edge, the results-fit matrix, the online suite on the emulators",
+    "Chromium 151 headless only: no Safari, Firefox, real phones or a real screen reader (the accessibility tree is read through Playwright's ARIA snapshot)"
+  ],
+  "evidence": [],
+  "learning": [
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh confirm 2>&1 | tail -30",
+      "hypothesis": "C1 holds in all six modes (96 checks, 0 failed; one of the six game-end races closed before the question opened). The resume suites drive Quit, Discard and leaving through the themed confirm inside real flows (reloads, restarts, Home's Continue), where its asynchronous answer could break a flow that the old blocking confirm() kept in order: run qa-r1a (its step-5 copy answers the themed dialog yes, as the old suite accepted confirm()).",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh r1a 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-002.txt"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh r1a 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-002.txt",
+      "hypothesis": "30/31: B6 read the saved game on the line right after clicking Discard (qa-r1a.mjs:145-147). The browser's confirm() blocked, so the old suite saw the result at once; the themed confirm answers asynchronously (the suite copy clicks its action 30 ms after it opens), so the state may simply not have changed yet. Before touching the test, replay the exact command from the same fixture to see whether B6 fails every time.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh r1a 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-003.txt"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh r1a 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-003.txt",
+      "hypothesis": "B6 fails on the exact replay too, so it is deterministic; A2 and A4 are the known flakes that race the AI's reply after a reload (they failed on #25's and #26's builds as well) and passed on the first run. The suite reads the saved game on the line after the click, which only worked while confirm() blocked. Narrow test correction in the step-5 copy: wait (up to 3 s) for the Continue card to go before reading. If B6 then passes, the product is right and the old line was a timing assumption.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh r1a 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-004.txt"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh r1a 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-004.txt",
+      "hypothesis": "B6 passes once the suite waits for the themed confirm's answer: Discard does remove the saved game, the old line only worked because confirm() blocked. A2 and A4 failed in 2 of 3 runs, the known race with the AI's reply after a reload; they are compared against #26's build after the probe budget. Next, the integrity suite, whose games also pass through Quit, Discard and leaving (its step-5 copy answers the themed dialog yes).",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh integ 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-005.txt"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh integ 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-005.txt",
+      "hypothesis": "33/35: every game that passes through Quit, Discard or leaving behaves; the two misses are I5b, the third known race with the AI's reply after a reload (with A2 and A4, compared against #26 after the budget). The results moved into a top-layer modal: online, the tap that ends a game must still never press Rematch or Leave as they open under the finger (the pressed guard), on the emulators with a desktop host and a phone guest.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-online5.sh ghost 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-006.txt"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-online5.sh ghost 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-006.txt",
+      "hypothesis": "C4's riskiest case holds: the guest's last tap lands where Leave opens and presses nothing; Rematch works after it; no errors. Next, C2 across all six modes: the results as a named modal with Play again focused, Esc twice ignored, Tab and Shift+Tab kept inside, the level bar a labelled progressbar, each button working, and Paper's card re-placed on rotation.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh a11y 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-007.txt"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh a11y 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-007.txt",
+      "hypothesis": "C2 holds in all six modes (70 checks). The game's own top bar now asks through the themed dialog: rerun step 4's top-bar suite with its brand test moved onto it (Keep playing stays, Leave goes Home, no browser dialog), with the rest of that suite (one bar, inert chip, theme sheet re-lays the game, the floating notice) as regression cover.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh topbar 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-008.txt"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh topbar 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-008.txt",
+      "hypothesis": "14/14: the logo asks through the themed dialog on a phone and a desktop, Keep playing stays, Leave goes Home, no browser dialog; the rest of the top-bar contract unchanged. Next, C6's pass-and-play flow: a capture, a chain and a pass with the board never moving (the results dialog now sits in the top layer and the game screen draws the same HUD).",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh flow 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-009.txt"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh flow 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-009.txt",
+      "hypothesis": "52/52: the board never moves through captures, chains and passes. Next, theme switching (colours after a switch and after a reload), since app.css gained Paper's two tokens and the dialogs' theme rules, and the theme sheet gained the Tab wrap.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh theme 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-010.txt"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh theme 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-010.txt",
+      "hypothesis": "19/19: every mode's colours hold after a switch and a reload. With the time left, the drag suite (pick, snap, drop, cancel, sounds) as the last regression cover inside the budget; the edge, results-fit and confetti probes run after it with fixed timeouts.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh drag 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-011.txt"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh drag 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-011.txt",
+      "hypothesis": "88/88: dragging, snapping, dropping and cancelling unchanged. Two quick probes fit the remaining budget: Tab and Shift+Tab staying inside the theme sheet (whose unchosen options carry tabindex -1) and the confirm.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh tabwrap 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-012.txt"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh tabwrap 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-012.txt",
+      "hypothesis": "Focus cycles inside the theme sheet (its radio group one stop) and the confirm, both directions. Last in the budget: a click on the confirm card's own padding must not count as a click outside (the bug found while building).",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh pad 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-013.txt"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh pad 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-013.txt",
+      "hypothesis": "A click on the confirm card's padding or between its parts leaves it open. With about 95 s left, C5: the confetti canvas against #26's build at 1x and 2x (its box, its parent, the burst's centre).",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run .gstack/qa-reports/run-20261021T205715Z/browser/deadline.json -- bash C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/step5/qa-run5.sh confetti 2>&1 | tee .gstack/qa-reports/run-20261021T205715Z/browser/probe-014.txt"
+    }
+  ],
+  "verdict": {
+    "status": "inconclusive",
+    "open": [
+      "no evidence rows"
+    ]
+  }
+}

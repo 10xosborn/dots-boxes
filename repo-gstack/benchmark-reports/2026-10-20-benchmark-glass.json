@@ -1,0 +1,708 @@
+{
+ "date": "2026-10-20",
+ "branch": "design/08-liquid-glass",
+ "commit": "c421b05",
+ "base": "fix/owner-2026-10-20 da25977",
+ "sizes": {
+  "changed": [
+   {
+    "asset": "assets/index.css",
+    "main": "assets/index-Dtz5cJPK.css",
+    "branch": "assets/index-B5ncqMCn.css",
+    "mainRaw": 46887,
+    "branchRaw": 47693,
+    "mainGz": 10414,
+    "branchGz": 10619
+   },
+   {
+    "asset": "assets/index.js",
+    "main": "assets/index-C0nS8jDf.js",
+    "branch": "assets/index-BQZYjlcC.js",
+    "mainRaw": 135099,
+    "branchRaw": 135110,
+    "mainGz": 47652,
+    "branchGz": 47663
+   }
+  ],
+  "totals": {
+   "js": {
+    "mainRaw": 872917,
+    "branchRaw": 872928,
+    "mainGz": 273671,
+    "branchGz": 273682
+   },
+   "css": {
+    "mainRaw": 46887,
+    "branchRaw": 47693,
+    "mainGz": 10414,
+    "branchGz": 10619
+   },
+   "all": {
+    "mainRaw": 1437290,
+    "branchRaw": 1438107,
+    "mainGz": 284985,
+    "branchGz": 285201
+   }
+  }
+ },
+ "gpuIdle": {
+  "home neon-dark anim on": {
+   "main": {
+    "browser": 0.1,
+    "renderer": 8.6,
+    "GPU": 9.6,
+    "network.mojom.NetworkService": 0
+   },
+   "branch": {
+    "browser": 0.1,
+    "renderer": 8,
+    "GPU": 8.8,
+    "network.mojom.NetworkService": 0
+   }
+  },
+  "game neon-dark anim on": {
+   "main": {
+    "browser": 0.1,
+    "renderer": 2.1,
+    "GPU": 4.9,
+    "network.mojom.NetworkService": 0
+   },
+   "branch": {
+    "browser": 0.2,
+    "renderer": 2.1,
+    "GPU": 4.6,
+    "network.mojom.NetworkService": 0
+   }
+  },
+  "home neon-light anim on": {
+   "main": {
+    "browser": 0.2,
+    "renderer": 8.5,
+    "GPU": 8.7,
+    "network.mojom.NetworkService": 0
+   },
+   "branch": {
+    "browser": 0.2,
+    "renderer": 8.5,
+    "GPU": 8.8,
+    "network.mojom.NetworkService": 0
+   }
+  },
+  "game neon-light anim on": {
+   "main": {
+    "browser": 0.2,
+    "renderer": 2,
+    "GPU": 4,
+    "network.mojom.NetworkService": 0
+   },
+   "branch": {
+    "browser": 0.1,
+    "renderer": 2,
+    "GPU": 3.8,
+    "network.mojom.NetworkService": 0
+   }
+  },
+  "home neon-dark anim off": {
+   "main": {
+    "browser": 0.2,
+    "renderer": 0.1,
+    "GPU": 0,
+    "network.mojom.NetworkService": 0
+   },
+   "branch": {
+    "browser": 0.2,
+    "renderer": 0.1,
+    "GPU": 0,
+    "network.mojom.NetworkService": 0
+   }
+  },
+  "game neon-dark anim off": {
+   "main": {
+    "browser": 0.2,
+    "renderer": 0.7,
+    "GPU": 0.2,
+    "network.mojom.NetworkService": 0
+   },
+   "branch": {
+    "browser": 0.2,
+    "renderer": 0.6,
+    "GPU": 0.1,
+    "network.mojom.NetworkService": 0
+   }
+  },
+  "home table-dark anim on": {
+   "main": {
+    "browser": 0.2,
+    "renderer": 10.2,
+    "GPU": 1.5,
+    "network.mojom.NetworkService": 0
+   },
+   "branch": {
+    "browser": 0.2,
+    "renderer": 10.2,
+    "GPU": 1.5,
+    "network.mojom.NetworkService": 0
+   }
+  },
+  "game table-dark anim on": {
+   "main": {
+    "browser": 0.2,
+    "renderer": 0.6,
+    "GPU": 0.2,
+    "network.mojom.NetworkService": 0
+   },
+   "branch": {
+    "browser": 0.2,
+    "renderer": 0.6,
+    "GPU": 0.1,
+    "network.mojom.NetworkService": 0
+   }
+  }
+ },
+ "filter": {
+  "phone4": [
+   {
+    "label": "4x4 phone, CPU 4x",
+    "mode": "table-dark",
+    "main": {
+     "paintMed": 32.70000000298023,
+     "paintP90": 51.5,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.09940357852882703,
+     "cpuPerTap": 843.1736666666666,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.80000000447035,
+     "paintP90": 43.100000001490116,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.0992063492063492,
+     "cpuPerTap": 818.3065833333332,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0.4000000059604645,
+    "pairCpu": -11.252333333333354,
+    "slowerRounds": 2
+   },
+   {
+    "label": "4x4 phone, CPU 4x",
+    "mode": "table-light",
+    "main": {
+     "paintMed": 32.600000001490116,
+     "paintP90": 35.29999999701977,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.0992063492063492,
+     "cpuPerTap": 747.3405833333333,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.600000001490116,
+     "paintP90": 48.5,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.0992063492063492,
+     "cpuPerTap": 770.3934166666667,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0,
+    "pairCpu": 11.76075000000003,
+    "slowerRounds": 1
+   },
+   {
+    "label": "4x4 phone, CPU 4x",
+    "mode": "paper-dark",
+    "main": {
+     "paintMed": 32.599999994039536,
+     "paintP90": 34.900000005960464,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0,
+     "cpuPerTap": 735.75525,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.899999998509884,
+     "paintP90": 49.899999998509884,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.5055611729019212,
+     "cpuPerTap": 733.8589999999999,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0.9000000059604645,
+    "pairCpu": -1.8962500000001228,
+    "slowerRounds": 2
+   },
+   {
+    "label": "4x4 phone, CPU 4x",
+    "mode": "paper-light",
+    "main": {
+     "paintMed": 34.70000000298023,
+     "paintP90": 54.100000001490116,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.4024144869215292,
+     "cpuPerTap": 619.7230000000001,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 36.29999999701977,
+     "paintP90": 52.29999999701977,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.0992063492063492,
+     "cpuPerTap": 619.9098333333333,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 2,
+    "pairCpu": -2.501583333333315,
+    "slowerRounds": 2
+   },
+   {
+    "label": "4x4 phone, CPU 4x",
+    "mode": "neon-dark",
+    "main": {
+     "paintMed": 48.899999998509884,
+     "paintP90": 56.5,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.1984126984126984,
+     "cpuPerTap": 679.8335,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 48.19999999552965,
+     "paintP90": 62.899999998509884,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0,
+     "cpuPerTap": 662.3789166666667,
+     "gpuPerTap": 0
+    },
+    "pairPaint": -0.8999999910593033,
+    "pairCpu": -17.45458333333329,
+    "slowerRounds": 1
+   },
+   {
+    "label": "4x4 phone, CPU 4x",
+    "mode": "neon-light",
+    "main": {
+     "paintMed": 33.5,
+     "paintP90": 49.29999999701977,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.499001996007984,
+     "cpuPerTap": 641.3656666666666,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 36.100000001490116,
+     "paintP90": 50.30000000447035,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.09930486593843098,
+     "cpuPerTap": 653.167,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 1.2000000029802322,
+    "pairCpu": 17.51225000000011,
+    "slowerRounds": 3
+   }
+  ],
+  "desktop12": [
+   {
+    "label": "12x12 desktop",
+    "mode": "table-dark",
+    "main": {
+     "paintMed": 32.600000001490116,
+     "paintP90": 33.600000001490116,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0,
+     "cpuPerTap": 348.1148333333333,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.69999999552965,
+     "paintP90": 34.5,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.8008008008008007,
+     "cpuPerTap": 366.12225000000007,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0,
+    "pairCpu": 21.41441666666674,
+    "slowerRounds": 1
+   },
+   {
+    "label": "12x12 desktop",
+    "mode": "table-light",
+    "main": {
+     "paintMed": 32.30000000447035,
+     "paintP90": 33.29999999701977,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0,
+     "cpuPerTap": 246.12974999999997,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.69999999552965,
+     "paintP90": 33.5,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.09930486593843098,
+     "cpuPerTap": 248.42958333333334,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0.6999999955296516,
+    "pairCpu": 2.2998333333333676,
+    "slowerRounds": 2
+   },
+   {
+    "label": "12x12 desktop",
+    "mode": "paper-dark",
+    "main": {
+     "paintMed": 32.79999999701977,
+     "paintP90": 38.69999999552965,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.4,
+     "cpuPerTap": 320.29541666666665,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.900000005960464,
+     "paintP90": 33.899999998509884,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.8048289738430584,
+     "cpuPerTap": 305.4665,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0.20000000298023224,
+    "pairCpu": -14.828916666666657,
+    "slowerRounds": 2
+   },
+   {
+    "label": "12x12 desktop",
+    "mode": "paper-light",
+    "main": {
+     "paintMed": 32.29999999701977,
+     "paintP90": 33.30000000447035,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0,
+     "cpuPerTap": 282.2491666666666,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.79999999701977,
+     "paintP90": 33.599999994039536,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0,
+     "cpuPerTap": 258.37724999999995,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0.3999999985098839,
+    "pairCpu": -12.144916666666631,
+    "slowerRounds": 3
+   },
+   {
+    "label": "12x12 desktop",
+    "mode": "neon-dark",
+    "main": {
+     "paintMed": 53.900000005960464,
+     "paintP90": 84.19999999552965,
+     "growMed": 16.699999999999818,
+     "growP90": 33.30000000000018,
+     "janky": 17.08185053380783,
+     "cpuPerTap": 148.113,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 63.100000001490116,
+     "paintP90": 99.79999999701977,
+     "growMed": 16.699999999999818,
+     "growP90": 33.30000000000018,
+     "janky": 18.115055079559365,
+     "cpuPerTap": 142.76649999999998,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 6.799999997019768,
+    "pairCpu": -5.34650000000002,
+    "slowerRounds": 2
+   },
+   {
+    "label": "12x12 desktop",
+    "mode": "neon-light",
+    "main": {
+     "paintMed": 62.69999999552965,
+     "paintP90": 107.10000000149012,
+     "growMed": 33.30000000000018,
+     "growP90": 50,
+     "janky": 61.0337972166998,
+     "cpuPerTap": 212.43516666666665,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 62.5,
+     "paintP90": 92.89999999850988,
+     "growMed": 33.30000000000018,
+     "growP90": 50,
+     "janky": 59.168241965973536,
+     "cpuPerTap": 286.60658333333333,
+     "gpuPerTap": 0
+    },
+    "pairPaint": -3.399999998509884,
+    "pairCpu": 74.17141666666669,
+    "slowerRounds": 1
+   }
+  ],
+  "desktop12neon6": [
+   {
+    "label": "12x12 desktop",
+    "mode": "neon-dark",
+    "main": {
+     "paintMed": 68.20000000298023,
+     "paintP90": 99.09999999403954,
+     "growMed": 16.699999999999818,
+     "growP90": 33.400000000000546,
+     "janky": 22.818791946308725,
+     "cpuPerTap": 152.76808333333332,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 69.39999999850988,
+     "paintP90": 99.5,
+     "growMed": 16.699999999999818,
+     "growP90": 33.400000000000546,
+     "janky": 21.662303664921467,
+     "cpuPerTap": 147.78275,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 13.00000000745058,
+    "pairCpu": -7.912250000000029,
+    "slowerRounds": 5
+   },
+   {
+    "label": "12x12 desktop",
+    "mode": "neon-light",
+    "main": {
+     "paintMed": 58,
+     "paintP90": 87,
+     "growMed": 33.29999999999973,
+     "growP90": 50,
+     "janky": 57.960644007155636,
+     "cpuPerTap": 229.81325,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 50.100000001490116,
+     "paintP90": 83.90000000596046,
+     "growMed": 33.30000000000018,
+     "growP90": 50,
+     "janky": 62.32427366447985,
+     "cpuPerTap": 297.80275,
+     "gpuPerTap": 0
+    },
+    "pairPaint": -9.49999999254942,
+    "pairCpu": 72.40408333333329,
+    "slowerRounds": 0
+   }
+  ]
+ },
+ "home": {
+  "first": {
+   "neon-dark": {
+    "ttfb": {
+     "main": 2,
+     "branch": 2
+    },
+    "fcp": {
+     "main": 392,
+     "branch": 352
+    },
+    "lcp": {
+     "main": 1260,
+     "branch": 1192
+    },
+    "ready": {
+     "main": 743,
+     "branch": 692
+    },
+    "domInteractive": {
+     "main": 104,
+     "branch": 87
+    },
+    "domComplete": {
+     "main": 471,
+     "branch": 415
+    },
+    "load": {
+     "main": 471,
+     "branch": 415
+    },
+    "requests": {
+     "main": 7,
+     "branch": 7
+    },
+    "transfer": {
+     "main": 813718,
+     "branch": 814535
+    },
+    "js": {
+     "main": 688291,
+     "branch": 688302
+    },
+    "css": {
+     "main": 123527,
+     "branch": 124333
+    }
+   },
+   "neon-light": {
+    "ttfb": {
+     "main": 2,
+     "branch": 2
+    },
+    "fcp": {
+     "main": 356,
+     "branch": 440
+    },
+    "lcp": {
+     "main": 1196,
+     "branch": 1280
+    },
+    "ready": {
+     "main": 701,
+     "branch": 814
+    },
+    "domInteractive": {
+     "main": 86,
+     "branch": 91
+    },
+    "domComplete": {
+     "main": 402,
+     "branch": 505
+    },
+    "load": {
+     "main": 402,
+     "branch": 505
+    },
+    "requests": {
+     "main": 7,
+     "branch": 7
+    },
+    "transfer": {
+     "main": 813718,
+     "branch": 814535
+    },
+    "js": {
+     "main": 688291,
+     "branch": 688302
+    },
+    "css": {
+     "main": 123527,
+     "branch": 124333
+    }
+   }
+  },
+  "rerun": {
+   "neon-light": {
+    "ttfb": {
+     "main": 2,
+     "branch": 2
+    },
+    "fcp": {
+     "main": 324,
+     "branch": 348
+    },
+    "lcp": {
+     "main": 1152,
+     "branch": 1156
+    },
+    "ready": {
+     "main": 653,
+     "branch": 681
+    },
+    "domInteractive": {
+     "main": 80,
+     "branch": 92
+    },
+    "domComplete": {
+     "main": 379,
+     "branch": 385
+    },
+    "load": {
+     "main": 379,
+     "branch": 385
+    },
+    "requests": {
+     "main": 7,
+     "branch": 7
+    },
+    "transfer": {
+     "main": 813718,
+     "branch": 814535
+    },
+    "js": {
+     "main": 688291,
+     "branch": 688302
+    },
+    "css": {
+     "main": 123527,
+     "branch": 124333
+    }
+   }
+  }
+ },
+ "reload": [
+  "neon-dark   ready main 1034 branch 925 ms, paired diff median -118 ms (branch slower in 2/8) | LCP main 1236 branch 1160 ms, paired diff median -120 ms",
+  "neon-light  ready main 773 branch 762 ms, paired diff median -5 ms (branch slower in 2/8) | LCP main 904 branch 908 ms, paired diff median -20 ms",
+  "table-light ready main 681 branch 680 ms, paired diff median -17 ms (branch slower in 3/8) | LCP main 1152 branch 1124 ms, paired diff median -28 ms"
+ ],
+ "dragGpu": [
+  "== dist-marks-on-22",
+  "neon-dark now: idle 5 s gpu 244 ms, renderer 108 ms | held drag 3 s gpu 296 ms, renderer 441 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "neon-light now: idle 5 s gpu 209 ms, renderer 105 ms | held drag 3 s gpu 322 ms, renderer 391 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "== dist-glass-A",
+  "neon-dark now: idle 5 s gpu 253 ms, renderer 110 ms | held drag 3 s gpu 362 ms, renderer 461 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "neon-light now: idle 5 s gpu 263 ms, renderer 117 ms | held drag 3 s gpu 417 ms, renderer 580 ms, frames median 16.7 ms, >20 ms 1.7%",
+  "== dist-marks-on-22",
+  "neon-dark now: idle 5 s gpu 297 ms, renderer 114 ms | held drag 3 s gpu 385 ms, renderer 493 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "neon-light now: idle 5 s gpu 248 ms, renderer 115 ms | held drag 3 s gpu 357 ms, renderer 424 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "== dist-glass-A",
+  "neon-dark now: idle 5 s gpu 292 ms, renderer 120 ms | held drag 3 s gpu 389 ms, renderer 496 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "neon-light now: idle 5 s gpu 237 ms, renderer 111 ms | held drag 3 s gpu 335 ms, renderer 460 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "== dist-glass-A",
+  "neon-dark now: idle 5 s gpu 247 ms, renderer 105 ms | held drag 3 s gpu 320 ms, renderer 421 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "neon-light now: idle 5 s gpu 206 ms, renderer 99 ms | held drag 3 s gpu 279 ms, renderer 394 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "== dist-marks-on-22",
+  "neon-dark now: idle 5 s gpu 328 ms, renderer 121 ms | held drag 3 s gpu 381 ms, renderer 565 ms, frames median 16.7 ms, >20 ms 1.7%",
+  "neon-light now: idle 5 s gpu 253 ms, renderer 113 ms | held drag 3 s gpu 321 ms, renderer 386 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "== dist-glass-A",
+  "neon-dark now: idle 5 s gpu 283 ms, renderer 113 ms | held drag 3 s gpu 341 ms, renderer 456 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "neon-light now: idle 5 s gpu 219 ms, renderer 110 ms | held drag 3 s gpu 289 ms, renderer 400 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "== dist-marks-on-22",
+  "neon-dark now: idle 5 s gpu 292 ms, renderer 117 ms | held drag 3 s gpu 339 ms, renderer 468 ms, frames median 16.7 ms, >20 ms 0.6%",
+  "neon-light now: idle 5 s gpu 247 ms, renderer 116 ms | held drag 3 s gpu 324 ms, renderer 388 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "== dist-marks-on-22",
+  "neon-dark now: idle 5 s gpu 252 ms, renderer 105 ms | held drag 3 s gpu 296 ms, renderer 417 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "neon-light now: idle 5 s gpu 190 ms, renderer 101 ms | held drag 3 s gpu 283 ms, renderer 354 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "== dist-glass-A",
+  "neon-dark now: idle 5 s gpu 374 ms, renderer 122 ms | held drag 3 s gpu 334 ms, renderer 459 ms, frames median 16.7 ms, >20 ms 0.6%",
+  "neon-light now: idle 5 s gpu 220 ms, renderer 110 ms | held drag 3 s gpu 289 ms, renderer 397 ms, frames median 16.7 ms, >20 ms 0.6%",
+  "== dist-marks-on-22",
+  "neon-dark now: idle 5 s gpu 268 ms, renderer 118 ms | held drag 3 s gpu 344 ms, renderer 503 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "neon-light now: idle 5 s gpu 209 ms, renderer 109 ms | held drag 3 s gpu 317 ms, renderer 378 ms, frames median 16.7 ms, >20 ms 0.6%",
+  "== dist-glass-A",
+  "neon-dark now: idle 5 s gpu 304 ms, renderer 117 ms | held drag 3 s gpu 359 ms, renderer 485 ms, frames median 16.7 ms, >20 ms 0.0%",
+  "neon-light now: idle 5 s gpu 239 ms, renderer 114 ms | held drag 3 s gpu 354 ms, renderer 463 ms, frames median 16.7 ms, >20 ms 0.0%"
+ ],
+ "verdict": "no regressions; warning: White Neon 12x12 renderer CPU per tap +30%, held drag by day +19%, user-visible timings unchanged"
+}

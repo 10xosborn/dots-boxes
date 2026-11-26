@@ -1,0 +1,1 @@
+Design review of design/07-board-marks (2026-10-20): 1 finding (Tabletop's last-move pip read as a dot), fixed and verified; design A- → A. Full report: /c/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261020/design-audit-127.0.0.1-board-marks.md

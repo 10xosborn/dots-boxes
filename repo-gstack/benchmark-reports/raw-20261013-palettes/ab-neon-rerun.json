@@ -1,0 +1,87 @@
+{
+  "cpu": 4,
+  "cold": 6,
+  "warm": 10,
+  "A": {
+    "home neon-dark": {
+      "main": {
+        "cold": {
+          "ready": 442,
+          "fcp": 244,
+          "lcp": 564,
+          "load": 292.4,
+          "bytes": 806232,
+          "img": 0
+        },
+        "warm": {
+          "ready": 206,
+          "fcp": 92,
+          "lcp": 604,
+          "load": 93.3,
+          "bytes": 806232,
+          "img": 0
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 454.4,
+          "fcp": 244,
+          "lcp": 548,
+          "load": 238.5,
+          "bytes": 809121,
+          "img": 0
+        },
+        "warm": {
+          "ready": 235.8,
+          "fcp": 120,
+          "lcp": 328,
+          "load": 98.9,
+          "bytes": 809121,
+          "img": 0
+        }
+      }
+    }
+  },
+  "B": {
+    "game reload neon-dark": {
+      "main": {
+        "cold": {
+          "ready": 446.9,
+          "fcp": 212,
+          "lcp": 528,
+          "load": 266.2,
+          "bytes": 822133,
+          "img": 0
+        },
+        "warm": {
+          "ready": 230.1,
+          "fcp": 100,
+          "lcp": 292,
+          "load": 100.3,
+          "bytes": 822133,
+          "img": 0
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 491.5,
+          "fcp": 244,
+          "lcp": 592,
+          "load": 250.3,
+          "bytes": 825022,
+          "img": 0
+        },
+        "warm": {
+          "ready": 264.2,
+          "fcp": 132,
+          "lcp": 348,
+          "load": 110.6,
+          "bytes": 825022,
+          "img": 0
+        }
+      }
+    }
+  },
+  "C": {},
+  "D": {}
+}

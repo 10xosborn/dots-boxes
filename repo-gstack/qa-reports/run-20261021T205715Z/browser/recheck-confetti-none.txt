@@ -1,0 +1,5 @@
+PASS  win, Animations on: confetti once  canvases added 1
+PASS  win, Animations off: no confetti  canvases added 0
+PASS  loss, Animations on: no confetti  canvases added 0
+PASS  draw, Animations on: no confetti  canvases added 0
+0 failed

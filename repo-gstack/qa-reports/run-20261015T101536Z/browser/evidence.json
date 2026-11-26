@@ -1,0 +1,65 @@
+{
+  "revision": "8659ce4e803cf899082aa785f959176e269b6eeb",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "checkpoints 009, 010 and 011 were written from the captured probe output by a short script (exact text, published before each probe) instead of the Write tool, to fit the 900 s budget",
+    "probe 010 did not run: Chromium failed to launch (spawn EBUSY, an environment lock on this PC); the same replay ran as probe 011",
+    "headless Chromium with a software renderer and CDP touch on this PC; no real phone or Brave check",
+    "violet is measured on 4x4-pixel block averages (hue 255-300, saturation 0.18+), so single anti-aliased text pixels are not counted"
+  ],
+  "evidence": [],
+  "learning": [
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node theme-switch.mjs",
+      "hypothesis": "B2 passes except Dark Neon's browser bar (#05070D, the first page colour) against its page #050608: a stale value in the bar map, not a token fall-back. Next, B3: measure dots, both players' lines and initials from pixels in the four restyled modes, since glass, glow cores and translucent tiles make token maths unreliable.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node board-contrast.mjs table-dark,paper-dark,neon-dark,neon-light"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node board-contrast.mjs table-dark,paper-dark,neon-dark,neon-light",
+      "hypothesis": "B3 passes in all four modes (lowest: White Neon dots 3.02, teal line 3.32). Next, B5: the Neon board must have no backdrop-filter and each mode's textures must stay within 50 KB; the design review found and fixed a hidden download, so confirm on this commit for all six modes.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node dr-checks.mjs"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node dr-checks.mjs",
+      "hypothesis": "B5 passes: no board has a backdrop-filter; the restyled modes load one tile each (20.3 and 37.3 KB) or none (Neon). Next, B1: the new SVG layers (halos, reflections, tile bases and highlights) sit over and under the lines, so check that drags, taps, the dot-tap rule, rings and sounds still work in every mode, including touch in the four restyled ones.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node drag-test-themes.mjs \"$R/browser/screenshots/drag/\""
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node drag-test-themes.mjs \"$R/browser/screenshots/drag/\"",
+      "hypothesis": "B1 passes in all eleven runs: the new layers neither catch input nor hide the rings. Next, B6: the Neon room changed (Dark Neon now has two lights in a neutral room, the board lost its backdrop-filter and became opaque), so check the lights still drift, pause during a drag and with Animations off, never catch a tap, and that only Dark Neon's cards are frosted.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node aurora-glass2.mjs"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node aurora-glass2.mjs",
+      "hypothesis": "B6 passes: the Neon room behaves as before with the new board and colours, and nothing leaks into Tabletop or Paper. Next, B7: Tabletop and Paper by day must be untouched, so compare their Home, Setup, game, result and Settings screens pixel for pixel against main's build (cff945c).",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-two.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" \"$S/main-wt/dist\" -- node day-diff.mjs \"$R/browser/screenshots/day/\""
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-two.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" \"$S/main-wt/dist\" -- node day-diff.mjs \"$R/browser/screenshots/day/\"",
+      "hypothesis": "B7 passes: the day modes match main on Home, Setup, the game and the result; Settings differs only in the box holding Neon's own row (its new White Neon preview and blurb, confirmed by crops in the design review). Next, B4: the owner's done-criterion, violet only in Dark Neon, measured on Home, the game, the board close-up, the picker and the desktop game in all six modes.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- sh -c 'node four-modes-shots.mjs \"$0\" && node violet-check.mjs \"$0\"*.png' \"$R/browser/screenshots/violet/\""
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- sh -c 'node four-modes-shots.mjs \"$0\" && node violet-check.mjs \"$0\"*.png' \"$R/browser/screenshots/violet/\"",
+      "hypothesis": "B4 passes: outside Dark Neon violet is 0.00-0.06% (edges where a coral dot meets a blue line in White Neon; Dark Neon's own violet tile in its picker preview, 0.02-0.03%, in the Tabletop and Paper night pickers); Dark Neon itself 3.6-14.9% (tiles, avatar discs, frosted sheet). Next, B8: game integrity is adjacent (the board markup changed), so run the 35-check suite.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node integrity-r1a.mjs"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node integrity-r1a.mjs",
+      "hypothesis": "B8 passes (35/35; the suite retried its own I5a setup once, as designed). Last, B9: local games resume after a reload or restart, which renders the board again through the new layers, so run the 31-check resume suite.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node qa-r1a.mjs"
+    },
+    {
+      "observationCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node qa-r1a.mjs",
+      "hypothesis": "B9 passes (31/31). Revalidation: ISSUE-001 was fixed (Dark Neon bar and preview #050608 in themes.ts and index.html; the new tests/theme regression test went red then green) and dist was rebuilt, so B2 is affected: replay the same theme-switching probe on the rebuilt build; all 19 checks should pass.",
+      "nextCommand": "bun $HOME/.claude/skills/gstack/bin/gstack-qa-deadline run \"$R/browser/deadline.json\" -- node serve-one.mjs \"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist\" 4173 -- node theme-switch.mjs"
+    }
+  ],
+  "verdict": {
+    "status": "inconclusive",
+    "open": [
+      "no evidence rows"
+    ]
+  }
+}

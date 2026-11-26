@@ -1,0 +1,12 @@
+
+ RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals
+
+ ❯ tests/ai/ai.test.ts (8 tests | 1 failed) 747ms
+   ❯ random positions (2)
+     × Hard never gives boxes away needlessly: with safe lines left, a third side is only ever a sacrifice of 1 or 2 boxes 566ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Start at  06:55:45
+   Duration  1.07s (tests 85%, transform 12%, import 2%, worker 1%)
+

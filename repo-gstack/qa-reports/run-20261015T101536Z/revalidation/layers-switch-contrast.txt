@@ -1,0 +1,18 @@
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+PASS  Home demo board, table-dark: Neon layers only where the mode shows them  {"halos":0,"cores":0,"reflect":0,"dotHalos":0,"tiles":0,"lines":10,"boxes":3}
+PASS  Home demo board, neon-dark: Neon layers only where the mode shows them  {"halos":40,"cores":10,"reflect":10,"dotHalos":16,"tiles":6,"lines":10,"boxes":3}
+PASS  Home demo board, neon-light: Neon layers only where the mode shows them  {"halos":40,"cores":10,"reflect":0,"dotHalos":0,"tiles":6,"lines":10,"boxes":3}
+PASS  Home demo board, paper-dark: Neon layers only where the mode shows them  {"halos":0,"cores":0,"reflect":0,"dotHalos":0,"tiles":0,"lines":10,"boxes":3}
+PASS  game board after switching to table-dark: layers follow the theme  {"halos":0,"cores":0,"reflect":0,"dotHalos":0,"tiles":0,"lines":24,"boxes":2}
+PASS  game board after switching to neon-dark: layers follow the theme  {"halos":96,"cores":24,"reflect":24,"dotHalos":50,"tiles":4,"lines":24,"boxes":2}
+PASS  game board after switching to paper-dark: layers follow the theme  {"halos":0,"cores":0,"reflect":0,"dotHalos":0,"tiles":0,"lines":24,"boxes":2}
+PASS  game board after switching to neon-light: layers follow the theme  {"halos":96,"cores":24,"reflect":0,"dotHalos":0,"tiles":4,"lines":24,"boxes":2}
+PASS  game board after switching to table-light: layers follow the theme  {"halos":0,"cores":0,"reflect":0,"dotHalos":0,"tiles":0,"lines":24,"boxes":2}
+PASS  game board after switching to paper-light: layers follow the theme  {"halos":0,"cores":0,"reflect":0,"dotHalos":0,"tiles":0,"lines":24,"boxes":2}
+PASS  game board after switching to neon-dark: layers follow the theme  {"halos":96,"cores":24,"reflect":24,"dotHalos":50,"tiles":4,"lines":24,"boxes":2}
+PASS  no page errors
+12/12 checks passed
+19/19 checks passed
+neon-dark   board rgb(11,15,25) from 23 empty cells | line p1 median 6.31 worst 5.07 (15 lines) | line p2 median 16.72 worst 16.15 (15 lines) | dots median 14.23 worst 11.46 | initials p1 worst 6.90 | initials p2 worst 8.46
+neon-light  board rgb(235,241,245) from 23 empty cells | line p1 median 4.93 worst 4.28 (15 lines) | line p2 median 3.80 worst 3.32 (15 lines) | dots median 3.02 worst 3.02 | initials p1 worst 8.99 | initials p2 worst 8.63
+servers stopped; child exit 0

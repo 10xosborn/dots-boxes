@@ -1,0 +1,8 @@
+{
+  "evidence": [],
+  "limits": [
+    "recheck run for one change after the main QA run (run-20261020T082627Z): Hard's thinking on a resumed game starts 500 ms after the reload; probes cover the changed resume path and the adjacent new-game path only",
+    "checkpoint 002: probe 001 showed the order of messages (reset, ponder) but not the delay; 002 reran the same flow measuring it (505 ms)",
+    "Chromium only (gstack's headless Chromium 151), emulated phone 390x844 with touch, Firebase blocked by hostname"
+  ]
+}

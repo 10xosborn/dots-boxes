@@ -1,0 +1,91 @@
+{
+  "revision": "f793df3e8f32eb45187384ce186e537129c35acb",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "Repository commands only; npm run test:rules not applicable (no Firebase rules, data or online change)"
+  ],
+  "evidence": [
+    {
+      "command": "npm run check",
+      "contract": "F1 type check",
+      "expected": "0 errors, 0 warnings",
+      "classification": "pass",
+      "observed": "\n> dots-boxes@2.0.0 check\n> svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json\n\n1792435661534 START \"c:\\\\Users\\\\10xosborn\\\\SWE\\\\Grid Rivals\\\\grid-rivals\"\n1792435661537 COMPLETED 149 FILES 0 ERRORS 0 WARNINGS 0 FILES_WITH_PROBLEMS\n"
+    },
+    {
+      "command": "npm run build",
+      "contract": "F2 production build",
+      "expected": "exit 0",
+      "classification": "pass",
+      "observed": "\n> dots-boxes@2.0.0 build\n> vite build\n\n\u001b[36mvite v8.3.1 \u001b[32mbuilding client environment for production...\u001b[36m\u001b[39m\ntransforming...\n✓ 174 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                           1.58 kB │ gzip:   0.89 kB\ndist/assets/gh-inter-400-800-BUjur0u5.woff2               5.86 kB\ndist/assets/gh-noto-sans-400-700-BdxQ-ssZ.woff2           7.83 kB\ndist/assets/gh-montserrat-400-800-DT2Ym6Pt.woff2          8.36 kB\ndist/assets/atkinson-700-latin-ext-BoVPHkS0.woff2         9.37 kB\ndist/assets/atkinson-400-latin-ext-DRk46D-x.woff2         9.38 kB\ndist/assets/kalam-400-latin-ext-DtcdGa4L.woff2           12.14 kB\ndist/assets/kalam-700-latin-ext-CwgfRD_T.woff2           12.15 kB\ndist/assets/manrope-400-800-latin-ext-Ch3YOpNY.woff2     15.12 kB\ndist/assets/jost-400-800-latin-ext-BDUtSsKd.woff2        17.10 kB\ndist/assets/atkinson-400-latin-BrHNak5F.woff2            17.20 kB\ndist/assets/atkinson-700-latin-GZI4o3u0.woff2            17.52 kB\ndist/assets/ai.worker-D9IryGg9.js                        20.78 kB\ndist/assets/kalam-700-latin-D2H-9ISU.woff2               22.14 kB\ndist/assets/kalam-400-latin-BthBl_aR.woff2               22.33 kB\ndist/assets/manrope-400-800-latin-DHIcAJRg.woff2         24.83 kB\ndist/assets/jost-400-800-latin-ObQm3Zd1.woff2            26.57 kB\ndist/assets/felt-BB4yIumj.webp                           33.26 kB\ndist/assets/paper-day-RR9AWjoF.webp                      39.42 kB\ndist/assets/wood-day-Bg-8CmNo.webp                       45.98 kB\ndist/assets/unbounded-500-800-latin-D5afBTBx.woff2       50.90 kB\ndist/assets/unbounded-500-800-latin-ext-D6H-S6MW.woff2  118.34 kB\ndist/assets/index-CypOb4LT.css                           46.09 kB │ gzip:  10.31 kB\ndist/assets/netdebug-P3oaWjQi.js                          1.79 kB │ gzip:   1.06 kB\ndist/assets/ai-core-DEIhvNym.js                          20.01 kB │ gzip:   9.99 kB\ndist/assets/app-oT5dsmsN.js                             102.02 kB │ gzip:  31.20 kB\ndist/assets/index-xWGg2yOc.js                           128.00 kB │ gzip:  45.73 kB\ndist/assets/room-Da0tiwMj.js                            134.99 kB │ gzip:  40.28 kB\ndist/assets/firebase-Dh3AVBdE.js                        450.27 kB │ gzip: 132.35 kB\n\n\u001b[32m✓ built in 816ms\u001b[39m\n"
+    },
+    {
+      "command": "npx vitest run tests/theme",
+      "contract": "F3 bars, previews and pre-paint colours equal each mode's page",
+      "expected": "7/7",
+      "classification": "pass",
+      "observed": "\n RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals\n\n\n Test Files  1 passed (1)\n      Tests  7 passed (7)\n   Start at  18:47:47\n   Duration  240ms (transform 64%, import 20%, tests 8%, worker 7%)\n\n"
+    },
+    {
+      "command": "node token-audit2.mjs <repo>",
+      "contract": "F4 each restyled mode sets every colour token itself",
+      "expected": "none missing in all four modes",
+      "classification": "pass",
+      "observed": "Tabletop at night    82 tokens checked; not set in its own block: none\nCozy Paper at night  82 tokens checked; not set in its own block: none\nDark Neon            98 tokens checked; not set in its own block: none\nWhite Neon           98 tokens checked; not set in its own block: none\n"
+    }
+  ],
+  "learning": [
+    {
+      "observationCapture": "001",
+      "observationArgv": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "hypothesis": "check passed with 0 errors and 0 warnings; next the production build must succeed",
+      "nextCapture": "002",
+      "nextArgv": [
+        "npm",
+        "run",
+        "build"
+      ]
+    },
+    {
+      "observationCapture": "002",
+      "observationArgv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "hypothesis": "build passed; next the theme colour test: every mode's bar, preview and pre-paint colour equals its own page",
+      "nextCapture": "003",
+      "nextArgv": [
+        "npx",
+        "vitest",
+        "run",
+        "tests/theme"
+      ]
+    },
+    {
+      "observationCapture": "003",
+      "observationArgv": [
+        "npx",
+        "vitest",
+        "run",
+        "tests/theme"
+      ],
+      "hypothesis": "theme test 7/7; next the per-mode token audit: each restyled mode sets every colour token itself",
+      "nextCapture": "004",
+      "nextArgv": [
+        "node",
+        "C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/token-audit2.mjs",
+        "C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals"
+      ]
+    }
+  ],
+  "verdict": {
+    "status": "pass",
+    "open": []
+  }
+}

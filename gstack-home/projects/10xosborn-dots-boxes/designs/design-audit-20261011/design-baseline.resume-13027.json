@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-11",
+  "runId": "resume-13027",
+  "url": "http://127.0.0.1:4175/",
+  "designScore": "A",
+  "aiSlopScore": "D",
+  "categoryGrades": {
+    "hierarchy": "A",
+    "typography": "A",
+    "spacing": "A",
+    "color": "A",
+    "interaction": "A",
+    "responsive": "A",
+    "content": "A",
+    "aiSlop": "D",
+    "motion": "A",
+    "performance": "A"
+  },
+  "findings": [
+    {
+      "id": "FINDING-001",
+      "title": "Rejoin panel never ends without a connection",
+      "impact": "medium",
+      "category": "interaction",
+      "status": "verified",
+      "commit": "c23909c"
+    }
+  ],
+  "detector": {
+    "mode": "none"
+  }
+}

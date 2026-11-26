@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-12",
+  "runId": "153918-final",
+  "url": "http://127.0.0.1:4173/",
+  "designScore": "A",
+  "aiSlopScore": "A",
+  "categoryGrades": {
+    "hierarchy": "A",
+    "typography": "A",
+    "spacing": "A-",
+    "color": "A",
+    "interaction": "A",
+    "responsive": "A-",
+    "content": "A",
+    "aiSlop": "A",
+    "motion": "A",
+    "performance": "A"
+  },
+  "findings": [
+    {
+      "id": "FINDING-001",
+      "title": "Home Play label under the spec 19 px for white on coral and night teal",
+      "impact": "high",
+      "category": "color"
+    },
+    {
+      "id": "FINDING-002",
+      "title": "Primary hover lightened the fill below the label contrast",
+      "impact": "medium",
+      "category": "interaction"
+    },
+    {
+      "id": "FINDING-003",
+      "title": "Level-up badge text under 4.5:1 in light modes",
+      "impact": "medium",
+      "category": "color"
+    },
+    {
+      "id": "FINDING-004",
+      "title": "Chosen theme card description under 4.5:1",
+      "impact": "medium",
+      "category": "color"
+    },
+    {
+      "id": "FINDING-005",
+      "title": "Accent ampersand under 4.5:1 in three modes",
+      "impact": "medium",
+      "category": "color"
+    },
+    {
+      "id": "FINDING-006",
+      "title": "Neon light selected rings in bright coral under 3:1",
+      "impact": "medium",
+      "category": "color"
+    },
+    {
+      "id": "FINDING-007",
+      "title": "Tick on selected segments not in Tabletop and Neon mockups",
+      "impact": "polish",
+      "category": "hierarchy"
+    },
+    {
+      "id": "FINDING-008",
+      "title": "Paper orange initial on wash 2.99:1",
+      "impact": "polish",
+      "category": "color"
+    },
+    {
+      "id": "FINDING-009",
+      "title": "Three phone screens scroll (pre-existing, step 4)",
+      "impact": "medium",
+      "category": "spacing"
+    }
+  ],
+  "detector": {
+    "mode": "dom",
+    "engine": "0.1.3",
+    "targetSet": "607d6f926b0d87e2e1dc08086ec6cd974de6741fd99c43796cb7a80073d14d37",
+    "total": 122,
+    "byRule": {
+      "low-contrast": 21,
+      "dark-glow": 50,
+      "cramped-padding": 21,
+      "layout-transition": 12,
+      "gray-on-color": 12,
+      "cream-palette": 6
+    },
+    "byPage": {
+      "neon-dark-desktop-game": {
+        "low-contrast": 1,
+        "dark-glow": 3,
+        "cramped-padding": 1
+      },
+      "neon-dark-phone-game": {
+        "low-contrast": 1,
+        "dark-glow": 3,
+        "cramped-padding": 1
+      },
+      "neon-dark-phone-home": {
+        "layout-transition": 1,
+        "dark-glow": 1
+      },
+      "neon-dark-phone-results": {
+        "low-contrast": 1,
+        "dark-glow": 2,
+        "layout-transition": 1,
+        "cramped-padding": 1
+      },
+      "neon-dark-phone-settings": {
+        "dark-glow": 1
+      },
+      "neon-dark-phone-setup": {
+        "dark-glow": 1
+      },
+      "neon-light-desktop-game": {
+        "low-contrast": 2,
+        "dark-glow": 3,
+        "cramped-padding": 2
+      },
+      "neon-light-phone-game": {
+        "low-contrast": 2,
+        "dark-glow": 3,
+        "cramped-padding": 2
+      },
+      "neon-light-phone-home": {
+        "low-contrast": 1,
+        "layout-transition": 1,
+        "dark-glow": 1
+      },
+      "neon-light-phone-results": {
+        "low-contrast": 2,
+        "dark-glow": 2,
+        "layout-transition": 1,
+        "cramped-padding": 2
+      },
+      "neon-light-phone-settings": {
+        "low-contrast": 1,
+        "dark-glow": 1
+      },
+      "neon-light-phone-setup": {
+        "low-contrast": 1,
+        "dark-glow": 1
+      },
+      "paper-dark-desktop-game": {
+        "dark-glow": 1
+      },
+      "paper-dark-phone-game": {
+        "dark-glow": 1
+      },
+      "paper-dark-phone-home": {
+        "layout-transition": 1,
+        "dark-glow": 1
+      },
+      "paper-dark-phone-results": {
+        "layout-transition": 1,
+        "dark-glow": 1
+      },
+      "paper-dark-phone-settings": {
+        "gray-on-color": 2,
+        "dark-glow": 1
+      },
+      "paper-dark-phone-setup": {
+        "gray-on-color": 4,
+        "dark-glow": 1
+      },
+      "paper-light-desktop-game": {
+        "low-contrast": 1,
+        "cream-palette": 1,
+        "dark-glow": 1
+      },
+      "paper-light-phone-game": {
+        "low-contrast": 1,
+        "cream-palette": 1,
+        "dark-glow": 1
+      },
+      "paper-light-phone-home": {
+        "layout-transition": 1,
+        "cream-palette": 1,
+        "dark-glow": 1
+      },
+      "paper-light-phone-results": {
+        "low-contrast": 1,
+        "layout-transition": 1,
+        "cream-palette": 1,
+        "dark-glow": 1
+      },
+      "paper-light-phone-settings": {
+        "cream-palette": 1,
+        "dark-glow": 1
+      },
+      "paper-light-phone-setup": {
+        "cream-palette": 1,
+        "dark-glow": 1
+      },
+      "table-dark-desktop-game": {
+        "low-contrast": 1,
+        "dark-glow": 2,
+        "cramped-padding": 2
+      },
+      "table-dark-phone-game": {
+        "low-contrast": 1,
+        "dark-glow": 2,
+        "cramped-padding": 2
+      },
+      "table-dark-phone-home": {
+        "layout-transition": 1,
+        "dark-glow": 1
+      },
+      "table-dark-phone-results": {
+        "low-contrast": 1,
+        "layout-transition": 1,
+        "cramped-padding": 2,
+        "dark-glow": 1
+      },
+      "table-dark-phone-settings": {
+        "gray-on-color": 2,
+        "dark-glow": 1
+      },
+      "table-dark-phone-setup": {
+        "gray-on-color": 4,
+        "dark-glow": 1
+      },
+      "table-light-desktop-game": {
+        "low-contrast": 1,
+        "dark-glow": 2,
+        "cramped-padding": 2
+      },
+      "table-light-phone-game": {
+        "low-contrast": 1,
+        "dark-glow": 2,
+        "cramped-padding": 2
+      },
+      "table-light-phone-home": {
+        "layout-transition": 1,
+        "dark-glow": 1
+      },
+      "table-light-phone-results": {
+        "low-contrast": 1,
+        "layout-transition": 1,
+        "cramped-padding": 2,
+        "dark-glow": 1
+      },
+      "table-light-phone-settings": {
+        "dark-glow": 1
+      },
+      "table-light-phone-setup": {
+        "dark-glow": 1
+      }
+    }
+  }
+}

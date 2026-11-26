@@ -1,0 +1,10 @@
+serving branch on :4176 and main on :4177
+12x12 desktop      table-light   main    moves 180, median 33 ms, p95 34 ms, max 35 ms, line shown 180, snapped 0
+12x12 desktop      table-light   branch  moves 180, median 33 ms, p95 35 ms, max 66 ms, line shown 162, snapped 96
+12x12 desktop      neon-dark     main    moves 180, median 33 ms, p95 34 ms, max 35 ms, line shown 180, snapped 0
+12x12 desktop      neon-dark     branch  moves 180, median 33 ms, p95 34 ms, max 35 ms, line shown 162, snapped 96
+7x7 phone, CPU 4x  table-light   main    moves 180, median 33 ms, p95 35 ms, max 36 ms, line shown 180, snapped 0
+7x7 phone, CPU 4x  table-light   branch  moves 180, median 33 ms, p95 35 ms, max 36 ms, line shown 165, snapped 108
+7x7 phone, CPU 4x  neon-dark     main    moves 180, median 33 ms, p95 35 ms, max 36 ms, line shown 180, snapped 0
+7x7 phone, CPU 4x  neon-dark     branch  moves 180, median 33 ms, p95 35 ms, max 35 ms, line shown 165, snapped 108
+servers stopped; child exit 0

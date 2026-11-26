@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "id": "001",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "argv": [
+    "npm",
+    "run",
+    "check"
+  ],
+  "deadline": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals\\.gstack\\qa-reports\\run-20261019T183813Z\\functional\\.qa-evidence\\001\\deadline.json",
+  "timing": [
+    {
+      "guard": "qa-deadline",
+      "event": "started",
+      "version": 1,
+      "startedAt": "2026-10-19T18:47:37.013Z",
+      "deadlineAt": "2026-10-19T18:52:37.013Z",
+      "budgetMs": 300000,
+      "observedAt": "2026-10-19T18:47:37.085Z",
+      "remainingMs": 299928,
+      "expired": false
+    },
+    {
+      "guard": "qa-deadline",
+      "event": "finished",
+      "observedAt": "2026-10-19T18:47:42.544Z",
+      "deadlineAt": "2026-10-19T18:52:37.013Z",
+      "timedOut": false,
+      "exitCode": 0
+    }
+  ],
+  "startedAt": "2026-10-19T18:47:37.025Z",
+  "completedAt": "2026-10-19T18:47:42.594Z",
+  "exitCode": 0,
+  "signal": null,
+  "status": "complete",
+  "observation": {
+    "sha256": "c80724204be39ad1d84ae6c068b17ba4dbeb45a02292d27ba6f39fa3a845ed1c",
+    "bytes": 273
+  },
+  "publicOutput": true,
+  "stdout": {
+    "sha256": "f2d0dfaedd94ed5dfa3d84d9972a8e57e380dda3be14fc346cba278311ca68d0",
+    "bytes": 252
+  },
+  "stderr": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  }
+}

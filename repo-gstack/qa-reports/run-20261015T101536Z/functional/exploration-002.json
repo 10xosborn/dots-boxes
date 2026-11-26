@@ -1,0 +1,18 @@
+{
+  "observationCapture": "001",
+  "observationArgv": [
+    "npx",
+    "vitest",
+    "run",
+    "tests/theme"
+  ],
+  "observed": "\n RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals\n\n ❯ tests/theme/theme-colours.test.ts (7 tests | 1 failed) 14ms\n   ❯ each mode paints the browser bar and its preview in its own page colour (7)\n     × neon dark 7ms\n\n Test Files  1 failed (1)\n      Tests  1 failed | 6 passed (7)\n   Start at  10:25:46\n   Duration  310ms (transform 60%, import 18%, tests 15%, worker 7%)\n\n",
+  "hypothesis": "ISSUE-001 replay: capture 001 failed only \"neon dark\" (themes.ts bar and preview #05070D against the page #050608). After setting Dark Neon bar and preview to #050608 in themes.ts and index.html, the same command should pass all 7 cases.",
+  "nextCapture": "002",
+  "nextArgv": [
+    "npx",
+    "vitest",
+    "run",
+    "tests/theme"
+  ]
+}

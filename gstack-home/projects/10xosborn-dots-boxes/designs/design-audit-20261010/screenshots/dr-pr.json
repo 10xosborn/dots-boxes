@@ -1,0 +1,59 @@
+{
+  "fonts-390-dark-false": {
+    "unbounded": true,
+    "manrope": true
+  },
+  "fonts-390-dark-true": {
+    "unbounded": true,
+    "manrope": true
+  },
+  "card-390-dark": {
+    "cardW": 358,
+    "cardH": 174,
+    "textLines": 2,
+    "sideScroll": false
+  },
+  "fonts-1280-dark-false": {
+    "unbounded": true,
+    "manrope": true
+  },
+  "fonts-1280-dark-true": {
+    "unbounded": true,
+    "manrope": true
+  },
+  "card-1280-dark": {
+    "cardW": 648,
+    "cardH": 150,
+    "textLines": 1,
+    "sideScroll": false
+  },
+  "fonts-390-light-false": {
+    "unbounded": true,
+    "manrope": true
+  },
+  "fonts-390-light-true": {
+    "unbounded": true,
+    "manrope": true
+  },
+  "card-390-light": {
+    "cardW": 358,
+    "cardH": 174,
+    "textLines": 2,
+    "sideScroll": false
+  },
+  "fonts-1280-light-false": {
+    "unbounded": true,
+    "manrope": true
+  },
+  "fonts-1280-light-true": {
+    "unbounded": true,
+    "manrope": true
+  },
+  "card-1280-light": {
+    "cardW": 648,
+    "cardH": 150,
+    "textLines": 1,
+    "sideScroll": false
+  },
+  "consoleErrors": []
+}

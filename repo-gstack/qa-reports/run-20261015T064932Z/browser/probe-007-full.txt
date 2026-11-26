@@ -1,0 +1,10 @@
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+PASS  hard 6x6: the game plays to the end and shows the result
+PASS  hard 6x6: every AI move within 1.2 s of the line before it (CPU 4x; includes the 0.3-0.8 s pause)  median 582 ms, worst 821 ms over 59 AI moves
+PASS  hard 6x6: no main-thread task over 200 ms while playing (the AI thinks in its worker)  long tasks: none
+PASS  hard 6x6: no page errors
+PASS  hard 5x5: the game plays to the end and shows the result
+PASS  hard 5x5: every AI move within 1.2 s of the line before it (CPU 4x; includes the 0.3-0.8 s pause)  median 662 ms, worst 795 ms over 42 AI moves
+PASS  hard 5x5: no main-thread task over 200 ms while playing (the AI thinks in its worker)  long tasks: none
+PASS  hard 5x5: no page errors
+servers stopped; child exit 0

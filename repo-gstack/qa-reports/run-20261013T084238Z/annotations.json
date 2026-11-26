@@ -1,0 +1,16 @@
+{
+  "evidence": [],
+  "limits": [
+    "checkpoint 002",
+    "checkpoint 003",
+    "checkpoint 004",
+    "checkpoint 005",
+    "checkpoint 006",
+    "checkpoint 007",
+    "checkpoint 008",
+    "browser-only run: results are in probe-001.txt to probe-008.txt and their -full.txt outputs, not evidence rows",
+    "C4 on main stops after its first FAIL (TypeError at the bend check: main has no path.drag band), so only the ring contract is scored there; the stop itself shows the band is new",
+    "the spring suite was written alongside the code (it can share the code's blind spots); the design review checks the motion by eye",
+    "touch was CDP-emulated in Chromium; no real phone, Brave or screen reader; online play not exercised (emulators, low memory)"
+  ]
+}

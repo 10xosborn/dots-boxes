@@ -1,0 +1,390 @@
+{
+ "table-light": {
+  "fonts": [
+   [
+    "Jost",
+    97
+   ],
+   [
+    "\"Times New Roman\"",
+    13
+   ]
+  ],
+  "colors": [
+   [
+    "rgb(43, 36, 29)",
+    91
+   ],
+   [
+    "rgb(0, 0, 0)",
+    13
+   ],
+   [
+    "rgb(255, 255, 255)",
+    9
+   ],
+   [
+    "rgb(90, 76, 61)",
+    3
+   ],
+   [
+    "rgb(11, 122, 135)",
+    2
+   ],
+   [
+    "rgb(228, 210, 178)",
+    1
+   ],
+   [
+    "color(srgb 0.0933333 0.343529 0.363137)",
+    1
+   ],
+   [
+    "rgb(47, 134, 198)",
+    1
+   ],
+   [
+    "rgb(237, 231, 220)",
+    1
+   ]
+  ],
+  "headings": [
+   {
+    "tag": "H1",
+    "text": "Grid Rivals",
+    "size": "39px",
+    "weight": "800",
+    "lh": "37.05px",
+    "wrap": "wrap"
+   }
+  ],
+  "smallTargets": [],
+  "bodySize": "16px",
+  "colorScheme": "normal",
+  "selection": "rgba(0, 0, 0, 0)"
+ },
+ "table-dark": {
+  "fonts": [
+   [
+    "Jost",
+    97
+   ],
+   [
+    "\"Times New Roman\"",
+    13
+   ]
+  ],
+  "colors": [
+   [
+    "rgb(242, 235, 227)",
+    91
+   ],
+   [
+    "rgb(0, 0, 0)",
+    13
+   ],
+   [
+    "rgb(42, 36, 32)",
+    7
+   ],
+   [
+    "rgb(185, 170, 152)",
+    3
+   ],
+   [
+    "rgb(255, 255, 255)",
+    2
+   ],
+   [
+    "rgb(36, 28, 21)",
+    1
+   ],
+   [
+    "color(srgb 0.412549 0.702745 0.723137)",
+    1
+   ],
+   [
+    "rgb(47, 134, 198)",
+    1
+   ],
+   [
+    "rgb(58, 51, 45)",
+    1
+   ],
+   [
+    "rgb(63, 184, 197)",
+    1
+   ],
+   [
+    "rgb(14, 142, 156)",
+    1
+   ]
+  ],
+  "headings": [
+   {
+    "tag": "H1",
+    "text": "Grid Rivals",
+    "size": "39px",
+    "weight": "800",
+    "lh": "37.05px",
+    "wrap": "wrap"
+   }
+  ],
+  "smallTargets": [],
+  "bodySize": "16px",
+  "colorScheme": "normal",
+  "selection": "rgba(0, 0, 0, 0)"
+ },
+ "neon-dark": {
+  "fonts": [
+   [
+    "Manrope",
+    87
+   ],
+   [
+    "\"Times New Roman\"",
+    13
+   ],
+   [
+    "Unbounded",
+    10
+   ]
+  ],
+  "colors": [
+   [
+    "rgb(246, 246, 246)",
+    91
+   ],
+   [
+    "rgb(0, 0, 0)",
+    13
+   ],
+   [
+    "rgb(53, 47, 61)",
+    5
+   ],
+   [
+    "rgb(42, 38, 48)",
+    3
+   ],
+   [
+    "rgb(166, 158, 168)",
+    3
+   ],
+   [
+    "rgb(251, 85, 83)",
+    3
+   ],
+   [
+    "rgb(255, 255, 255)",
+    2
+   ],
+   [
+    "rgb(26, 24, 32)",
+    1
+   ],
+   [
+    "color(srgb 0.976471 0.585882 0.581177)",
+    1
+   ]
+  ],
+  "headings": [
+   {
+    "tag": "H1",
+    "text": "Grid Rivals",
+    "size": "39px",
+    "weight": "800",
+    "lh": "37.05px",
+    "wrap": "wrap"
+   }
+  ],
+  "smallTargets": [],
+  "bodySize": "16px",
+  "colorScheme": "normal",
+  "selection": "rgba(0, 0, 0, 0)"
+ },
+ "neon-light": {
+  "fonts": [
+   [
+    "Manrope",
+    87
+   ],
+   [
+    "\"Times New Roman\"",
+    13
+   ],
+   [
+    "Unbounded",
+    10
+   ]
+  ],
+  "colors": [
+   [
+    "rgb(43, 39, 49)",
+    67
+   ],
+   [
+    "rgb(246, 246, 246)",
+    29
+   ],
+   [
+    "rgb(0, 0, 0)",
+    13
+   ],
+   [
+    "rgb(255, 255, 255)",
+    5
+   ],
+   [
+    "rgb(115, 108, 126)",
+    3
+   ],
+   [
+    "rgb(251, 85, 83)",
+    3
+   ],
+   [
+    "color(srgb 0.658039 0.261176 0.272157)",
+    1
+   ],
+   [
+    "rgb(225, 222, 227)",
+    1
+   ]
+  ],
+  "headings": [
+   {
+    "tag": "H1",
+    "text": "Grid Rivals",
+    "size": "39px",
+    "weight": "800",
+    "lh": "37.05px",
+    "wrap": "wrap"
+   }
+  ],
+  "smallTargets": [],
+  "bodySize": "16px",
+  "colorScheme": "normal",
+  "selection": "rgba(0, 0, 0, 0)"
+ },
+ "paper-light": {
+  "fonts": [
+   [
+    "\"Atkinson Hyperlegible\"",
+    87
+   ],
+   [
+    "\"Times New Roman\"",
+    13
+   ],
+   [
+    "Kalam",
+    10
+   ]
+  ],
+  "colors": [
+   [
+    "rgb(46, 43, 39)",
+    92
+   ],
+   [
+    "rgb(0, 0, 0)",
+    13
+   ],
+   [
+    "rgb(251, 247, 238)",
+    10
+   ],
+   [
+    "rgb(94, 87, 78)",
+    3
+   ],
+   [
+    "rgb(208, 96, 30)",
+    2
+   ],
+   [
+    "color(srgb 0.180392 0.168627 0.152941)",
+    1
+   ],
+   [
+    "rgb(214, 224, 234)",
+    1
+   ]
+  ],
+  "headings": [
+   {
+    "tag": "H1",
+    "text": "Grid Rivals",
+    "size": "39px",
+    "weight": "700",
+    "lh": "37.05px",
+    "wrap": "wrap"
+   }
+  ],
+  "smallTargets": [],
+  "bodySize": "16px",
+  "colorScheme": "normal",
+  "selection": "rgba(0, 0, 0, 0)"
+ },
+ "paper-dark": {
+  "fonts": [
+   [
+    "\"Atkinson Hyperlegible\"",
+    87
+   ],
+   [
+    "\"Times New Roman\"",
+    13
+   ],
+   [
+    "Kalam",
+    10
+   ]
+  ],
+  "colors": [
+   [
+    "rgb(236, 237, 230)",
+    92
+   ],
+   [
+    "rgb(0, 0, 0)",
+    13
+   ],
+   [
+    "rgb(31, 37, 34)",
+    10
+   ],
+   [
+    "rgb(169, 176, 169)",
+    3
+   ],
+   [
+    "rgb(245, 154, 91)",
+    2
+   ],
+   [
+    "color(srgb 0.92549 0.929412 0.901961)",
+    1
+   ],
+   [
+    "rgb(47, 56, 51)",
+    1
+   ]
+  ],
+  "headings": [
+   {
+    "tag": "H1",
+    "text": "Grid Rivals",
+    "size": "39px",
+    "weight": "700",
+    "lh": "37.05px",
+    "wrap": "wrap"
+   }
+  ],
+  "smallTargets": [],
+  "bodySize": "16px",
+  "colorScheme": "normal",
+  "selection": "rgba(0, 0, 0, 0)"
+ }
+}

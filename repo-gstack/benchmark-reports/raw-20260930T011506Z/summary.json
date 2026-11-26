@@ -1,0 +1,146 @@
+{
+  "median": {
+    "ttfb": 2,
+    "fcp": 92,
+    "lcp": 2536,
+    "domInteractive": 20,
+    "domComplete": 26,
+    "load": 26,
+    "requests": 11,
+    "transfer": 1200,
+    "jsBytes": 0,
+    "cssBytes": 66068,
+    "firebase": 5
+  },
+  "passes": [
+    {
+      "ttfb": 5,
+      "fcp": 3280,
+      "lcp": 3280,
+      "domInteractive": 22,
+      "domComplete": 3890,
+      "load": 3890,
+      "requests": 12,
+      "transfer": 213440,
+      "jsBytes": 663020,
+      "cssBytes": 16061,
+      "firebase": 8
+    },
+    {
+      "ttfb": 2,
+      "fcp": 92,
+      "lcp": 2112,
+      "domInteractive": 20,
+      "domComplete": 26,
+      "load": 26,
+      "requests": 11,
+      "transfer": 1200,
+      "jsBytes": 0,
+      "cssBytes": 66068,
+      "firebase": 5
+    },
+    {
+      "ttfb": 2,
+      "fcp": 80,
+      "lcp": 2536,
+      "domInteractive": 16,
+      "domComplete": 21,
+      "load": 21,
+      "requests": 11,
+      "transfer": 1200,
+      "jsBytes": 0,
+      "cssBytes": 66068,
+      "firebase": 5
+    }
+  ],
+  "slowest": [
+    {
+      "name": "channel",
+      "type": "fetch",
+      "size": 0,
+      "body": 0,
+      "duration": 409,
+      "start": 1281
+    },
+    {
+      "name": "channel",
+      "type": "fetch",
+      "size": 0,
+      "body": 0,
+      "duration": 313,
+      "start": 967
+    },
+    {
+      "name": "channel",
+      "type": "fetch",
+      "size": 0,
+      "body": 0,
+      "duration": 304,
+      "start": 363
+    },
+    {
+      "name": "accounts:lookup",
+      "type": "fetch",
+      "size": 0,
+      "body": 0,
+      "duration": 284,
+      "start": 75
+    },
+    {
+      "name": "index-AitTuMmg.css",
+      "type": "link",
+      "size": 300,
+      "body": 0,
+      "duration": 4,
+      "start": 15
+    },
+    {
+      "name": "app-1FrQBJQT.js",
+      "type": "script",
+      "size": 300,
+      "body": 0,
+      "duration": 4,
+      "start": 23
+    },
+    {
+      "name": "index-CcOp5EGt.js",
+      "type": "script",
+      "size": 300,
+      "body": 0,
+      "duration": 3,
+      "start": 15
+    },
+    {
+      "name": "firebase-7_eqCJzK.js",
+      "type": "script",
+      "size": 300,
+      "body": 0,
+      "duration": 3,
+      "start": 23
+    },
+    {
+      "name": "css2",
+      "type": "link",
+      "size": 0,
+      "body": 16165,
+      "duration": 0,
+      "start": 14
+    },
+    {
+      "name": "font",
+      "type": "css",
+      "size": 0,
+      "body": 25100,
+      "duration": 0,
+      "start": 24
+    },
+    {
+      "name": "font",
+      "type": "css",
+      "size": 0,
+      "body": 40968,
+      "duration": 0,
+      "start": 24
+    }
+  ]
+}

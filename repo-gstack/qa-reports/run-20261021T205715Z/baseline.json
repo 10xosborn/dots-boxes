@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-21",
+  "url": "http://127.0.0.1:4173/ (dist-step5)",
+  "healthScore": 100,
+  "provisional": "Performance (benchmark) and Links (untouched) not scored",
+  "issues": [],
+  "categoryScores": { "console": 100, "visual": 100, "functional": 100, "ux": 100, "accessibility": 100 }
+}

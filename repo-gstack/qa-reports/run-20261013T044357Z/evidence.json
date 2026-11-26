@@ -1,0 +1,52 @@
+{
+  "revision": "6c6176fdb5bb1f23cef844a8f6eb115ccf61c09c",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals",
+  "limits": [
+    "Online play was not exercised: it needs the Firebase emulators (Java), and this PC had about 1.4 GB free. The online screen renders the same Board component with the same onmove callback and interactive flag.",
+    "Touch was emulated: CDP touch events (pointerType touch) and Playwright taps on a 390x844 Chromium page; no real phone, no Brave, no screen reader.",
+    "Sounds were checked by recording the oscillator frequencies the page starts (WebAudio), not by listening.",
+    "Firebase was blocked, so the app ran on its local adapter with the offline banner.",
+    "qa-r1a.mjs was updated before this run to make moves by tapping beside a dot on a line: a tap right on a dot no longer draws (the intended change in this branch), and its old helper tapped dot centres.",
+    "The repo has no UI test framework; every browser check is a throwaway script outside the repo (coverage debt, as recorded in CLAUDE.md)."
+  ],
+  "evidence": [],
+  "learning": [
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261013T044357Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261013T044357Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" O",
+      "hypothesis": "Start-up is unaffected. The change is the board's pointer input, so the core contract comes next: the dot-to-dot gesture with mouse in every mode and real touch on a phone, including cancels, blocked drags, taps on lines and on dots, the rings, the grab cursor and the sounds (C1).",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261013T044357Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/drag-test.mjs\" \".gstack/qa-reports/run-20261013T044357Z/screenshots/drag/\""
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261013T044357Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/drag-test.mjs\" \".gstack/qa-reports/run-20261013T044357Z/screenshots/drag/\"",
+      "hypothesis": "The gesture holds in every mode with mouse and with real touch. The remaining risks are races and odd inputs: dragging during the AI's turn, a second finger mid-drag, letting go outside the board, and whether the new hover preview really reaches 3:1 in every mode (C2).",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261013T044357Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/drag-edge.mjs\""
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261013T044357Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/drag-edge.mjs\"",
+      "hypothesis": "Races, a second finger and letting go outside the board behave, and the preview reaches 3:1 in every mode. Next, the adjacent happy path most exposed to the input change: whole games, including one played by keyboard only, against Hard, and on custom and 12x12 boards (C3).",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261013T044357Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/integrity-r1a.mjs\" all"
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261013T044357Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/integrity-r1a.mjs\" all",
+      "hypothesis": "Whole games, keyboard-only play and resume hold on the new input. Next, local games with touch taps and the resume flows, where moves are now made by tapping lines because a tap right on a dot no longer draws (C4).",
+      "nextCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261013T044357Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261013T044357Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" all"
+    },
+    {
+      "observationCommand": "QA_SHOTS=\".gstack/qa-reports/run-20261013T044357Z/screenshots/\" bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261013T044357Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-r1a.mjs\" all",
+      "hypothesis": "Local games, touch taps and resume hold. Next, the board's structure across odd shapes, the keyboard cursor ring (now shared with the drag's snapped line), the hover preview numbers, confetti and duplicate ids in every mode (C5).",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261013T044357Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/materials-probe.mjs\" \".gstack/qa-reports/run-20261013T044357Z/screenshots/materials/\""
+    },
+    {
+      "observationCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261013T044357Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/materials-probe.mjs\" \".gstack/qa-reports/run-20261013T044357Z/screenshots/materials/\"",
+      "hypothesis": "The board's structure, the cursor ring and confetti hold, and the hover preview now reaches 3.31-8.7:1 in every mode (it was 1.94-3.43:1 before this branch). Last, the CSS change's adjacency: every theme and mode with the picker and live token contrast (C6).",
+      "nextCommand": "bun \"$HOME/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261013T044357Z/deadline.json\" -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/themes-test.mjs\" \".gstack/qa-reports/run-20261013T044357Z/screenshots/themes/\""
+    }
+  ],
+  "verdict": {
+    "status": "inconclusive",
+    "open": [
+      "no evidence rows"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-13T08:43:05.844Z","deadlineAt":"2026-10-13T08:58:05.844Z","budgetMs":900000,"observedAt":"2026-10-13T08:46:06.630Z","remainingMs":719214,"expired":false}
+0 PASS, 1 FAIL (full output: .gstack/qa-reports/run-20261013T084238Z/probe-004-full.txt)
+FAIL  table-light: picking up an inner dot rings its four neighbours, dashed and turning  []
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-13T08:46:13.130Z","deadlineAt":"2026-10-13T08:58:05.844Z","timedOut":false,"exitCode":0}

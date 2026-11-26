@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-13",
+  "runId": "085312-43134",
+  "url": "http://127.0.0.1:4173/",
+  "designScore": "A",
+  "aiSlopScore": "A",
+  "categoryGrades": { "hierarchy": "A", "typography": "A", "spacing": "A", "color": "A", "interaction": "A", "responsive": "A", "content": "A", "aiSlop": "A", "motion": "A", "performance": "A" },
+  "findings": [
+    { "id": "FINDING-002", "title": "Landing rings too thin where the line colour sits near 3:1", "impact": "medium", "category": "color" },
+    { "id": "FINDING-001", "title": "Snapped dot carried two outlines in two colours", "impact": "polish", "category": "hierarchy" }
+  ],
+  "detector": { "mode": "dom", "engine": "0.1.3", "targetSet": "table-light-phone-game-spring,table-dark-phone-game-spring,neon-dark-phone-game-spring,neon-light-phone-game-spring,paper-light-phone-game-spring,paper-dark-phone-game-spring", "total": 38, "byRule": { "low-contrast": 7, "dark-glow": 13, "cramped-padding": 6, "repeating-stripes-gradient": 6, "codex-grid-background": 6 } }
+}

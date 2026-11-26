@@ -1,0 +1,30 @@
+PASS  paper-light: after a move the logo says the game stays saved  "It stays saved: Home offers to continue it."
+PASS  paper-light: Leave goes Home, which offers to continue the game
+PASS  paper-light: Discard asks
+PASS  paper-light: Keep it keeps the saved game
+PASS  paper-light: Discard removes it
+PASS  paper-light: no page errors, no browser dialogs
+PASS  paper-light: Reset asks
+PASS  paper-light: a click outside keeps the stats  scores 1
+PASS  paper-light: Delete resets them  scores 0
+PASS  paper-light: no page errors, no browser dialogs (Settings)
+PASS  paper-light: the game ending dismisses an open question (asked: true); the results show  results 1, confirm null
+PASS  paper-dark: Quit asks; the safe choice first and focused  {"open":true,"modal":true,"title":"Quit this game?","text":"It won't count.","focus":"Keep playing","first":"Keep playing","labelled":"Quit this game?"}
+PASS  paper-dark: Esc keeps playing, focus back on Quit  focus "Quit"
+PASS  paper-dark: Restart asks
+PASS  paper-dark: Restart goes ahead: a fresh board  lines 0
+PASS  paper-dark: the logo asks, no note before a move  ""
+PASS  paper-dark: after a move the logo says the game stays saved  "It stays saved: Home offers to continue it."
+PASS  paper-dark: Leave goes Home, which offers to continue the game
+PASS  paper-dark: Discard asks
+PASS  paper-dark: Keep it keeps the saved game
+PASS  paper-dark: Discard removes it
+PASS  paper-dark: no page errors, no browser dialogs
+PASS  paper-dark: Reset asks
+PASS  paper-dark: a click outside keeps the stats  scores 1
+PASS  paper-dark: Delete resets them  scores 0
+PASS  paper-dark: no page errors, no browser dialogs (Settings)
+PASS  paper-dark: the game ending dismisses an open question (asked: false); the results show  results 1, confirm null
+0 failed
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-21T21:00:08.935Z","deadlineAt":"2026-10-21T21:13:42.716Z","timedOut":false,"exitCode":0}

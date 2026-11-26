@@ -1,0 +1,26 @@
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+browser: Brave 155.0.8059.40
+PASS  neon-dark: three aurora lights behind everything, never catching a tap  {"lights":3,"display":"block","z":"-1","pe":"none","running":3,"advancing":true,"ms":"278->1082 278->1082 278->1082"}
+PASS  neon-dark: with Animations on the lights drift (three running animations whose time advances)  running 3, advancing true (278->1082 278->1082 278->1082 ms)
+PASS  neon-dark: the button under the lights gets the tap  Play
+PASS  neon-dark: the board is glass the aurora shows through, deepened in colour, unblurred  {"boardBlur":"saturate(1.5)","boardAlpha":0.42,"cardBlur":"blur(14px) saturate(1.3)"}
+PASS  neon-dark: the player cards are frosted glass  blur(14px) saturate(1.3)
+PASS  neon-dark: a drag holds the lights still while its band is out, then they drift on  during paused,paused,paused, after running,running,running
+PASS  neon-dark: with Animations off the lights stay still  running 0
+PASS  neon-dark: a new visitor whose system asks for reduced motion sees still lights  running 0
+PASS  neon-light: three aurora lights behind everything, never catching a tap  {"lights":3,"display":"block","z":"-1","pe":"none","running":3,"advancing":true,"ms":"174->972 174->972 174->972"}
+PASS  neon-light: with Animations on the lights drift (three running animations whose time advances)  running 3, advancing true (174->972 174->972 174->972 ms)
+PASS  neon-light: the button under the lights gets the tap  Play
+PASS  neon-light: the board is glass the aurora shows through, deepened in colour, unblurred  {"boardBlur":"saturate(1.5)","boardAlpha":0.62,"cardBlur":"none"}
+PASS  neon-light: the player cards are solid  none
+PASS  neon-light: a drag holds the lights still while its band is out, then they drift on  during paused,paused,paused, after running,running,running
+PASS  neon-light: with Animations off the lights stay still  running 0
+PASS  neon-light: a new visitor whose system asks for reduced motion sees still lights  running 0
+PASS  table-dark: no aurora and no glass  aurora none, running 0, board none
+PASS  table-light: no aurora and no glass  aurora none, running 0, board none
+PASS  paper-dark: no aurora and no glass  aurora none, running 0, board none
+PASS  paper-light: no aurora and no glass  aurora none, running 0, board none
+PASS  console: no errors
+
+21/21 checks passed
+servers stopped; child exit 0

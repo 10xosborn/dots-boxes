@@ -1,0 +1,237 @@
+{
+  "card-360x640-dark": {
+    "continue": {
+      "primary": true,
+      "w": 139,
+      "h": 50,
+      "top": 186,
+      "bg": "linear-gradient(120deg, rgb(25"
+    },
+    "play": {
+      "primary": false,
+      "w": 328,
+      "h": 50,
+      "top": 662,
+      "bg": "none"
+    },
+    "online": {
+      "primary": false,
+      "w": 328,
+      "h": 50,
+      "top": 722,
+      "bg": "none"
+    },
+    "gradients": [
+      "Continue"
+    ],
+    "sideScroll": false
+  },
+  "card-390x844-dark": {
+    "continue": {
+      "primary": true,
+      "w": 154,
+      "h": 50,
+      "top": 186,
+      "bg": "linear-gradient(120deg, rgb(25"
+    },
+    "play": {
+      "primary": false,
+      "w": 358,
+      "h": 50,
+      "top": 669,
+      "bg": "none"
+    },
+    "online": {
+      "primary": false,
+      "w": 358,
+      "h": 50,
+      "top": 729,
+      "bg": "none"
+    },
+    "gradients": [
+      "Continue"
+    ],
+    "sideScroll": false
+  },
+  "hover-continue-dark": {
+    "before": "0% 0%",
+    "hover": "100% 0px"
+  },
+  "after-discard-390x844-dark": {
+    "card": 0,
+    "saved": "",
+    "play": {
+      "primary": true,
+      "w": 358,
+      "h": 60,
+      "top": 476,
+      "bg": "linear-gradient(120deg, rgb(25"
+    },
+    "online": {
+      "primary": false,
+      "w": 358,
+      "h": 50,
+      "top": 546,
+      "bg": "none"
+    },
+    "gradients": [
+      "Play"
+    ],
+    "sideScroll": false
+  },
+  "card-1280x800-dark": {
+    "continue": {
+      "primary": true,
+      "w": 299,
+      "h": 50,
+      "top": 162,
+      "bg": "linear-gradient(120deg, rgb(25"
+    },
+    "play": {
+      "primary": false,
+      "w": 648,
+      "h": 50,
+      "top": 646,
+      "bg": "none"
+    },
+    "online": {
+      "primary": false,
+      "w": 648,
+      "h": 50,
+      "top": 706,
+      "bg": "none"
+    },
+    "gradients": [
+      "Continue"
+    ],
+    "sideScroll": false
+  },
+  "card-360x640-light": {
+    "continue": {
+      "primary": true,
+      "w": 139,
+      "h": 50,
+      "top": 186,
+      "bg": "linear-gradient(120deg, rgb(21"
+    },
+    "play": {
+      "primary": false,
+      "w": 328,
+      "h": 50,
+      "top": 662,
+      "bg": "none"
+    },
+    "online": {
+      "primary": false,
+      "w": 328,
+      "h": 50,
+      "top": 722,
+      "bg": "none"
+    },
+    "gradients": [
+      "Continue"
+    ],
+    "sideScroll": false
+  },
+  "card-390x844-light": {
+    "continue": {
+      "primary": true,
+      "w": 154,
+      "h": 50,
+      "top": 186,
+      "bg": "linear-gradient(120deg, rgb(21"
+    },
+    "play": {
+      "primary": false,
+      "w": 358,
+      "h": 50,
+      "top": 669,
+      "bg": "none"
+    },
+    "online": {
+      "primary": false,
+      "w": 358,
+      "h": 50,
+      "top": 729,
+      "bg": "none"
+    },
+    "gradients": [
+      "Continue"
+    ],
+    "sideScroll": false
+  },
+  "hover-continue-light": {
+    "before": "0% 0%",
+    "hover": "100% 0px"
+  },
+  "after-discard-390x844-light": {
+    "card": 0,
+    "saved": "",
+    "play": {
+      "primary": true,
+      "w": 358,
+      "h": 60,
+      "top": 476,
+      "bg": "linear-gradient(120deg, rgb(21"
+    },
+    "online": {
+      "primary": false,
+      "w": 358,
+      "h": 50,
+      "top": 546,
+      "bg": "none"
+    },
+    "gradients": [
+      "Play"
+    ],
+    "sideScroll": false
+  },
+  "card-1280x800-light": {
+    "continue": {
+      "primary": true,
+      "w": 299,
+      "h": 50,
+      "top": 162,
+      "bg": "linear-gradient(120deg, rgb(21"
+    },
+    "play": {
+      "primary": false,
+      "w": 648,
+      "h": 50,
+      "top": 646,
+      "bg": "none"
+    },
+    "online": {
+      "primary": false,
+      "w": 648,
+      "h": 50,
+      "top": 706,
+      "bg": "none"
+    },
+    "gradients": [
+      "Continue"
+    ],
+    "sideScroll": false
+  },
+  "nocard-390x844": {
+    "play": {
+      "primary": true,
+      "w": 358,
+      "h": 60,
+      "top": 476,
+      "bg": "linear-gradient(120deg, rgb(25"
+    },
+    "online": {
+      "primary": false,
+      "w": 358,
+      "h": 50,
+      "top": 546,
+      "bg": "none"
+    },
+    "gradients": [
+      "Play"
+    ],
+    "sideScroll": false
+  },
+  "consoleErrors": []
+}

@@ -1,0 +1,11 @@
+{
+  "evidence": [],
+  "limits": [
+    "A browser restart was simulated with a new tab in the same browser profile (sessionStorage gone, localStorage and the IndexedDB sign-in kept); a real Android phone and iPhone restart remains for the owner.",
+    "Online flows ran against the local Firebase emulators under a demo project, not the live project.",
+    "The 10-minute and 24-hour rules were tested by ageing the saved timestamps, not by waiting.",
+    "The Getting back into your game panel shows for about 0.3 s on this PC; it was not captured on slow networks.",
+    "Touch was emulated (Chromium hasTouch at 390x844). No screen reader was used.",
+    "Performance was not measured in this run (separate /benchmark)."
+  ]
+}

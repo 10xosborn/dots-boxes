@@ -1,0 +1,9 @@
+
+ RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals
+
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  22:11:13
+   Duration  376ms (transform 67%, import 20%, tests 7%, worker 6%)
+

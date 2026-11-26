@@ -1,0 +1,17 @@
+serving dist-glass-A on :4173
+PASS  table-light: keyboard cursor stands out from the board (3:1)  tokens 5.27:1, pixels 3.55:1 (rgb(138, 63, 14) at 1; on 155,103,62 vs board 205,228,209)
+INFO  table-light: hover preview rgb(191, 78, 30) at 1, 3.41:1 against the board (tokens)
+PASS  table-dark: keyboard cursor stands out from the board (3:1)  tokens 5.25:1, pixels 3.58:1 (rgb(242, 184, 75) at 1; on 208,152,63 vs board 108,60,29)
+INFO  table-dark: hover preview rgb(229, 228, 226) at 1, 7.4:1 against the board (tokens)
+PASS  neon-dark: keyboard cursor stands out from the board (3:1)  tokens 10.7:1, pixels 6.47:1 (rgb(242, 184, 75) at 1; on 183,140,58 vs board 8,9,14)
+INFO  neon-dark: hover preview rgb(195, 6, 79) at 1, 3.15:1 against the board (tokens)
+PASS  neon-light: keyboard cursor stands out from the board (3:1)  tokens 5.24:1, pixels 3.35:1 (rgb(70, 87, 206) at 1; on 110,126,215 vs board 234,245,242)
+INFO  neon-light: hover preview rgb(0, 71, 255) at 1, 5.51:1 against the board (tokens)
+PASS  paper-light: keyboard cursor stands out from the board (3:1)  tokens 5.64:1, pixels 5.4:1 (rgb(70, 87, 206) at 1; on 70,87,206 vs board 249,243,228)
+INFO  paper-light: hover preview rgb(239, 65, 32) at 1, 3.64:1 against the board (tokens)
+PASS  paper-dark: keyboard cursor stands out from the board (3:1)  tokens 5.25:1, pixels 3.62:1 (rgb(242, 184, 75) at 1; on 210,153,63 vs board 109,60,29)
+INFO  paper-dark: hover preview rgb(201, 176, 133) at 1, 4.49:1 against the board (tokens)
+PASS  console: no errors
+
+7/7 checks passed
+servers stopped; child exit 0

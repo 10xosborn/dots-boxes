@@ -1,0 +1,3 @@
+serving branch on :4176 and main on :4177
+table-dark  ready main 466 branch 484 ms, paired diff median 12 ms (branch slower in 10/16) | LCP main 920 branch 932 ms, paired diff median 12 ms
+servers stopped; child exit 0

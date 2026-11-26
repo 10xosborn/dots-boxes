@@ -1,0 +1,1 @@
+Design review (fix/r1b-online-resume, 2026-10-11): 1 finding fixed (c23909c), design A- -> A, AI slop D -> D. Full report: C:/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261011/design-audit-127.0.0.1-resume.md

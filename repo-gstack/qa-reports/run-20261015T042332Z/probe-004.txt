@@ -1,0 +1,7 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-15T04:24:00.047Z","deadlineAt":"2026-10-15T04:39:00.047Z","budgetMs":900000,"observedAt":"2026-10-15T04:27:47.099Z","remainingMs":672948,"expired":false}
+6 PASS, 0 FAIL
+guest dialog buttons: ["Rematch 34,492 322x52","Leave 34,552 322x44"]
+(full output: C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/.gstack/qa-reports/run-20261015T042332Z/probe-004-full.txt)
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-15T04:28:33.844Z","deadlineAt":"2026-10-15T04:39:00.047Z","timedOut":false,"exitCode":0}

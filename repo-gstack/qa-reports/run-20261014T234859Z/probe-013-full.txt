@@ -1,0 +1,9 @@
+serving C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/dist on :4173
+PASS  Tabletop at night: a pip on the last line  {"skin":"table","marks":1,"kids":["last-pip"],"centre":[807.5,295],"lastMid":[807.5,295],"n":2,"tags":["line"],"ghosts":0}
+PASS  switched to Neon mid-game: a ring on the same line, both lines kept  {"skin":"neon","marks":1,"kids":["last-ring"],"centre":[807.5,295],"lastMid":[807.5,295],"n":2,"tags":["line"],"ghosts":0}
+PASS  switched to Paper: pencil ellipses on the same line  {"skin":"paper","marks":1,"kids":["last-ell","last-ell ghost"],"centre":[807.5,295],"lastMid":[807.5,295],"n":2,"tags":["path"],"ghosts":2}
+PASS  Paper's lines turn to pencil paths, each with its ghost  {"skin":"paper","marks":1,"kids":["last-ell","last-ell ghost"],"centre":[807.5,295],"lastMid":[807.5,295],"n":2,"tags":["path"],"ghosts":2}
+PASS  a move after the switch moves the mark  {"skin":"paper","marks":1,"kids":["last-ell","last-ell ghost"],"centre":[192.5,705],"lastMid":[192.5,705],"n":3,"tags":["path"],"ghosts":3}
+PASS  back to Tabletop: straight lines, no ghosts, a pip on the last line  {"skin":"table","marks":1,"kids":["last-pip"],"centre":[192.5,705],"lastMid":[192.5,705],"n":3,"tags":["line"],"ghosts":0}
+PASS  no page errors
+servers stopped; child exit 0

@@ -1,0 +1,11 @@
+{
+  "evidence": [],
+  "limits": [
+    "Connection loss was simulated with the Firebase SDK goOffline()/goOnline(), which closes the socket cleanly; a phone that loses signal abruptly or freezes a background tab can take the live server much longer to notice, so the away note may appear later than 10 s there.",
+    "Online flows ran against the local Firebase emulators under the demo project, not the live project.",
+    "Reading the room again when the tab returns was smoke-tested by dispatching visibilitychange on a visible tab; a real frozen tab was not reproduced.",
+    "Touch was emulated (Chromium hasTouch at 390x844); the R1 acceptance tests on a real Android phone and iPhone remain for the owner.",
+    "No screen reader was used; the notes sit in a polite role=status live region.",
+    "Performance was not measured in this run (separate /benchmark)."
+  ]
+}

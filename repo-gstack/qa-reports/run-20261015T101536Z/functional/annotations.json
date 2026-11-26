@@ -1,0 +1,10 @@
+{
+  "evidence": [
+    { "capture": "001", "command": "npx vitest run tests/theme", "contract": "ISSUE-001 regression test reproduces the defect before the fix", "expected": "fails only the neon dark case (bar and preview #05070D against the page #050608)", "classification": "superseded" },
+    { "capture": "002", "command": "npx vitest run tests/theme", "contract": "ISSUE-001 regression test after the fix", "expected": "7 of 7 pass", "classification": "pass" },
+    { "capture": "003", "command": "npm run check", "contract": "F1 type check", "expected": "exit 0, 0 errors, 0 warnings", "classification": "pass" },
+    { "capture": "004", "command": "npm run build", "contract": "F2 production build", "expected": "exit 0", "classification": "pass" },
+    { "capture": "005", "command": "node token-audit2.mjs <repo>", "contract": "F3 each restyled mode sets every colour token in its own block", "expected": "exit 0, none missing in all four", "classification": "pass" }
+  ],
+  "limits": ["F4 npm run test:rules not applicable: no Firebase rules, data or online change in this diff (presentation only)", "the token audit is a static read of app.css and the sources"]
+}

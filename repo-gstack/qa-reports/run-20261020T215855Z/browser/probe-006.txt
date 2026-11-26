@@ -1,0 +1,6 @@
+
+PASS  edges: 12x12 Dark Neon 1920x1080: no dot within 3 px of the rim or the edge highlights  nearest dot 46.9 px from the highlight lines (169 dots)
+PASS  edges: 4x4 White Neon landscape phone: no dot within 3 px of the rim or the edge highlights  nearest dot 13.9 px from the highlight lines (25 dots)
+PASS  edges: no page errors
+3/3 checks passed
+

@@ -1,0 +1,420 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "compare": "http://127.0.0.1:4174/ (main 3b3de84)",
+  "timestamp": "2026-10-12T14:46:00.064Z",
+  "branch": "design/01-themes",
+  "commit": "9e4d256",
+  "conditions": "Firebase blocked, Google Fonts allowed, 1280x800, 2 cold + 10 warm per build and case, medians; plus a phone-like first visit (390x844, 150 ms, 1.6 Mbps, CPU 4x, 3 cold runs)",
+  "regressions": 1,
+  "regressionList": [
+    "index.css +2453 B gzip (+57%), size rule over +25%"
+  ],
+  "mainGoogleFontBytesAdded": 76427,
+  "pages": {
+    "home|main": {
+      "cold": {
+        "ttfb": 2,
+        "fcp": 1568,
+        "lcp": 1976,
+        "ready": 1560,
+        "cls": 28,
+        "domInteractive": 14,
+        "domComplete": 3178,
+        "load": 3178,
+        "requests": 7,
+        "transfer": 216406,
+        "jsDecoded": 669155,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 232,
+        "lcp": 432,
+        "ready": 233,
+        "cls": 25,
+        "domInteractive": 17,
+        "domComplete": 405,
+        "load": 405,
+        "requests": 7,
+        "transfer": 216406,
+        "jsDecoded": 669155,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "home|branch": {
+      "cold": {
+        "ttfb": 1,
+        "fcp": 88,
+        "lcp": 472,
+        "ready": 108,
+        "cls": 25,
+        "domInteractive": 15,
+        "domComplete": 72,
+        "load": 72,
+        "requests": 8,
+        "transfer": 269973,
+        "jsDecoded": 674407,
+        "cssDecoded": 29330,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 23022
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 52,
+        "lcp": 416,
+        "ready": 70,
+        "cls": 25,
+        "domInteractive": 14,
+        "domComplete": 40,
+        "load": 40,
+        "requests": 8,
+        "transfer": 269973,
+        "jsDecoded": 674407,
+        "cssDecoded": 29330,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 23022
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "home-neon|main": {
+      "cold": {
+        "ttfb": 2,
+        "fcp": 692,
+        "lcp": 1072,
+        "ready": 689,
+        "cls": 28,
+        "domInteractive": 14,
+        "domComplete": 1414,
+        "load": 1414,
+        "requests": 7,
+        "transfer": 216406,
+        "jsDecoded": 669155,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 232,
+        "lcp": 404,
+        "ready": 226,
+        "cls": 27,
+        "domInteractive": 15,
+        "domComplete": 383,
+        "load": 383,
+        "requests": 7,
+        "transfer": 216406,
+        "jsDecoded": 669155,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "home-neon|branch": {
+      "cold": {
+        "ttfb": 1,
+        "fcp": 68,
+        "lcp": 460,
+        "ready": 102,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 73,
+        "load": 73,
+        "requests": 8,
+        "transfer": 296115,
+        "jsDecoded": 674407,
+        "cssDecoded": 29330,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 36,
+        "lcp": 420,
+        "ready": 69,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 43,
+        "load": 43,
+        "requests": 8,
+        "transfer": 296115,
+        "jsDecoded": 674407,
+        "cssDecoded": 29330,
+        "fontBytes": 75740,
+        "fontFiles": 2,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "home-paper|main": {
+      "cold": {
+        "ttfb": 2,
+        "fcp": 552,
+        "lcp": 916,
+        "ready": 548,
+        "cls": 28,
+        "domInteractive": 13,
+        "domComplete": 1297,
+        "load": 1297,
+        "requests": 7,
+        "transfer": 216406,
+        "jsDecoded": 669155,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 244,
+        "lcp": 424,
+        "ready": 238,
+        "cls": 25,
+        "domInteractive": 15,
+        "domComplete": 394,
+        "load": 394,
+        "requests": 7,
+        "transfer": 216406,
+        "jsDecoded": 669155,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "home-paper|branch": {
+      "cold": {
+        "ttfb": 1,
+        "fcp": 72,
+        "lcp": 160,
+        "ready": 97,
+        "cls": 24,
+        "domInteractive": 13,
+        "domComplete": 56,
+        "load": 56,
+        "requests": 11,
+        "transfer": 313649,
+        "jsDecoded": 674407,
+        "cssDecoded": 29330,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 13162
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 52,
+        "lcp": 108,
+        "ready": 73,
+        "cls": 24,
+        "domInteractive": 13,
+        "domComplete": 45,
+        "load": 45,
+        "requests": 11,
+        "transfer": 313649,
+        "jsDecoded": 674407,
+        "cssDecoded": 29330,
+        "fontBytes": 79212,
+        "fontFiles": 4,
+        "imageBytes": 13162
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "game-reload|main": {
+      "cold": {
+        "ttfb": 2,
+        "fcp": 644,
+        "lcp": 716,
+        "ready": 665,
+        "cls": 26,
+        "domInteractive": 14,
+        "domComplete": 1358,
+        "load": 1358,
+        "requests": 8,
+        "transfer": 225108,
+        "jsDecoded": 684756,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 248,
+        "lcp": 296,
+        "ready": 244,
+        "cls": 26,
+        "domInteractive": 19,
+        "domComplete": 419,
+        "load": 419,
+        "requests": 8,
+        "transfer": 225108,
+        "jsDecoded": 684756,
+        "cssDecoded": 16364,
+        "fontBytes": 0,
+        "fontFiles": 0,
+        "imageBytes": 0
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    },
+    "game-reload|branch": {
+      "cold": {
+        "ttfb": 2,
+        "fcp": 72,
+        "lcp": 132,
+        "ready": 105,
+        "cls": 25,
+        "domInteractive": 13,
+        "domComplete": 70,
+        "load": 70,
+        "requests": 9,
+        "transfer": 278675,
+        "jsDecoded": 690008,
+        "cssDecoded": 29330,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 23022
+      },
+      "warm": {
+        "ttfb": 2,
+        "fcp": 52,
+        "lcp": 104,
+        "ready": 75,
+        "cls": 25,
+        "domInteractive": 18,
+        "domComplete": 43,
+        "load": 43,
+        "requests": 9,
+        "transfer": 278675,
+        "jsDecoded": 690008,
+        "cssDecoded": 29330,
+        "fontBytes": 26576,
+        "fontFiles": 1,
+        "imageBytes": 23022
+      },
+      "passes": {
+        "cold": 2,
+        "warm": 10
+      }
+    }
+  },
+  "phoneLike": {
+    "home|main": {
+      "fcp": 1260,
+      "ready": 2583,
+      "lcp": 3004,
+      "fonts": 208,
+      "load": 2253,
+      "kb": 287
+    },
+    "home|branch": {
+      "fcp": 668,
+      "ready": 1994,
+      "lcp": 2400,
+      "fonts": 209,
+      "load": 1373,
+      "kb": 264
+    },
+    "home-neon|main": {
+      "fcp": 892,
+      "ready": 2300,
+      "lcp": 2728,
+      "fonts": 208,
+      "load": 1910,
+      "kb": 287
+    },
+    "home-neon|branch": {
+      "fcp": 844,
+      "ready": 2229,
+      "lcp": 2636,
+      "fonts": 207,
+      "load": 1724,
+      "kb": 290
+    },
+    "home-paper|main": {
+      "fcp": 944,
+      "ready": 2355,
+      "lcp": 2788,
+      "fonts": 195,
+      "load": 2029,
+      "kb": 287
+    },
+    "home-paper|branch": {
+      "fcp": 656,
+      "ready": 2187,
+      "lcp": 2596,
+      "fonts": 201,
+      "load": 1475,
+      "kb": 307
+    }
+  },
+  "buildBytes": {
+    "main": {
+      "ai.worker.js": 8401,
+      "app.js": 30911,
+      "firebase.js": 130759,
+      "index.js": 46738,
+      "index.css": 4305,
+      "room.js": 39606
+    },
+    "branch": {
+      "ai.worker.js": 8401,
+      "app.js": 30910,
+      "atkinson-400-latin.woff2": 17208,
+      "atkinson-400-latin-ext.woff2": 9384,
+      "atkinson-700-latin-ext.woff2": 9372,
+      "atkinson-700-latin.woff2": 17524,
+      "firebase.js": 130759,
+      "index.css": 6758,
+      "index.js": 48596,
+      "jost-400-800-latin-ext.woff2": 17104,
+      "jost-400-800-latin.woff2": 26576,
+      "kalam-400-latin.woff2": 22336,
+      "kalam-400-latin-ext.woff2": 12140,
+      "kalam-700-latin.woff2": 22144,
+      "kalam-700-latin-ext.woff2": 12152,
+      "manrope-400-800-latin.woff2": 24836,
+      "manrope-400-800-latin-ext.woff2": 15120,
+      "paper-grain.webp": 13162,
+      "room.js": 39605,
+      "unbounded-500-800-latin.woff2": 50904,
+      "unbounded-500-800-latin-ext.woff2": 118348,
+      "wood-dark.webp": 23022,
+      "wood-light.webp": 24146
+    }
+  }
+}

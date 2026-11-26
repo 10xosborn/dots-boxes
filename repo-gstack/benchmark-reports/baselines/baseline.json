@@ -1,0 +1,65 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "timestamp": "2026-09-30T01:16:13.935Z",
+  "branch": "main",
+  "commit": "7b3affd",
+  "note": "vite preview of the production build on this PC; Firebase live (anonymous sign-in, profile and scores). Pass 1 is a cold load, passes 2-3 reuse the cache. LCP = Home screen shown after Firebase start-up.",
+  "pages": {
+    "/": {
+      "ttfb_ms": 2,
+      "fcp_ms": 92,
+      "fcp_cold_ms": 3280,
+      "lcp_ms": 2536,
+      "lcp_cold_ms": 3280,
+      "dom_interactive_ms": 20,
+      "dom_complete_ms": 26,
+      "dom_complete_cold_ms": 3890,
+      "full_load_ms": 26,
+      "full_load_cold_ms": 3890,
+      "total_requests": 12,
+      "total_transfer_bytes": 213440,
+      "js_bundle_bytes": 663020,
+      "css_bundle_bytes": 16061,
+      "build_gzip_kb": {
+        "index_js": 45.14,
+        "css": 4.27,
+        "firebase_app": 31.2,
+        "firestore": 132.34,
+        "rooms_lazy": 39.52
+      },
+      "ai_worker_kb": 15.6,
+      "largest_resources": [
+        {
+          "name": "channel",
+          "size": 0,
+          "duration": 409
+        },
+        {
+          "name": "channel",
+          "size": 0,
+          "duration": 313
+        },
+        {
+          "name": "channel",
+          "size": 0,
+          "duration": 304
+        },
+        {
+          "name": "accounts:lookup",
+          "size": 0,
+          "duration": 284
+        },
+        {
+          "name": "index-AitTuMmg.css",
+          "size": 0,
+          "duration": 4
+        },
+        {
+          "name": "app-1FrQBJQT.js",
+          "size": 0,
+          "duration": 4
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{"date": "2026-10-13", "url": "http://127.0.0.1:4173/", "healthScore": 99,
+ "issues": [{"id": "ISSUE-001", "title": "Neon at night's landing rings near 3:1 on the glass board (3.26 median, main 4.57)", "severity": "low", "category": "accessibility"}],
+ "categoryScores": {"console": 100, "links": null, "visual": 100, "functional": 100, "ux": 100, "performance": null, "content": 100, "accessibility": 97}}

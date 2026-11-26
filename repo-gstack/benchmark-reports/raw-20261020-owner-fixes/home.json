@@ -1,0 +1,94 @@
+{
+ "table-dark": {
+  "ttfb": {
+   "main": 1,
+   "branch": 1
+  },
+  "fcp": {
+   "main": 256,
+   "branch": 260
+  },
+  "lcp": {
+   "main": 884,
+   "branch": 892
+  },
+  "ready": {
+   "main": 451,
+   "branch": 471
+  },
+  "domInteractive": {
+   "main": 54,
+   "branch": 58
+  },
+  "domComplete": {
+   "main": 288,
+   "branch": 303
+  },
+  "load": {
+   "main": 288,
+   "branch": 303
+  },
+  "requests": {
+   "main": 7,
+   "branch": 7
+  },
+  "transfer": {
+   "main": 802914,
+   "branch": 804258
+  },
+  "js": {
+   "main": 681456,
+   "branch": 682800
+  },
+  "css": {
+   "main": 119558,
+   "branch": 119558
+  }
+ },
+ "paper-light": {
+  "ttfb": {
+   "main": 1,
+   "branch": 1
+  },
+  "fcp": {
+   "main": 288,
+   "branch": 280
+  },
+  "lcp": {
+   "main": 1024,
+   "branch": 1008
+  },
+  "ready": {
+   "main": 551,
+   "branch": 554
+  },
+  "domInteractive": {
+   "main": 64,
+   "branch": 64
+  },
+  "domComplete": {
+   "main": 274,
+   "branch": 257
+  },
+  "load": {
+   "main": 274,
+   "branch": 257
+  },
+  "requests": {
+   "main": 10,
+   "branch": 10
+  },
+  "transfer": {
+   "main": 849886,
+   "branch": 851230
+  },
+  "js": {
+   "main": 681456,
+   "branch": 682800
+  },
+  "css": {
+   "main": 166530,
+   "branch": 166530
+  }
+ }
+}

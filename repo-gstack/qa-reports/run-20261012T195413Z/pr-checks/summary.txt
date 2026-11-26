@@ -1,0 +1,10 @@
+themes-test exit 0
+37/37 checks passed
+themes-screens exit 0
+108/108 checks passed
+qa-r1a exit 0
+31/31 checks passed
+acceptance exit 0
+27/27 checks passed
+gh-names exit 0
+30/30 checks passed

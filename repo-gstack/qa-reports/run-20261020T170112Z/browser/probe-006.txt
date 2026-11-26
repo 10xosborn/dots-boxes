@@ -1,0 +1,5 @@
+
+PASS  pvp-kbd: the cursor preview takes each mover's colour in turn (p0, p1, p0) and both Enters draw  preview p0 | preview p1 | preview p0; 2 lines
+PASS  pvp-kbd: no page errors
+2/2 checks passed
+

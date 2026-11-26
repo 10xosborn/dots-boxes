@@ -1,0 +1,18 @@
+{
+  "observationCapture": "002",
+  "observationArgv": [
+    "node",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "tests/ai"
+  ],
+  "observed": "\n RUN  v5.0.3 C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals\n\n\n Test Files  1 passed (1)\n      Tests  8 passed (8)\n   Start at  06:57:38\n   Duration  1.84s (tests 92%, transform 7%, import 2%)\n\n",
+  "hypothesis": "F1 passes (8/8, and three more runs). Hard on 3x3 must stay perfect: the opening book (every optimal move up to 4 lines) is checked against a full solve of all 2^24 positions, then Hard plays Hard 100 times, where perfect play ends 6-3 to the second player every time.",
+  "nextCapture": "003",
+  "nextArgv": [
+    "node",
+    "scripts/opening-book.mjs",
+    "--check",
+    "100"
+  ]
+}

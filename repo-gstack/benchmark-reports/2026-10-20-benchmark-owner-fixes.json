@@ -1,0 +1,353 @@
+{
+ "date": "2026-10-20",
+ "branch": "fix/owner-2026-10-20",
+ "commit": "87b0ed6",
+ "base": "main ab4c706",
+ "method": "interleaved A/B, local production builds, headless Chromium 151, Firebase blocked",
+ "filterCost": {
+  "phone4": [
+   {
+    "label": "4x4 phone, CPU 4x",
+    "mode": "table-dark",
+    "main": {
+     "paintMed": 32.80000000074506,
+     "paintP90": 48.899999998509884,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.5988023952095809,
+     "cpuPerTap": 844.1241666666665,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.69999999925494,
+     "paintP90": 34.900000002235174,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.14892032762472077,
+     "cpuPerTap": 841.9334166666667,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0.19999999552965164,
+    "pairCpu": -1.367666666666537,
+    "slowerRounds": 2
+   },
+   {
+    "label": "4x4 phone, CPU 4x",
+    "mode": "table-light",
+    "main": {
+     "paintMed": 32.30000000074506,
+     "paintP90": 37.69999999925494,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.14892032762472077,
+     "cpuPerTap": 747.0708333333333,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.30000000074506,
+     "paintP90": 33.899999998509884,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0,
+     "cpuPerTap": 749.1578333333333,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0.09999999776482582,
+    "pairCpu": 0.9420000000000073,
+    "slowerRounds": 2
+   },
+   {
+    "label": "4x4 phone, CPU 4x",
+    "mode": "paper-dark",
+    "main": {
+     "paintMed": 32.5,
+     "paintP90": 48.899999998509884,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.14903129657228018,
+     "cpuPerTap": 792.86825,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 33.20000000298023,
+     "paintP90": 48.80000000074506,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.8258258258258258,
+     "cpuPerTap": 807.3283333333334,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 3.725290298461914e-9,
+    "pairCpu": 3.0383333333332985,
+    "slowerRounds": 2
+   },
+   {
+    "label": "4x4 phone, CPU 4x",
+    "mode": "paper-light",
+    "main": {
+     "paintMed": 32.69999999925494,
+     "paintP90": 50.80000000074506,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.5235602094240838,
+     "cpuPerTap": 759.2319166666666,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 33.30000000074506,
+     "paintP90": 48.099999997764826,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.22354694485842028,
+     "cpuPerTap": 757.3758333333334,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0.9000000022351742,
+    "pairCpu": -6.983749999999873,
+    "slowerRounds": 2
+   }
+  ],
+  "desktop12": [
+   {
+    "label": "12x12 desktop",
+    "mode": "table-dark",
+    "main": {
+     "paintMed": 32.69999999925494,
+     "paintP90": 34.29999999701977,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.3018867924528302,
+     "cpuPerTap": 317.91141666666664,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.5,
+     "paintP90": 33.69999999925494,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.07446016381236038,
+     "cpuPerTap": 334.09049999999996,
+     "gpuPerTap": 0
+    },
+    "pairPaint": -0.19999999925494194,
+    "pairCpu": 21.58683333333329,
+    "slowerRounds": 1
+   },
+   {
+    "label": "12x12 desktop",
+    "mode": "table-light",
+    "main": {
+     "paintMed": 32.69999999925494,
+     "paintP90": 33.80000000074506,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0,
+     "cpuPerTap": 203.51333333333335,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.600000001490116,
+     "paintP90": 33.80000000074506,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0,
+     "cpuPerTap": 211.81291666666667,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0.09999999403953552,
+    "pairCpu": 8.823749999999961,
+    "slowerRounds": 2
+   },
+   {
+    "label": "12x12 desktop",
+    "mode": "paper-dark",
+    "main": {
+     "paintMed": 32.899999998509884,
+     "paintP90": 33.69999999925494,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0,
+     "cpuPerTap": 212.79033333333334,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.899999998509884,
+     "paintP90": 33.80000000074506,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0.14903129657228018,
+     "cpuPerTap": 218.5965,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0.3999999947845936,
+    "pairCpu": 11.006666666666632,
+    "slowerRounds": 2
+   },
+   {
+    "label": "12x12 desktop",
+    "mode": "paper-light",
+    "main": {
+     "paintMed": 32.900000002235174,
+     "paintP90": 33.80000000074506,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0,
+     "cpuPerTap": 194.15608333333333,
+     "gpuPerTap": 0
+    },
+    "branch": {
+     "paintMed": 32.899999998509884,
+     "paintP90": 34.099999997764826,
+     "growMed": 16.699999999999818,
+     "growP90": 16.700000000000728,
+     "janky": 0,
+     "cpuPerTap": 198.99741666666668,
+     "gpuPerTap": 0
+    },
+    "pairPaint": 0.10000000149011612,
+    "pairCpu": 12.507083333333384,
+    "slowerRounds": 3
+   }
+  ]
+ },
+ "home": {
+  "table-dark": {
+   "ttfb": {
+    "main": 1,
+    "branch": 1
+   },
+   "fcp": {
+    "main": 256,
+    "branch": 260
+   },
+   "lcp": {
+    "main": 884,
+    "branch": 892
+   },
+   "ready": {
+    "main": 451,
+    "branch": 471
+   },
+   "domInteractive": {
+    "main": 54,
+    "branch": 58
+   },
+   "domComplete": {
+    "main": 288,
+    "branch": 303
+   },
+   "load": {
+    "main": 288,
+    "branch": 303
+   },
+   "requests": {
+    "main": 7,
+    "branch": 7
+   },
+   "transfer": {
+    "main": 802914,
+    "branch": 804258
+   },
+   "js": {
+    "main": 681456,
+    "branch": 682800
+   },
+   "css": {
+    "main": 119558,
+    "branch": 119558
+   }
+  },
+  "paper-light": {
+   "ttfb": {
+    "main": 1,
+    "branch": 1
+   },
+   "fcp": {
+    "main": 288,
+    "branch": 280
+   },
+   "lcp": {
+    "main": 1024,
+    "branch": 1008
+   },
+   "ready": {
+    "main": 551,
+    "branch": 554
+   },
+   "domInteractive": {
+    "main": 64,
+    "branch": 64
+   },
+   "domComplete": {
+    "main": 274,
+    "branch": 257
+   },
+   "load": {
+    "main": 274,
+    "branch": 257
+   },
+   "requests": {
+    "main": 10,
+    "branch": 10
+   },
+   "transfer": {
+    "main": 849886,
+    "branch": 851230
+   },
+   "js": {
+    "main": 681456,
+    "branch": 682800
+   },
+   "css": {
+    "main": 166530,
+    "branch": 166530
+   }
+  }
+ },
+ "sizes": {
+  "changed": [
+   {
+    "asset": "assets/index.js",
+    "main": "assets/index-Dj6M53Tm.js",
+    "branch": "assets/index-E7wstwfW.js",
+    "mainRaw": 128264,
+    "branchRaw": 129608,
+    "mainGz": 45374,
+    "branchGz": 45838
+   }
+  ],
+  "totals": {
+   "js": {
+    "mainRaw": 866082,
+    "branchRaw": 867426,
+    "mainGz": 271394,
+    "branchGz": 271855
+   },
+   "css": {
+    "mainRaw": 46094,
+    "branchRaw": 46094,
+    "mainGz": 10197,
+    "branchGz": 10203
+   },
+   "all": {
+    "mainRaw": 1429662,
+    "branchRaw": 1431006,
+    "mainGz": 282492,
+    "branchGz": 282957
+   }
+  }
+ },
+ "reload": {
+  "first": [
+   "table-dark  ready main 526 branch 569 ms, paired diff median 49 ms (branch slower in 6/8) | LCP main 968 branch 1020 ms, paired diff median 44 ms",
+   "table-light ready main 584 branch 564 ms, paired diff median -11 ms (branch slower in 3/8) | LCP main 1032 branch 1008 ms, paired diff median -12 ms",
+   "paper-dark  ready main 521 branch 548 ms, paired diff median 19 ms (branch slower in 7/8) | LCP main 952 branch 1012 ms, paired diff median 40 ms",
+   "paper-light ready main 446 branch 465 ms, paired diff median 18 ms (branch slower in 4/8) | LCP main 880 branch 900 ms, paired diff median 20 ms"
+  ],
+  "rerun": [
+   "table-dark  ready main 489 branch 480 ms, paired diff median 5 ms (branch slower in 9/16) | LCP main 920 branch 916 ms, paired diff median -8 ms",
+   "paper-dark  ready main 602 branch 590 ms, paired diff median 36 ms (branch slower in 8/16) | LCP main 1064 branch 1044 ms, paired diff median 8 ms"
+  ]
+ },
+ "verdict": "no regressions; early-game renderer CPU +2.5-5% on 12x12, frames unaffected"
+}

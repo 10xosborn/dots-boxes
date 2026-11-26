@@ -1,0 +1,340 @@
+{
+  "cpu": 4,
+  "cold": 4,
+  "warm": 6,
+  "A": {
+    "home table-light": {
+      "main": {
+        "cold": {
+          "ready": 405.5,
+          "fcp": 240,
+          "lcp": 476,
+          "load": 284.5,
+          "bytes": 806599,
+          "img": 45988
+        },
+        "warm": {
+          "ready": 185.3,
+          "fcp": 100,
+          "lcp": 564,
+          "load": 84,
+          "bytes": 806599,
+          "img": 45988
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 376.3,
+          "fcp": 220,
+          "lcp": 460,
+          "load": 253.1,
+          "bytes": 807760,
+          "img": 45988
+        },
+        "warm": {
+          "ready": 192.6,
+          "fcp": 104,
+          "lcp": 572,
+          "load": 86.8,
+          "bytes": 807760,
+          "img": 45988
+        }
+      }
+    },
+    "home table-dark": {
+      "main": {
+        "cold": {
+          "ready": 360.2,
+          "fcp": 212,
+          "lcp": 432,
+          "load": 246.4,
+          "bytes": 789275,
+          "img": 28664
+        },
+        "warm": {
+          "ready": 177.1,
+          "fcp": 96,
+          "lcp": 556,
+          "load": 79.3,
+          "bytes": 789275,
+          "img": 28664
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 360.1,
+          "fcp": 212,
+          "lcp": 432,
+          "load": 239.6,
+          "bytes": 790436,
+          "img": 28664
+        },
+        "warm": {
+          "ready": 188.4,
+          "fcp": 104,
+          "lcp": 572,
+          "load": 90.8,
+          "bytes": 790436,
+          "img": 28664
+        }
+      }
+    },
+    "home neon-dark": {
+      "main": {
+        "cold": {
+          "ready": 399.7,
+          "fcp": 232,
+          "lcp": 476,
+          "load": 268.3,
+          "bytes": 809775,
+          "img": 0
+        },
+        "warm": {
+          "ready": 196.4,
+          "fcp": 96,
+          "lcp": 580,
+          "load": 85.2,
+          "bytes": 809775,
+          "img": 0
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 433.3,
+          "fcp": 240,
+          "lcp": 536,
+          "load": 281.5,
+          "bytes": 810936,
+          "img": 0
+        },
+        "warm": {
+          "ready": 213.2,
+          "fcp": 116,
+          "lcp": 608,
+          "load": 104.8,
+          "bytes": 810936,
+          "img": 0
+        }
+      }
+    },
+    "home neon-light": {
+      "main": {
+        "cold": {
+          "ready": 426.9,
+          "fcp": 236,
+          "lcp": 520,
+          "load": 285.6,
+          "bytes": 809775,
+          "img": 0
+        },
+        "warm": {
+          "ready": 268.8,
+          "fcp": 120,
+          "lcp": 608,
+          "load": 110.3,
+          "bytes": 809775,
+          "img": 0
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 459.7,
+          "fcp": 248,
+          "lcp": 560,
+          "load": 281,
+          "bytes": 810936,
+          "img": 0
+        },
+        "warm": {
+          "ready": 215,
+          "fcp": 104,
+          "lcp": 604,
+          "load": 99.2,
+          "bytes": 810936,
+          "img": 0
+        }
+      }
+    },
+    "home paper-light": {
+      "main": {
+        "cold": {
+          "ready": 407.7,
+          "fcp": 220,
+          "lcp": 528,
+          "load": 204.5,
+          "bytes": 853571,
+          "img": 39424
+        },
+        "warm": {
+          "ready": 217.6,
+          "fcp": 112,
+          "lcp": 304,
+          "load": 99.4,
+          "bytes": 853571,
+          "img": 39424
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 407.8,
+          "fcp": 232,
+          "lcp": 536,
+          "load": 210.1,
+          "bytes": 854732,
+          "img": 39424
+        },
+        "warm": {
+          "ready": 218,
+          "fcp": 116,
+          "lcp": 312,
+          "load": 102.6,
+          "bytes": 854732,
+          "img": 39424
+        }
+      }
+    },
+    "home paper-dark": {
+      "main": {
+        "cold": {
+          "ready": 408.3,
+          "fcp": 236,
+          "lcp": 540,
+          "load": 218.5,
+          "bytes": 879055,
+          "img": 64908
+        },
+        "warm": {
+          "ready": 218.2,
+          "fcp": 116,
+          "lcp": 308,
+          "load": 100.4,
+          "bytes": 879055,
+          "img": 64908
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 483.4,
+          "fcp": 304,
+          "lcp": 608,
+          "load": 285.2,
+          "bytes": 880216,
+          "img": 64908
+        },
+        "warm": {
+          "ready": 235.7,
+          "fcp": 124,
+          "lcp": 328,
+          "load": 108.9,
+          "bytes": 880216,
+          "img": 64908
+        }
+      }
+    }
+  },
+  "B": {
+    "game reload table-dark": {
+      "main": {
+        "cold": {
+          "ready": 502.1,
+          "fcp": 252,
+          "lcp": 584,
+          "load": 283.7,
+          "bytes": 838742,
+          "img": 61930
+        },
+        "warm": {
+          "ready": 225.7,
+          "fcp": 116,
+          "lcp": 288,
+          "load": 97.9,
+          "bytes": 838742,
+          "img": 61930
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 435.9,
+          "fcp": 220,
+          "lcp": 532,
+          "load": 257.5,
+          "bytes": 839903,
+          "img": 61930
+        },
+        "warm": {
+          "ready": 215.3,
+          "fcp": 108,
+          "lcp": 300,
+          "load": 92.5,
+          "bytes": 839903,
+          "img": 61930
+        }
+      }
+    },
+    "game reload neon-dark": {
+      "main": {
+        "cold": {
+          "ready": 447.9,
+          "fcp": 216,
+          "lcp": 532,
+          "load": 258.3,
+          "bytes": 825676,
+          "img": 0
+        },
+        "warm": {
+          "ready": 251,
+          "fcp": 124,
+          "lcp": 324,
+          "load": 116.7,
+          "bytes": 825676,
+          "img": 0
+        }
+      },
+      "branch": {
+        "cold": {
+          "ready": 449.6,
+          "fcp": 232,
+          "lcp": 548,
+          "load": 268.5,
+          "bytes": 826837,
+          "img": 0
+        },
+        "warm": {
+          "ready": 250.2,
+          "fcp": 112,
+          "lcp": 324,
+          "load": 102.6,
+          "bytes": 826837,
+          "img": 0
+        }
+      }
+    }
+  },
+  "C": {},
+  "D": {
+    "table-dark": {
+      "main": {
+        "moves": 16,
+        "median": 29,
+        "p95": 42.1
+      },
+      "branch": {
+        "moves": 16,
+        "median": 28.2,
+        "p95": 30.8
+      }
+    },
+    "neon-dark": {
+      "main": {
+        "moves": 16,
+        "median": 26.8,
+        "p95": 33.2
+      },
+      "branch": {
+        "moves": 16,
+        "median": 27.2,
+        "p95": 29.4
+      }
+    }
+  }
+}

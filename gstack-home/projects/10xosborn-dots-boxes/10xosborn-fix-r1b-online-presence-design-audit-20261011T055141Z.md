@@ -1,0 +1,1 @@
+Design review (fix/r1b-online-presence, 2026-10-11): 3 findings fixed (117c7df, 62fbec5, 2193c45), design A- -> A, AI slop D -> D. Full report: C:/Users/osbor/.gstack/projects/10xosborn-dots-boxes/designs/design-audit-20261011/design-audit-127.0.0.1.md

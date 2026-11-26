@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-10",
+  "runId": "234947-17799",
+  "url": "http://127.0.0.1:4173/",
+  "designScore": "A-",
+  "aiSlopScore": "D",
+  "categoryGrades": {
+    "hierarchy": "A",
+    "typography": "A",
+    "spacing": "A",
+    "color": "A",
+    "interaction": "A",
+    "responsive": "A",
+    "content": "A",
+    "aiSlop": "D",
+    "motion": "A",
+    "performance": "B"
+  },
+  "findings": [
+    {
+      "id": "FINDING-001",
+      "title": "Two gradient primary buttons compete while a game waits",
+      "impact": "medium",
+      "category": "hierarchy",
+      "status": "verified",
+      "commit": "e872a0f"
+    },
+    {
+      "id": "FINDING-002",
+      "title": "Card h2 precedes the page h1",
+      "impact": "polish",
+      "category": "structure",
+      "status": "kept"
+    }
+  ],
+  "detector": {
+    "mode": "none"
+  }
+}

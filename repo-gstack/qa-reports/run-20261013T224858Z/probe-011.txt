@@ -1,0 +1,10 @@
+
+QA_DEADLINE {"guard":"qa-deadline","event":"started","version":1,"startedAt":"2026-10-13T22:56:09.096Z","deadlineAt":"2026-10-13T23:11:09.096Z","budgetMs":900000,"observedAt":"2026-10-13T23:08:25.639Z","remainingMs":163457,"expired":false}
+table-light  rings 4, stroke 3.3 px, colour rgb(191, 78, 30), contrast median 3.50:1, 10th percentile 2.77:1
+table-dark   rings 4, stroke 3.3 px, colour rgb(245, 154, 134), contrast median 4.04:1, 10th percentile 3.17:1
+neon-dark    rings 4, stroke 3.3 px, colour rgb(255, 106, 77), contrast median 3.26:1, 10th percentile 2.59:1
+neon-light   rings 4, stroke 3.3 px, colour rgb(252, 68, 34), contrast median 3.20:1, 10th percentile 2.65:1
+paper-light  rings 4, stroke 3.3 px, colour rgb(252, 68, 34), contrast median 2.99:1, 10th percentile 2.65:1
+paper-dark   rings 4, stroke 3.3 px, colour rgb(242, 140, 118), contrast median 4.73:1, 10th percentile 4.07:1
+
+QA_DEADLINE {"guard":"qa-deadline","event":"finished","observedAt":"2026-10-13T23:08:39.653Z","deadlineAt":"2026-10-13T23:11:09.096Z","timedOut":false,"exitCode":0}

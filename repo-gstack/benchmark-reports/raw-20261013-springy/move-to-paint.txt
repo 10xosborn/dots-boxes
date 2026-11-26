@@ -1,0 +1,28 @@
+serving branch on :4176 and main on :4177
+== main
+12x12 desktop      table-light       moves 30, median 33 ms, p95 34 ms, max 35 ms
+12x12 desktop      table-dark        moves 30, median 33 ms, p95 34 ms, max 35 ms
+12x12 desktop      neon-dark         moves 30, median 33 ms, p95 34 ms, max 34 ms
+12x12 desktop      neon-light        moves 30, median 33 ms, p95 34 ms, max 34 ms
+12x12 desktop      paper-light       moves 30, median 33 ms, p95 34 ms, max 34 ms
+12x12 desktop      paper-dark        moves 30, median 33 ms, p95 34 ms, max 34 ms
+7x7 phone, CPU 4x  table-light       moves 30, median 31 ms, p95 34 ms, max 34 ms
+7x7 phone, CPU 4x  table-dark        moves 30, median 32 ms, p95 33 ms, max 33 ms
+7x7 phone, CPU 4x  neon-dark         moves 30, median 32 ms, p95 33 ms, max 35 ms
+7x7 phone, CPU 4x  neon-light        moves 30, median 32 ms, p95 33 ms, max 33 ms
+7x7 phone, CPU 4x  paper-light       moves 30, median 32 ms, p95 33 ms, max 34 ms
+7x7 phone, CPU 4x  paper-dark        moves 30, median 32 ms, p95 44 ms, max 45 ms
+== branch
+12x12 desktop      table-light       moves 30, median 33 ms, p95 34 ms, max 35 ms
+12x12 desktop      table-dark        moves 30, median 33 ms, p95 34 ms, max 136 ms
+12x12 desktop      neon-dark         moves 30, median 33 ms, p95 34 ms, max 35 ms
+12x12 desktop      neon-light        moves 30, median 33 ms, p95 35 ms, max 35 ms
+12x12 desktop      paper-light       moves 30, median 33 ms, p95 34 ms, max 34 ms
+12x12 desktop      paper-dark        moves 30, median 33 ms, p95 34 ms, max 35 ms
+7x7 phone, CPU 4x  table-light       moves 30, median 32 ms, p95 34 ms, max 34 ms
+7x7 phone, CPU 4x  table-dark        moves 30, median 31 ms, p95 33 ms, max 33 ms
+7x7 phone, CPU 4x  neon-dark         moves 30, median 32 ms, p95 34 ms, max 34 ms
+7x7 phone, CPU 4x  neon-light        moves 30, median 31 ms, p95 33 ms, max 34 ms
+7x7 phone, CPU 4x  paper-light       moves 30, median 32 ms, p95 34 ms, max 34 ms
+7x7 phone, CPU 4x  paper-dark        moves 30, median 32 ms, p95 33 ms, max 33 ms
+servers stopped; child exit 0

@@ -1,0 +1,24 @@
+{
+  "revision": "324768fce48d3ed26dbc3f13a272656ddf4d7771",
+  "runtime": "bun 1.4.2",
+  "cwd": "C:\\Users\\10xosborn\\SWE\\Grid Rivals\\grid-rivals\\.gstack\\qa-reports\\run-20261020T085036Z",
+  "limits": [
+    "recheck run for one change after the main QA run (run-20261020T082627Z): Hard's thinking on a resumed game starts 500 ms after the reload; probes cover the changed resume path and the adjacent new-game path only",
+    "checkpoint 002: probe 001 showed the order of messages (reset, ponder) but not the delay; 002 reran the same flow measuring it (505 ms)",
+    "Chromium only (gstack's headless Chromium 151), emulated phone 390x844 with touch, Firebase blocked by hostname"
+  ],
+  "evidence": [],
+  "learning": [
+    {
+      "observationCommand": "cd \"/c/Users/10xosborn/SWE/Grid Rivals/grid-rivals\" && bun \"/c/Users/osbor/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261020T085036Z/deadline.json\" -- env STOPAT=12 MODE=resume OUT=\"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/.gstack/qa-reports/run-20261020T085036Z/screenshots\" node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/serve-one.mjs\" \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/dist-qa-fix\" 4173 -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-ai.mjs\"",
+      "hypothesis": "Deferred start works: 505 ms from the reset to the first ponder after a reload, game played out, no errors. Adjacent unchanged path on the same build: a full Hard 4x4 game from a new game; expect a ponder message on every player turn, pauses as before (first lines 250-450 ms or ~0.7 s playouts, further lines 200-280 ms), results dialog, no errors.",
+      "nextCommand": "cd \"/c/Users/10xosborn/SWE/Grid Rivals/grid-rivals\" && bun \"/c/Users/osbor/.claude/skills/gstack/bin/gstack-qa-deadline\" run \".gstack/qa-reports/run-20261020T085036Z/deadline.json\" -- env STOPAT=11 MODE=hard-phone OUT=\"C:/Users/10xosborn/SWE/Grid Rivals/grid-rivals/.gstack/qa-reports/run-20261020T085036Z/screenshots\" node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/serve-one.mjs\" \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/dist-qa-fix\" 4173 -- node \"C:/Users/osbor/AppData/Local/Temp/claude/C--Users-10xosborn-SWE-Grid-Rivals/0f966282-6aa2-4b9e-a828-6622b347074d/scratchpad/qa-ai.mjs\""
+    }
+  ],
+  "verdict": {
+    "status": "inconclusive",
+    "open": [
+      "no evidence rows"
+    ]
+  }
+}
