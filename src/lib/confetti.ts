@@ -1,8 +1,9 @@
-/** One-shot confetti burst on a full-screen canvas (only called when animations are on). */
-export function confetti() {
+/** One-shot confetti burst on a full-screen canvas (only called when animations are on). `host`: where the canvas goes, the
+ *  results dialog (a modal dialog sits in the top layer, above anything outside it). */
+export function confetti(host: HTMLElement = document.body) {
   const c = document.createElement('canvas');
-  Object.assign(c.style, { position: 'fixed', inset: '0', pointerEvents: 'none', zIndex: '40' });
-  document.body.appendChild(c);
+  Object.assign(c.style, { position: 'fixed', inset: '0', width: '100%', height: '100%', pointerEvents: 'none', zIndex: '40' });
+  host.appendChild(c);
   const x = c.getContext('2d'); if (!x) { c.remove(); return; }
   const dpr = devicePixelRatio || 1; c.width = innerWidth * dpr; c.height = innerHeight * dpr; x.scale(dpr, dpr);
   // The current theme's own colours: both players, the action colour, gold and the ring.

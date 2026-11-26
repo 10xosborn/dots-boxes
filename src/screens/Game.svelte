@@ -8,7 +8,7 @@
   import { xpFor, level, stats } from '../lib/progression';
   import { AI_NAMES, DIFF_LABEL, fmtClock, fmtTime, initials, uid } from '../lib/format';
   import { sfx } from '../lib/sound';
-  import { confetti } from '../lib/confetti';
+  import { ask, answer } from '../lib/confirm.svelte';
   import { boxesThisTurn } from '../lib/extraTurn';
   import type { ScoreEntry, Leaderboard } from '../lib/data/types';
   import Board from '../components/Board.svelte';
@@ -83,7 +83,7 @@
     score = [st.score[0], st.score[1]]; turn = st.turn; streak = done.length ? streak + done.length : 0;
     sfx.play(done.length ? 'box' : how === 'drag' ? 'drop' : 'line');
     announce = `${names[p]} drew a line${done.length ? ` and closed ${done.length} box${done.length > 1 ? 'es' : ''}` : ''}. Score ${score[0]} to ${score[1]}.${done.length && !st.over ? ' Extra turn.' : ''}`;
-    if (st.over) { over = true; clearActive(); ms = performance.now() - t0; clearInterval(clock); setTimeout(finish, app.settings.anim ? 500 : 60); }
+    if (st.over) { over = true; answer(false); clearActive(); ms = performance.now() - t0; clearInterval(clock); setTimeout(finish, app.settings.anim ? 500 : 60); }
     else { persist(); queueAI(p === 1); }
   }
 
@@ -105,8 +105,8 @@
   async function finish() {
     const my = token, w = winner(st);
     if (!vsAI()) {
-      result = { kind: w === -1 ? 'draw' : 'win', title: w === -1 ? 'A draw' : `${names[w as Player]} wins!`, score, ms, tags: [sizeTag] };
-      sfx.play(w === -1 ? 'draw' : 'win'); if (app.settings.anim && w !== -1) confetti();
+      result = { kind: w === -1 ? 'draw' : 'win', title: w === -1 ? 'A draw' : `${names[w as Player]} wins!`, score, ms, tags: [sizeTag], names, you: null };
+      sfx.play(w === -1 ? 'draw' : 'win');
       return;
     }
     const res = w === -1 ? 'draw' : w === 0 ? 'win' : 'loss';
@@ -114,10 +114,9 @@
     const prevXp = stats(app.scores).xp, tag = `${sizeLabel(size)} ${DIFF_LABEL[cfg.diff]}`;
     const info: ResultInfo = {
       kind: res, title: { win: 'You win!', loss: `${names[1]} wins`, draw: 'A draw' }[res], score, ms,
-      tags: [sizeTag, DIFF_LABEL[cfg.diff]], xp: { gained: xp, before: prevXp, after: prevXp + xp },
+      tags: [sizeTag, DIFF_LABEL[cfg.diff]], xp: { gained: xp, before: prevXp, after: prevXp + xp }, names, you: 0,
     };
     sfx.play(res === 'win' ? 'win' : res === 'draw' ? 'draw' : 'lose');
-    if (app.settings.anim && res === 'win') confetti();
     result = info;
 
     // Save, then compare with the leaderboard. Failures never block the results screen.
@@ -158,8 +157,15 @@
     }
   }
 
-  function quit() { if (!over && st.moves.length && !confirm("Quit this game? It won't count.")) return; token++; clearActive(); go('home'); }
-  function restart() { if (!over && st.moves.length && !confirm('Restart this game?')) return; start(); }
+  // Quit and Restart ask first once a move is made (the themed confirm, lib/confirm.svelte.ts).
+  async function quit() {
+    if (!over && st.moves.length && !(await ask({ title: 'Quit this game?', text: "It won't count.", action: 'Quit', safe: 'Keep playing' }))) return;
+    token++; clearActive(); go('home');
+  }
+  async function restart() {
+    if (!over && st.moves.length && !(await ask({ title: 'Restart this game?', text: "This game won't count.", action: 'Restart', safe: 'Keep playing' }))) return;
+    start();
+  }
 
   // Save the exact time played when the page is hidden or closed, so a resumed game's clock carries on from there.
   const onHide = () => { if (document.visibilityState === 'hidden') persist(); };
@@ -168,7 +174,7 @@
 
   start(app.resume); app.resume = null;
   onDestroy(() => {
-    token++; clearInterval(clock); resetAI();   // also stops Hard thinking on the player's time
+    token++; clearInterval(clock); resetAI(); answer(false);   // also stops Hard thinking on the player's time
     document.removeEventListener('visibilitychange', onHide); window.removeEventListener('pagehide', persist);
     leaveActive();   // left for another screen: the game stays saved, and Home offers to continue it
   });
@@ -176,7 +182,7 @@
 
 <!-- The game layout (app.css): its own top bar, the HUD, then the board with the buttons, filling the screen. -->
 <section class="game fit own-bar" aria-label="Game">
-  <TopBar busy />
+  <TopBar busy leaveNote={!over && lines.length ? 'It stays saved: Home offers to continue it.' : undefined} />
   <PlayerCards {names} {subs} {score} {turn} {over} {thinking} extra={streak} you={vsAI() ? 0 : null} bot={vsAI()}>
     {#snippet meta()}
       <span class="chip" title="Elapsed time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg><b>{fmtClock(ms)}</b></span>

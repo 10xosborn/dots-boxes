@@ -2,6 +2,7 @@
   import type { Snippet } from 'svelte';
   import { app } from '../lib/state/app.svelte';
   import Avatar from './Avatar.svelte';
+  import { mark, marks, tallyW } from '../lib/tally';
   // The game's heads-up display (spec, step 3). Tabletop and Neon: two player cards with avatars, then the turn pill whose
   // tinted half slides to the mover. Paper: a ruled score sheet, each player on a line (a sticker, the name, tally marks in
   // gates of five, the score circled while it is their turn) and a handwritten turn note under them, with a pencil arrow to
@@ -20,13 +21,6 @@
   let bump = $state([0, 0]);
   let prev = [0, 0];
   $effect(() => { for (const p of [0, 1]) if (score[p] > prev[p]) bump[p]++; prev = [...score]; });
-
-  // Tally marks in gates of five, drawn as the mockup's pencil strokes (four leaning a little, the fifth across them), a gate
-  // every 31 px. The newest mark is its own path so it can draw itself in.
-  const STROKES = [[2.6, 3.5], [9.6, 10.3], [14.6, 15.5], [21.6, 22.3]];
-  const mark = (i: number) => { const g = Math.floor(i / 5) * 31, k = i % 5; return k < 4 ? `M${g + STROKES[k][0]} 3L${g + STROKES[k][1]} 23` : `M${g} 19L${g + 25} 6`; };
-  const marks = (n: number) => Array.from({ length: n }, (_, i) => mark(i)).join('');
-  const tallyW = (n: number) => { if (!n) return 0; const i = n - 1, g = Math.floor(i / 5) * 31, k = i % 5; return (k < 4 ? g + STROKES[k][1] : g + 25) + 2; };
 </script>
 
 {#if paper}
@@ -36,6 +30,7 @@
       <div class="srow p{p}" class:on={!over && turn === p}>
         <span class="stk"><Avatar p={q} bot={bot && p === 1} size={24} /></span>
         <div class="nm"><b>{names[p]}<svg class="ul" viewBox="0 0 90 8" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 5C24 2 54 7 88 3" /></svg></b> <small>{you === p ? 'you' : subs[p]}</small></div>
+        <!-- Tally marks in gates of five (lib/tally.ts); the newest mark is its own path so it can draw itself in. -->
         <svg class="tally" width={tallyW(score[p])} height="26" viewBox="0 0 {tallyW(score[p]) || 1} 26" aria-hidden="true">
           {#if score[p] > 1}<path d={marks(score[p] - 1)} />{/if}
           {#key score[p]}{#if score[p]}<path class="new" pathLength="1" d={mark(score[p] - 1)} />{/if}{/key}

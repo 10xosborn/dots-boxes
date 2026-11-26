@@ -3,6 +3,7 @@
   import { stats } from '../lib/progression';
   import { onlineEnabled } from '../lib/data';
   import { loadActive, clearActive } from '../lib/resume';
+  import { ask } from '../lib/confirm.svelte';
   import { geometry, replay, isStandard, sizeLabel } from '../lib/engine/rules';
   import { choiceSize } from '../lib/boardFit';
   import { AI_NAMES } from '../lib/format';
@@ -20,7 +21,10 @@
     return `${board} against ${rival}: ${st.moves.length} of ${geometry(size.rows, size.cols).E} lines drawn, score ${st.score[0]}–${st.score[1]}.`;
   });
   function resume() { app.resume = saved; go('game'); }
-  function discard() { if (!confirm("Discard this game? It won't count.")) return; clearActive(); saved = null; }
+  async function discard() {
+    if (!(await ask({ title: 'Discard this game?', text: "It won't count.", action: 'Discard', safe: 'Keep it' }))) return;
+    clearActive(); saved = null;
+  }
 </script>
 
 <section class="home fit" aria-labelledby="homeTitle">

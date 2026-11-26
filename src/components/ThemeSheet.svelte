@@ -4,6 +4,7 @@
   import { app, saveSettings } from '../lib/state/app.svelte';
   import ThemeChoices from './ThemeChoices.svelte';
   import Seg from './Seg.svelte';
+  import { wrapTab } from '../lib/focus';
 
   let { onclose }: { onclose: () => void } = $props();
   let dlg: HTMLDialogElement;
@@ -16,7 +17,7 @@
 
 <!-- A click on the backdrop lands on the dialog itself (the content fills it), so it closes the picker. -->
 <!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
-<dialog class="theme-sheet" bind:this={dlg} aria-labelledby="themeTitle" onclose={onclose} onclick={e => { if (e.target === dlg) close(); }}>
+<dialog class="theme-sheet" bind:this={dlg} aria-labelledby="themeTitle" onclose={onclose} onclick={e => { if (e.target === dlg) close(); }} onkeydown={wrapTab}>
   <div class="theme-body">
     <h2 id="themeTitle">Theme</h2>
     <ThemeChoices />

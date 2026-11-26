@@ -4,6 +4,7 @@
   import BackTitle from '../components/BackTitle.svelte';
   import ThemeChoices from '../components/ThemeChoices.svelte';
   import { sfx } from '../lib/sound';
+  import { ask } from '../lib/confirm.svelte';
   let light = $state(app.settings.theme === 'light');
   let name = $state(app.profile?.name ?? '');
   let msg = $state('');
@@ -12,7 +13,7 @@
     try { app.profile = await data().setName(clean); msg = 'Name saved.'; } catch { msg = 'Could not save your name. Check your connection.'; }
   }
   async function reset() {
-    if (!confirm('Delete all your stats and leaderboard entries? This cannot be undone.')) return;
+    if (!(await ask({ title: 'Delete all your stats?', text: 'Your leaderboard entries go too. This cannot be undone.', action: 'Delete', safe: 'Keep my stats' }))) return;
     try { await data().resetMine(); await refreshScores(); msg = 'Stats reset.'; } catch { msg = 'Could not reset. Check your connection.'; }
   }
 </script>

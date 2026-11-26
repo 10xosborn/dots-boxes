@@ -4,14 +4,20 @@
   import { skinInfo } from '../lib/theme/themes';
   import ThemeSheet from './ThemeSheet.svelte';
   import Avatar from './Avatar.svelte';
-  let { busy = false }: { busy?: boolean } = $props();
+  import { ask } from '../lib/confirm.svelte';
+  // `busy`: a game is on screen, so the logo asks before leaving it; `leaveNote`: the line under that question.
+  let { busy = false, leaveNote }: { busy?: boolean; leaveNote?: string } = $props();
+  async function home() {
+    if (busy && !(await ask({ title: 'Leave this game?', text: leaveNote, action: 'Leave', safe: 'Keep playing' }))) return;
+    go('home');
+  }
   const L = $derived(level(stats(app.scores).xp));
   const name = $derived(app.profile?.name ?? 'Guest');
   let themeOpen = $state(false);
 </script>
 
 <header class="topbar">
-  <button class="brand" aria-label="Home" onclick={() => { if (!busy || confirm('Leave this game?')) go('home'); }}>
+  <button class="brand" aria-label="Home" onclick={home}>
     <!-- Each theme draws its own mark: a board sheet (Tabletop), a coral square (Neon), a pencil underline (Paper). -->
     <svg class="mark mark-table" viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="7" fill="var(--board)"/><rect x="9" y="9" width="14" height="14" fill="var(--p1)"/><path d="M9 9H23M9 23H23M9 9V23" stroke="var(--line1)" stroke-width="2.8" stroke-linecap="round"/><path d="M23 9V23" stroke="var(--p2)" stroke-width="2.8" stroke-linecap="round"/><g fill="var(--dot)"><circle cx="9" cy="9" r="2.6"/><circle cx="23" cy="9" r="2.6"/><circle cx="9" cy="23" r="2.6"/><circle cx="23" cy="23" r="2.6"/></g></svg>
     <svg class="mark mark-neon" viewBox="0 0 30 30" aria-hidden="true"><rect x="5" y="5" width="20" height="20" rx="3" fill="var(--p1-soft)"/><path d="M5 5H25M5 25H25M5 5V25" stroke="var(--p1)" stroke-width="3" stroke-linecap="round"/><path d="M25 5V25" stroke="var(--line2)" stroke-width="3" stroke-linecap="round"/><g fill="var(--head-text)"><circle cx="5" cy="5" r="3"/><circle cx="25" cy="5" r="3"/><circle cx="5" cy="25" r="3"/><circle cx="25" cy="25" r="3"/></g></svg>

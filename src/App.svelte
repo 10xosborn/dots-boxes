@@ -11,6 +11,8 @@
   import Leaderboard from './screens/Leaderboard.svelte';
   import Stats from './screens/Stats.svelte';
   import Settings from './screens/Settings.svelte';
+  import ConfirmDialog from './components/ConfirmDialog.svelte';
+  import { confirmState } from './lib/confirm.svelte';
 
   // An invite link looks like …/?room=ABCDE and opens straight into that online game.
   const roomParam = new URLSearchParams(location.search).get('room')?.toUpperCase() ?? '';
@@ -55,3 +57,4 @@
     {/if}
   </main>
 </div>
+{#if confirmState.q}<ConfirmDialog q={confirmState.q} />{/if}

@@ -6,7 +6,6 @@
   import { choiceSize, fits, type BoardChoice } from '../lib/boardFit';
   import { initials } from '../lib/format';
   import { sfx } from '../lib/sound';
-  import { confetti } from '../lib/confetti';
   import { boxesThisTurn } from '../lib/extraTurn';
   import { roomSize, type Room } from '../lib/online/types';
   import { saveRoom, clearRoom, roomEnded } from '../lib/resume';
@@ -86,13 +85,13 @@
   // A finished game with no rematch stops being offered for rejoining after 10 minutes.
   $effect(() => { if (code && st) roomEnded(st.over); });
 
-  // Sound + confetti when moves arrive or the game ends. Our own line dragged in drops in with its own sound (ownDrop: its
+  // Sound when moves arrive or the game ends (the results dialog throws the confetti). Our own line dragged in drops in with its own sound (ownDrop: its
   // move number); every other line plays the line's note.
   let lastLen = 0, ownDrop = -1;
   $effect(() => {
     const len = st?.moves.length ?? 0;
     if (st && len > lastLen) sfx.play(ownDrop === len - 1 ? 'drop' : 'line');
-    if (st?.over && len !== lastLen) { const w = winner(st); sfx.play(w === seat ? 'win' : w === -1 ? 'draw' : 'lose'); if (w === seat && app.settings.anim) confetti(); }
+    if (st?.over && len !== lastLen) { const w = winner(st); sfx.play(w === seat ? 'win' : w === -1 ? 'draw' : 'lose'); }
     lastLen = len;
   });
 
@@ -239,7 +238,7 @@
   </section>
   {#if over && dismissed !== room.game}
     {@const w = winner(st)}
-    <ResultsModal info={{ kind: w === -1 ? 'draw' : w === seat ? 'win' : 'loss', title: w === -1 ? 'A draw' : w === seat ? 'You win!' : `${names[w as Player]} wins`, score: [st.score[0], st.score[1]], ms: 0, tags: [sizeTag, 'Online'] }}
+    <ResultsModal info={{ kind: w === -1 ? 'draw' : w === seat ? 'win' : 'loss', title: w === -1 ? 'A draw' : w === seat ? 'You win!' : `${names[w as Player]} wins`, score: [st.score[0], st.score[1]], ms: 0, tags: [sizeTag, 'Online'], names, you: seat }}
       primary={{ label: 'Rematch', run: () => { dismissed = room!.game; api?.rematch(code); } }}
       secondary={[{ label: 'Leave', run: leave }]} />
   {/if}
