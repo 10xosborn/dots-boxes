@@ -70,16 +70,16 @@ Setting up the new PC, in this order:
    - Java 21 or later, for the Firebase emulators. On 2026-11-26 `java -version` gave "Permission denied", probably the antivirus.
    - VS Code with the Svelte extension, Brave and Claude Code.
 2. Clone into the same folder as before: `git clone https://github.com/10xosborn/dots-boxes.git "C:\Users\10xosborn\SWE\Grid Rivals\grid-rivals"`. The clone also downloads `backup/reports`, about 1.7 GB.
-3. In that folder, in Git Bash: `git show origin/backup/reports:restore.sh > ../restore.sh && bash ../restore.sh`. It puts back `.gstack/`, gstack's project folder and config, `../.claude/` and the parked branch, byte for byte.
+3. In that folder, in Git Bash: `git show origin/backup/reports:restore.sh > ../restore.sh && bash ../restore.sh`. It puts back `.gstack/`, gstack's project folder and config, `../.claude/` and the parked branch, byte for byte. This was rehearsed on 2026-11-26: every file came back. Only empty folders don't, because git can't store them.
 4. `npm install`, then `npm run check` (0 errors, 0 warnings) and `npm run build`.
 5. gstack:
    - `git clone https://github.com/10xosborn/gstack.git ~/.claude/skills/gstack`
    - `npm install -g bun@1.4.2`
    - `./setup --host claude` in `~/.claude/skills/gstack`. Its exit code 1 from the hook check is the known false alarm. Step 3 has already put gstack's config back, so `timeline_stop_hook: no` is in place before setup runs.
-   - Add these three lines to the `env` of `~/.claude/settings.json`, then check the file has no hooks:
-     - `GSTACK_REMOTE_REPO=https://github.com/10xosborn/gstack.git`
-     - `GSTACK_REMOTE_RAW_BASE=https://raw.githubusercontent.com/10xosborn/gstack`
-     - `GSTACK_COMPARE_API=https://api.github.com/repos/10xosborn/gstack/compare`
+   - Add these three entries to the `"env"` object of `~/.claude/settings.json` (it is JSON), then check the file has no `"hooks"`:
+     - `"GSTACK_REMOTE_REPO": "https://github.com/10xosborn/gstack.git"`
+     - `"GSTACK_REMOTE_RAW_BASE": "https://raw.githubusercontent.com/10xosborn/gstack"`
+     - `"GSTACK_COMPARE_API": "https://api.github.com/repos/10xosborn/gstack/compare"`
 6. The design detector (impeccable 0.1.3): design skills offer to install it again. The owner said yes on 2026-10-12.
 7. Open Claude Code in the project folder: it reads this file. Paths here under `C:\Users\osbor\` mean the Windows home folder (`~`), which may have a new name after the reset. The project lived under `C:\Users\10xosborn\SWE\`.
 
@@ -249,8 +249,8 @@ The AI as first built (September 2026), kept for its history; where it differs, 
 ## Open issues (fix these first)
 
 **State on 2026-11-26:**
-- **Live site:** PR #28 merged on 2026-10-21 (21:25 UTC) and deployed, so main builds again. The live site is `24bbc3b`: everything through step 4 and server-checked turns. No PRs are open.
-- **Step 5** is committed as `1922125` on `design/11-dialogs`, pushed on 2026-11-26 on top of main `24bbc3b`; main, with the memory, was merged into it afterwards.
+- **Live site:** PR #28 merged on 2026-10-21 (21:25 UTC) and deployed, so main builds again. The live site is everything through step 4 and server-checked turns. It is now deployed from `116aeeb` (PR #29, the memory, merged and deployed on 2026-11-26), whose built files are the same as `24bbc3b`'s. No PRs are open.
+- **Step 5** is committed as `1922125` on `design/11-dialogs`, pushed on 2026-11-26 on top of main `24bbc3b`. main, with the memory, was merged into it afterwards (`d62f77c`, then again after the memory follow-up).
   - Done on 2026-10-21: /design-review (2 fixed, A- → A; `designs/design-audit-20261021/design-audit-127.0.0.1-dialogs.md`) and /qa (0 issues, 100 → 100; `.gstack/qa-reports/run-20261021T205715Z/`).
   - Re-run on 2026-11-26: check 0/0, build, and `npx vitest run tests/dialogs` (5/5).
   - **Still to do before its PR: /benchmark against main.** Then open the PR and merge it under rule 4.
@@ -334,8 +334,9 @@ If the owner reports a problem after merging, the QA scripts from that session w
 - **2026-10-20:** **PR #20** opened (Hard thinks on the player's time, a 1.6-3.2x faster exact search with a two-chain bug fixed, shorter AI pauses) after /qa (`.gstack/qa-reports/run-20261020T082627Z/`, 12 probes, health 100, no defects in the change; recheck `run-20261020T085036Z/`) and /benchmark (`.gstack/benchmark-reports/2026-10-20-benchmark-ai2.md`; it caught pondering at page load slowing a late-game reload by 12-26 ms under 4x CPU throttling, fixed in the branch by starting 500 ms after a reload). Online lag broken down step by step: our code 3-4 ms of about 36. gstack auto-upgraded to 1.91.164.0. The owner merged #19 and deleted the #17/#18 branches. Then **PR #21** (step 2 board marks, rebuilt on main) after /design-review (the dot-coloured pip read as a dot: now the mockup's blue, tinted for 3:1), /qa (312 checks) and /benchmark (flat; Paper by day 6x6 reload +86 ms render work noted). A rejected tool call still started its benchmark (orphaned node processes held ports 4176/4177): after a rejection, check for leftover processes before re-running.
 - **2026-11-26:** the owner, about to reset Windows (the antivirus was blocking WSL), asked to put everything on GitHub.
   - Step 5 (built, design-reviewed and QA'd on 2026-10-21, never committed) was committed and pushed as `1922125`.
-  - Asked where the memory should go, the owner chose the public repo over a private one, and all the images too. This file, `.claude/`, the brief and the full spec went onto main through a docs-only PR; the built site is byte-identical to main's.
-  - The reports and screenshots went onto `backup/reports` in batches: 5,380 files, 1.73 GB, scanned first for secrets and email addresses (none found).
+  - Asked where the memory should go, the owner chose the public repo over a private one, and all the images too. This file, `.claude/`, the brief and the full spec went onto main through **PR #29**, which was docs only: the built site was byte-identical to main's. It was merged and deployed on 2026-11-26, and its branch was deleted. A follow-up docs PR fixed details in this file.
+  - The reports and screenshots went onto `backup/reports`: 5,383 files and 1.65 GiB, the reports plus the README, `restore.sh`, gstack's config, the parent folder's `.claude/` and the bundle. They went up in 8 commits, the text first and then the images about 250 MB at a time, each pushed on its own. Everything was scanned first for secrets and email addresses; none were found. GitHub's tip `a376529` matches the local build.
+  - The restore was rehearsed with a fresh clone, the exact command from "After a Windows reset" step 3, and a stand-in home folder. Every file came back byte for byte: 3,713 in `.gstack/`, 1,663 in gstack's project folder, the config, the parent folder's `.claude/` and the parked branch `1609688`. Only 15 empty folders don't come back, because git doesn't store empty folders; gstack makes them again when it needs them.
   - `.gitignore` now lists `.gstack/`, `CLAUDE.local.md` and `.claude/settings.local.json`.
   - The PR #28 merge (2026-10-21 21:25 UTC) and its deploy were confirmed.
 - **2026-10-21 (night):** the owner merged #21-#27; two GitHub conflict resolutions put #21's older copy back in four files and main stopped building (the owner pasted the failed run). **PR #28** restores them (tree = #26's tested tip).
